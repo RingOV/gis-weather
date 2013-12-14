@@ -1,4 +1,0 @@
-gis-weather
-===========
-
-Weather widget
