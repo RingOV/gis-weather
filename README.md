@@ -3,7 +3,9 @@ gis-weather
 
 Weather widget
 
-== Links ==
+=
+
+**Links**
 
 Source Code (GitHub) - https://github.com/RingOV/gis-weather
 
