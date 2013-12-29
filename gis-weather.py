@@ -78,7 +78,8 @@ gw_config = {
     'high_wind': 10,                   # Ветер больше или равен этого значения выделяется цветом (-1 не выделять)
     'color_high_wind': (0, 0, 0.6, 1), # Цвет сильного ветра
     'icons_name': 'default',           # Имя папки с иконками погоды
-    'fix_BadDrawable': False           # Если выскакивает ошибка 'BadDrawable', то в конфиге исправьте на true
+    'fix_BadDrawable': False,           # Если выскакивает ошибка 'BadDrawable', то в конфиге исправьте на true
+    'color_scheme_number': 0
 }
 
 color_scheme = [
@@ -133,6 +134,7 @@ def Load_Color_Scheme(number = 0):
         scheme_loaded=json.load(file(CONFIG_PATH+'/color_schemes/color_sheme_%s.json' %number))
         for i in scheme_loaded.keys():
             gw_config[i] = scheme_loaded[i]
+        gw_config['color_scheme_number'] = number
     except:
         print '[!] Произошла ошибка при загрузке цветовой схемы # %s' %number
 
@@ -896,14 +898,21 @@ class Weather_Widget:
         sub_menu_color_text = gtk.Menu()
         
         # Иконки
-        menu_items = gtk.MenuItem('0. Default')
+        group = None
+        menu_items = gtk.RadioMenuItem(group, '0. Default')
+        if icons_name == 'default':
+                menu_items.set_active(True)
+        group = menu_items
         sub_menu_icons.append(menu_items)
         menu_items.connect("activate", self.redraw_icons, 'default')
         menu_items.show()
         for i in range(len(dirs)):
             buf = dirs[i].split('_') # из _ делаем __ (отображается как _)
             buf = '__'.join(buf)
-            menu_items = gtk.MenuItem(str(i+1)+'. '+buf)
+            menu_items = gtk.RadioMenuItem(group, str(i+1)+'. '+buf)
+            if icons_name == dirs[i]:
+                menu_items.set_active(True)
+            group = menu_items
             sub_menu_icons.append(menu_items)
             menu_items.connect("activate", self.redraw_icons, dirs[i])
             menu_items.show()
@@ -912,19 +921,29 @@ class Weather_Widget:
             for i in range(len(dirs), len(dirs_user)+len(dirs)):
                 buf = dirs_user[i-len(dirs)].split('_') # из _ делаем __ (отображается как _)
                 buf = '__'.join(buf)
-                menu_items = gtk.MenuItem(str(i+1)+'. '+buf)
+                menu_items = gtk.RadioMenuItem(group, str(i+1)+'. '+buf)
+                if icons_name == dirs_user[i]:
+                    menu_items.set_active(True)
+                group = menu_items
                 sub_menu_icons.append(menu_items)
                 menu_items.connect("activate", self.redraw_icons, dirs_user[i-len(dirs)])
                 menu_items.show()
         # Фоны
-        menu_items = gtk.MenuItem('0. Нет')
+        group = None
+        menu_items = gtk.RadioMenuItem(group, '0. Нет')
+        if show_bg_png == False:
+                menu_items.set_active(True)
+        group = menu_items
         sub_menu_bgs.append(menu_items)
         menu_items.connect("activate", self.redraw_bg, 'Нет')
         menu_items.show()
         for i in range(len(files)):
             buf = files[i].split('_')
             buf = '__'.join(buf)
-            menu_items = gtk.MenuItem(str(i+1)+'. '+buf)
+            menu_items = gtk.RadioMenuItem(group, str(i+1)+'. '+buf)
+            if bg_custom == files[i]:
+                menu_items.set_active(True)
+            group = menu_items
             sub_menu_bgs.append(menu_items)
             menu_items.connect("activate", self.redraw_bg, files[i])
             menu_items.show()
@@ -933,48 +952,56 @@ class Weather_Widget:
             for i in range(len(files), len(files_user)+len(files)):
                 buf = files_user[i-len(files)].split('_')
                 buf = '__'.join(buf)
-                menu_items = gtk.MenuItem(str(i+1)+'. '+buf)
+                menu_items = gtk.RadioMenuItem(group, str(i+1)+'. '+buf)
+                if bg_custom == files_user[i-len(files)]:
+                    menu_items.set_active(True)
+                group = menu_items
                 sub_menu_bgs.append(menu_items)
                 menu_items.connect("activate", self.redraw_bg, files_user[i-len(files)])
                 menu_items.show()
         # Цвет текста
+        group = None
         for i in range(len(color_scheme)):
-            menu_items = gtk.MenuItem('Цветовая схема #' + str(i))
+            menu_items = gtk.RadioMenuItem(group, 'Цветовая схема #' + str(i))
+            if i == color_scheme_number:
+                menu_items.set_active(True)
+            group = menu_items
             sub_menu_color_text.append(menu_items)
             menu_items.connect("activate", self.redraw_text, i)
             menu_items.show()
             
-        menu_items = gtk.MenuItem('⟳ Обновить')
+        menu_items = gtk.ImageMenuItem(gtk.STOCK_REFRESH, 'Обновить1')
         menu.append(menu_items)
         menu_items.connect("activate", self.reload)
         menu_items.show()
         
-        menu_items = gtk.MenuItem('  Код города...')
+        menu_items = gtk.MenuItem('Код города...')
         menu.append(menu_items)
         menu_items.connect("activate", self.edit_city_id)
         menu_items.show()
 
-        menu_items = gtk.MenuItem('  Иконки')
+        menu_items = gtk.MenuItem('Иконки')
         menu.append(menu_items)
         menu_items.set_submenu(sub_menu_icons)
         menu_items.show()
         
-        menu_items = gtk.MenuItem('  Фон')
+        menu_items = gtk.MenuItem('Фон')
         menu.append(menu_items)
         menu_items.set_submenu(sub_menu_bgs)
         menu_items.show()
         
-        menu_items = gtk.MenuItem('  Текст')
+        menu_items = gtk.MenuItem('Текст')
         menu.append(menu_items)
         menu_items.set_submenu(sub_menu_color_text)
         menu_items.show()
         
-        menu_items = gtk.MenuItem('  Редактировать...')
+        menu_items = gtk.MenuItem('Редактировать...')
         menu.append(menu_items)
         menu_items.connect("activate", lambda x: os.popen('xdg-open '+CONFIG_PATH))
         menu_items.show()
 
-        menu_items = gtk.MenuItem('✖ Закрыть')
+        menu_items = gtk.ImageMenuItem(gtk.STOCK_CLOSE, 'Закрыть1')
+        #menu_items = gtk.MenuItem('✖ Закрыть')
         menu.append(menu_items)
         menu_items.connect("activate", gtk.main_quit)
         menu_items.show()
