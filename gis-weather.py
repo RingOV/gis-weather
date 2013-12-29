@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #  gis_weather.py
-v='0.3'
+v='0.3.1'
 #  Copyright 2013 Alexander Koltsov
 #
 #  draw_scaled_image, draw_text_Whise copyright by Helder Fraga
@@ -970,7 +970,7 @@ class Weather_Widget:
             menu_items.connect("activate", self.redraw_text, i)
             menu_items.show()
             
-        menu_items = gtk.ImageMenuItem(gtk.STOCK_REFRESH, 'Обновить1')
+        menu_items = gtk.ImageMenuItem(gtk.STOCK_REFRESH, 'Обновить')
         menu.append(menu_items)
         menu_items.connect("activate", self.reload)
         menu_items.show()
@@ -1000,8 +1000,7 @@ class Weather_Widget:
         menu_items.connect("activate", lambda x: os.popen('xdg-open '+CONFIG_PATH))
         menu_items.show()
 
-        menu_items = gtk.ImageMenuItem(gtk.STOCK_CLOSE, 'Закрыть1')
-        #menu_items = gtk.MenuItem('✖ Закрыть')
+        menu_items = gtk.ImageMenuItem(gtk.STOCK_CLOSE, 'Закрыть')
         menu.append(menu_items)
         menu_items.connect("activate", gtk.main_quit)
         menu_items.show()
