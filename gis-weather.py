@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #  gis_weather.py
-v='0.3.1'
+v='0.3.2 test 1'
 #  Copyright 2013 Alexander Koltsov
 #
 #  draw_scaled_image, draw_text_Whise copyright by Helder Fraga
@@ -223,7 +223,7 @@ class MyDrawArea(gtk.DrawingArea):
         self.timer = timeout_add(2000, self.redraw)
         gtk.DrawingArea.__init__(self)
         self.set_app_paintable(True)
-        self.set_events(gtk.gdk.ALL_EVENTS_MASK)
+        #self.set_events(gtk.gdk.ALL_EVENTS_MASK)
         self.connect('expose_event', self.expose)
 
     def splash_screen(self, state = 0):
@@ -813,6 +813,8 @@ class MyDrawArea(gtk.DrawingArea):
 
 class Weather_Widget:
 
+    menu = None
+
     def __init__(self):
         global n
         global width, height
@@ -860,8 +862,12 @@ class Weather_Widget:
         
         self.window.move(x_pos1, y_pos1)
         self.window.set_decorated(False)
-        
-        self.window.connect("destroy", lambda w: gtk.main_quit)
+
+        self.window.set_events(gtk.gdk.ALL_EVENTS_MASK)
+        self.window.connect('button-press-event', self.button_press)
+        self.window.connect("configure-event", self.configure_event)
+
+        self.window.connect("destroy", gtk.main_quit)
         self.window.connect("screen-changed", self.screen_changed)
         self.window.set_role('')
         self.window.set_app_paintable(True)
@@ -892,7 +898,7 @@ class Weather_Widget:
         #print dirs_user
         #print files_user
         # Создаем меню и заполняем найденными иконками и фонами
-        menu = gtk.Menu()
+        self.menu = gtk.Menu()
         sub_menu_icons = gtk.Menu()
         sub_menu_bgs = gtk.Menu()
         sub_menu_color_text = gtk.Menu()
@@ -971,47 +977,55 @@ class Weather_Widget:
             menu_items.show()
             
         menu_items = gtk.ImageMenuItem(gtk.STOCK_REFRESH, 'Обновить')
-        menu.append(menu_items)
+        self.menu.append(menu_items)
         menu_items.connect("activate", self.reload)
         menu_items.show()
         
         menu_items = gtk.MenuItem('Код города...')
-        menu.append(menu_items)
+        self.menu.append(menu_items)
         menu_items.connect("activate", self.edit_city_id)
         menu_items.show()
 
         menu_items = gtk.MenuItem('Иконки')
-        menu.append(menu_items)
+        self.menu.append(menu_items)
         menu_items.set_submenu(sub_menu_icons)
         menu_items.show()
         
         menu_items = gtk.MenuItem('Фон')
-        menu.append(menu_items)
+        self.menu.append(menu_items)
         menu_items.set_submenu(sub_menu_bgs)
         menu_items.show()
         
         menu_items = gtk.MenuItem('Текст')
-        menu.append(menu_items)
+        self.menu.append(menu_items)
         menu_items.set_submenu(sub_menu_color_text)
         menu_items.show()
         
         menu_items = gtk.MenuItem('Редактировать...')
-        menu.append(menu_items)
+        self.menu.append(menu_items)
         menu_items.connect("activate", lambda x: os.popen('xdg-open '+CONFIG_PATH))
         menu_items.show()
 
         menu_items = gtk.ImageMenuItem(gtk.STOCK_CLOSE, 'Закрыть')
-        menu.append(menu_items)
+        self.menu.append(menu_items)
         menu_items.connect("activate", gtk.main_quit)
         menu_items.show()
-        
-        self.window.connect_object("event", self.button_press, menu)
 
     def button_press(self, widget, event):
-        if event.type == gtk.gdk.BUTTON_PRESS and event.button == 3:
-            widget.popup(None, None, None, event.button, event.time)
+        if event.button == 1:
+            self.window.begin_move_drag(1, int(event.x_root), int(event.y_root), event.time)
+            return True
+        if event.button == 3:
+            self.menu.popup(None, None, None, event.button, event.time)
             return True
         return False
+
+    def configure_event(self, widget, event):
+        global x_pos, y_pos
+        if event.x != x_pos or event.y != y_pos:
+            x_pos = event.x
+            y_pos = event.y
+            Save_Config()
 
     def redraw_icons(self, widget, string):
         global icons_name
