@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #  gis_weather.py
-v='0.3.2 test 3'
+v='0.3.2 test 4'
 #  Copyright 2013 Alexander Koltsov
 #
 #  draw_scaled_image, draw_text_Whise copyright by Helder Fraga
@@ -45,6 +45,7 @@ if not os.path.exists(CONFIG_PATH+'/backgrounds'):
 gw_config = {
     'angel': 0,                        # Угол поворота по часовой стрелке в градусах
     'city_id': 0,                      # Код города
+    'city_id_add': ['0;None'],                 # Словарь дополнительных городов
     'upd_time': 30,                    # Обновлять через (в минутах)
     'n': 7,                            # Количество отображаемых дней от 1 до 13
     'x_pos': -15,                      # Позиция слева
@@ -128,7 +129,6 @@ def Load_Config():
 
 # Загружаем конфиг
 Load_Config()
-
 def Load_Color_Scheme(number = 0):
     try:
         scheme_loaded=json.load(file(CONFIG_PATH+'/color_schemes/color_sheme_%s.json' %number))
@@ -180,44 +180,195 @@ on_redraw = False
 timer_bool = True
 get_weather_bool = True
 
+# переменные, в которые записывается погода
+city_name = []       # Город
+t_now = []           # Температура сейчас
+wind_speed_now = []  # Скорость ветра сейчас
+wind_direct_now = [] # Направление ветра сейчас
+icon_now = []        # Иконка погоды сейчас
+icon_wind_now = []   # Иконка ветра сейчас
+time_update = []     # Время обновления погоды на сайте
+text_now = []        # Текст погоды сейчас
+press_now = []       # Давление сейчас
+hum_now = []         # Влажность сейчас
+t_water_now = []     # Температура воды сейчас
+
+t_night = []         # Температура ночью
+t_night_feel = []    # Температура ночью ощущается
+day = []             # День недели
+date = []            # Дата
+t_day = []           # Температура днем
+t_day_feel = []      # Температура днем ощущается
+icon = []            # Иконка погоды
+icon_wind = []       # Иконка ветра
+wind_speed = []      # Скорость ветра
+wind_direct = []     # Направление ветра
+text = []            # Текст погоды
+
+t_tomorrow = []      # Температура завтра
+icon_tomorrow = []   # Иконка погоды завтра
+wind_speed_tom = []  # Скорость ветра завтра
+wind_direct_tom = [] # Направление ветра завтра
+
+t_today = []         # Температура сегодня
+icon_today = []      # Иконка погоды сегодня
+wind_speed_tod = []  # Скорость ветра сегодня
+wind_direct_tod = [] # Направление ветра сегодня
+
+
+def get_city_name(c_id):
+    try:
+        source = urlopen('http://www.gismeteo.ru/city/weekly/' + str(c_id)).read()
+        c_name = re.findall('type[A-Z].*\">(.*)<', source)
+    except:
+        print '[!] Не удалось получить название населенного пункта'
+        return 'None'
+    return c_name[0]
+
+
+def get_weather():
+    global err_connect, splash
+    global city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, icon_today, wind_speed_tod, wind_direct_tod 
+    print '> Получаю погоду на', n, 'дней'
+    print '> Загружаю в переменную страницу', 'http://www.gismeteo.ru/city/weekly/' + str(city_id)
+    try:
+        source = urlopen('http://www.gismeteo.ru/city/weekly/' + str(city_id)).read()
+        err_connect = False
+        print 'OK'
+    except:
+        print '[!] Невозможно скачать страницу, проверьте интернет соединение'
+        if timer_bool:
+            print '[!] Следующая попытка через 10 секунд'
+        err_connect = True
+        return
+    #### Текущая погода ####
+    w_now = re.findall("type[A-Z].*>вода", source, re.DOTALL)
+    
+    # Город
+    city_name = re.findall('type[A-Z].*\">(.*)<', w_now[0])
+
+    # Температура
+    t_now = re.findall('m_temp c.>([&minus;+]*\d+)<', w_now[0])
+    for i in range(0, len(t_now)):
+        if t_now[i][0] == '&':
+            t_now[i] = '-' + t_now[i][7:]
+
+    # Ветер
+    wind_speed_now = re.findall('m_wind ms.*>(\d+)<', w_now[0])
+    wind_direct_now = re.findall('<dt>([СЮЗВШ]+)</dt>', w_now[0])
+
+    # Иконка
+    icon_now = re.findall('url\(.*?new\/(.+)\)', w_now[0])
+    
+    #Иконка ветра
+    icon_wind_now = re.findall('wind(\d)', w_now[0])
+
+    # Время обновления
+    time_update = re.findall('data-hr.* (\d?\d:\d\d)\s*</span>', source, re.DOTALL)
+    
+    # Текст погоды сейчас
+    text_now = re.findall('title=\"(.*?)\"', w_now[0])
+    
+    # Давление сейчас
+    press_now = re.findall('m_press torr\'>(\d+)<', w_now[0])
+    
+    # Влажность сейчас
+    hum_now = re.findall('Влажность">(\d+)<', w_now[0])
+    
+    # Температура воды сейчас
+    try:
+        t_water_now = t_now[1]
+    except:
+        pass
+    
+    #### Погода на неделю ####
+    # Погода ночью
+    w_night_list = re.findall('Ночь</th>.*?>Утро</th>', source, re.DOTALL)
+    w_night = '\n'.join(w_night_list)
+    
+    # Температура ночью
+    t_night = re.findall('m_temp c.>([&minus;+]*\d+)<', w_night)
+    for i in range(0, len(t_night)):
+        if t_night[i][0] == '&':
+            t_night[i] = '-' + t_night[i][7:]
+    t_night_feel = t_night[1::2]
+    t_night = t_night[::2]
+    
+    # День недели и дата
+    day = re.findall('weekday.>(.*?)<', source)
+    date = re.findall('s_date.>(.*?)<', source)
+    
+    # Погода днем
+    w_day_list = re.findall('День</th>.*?>Вечер</th>', source, re.DOTALL)
+    w_day = '\n'.join(w_day_list)
+    
+    # Температура днем
+    t_day = re.findall('m_temp c.>([&minus;+]*\d+)<', w_day) 
+    for i in range(0, len(t_day)):
+        if t_day[i][0] == '&':
+            t_day[i] = '-' + t_day[i][7:]
+    t_day_feel = t_day[1::2]
+    t_day = t_day[::2]
+    
+    # Иконка погоды днем
+    icon = re.findall('src=\".*?new\/(.*?)\"', w_day)
+    
+    # Иконка ветра
+    icon_wind = re.findall('wind(\d)', w_day)
+    
+    # Ветер
+    wind_speed = re.findall('m_wind ms.>(\d+)', w_day)
+    wind_direct = re.findall('>([СЮЗВШ]+)<', w_day)
+
+    # Текст погоды
+    text = re.findall('cltext.>(.*?)<', w_day)
+
+    if show_block_tomorrow:
+        #### Погода завтра ####
+        w_tomorrow = re.findall('Ночь</th>.*?>Ночь</div>', source, re.DOTALL)
+        
+        # Температура
+        t_tomorrow = re.findall('m_temp c.>([&minus;+]*\d+)<', w_tomorrow[1])
+        for i in range(0, len(t_tomorrow)):
+            if t_tomorrow[i][0] == '&':
+                t_tomorrow[i] = '-' + t_tomorrow[i][7:]
+
+        # Иконка погоды
+        icon_tomorrow = re.findall('src=\".*?new\/(.*?)\"', w_tomorrow[1])
+
+        # Ветер
+        wind_speed_tom = re.findall('m_wind ms.>(\d+)', w_tomorrow[1])
+        wind_direct_tom = re.findall('>([СЮЗВШ]+)<', w_tomorrow[1])
+        
+    if show_block_today:
+        #### Погода сегодня ####
+        if not show_block_tomorrow:
+            w_tomorrow = re.findall('Ночь</th>.*?>Ночь</div>', source, re.DOTALL)
+        
+        # Температура
+        t_today = re.findall('m_temp c.>([&minus;+]*\d+)<', w_tomorrow[0])
+        for i in range(0, len(t_today)):
+            if t_today[i][0] == '&':
+                t_today[i] = '-' + t_today[i][7:]
+        
+        # Иконка погоды
+        icon_today = re.findall('src=\".*?new\/(.*?)\"', w_tomorrow[0])
+
+        # Ветер
+        wind_speed_tod = re.findall('m_wind ms.>(\d+)', w_tomorrow[0])
+        wind_direct_tod = re.findall('>([СЮЗВШ]+)<', w_tomorrow[0])
+    ########
+    
+    if time_update:
+        print '> Обновление на сервере в', time_update[0]
+    print '> Погода получена в', time.strftime('%H:%M', time.localtime())
+    
+    if splash:
+        splash = False
+
 class MyDrawArea(gtk.DrawingArea):
     p_layout = None
     p_fdesc = None
-   
-    # переменные, в которые записывается погода
-    city_name = []       # Город
-    t_now = []           # Температура сейчас
-    wind_speed_now = []  # Скорость ветра сейчас
-    wind_direct_now = [] # Направление ветра сейчас
-    icon_now = []        # Иконка погоды сейчас
-    icon_wind_now = []   # Иконка ветра сейчас
-    time_update = []     # Время обновления погоды на сайте
-    text_now = []        # Текст погоды сейчас
-    press_now = []       # Давление сейчас
-    hum_now = []         # Влажность сейчас
-    t_water_now = []     # Температура воды сейчас
-
-    t_night = []         # Температура ночью
-    t_night_feel = []    # Температура ночью ощущается
-    day = []             # День недели
-    date = []            # Дата
-    t_day = []           # Температура днем
-    t_day_feel = []      # Температура днем ощущается
-    icon = []            # Иконка погоды
-    icon_wind = []       # Иконка ветра
-    wind_speed = []      # Скорость ветра
-    wind_direct = []     # Направление ветра
-    text = []            # Текст погоды
-    
-    t_tomorrow = []      # Температура завтра
-    icon_tomorrow = []   # Иконка погоды завтра
-    wind_speed_tom = []  # Скорость ветра завтра
-    wind_direct_tom = [] # Направление ветра завтра
-    
-    t_today = []         # Температура сегодня
-    icon_today = []      # Иконка погоды сегодня
-    wind_speed_tod = []  # Скорость ветра сегодня
-    wind_direct_tod = [] # Направление ветра сегодня
 
     def __init__(self):
         self.timer = timeout_add(2000, self.redraw)
@@ -277,7 +428,7 @@ class MyDrawArea(gtk.DrawingArea):
             self.splash_screen()
             return
         if get_weather_bool:
-            self.get_weather()
+            get_weather()
             get_weather_bool = False
             if not timer_bool:
                 print '-'*40
@@ -317,22 +468,22 @@ class MyDrawArea(gtk.DrawingArea):
         
 
     def draw_weather_icon_now(self, x, y):
-        if self.day != []:
+        if day != []:
             center = x+width/2
             
-            if (self.day and self.date):
-                if self.day[0] in ('Сб', 'Вс'):
-                    self.draw_text(self.day[0]+', '+self.date[0], 0, y-15, font+' Bold', 12, width, pango.ALIGN_CENTER, color_text_week)
+            if (day and date):
+                if day[0] in ('Сб', 'Вс'):
+                    self.draw_text(day[0]+', '+date[0], 0, y-15, font+' Bold', 12, width, pango.ALIGN_CENTER, color_text_week)
                 else:
-                    self.draw_text(self.day[0]+', '+self.date[0], 0, y-15, font+' Bold', 12, width, pango.ALIGN_CENTER)
+                    self.draw_text(day[0]+', '+date[0], 0, y-15, font+' Bold', 12, width, pango.ALIGN_CENTER)
             
             if show_time_receive:
-                if self.time_update: self.draw_text('обновление на сервере '+self.time_update[0], x-margin, x+8+margin, font+' Normal', 8, width-10,pango.ALIGN_RIGHT)
+                if time_update: self.draw_text('обновление на сервере '+time_update[0], x-margin, x+8+margin, font+' Normal', 8, width-10,pango.ALIGN_RIGHT)
                 self.draw_text('погода получена '+time.strftime('%H:%M', time.localtime()), x-margin, x+18+margin, font+' Normal', 8, width-10,pango.ALIGN_RIGHT)
-            if self.city_name: self.draw_text(self.city_name[0], x+0, y, font+' Bold', 14, width, pango.ALIGN_CENTER)
-            self.draw_scaled_icon(center-40, y+30, ICONS_PATH+icons_name+'/weather/'+self.icon_now[0],80,80)
-            if self.t_now: self.draw_text(self.t_now[0]+'°', center-100, y+30, font+' Normal', 18, 60, pango.ALIGN_RIGHT)
-            if self.text_now: self.draw_text(self.text_now[0], center-70, y+106, font+' Normal', 10, 140, pango.ALIGN_CENTER)
+            if city_name: self.draw_text(city_name[0], x+0, y, font+' Bold', 14, width, pango.ALIGN_CENTER)
+            self.draw_scaled_icon(center-40, y+30, ICONS_PATH+icons_name+'/weather/'+icon_now[0],80,80)
+            if t_now: self.draw_text(t_now[0]+'°', center-100, y+30, font+' Normal', 18, 60, pango.ALIGN_RIGHT)
+            if text_now: self.draw_text(text_now[0], center-70, y+106, font+' Normal', 10, 140, pango.ALIGN_CENTER)
             
             if show_block_wind_direct:
                 ####-Блок направление ветра-####
@@ -355,17 +506,17 @@ class MyDrawArea(gtk.DrawingArea):
                 x0 = center + left+a
                 y0 = top + r
                 angel_rad = (angel/45*45)*math.pi/180
-                if (self.wind_direct_now and self.wind_speed_now):
+                if (wind_direct_now and wind_speed_now):
                     for i in range(0, 8):
                         if i % 2 == 0:
                             self.draw_text(NS[i/2], x0+r*math.cos(i*0.25*math.pi+angel_rad), y0+r*math.sin(i*0.25*math.pi+angel_rad), font+' Bold', font_NS, 10, pango.ALIGN_LEFT)
-                    if int(self.wind_speed_now[0]) >= high_wind:
-                        self.draw_text(self.wind_direct_now[0]+', '+self.wind_speed_now[0]+' м/с', x0-r-5, y0+r+font_wind+4, font+' Normal', font_wind, 2*r+10+font_NS,pango.ALIGN_CENTER, color_high_wind)
+                    if int(wind_speed_now[0]) >= high_wind:
+                        self.draw_text(wind_direct_now[0]+', '+wind_speed_now[0]+' м/с', x0-r-5, y0+r+font_wind+4, font+' Normal', font_wind, 2*r+10+font_NS,pango.ALIGN_CENTER, color_high_wind)
                     else:
-                        self.draw_text(self.wind_direct_now[0]+', '+self.wind_speed_now[0]+' м/с', x0-r-5, y0+r+font_wind+4, font+' Normal', font_wind, 2*r+10+font_NS,pango.ALIGN_CENTER)
+                        self.draw_text(wind_direct_now[0]+', '+wind_speed_now[0]+' м/с', x0-r-5, y0+r+font_wind+4, font+' Normal', font_wind, 2*r+10+font_NS,pango.ALIGN_CENTER)
                 wind_icon = 0
-                if self.icon_wind_now[0] != '0': 
-                    wind_icon = int(self.icon_wind_now[0]) + angel/45
+                if icon_wind_now[0] != '0': 
+                    wind_icon = int(icon_wind_now[0]) + angel/45
                     if wind_icon > 8: wind_icon = wind_icon - 8
                     if os.path.exists(ICONS_PATH+icons_name+'/wind.png'):
                         self.draw_scaled_image(x0-a/2+font_NS/2, y0-a/2+1+font_NS/2, ICONS_PATH+icons_name+'/wind.png', a, a, 45+wind_icon*45)
@@ -384,45 +535,45 @@ class MyDrawArea(gtk.DrawingArea):
                 
                 if not show_block_wind_direct:
                     wind_icon = 0
-                    if self.icon_wind_now[0] != '0': 
-                        wind_icon = int(self.icon_wind_now[0]) + angel/45
+                    if icon_wind_now[0] != '0': 
+                        wind_icon = int(icon_wind_now[0]) + angel/45
                         if wind_icon > 8: wind_icon = wind_icon - 8
                 if wind_icon != 0:
                     if os.path.exists(ICONS_PATH+icons_name+'/wind_small.png'):
                         self.draw_scaled_image(x0, y0, ICONS_PATH+icons_name+'/wind_small.png', 16, 16, 45+wind_icon*45)
                     else:
                         self.draw_scaled_image(x0, y0, ICONS_PATH+'default/wind_small.png', 16, 16, 45+wind_icon*45)
-                if (self.wind_direct_now and self.wind_speed_now):
-                    if int(self.wind_speed_now[0]) >= high_wind:
-                        self.draw_text(self.wind_speed_now[0], x0+20, y0-1, font+' Normal', 12, 100,pango.ALIGN_LEFT, color_high_wind)
+                if (wind_direct_now and wind_speed_now):
+                    if int(wind_speed_now[0]) >= high_wind:
+                        self.draw_text(wind_speed_now[0], x0+20, y0-1, font+' Normal', 12, 100,pango.ALIGN_LEFT, color_high_wind)
                     else:
-                        self.draw_text(self.wind_speed_now[0], x0+20, y0-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
-                    b = 20 + len(self.wind_speed_now[0])*10
+                        self.draw_text(wind_speed_now[0], x0+20, y0-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
+                    b = 20 + len(wind_speed_now[0])*10
                     self.draw_text('м/с', x0+b, y0+4, font+' Normal', 8, 100,pango.ALIGN_LEFT)
-                    self.draw_text(self.wind_direct_now[0], x0+b+line_height, y0+1, font+' Normal', 10, 100,pango.ALIGN_LEFT)
+                    self.draw_text(wind_direct_now[0], x0+b+line_height, y0+1, font+' Normal', 10, 100,pango.ALIGN_LEFT)
                 if os.path.exists(ICONS_PATH+icons_name+'/press.png'):
                     self.draw_scaled_image(x0, y0+line_height, ICONS_PATH+icons_name+'/press.png', 16, 16)
                 else:
                     self.draw_scaled_image(x0, y0+line_height, ICONS_PATH+'default/press.png', 16, 16)
-                if self.press_now:
-                    self.draw_text(self.press_now[0], x0+20, y0+line_height-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
-                    b = 20 + len(self.press_now[0])*10
+                if press_now:
+                    self.draw_text(press_now[0], x0+20, y0+line_height-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
+                    b = 20 + len(press_now[0])*10
                     self.draw_text('мм рт.ст.', x0+b, y0+line_height+4, font+' Normal', 8, 100,pango.ALIGN_LEFT)
                 if os.path.exists(ICONS_PATH+icons_name+'/hum.png'):
                     self.draw_scaled_image(x0, y0+line_height*2, ICONS_PATH+icons_name+'/hum.png', 16, 16)
                 else:
                     self.draw_scaled_image(x0, y0+line_height*2, ICONS_PATH+'default/hum.png', 16, 16)
-                if self.hum_now:
-                    self.draw_text(self.hum_now[0], x0+20, y0+line_height*2-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
-                    b = 20 + len(self.hum_now[0])*10
+                if hum_now:
+                    self.draw_text(hum_now[0], x0+20, y0+line_height*2-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
+                    b = 20 + len(hum_now[0])*10
                     self.draw_text('% влажн.', x0+b, y0+line_height*2+4, font+' Normal', 8, 100,pango.ALIGN_LEFT)
                 if os.path.exists(ICONS_PATH+icons_name+'/t_water.png'):
                     self.draw_scaled_image(x0, y0+line_height*3, ICONS_PATH+icons_name+'/t_water.png', 16, 16)
                 else:
                     self.draw_scaled_image(x0, y0+line_height*3, ICONS_PATH+'default/t_water.png', 16, 16)
-                if self.t_water_now:
-                    self.draw_text(self.t_water_now, x0+20, y0+line_height*3-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
-                    b = 20 + len(self.t_water_now)*10
+                if t_water_now:
+                    self.draw_text(t_water_now, x0+20, y0+line_height*3-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
+                    b = 20 + len(t_water_now)*10
                     self.draw_text('°C вода', x0+b, y0+line_height*3+4, font+' Normal', 8, 100,pango.ALIGN_LEFT) 
             
             if show_block_tomorrow:
@@ -443,17 +594,17 @@ class MyDrawArea(gtk.DrawingArea):
                     j = i
                     if j > 1: j = j-2
                     self.draw_text(c[i], x0+a*((j+1)/2), y0+b*(i/2), font+' Bold', 7, 50,pango.ALIGN_LEFT)
-                    if self.t_tomorrow:
+                    if t_tomorrow:
                         if t_feel:
-                            self.draw_text(self.t_tomorrow[1::2][i]+'°', x0+a*((j+1)/2), y0+13+b*(i/2), font+' Normal', 8, 50,pango.ALIGN_LEFT)
+                            self.draw_text(t_tomorrow[1::2][i]+'°', x0+a*((j+1)/2), y0+13+b*(i/2), font+' Normal', 8, 50,pango.ALIGN_LEFT)
                         else:
-                            self.draw_text(self.t_tomorrow[::2][i]+'°', x0+a*((j+1)/2), y0+13+b*(i/2), font+' Normal', 8, 50,pango.ALIGN_LEFT)
-                    self.draw_scaled_icon(x0+32+a*((j+1)/2), y0+b*(i/2), ICONS_PATH+icons_name+'/weather/'+self.icon_tomorrow[i], 28, 28)
-                    if (self.wind_direct and self.wind_speed): 
-                        if int(self.wind_speed_tom[i]) >= high_wind:
-                            self.draw_text(self.wind_direct_tom[i]+', '+self.wind_speed_tom[i]+' м/с', x0+a*((j+1)/2), y0+27+b*(i/2), font+' Normal', 7, 50,pango.ALIGN_LEFT, color_high_wind)
+                            self.draw_text(t_tomorrow[::2][i]+'°', x0+a*((j+1)/2), y0+13+b*(i/2), font+' Normal', 8, 50,pango.ALIGN_LEFT)
+                    self.draw_scaled_icon(x0+32+a*((j+1)/2), y0+b*(i/2), ICONS_PATH+icons_name+'/weather/'+icon_tomorrow[i], 28, 28)
+                    if (wind_direct and wind_speed): 
+                        if int(wind_speed_tom[i]) >= high_wind:
+                            self.draw_text(wind_direct_tom[i]+', '+wind_speed_tom[i]+' м/с', x0+a*((j+1)/2), y0+27+b*(i/2), font+' Normal', 7, 50,pango.ALIGN_LEFT, color_high_wind)
                         else:
-                            self.draw_text(self.wind_direct_tom[i]+', '+self.wind_speed_tom[i]+' м/с', x0+a*((j+1)/2), y0+27+b*(i/2), font+' Normal', 7, 50,pango.ALIGN_LEFT)
+                            self.draw_text(wind_direct_tom[i]+', '+wind_speed_tom[i]+' м/с', x0+a*((j+1)/2), y0+27+b*(i/2), font+' Normal', 7, 50,pango.ALIGN_LEFT)
 
 
             if show_block_today:
@@ -474,45 +625,45 @@ class MyDrawArea(gtk.DrawingArea):
                     j = i
                     if j > 1: j = j-2
                     self.draw_text(c[i], x0+a*((j+1)/2), y0+b*(i/2), font+' Bold', 7, 50,pango.ALIGN_LEFT)
-                    if self.t_tomorrow:
+                    if t_tomorrow:
                         if t_feel:
-                            self.draw_text(self.t_today[1::2][i]+'°', x0+a*((j+1)/2), y0+13+b*(i/2), font+' Normal', 8, 50,pango.ALIGN_LEFT)
+                            self.draw_text(t_today[1::2][i]+'°', x0+a*((j+1)/2), y0+13+b*(i/2), font+' Normal', 8, 50,pango.ALIGN_LEFT)
                         else:
-                            self.draw_text(self.t_today[::2][i]+'°', x0+a*((j+1)/2), y0+13+b*(i/2), font+' Normal', 8, 50,pango.ALIGN_LEFT)
-                    self.draw_scaled_icon(x0+32+a*((j+1)/2), y0+b*(i/2), ICONS_PATH+icons_name+'/weather/'+self.icon_today[i], 28, 28)
-                    if (self.wind_direct and self.wind_speed): 
-                        if int(self.wind_speed_tod[i]) >= high_wind:
-                            self.draw_text(self.wind_direct_tod[i]+', '+self.wind_speed_tod[i]+' м/с', x0+a*((j+1)/2), y0+27+b*(i/2), font+' Normal', 7, 50,pango.ALIGN_LEFT, color_high_wind)
+                            self.draw_text(t_today[::2][i]+'°', x0+a*((j+1)/2), y0+13+b*(i/2), font+' Normal', 8, 50,pango.ALIGN_LEFT)
+                    self.draw_scaled_icon(x0+32+a*((j+1)/2), y0+b*(i/2), ICONS_PATH+icons_name+'/weather/'+icon_today[i], 28, 28)
+                    if (wind_direct and wind_speed): 
+                        if int(wind_speed_tod[i]) >= high_wind:
+                            self.draw_text(wind_direct_tod[i]+', '+wind_speed_tod[i]+' м/с', x0+a*((j+1)/2), y0+27+b*(i/2), font+' Normal', 7, 50,pango.ALIGN_LEFT, color_high_wind)
                         else:
-                            self.draw_text(self.wind_direct_tod[i]+', '+self.wind_speed_tod[i]+' м/с', x0+a*((j+1)/2), y0+27+b*(i/2), font+' Normal', 7, 50,pango.ALIGN_LEFT)
+                            self.draw_text(wind_direct_tod[i]+', '+wind_speed_tod[i]+' м/с', x0+a*((j+1)/2), y0+27+b*(i/2), font+' Normal', 7, 50,pango.ALIGN_LEFT)
 
 
     def draw_weather_icon(self, index, x, y):
-        if self.day != []:
+        if day != []:
             a = 30
             if t_feel:
-                if math.fabs(int(self.t_day_feel[index])) < 10: a = 20
+                if math.fabs(int(t_day_feel[index])) < 10: a = 20
             else:
-                if math.fabs(int(self.t_day[index])) < 10: a = 20
-            self.draw_scaled_icon(x+a, y+16, ICONS_PATH+icons_name+'/weather/'+self.icon[index], 36, 36)
-            if (self.day and self.date): 
-                if self.day[index] in ('Сб', 'Вс'):
-                    self.draw_text(self.day[index]+', '+self.date[index], x, y-2, font+' Bold', 9, w_block,pango.ALIGN_LEFT, color_text_week)
+                if math.fabs(int(t_day[index])) < 10: a = 20
+            self.draw_scaled_icon(x+a, y+16, ICONS_PATH+icons_name+'/weather/'+icon[index], 36, 36)
+            if (day and date): 
+                if day[index] in ('Сб', 'Вс'):
+                    self.draw_text(day[index]+', '+date[index], x, y-2, font+' Bold', 9, w_block,pango.ALIGN_LEFT, color_text_week)
                 else:
-                    self.draw_text(self.day[index]+', '+self.date[index], x, y-2, font+' Bold', 9, w_block,pango.ALIGN_LEFT)
+                    self.draw_text(day[index]+', '+date[index], x, y-2, font+' Bold', 9, w_block,pango.ALIGN_LEFT)
             self.cr.set_source_rgba(color_text[0], color_text[1], color_text[2], color_text[3])
             if t_feel:
-                if self.t_day_feel: self.draw_text(self.t_day_feel[index]+'°', x, y+15, font+' Normal', 10, w_block-45,pango.ALIGN_LEFT)
-                if self.t_night_feel: self.draw_text(self.t_night_feel[index]+'°', x, y+30, font+' Normal', 8, w_block-45,pango.ALIGN_LEFT)
+                if t_day_feel: self.draw_text(t_day_feel[index]+'°', x, y+15, font+' Normal', 10, w_block-45,pango.ALIGN_LEFT)
+                if t_night_feel: self.draw_text(t_night_feel[index]+'°', x, y+30, font+' Normal', 8, w_block-45,pango.ALIGN_LEFT)
             else:
-                if self.t_day: self.draw_text(self.t_day[index]+'°', x, y+15, font+' Normal', 10, w_block-45,pango.ALIGN_LEFT)
-                if self.t_night: self.draw_text(self.t_night[index]+'°', x, y+30, font+' Normal', 8, w_block-45,pango.ALIGN_LEFT)
-            if (self.wind_direct and self.wind_speed): 
-                if int(self.wind_speed[index]) >= high_wind:
-                    self.draw_text(self.wind_direct[index]+', '+self.wind_speed[index]+' м/с', x, y+50, font+' Normal', 8, 80,pango.ALIGN_LEFT, color_high_wind)
+                if t_day: self.draw_text(t_day[index]+'°', x, y+15, font+' Normal', 10, w_block-45,pango.ALIGN_LEFT)
+                if t_night: self.draw_text(t_night[index]+'°', x, y+30, font+' Normal', 8, w_block-45,pango.ALIGN_LEFT)
+            if (wind_direct and wind_speed): 
+                if int(wind_speed[index]) >= high_wind:
+                    self.draw_text(wind_direct[index]+', '+wind_speed[index]+' м/с', x, y+50, font+' Normal', 8, 80,pango.ALIGN_LEFT, color_high_wind)
                 else:
-                    self.draw_text(self.wind_direct[index]+', '+self.wind_speed[index]+' м/с', x, y+50, font+' Normal', 8, 80,pango.ALIGN_LEFT)
-            if self.text: self.draw_text(self.text[index], x, y+65, font+' Italic', 7, w_block, pango.ALIGN_LEFT)
+                    self.draw_text(wind_direct[index]+', '+wind_speed[index]+' м/с', x, y+50, font+' Normal', 8, 80,pango.ALIGN_LEFT)
+            if text: self.draw_text(text[index], x, y+65, font+' Italic', 7, w_block, pango.ALIGN_LEFT)
 
 
     def draw_bg(self):
@@ -669,146 +820,6 @@ class MyDrawArea(gtk.DrawingArea):
         puxbuf = None
         image = None
         self.cr.restore()
-
-
-    def get_weather(self):
-        global err_connect, splash
-        print '> Получаю погоду на', n, 'дней'
-        print '> Загружаю в переменную страницу', 'http://www.gismeteo.ru/city/weekly/' + str(city_id)
-        try:
-            source = urlopen('http://www.gismeteo.ru/city/weekly/' + str(city_id)).read()
-            err_connect = False
-            print 'OK'
-        except:
-            print '[!] Невозможно скачать страницу, проверьте интернет соединение'
-            if timer_bool:
-                print '[!] Следующая попытка через 10 секунд'
-            err_connect = True
-            return
-        #### Текущая погода ####
-        w_now = re.findall("type[A-Z].*>вода", source, re.DOTALL)
-        
-        # Город
-        self.city_name = re.findall('type[A-Z].*\">(.*)<', w_now[0])
-
-        # Температура
-        self.t_now = re.findall('m_temp c.>([&minus;+]*\d+)<', w_now[0])
-        for i in range(0, len(self.t_now)):
-            if self.t_now[i][0] == '&':
-                self.t_now[i] = '-' + self.t_now[i][7:]
-
-        # Ветер
-        self.wind_speed_now = re.findall('m_wind ms.*>(\d+)<', w_now[0])
-        self.wind_direct_now = re.findall('<dt>([СЮЗВШ]+)</dt>', w_now[0])
-
-        # Иконка
-        self.icon_now = re.findall('url\(.*?new\/(.+)\)', w_now[0])
-        
-        #Иконка ветра
-        self.icon_wind_now = re.findall('wind(\d)', w_now[0])
-
-        # Время обновления
-        self.time_update = re.findall('data-hr.* (\d?\d:\d\d)\s*</span>', source, re.DOTALL)
-        
-        # Текст погоды сейчас
-        self.text_now = re.findall('title=\"(.*?)\"', w_now[0])
-        
-        # Давление сейчас
-        self.press_now = re.findall('m_press torr\'>(\d+)<', w_now[0])
-        
-        # Влажность сейчас
-        self.hum_now = re.findall('Влажность">(\d+)<', w_now[0])
-        
-        # Температура воды сейчас
-        try:
-            self.t_water_now = self.t_now[1]
-        except:
-            pass
-        
-        #### Погода на неделю ####
-        # Погода ночью
-        w_night_list = re.findall('Ночь</th>.*?>Утро</th>', source, re.DOTALL)
-        w_night = '\n'.join(w_night_list)
-        
-        # Температура ночью
-        self.t_night = re.findall('m_temp c.>([&minus;+]*\d+)<', w_night)
-        for i in range(0, len(self.t_night)):
-            if self.t_night[i][0] == '&':
-                self.t_night[i] = '-' + self.t_night[i][7:]
-        self.t_night_feel = self.t_night[1::2]
-        self.t_night = self.t_night[::2]
-        
-        # День недели и дата
-        self.day = re.findall('weekday.>(.*?)<', source)
-        self.date = re.findall('s_date.>(.*?)<', source)
-        
-        # Погода днем
-        w_day_list = re.findall('День</th>.*?>Вечер</th>', source, re.DOTALL)
-        w_day = '\n'.join(w_day_list)
-        
-        # Температура днем
-        self.t_day = re.findall('m_temp c.>([&minus;+]*\d+)<', w_day) 
-        for i in range(0, len(self.t_day)):
-            if self.t_day[i][0] == '&':
-                self.t_day[i] = '-' + self.t_day[i][7:]
-        self.t_day_feel = self.t_day[1::2]
-        self.t_day = self.t_day[::2]
-        
-        # Иконка погоды днем
-        self.icon = re.findall('src=\".*?new\/(.*?)\"', w_day)
-        
-        # Иконка ветра
-        self.icon_wind = re.findall('wind(\d)', w_day)
-        
-        # Ветер
-        self.wind_speed = re.findall('m_wind ms.>(\d+)', w_day)
-        self.wind_direct = re.findall('>([СЮЗВШ]+)<', w_day)
-
-        # Текст погоды
-        self.text = re.findall('cltext.>(.*?)<', w_day)
-
-        if show_block_tomorrow:
-            #### Погода завтра ####
-            w_tomorrow = re.findall('Ночь</th>.*?>Ночь</div>', source, re.DOTALL)
-            
-            # Температура
-            self.t_tomorrow = re.findall('m_temp c.>([&minus;+]*\d+)<', w_tomorrow[1])
-            for i in range(0, len(self.t_tomorrow)):
-                if self.t_tomorrow[i][0] == '&':
-                    self.t_tomorrow[i] = '-' + self.t_tomorrow[i][7:]
-
-            # Иконка погоды
-            self.icon_tomorrow = re.findall('src=\".*?new\/(.*?)\"', w_tomorrow[1])
-
-            # Ветер
-            self.wind_speed_tom = re.findall('m_wind ms.>(\d+)', w_tomorrow[1])
-            self.wind_direct_tom = re.findall('>([СЮЗВШ]+)<', w_tomorrow[1])
-            
-        if show_block_today:
-            #### Погода сегодня ####
-            if not show_block_tomorrow:
-                w_tomorrow = re.findall('Ночь</th>.*?>Ночь</div>', source, re.DOTALL)
-            
-            # Температура
-            self.t_today = re.findall('m_temp c.>([&minus;+]*\d+)<', w_tomorrow[0])
-            for i in range(0, len(self.t_today)):
-                if self.t_today[i][0] == '&':
-                    self.t_today[i] = '-' + self.t_today[i][7:]
-            
-            # Иконка погоды
-            self.icon_today = re.findall('src=\".*?new\/(.*?)\"', w_tomorrow[0])
-
-            # Ветер
-            self.wind_speed_tod = re.findall('m_wind ms.>(\d+)', w_tomorrow[0])
-            self.wind_direct_tod = re.findall('>([СЮЗВШ]+)<', w_tomorrow[0])
-        ########
-        
-        if self.time_update:
-            print '> Обновление на сервере в', self.time_update[0]
-        print '> Погода получена в', time.strftime('%H:%M', time.localtime())
-        
-        if splash:
-            splash = False
 
 
 class Weather_Widget:
@@ -988,6 +999,20 @@ class Weather_Widget:
         menu_items.connect("activate", self.edit_city_id)
         menu_items.show()
 
+        menu_items = gtk.SeparatorMenuItem()
+        menu.append(menu_items)
+        menu_items.show()
+
+        if len(city_id_add) > 1:
+            for i in range(len(city_id_add)):
+                menu_items = gtk.MenuItem(city_id_add[i].split(';')[1])
+                menu.append(menu_items)
+                menu_items.connect("activate", self.reload, city_id_add[i])
+                menu_items.show()
+            menu_items = gtk.SeparatorMenuItem()
+            menu.append(menu_items)
+            menu_items.show()
+
         menu_items = gtk.MenuItem('Иконки')
         menu.append(menu_items)
         menu_items.set_submenu(sub_menu_icons)
@@ -1006,6 +1031,10 @@ class Weather_Widget:
         menu_items = gtk.MenuItem('Редактировать...')
         menu.append(menu_items)
         menu_items.connect("activate", lambda x: os.popen('xdg-open '+CONFIG_PATH))
+        menu_items.show()
+
+        menu_items = gtk.SeparatorMenuItem()
+        menu.append(menu_items)
         menu_items.show()
 
         menu_items = gtk.ImageMenuItem(gtk.STOCK_CLOSE, 'Закрыть')
@@ -1052,12 +1081,15 @@ class Weather_Widget:
         self.drawing_area.redraw(False, False)
         Save_Config()
 
-    def reload(self, widget):
+    def reload(self, widget, c_id = 0):
+        global city_id
         Load_Config()
+        if c_id != 0:
+            city_id = c_id.split(';')[0]
         self.drawing_area.redraw(False)
 
     def show_edit_dialog(self):
-        global city_id
+        global city_id, city_id_add
         dialog = gtk.Dialog('Код города', self.window)
         dialog.resize(300, 100)
         dialog.add_buttons(gtk.STOCK_OK, gtk.RESPONSE_OK, 
@@ -1077,8 +1109,20 @@ class Weather_Widget:
             try:
                 city_id = int(entrybox.get_text())
                 valid_id = True
+                city_id_add[0] = str(city_id) + ';' + get_city_name(city_id)
                 dialog.hide()
                 return True
+            except:
+                label_err.set_text('[!] Ошибка. Код города - это целое число.')
+                print '[!] Ошибка считывания. Код города - это целое число.'
+                response = dialog.run()
+        while response == gtk.RESPONSE_ACCEPT:
+            try:
+                city_id2 = int(entrybox.get_text())
+                city_id_add.append(str(city_id2) + ';' + get_city_name(city_id2))
+                Save_Config()
+                dialog.hide()
+                return False
             except:
                 label_err.set_text('[!] Ошибка. Код города - это целое число.')
                 print '[!] Ошибка считывания. Код города - это целое число.'
