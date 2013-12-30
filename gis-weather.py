@@ -883,22 +883,24 @@ class Weather_Widget:
         self.drawing_area = MyDrawArea()
         self.window.add(self.drawing_area)
         self.screen_changed(self.window)
-        # из папки скрипта
+        self.menu = self.create_menu(self.menu)
+
+    def create_menu(self, menu):
+        menu = None
+        # из папки скрипта (dirs - иконки, files - фоны)
         root, dirs, files = os.walk(ICONS_PATH).next()
         files = os.listdir(BGS_PATH)
         dirs.sort()
         files.sort()
         dirs.remove('default')
-        # из папки пользователя
+        # из папки пользователя (dirs_user - иконки, files_user - фоны)
         root, dirs_user, files_user = os.walk(ICONS_USER_PATH).next()
         files_user = os.listdir(BGS_USER_PATH)
         dirs_user.sort()
         files_user.sort()
         dirs_user.remove('default')
-        #print dirs_user
-        #print files_user
         # Создаем меню и заполняем найденными иконками и фонами
-        self.menu = gtk.Menu()
+        menu = gtk.Menu()
         sub_menu_icons = gtk.Menu()
         sub_menu_bgs = gtk.Menu()
         sub_menu_color_text = gtk.Menu()
@@ -977,39 +979,40 @@ class Weather_Widget:
             menu_items.show()
             
         menu_items = gtk.ImageMenuItem(gtk.STOCK_REFRESH, 'Обновить')
-        self.menu.append(menu_items)
+        menu.append(menu_items)
         menu_items.connect("activate", self.reload)
         menu_items.show()
         
         menu_items = gtk.MenuItem('Код города...')
-        self.menu.append(menu_items)
+        menu.append(menu_items)
         menu_items.connect("activate", self.edit_city_id)
         menu_items.show()
 
         menu_items = gtk.MenuItem('Иконки')
-        self.menu.append(menu_items)
+        menu.append(menu_items)
         menu_items.set_submenu(sub_menu_icons)
         menu_items.show()
         
         menu_items = gtk.MenuItem('Фон')
-        self.menu.append(menu_items)
+        menu.append(menu_items)
         menu_items.set_submenu(sub_menu_bgs)
         menu_items.show()
         
         menu_items = gtk.MenuItem('Текст')
-        self.menu.append(menu_items)
+        menu.append(menu_items)
         menu_items.set_submenu(sub_menu_color_text)
         menu_items.show()
         
         menu_items = gtk.MenuItem('Редактировать...')
-        self.menu.append(menu_items)
+        menu.append(menu_items)
         menu_items.connect("activate", lambda x: os.popen('xdg-open '+CONFIG_PATH))
         menu_items.show()
 
         menu_items = gtk.ImageMenuItem(gtk.STOCK_CLOSE, 'Закрыть')
-        self.menu.append(menu_items)
+        menu.append(menu_items)
         menu_items.connect("activate", gtk.main_quit)
         menu_items.show()
+        return menu
 
     def button_press(self, widget, event):
         if event.button == 1:
@@ -1057,7 +1060,8 @@ class Weather_Widget:
         dialog = gtk.Dialog('Код города', self.window)
         dialog.resize(300, 100)
         dialog.add_buttons(gtk.STOCK_OK, gtk.RESPONSE_OK, 
-            gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL)
+            gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL, 
+            gtk.STOCK_ADD, gtk.RESPONSE_ACCEPT)
         entrybox = gtk.Entry()
         entrybox.set_text(str(city_id))
         text = ' Введите код своего города с сайта http://www.gismeteo.ru: \n Выберите свой город и скопируете число в конце ссылки \n Например 1234'
