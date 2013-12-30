@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #  gis_weather.py
-v='0.3.2 test 1'
+v='0.3.2 test 3'
 #  Copyright 2013 Alexander Koltsov
 #
 #  draw_scaled_image, draw_text_Whise copyright by Helder Fraga
@@ -1019,6 +1019,7 @@ class Weather_Widget:
             self.window.begin_move_drag(1, int(event.x_root), int(event.y_root), event.time)
             return True
         if event.button == 3:
+            self.menu = self.create_menu(self.menu)
             self.menu.popup(None, None, None, event.button, event.time)
             return True
         return False
