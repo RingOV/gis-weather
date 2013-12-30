@@ -1094,10 +1094,10 @@ class Weather_Widget:
         dialog.resize(300, 100)
         dialog.add_buttons(gtk.STOCK_OK, gtk.RESPONSE_OK, 
             gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL, 
-            gtk.STOCK_ADD, gtk.RESPONSE_ACCEPT)
+            'Добавить в меню', gtk.RESPONSE_ACCEPT)
         entrybox = gtk.Entry()
         entrybox.set_text(str(city_id))
-        text = ' Введите код своего города с сайта http://www.gismeteo.ru: \n Выберите свой город и скопируете число в конце ссылки \n Например 1234'
+        text = ' Введите код своего города с сайта http://www.gismeteo.ru: \n Выберите свой город и скопируете число в конце ссылки \n Например 1234\n\n OK - Использовать город по умолчанию\n Добавить в меню - Дополнительный город'
         label = gtk.Label(text)
         label_err = gtk.Label('')
         dialog.vbox.add(label)
