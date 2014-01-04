@@ -1055,13 +1055,12 @@ class Weather_Widget:
     def menu_response(self, widget, event, value=None):
         if event == 'about':
             about = gtk.AboutDialog()
-            #about.add_buttons(gtk.STOCK_ABOUT(Label='Благодарности'), gtk.RESPONSE_OK)
             about.set_program_name('Gis Weather')
             about.set_version(v)
             about.set_copyright('(С) 2013 - 2014 Alexander Koltsov')
             about.set_comments('Погодный виджет написанный на Python')
             about.set_website('http://sourceforge.net/projects/gis-weather/')
-            about.set_logo(gtk.gdk.pixbuf_new_from_file_at_size('icon.png', 128, 128))
+            about.set_logo(gtk.gdk.pixbuf_new_from_file_at_size(APP_PATH + 'icon.png', 128, 128))
             about.set_license(license)
             about.set_wrap_license(False)
             about.set_authors(['Alexander Koltsov <ringov@mail.ru>\n',
