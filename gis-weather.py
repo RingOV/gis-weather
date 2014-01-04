@@ -374,10 +374,9 @@ class MyDrawArea(gtk.DrawingArea):
     p_fdesc = None
 
     def __init__(self):
-        self.timer = timeout_add(2000, self.redraw)
+        self.timer = timeout_add(1000, self.redraw)
         gtk.DrawingArea.__init__(self)
         self.set_app_paintable(True)
-        #self.set_events(gtk.gdk.ALL_EVENTS_MASK)
         self.connect('expose_event', self.expose)
 
     def splash_screen(self, state = 0):
@@ -1066,14 +1065,18 @@ class Weather_Widget:
             about.set_authors(['Alexander Koltsov <ringov@mail.ru>\n',
                 'draw_scaled_image, draw_text_Whise\nby Helder Fraga aka Whise <helder.fraga@hotmail.com>\n',
                 'Помощь и идеи:\nHaron Prime, Karbunkul, Yuriy_Y'])
-            about.set_artists(['icons:',
+            about.set_artists(['backgrounds:',
+                'LightEasyShadow, LightWhiteShadow, DarkEasyShadow, DarkWithFlare',
+                'by wfedin',
+                '-------------------------------\n'
+                'icons:',
                 'colorful, flat_colorful, light, flat_white, dark, flat_black',
                 'by ~MerlinTheRed',
                 'http://merlinthered.deviantart.com/art/plain-weather-icons-157162192\n',
                 'tick by xiao4',
                 'http://www.deviantart.com/art/tick-weather-icons-96294478\n',
                 'weezle by d3stroy',
-                'http://www.deviantart.com/art/Weezle-Weather-Icons-187306753'])
+                'http://www.deviantart.com/art/Weezle-Weather-Icons-187306753\n'])
             #about.set_translator_credits('')
             #about.set_documenters('')
             about.run()
