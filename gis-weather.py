@@ -2,21 +2,24 @@
 # -*- coding: utf-8 -*-
 #
 #  gis_weather.py
-v='0.3.2 test 4'
-#  Copyright 2013 Alexander Koltsov
+v='0.3.2_test_5'
+#  Copyright 2013-2014 Alexander Koltsov
 #
 #  draw_scaled_image, draw_text_Whise copyright by Helder Fraga
 #  aka Whise <helder.fraga@hotmail.com>
-#  
-#  This program is free software; you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by
-#  the Free Software Foundation; either version 2 of the License, or
-#  (at your option) any later version.
-#  
-#  This program is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
+
+license = '''This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You can find the full text of the license under
+http://www.gnu.org/licenses/gpl.txt'''
 
 import gtk
 import cairo
@@ -386,13 +389,14 @@ class MyDrawArea(gtk.DrawingArea):
         self.draw_bg()
         if show_splash_screen != 1:
             self.draw_scaled_image(width/2 - 64, height/2 - 128, APP_PATH + 'icon.png', 128, 128)
-            self.draw_text('Gismeteo Weather v ' + v, 0, height/2 - 8, font+' Normal', 14, width, pango.ALIGN_CENTER)
-            self.draw_text('Copyright © Koltsov Alexander, 2013', 0, height - 20 - margin, font+' Normal', 8, width, pango.ALIGN_CENTER)
+            self.draw_text('Gis Weather v ' + v, 0, height/2 - 8, font+' Normal', 14, width, pango.ALIGN_CENTER)
             if state == 0:
                 self.draw_text('Получаю погоду...', 0, height/2 + 40, font+' Normal', 10, width, pango.ALIGN_CENTER)
             else:
                 try_no += 1
                 self.draw_text('Ошибка при получении погоды. Попытка № ' + str(try_no), 0, height/2 + 40, font+' Normal', 10, width, pango.ALIGN_CENTER)
+                if city_id == 0:
+                    self.draw_text('Код города не указан', 0, height/2 + 60, font+' Normal', 10, width, pango.ALIGN_CENTER)
 
 
     def redraw(self, timer1 = True, get_weather1 = True):
@@ -894,9 +898,9 @@ class Weather_Widget:
         self.drawing_area = MyDrawArea()
         self.window.add(self.drawing_area)
         self.screen_changed(self.window)
-        self.menu = self.create_menu(self.menu)
+        self.menu = self.create_menu()
 
-    def create_menu(self, menu):
+    def create_menu(self):
         menu = None
         # из папки скрипта (dirs - иконки, files - фоны)
         root, dirs, files = os.walk(ICONS_PATH).next()
@@ -989,7 +993,7 @@ class Weather_Widget:
             menu_items.connect("activate", self.redraw_text, i)
             menu_items.show()
             
-        menu_items = gtk.ImageMenuItem(gtk.STOCK_REFRESH, 'Обновить')
+        menu_items = gtk.ImageMenuItem(gtk.STOCK_REFRESH)
         menu.append(menu_items)
         menu_items.connect("activate", self.reload)
         menu_items.show()
@@ -1033,22 +1037,55 @@ class Weather_Widget:
         menu_items.connect("activate", lambda x: os.popen('xdg-open '+CONFIG_PATH))
         menu_items.show()
 
+        menu_items = gtk.ImageMenuItem(gtk.STOCK_ABOUT)
+        menu.append(menu_items)
+        menu_items.connect("activate", self.menu_response, 'about')
+        menu_items.show()
+
         menu_items = gtk.SeparatorMenuItem()
         menu.append(menu_items)
         menu_items.show()
 
-        menu_items = gtk.ImageMenuItem(gtk.STOCK_CLOSE, 'Закрыть')
+        menu_items = gtk.ImageMenuItem(gtk.STOCK_CLOSE)
         menu.append(menu_items)
         menu_items.connect("activate", gtk.main_quit)
         menu_items.show()
         return menu
+
+    def menu_response(self, widget, event, value=None):
+        if event == 'about':
+            about = gtk.AboutDialog()
+            #about.add_buttons(gtk.STOCK_ABOUT(Label='Благодарности'), gtk.RESPONSE_OK)
+            about.set_program_name('Gis Weather')
+            about.set_version(v)
+            about.set_copyright('(С) 2013 - 2014 Alexander Koltsov')
+            about.set_comments('Погодный виджет написанный на Python')
+            about.set_website('http://sourceforge.net/projects/gis-weather/')
+            about.set_logo(gtk.gdk.pixbuf_new_from_file_at_size('icon.png', 128, 128))
+            about.set_license(license)
+            about.set_wrap_license(False)
+            about.set_authors(['Alexander Koltsov <ringov@mail.ru>\n',
+                'draw_scaled_image, draw_text_Whise\nby Helder Fraga aka Whise <helder.fraga@hotmail.com>\n',
+                'Помощь и идеи:\nHaron Prime, Karbunkul, Yuriy_Y'])
+            about.set_artists(['icons:',
+                'colorful, flat_colorful, light, flat_white, dark, flat_black',
+                'by ~MerlinTheRed',
+                'http://merlinthered.deviantart.com/art/plain-weather-icons-157162192\n',
+                'tick by xiao4',
+                'http://www.deviantart.com/art/tick-weather-icons-96294478\n',
+                'weezle by d3stroy',
+                'http://www.deviantart.com/art/Weezle-Weather-Icons-187306753'])
+            #about.set_translator_credits('')
+            #about.set_documenters('')
+            about.run()
+            about.destroy()
 
     def button_press(self, widget, event):
         if event.button == 1:
             self.window.begin_move_drag(1, int(event.x_root), int(event.y_root), event.time)
             return True
         if event.button == 3:
-            self.menu = self.create_menu(self.menu)
+            self.menu = self.create_menu()
             self.menu.popup(None, None, None, event.button, event.time)
             return True
         return False
