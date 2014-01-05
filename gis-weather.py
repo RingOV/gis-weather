@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #  gis_weather.py
-v='0.3.2_test_5'
+v='0.3.2'
 #  Copyright 2013-2014 Alexander Koltsov
 #
 #  draw_scaled_image, draw_text_Whise copyright by Helder Fraga
@@ -32,6 +32,7 @@ from urllib2 import urlopen
 from gobject import timeout_add
 import os
 import json
+import Gtk_city_id
 
 CONFIG_PATH = os.getenv('HOME')+'/.config/gis-weather'
 
@@ -48,7 +49,7 @@ if not os.path.exists(CONFIG_PATH+'/backgrounds'):
 gw_config = {
     'angel': 0,                        # Угол поворота по часовой стрелке в градусах
     'city_id': 0,                      # Код города
-    'city_id_add': ['0;None'],                 # Словарь дополнительных городов
+    'city_id_add': [],                 # Словарь дополнительных городов
     'upd_time': 30,                    # Обновлять через (в минутах)
     'n': 7,                            # Количество отображаемых дней от 1 до 13
     'x_pos': -15,                      # Позиция слева
@@ -395,7 +396,7 @@ class MyDrawArea(gtk.DrawingArea):
                 try_no += 1
                 self.draw_text('Ошибка при получении погоды. Попытка № ' + str(try_no), 0, height/2 + 40, font+' Normal', 10, width, pango.ALIGN_CENTER)
                 if city_id == 0:
-                    self.draw_text('Код города не указан', 0, height/2 + 60, font+' Normal', 10, width, pango.ALIGN_CENTER)
+                    self.draw_text('Местоположение не настроено', 0, height/2 + 60, font+' Normal', 10, width, pango.ALIGN_CENTER)
 
 
     def redraw(self, timer1 = True, get_weather1 = True):
@@ -918,6 +919,7 @@ class Weather_Widget:
         sub_menu_icons = gtk.Menu()
         sub_menu_bgs = gtk.Menu()
         sub_menu_color_text = gtk.Menu()
+        sub_menu_place = gtk.Menu()
         
         # Иконки
         group = None
@@ -991,30 +993,41 @@ class Weather_Widget:
             sub_menu_color_text.append(menu_items)
             menu_items.connect("activate", self.redraw_text, i)
             menu_items.show()
-            
+
+        # sub_menu_place
+        group = None
+        if len(city_id_add) > 0:
+            for i in range(len(city_id_add)):
+                menu_items = gtk.RadioMenuItem(group, city_id_add[i].split(';')[1])
+                if city_id_add[i].split(';')[0] == str(city_id):
+                    menu_items.set_active(True)
+                group = menu_items
+                sub_menu_place.append(menu_items)
+                menu_items.connect("activate", self.reload, city_id_add[i])
+                menu_items.show()
+            menu_items = gtk.SeparatorMenuItem()
+            sub_menu_place.append(menu_items)
+            menu_items.show()
+
+        menu_items = gtk.MenuItem('Настроить...')
+        sub_menu_place.append(menu_items)
+        menu_items.connect("activate", self.edit_city_id)
+        menu_items.show()
+
+        # main menu
         menu_items = gtk.ImageMenuItem(gtk.STOCK_REFRESH)
         menu.append(menu_items)
         menu_items.connect("activate", self.reload)
-        menu_items.show()
-        
-        menu_items = gtk.MenuItem('Код города...')
-        menu.append(menu_items)
-        menu_items.connect("activate", self.edit_city_id)
         menu_items.show()
 
         menu_items = gtk.SeparatorMenuItem()
         menu.append(menu_items)
         menu_items.show()
 
-        if len(city_id_add) > 1:
-            for i in range(len(city_id_add)):
-                menu_items = gtk.MenuItem(city_id_add[i].split(';')[1])
-                menu.append(menu_items)
-                menu_items.connect("activate", self.reload, city_id_add[i])
-                menu_items.show()
-            menu_items = gtk.SeparatorMenuItem()
-            menu.append(menu_items)
-            menu_items.show()
+        menu_items = gtk.MenuItem('Местоположение')
+        menu.append(menu_items)
+        menu_items.set_submenu(sub_menu_place)
+        menu_items.show()
 
         menu_items = gtk.MenuItem('Иконки')
         menu.append(menu_items)
@@ -1125,49 +1138,47 @@ class Weather_Widget:
         Load_Config()
         if c_id != 0:
             city_id = c_id.split(';')[0]
+            Save_Config()
         self.drawing_area.redraw(False)
 
     def show_edit_dialog(self):
         global city_id, city_id_add
-        dialog = gtk.Dialog('Код города', self.window)
-        dialog.resize(300, 100)
-        dialog.add_buttons(gtk.STOCK_OK, gtk.RESPONSE_OK, 
-            gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL, 
-            'Добавить в меню', gtk.RESPONSE_ACCEPT)
-        entrybox = gtk.Entry()
-        entrybox.set_text(str(city_id))
-        text = ' Введите код своего города с сайта http://www.gismeteo.ru: \n Выберите свой город и скопируете число в конце ссылки \n Например 1234\n\n OK - Использовать город по умолчанию\n Добавить в меню - Дополнительный город'
-        label = gtk.Label(text)
-        label_err = gtk.Label('')
-        dialog.vbox.add(label)
-        dialog.vbox.add(entrybox)
-        dialog.vbox.add(label_err)
+        dialog, entrybox, treeview = Gtk_city_id.create_gtk_city_id(self.window, city_id, city_id_add);
         dialog.show_all()
         response = dialog.run()
-        while response == gtk.RESPONSE_OK:
-            try:
-                city_id = int(entrybox.get_text())
-                valid_id = True
-                city_id_add[0] = str(city_id) + ';' + get_city_name(city_id)
-                dialog.hide()
-                return True
-            except:
-                label_err.set_text('[!] Ошибка. Код города - это целое число.')
-                print '[!] Ошибка считывания. Код города - это целое число.'
-                response = dialog.run()
-        while response == gtk.RESPONSE_ACCEPT:
-            try:
-                city_id2 = int(entrybox.get_text())
-                city_id_add.append(str(city_id2) + ';' + get_city_name(city_id2))
+
+        while response == gtk.RESPONSE_ACCEPT or response == gtk.RESPONSE_OK:
+            if response == gtk.RESPONSE_ACCEPT:
+                selection = treeview.get_selection()
+                model, iter = selection.get_selected()
+                abc, cde =  selection.get_selected_rows()
+                del_index=cde[0]
+                if iter:
+                    model.remove(iter)
+                if str(city_id) == city_id_add[int(del_index[0])].split(';')[0]:
+                    del city_id_add[int(del_index[0])]
+                    if len(city_id_add) != 0:
+                        city_id = int(city_id_add[0].split(';')[0])
+                    else:
+                        city_id = 0
+                else:
+                    del city_id_add[int(del_index[0])]
                 Save_Config()
-                dialog.hide()
-                return False
-            except:
-                label_err.set_text('[!] Ошибка. Код города - это целое число.')
-                print '[!] Ошибка считывания. Код города - это целое число.'
-                response = dialog.run()
+            if response == gtk.RESPONSE_OK:
+                try:
+                    city_id = int(entrybox.get_text())
+                    city_id_add.append(str(city_id) + ';' + get_city_name(city_id))
+                    model = treeview.get_model()
+                    model.append([city_id_add[-1].split(';')[0], city_id_add[-1].split(';')[1]])
+                    treeview.set_model(model)
+                    Save_Config()
+                except:
+                    label_err.set_text('[!] Ошибка. Код города - это целое число.')
+                    print '[!] Ошибка считывания. Код города - это целое число.'
+            response = dialog.run()
+
         dialog.hide()
-        return False
+        return True
 
     def edit_city_id(self, widget):
         if self.show_edit_dialog():
