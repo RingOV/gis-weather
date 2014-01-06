@@ -225,7 +225,7 @@ def get_city_name(c_id):
         source = urlopen('http://www.gismeteo.ru/city/weekly/' + str(c_id)).read()
         c_name = re.findall('type[A-Z].*\">(.*)<', source)
     except:
-        print '[!] Не удалось получить название населенного пункта'
+        print '[!] Не удалось получить название местоположения'
         return 'None'
     return c_name[0]
 
@@ -1143,38 +1143,54 @@ class Weather_Widget:
 
     def show_edit_dialog(self):
         global city_id, city_id_add
-        dialog, entrybox, treeview = Gtk_city_id.create_gtk_city_id(self.window, city_id, city_id_add);
+        dialog, entrybox, treeview, bar_err, bar_ok, bar_label = Gtk_city_id.create_gtk_city_id(self.window, city_id, city_id_add);
         dialog.show_all()
+        bar_err.hide()
+        bar_ok.hide()
         response = dialog.run()
 
         while response == gtk.RESPONSE_ACCEPT or response == gtk.RESPONSE_OK:
             if response == gtk.RESPONSE_ACCEPT:
-                selection = treeview.get_selection()
-                model, iter = selection.get_selected()
-                abc, cde =  selection.get_selected_rows()
-                del_index=cde[0]
-                if iter:
-                    model.remove(iter)
-                if str(city_id) == city_id_add[int(del_index[0])].split(';')[0]:
-                    del city_id_add[int(del_index[0])]
-                    if len(city_id_add) != 0:
-                        city_id = int(city_id_add[0].split(';')[0])
+                try:
+                    selection = treeview.get_selection()
+                    model, iter = selection.get_selected()
+                    abc, cde =  selection.get_selected_rows()
+                    del_index=cde[0]
+                    if iter:
+                        model.remove(iter)
+                    if str(city_id) == city_id_add[int(del_index[0])].split(';')[0]:
+                        del city_id_add[int(del_index[0])]
+                        if len(city_id_add) != 0:
+                            city_id = int(city_id_add[0].split(';')[0])
+                        else:
+                            city_id = 0
                     else:
-                        city_id = 0
-                else:
-                    del city_id_add[int(del_index[0])]
-                Save_Config()
+                        del city_id_add[int(del_index[0])]
+                    Save_Config()
+                except:
+                    pass
             if response == gtk.RESPONSE_OK:
                 try:
+                    bar_err.hide()
+                    bar_ok.hide()
                     city_id = int(entrybox.get_text())
-                    city_id_add.append(str(city_id) + ';' + get_city_name(city_id))
+                    c_name = get_city_name(city_id)
+                    if c_name == 'None':
+                        if len(city_id_add) != 0:
+                            city_id = int(city_id_add[0].split(';')[0])
+                        else:
+                            city_id = 0
+                        raise
+                    city_id_add.append(str(city_id) + ';' + c_name)
                     model = treeview.get_model()
                     model.append([city_id_add[-1].split(';')[0], city_id_add[-1].split(';')[1]])
                     treeview.set_model(model)
                     Save_Config()
+                    bar_label.set_text('Добавлено: %s'%city_id_add[-1].split(';')[1])
+                    bar_ok.show()
                 except:
-                    label_err.set_text('[!] Ошибка. Код города - это целое число.')
-                    print '[!] Ошибка считывания. Код города - это целое число.'
+                    bar_err.show()
+                    print '[!] Не верно введен код местоположения'
             response = dialog.run()
 
         dialog.hide()
