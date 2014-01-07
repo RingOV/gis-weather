@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #  gis_weather.py
-v='0.3.2.1'
+v='0.3.2.2'
 #  Copyright 2013-2014 Alexander Koltsov
 #
 #  draw_scaled_image, draw_text_Whise copyright by Helder Fraga
@@ -34,16 +34,16 @@ import os
 import json
 import Gtk_city_id
 
-CONFIG_PATH = os.getenv('HOME')+'/.config/gis-weather'
+CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
 
 if not os.path.exists(CONFIG_PATH):
     os.makedirs(CONFIG_PATH)
-if not os.path.exists(CONFIG_PATH+'/color_schemes'):
-    os.makedirs(CONFIG_PATH+'/color_schemes')
-if not os.path.exists(CONFIG_PATH+'/icons'):
-    os.makedirs(CONFIG_PATH+'/icons')
-if not os.path.exists(CONFIG_PATH+'/backgrounds'):
-    os.makedirs(CONFIG_PATH+'/backgrounds')
+if not os.path.exists(os.path.join(CONFIG_PATH, 'color_schemes')):
+    os.makedirs(os.path.join(CONFIG_PATH, 'color_schemes'))
+if not os.path.exists(os.path.join(CONFIG_PATH, 'icons')):
+    os.makedirs(os.path.join(CONFIG_PATH, 'icons'))
+if not os.path.exists(os.path.join(CONFIG_PATH, 'backgrounds')):
+    os.makedirs(os.path.join(CONFIG_PATH, 'backgrounds'))
 
 # Default values
 gw_config = {
@@ -105,23 +105,23 @@ color_scheme = [
     }
     ]
 
-print 'Путь к файлу конфигурации:\n    '+CONFIG_PATH+'/gw_config.json'
+print 'Путь к файлу конфигурации:\n    '+os.path.join(CONFIG_PATH, 'gw_config.json')
 
 def Save_Config():
     for i in gw_config.keys():
         gw_config[i] = globals()[i]
-    json.dump(gw_config, open(CONFIG_PATH+'/gw_config.json', "w"), sort_keys=True, indent=4, separators=(', ', ': '))
+    json.dump(gw_config, open(os.path.join(CONFIG_PATH, 'gw_config.json'), "w"), sort_keys=True, indent=4, separators=(', ', ': '))
 
 def Save_Color_Scheme(number = 0):
-    json.dump(color_scheme[number], open(CONFIG_PATH+'/color_schemes/color_sheme_%s.json' %number, "w"), sort_keys=True, indent=4, separators=(', ', ': '))
+    json.dump(color_scheme[number], open(os.path.join(CONFIG_PATH, 'color_schemes', 'color_sheme_%s.json' %number), "w"), sort_keys=True, indent=4, separators=(', ', ': '))
 
 for i in range(len(color_scheme)):
-    if not os.path.exists(CONFIG_PATH+'/color_schemes/color_sheme_%s.json' %i):
+    if not os.path.exists(os.path.join(CONFIG_PATH, 'color_schemes', 'color_sheme_%s.json' %i)):
         Save_Color_Scheme(i)
 
 def Load_Config():
     try:
-        gw_config_loaded=json.load(file(CONFIG_PATH+'/gw_config.json'))
+        gw_config_loaded=json.load(file(os.path.join(CONFIG_PATH, 'gw_config.json')))
         for i in gw_config_loaded.keys():
             gw_config[i] = gw_config_loaded[i] # Присваиваем новые значения
     except:
@@ -135,7 +135,7 @@ def Load_Config():
 Load_Config()
 def Load_Color_Scheme(number = 0):
     try:
-        scheme_loaded=json.load(file(CONFIG_PATH+'/color_schemes/color_sheme_%s.json' %number))
+        scheme_loaded=json.load(file(os.path.join(CONFIG_PATH, 'color_schemes', 'color_sheme_%s.json' %number)))
         for i in scheme_loaded.keys():
             gw_config[i] = scheme_loaded[i]
         gw_config['color_scheme_number'] = number
@@ -146,25 +146,25 @@ def Load_Color_Scheme(number = 0):
     for i in gw_config.keys():
         globals()[i] = gw_config[i]
 
-if not os.path.exists(CONFIG_PATH+'/gw_config.json'):
+if not os.path.exists(os.path.join(CONFIG_PATH, 'gw_config.json')):
     Save_Config()
 # ------------------------------------------------------------------------------
 
 # Путь к виджету
-APP_PATH = re.findall('(.*\/)', __file__)
-try:
-    APP_PATH = APP_PATH[0]
-except:
+#APP_PATH = re.findall('(.*\/)', __file__)
+APP_PATH = os.path.dirname(__file__)
+if APP_PATH == '':
     print 'Указывайте полный путь к скрипту\nВыход.'
     exit()
-THEMES_PATH = APP_PATH + 'themes/'
-ICONS_PATH = THEMES_PATH + 'icons/'
-BGS_PATH = THEMES_PATH + 'backgrounds/'
-ICONS_USER_PATH = CONFIG_PATH + '/icons/'
-BGS_USER_PATH = CONFIG_PATH + '/backgrounds/'
 
-if not os.path.exists(ICONS_USER_PATH+'default/weather'):
-    os.makedirs(ICONS_USER_PATH+'default/weather')
+THEMES_PATH = os.path.join(APP_PATH, 'themes')
+ICONS_PATH = os.path.join(THEMES_PATH, 'icons')
+BGS_PATH = os.path.join(THEMES_PATH, 'backgrounds')
+ICONS_USER_PATH = os.path.join(CONFIG_PATH, 'icons')
+BGS_USER_PATH = os.path.join(CONFIG_PATH, 'backgrounds')
+
+if not os.path.exists(os.path.join(ICONS_USER_PATH, 'default', 'weather')):
+    os.makedirs(os.path.join(ICONS_USER_PATH, 'default', 'weather'))
 
 # Вспомогательные переменные
 height = None
@@ -388,7 +388,7 @@ class MyDrawArea(gtk.DrawingArea):
             return
         self.draw_bg()
         if show_splash_screen != 1:
-            self.draw_scaled_image(width/2 - 64, height/2 - 128, APP_PATH + 'icon.png', 128, 128)
+            self.draw_scaled_image(width/2 - 64, height/2 - 128, os.path.join(APP_PATH, 'icon.png'), 128, 128)
             self.draw_text('Gis Weather v ' + v, 0, height/2 - 8, font+' Normal', 14, width, pango.ALIGN_CENTER)
             if state == 0:
                 self.draw_text('Получаю погоду...', 0, height/2 + 40, font+' Normal', 10, width, pango.ALIGN_CENTER)
@@ -447,7 +447,7 @@ class MyDrawArea(gtk.DrawingArea):
             else:
                 if err == False:
                     self.Draw_Weather()
-                    self.draw_scaled_image(margin + 10, margin + 10, THEMES_PATH+'error.png',24,24)
+                    self.draw_scaled_image(margin + 10, margin + 10, os.path.join(THEMES_PATH, 'error.png'),24,24)
                     self.draw_text('Ошибка соединения', margin + 35, margin + 14, font+' Normal', 10, color = color_text_week)
                     err = True
         else:
@@ -485,7 +485,7 @@ class MyDrawArea(gtk.DrawingArea):
                 if time_update: self.draw_text('обновление на сервере '+time_update[0], x-margin, x+8+margin, font+' Normal', 8, width-10,pango.ALIGN_RIGHT)
                 self.draw_text('погода получена '+time.strftime('%H:%M', time.localtime()), x-margin, x+18+margin, font+' Normal', 8, width-10,pango.ALIGN_RIGHT)
             if city_name: self.draw_text(city_name[0], x+0, y, font+' Bold', 14, width, pango.ALIGN_CENTER)
-            self.draw_scaled_icon(center-40, y+30, ICONS_PATH+icons_name+'/weather/'+icon_now[0],80,80)
+            self.draw_scaled_icon(center-40, y+30, os.path.join(ICONS_PATH, icons_name, 'weather', icon_now[0]),80,80)
             if t_now: self.draw_text(t_now[0]+'°', center-100, y+30, font+' Normal', 18, 60, pango.ALIGN_RIGHT)
             if text_now: self.draw_text(text_now[0], center-70, y+106, font+' Normal', 10, 140, pango.ALIGN_CENTER)
             
@@ -522,10 +522,10 @@ class MyDrawArea(gtk.DrawingArea):
                 if icon_wind_now[0] != '0': 
                     wind_icon = int(icon_wind_now[0]) + angel/45
                     if wind_icon > 8: wind_icon = wind_icon - 8
-                    if os.path.exists(ICONS_PATH+icons_name+'/wind.png'):
-                        self.draw_scaled_image(x0-a/2+font_NS/2, y0-a/2+1+font_NS/2, ICONS_PATH+icons_name+'/wind.png', a, a, 45+wind_icon*45)
+                    if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'wind.png')):
+                        self.draw_scaled_image(x0-a/2+font_NS/2, y0-a/2+1+font_NS/2, os.path.join(ICONS_PATH, icons_name, 'wind.png'), a, a, 45+wind_icon*45)
                     else:
-                        self.draw_scaled_image(x0-a/2+font_NS/2, y0-a/2+1+font_NS/2, ICONS_PATH+'default/wind.png', a, a, 45+wind_icon*45)
+                        self.draw_scaled_image(x0-a/2+font_NS/2, y0-a/2+1+font_NS/2, os.path.join(ICONS_PATH, 'default', 'wind.png'), a, a, 45+wind_icon*45)
             
             if show_block_add_info:    
                 ####-Блок с доп инфо-####
@@ -543,10 +543,10 @@ class MyDrawArea(gtk.DrawingArea):
                         wind_icon = int(icon_wind_now[0]) + angel/45
                         if wind_icon > 8: wind_icon = wind_icon - 8
                 if wind_icon != 0:
-                    if os.path.exists(ICONS_PATH+icons_name+'/wind_small.png'):
-                        self.draw_scaled_image(x0, y0, ICONS_PATH+icons_name+'/wind_small.png', 16, 16, 45+wind_icon*45)
+                    if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'wind_small.png')):
+                        self.draw_scaled_image(x0, y0, os.path.join(ICONS_PATH, icons_name, 'wind_small.png'), 16, 16, 45+wind_icon*45)
                     else:
-                        self.draw_scaled_image(x0, y0, ICONS_PATH+'default/wind_small.png', 16, 16, 45+wind_icon*45)
+                        self.draw_scaled_image(x0, y0, os.path.join(ICONS_PATH, 'default', 'wind_small.png'), 16, 16, 45+wind_icon*45)
                 if (wind_direct_now and wind_speed_now):
                     if int(wind_speed_now[0]) >= high_wind:
                         self.draw_text(wind_speed_now[0], x0+20, y0-1, font+' Normal', 12, 100,pango.ALIGN_LEFT, color_high_wind)
@@ -555,26 +555,26 @@ class MyDrawArea(gtk.DrawingArea):
                     b = 20 + len(wind_speed_now[0])*10
                     self.draw_text('м/с', x0+b, y0+4, font+' Normal', 8, 100,pango.ALIGN_LEFT)
                     self.draw_text(wind_direct_now[0], x0+b+line_height, y0+1, font+' Normal', 10, 100,pango.ALIGN_LEFT)
-                if os.path.exists(ICONS_PATH+icons_name+'/press.png'):
-                    self.draw_scaled_image(x0, y0+line_height, ICONS_PATH+icons_name+'/press.png', 16, 16)
+                if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'press.png')):
+                    self.draw_scaled_image(x0, y0+line_height, os.path.join(ICONS_PATH, icons_name, 'press.png'), 16, 16)
                 else:
-                    self.draw_scaled_image(x0, y0+line_height, ICONS_PATH+'default/press.png', 16, 16)
+                    self.draw_scaled_image(x0, y0+line_height, os.path.join(ICONS_PATH, 'default', 'press.png'), 16, 16)
                 if press_now:
                     self.draw_text(press_now[0], x0+20, y0+line_height-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
                     b = 20 + len(press_now[0])*10
                     self.draw_text('мм рт.ст.', x0+b, y0+line_height+4, font+' Normal', 8, 100,pango.ALIGN_LEFT)
-                if os.path.exists(ICONS_PATH+icons_name+'/hum.png'):
-                    self.draw_scaled_image(x0, y0+line_height*2, ICONS_PATH+icons_name+'/hum.png', 16, 16)
+                if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'hum.png')):
+                    self.draw_scaled_image(x0, y0+line_height*2, os.path.join(ICONS_PATH, icons_name, 'hum.png'), 16, 16)
                 else:
-                    self.draw_scaled_image(x0, y0+line_height*2, ICONS_PATH+'default/hum.png', 16, 16)
+                    self.draw_scaled_image(x0, y0+line_height*2, os.path.join(ICONS_PATH, 'default', 'hum.png'), 16, 16)
                 if hum_now:
                     self.draw_text(hum_now[0], x0+20, y0+line_height*2-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
                     b = 20 + len(hum_now[0])*10
                     self.draw_text('% влажн.', x0+b, y0+line_height*2+4, font+' Normal', 8, 100,pango.ALIGN_LEFT)
-                if os.path.exists(ICONS_PATH+icons_name+'/t_water.png'):
-                    self.draw_scaled_image(x0, y0+line_height*3, ICONS_PATH+icons_name+'/t_water.png', 16, 16)
+                if os.path.exists(os.path.join(ICONS_PATH, icons_name, 't_water.png')):
+                    self.draw_scaled_image(x0, y0+line_height*3, os.path.join(ICONS_PATH, icons_name, 't_water.png'), 16, 16)
                 else:
-                    self.draw_scaled_image(x0, y0+line_height*3, ICONS_PATH+'default/t_water.png', 16, 16)
+                    self.draw_scaled_image(x0, y0+line_height*3, os.path.join(ICONS_PATH, 'default', 't_water.png'), 16, 16)
                 if t_water_now:
                     self.draw_text(t_water_now, x0+20, y0+line_height*3-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
                     b = 20 + len(t_water_now)*10
@@ -603,7 +603,7 @@ class MyDrawArea(gtk.DrawingArea):
                             self.draw_text(t_tomorrow[1::2][i]+'°', x0+a*((j+1)/2), y0+13+b*(i/2), font+' Normal', 8, 50,pango.ALIGN_LEFT)
                         else:
                             self.draw_text(t_tomorrow[::2][i]+'°', x0+a*((j+1)/2), y0+13+b*(i/2), font+' Normal', 8, 50,pango.ALIGN_LEFT)
-                    self.draw_scaled_icon(x0+32+a*((j+1)/2), y0+b*(i/2), ICONS_PATH+icons_name+'/weather/'+icon_tomorrow[i], 28, 28)
+                    self.draw_scaled_icon(x0+32+a*((j+1)/2), y0+b*(i/2), os.path.join(ICONS_PATH, icons_name, 'weather', icon_tomorrow[i]), 28, 28)
                     if (wind_direct and wind_speed): 
                         if int(wind_speed_tom[i]) >= high_wind:
                             self.draw_text(wind_direct_tom[i]+', '+wind_speed_tom[i]+' м/с', x0+a*((j+1)/2), y0+27+b*(i/2), font+' Normal', 7, 50,pango.ALIGN_LEFT, color_high_wind)
@@ -634,7 +634,7 @@ class MyDrawArea(gtk.DrawingArea):
                             self.draw_text(t_today[1::2][i]+'°', x0+a*((j+1)/2), y0+13+b*(i/2), font+' Normal', 8, 50,pango.ALIGN_LEFT)
                         else:
                             self.draw_text(t_today[::2][i]+'°', x0+a*((j+1)/2), y0+13+b*(i/2), font+' Normal', 8, 50,pango.ALIGN_LEFT)
-                    self.draw_scaled_icon(x0+32+a*((j+1)/2), y0+b*(i/2), ICONS_PATH+icons_name+'/weather/'+icon_today[i], 28, 28)
+                    self.draw_scaled_icon(x0+32+a*((j+1)/2), y0+b*(i/2), os.path.join(ICONS_PATH, icons_name, 'weather', icon_today[i]), 28, 28)
                     if (wind_direct and wind_speed): 
                         if int(wind_speed_tod[i]) >= high_wind:
                             self.draw_text(wind_direct_tod[i]+', '+wind_speed_tod[i]+' м/с', x0+a*((j+1)/2), y0+27+b*(i/2), font+' Normal', 7, 50,pango.ALIGN_LEFT, color_high_wind)
@@ -649,7 +649,7 @@ class MyDrawArea(gtk.DrawingArea):
                 if math.fabs(int(t_day_feel[index])) < 10: a = 20
             else:
                 if math.fabs(int(t_day[index])) < 10: a = 20
-            self.draw_scaled_icon(x+a, y+16, ICONS_PATH+icons_name+'/weather/'+icon[index], 36, 36)
+            self.draw_scaled_icon(x+a, y+16, os.path.join(ICONS_PATH, icons_name, 'weather', icon[index]), 36, 36)
             if (day and date): 
                 if day[index] in ('Сб', 'Вс'):
                     self.draw_text(day[index]+', '+date[index], x, y-2, font+' Bold', 9, w_block,pango.ALIGN_LEFT, color_text_week)
@@ -672,11 +672,11 @@ class MyDrawArea(gtk.DrawingArea):
 
     def draw_bg(self):
         if show_bg_png:
-            if os.path.exists(BGS_USER_PATH + bg_custom):
-                self.draw_scaled_image(0, 0, BGS_USER_PATH + bg_custom, width, height)
+            if os.path.exists(os.path.join(BGS_USER_PATH, bg_custom)):
+                self.draw_scaled_image(0, 0, os.path.join(BGS_USER_PATH, bg_custom), width, height)
             else: 
-                if os.path.exists(BGS_PATH + bg_custom):
-                    self.draw_scaled_image(0, 0, BGS_PATH + bg_custom, width, height)
+                if os.path.exists(os.path.join(BGS_PATH, bg_custom)):
+                    self.draw_scaled_image(0, 0, os.path.join(BGS_PATH, bg_custom), width, height)
                 else:
                     print 'Не найдено фоновое изображение:', bg_custom
         else:
@@ -740,7 +740,7 @@ class MyDrawArea(gtk.DrawingArea):
 
     def draw_scaled_icon(self, x, y, pix, w, h):
         if icons_name == 'default':
-            pix = ICONS_USER_PATH+'default/weather/'+pix.split('/')[-1]
+            pix = os.path.join(ICONS_USER_PATH, 'default', 'weather', pix.split('/')[-1])
         if icons_name == 'default' and not os.path.exists(pix):
             try:
                 print '> скачиваю', pix.split('/')[-1]
@@ -748,7 +748,7 @@ class MyDrawArea(gtk.DrawingArea):
             except:
                 print 'Не удалось скачать', 'http://st8.gisstatic.ru/static/images/icons/new/'+pix.split('/')[-1]
             if not os.path.exists(pix):
-                pix = THEMES_PATH+'na.png'
+                pix = os.path.join(THEMES_PATH, 'na.png')
             self.draw_scaled_image(x, y, pix, w, h)
             return
         
@@ -776,20 +776,20 @@ class MyDrawArea(gtk.DrawingArea):
                 pix_convert[0] = 'd.sun'
                 pix_convert[1] = 'c4'
             
-            pix = ICONS_PATH+icons_name+'/weather/' + '.'.join(pix_convert)
+            pix = os.path.join(ICONS_PATH, icons_name, 'weather', '.'.join(pix_convert))
             
             
             if not os.path.exists(pix):
-                pix = ICONS_USER_PATH+icons_name+'/weather/' + '.'.join(pix_convert)
+                pix = os.path.join(ICONS_USER_PATH, icons_name, 'weather', '.'.join(pix_convert))
                 if not os.path.exists(pix):
-                    print '[!] отсутстует иконка:\n>', '/'+icons_name+'/weather/' + '.'.join(pix_convert)
-                    if os.path.exists(ICONS_PATH+icons_name+'/weather/na.png'):
-                        pix = ICONS_PATH+icons_name+'/weather/na.png'
+                    print '[!] отсутстует иконка:\n>', os.path.join(icons_name, 'weather', '.'.join(pix_convert))
+                    if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'weather', 'na.png')):
+                        pix = os.path.join(ICONS_PATH, icons_name, 'weather', 'na.png')
                     else:
-                        if os.path.exists(ICONS_USER_PATH+icons_name+'/weather/na.png'):
-                            pix = ICONS_USER_PATH+icons_name+'/weather/na.png'
+                        if os.path.exists(os.path.join(ICONS_USER_PATH, icons_name, 'weather', 'na.png')):
+                            pix = os.path.join(ICONS_USER_PATH, icons_name, 'weather', 'na.png')
                         else:
-                            pix = THEMES_PATH+'na.png'
+                            pix = os.path.join(THEMES_PATH, 'na.png')
             
         self.draw_scaled_image(x, y, pix, w, h)
     
@@ -851,7 +851,7 @@ class Weather_Widget:
         self.window.resize(width, height)
 
         try:
-            screen = os.popen('xrandr | grep \' connected\'').readlines()
+            screen = os.popen("xrandr | grep ' connected'").readlines()
             if output_display < 0: output_display = 0
             if output_display >= len(screen): output_display = len(screen) - 1
             print 'Найденные дисплеи:'
@@ -1072,7 +1072,7 @@ class Weather_Widget:
             about.set_copyright('(С) 2013 - 2014 Alexander Koltsov')
             about.set_comments('Погодный виджет написанный на Python')
             about.set_website('http://sourceforge.net/projects/gis-weather/')
-            about.set_logo(gtk.gdk.pixbuf_new_from_file_at_size(APP_PATH + 'icon.png', 128, 128))
+            about.set_logo(gtk.gdk.pixbuf_new_from_file_at_size(os.path.join(APP_PATH, 'icon.png'), 128, 128))
             about.set_license(license)
             about.set_wrap_license(False)
             about.set_authors(['Alexander Koltsov <ringov@mail.ru>\n',
@@ -1150,6 +1150,8 @@ class Weather_Widget:
         response = dialog.run()
 
         while response == gtk.RESPONSE_ACCEPT or response == gtk.RESPONSE_OK:
+            bar_err.hide()
+            bar_ok.hide()
             if response == gtk.RESPONSE_ACCEPT:
                 try:
                     selection = treeview.get_selection()
@@ -1173,8 +1175,6 @@ class Weather_Widget:
                     pass
             if response == gtk.RESPONSE_OK:
                 try:
-                    bar_err.hide()
-                    bar_ok.hide()
                     city_id = int(entrybox.get_text())
                     c_name = get_city_name(city_id)
                     if c_name == 'None':
