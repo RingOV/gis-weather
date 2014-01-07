@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #  gis_weather.py
-v='0.3.2.2'
+v='0.3.2.3'
 #  Copyright 2013-2014 Alexander Koltsov
 #
 #  draw_scaled_image, draw_text_Whise copyright by Helder Fraga
@@ -59,11 +59,11 @@ gw_config = {
     'font': 'Ubuntu',                  # Шрифт
     'color_text': (0, 0, 0, 1), #RGBa  # Цвет текста
     'color_text_week': (0.5, 0, 0, 1), # Цвет Сб и Вс
-    'color_bg': (1, 1, 1, 0.5),        # Цвет фона
+    'color_bg': (0.8, 0.8, 0.8, 1),    # Цвет фона
     'color_shadow': (1, 1, 1, 0.7),    # Цвет тени
     'draw_shadow': True,               # Рисовать тень
     'opacity': 1,                      # Прозрачность всего окна 0..1
-    'show_time_receive': False,         # Время получения погоды
+    'show_time_receive': False,        # Время получения погоды
     'show_block_wind_direct': True,    # Блок направление ветра
     'block_wind_direct_left': -170,    # Позиция слева относительно центра
     'wind_direct_small': False,        # Маленький блок направления ветра
@@ -73,7 +73,7 @@ gw_config = {
     'block_tomorrow_left': 180,        # Позиция слева относительно центра
     'show_block_today': True,          # Блок с погодой на сегодня
     'block_today_left': -310,          # Позиция слева относительно центра
-    'r': 20,                           # Радиус углов фона (только, если фон не изображение)
+    'r': 0,                            # Радиус углов фона (только, если фон не изображение)
     'show_splash_screen': 2,           # Загрузочная заставка 0 - нет, 1 - только фон, 2 - есть
     'max_try_show': 30,                # После этого количества попыток загрузочная заставка исчезнет, 0 - будет видна всегда
     'sticky': True,                    # На всех рабочих столах
@@ -84,7 +84,7 @@ gw_config = {
     'high_wind': 10,                   # Ветер больше или равен этого значения выделяется цветом (-1 не выделять)
     'color_high_wind': (0, 0, 0.6, 1), # Цвет сильного ветра
     'icons_name': 'default',           # Имя папки с иконками погоды
-    'fix_BadDrawable': False,           # Если выскакивает ошибка 'BadDrawable', то в конфиге исправьте на true
+    'fix_BadDrawable': False,          # Если выскакивает ошибка 'BadDrawable', то в конфиге исправьте на true
     'color_scheme_number': 0
 }
 
@@ -742,13 +742,13 @@ class MyDrawArea(gtk.DrawingArea):
 
     def draw_scaled_icon(self, x, y, pix, w, h):
         if icons_name == 'default':
-            pix = os.path.join(ICONS_USER_PATH, 'default', 'weather', pix.split('/')[-1])
+            pix = os.path.join(ICONS_USER_PATH, 'default', 'weather', os.path.split(pix)[1])
         if icons_name == 'default' and not os.path.exists(pix):
             try:
-                print '> скачиваю', pix.split('/')[-1]
-                urlretrieve('http://st8.gisstatic.ru/static/images/icons/new/'+pix.split('/')[-1], pix)
+                print '> скачиваю', os.path.split(pix)[1]
+                urlretrieve('http://st8.gisstatic.ru/static/images/icons/new/'+os.path.split(pix)[1], pix)
             except:
-                print 'Не удалось скачать', 'http://st8.gisstatic.ru/static/images/icons/new/'+pix.split('/')[-1]
+                print 'Не удалось скачать', 'http://st8.gisstatic.ru/static/images/icons/new/'+os.path.split(pix)[1]
             if not os.path.exists(pix):
                 pix = os.path.join(THEMES_PATH, 'na.png')
             self.draw_scaled_image(x, y, pix, w, h)
@@ -765,8 +765,8 @@ class MyDrawArea(gtk.DrawingArea):
                     pass    
             pix = '.'.join(pix_convert)
             
-            pix_convert = pix.split('/')
-            pix_convert = pix_convert[-1].split('.')
+            pix_convert = os.path.split(pix)
+            pix_convert = pix_convert[1].split('.')
             if pix_convert[2] == 'c4': # за тучами не видно: солнце там или луна (иконки только для солнца)
                 pix_convert[0] = 'd'
                 pix_convert[1] = 'sun'
@@ -837,6 +837,7 @@ class Weather_Widget:
         global width, height
         global x_pos, y_pos
         global output_display
+        global r, margin, show_bg_png
 
         if n > 13:
             n = 13
@@ -845,6 +846,11 @@ class Weather_Widget:
         
         self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
         self.window.set_accept_focus(False)
+
+        if not self.window.is_composited():
+            r = 0
+            margin = 0
+            show_bg_png = False
         
         width = w_block*n + block_margin*2 + 10*(n - 1) + 2*margin
         height = 260 + block_margin + 2*margin
@@ -957,12 +963,14 @@ class Weather_Widget:
         # Фоны
         group = None
         menu_items = gtk.RadioMenuItem(group, '0. Нет')
-        if show_bg_png == False:
+        if show_bg_png == False and color_bg[3]==0:
                 menu_items.set_active(True)
         group = menu_items
         sub_menu_bgs.append(menu_items)
         menu_items.connect("activate", self.redraw_bg, 'Нет')
         menu_items.show()
+        if not self.window.is_composited:
+            files = ['Темный', 'Светлый', 'Синий', 'Голубой', 'Красный']
         for i in range(len(files)):
             buf = files[i].split('_')
             buf = '__'.join(buf)
@@ -1127,6 +1135,13 @@ class Weather_Widget:
             show_bg_png = False
             color_bg = (1, 1, 1, 0)
         bg_custom = string
+        if string in ('Темный', 'Светлый', 'Синий', 'Голубой', 'Красный'):
+            show_bg_png = False
+        if string == 'Темный': color_bg = (0.16, 0.16, 0.16, 1)
+        if string == 'Светлый': color_bg = (0.8, 0.8, 0.8, 1)
+        if string == 'Синий': color_bg = (0.08, 0.2, 0.38, 1)
+        if string == 'Голубой': color_bg = (0.65, 0.84, 0.87, 1)
+        if string == 'Красный': color_bg = (0.25, 0.02, 0.02, 1)
         self.drawing_area.redraw(False, False)
         Save_Config()
     
