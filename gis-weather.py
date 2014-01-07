@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #  gis_weather.py
-v='0.3.2'
+v='0.3.2.1'
 #  Copyright 2013-2014 Alexander Koltsov
 #
 #  draw_scaled_image, draw_text_Whise copyright by Helder Fraga
@@ -1158,6 +1158,7 @@ class Weather_Widget:
                     del_index=cde[0]
                     if iter:
                         model.remove(iter)
+                    bar_label.set_text('Удалено: %s'%city_id_add[int(del_index[0])].split(';')[1])
                     if str(city_id) == city_id_add[int(del_index[0])].split(';')[0]:
                         del city_id_add[int(del_index[0])]
                         if len(city_id_add) != 0:
@@ -1167,6 +1168,7 @@ class Weather_Widget:
                     else:
                         del city_id_add[int(del_index[0])]
                     Save_Config()
+                    bar_ok.show()
                 except:
                     pass
             if response == gtk.RESPONSE_OK:
