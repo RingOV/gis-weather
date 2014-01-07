@@ -33,6 +33,7 @@ from gobject import timeout_add
 import os
 import json
 import Gtk_city_id
+import sys
 
 CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
 
@@ -151,8 +152,9 @@ if not os.path.exists(os.path.join(CONFIG_PATH, 'gw_config.json')):
 # ------------------------------------------------------------------------------
 
 # Путь к виджету
-#APP_PATH = re.findall('(.*\/)', __file__)
-APP_PATH = os.path.dirname(__file__)
+#APP_PATH = os.path.dirname(__file__)
+
+APP_PATH = os.path.dirname(sys.argv[0])
 if APP_PATH == '':
     print 'Указывайте полный путь к скрипту\nВыход.'
     exit()
@@ -946,7 +948,7 @@ class Weather_Widget:
                 buf = dirs_user[i-len(dirs)].split('_') # из _ делаем __ (отображается как _)
                 buf = '__'.join(buf)
                 menu_items = gtk.RadioMenuItem(group, str(i+1)+'. '+buf)
-                if icons_name == dirs_user[i]:
+                if icons_name == dirs_user[i-len(dirs)]:
                     menu_items.set_active(True)
                 group = menu_items
                 sub_menu_icons.append(menu_items)
