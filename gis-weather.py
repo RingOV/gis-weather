@@ -551,36 +551,27 @@ class MyDrawArea(gtk.DrawingArea):
                         self.draw_scaled_image(x0, y0, os.path.join(ICONS_PATH, 'default', 'wind_small.png'), 16, 16, 45+wind_icon*45)
                 if (wind_direct_now and wind_speed_now):
                     if int(wind_speed_now[0]) >= high_wind:
-                        self.draw_text(wind_speed_now[0], x0+20, y0-1, font+' Normal', 12, 100,pango.ALIGN_LEFT, color_high_wind)
+                        self.draw_text(wind_speed_now[0]+"<span size='x-small'> м/с</span>  <span size='small'>%s</span>"%wind_direct_now[0], x0+20, y0-1, font+' Normal', 12, 100,pango.ALIGN_LEFT, color_high_wind)
                     else:
-                        self.draw_text(wind_speed_now[0], x0+20, y0-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
-                    b = 20 + len(wind_speed_now[0])*10
-                    self.draw_text('м/с', x0+b, y0+4, font+' Normal', 8, 100,pango.ALIGN_LEFT)
-                    self.draw_text(wind_direct_now[0], x0+b+line_height, y0+1, font+' Normal', 10, 100,pango.ALIGN_LEFT)
+                        self.draw_text(wind_speed_now[0]+"<span size='x-small'> м/с</span>  <span size='small'>%s</span>"%wind_direct_now[0], x0+20, y0-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
                 if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'press.png')):
                     self.draw_scaled_image(x0, y0+line_height, os.path.join(ICONS_PATH, icons_name, 'press.png'), 16, 16)
                 else:
                     self.draw_scaled_image(x0, y0+line_height, os.path.join(ICONS_PATH, 'default', 'press.png'), 16, 16)
                 if press_now:
-                    self.draw_text(press_now[0], x0+20, y0+line_height-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
-                    b = 20 + len(press_now[0])*10
-                    self.draw_text('мм рт.ст.', x0+b, y0+line_height+4, font+' Normal', 8, 100,pango.ALIGN_LEFT)
+                    self.draw_text(press_now[0]+"<span size='x-small'> мм рт.ст.</span>", x0+20, y0+line_height-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
                 if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'hum.png')):
                     self.draw_scaled_image(x0, y0+line_height*2, os.path.join(ICONS_PATH, icons_name, 'hum.png'), 16, 16)
                 else:
                     self.draw_scaled_image(x0, y0+line_height*2, os.path.join(ICONS_PATH, 'default', 'hum.png'), 16, 16)
                 if hum_now:
-                    self.draw_text(hum_now[0], x0+20, y0+line_height*2-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
-                    b = 20 + len(hum_now[0])*10
-                    self.draw_text('% влажн.', x0+b, y0+line_height*2+4, font+' Normal', 8, 100,pango.ALIGN_LEFT)
+                    self.draw_text(hum_now[0]+"<span size='x-small'> % влажн.</span>", x0+20, y0+line_height*2-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
                 if os.path.exists(os.path.join(ICONS_PATH, icons_name, 't_water.png')):
                     self.draw_scaled_image(x0, y0+line_height*3, os.path.join(ICONS_PATH, icons_name, 't_water.png'), 16, 16)
                 else:
                     self.draw_scaled_image(x0, y0+line_height*3, os.path.join(ICONS_PATH, 'default', 't_water.png'), 16, 16)
                 if t_water_now:
-                    self.draw_text(t_water_now, x0+20, y0+line_height*3-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
-                    b = 20 + len(t_water_now)*10
-                    self.draw_text('°C вода', x0+b, y0+line_height*3+4, font+' Normal', 8, 100,pango.ALIGN_LEFT) 
+                    self.draw_text(t_water_now+"<span size='x-small'> °C вода</span>", x0+20, y0+line_height*3-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
             
             if show_block_tomorrow:
                 ####-Блок погоды на завтра-####
