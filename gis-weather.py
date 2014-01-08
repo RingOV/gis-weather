@@ -885,7 +885,10 @@ class Weather_Widget:
         self.window.connect("screen-changed", self.screen_changed)
         self.window.set_role('')
         self.window.set_app_paintable(True)
-        self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DOCK)
+        if os.environ.get('DESKTOP_SESSION') == "ubuntu":
+            self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_DOCK)
+        else:
+            self.window.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_UTILITY)
         self.window.set_keep_above(False)
         self.window.set_keep_below(True)
         self.window.set_skip_taskbar_hint(True)
@@ -994,6 +997,13 @@ class Weather_Widget:
             sub_menu_color_text.append(menu_items)
             menu_items.connect("activate", self.redraw_text, i)
             menu_items.show()
+        menu_items = gtk.SeparatorMenuItem()
+        sub_menu_color_text.append(menu_items)
+        menu_items.show()
+        menu_items = gtk.MenuItem('Выбрать шрифт...')
+        sub_menu_color_text.append(menu_items)
+        menu_items.connect("activate", self.menu_response, 'choose_font')
+        menu_items.show()
 
         # sub_menu_place
         group = None
@@ -1095,6 +1105,20 @@ class Weather_Widget:
             #about.set_documenters('')
             about.run()
             about.destroy()
+            return
+        if event == 'choose_font':
+            global font
+            fdia = gtk.FontSelectionDialog('Выберите шрифт')
+            fdia.set_font_name(font)
+            response = fdia.run()
+
+            if response == gtk.RESPONSE_OK:
+                font_desc = pango.FontDescription(fdia.get_font_name())
+                font = font_desc.get_family()
+                Save_Config()
+                self.drawing_area.redraw(False, False)
+            fdia.destroy()
+            return
 
     def button_press(self, widget, event):
         if event.button == 1:
