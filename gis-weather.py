@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #  gis_weather.py
-v='0.3.2.3'
+v='0.3.3'
 #  Copyright 2013-2014 Alexander Koltsov
 #
 #  draw_scaled_image, draw_text_Whise copyright by Helder Fraga
@@ -963,7 +963,7 @@ class Weather_Widget:
         sub_menu_bgs.append(menu_items)
         menu_items.connect("activate", self.redraw_bg, 'Нет')
         menu_items.show()
-        if not self.window.is_composited:
+        if not self.window.is_composited():
             files = ['Темный', 'Светлый', 'Синий', 'Голубой', 'Красный']
         for i in range(len(files)):
             buf = files[i].split('_')
@@ -1057,7 +1057,7 @@ class Weather_Widget:
         
         menu_items = gtk.MenuItem('Редактировать...')
         menu.append(menu_items)
-        menu_items.connect("activate", lambda x: os.popen('xdg-open '+CONFIG_PATH))
+        menu_items.connect("activate", self.menu_response, 'edit')
         menu_items.show()
 
         menu_items = gtk.ImageMenuItem(gtk.STOCK_ABOUT)
@@ -1118,6 +1118,12 @@ class Weather_Widget:
                 Save_Config()
                 self.drawing_area.redraw(False, False)
             fdia.destroy()
+            return
+        if event == 'edit':
+            if sys.platform.startswith('linux'):
+                os.popen('xdg-open '+CONFIG_PATH)
+            else:
+                os.popen('explorer '+CONFIG_PATH)
             return
 
     def button_press(self, widget, event):
