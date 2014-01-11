@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #  gis_weather.py
-v='0.3.3'
+v='0.3.3-1'
 #  Copyright 2013-2014 Alexander Koltsov
 #
 #  draw_scaled_image, draw_text_Whise copyright by Helder Fraga
@@ -185,6 +185,7 @@ err = False
 on_redraw = False
 timer_bool = True
 get_weather_bool = True
+not_composited = False
 
 # переменные, в которые записывается погода
 city_name = []       # Город
@@ -665,6 +666,9 @@ class MyDrawArea(gtk.DrawingArea):
 
     def draw_bg(self):
         if show_bg_png:
+            if not_composited:
+                if os.path.exists(os.path.join(CONFIG_PATH, 'screenshot.png')):
+                    self.draw_scaled_image(0, 0, os.path.join(CONFIG_PATH, 'screenshot.png'), width, height)
             if os.path.exists(os.path.join(BGS_USER_PATH, bg_custom)):
                 self.draw_scaled_image(0, 0, os.path.join(BGS_USER_PATH, bg_custom), width, height)
             else: 
@@ -838,11 +842,6 @@ class Weather_Widget:
         self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
         self.window.set_accept_focus(False)
 
-        if not self.window.is_composited():
-            r = 0
-            margin = 0
-            show_bg_png = False
-        
         width = w_block*n + block_margin*2 + 10*(n - 1) + 2*margin
         height = 260 + block_margin + 2*margin
         print 'Размеры виджета:'
@@ -877,6 +876,12 @@ class Weather_Widget:
         self.window.move(x_pos1, y_pos1)
         self.window.set_decorated(False)
 
+        global not_composited
+
+        if not self.window.is_composited():
+            not_composited = True
+            self.screenshot(x_pos, y_pos, width, height)
+
         self.window.set_events(gtk.gdk.ALL_EVENTS_MASK)
         self.window.connect('button-press-event', self.button_press)
         self.window.connect("configure-event", self.configure_event)
@@ -895,7 +900,7 @@ class Weather_Widget:
         self.window.set_skip_pager_hint(True)
         if sticky:
             self.window.stick()
-        
+
         self.window.set_opacity(opacity) 
         self.drawing_area = MyDrawArea()
         self.window.add(self.drawing_area)
@@ -922,12 +927,12 @@ class Weather_Widget:
         sub_menu_bgs = gtk.Menu()
         sub_menu_color_text = gtk.Menu()
         sub_menu_place = gtk.Menu()
-        
+
         # Иконки
         group = None
         menu_items = gtk.RadioMenuItem(group, '0. Default')
         if icons_name == 'default':
-                menu_items.set_active(True)
+            menu_items.set_active(True)
         group = menu_items
         sub_menu_icons.append(menu_items)
         menu_items.connect("activate", self.redraw_icons, 'default')
@@ -958,13 +963,11 @@ class Weather_Widget:
         group = None
         menu_items = gtk.RadioMenuItem(group, '0. Нет')
         if show_bg_png == False and color_bg[3]==0:
-                menu_items.set_active(True)
+            menu_items.set_active(True)
         group = menu_items
         sub_menu_bgs.append(menu_items)
         menu_items.connect("activate", self.redraw_bg, 'Нет')
         menu_items.show()
-        if not self.window.is_composited():
-            files = ['Темный', 'Светлый', 'Синий', 'Голубой', 'Красный']
         for i in range(len(files)):
             buf = files[i].split('_')
             buf = '__'.join(buf)
@@ -1075,6 +1078,18 @@ class Weather_Widget:
         menu_items.show()
         return menu
 
+    def screenshot(self, left, top, width, height):
+        w = gtk.gdk.get_default_root_window()
+        #sz = w.get_size()
+        #print "The size of the window is %d x %d" % sz
+        pb = gtk.gdk.Pixbuf(gtk.gdk.COLORSPACE_RGB,True,8,width,height)
+        pb = pb.get_from_drawable(w,w.get_colormap(),left,top,0,0,width,height)
+        if (pb != None):
+            pb.save(os.path.join(CONFIG_PATH, "screenshot.png"),"png")
+            print "Screenshot saved to", os.path.join(CONFIG_PATH, "screenshot.png")
+        else:
+            print "Unable to get the screenshot."
+
     def menu_response(self, widget, event, value=None):
         if event == 'about':
             about = gtk.AboutDialog()
@@ -1148,7 +1163,7 @@ class Weather_Widget:
         icons_name = string
         self.drawing_area.redraw(False, False)
         Save_Config()
-    
+
     def redraw_bg(self, widget, string):
         global bg_custom, show_bg_png, color_bg
         show_bg_png = True
@@ -1156,13 +1171,6 @@ class Weather_Widget:
             show_bg_png = False
             color_bg = (1, 1, 1, 0)
         bg_custom = string
-        if string in ('Темный', 'Светлый', 'Синий', 'Голубой', 'Красный'):
-            show_bg_png = False
-        if string == 'Темный': color_bg = (0.16, 0.16, 0.16, 1)
-        if string == 'Светлый': color_bg = (0.8, 0.8, 0.8, 1)
-        if string == 'Синий': color_bg = (0.08, 0.2, 0.38, 1)
-        if string == 'Голубой': color_bg = (0.65, 0.84, 0.87, 1)
-        if string == 'Красный': color_bg = (0.25, 0.02, 0.02, 1)
         self.drawing_area.redraw(False, False)
         Save_Config()
     
