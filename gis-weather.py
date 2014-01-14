@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 #
 #  gis_weather.py
-v='0.3.3-1'
+v='0.3.3.2'
+v='0.3.2'
 #  Copyright 2013-2014 Alexander Koltsov
 #
 #  draw_scaled_image, draw_text_Whise copyright by Helder Fraga
@@ -33,6 +34,7 @@ from gobject import timeout_add
 import os
 import json
 import Gtk_city_id
+import Gtk_update_dialog
 import sys
 
 CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
@@ -85,7 +87,8 @@ gw_config = {
     'color_high_wind': (0, 0, 0.6, 1), # Цвет сильного ветра
     'icons_name': 'default',           # Имя папки с иконками погоды
     'fix_BadDrawable': False,          # Если выскакивает ошибка 'BadDrawable', то в конфиге исправьте на true
-    'color_scheme_number': 0
+    'color_scheme_number': 0,
+    'check_for_updates': True
 }
 
 color_scheme = [
@@ -233,6 +236,26 @@ def get_city_name(c_id):
     return c_name[0]
 
 
+def check_updates():
+    try:
+        source = urlopen('https://sourceforge.net/projects/gis-weather/').read()
+    except:
+        print '[!] Невозможно проверить обновления'
+        return False
+    new_ver1 = re.findall('>gis-weather_(.+)_', source)
+    new_ver = new_ver1[0].split('.')
+    while len(new_ver)<4:
+        new_ver.append('0')
+    cur_ver = v.split('.')
+    while len(cur_ver)<4:
+        cur_ver.append('0')
+
+    for i in range(4):
+        if int(new_ver[i])>int(cur_ver[i]):
+            return new_ver1[0]
+    return False
+
+
 def get_weather():
     global err_connect, splash
     global city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, icon_today, wind_speed_tod, wind_direct_tod 
@@ -369,9 +392,10 @@ def get_weather():
     if time_update:
         print '> Обновление на сервере в', time_update[0]
     print '> Погода получена в', time.strftime('%H:%M', time.localtime())
-    
+
     if splash:
         splash = False
+
 
 class MyDrawArea(gtk.DrawingArea):
     p_layout = None
@@ -406,6 +430,12 @@ class MyDrawArea(gtk.DrawingArea):
         global first_start, on_redraw, timer_bool, get_weather_bool
         timer_bool = timer1
         get_weather_bool = get_weather1
+        if (not splash) and get_weather1:
+            print '> Проверяю наличие новой версии'
+            new_ver = check_updates()
+            if new_ver:
+                print '>>> Доступна новая версия', new_ver, '<<<'
+                Gtk_update_dialog.show(v, new_ver)
         on_redraw = True
         expose_event = gtk.gdk.Event(gtk.gdk.EXPOSE)
         expose_event.window = self.window
@@ -1090,6 +1120,7 @@ class Weather_Widget:
         else:
             print "Unable to get the screenshot."
 
+
     def menu_response(self, widget, event, value=None):
         if event == 'about':
             about = gtk.AboutDialog()
@@ -1103,7 +1134,7 @@ class Weather_Widget:
             about.set_wrap_license(False)
             about.set_authors(['Alexander Koltsov <ringov@mail.ru>\n',
                 'draw_scaled_image, draw_text_Whise\nby Helder Fraga aka Whise <helder.fraga@hotmail.com>\n',
-                'Помощь и идеи:\nHaron Prime, Karbunkul, Yuriy_Y'])
+                'Помощь и идеи:\nKarbunkul, Haron Prime, Yuriy_Y'])
             about.set_artists(['backgrounds:',
                 'LightEasyShadow, LightWhiteShadow, DarkEasyShadow, DarkWithFlare',
                 'by wfedin',
