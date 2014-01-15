@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #  gis_weather.py
-v='0.3.3.2'
+v='0.3.3.3'
 v='0.3.2'
 #  Copyright 2013-2014 Alexander Koltsov
 #
