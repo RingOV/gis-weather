@@ -1,8 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 #
 #  gis_weather.py
-v='0.3.3.3'
+v='0.3.3.4'
 v='0.3.2'
 #  Copyright 2013-2014 Alexander Koltsov
 #
@@ -88,7 +88,8 @@ gw_config = {
     'icons_name': 'default',           # Имя папки с иконками погоды
     'fix_BadDrawable': False,          # Если выскакивает ошибка 'BadDrawable', то в конфиге исправьте на true
     'color_scheme_number': 0,
-    'check_for_updates': True
+    'check_for_updates': True,
+    'fix_position': False
 }
 
 color_scheme = [
@@ -237,10 +238,12 @@ def get_city_name(c_id):
 
 
 def check_updates():
+    print '> Проверяю наличие новой версии'
     try:
         source = urlopen('https://sourceforge.net/projects/gis-weather/').read()
     except:
         print '[!] Невозможно проверить обновления'
+        print '-'*40
         return False
     new_ver1 = re.findall('>gis-weather_(.+)_', source)
     new_ver = new_ver1[0].split('.')
@@ -250,10 +253,18 @@ def check_updates():
     while len(cur_ver)<4:
         cur_ver.append('0')
 
+    new_v = None
     for i in range(4):
         if int(new_ver[i])>int(cur_ver[i]):
-            return new_ver1[0]
-    return False
+            new_v = new_ver1[0]
+            break
+    if new_v:
+        print '>>> Доступна новая версия', new_v, '<<<'
+        print '-'*40
+        Gtk_update_dialog.show(v, new_v, CONFIG_PATH)
+    else:
+        print '> Текущая версия актуальна'
+        print '-'*40
 
 
 def get_weather():
@@ -430,18 +441,14 @@ class MyDrawArea(gtk.DrawingArea):
         global first_start, on_redraw, timer_bool, get_weather_bool
         timer_bool = timer1
         get_weather_bool = get_weather1
-        if (not splash) and get_weather1:
-            print '> Проверяю наличие новой версии'
-            new_ver = check_updates()
-            if new_ver:
-                print '>>> Доступна новая версия', new_ver, '<<<'
-                Gtk_update_dialog.show(v, new_ver)
         on_redraw = True
         expose_event = gtk.gdk.Event(gtk.gdk.EXPOSE)
         expose_event.window = self.window
         if first_start:
             first_start = False
         self.send_expose(expose_event)
+        if get_weather1 and check_for_updates:
+            check_updates()
 
     
     def clear_draw_area(self, widget):
@@ -957,6 +964,8 @@ class Weather_Widget:
         sub_menu_bgs = gtk.Menu()
         sub_menu_color_text = gtk.Menu()
         sub_menu_place = gtk.Menu()
+        sub_menu_settings = gtk.Menu()
+        sub_menu_window = gtk.Menu()
 
         # Иконки
         group = None
@@ -1058,6 +1067,19 @@ class Weather_Widget:
         menu_items.connect("activate", self.edit_city_id)
         menu_items.show()
 
+        # sub_menu_window
+        menu_items = gtk.CheckMenuItem('Закрепить')
+        menu_items.set_active(fix_position)
+        menu_items.connect("activate", self.menu_response, 'fix')
+        sub_menu_window.append(menu_items)
+        menu_items.show()
+
+        menu_items = gtk.CheckMenuItem('На всех рабочих столах')
+        menu_items.set_active(sticky)
+        menu_items.connect("activate", self.menu_response, 'sticky')
+        sub_menu_window.append(menu_items)
+        menu_items.show()
+
         # main menu
         menu_items = gtk.ImageMenuItem(gtk.STOCK_REFRESH)
         menu.append(menu_items)
@@ -1086,6 +1108,11 @@ class Weather_Widget:
         menu_items = gtk.MenuItem('Текст')
         menu.append(menu_items)
         menu_items.set_submenu(sub_menu_color_text)
+        menu_items.show()
+
+        menu_items = gtk.MenuItem('Окно')
+        menu.append(menu_items)
+        menu_items.set_submenu(sub_menu_window)
         menu_items.show()
         
         menu_items = gtk.MenuItem('Редактировать...')
@@ -1134,7 +1161,7 @@ class Weather_Widget:
             about.set_wrap_license(False)
             about.set_authors(['Alexander Koltsov <ringov@mail.ru>\n',
                 'draw_scaled_image, draw_text_Whise\nby Helder Fraga aka Whise <helder.fraga@hotmail.com>\n',
-                'Помощь и идеи:\nKarbunkul, Haron Prime, Yuriy_Y'])
+                'Помощь и идеи:\n    Karbunkul\n    Haron Prime\n    Yuriy_Y'])
             about.set_artists(['backgrounds:',
                 'LightEasyShadow, LightWhiteShadow, DarkEasyShadow, DarkWithFlare',
                 'by wfedin',
@@ -1171,9 +1198,25 @@ class Weather_Widget:
             else:
                 os.popen('explorer '+CONFIG_PATH)
             return
+        if event == 'fix':
+            global fix_position
+            if fix_position:
+                fix_position = False
+            else:
+                fix_position = True
+            Save_Config()
+        if event == 'sticky':
+            global sticky
+            if sticky:
+                sticky = False
+                self.window.unstick()
+            else:
+                sticky = True
+                self.window.stick()
+            Save_Config()
 
     def button_press(self, widget, event):
-        if event.button == 1:
+        if event.button == 1 and not fix_position:
             self.window.begin_move_drag(1, int(event.x_root), int(event.y_root), event.time)
             return True
         if event.button == 3:
