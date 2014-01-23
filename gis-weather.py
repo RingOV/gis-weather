@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 #
 #  gis_weather.py
-v='0.3.3.4'
-v='0.3.2'
+v = '0.3.3.5'
+v = '0.3.2'
 #  Copyright 2013-2014 Alexander Koltsov
 #
 #  draw_scaled_image, draw_text_Whise copyright by Helder Fraga
@@ -36,6 +36,7 @@ import json
 import Gtk_city_id
 import Gtk_update_dialog
 import sys
+import subprocess
 
 CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
 
@@ -88,7 +89,7 @@ gw_config = {
     'icons_name': 'default',           # Имя папки с иконками погоды
     'fix_BadDrawable': False,          # Если выскакивает ошибка 'BadDrawable', то в конфиге исправьте на true
     'color_scheme_number': 0,
-    'check_for_updates': True,
+    'check_for_updates': 2,            # 0 - нет, 1 - только при запуске, 2 - всегда
     'fix_position': False
 }
 
@@ -190,6 +191,10 @@ on_redraw = False
 timer_bool = True
 get_weather_bool = True
 not_composited = False
+if check_for_updates == 0:
+    check_for_updates_local = False
+else:
+    check_for_updates_local = True
 
 # переменные, в которые записывается погода
 city_name = []       # Город
@@ -240,12 +245,12 @@ def get_city_name(c_id):
 def check_updates():
     print '> Проверяю наличие новой версии'
     try:
-        source = urlopen('https://sourceforge.net/projects/gis-weather/').read()
+        source = urlopen('http://sourceforge.net/projects/gis-weather/files/gis-weather/').read()
     except:
         print '[!] Невозможно проверить обновления'
         print '-'*40
         return False
-    new_ver1 = re.findall('>gis-weather_(.+)_', source)
+    new_ver1 = re.findall('<a href="/projects/gis-weather/files/gis-weather/(.+)/"', source)
     new_ver = new_ver1[0].split('.')
     while len(new_ver)<4:
         new_ver.append('0')
@@ -261,10 +266,14 @@ def check_updates():
     if new_v:
         print '>>> Доступна новая версия', new_v, '<<<'
         print '-'*40
-        Gtk_update_dialog.show(v, new_v, CONFIG_PATH)
+        Gtk_update_dialog.show(v, new_v, CONFIG_PATH, APP_PATH)
+        global check_for_updates_local
+        check_for_updates_local = False
     else:
         print '> Текущая версия актуальна'
         print '-'*40
+        if check_for_updates == 1 and check_for_updates_local:
+            check_for_updates_local = False
 
 
 def get_weather():
@@ -447,7 +456,7 @@ class MyDrawArea(gtk.DrawingArea):
         if first_start:
             first_start = False
         self.send_expose(expose_event)
-        if get_weather1 and check_for_updates:
+        if get_weather1 and check_for_updates_local:
             check_updates()
 
     
@@ -885,8 +894,10 @@ class Weather_Widget:
         print '    ширина =', width, 'высота =', height, 'в т.ч. отступ =', margin
         self.window.resize(width, height)
 
+        # Нужно ли?
         try:
-            screen = os.popen("xrandr | grep ' connected'").readlines()
+            screen = subprocess.Popen('xrandr | grep " connected"', shell=True, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
+            screen = screen.stdout.readlines()
             if output_display < 0: output_display = 0
             if output_display >= len(screen): output_display = len(screen) - 1
             print 'Найденные дисплеи:'
@@ -1194,9 +1205,9 @@ class Weather_Widget:
             return
         if event == 'edit':
             if sys.platform.startswith('linux'):
-                os.popen('xdg-open '+CONFIG_PATH)
+                subprocess.Popen(['xdg-open', CONFIG_PATH])
             else:
-                os.popen('explorer '+CONFIG_PATH)
+                subprocess.Popen(['explorer ', CONFIG_PATH])
             return
         if event == 'fix':
             global fix_position
@@ -1254,6 +1265,11 @@ class Weather_Widget:
         Save_Config()
 
     def reload(self, widget, c_id = 0):
+        # если radio, то обновлялось 2 раза, фикс
+        if type(widget) == gtk.RadioMenuItem:
+            if not widget.get_active():
+                return
+
         global city_id
         Load_Config()
         if c_id != 0:
