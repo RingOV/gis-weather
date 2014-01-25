@@ -6,7 +6,7 @@ from urllib2 import urlopen
 import re
 import pango
 import os
-import subprocess, shlex
+import subprocess
 import urllib
 import sys
 

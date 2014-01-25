@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #  gis_weather.py
-v = '0.3.3.5'
-v = '0.3.2'
+v = '0.3.4'
 #  Copyright 2013-2014 Alexander Koltsov
 #
 #  draw_scaled_image, draw_text_Whise copyright by Helder Fraga
@@ -1341,6 +1340,8 @@ class Weather_Widget:
 
     def main(self):
         self.window.show_all()
+        x = self.window.get_size()
+        self.window.resize(width, height-(x[1]-height))
         if city_id == 0:
             if self.show_edit_dialog():
                 Save_Config()
