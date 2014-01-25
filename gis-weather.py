@@ -1165,7 +1165,7 @@ class Weather_Widget:
             about.set_program_name('Gis Weather')
             about.set_version(v)
             about.set_copyright('(С) 2013 - 2014 Alexander Koltsov')
-            about.set_comments('Погодный виджет написанный на Python')
+            about.set_comments('Погодный виджет')
             about.set_website('http://sourceforge.net/projects/gis-weather/')
             about.set_logo(gtk.gdk.pixbuf_new_from_file_at_size(os.path.join(APP_PATH, 'icon.png'), 128, 128))
             about.set_license(license)
