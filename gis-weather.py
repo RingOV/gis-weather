@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #  gis_weather.py
-v = '0.3.4'
+v = '0.3.4.1'
 #  Copyright 2013-2014 Alexander Koltsov
 #
 #  draw_scaled_image, draw_text_Whise copyright by Helder Fraga
@@ -233,7 +233,7 @@ wind_direct_tod = [] # Направление ветра сегодня
 
 def get_city_name(c_id):
     try:
-        source = urlopen('http://www.gismeteo.ru/city/weekly/' + str(c_id)).read()
+        source = urlopen('http://www.gismeteo.ru/city/weekly/' + str(c_id), timeout=10).read()
         c_name = re.findall('type[A-Z].*\">(.*)<', source)
     except:
         print '[!] Не удалось получить название местоположения'
@@ -244,7 +244,7 @@ def get_city_name(c_id):
 def check_updates():
     print '> Проверяю наличие новой версии'
     try:
-        source = urlopen('http://sourceforge.net/projects/gis-weather/files/gis-weather/').read()
+        source = urlopen('http://sourceforge.net/projects/gis-weather/files/gis-weather/', timeout=10).read()
     except:
         print '[!] Невозможно проверить обновления'
         print '-'*40
@@ -281,7 +281,7 @@ def get_weather():
     print '> Получаю погоду на', n, 'дней'
     print '> Загружаю в переменную страницу', 'http://www.gismeteo.ru/city/weekly/' + str(city_id)
     try:
-        source = urlopen('http://www.gismeteo.ru/city/weekly/' + str(city_id)).read()
+        source = urlopen('http://www.gismeteo.ru/city/weekly/' + str(city_id), timeout=10).read()
         err_connect = False
         print 'OK'
     except:
@@ -455,7 +455,7 @@ class MyDrawArea(gtk.DrawingArea):
         if first_start:
             first_start = False
         self.send_expose(expose_event)
-        if get_weather1 and check_for_updates_local:
+        if get_weather1 and check_for_updates_local and not err_connect:
             check_updates()
 
     

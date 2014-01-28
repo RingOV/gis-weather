@@ -14,7 +14,7 @@ updating_step1 = None
 
 def get_changes():
     try:
-        source = urlopen('http://sourceforge.net/p/gis-weather/changelog/').read()
+        source = urlopen('http://sourceforge.net/p/gis-weather/changelog/', timeout=10).read()
     except:
         print '[!] Невозможно получить изменения'
         changes = ['','']
