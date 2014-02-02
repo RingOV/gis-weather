@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #  gis_weather.py
-v = '0.3.4.1'
+v = '0.4'
 #  Copyright 2013-2014 Alexander Koltsov
 #
 #  draw_scaled_image, draw_text_Whise copyright by Helder Fraga
@@ -36,6 +36,7 @@ import Gtk_city_id
 import Gtk_update_dialog
 import sys
 import subprocess
+import settings
 
 CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
 
@@ -49,14 +50,14 @@ if not os.path.exists(os.path.join(CONFIG_PATH, 'backgrounds')):
     os.makedirs(os.path.join(CONFIG_PATH, 'backgrounds'))
 
 # Default values
-gw_config = {
+gw_config_default = {
     'angel': 0,                        # Угол поворота по часовой стрелке в градусах
     'city_id': 0,                      # Код города
     'city_id_add': [],                 # Словарь дополнительных городов
     'upd_time': 30,                    # Обновлять через (в минутах)
     'n': 7,                            # Количество отображаемых дней от 1 до 13
-    'x_pos': -15,                      # Позиция слева
-    'y_pos': -15,                      # Позиция сверху
+    'x_pos': 60,                       # Позиция слева
+    'y_pos': 60,                       # Позиция сверху
     't_feel': False,                   # Температура как ощущается
     'font': 'Ubuntu',                  # Шрифт
     'color_text': (0, 0, 0, 1), #RGBa  # Цвет текста
@@ -91,6 +92,9 @@ gw_config = {
     'check_for_updates': 2,            # 0 - нет, 1 - только при запуске, 2 - всегда
     'fix_position': False
 }
+gw_config = {}
+for i in gw_config_default.keys():
+    gw_config[i] = gw_config_default[i]
 
 color_scheme = [
     {   'color_text': (0, 0, 0, 1), #RGBa    # Цвет текста
@@ -194,6 +198,8 @@ if check_for_updates == 0:
     check_for_updates_local = False
 else:
     check_for_updates_local = True
+icons_list = []
+backgrounds_list = []
 
 # переменные, в которые записывается погода
 city_name = []       # Город
@@ -445,8 +451,11 @@ class MyDrawArea(gtk.DrawingArea):
                     self.draw_text('Местоположение не настроено', 0, height/2 + 60, font+' Normal', 10, width, pango.ALIGN_CENTER)
 
 
-    def redraw(self, timer1 = True, get_weather1 = True):
+    def redraw(self, timer1 = True, get_weather1 = True, load_config = False):
         global first_start, on_redraw, timer_bool, get_weather_bool
+        if load_config:
+            Load_Config()
+            app.set_window_properties()
         timer_bool = timer1
         get_weather_bool = get_weather1
         on_redraw = True
@@ -455,6 +464,8 @@ class MyDrawArea(gtk.DrawingArea):
         if first_start:
             first_start = False
         self.send_expose(expose_event)
+        while gtk.events_pending():
+            gtk.main_iteration_do(True)
         if get_weather1 and check_for_updates_local and not err_connect:
             check_updates()
 
@@ -530,8 +541,8 @@ class MyDrawArea(gtk.DrawingArea):
                     self.draw_text(day[0]+', '+date[0], 0, y-15, font+' Bold', 12, width, pango.ALIGN_CENTER)
             
             if show_time_receive:
-                if time_update: self.draw_text('обновление на сервере '+time_update[0], x-margin, x+8+margin, font+' Normal', 8, width-10,pango.ALIGN_RIGHT)
-                self.draw_text('погода получена '+time.strftime('%H:%M', time.localtime()), x-margin, x+18+margin, font+' Normal', 8, width-10,pango.ALIGN_RIGHT)
+                if time_update: self.draw_text('обновление на сервере '+time_update[0], x-margin, x+18+margin, font+' Normal', 8, width-10,pango.ALIGN_RIGHT)
+                self.draw_text('погода получена '+time.strftime('%H:%M', time.localtime()), x-margin, x+8+margin, font+' Normal', 8, width-10,pango.ALIGN_RIGHT)
             if city_name: self.draw_text(city_name[0], x+0, y, font+' Bold', 14, width, pango.ALIGN_CENTER)
             self.draw_scaled_icon(center-40, y+30, os.path.join(ICONS_PATH, icons_name, 'weather', icon_now[0]),80,80)
             if t_now: self.draw_text(t_now[0]+'°', center-100, y+30, font+' Normal', 18, 60, pango.ALIGN_RIGHT)
@@ -546,7 +557,7 @@ class MyDrawArea(gtk.DrawingArea):
                 font_NS = 8 # шрифт сторон горизонта
                 font_wind = 10
                 if wind_direct_small:
-                    left = -85
+                    left = block_wind_direct_left+90#-85
                     top = y + 55 #75 + margin
                     r = 16    #радиус окружности
                     a = 20     #ширина и высота стрелки (a < 2*r)
@@ -557,7 +568,7 @@ class MyDrawArea(gtk.DrawingArea):
                 NS = ('В', 'Ю', 'З', 'С')
                 x0 = center + left+a
                 y0 = top + r
-                angel_rad = (angel/45*45)*math.pi/180
+                angel_rad = angel*math.pi/180
                 if (wind_direct_now and wind_speed_now):
                     for i in range(0, 8):
                         if i % 2 == 0:
@@ -568,12 +579,11 @@ class MyDrawArea(gtk.DrawingArea):
                         self.draw_text(wind_direct_now[0]+', '+wind_speed_now[0]+' м/с', x0-r-5, y0+r+font_wind+4, font+' Normal', font_wind, 2*r+10+font_NS,pango.ALIGN_CENTER)
                 wind_icon = 0
                 if icon_wind_now[0] != '0': 
-                    wind_icon = int(icon_wind_now[0]) + angel/45
-                    if wind_icon > 8: wind_icon = wind_icon - 8
+                    wind_icon = int(icon_wind_now[0])*45+45
                     if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'wind.png')):
-                        self.draw_scaled_image(x0-a/2+font_NS/2, y0-a/2+1+font_NS/2, os.path.join(ICONS_PATH, icons_name, 'wind.png'), a, a, 45+wind_icon*45)
+                        self.draw_scaled_image(x0-a/2+font_NS/2, y0-a/2+1+font_NS/2, os.path.join(ICONS_PATH, icons_name, 'wind.png'), a, a, wind_icon+angel)
                     else:
-                        self.draw_scaled_image(x0-a/2+font_NS/2, y0-a/2+1+font_NS/2, os.path.join(ICONS_PATH, 'default', 'wind.png'), a, a, 45+wind_icon*45)
+                        self.draw_scaled_image(x0-a/2+font_NS/2, y0-a/2+1+font_NS/2, os.path.join(ICONS_PATH, 'default', 'wind.png'), a, a, wind_icon+angel)
             
             if show_block_add_info:    
                 ####-Блок с доп инфо-####
@@ -588,13 +598,12 @@ class MyDrawArea(gtk.DrawingArea):
                 if not show_block_wind_direct:
                     wind_icon = 0
                     if icon_wind_now[0] != '0': 
-                        wind_icon = int(icon_wind_now[0]) + angel/45
-                        if wind_icon > 8: wind_icon = wind_icon - 8
+                        wind_icon = int(icon_wind_now[0])*45+45
                 if wind_icon != 0:
                     if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'wind_small.png')):
-                        self.draw_scaled_image(x0, y0, os.path.join(ICONS_PATH, icons_name, 'wind_small.png'), 16, 16, 45+wind_icon*45)
+                        self.draw_scaled_image(x0, y0, os.path.join(ICONS_PATH, icons_name, 'wind_small.png'), 16, 16, wind_icon+angel)
                     else:
-                        self.draw_scaled_image(x0, y0, os.path.join(ICONS_PATH, 'default', 'wind_small.png'), 16, 16, 45+wind_icon*45)
+                        self.draw_scaled_image(x0, y0, os.path.join(ICONS_PATH, 'default', 'wind_small.png'), 16, 16, wind_icon+angel)
                 if (wind_direct_now and wind_speed_now):
                     if int(wind_speed_now[0]) >= high_wind:
                         self.draw_text(wind_speed_now[0]+"<span size='x-small'> м/с</span>  <span size='small'>%s</span>"%wind_direct_now[0], x0+20, y0-1, font+' Normal', 12, 100,pango.ALIGN_LEFT, color_high_wind)
@@ -873,54 +882,48 @@ class Weather_Widget:
     menu = None
 
     def __init__(self):
-        global n
-        global width, height
-        global x_pos, y_pos
-        global output_display
-        global r, margin, show_bg_png
+        #global x_pos, y_pos
+        #global output_display
+        #global margin
 
-        if n > 13:
-            n = 13
-        if n < 1:
-            n = 1
-        
         self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
         self.window.set_accept_focus(False)
 
-        width = w_block*n + block_margin*2 + 10*(n - 1) + 2*margin
-        height = 260 + block_margin + 2*margin
+        self.set_window_properties()
+        # width = w_block*n + block_margin*2 + 10*(n - 1) + 2*margin
+        # height = 260 + block_margin + 2*margin
         print 'Размеры виджета:'
         print '    ширина =', width, 'высота =', height, 'в т.ч. отступ =', margin
-        self.window.resize(width, height)
+        # self.window.resize(width, height)
 
         # Нужно ли?
-        try:
-            screen = subprocess.Popen('xrandr | grep " connected"', shell=True, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
-            screen = screen.stdout.readlines()
-            if output_display < 0: output_display = 0
-            if output_display >= len(screen): output_display = len(screen) - 1
-            print 'Найденные дисплеи:'
-            for i in range (0, len(screen)):
-                if i == output_display:
-                    print '  * '+str(i)+':', screen[i].split()[0], screen[i].split()[2].split('+')[0]
-                else:
-                    print '    '+str(i)+':', screen[i].split()[0], screen[i].split()[2].split('+')[0]
-            screen_width = int(screen[output_display].split()[2].split('x')[0])
-            screen_height = int(screen[output_display].split()[2].split('x')[1].split('+')[0])
-            hoffset = int(screen[output_display].split()[2].split('+')[1])
-            voffset = int(screen[output_display].split()[2].split('+')[2])
-        except:
-            screen_width = gtk.gdk.screen_width()
-            screen_height = gtk.gdk.screen_height()
-            voffset = 0
-            hoffset = 0
-        if x_pos >= 0: x_pos1 = hoffset + x_pos
-        else: x_pos1 = hoffset + screen_width - width + x_pos + margin
+        # try:
+        #     screen = subprocess.Popen('xrandr | grep " connected"', shell=True, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
+        #     screen = screen.stdout.readlines()
+        #     if output_display < 0: output_display = 0
+        #     if output_display >= len(screen): output_display = len(screen) - 1
+        #     print 'Найденные дисплеи:'
+        #     for i in range (0, len(screen)):
+        #         if i == output_display:
+        #             print '  * '+str(i)+':', screen[i].split()[0], screen[i].split()[2].split('+')[0]
+        #         else:
+        #             print '    '+str(i)+':', screen[i].split()[0], screen[i].split()[2].split('+')[0]
+        #     screen_width = int(screen[output_display].split()[2].split('x')[0])
+        #     screen_height = int(screen[output_display].split()[2].split('x')[1].split('+')[0])
+        #     hoffset = int(screen[output_display].split()[2].split('+')[1])
+        #     voffset = int(screen[output_display].split()[2].split('+')[2])
+        # except:
+        #     screen_width = gtk.gdk.screen_width()
+        #     screen_height = gtk.gdk.screen_height()
+        #     voffset = 0
+        #     hoffset = 0
+        # if x_pos >= 0: x_pos1 = hoffset + x_pos
+        # else: x_pos1 = hoffset + screen_width - width + x_pos + margin
         
-        if y_pos >= 0: y_pos1 = voffset + y_pos
-        else: y_pos1 = voffset + screen_height - height + y_pos + margin
+        # if y_pos >= 0: y_pos1 = voffset + y_pos
+        # else: y_pos1 = voffset + screen_height - height + y_pos + margin
         
-        self.window.move(x_pos1, y_pos1)
+        
         self.window.set_decorated(False)
 
         global not_composited
@@ -945,14 +948,26 @@ class Weather_Widget:
         self.window.set_keep_below(True)
         self.window.set_skip_taskbar_hint(True)
         self.window.set_skip_pager_hint(True)
-        if sticky:
-            self.window.stick()
 
-        self.window.set_opacity(opacity) 
         self.drawing_area = MyDrawArea()
         self.window.add(self.drawing_area)
         self.screen_changed(self.window)
-        self.menu = self.create_menu()
+
+    def set_window_properties(self):
+        global n
+        global width, height
+
+        if n > 13: n = 13
+        if n < 1: n = 1
+        width = w_block*n + block_margin*2 + 10*(n - 1) + 2*margin
+        height = 260 + block_margin + 2*margin
+        self.window.resize(width, height)
+        self.window.move(x_pos, y_pos)
+        if sticky:
+            self.window.stick()
+        else:
+            self.window.unstick()
+        self.window.set_opacity(opacity)
 
     def create_menu(self):
         menu = None
@@ -968,6 +983,14 @@ class Weather_Widget:
         dirs_user.sort()
         files_user.sort()
         dirs_user.remove('default')
+        # списки с иконками и фонами
+        global icons_list, backgrounds_list
+        icons_list = []
+        icons_list.extend(dirs)
+        icons_list.extend(dirs_user)
+        backgrounds_list = []
+        backgrounds_list.extend(files)
+        backgrounds_list.extend(files_user)
         # Создаем меню и заполняем найденными иконками и фонами
         menu = gtk.Menu()
         sub_menu_icons = gtk.Menu()
@@ -986,28 +1009,17 @@ class Weather_Widget:
         sub_menu_icons.append(menu_items)
         menu_items.connect("activate", self.redraw_icons, 'default')
         menu_items.show()
-        for i in range(len(dirs)):
-            buf = dirs[i].split('_') # из _ делаем __ (отображается как _)
+        for i in range(len(icons_list)):
+            buf = icons_list[i].split('_') # из _ делаем __ (отображается как _)
             buf = '__'.join(buf)
             menu_items = gtk.RadioMenuItem(group, str(i+1)+'. '+buf)
-            if icons_name == dirs[i]:
+            if icons_name == icons_list[i]:
                 menu_items.set_active(True)
             group = menu_items
             sub_menu_icons.append(menu_items)
-            menu_items.connect("activate", self.redraw_icons, dirs[i])
+            menu_items.connect("activate", self.redraw_icons, icons_list[i])
             menu_items.show()
-        # Иконки пользователя
-        if len(dirs_user) != 0:
-            for i in range(len(dirs), len(dirs_user)+len(dirs)):
-                buf = dirs_user[i-len(dirs)].split('_') # из _ делаем __ (отображается как _)
-                buf = '__'.join(buf)
-                menu_items = gtk.RadioMenuItem(group, str(i+1)+'. '+buf)
-                if icons_name == dirs_user[i-len(dirs)]:
-                    menu_items.set_active(True)
-                group = menu_items
-                sub_menu_icons.append(menu_items)
-                menu_items.connect("activate", self.redraw_icons, dirs_user[i-len(dirs)])
-                menu_items.show()
+
         # Фоны
         group = None
         menu_items = gtk.RadioMenuItem(group, '0. Нет')
@@ -1017,28 +1029,17 @@ class Weather_Widget:
         sub_menu_bgs.append(menu_items)
         menu_items.connect("activate", self.redraw_bg, 'Нет')
         menu_items.show()
-        for i in range(len(files)):
-            buf = files[i].split('_')
+        for i in range(len(backgrounds_list)):
+            buf = backgrounds_list[i].split('_')
             buf = '__'.join(buf)
             menu_items = gtk.RadioMenuItem(group, str(i+1)+'. '+buf)
-            if bg_custom == files[i]:
+            if bg_custom == backgrounds_list[i]:
                 menu_items.set_active(True)
             group = menu_items
             sub_menu_bgs.append(menu_items)
-            menu_items.connect("activate", self.redraw_bg, files[i])
+            menu_items.connect("activate", self.redraw_bg, backgrounds_list[i])
             menu_items.show()
-        # Фоны пользователя
-        if len(files_user) != 0:
-            for i in range(len(files), len(files_user)+len(files)):
-                buf = files_user[i-len(files)].split('_')
-                buf = '__'.join(buf)
-                menu_items = gtk.RadioMenuItem(group, str(i+1)+'. '+buf)
-                if bg_custom == files_user[i-len(files)]:
-                    menu_items.set_active(True)
-                group = menu_items
-                sub_menu_bgs.append(menu_items)
-                menu_items.connect("activate", self.redraw_bg, files_user[i-len(files)])
-                menu_items.show()
+
         # Цвет текста
         group = None
         for i in range(len(color_scheme)):
@@ -1049,13 +1050,13 @@ class Weather_Widget:
             sub_menu_color_text.append(menu_items)
             menu_items.connect("activate", self.redraw_text, i)
             menu_items.show()
-        menu_items = gtk.SeparatorMenuItem()
-        sub_menu_color_text.append(menu_items)
-        menu_items.show()
-        menu_items = gtk.MenuItem('Выбрать шрифт...')
-        sub_menu_color_text.append(menu_items)
-        menu_items.connect("activate", self.menu_response, 'choose_font')
-        menu_items.show()
+        # menu_items = gtk.SeparatorMenuItem()
+        # sub_menu_color_text.append(menu_items)
+        # menu_items.show()
+        # menu_items = gtk.MenuItem('Выбрать шрифт...')
+        # sub_menu_color_text.append(menu_items)
+        # menu_items.connect("activate", self.menu_response, 'choose_font')
+        # menu_items.show()
 
         # sub_menu_place
         group = None
@@ -1077,8 +1078,8 @@ class Weather_Widget:
         menu_items.connect("activate", self.edit_city_id)
         menu_items.show()
 
-        # sub_menu_window
-        menu_items = gtk.CheckMenuItem('Закрепить')
+        sub_menu_window
+        menu_items = gtk.CheckMenuItem('Зафиксировать')
         menu_items.set_active(fix_position)
         menu_items.connect("activate", self.menu_response, 'fix')
         sub_menu_window.append(menu_items)
@@ -1124,11 +1125,16 @@ class Weather_Widget:
         menu.append(menu_items)
         menu_items.set_submenu(sub_menu_window)
         menu_items.show()
-        
-        menu_items = gtk.MenuItem('Редактировать...')
+
+        menu_items = gtk.ImageMenuItem(gtk.STOCK_PROPERTIES)
         menu.append(menu_items)
-        menu_items.connect("activate", self.menu_response, 'edit')
+        menu_items.connect("activate", self.menu_response, 'setup')
         menu_items.show()
+        
+        # menu_items = gtk.MenuItem('Редактировать...')
+        # menu.append(menu_items)
+        # menu_items.connect("activate", self.menu_response, 'edit')
+        # menu_items.show()
 
         menu_items = gtk.ImageMenuItem(gtk.STOCK_ABOUT)
         menu.append(menu_items)
@@ -1189,19 +1195,19 @@ class Weather_Widget:
             about.run()
             about.destroy()
             return
-        if event == 'choose_font':
-            global font
-            fdia = gtk.FontSelectionDialog('Выберите шрифт')
-            fdia.set_font_name(font)
-            response = fdia.run()
+        # if event == 'choose_font':
+        #     global font
+        #     fdia = gtk.FontSelectionDialog('Выберите шрифт')
+        #     fdia.set_font_name(font)
+        #     response = fdia.run()
 
-            if response == gtk.RESPONSE_OK:
-                font_desc = pango.FontDescription(fdia.get_font_name())
-                font = font_desc.get_family()
-                Save_Config()
-                self.drawing_area.redraw(False, False)
-            fdia.destroy()
-            return
+        #     if response == gtk.RESPONSE_OK:
+        #         font_desc = pango.FontDescription(fdia.get_font_name())
+        #         font = font_desc.get_family()
+        #         Save_Config()
+        #         self.drawing_area.redraw(False, False)
+        #     fdia.destroy()
+        #     return
         if event == 'edit':
             if sys.platform.startswith('linux'):
                 subprocess.Popen(['xdg-open', CONFIG_PATH])
@@ -1224,6 +1230,8 @@ class Weather_Widget:
                 sticky = True
                 self.window.stick()
             Save_Config()
+        if event == 'setup':
+            settings.main(gw_config_default, gw_config, self.drawing_area, app, icons_list, backgrounds_list)
 
     def button_press(self, widget, event):
         if event.button == 1 and not fix_position:
@@ -1336,6 +1344,8 @@ class Weather_Widget:
     def edit_city_id(self, widget):
         if self.show_edit_dialog():
             Save_Config()
+            while gtk.events_pending():
+                gtk.main_iteration_do(True)
             self.drawing_area.redraw(False)
 
     def main(self):
