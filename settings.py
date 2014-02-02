@@ -27,6 +27,7 @@ import gtk
 import os
 import json
 import pango
+import autorun
 
 work_path = os.path.abspath(os.path.join(os.path.dirname(__file__)))
 gw_config_default_set = {}
@@ -66,6 +67,8 @@ class settings():
         self.button_city_id.connect("clicked", App_gw.edit_city_id)
         self.button_open_config_folder = self.widgets_tree.get_object('button_open_config_folder')
         self.button_open_config_folder.connect("clicked", App_gw.menu_response, 'edit')
+        self.checkbutton_autorun = self.widgets_tree.get_object('checkbutton_autorun')
+        self.checkbutton_autorun.connect("toggled", self.set_autorun)
 
         self.clear_upd_time = self.widgets_tree.get_object('clear_upd_time')
         self.clear_upd_time.connect("clicked", self.clear_settings)
@@ -275,6 +278,8 @@ class settings():
             self.liststore4.append([backgrounds_list_set[i]])
             if backgrounds_list_set[i] == gw_config_set['bg_custom']: 
                 self.combobox_bg_custom.set_active(i)
+        if autorun.exists("Gis Weather"):
+            self.checkbutton_autorun.set_active(True)
 
         state_lock = False
 
@@ -369,6 +374,13 @@ class settings():
         Save_Config()
         drawing_area_set.redraw(False, False, load_config = True)
 
+    def set_autorun(self, widget):
+        if state_lock:
+            return
+        if widget.get_active() == True:
+            autorun.add("Gis Weather", "/usr/bin/gis-weather")
+        else:
+            autorun.remove("Gis Weather")
 
 def main(gw_config_default, gw_config, drawing_area, app_gw, icons_list, backgrounds_list):
     global gw_config_default_set, gw_config_set, drawing_area_set, App_gw, icons_list_set, backgrounds_list_set
