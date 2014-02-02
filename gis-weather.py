@@ -1176,8 +1176,10 @@ class Weather_Widget:
             about.set_license(license)
             about.set_wrap_license(False)
             about.set_authors(['Alexander Koltsov <ringov@mail.ru>\n',
+                'Помощь и идеи:\n    Karbunkul\n    Haron Prime\n    Yuriy_Y\n',
                 'draw_scaled_image, draw_text_Whise\nby Helder Fraga aka Whise <helder.fraga@hotmail.com>\n',
-                'Помощь и идеи:\n    Karbunkul\n    Haron Prime\n    Yuriy_Y'])
+                'autostart helper\nby Jonas Wagner\n',
+                'Sloth 0.2\nby Mikhail Valkov'])
             about.set_artists(['backgrounds:',
                 'LightEasyShadow, LightWhiteShadow, DarkEasyShadow, DarkWithFlare',
                 'by wfedin',
