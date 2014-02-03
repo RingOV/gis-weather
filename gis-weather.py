@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #  gis_weather.py
-v = '0.4'
+v = '0.4.1'
 #  Copyright 2013-2014 Alexander Koltsov
 #
 #  draw_scaled_image, draw_text_Whise copyright by Helder Fraga
@@ -140,6 +140,12 @@ def Load_Config():
     for i in gw_config.keys():
         globals()[i] = gw_config[i]
 
+# Первый запуск, отсутствует конфиг
+if not os.path.exists(os.path.join(CONFIG_PATH, 'gw_config.json')):
+    # Создаем переменные
+    for i in gw_config.keys():
+        globals()[i] = gw_config[i]
+    Save_Config()
 # Загружаем конфиг
 Load_Config()
 def Load_Color_Scheme(number = 0):
@@ -155,8 +161,6 @@ def Load_Color_Scheme(number = 0):
     for i in gw_config.keys():
         globals()[i] = gw_config[i]
 
-if not os.path.exists(os.path.join(CONFIG_PATH, 'gw_config.json')):
-    Save_Config()
 # ------------------------------------------------------------------------------
 
 # Путь к виджету
@@ -271,9 +275,9 @@ def check_updates():
     if new_v:
         print '>>> Доступна новая версия', new_v, '<<<'
         print '-'*40
-        Gtk_update_dialog.show(v, new_v, CONFIG_PATH, APP_PATH)
         global check_for_updates_local
         check_for_updates_local = False
+        Gtk_update_dialog.show(v, new_v, CONFIG_PATH, APP_PATH)
     else:
         print '> Текущая версия актуальна'
         print '-'*40
