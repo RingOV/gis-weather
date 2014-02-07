@@ -28,12 +28,24 @@ import os
 import json
 import pango
 import autorun
+import sys
+if sys.platform.startswith("win"):
+    import win32api
+    WIN = True
+else:
+    WIN = False
 
-work_path = os.path.abspath(os.path.join(os.path.dirname(__file__)))
+CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
+if WIN:
+    CONFIG_PATH = win32api.GetShortPathName(CONFIG_PATH)
+
+work_path = os.path.dirname(sys.argv[0])
+if WIN:
+    work_path = win32api.GetShortPathName(work_path)
+
 gw_config_default_set = {}
 gw_config_set = {}
 drawing_area_set = None
-CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
 state_lock = True
 App_gw = None
 icons_list_set = [] 
@@ -378,7 +390,10 @@ class settings():
         if state_lock:
             return
         if widget.get_active() == True:
-            autorun.add("Gis Weather", "/usr/bin/gis-weather")
+            if WIN:
+                autorun.add("Gis Weather", work_path+'\\gis-weather.exe')
+            else:
+                autorun.add("Gis Weather", "/usr/bin/gis-weather")
         else:
             autorun.remove("Gis Weather")
 

@@ -37,8 +37,15 @@ import Gtk_update_dialog
 import sys
 import subprocess
 import settings
+if sys.platform.startswith("win"):
+    import win32api
+    WIN = True
+else:
+    WIN = False
 
 CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
+if WIN:
+    CONFIG_PATH = win32api.GetShortPathName(CONFIG_PATH)
 
 if not os.path.exists(CONFIG_PATH):
     os.makedirs(CONFIG_PATH)
@@ -114,7 +121,7 @@ color_scheme = [
     }
     ]
 
-print 'Путь к файлу конфигурации:\n    '+os.path.join(CONFIG_PATH, 'gw_config.json')
+print u'Путь к файлу конфигурации:\n    '+os.path.join(CONFIG_PATH, 'gw_config.json')
 
 def Save_Config():
     for i in gw_config.keys():
@@ -134,7 +141,7 @@ def Load_Config():
         for i in gw_config_loaded.keys():
             gw_config[i] = gw_config_loaded[i] # Присваиваем новые значения
     except:
-        print '[!] Произошла ошибка при загрузке конфигурационного файла'
+        print u'[!] Произошла ошибка при загрузке конфигурационного файла'
 
     # Создаем переменные
     for i in gw_config.keys():
@@ -155,7 +162,7 @@ def Load_Color_Scheme(number = 0):
             gw_config[i] = scheme_loaded[i]
         gw_config['color_scheme_number'] = number
     except:
-        print '[!] Произошла ошибка при загрузке цветовой схемы # %s' %number
+        print u'[!] Произошла ошибка при загрузке цветовой схемы # %s' %number
 
     # Создаем переменные
     for i in gw_config.keys():
@@ -167,8 +174,11 @@ def Load_Color_Scheme(number = 0):
 #APP_PATH = os.path.dirname(__file__)
 
 APP_PATH = os.path.dirname(sys.argv[0])
+if WIN:
+    APP_PATH = win32api.GetShortPathName(APP_PATH)
+
 if APP_PATH == '':
-    print 'Указывайте полный путь к скрипту\nВыход.'
+    print u'Указывайте полный путь к скрипту\nВыход.'
     exit()
 
 THEMES_PATH = os.path.join(APP_PATH, 'themes')
@@ -176,6 +186,12 @@ ICONS_PATH = os.path.join(THEMES_PATH, 'icons')
 BGS_PATH = os.path.join(THEMES_PATH, 'backgrounds')
 ICONS_USER_PATH = os.path.join(CONFIG_PATH, 'icons')
 BGS_USER_PATH = os.path.join(CONFIG_PATH, 'backgrounds')
+if WIN:
+    THEMES_PATH = win32api.GetShortPathName(THEMES_PATH)
+    ICONS_PATH = win32api.GetShortPathName(ICONS_PATH)
+    BGS_PATH = win32api.GetShortPathName(BGS_PATH)
+    ICONS_USER_PATH = win32api.GetShortPathName(ICONS_USER_PATH)
+    BGS_USER_PATH = win32api.GetShortPathName(BGS_USER_PATH)
 
 if not os.path.exists(os.path.join(ICONS_USER_PATH, 'default', 'weather')):
     os.makedirs(os.path.join(ICONS_USER_PATH, 'default', 'weather'))
@@ -198,7 +214,7 @@ on_redraw = False
 timer_bool = True
 get_weather_bool = True
 not_composited = False
-if check_for_updates == 0:
+if check_for_updates == 0 or WIN:
     check_for_updates_local = False
 else:
     check_for_updates_local = True
@@ -246,17 +262,17 @@ def get_city_name(c_id):
         source = urlopen('http://www.gismeteo.ru/city/weekly/' + str(c_id), timeout=10).read()
         c_name = re.findall('type[A-Z].*\">(.*)<', source)
     except:
-        print '[!] Не удалось получить название местоположения'
+        print u'[!] Не удалось получить название местоположения'
         return 'None'
     return c_name[0]
 
 
 def check_updates():
-    print '> Проверяю наличие новой версии'
+    print u'> Проверяю наличие новой версии'
     try:
         source = urlopen('http://sourceforge.net/projects/gis-weather/files/gis-weather/', timeout=10).read()
     except:
-        print '[!] Невозможно проверить обновления'
+        print u'[!] Невозможно проверить обновления'
         print '-'*40
         return False
     new_ver1 = re.findall('<a href="/projects/gis-weather/files/gis-weather/(.+)/"', source)
@@ -273,13 +289,13 @@ def check_updates():
             new_v = new_ver1[0]
             break
     if new_v:
-        print '>>> Доступна новая версия', new_v, '<<<'
+        print u'>>> Доступна новая версия', new_v, '<<<'
         print '-'*40
         global check_for_updates_local
         check_for_updates_local = False
         Gtk_update_dialog.show(v, new_v, CONFIG_PATH, APP_PATH)
     else:
-        print '> Текущая версия актуальна'
+        print u'> Текущая версия актуальна'
         print '-'*40
         if check_for_updates == 1 and check_for_updates_local:
             check_for_updates_local = False
@@ -288,16 +304,16 @@ def check_updates():
 def get_weather():
     global err_connect, splash
     global city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, icon_today, wind_speed_tod, wind_direct_tod 
-    print '> Получаю погоду на', n, 'дней'
-    print '> Загружаю в переменную страницу', 'http://www.gismeteo.ru/city/weekly/' + str(city_id)
+    print u'> Получаю погоду на', n, u'дней'
+    print u'> Загружаю в переменную страницу', 'http://www.gismeteo.ru/city/weekly/' + str(city_id)
     try:
         source = urlopen('http://www.gismeteo.ru/city/weekly/' + str(city_id), timeout=10).read()
         err_connect = False
-        print 'OK'
+        print u'OK'
     except:
-        print '[!] Невозможно скачать страницу, проверьте интернет соединение'
+        print u'[!] Невозможно скачать страницу, проверьте интернет соединение'
         if timer_bool:
-            print '[!] Следующая попытка через 10 секунд'
+            print u'[!] Следующая попытка через 10 секунд'
         err_connect = True
         return
     #### Текущая погода ####
@@ -419,8 +435,8 @@ def get_weather():
     ########
     
     if time_update:
-        print '> Обновление на сервере в', time_update[0]
-    print '> Погода получена в', time.strftime('%H:%M', time.localtime())
+        print u'> Обновление на сервере в', time_update[0]
+    print u'> Погода получена в', time.strftime('%H:%M', time.localtime())
 
     if splash:
         splash = False
@@ -521,7 +537,7 @@ class MyDrawArea(gtk.DrawingArea):
                 on_redraw = False
                 if timer_bool:
                     self.timer = timeout_add(upd_time*60*1000, self.redraw)
-                    print '> Следующее обновление через', upd_time, 'минут'
+                    print u'> Следующее обновление через', upd_time, u'минут'
                     print '-'*40
             self.Draw_Weather()
 
@@ -733,7 +749,7 @@ class MyDrawArea(gtk.DrawingArea):
                 if os.path.exists(os.path.join(BGS_PATH, bg_custom)):
                     self.draw_scaled_image(0, 0, os.path.join(BGS_PATH, bg_custom), width, height)
                 else:
-                    print 'Не найдено фоновое изображение:', bg_custom
+                    print u'Не найдено фоновое изображение:', bg_custom
         else:
             w = width
             h = height
@@ -798,10 +814,10 @@ class MyDrawArea(gtk.DrawingArea):
             pix = os.path.join(ICONS_USER_PATH, 'default', 'weather', os.path.split(pix)[1])
         if icons_name == 'default' and not os.path.exists(pix):
             try:
-                print '> скачиваю', os.path.split(pix)[1]
+                print u'> скачиваю', os.path.split(pix)[1]
                 urlretrieve('http://st8.gisstatic.ru/static/images/icons/new/'+os.path.split(pix)[1], pix)
             except:
-                print 'Не удалось скачать', 'http://st8.gisstatic.ru/static/images/icons/new/'+os.path.split(pix)[1]
+                print u'Не удалось скачать', 'http://st8.gisstatic.ru/static/images/icons/new/'+os.path.split(pix)[1]
             if not os.path.exists(pix):
                 pix = os.path.join(THEMES_PATH, 'na.png')
             self.draw_scaled_image(x, y, pix, w, h)
@@ -837,7 +853,7 @@ class MyDrawArea(gtk.DrawingArea):
             if not os.path.exists(pix):
                 pix = os.path.join(ICONS_USER_PATH, icons_name, 'weather', '.'.join(pix_convert))
                 if not os.path.exists(pix):
-                    print '[!] отсутстует иконка:\n>', os.path.join(icons_name, 'weather', '.'.join(pix_convert))
+                    print u'[!] отсутстует иконка:\n>', os.path.join(icons_name, 'weather', '.'.join(pix_convert))
                     if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'weather', 'na.png')):
                         pix = os.path.join(ICONS_PATH, icons_name, 'weather', 'na.png')
                     else:
@@ -850,6 +866,8 @@ class MyDrawArea(gtk.DrawingArea):
     
     def draw_scaled_image(self, x, y, pix, w, h, ang = 0):
         """Draws a picture from specified path with a certain width and height"""
+        if WIN:
+            pix = win32api.GetShortPathName(pix)
         w = int(w)
         h = int(h)
 
@@ -896,8 +914,8 @@ class Weather_Widget:
         self.set_window_properties()
         # width = w_block*n + block_margin*2 + 10*(n - 1) + 2*margin
         # height = 260 + block_margin + 2*margin
-        print 'Размеры виджета:'
-        print '    ширина =', width, 'высота =', height, 'в т.ч. отступ =', margin
+        print u'Размеры виджета:'
+        print u'    ширина =', width, u'высота =', height, u'в т.ч. отступ =', margin
         # self.window.resize(width, height)
 
         # Нужно ли?
@@ -1341,7 +1359,7 @@ class Weather_Widget:
                     bar_ok.show()
                 except:
                     bar_err.show()
-                    print '[!] Не верно введен код местоположения'
+                    print u'[!] Не верно введен код местоположения'
             response = dialog.run()
 
         dialog.hide()
