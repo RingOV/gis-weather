@@ -39,6 +39,7 @@ import sys
 import subprocess
 import settings
 import gw_menu
+import gismeteo
 if sys.platform.startswith("win"):
     import win32api
     WIN = True
@@ -224,41 +225,80 @@ icons_list = []
 backgrounds_list = []
 show_time_receive_local = False
 
+# # переменные, в которые записывается погода
+# city_name = []       # Город
+# t_now = []           # Температура сейчас
+# wind_speed_now = []  # Скорость ветра сейчас
+# wind_direct_now = [] # Направление ветра сейчас
+# icon_now = []        # Иконка погоды сейчас
+# icon_wind_now = []   # Иконка ветра сейчас
+# time_update = []     # Время обновления погоды на сайте
+# text_now = []        # Текст погоды сейчас
+# press_now = []       # Давление сейчас
+# hum_now = []         # Влажность сейчас
+# t_water_now = []     # Температура воды сейчас
+
+# t_night = []         # Температура ночью
+# t_night_feel = []    # Температура ночью ощущается
+# day = []             # День недели
+# date = []            # Дата
+# t_day = []           # Температура днем
+# t_day_feel = []      # Температура днем ощущается
+# icon = []            # Иконка погоды
+# icon_wind = []       # Иконка ветра
+# wind_speed = []      # Скорость ветра
+# wind_direct = []     # Направление ветра
+# text = []            # Текст погоды
+
+# t_tomorrow = []      # Температура завтра
+# icon_tomorrow = []   # Иконка погоды завтра
+# wind_speed_tom = []  # Скорость ветра завтра
+# wind_direct_tom = [] # Направление ветра завтра
+
+# t_today = []         # Температура сегодня
+# icon_today = []      # Иконка погоды сегодня
+# wind_speed_tod = []  # Скорость ветра сегодня
+# wind_direct_tod = [] # Направление ветра сегодня
+
 # переменные, в которые записывается погода
-city_name = []       # Город
-t_now = []           # Температура сейчас
-wind_speed_now = []  # Скорость ветра сейчас
-wind_direct_now = [] # Направление ветра сейчас
-icon_now = []        # Иконка погоды сейчас
-icon_wind_now = []   # Иконка ветра сейчас
-time_update = []     # Время обновления погоды на сайте
-text_now = []        # Текст погоды сейчас
-press_now = []       # Давление сейчас
-hum_now = []         # Влажность сейчас
-t_water_now = []     # Температура воды сейчас
+weather = {
+    'city_name': [],       # Город
+    't_now': [],           # Температура сейчас
+    'wind_speed_now': [],  # Скорость ветра сейчас
+    'wind_direct_now': [], # Направление ветра сейчас
+    'icon_now': [],        # Иконка погоды сейчас
+    'icon_wind_now': [],   # Иконка ветра сейчас
+    'time_update': [],     # Время обновления погоды на сайте
+    'text_now': [],        # Текст погоды сейчас
+    'press_now': [],       # Давление сейчас
+    'hum_now': [],         # Влажность сейчас
+    't_water_now': [],     # Температура воды сейчас
 
-t_night = []         # Температура ночью
-t_night_feel = []    # Температура ночью ощущается
-day = []             # День недели
-date = []            # Дата
-t_day = []           # Температура днем
-t_day_feel = []      # Температура днем ощущается
-icon = []            # Иконка погоды
-icon_wind = []       # Иконка ветра
-wind_speed = []      # Скорость ветра
-wind_direct = []     # Направление ветра
-text = []            # Текст погоды
+    't_night': [],         # Температура ночью
+    't_night_feel': [],    # Температура ночью ощущается
+    'day': [],             # День недели
+    'date': [],            # Дата
+    't_day': [],           # Температура днем
+    't_day_feel': [],      # Температура днем ощущается
+    'icon': [],            # Иконка погоды
+    'icon_wind': [],       # Иконка ветра
+    'wind_speed': [],      # Скорость ветра
+    'wind_direct': [],     # Направление ветра
+    'text': [],            # Текст погоды
 
-t_tomorrow = []      # Температура завтра
-icon_tomorrow = []   # Иконка погоды завтра
-wind_speed_tom = []  # Скорость ветра завтра
-wind_direct_tom = [] # Направление ветра завтра
+    't_tomorrow': [],      # Температура завтра
+    'icon_tomorrow': [],   # Иконка погоды завтра
+    'wind_speed_tom': [],  # Скорость ветра завтра
+    'wind_direct_tom': [], # Направление ветра завтра
 
-t_today = []         # Температура сегодня
-icon_today = []      # Иконка погоды сегодня
-wind_speed_tod = []  # Скорость ветра сегодня
-wind_direct_tod = [] # Направление ветра сегодня
-
+    't_today': [],         # Температура сегодня
+    'icon_today': [],      # Иконка погоды сегодня
+    'wind_speed_tod': [],  # Скорость ветра сегодня
+    'wind_direct_tod': []  # Направление ветра сегодня
+}
+# Создаем переменные
+for i in weather.keys():
+    globals()[i] = weather[i]
 
 def get_city_name(c_id):
     try:
@@ -304,145 +344,145 @@ def check_updates():
             check_for_updates_local = False
 
 
-def get_weather():
-    global err_connect, splash
-    global city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, icon_today, wind_speed_tod, wind_direct_tod 
-    print u'> Получаю погоду на', n, u'дней'
-    print u'> Загружаю в переменную страницу', 'http://www.gismeteo.ru/city/weekly/' + str(city_id)
-    try:
-        source = urlopen('http://www.gismeteo.ru/city/weekly/' + str(city_id), timeout=10).read()
-        err_connect = False
-        print u'OK'
-    except:
-        print u'[!] Невозможно скачать страницу, проверьте интернет соединение'
-        if timer_bool:
-            print u'[!] Следующая попытка через 10 секунд'
-        err_connect = True
-        return
-    #### Текущая погода ####
-    w_now = re.findall("type[A-Z].*>вода", source, re.DOTALL)
+# def get_weather():
+#     global err_connect, splash
+#     global city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, icon_today, wind_speed_tod, wind_direct_tod 
+#     print u'> Получаю погоду на', n, u'дней'
+#     print u'> Загружаю в переменную страницу', 'http://www.gismeteo.ru/city/weekly/' + str(city_id)
+#     try:
+#         source = urlopen('http://www.gismeteo.ru/city/weekly/' + str(city_id), timeout=10).read()
+#         err_connect = False
+#         print u'OK'
+#     except:
+#         print u'[!] Невозможно скачать страницу, проверьте интернет соединение'
+#         if timer_bool:
+#             print u'[!] Следующая попытка через 10 секунд'
+#         err_connect = True
+#         return
+#     #### Текущая погода ####
+#     w_now = re.findall("type[A-Z].*>вода", source, re.DOTALL)
     
-    # Город
-    city_name = re.findall('type[A-Z].*\">(.*)<', w_now[0])
+#     # Город
+#     city_name = re.findall('type[A-Z].*\">(.*)<', w_now[0])
 
-    # Температура
-    t_now = re.findall('m_temp c.>([&minus;+]*\d+)<', w_now[0])
-    for i in range(0, len(t_now)):
-        if t_now[i][0] == '&':
-            t_now[i] = '-' + t_now[i][7:]
+#     # Температура
+#     t_now = re.findall('m_temp c.>([&minus;+]*\d+)<', w_now[0])
+#     for i in range(0, len(t_now)):
+#         if t_now[i][0] == '&':
+#             t_now[i] = '-' + t_now[i][7:]
 
-    # Ветер
-    wind_speed_now = re.findall('m_wind ms.*>(\d+)<', w_now[0])
-    wind_direct_now = re.findall('<dt>([СЮЗВШ]+)</dt>', w_now[0])
+#     # Ветер
+#     wind_speed_now = re.findall('m_wind ms.*>(\d+)<', w_now[0])
+#     wind_direct_now = re.findall('<dt>([СЮЗВШ]+)</dt>', w_now[0])
 
-    # Иконка
-    icon_now = re.findall('url\(.*?new\/(.+)\)', w_now[0])
+#     # Иконка
+#     icon_now = re.findall('url\(.*?new\/(.+)\)', w_now[0])
     
-    #Иконка ветра
-    icon_wind_now = re.findall('wind(\d)', w_now[0])
+#     #Иконка ветра
+#     icon_wind_now = re.findall('wind(\d)', w_now[0])
 
-    # Время обновления
-    time_update = re.findall('data-hr.* (\d?\d:\d\d)\s*</span>', source, re.DOTALL)
+#     # Время обновления
+#     time_update = re.findall('data-hr.* (\d?\d:\d\d)\s*</span>', source, re.DOTALL)
     
-    # Текст погоды сейчас
-    text_now = re.findall('title=\"(.*?)\"', w_now[0])
+#     # Текст погоды сейчас
+#     text_now = re.findall('title=\"(.*?)\"', w_now[0])
     
-    # Давление сейчас
-    press_now = re.findall('m_press torr\'>(\d+)<', w_now[0])
+#     # Давление сейчас
+#     press_now = re.findall('m_press torr\'>(\d+)<', w_now[0])
     
-    # Влажность сейчас
-    hum_now = re.findall('Влажность">(\d+)<', w_now[0])
+#     # Влажность сейчас
+#     hum_now = re.findall('Влажность">(\d+)<', w_now[0])
     
-    # Температура воды сейчас
-    try:
-        t_water_now = t_now[1]
-    except:
-        pass
+#     # Температура воды сейчас
+#     try:
+#         t_water_now = t_now[1]
+#     except:
+#         pass
     
-    #### Погода на неделю ####
-    # Погода ночью
-    w_night_list = re.findall('Ночь</th>.*?>Утро</th>', source, re.DOTALL)
-    w_night = '\n'.join(w_night_list)
+#     #### Погода на неделю ####
+#     # Погода ночью
+#     w_night_list = re.findall('Ночь</th>.*?>Утро</th>', source, re.DOTALL)
+#     w_night = '\n'.join(w_night_list)
     
-    # Температура ночью
-    t_night = re.findall('m_temp c.>([&minus;+]*\d+)<', w_night)
-    for i in range(0, len(t_night)):
-        if t_night[i][0] == '&':
-            t_night[i] = '-' + t_night[i][7:]
-    t_night_feel = t_night[1::2]
-    t_night = t_night[::2]
+#     # Температура ночью
+#     t_night = re.findall('m_temp c.>([&minus;+]*\d+)<', w_night)
+#     for i in range(0, len(t_night)):
+#         if t_night[i][0] == '&':
+#             t_night[i] = '-' + t_night[i][7:]
+#     t_night_feel = t_night[1::2]
+#     t_night = t_night[::2]
     
-    # День недели и дата
-    day = re.findall('weekday.>(.*?)<', source)
-    date = re.findall('s_date.>(.*?)<', source)
+#     # День недели и дата
+#     day = re.findall('weekday.>(.*?)<', source)
+#     date = re.findall('s_date.>(.*?)<', source)
     
-    # Погода днем
-    w_day_list = re.findall('День</th>.*?>Вечер</th>', source, re.DOTALL)
-    w_day = '\n'.join(w_day_list)
+#     # Погода днем
+#     w_day_list = re.findall('День</th>.*?>Вечер</th>', source, re.DOTALL)
+#     w_day = '\n'.join(w_day_list)
     
-    # Температура днем
-    t_day = re.findall('m_temp c.>([&minus;+]*\d+)<', w_day) 
-    for i in range(0, len(t_day)):
-        if t_day[i][0] == '&':
-            t_day[i] = '-' + t_day[i][7:]
-    t_day_feel = t_day[1::2]
-    t_day = t_day[::2]
+#     # Температура днем
+#     t_day = re.findall('m_temp c.>([&minus;+]*\d+)<', w_day) 
+#     for i in range(0, len(t_day)):
+#         if t_day[i][0] == '&':
+#             t_day[i] = '-' + t_day[i][7:]
+#     t_day_feel = t_day[1::2]
+#     t_day = t_day[::2]
     
-    # Иконка погоды днем
-    icon = re.findall('src=\".*?new\/(.*?)\"', w_day)
+#     # Иконка погоды днем
+#     icon = re.findall('src=\".*?new\/(.*?)\"', w_day)
     
-    # Иконка ветра
-    icon_wind = re.findall('wind(\d)', w_day)
+#     # Иконка ветра
+#     icon_wind = re.findall('wind(\d)', w_day)
     
-    # Ветер
-    wind_speed = re.findall('m_wind ms.>(\d+)', w_day)
-    wind_direct = re.findall('>([СЮЗВШ]+)<', w_day)
+#     # Ветер
+#     wind_speed = re.findall('m_wind ms.>(\d+)', w_day)
+#     wind_direct = re.findall('>([СЮЗВШ]+)<', w_day)
 
-    # Текст погоды
-    text = re.findall('cltext.>(.*?)<', w_day)
+#     # Текст погоды
+#     text = re.findall('cltext.>(.*?)<', w_day)
 
-    if show_block_tomorrow:
-        #### Погода завтра ####
-        w_tomorrow = re.findall('Ночь</th>.*?>Ночь</div>', source, re.DOTALL)
+#     if show_block_tomorrow:
+#         #### Погода завтра ####
+#         w_tomorrow = re.findall('Ночь</th>.*?>Ночь</div>', source, re.DOTALL)
         
-        # Температура
-        t_tomorrow = re.findall('m_temp c.>([&minus;+]*\d+)<', w_tomorrow[1])
-        for i in range(0, len(t_tomorrow)):
-            if t_tomorrow[i][0] == '&':
-                t_tomorrow[i] = '-' + t_tomorrow[i][7:]
+#         # Температура
+#         t_tomorrow = re.findall('m_temp c.>([&minus;+]*\d+)<', w_tomorrow[1])
+#         for i in range(0, len(t_tomorrow)):
+#             if t_tomorrow[i][0] == '&':
+#                 t_tomorrow[i] = '-' + t_tomorrow[i][7:]
 
-        # Иконка погоды
-        icon_tomorrow = re.findall('src=\".*?new\/(.*?)\"', w_tomorrow[1])
+#         # Иконка погоды
+#         icon_tomorrow = re.findall('src=\".*?new\/(.*?)\"', w_tomorrow[1])
 
-        # Ветер
-        wind_speed_tom = re.findall('m_wind ms.>(\d+)', w_tomorrow[1])
-        wind_direct_tom = re.findall('>([СЮЗВШ]+)<', w_tomorrow[1])
+#         # Ветер
+#         wind_speed_tom = re.findall('m_wind ms.>(\d+)', w_tomorrow[1])
+#         wind_direct_tom = re.findall('>([СЮЗВШ]+)<', w_tomorrow[1])
         
-    if show_block_today:
-        #### Погода сегодня ####
-        if not show_block_tomorrow:
-            w_tomorrow = re.findall('Ночь</th>.*?>Ночь</div>', source, re.DOTALL)
+#     if show_block_today:
+#         #### Погода сегодня ####
+#         if not show_block_tomorrow:
+#             w_tomorrow = re.findall('Ночь</th>.*?>Ночь</div>', source, re.DOTALL)
         
-        # Температура
-        t_today = re.findall('m_temp c.>([&minus;+]*\d+)<', w_tomorrow[0])
-        for i in range(0, len(t_today)):
-            if t_today[i][0] == '&':
-                t_today[i] = '-' + t_today[i][7:]
+#         # Температура
+#         t_today = re.findall('m_temp c.>([&minus;+]*\d+)<', w_tomorrow[0])
+#         for i in range(0, len(t_today)):
+#             if t_today[i][0] == '&':
+#                 t_today[i] = '-' + t_today[i][7:]
         
-        # Иконка погоды
-        icon_today = re.findall('src=\".*?new\/(.*?)\"', w_tomorrow[0])
+#         # Иконка погоды
+#         icon_today = re.findall('src=\".*?new\/(.*?)\"', w_tomorrow[0])
 
-        # Ветер
-        wind_speed_tod = re.findall('m_wind ms.>(\d+)', w_tomorrow[0])
-        wind_direct_tod = re.findall('>([СЮЗВШ]+)<', w_tomorrow[0])
-    ########
+#         # Ветер
+#         wind_speed_tod = re.findall('m_wind ms.>(\d+)', w_tomorrow[0])
+#         wind_direct_tod = re.findall('>([СЮЗВШ]+)<', w_tomorrow[0])
+#     ########
     
-    if time_update:
-        print u'> Обновление на сервере в', time_update[0]
-    print u'> Погода получена в', time.strftime('%H:%M', time.localtime())
+#     if time_update:
+#         print u'> Обновление на сервере в', time_update[0]
+#     print u'> Погода получена в', time.strftime('%H:%M', time.localtime())
 
-    if splash:
-        splash = False
+#     if splash:
+#         splash = False
 
 
 class MyDrawArea(gtk.DrawingArea):
@@ -507,14 +547,22 @@ class MyDrawArea(gtk.DrawingArea):
     
     
     def expose(self, widget, event):
-        global err, on_redraw, get_weather_bool
+        global err, on_redraw, get_weather_bool, weather, err_connect, splash
         if err == False:
             self.clear_draw_area(widget)
         if first_start:
             self.splash_screen()
             return
         if get_weather_bool:
-            get_weather()
+            weather1 = gismeteo.get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, timer_bool)
+            if weather1:
+                err_connect = False
+                splash = False
+                weather = weather1
+                for i in weather.keys():
+                    globals()[i] = weather[i]
+            else:
+                err_connect = True
             get_weather_bool = False
             if not timer_bool:
                 print '-'*40
