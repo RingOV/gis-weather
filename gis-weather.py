@@ -34,9 +34,11 @@ import os
 import json
 import Gtk_city_id
 import Gtk_update_dialog
+import Gtk_about_dialog
 import sys
 import subprocess
 import settings
+import gw_menu
 if sys.platform.startswith("win"):
     import win32api
     WIN = True
@@ -905,48 +907,14 @@ class Weather_Widget:
     menu = None
 
     def __init__(self):
-        #global x_pos, y_pos
-        #global output_display
-        #global margin
-
         self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
         self.window.set_accept_focus(False)
 
         self.set_window_properties()
-        # width = w_block*n + block_margin*2 + 10*(n - 1) + 2*margin
-        # height = 260 + block_margin + 2*margin
+
         print u'Размеры виджета:'
         print u'    ширина =', width, u'высота =', height, u'в т.ч. отступ =', margin
-        # self.window.resize(width, height)
 
-        # Нужно ли?
-        # try:
-        #     screen = subprocess.Popen('xrandr | grep " connected"', shell=True, stdout=subprocess.PIPE, stdin=subprocess.PIPE)
-        #     screen = screen.stdout.readlines()
-        #     if output_display < 0: output_display = 0
-        #     if output_display >= len(screen): output_display = len(screen) - 1
-        #     print 'Найденные дисплеи:'
-        #     for i in range (0, len(screen)):
-        #         if i == output_display:
-        #             print '  * '+str(i)+':', screen[i].split()[0], screen[i].split()[2].split('+')[0]
-        #         else:
-        #             print '    '+str(i)+':', screen[i].split()[0], screen[i].split()[2].split('+')[0]
-        #     screen_width = int(screen[output_display].split()[2].split('x')[0])
-        #     screen_height = int(screen[output_display].split()[2].split('x')[1].split('+')[0])
-        #     hoffset = int(screen[output_display].split()[2].split('+')[1])
-        #     voffset = int(screen[output_display].split()[2].split('+')[2])
-        # except:
-        #     screen_width = gtk.gdk.screen_width()
-        #     screen_height = gtk.gdk.screen_height()
-        #     voffset = 0
-        #     hoffset = 0
-        # if x_pos >= 0: x_pos1 = hoffset + x_pos
-        # else: x_pos1 = hoffset + screen_width - width + x_pos + margin
-        
-        # if y_pos >= 0: y_pos1 = voffset + y_pos
-        # else: y_pos1 = voffset + screen_height - height + y_pos + margin
-        
-        
         self.window.set_decorated(False)
 
         global not_composited
@@ -994,187 +962,187 @@ class Weather_Widget:
             self.window.unstick()
         self.window.set_opacity(opacity)
 
-    def create_menu(self):
-        menu = None
-        # из папки скрипта (dirs - иконки, files - фоны)
-        root, dirs, files = os.walk(ICONS_PATH).next()
-        files = os.listdir(BGS_PATH)
-        dirs.sort()
-        files.sort()
-        dirs.remove('default')
-        # из папки пользователя (dirs_user - иконки, files_user - фоны)
-        root, dirs_user, files_user = os.walk(ICONS_USER_PATH).next()
-        files_user = os.listdir(BGS_USER_PATH)
-        dirs_user.sort()
-        files_user.sort()
-        dirs_user.remove('default')
-        # списки с иконками и фонами
-        global icons_list, backgrounds_list
-        icons_list = []
-        icons_list.extend(dirs)
-        icons_list.extend(dirs_user)
-        backgrounds_list = []
-        backgrounds_list.extend(files)
-        backgrounds_list.extend(files_user)
-        # Создаем меню и заполняем найденными иконками и фонами
-        menu = gtk.Menu()
-        sub_menu_icons = gtk.Menu()
-        sub_menu_bgs = gtk.Menu()
-        sub_menu_color_text = gtk.Menu()
-        sub_menu_place = gtk.Menu()
-        sub_menu_settings = gtk.Menu()
-        sub_menu_window = gtk.Menu()
+    # def create_menu(self):
+    #     menu = None
+    #     # из папки скрипта (dirs - иконки, files - фоны)
+    #     root, dirs, files = os.walk(ICONS_PATH).next()
+    #     files = os.listdir(BGS_PATH)
+    #     dirs.sort()
+    #     files.sort()
+    #     dirs.remove('default')
+    #     # из папки пользователя (dirs_user - иконки, files_user - фоны)
+    #     root, dirs_user, files_user = os.walk(ICONS_USER_PATH).next()
+    #     files_user = os.listdir(BGS_USER_PATH)
+    #     dirs_user.sort()
+    #     files_user.sort()
+    #     dirs_user.remove('default')
+    #     # списки с иконками и фонами
+    #     global icons_list, backgrounds_list
+    #     icons_list = []
+    #     icons_list.extend(dirs)
+    #     icons_list.extend(dirs_user)
+    #     backgrounds_list = []
+    #     backgrounds_list.extend(files)
+    #     backgrounds_list.extend(files_user)
+    #     # Создаем меню и заполняем найденными иконками и фонами
+    #     menu = gtk.Menu()
+    #     sub_menu_icons = gtk.Menu()
+    #     sub_menu_bgs = gtk.Menu()
+    #     sub_menu_color_text = gtk.Menu()
+    #     sub_menu_place = gtk.Menu()
+    #     sub_menu_settings = gtk.Menu()
+    #     sub_menu_window = gtk.Menu()
 
-        # Иконки
-        group = None
-        menu_items = gtk.RadioMenuItem(group, '0. Default')
-        if icons_name == 'default':
-            menu_items.set_active(True)
-        group = menu_items
-        sub_menu_icons.append(menu_items)
-        menu_items.connect("activate", self.redraw_icons, 'default')
-        menu_items.show()
-        for i in range(len(icons_list)):
-            buf = icons_list[i].split('_') # из _ делаем __ (отображается как _)
-            buf = '__'.join(buf)
-            menu_items = gtk.RadioMenuItem(group, str(i+1)+'. '+buf)
-            if icons_name == icons_list[i]:
-                menu_items.set_active(True)
-            group = menu_items
-            sub_menu_icons.append(menu_items)
-            menu_items.connect("activate", self.redraw_icons, icons_list[i])
-            menu_items.show()
+    #     # Иконки
+    #     group = None
+    #     menu_items = gtk.RadioMenuItem(group, '0. Default')
+    #     if icons_name == 'default':
+    #         menu_items.set_active(True)
+    #     group = menu_items
+    #     sub_menu_icons.append(menu_items)
+    #     menu_items.connect("activate", self.menu_response, 'redraw_icons', 'default')
+    #     menu_items.show()
+    #     for i in range(len(icons_list)):
+    #         buf = icons_list[i].split('_') # из _ делаем __ (отображается как _)
+    #         buf = '__'.join(buf)
+    #         menu_items = gtk.RadioMenuItem(group, str(i+1)+'. '+buf)
+    #         if icons_name == icons_list[i]:
+    #             menu_items.set_active(True)
+    #         group = menu_items
+    #         sub_menu_icons.append(menu_items)
+    #         menu_items.connect("activate", self.menu_response, 'redraw_icons', icons_list[i])
+    #         menu_items.show()
 
-        # Фоны
-        group = None
-        menu_items = gtk.RadioMenuItem(group, '0. Нет')
-        if show_bg_png == False and color_bg[3]==0:
-            menu_items.set_active(True)
-        group = menu_items
-        sub_menu_bgs.append(menu_items)
-        menu_items.connect("activate", self.redraw_bg, 'Нет')
-        menu_items.show()
-        for i in range(len(backgrounds_list)):
-            buf = backgrounds_list[i].split('_')
-            buf = '__'.join(buf)
-            menu_items = gtk.RadioMenuItem(group, str(i+1)+'. '+buf)
-            if bg_custom == backgrounds_list[i]:
-                menu_items.set_active(True)
-            group = menu_items
-            sub_menu_bgs.append(menu_items)
-            menu_items.connect("activate", self.redraw_bg, backgrounds_list[i])
-            menu_items.show()
+    #     # Фоны
+    #     group = None
+    #     menu_items = gtk.RadioMenuItem(group, '0. Нет')
+    #     if show_bg_png == False and color_bg[3]==0:
+    #         menu_items.set_active(True)
+    #     group = menu_items
+    #     sub_menu_bgs.append(menu_items)
+    #     menu_items.connect("activate", self.menu_response, 'redraw_bg', 'Нет')
+    #     menu_items.show()
+    #     for i in range(len(backgrounds_list)):
+    #         buf = backgrounds_list[i].split('_')
+    #         buf = '__'.join(buf)
+    #         menu_items = gtk.RadioMenuItem(group, str(i+1)+'. '+buf)
+    #         if bg_custom == backgrounds_list[i]:
+    #             menu_items.set_active(True)
+    #         group = menu_items
+    #         sub_menu_bgs.append(menu_items)
+    #         menu_items.connect("activate", self.menu_response, 'redraw_bg', backgrounds_list[i])
+    #         menu_items.show()
 
-        # Цвет текста
-        group = None
-        for i in range(len(color_scheme)):
-            menu_items = gtk.RadioMenuItem(group, 'Цветовая схема #' + str(i))
-            if i == color_scheme_number:
-                menu_items.set_active(True)
-            group = menu_items
-            sub_menu_color_text.append(menu_items)
-            menu_items.connect("activate", self.redraw_text, i)
-            menu_items.show()
-        # menu_items = gtk.SeparatorMenuItem()
-        # sub_menu_color_text.append(menu_items)
-        # menu_items.show()
-        # menu_items = gtk.MenuItem('Выбрать шрифт...')
-        # sub_menu_color_text.append(menu_items)
-        # menu_items.connect("activate", self.menu_response, 'choose_font')
-        # menu_items.show()
+    #     # Цвет текста
+    #     group = None
+    #     for i in range(len(color_scheme)):
+    #         menu_items = gtk.RadioMenuItem(group, 'Цветовая схема #' + str(i))
+    #         if i == color_scheme_number:
+    #             menu_items.set_active(True)
+    #         group = menu_items
+    #         sub_menu_color_text.append(menu_items)
+    #         menu_items.connect("activate", self.menu_response, 'redraw_text', i)
+    #         menu_items.show()
+    #     # menu_items = gtk.SeparatorMenuItem()
+    #     # sub_menu_color_text.append(menu_items)
+    #     # menu_items.show()
+    #     # menu_items = gtk.MenuItem('Выбрать шрифт...')
+    #     # sub_menu_color_text.append(menu_items)
+    #     # menu_items.connect("activate", self.menu_response, 'choose_font')
+    #     # menu_items.show()
 
-        # sub_menu_place
-        group = None
-        if len(city_id_add) > 0:
-            for i in range(len(city_id_add)):
-                menu_items = gtk.RadioMenuItem(group, city_id_add[i].split(';')[1])
-                if city_id_add[i].split(';')[0] == str(city_id):
-                    menu_items.set_active(True)
-                group = menu_items
-                sub_menu_place.append(menu_items)
-                menu_items.connect("activate", self.reload, city_id_add[i])
-                menu_items.show()
-            menu_items = gtk.SeparatorMenuItem()
-            sub_menu_place.append(menu_items)
-            menu_items.show()
+    #     # sub_menu_place
+    #     group = None
+    #     if len(city_id_add) > 0:
+    #         for i in range(len(city_id_add)):
+    #             menu_items = gtk.RadioMenuItem(group, city_id_add[i].split(';')[1])
+    #             if city_id_add[i].split(';')[0] == str(city_id):
+    #                 menu_items.set_active(True)
+    #             group = menu_items
+    #             sub_menu_place.append(menu_items)
+    #             menu_items.connect("activate", self.menu_response, 'reload', city_id_add[i])
+    #             menu_items.show()
+    #         menu_items = gtk.SeparatorMenuItem()
+    #         sub_menu_place.append(menu_items)
+    #         menu_items.show()
 
-        menu_items = gtk.MenuItem('Настроить...')
-        sub_menu_place.append(menu_items)
-        menu_items.connect("activate", self.edit_city_id)
-        menu_items.show()
+    #     menu_items = gtk.MenuItem('Настроить...')
+    #     sub_menu_place.append(menu_items)
+    #     menu_items.connect("activate", self.menu_response, 'edit_city_id')
+    #     menu_items.show()
 
-        sub_menu_window
-        menu_items = gtk.CheckMenuItem('Зафиксировать')
-        menu_items.set_active(fix_position)
-        menu_items.connect("activate", self.menu_response, 'fix')
-        sub_menu_window.append(menu_items)
-        menu_items.show()
+    #     sub_menu_window
+    #     menu_items = gtk.CheckMenuItem('Зафиксировать')
+    #     menu_items.set_active(fix_position)
+    #     menu_items.connect("activate", self.menu_response, 'fix')
+    #     sub_menu_window.append(menu_items)
+    #     menu_items.show()
 
-        menu_items = gtk.CheckMenuItem('На всех рабочих столах')
-        menu_items.set_active(sticky)
-        menu_items.connect("activate", self.menu_response, 'sticky')
-        sub_menu_window.append(menu_items)
-        menu_items.show()
+    #     menu_items = gtk.CheckMenuItem('На всех рабочих столах')
+    #     menu_items.set_active(sticky)
+    #     menu_items.connect("activate", self.menu_response, 'sticky')
+    #     sub_menu_window.append(menu_items)
+    #     menu_items.show()
 
-        # main menu
-        menu_items = gtk.ImageMenuItem(gtk.STOCK_REFRESH)
-        menu.append(menu_items)
-        menu_items.connect("activate", self.reload)
-        menu_items.show()
+    #     # main menu
+    #     menu_items = gtk.ImageMenuItem(gtk.STOCK_REFRESH)
+    #     menu.append(menu_items)
+    #     menu_items.connect("activate", self.menu_response, 'reload', 0)
+    #     menu_items.show()
 
-        menu_items = gtk.SeparatorMenuItem()
-        menu.append(menu_items)
-        menu_items.show()
+    #     menu_items = gtk.SeparatorMenuItem()
+    #     menu.append(menu_items)
+    #     menu_items.show()
 
-        menu_items = gtk.MenuItem('Местоположение')
-        menu.append(menu_items)
-        menu_items.set_submenu(sub_menu_place)
-        menu_items.show()
+    #     menu_items = gtk.MenuItem('Местоположение')
+    #     menu.append(menu_items)
+    #     menu_items.set_submenu(sub_menu_place)
+    #     menu_items.show()
 
-        menu_items = gtk.MenuItem('Иконки')
-        menu.append(menu_items)
-        menu_items.set_submenu(sub_menu_icons)
-        menu_items.show()
+    #     menu_items = gtk.MenuItem('Иконки')
+    #     menu.append(menu_items)
+    #     menu_items.set_submenu(sub_menu_icons)
+    #     menu_items.show()
         
-        menu_items = gtk.MenuItem('Фон')
-        menu.append(menu_items)
-        menu_items.set_submenu(sub_menu_bgs)
-        menu_items.show()
+    #     menu_items = gtk.MenuItem('Фон')
+    #     menu.append(menu_items)
+    #     menu_items.set_submenu(sub_menu_bgs)
+    #     menu_items.show()
         
-        menu_items = gtk.MenuItem('Текст')
-        menu.append(menu_items)
-        menu_items.set_submenu(sub_menu_color_text)
-        menu_items.show()
+    #     menu_items = gtk.MenuItem('Текст')
+    #     menu.append(menu_items)
+    #     menu_items.set_submenu(sub_menu_color_text)
+    #     menu_items.show()
 
-        menu_items = gtk.MenuItem('Окно')
-        menu.append(menu_items)
-        menu_items.set_submenu(sub_menu_window)
-        menu_items.show()
+    #     menu_items = gtk.MenuItem('Окно')
+    #     menu.append(menu_items)
+    #     menu_items.set_submenu(sub_menu_window)
+    #     menu_items.show()
 
-        menu_items = gtk.ImageMenuItem(gtk.STOCK_PROPERTIES)
-        menu.append(menu_items)
-        menu_items.connect("activate", self.menu_response, 'setup')
-        menu_items.show()
+    #     menu_items = gtk.ImageMenuItem(gtk.STOCK_PROPERTIES)
+    #     menu.append(menu_items)
+    #     menu_items.connect("activate", self.menu_response, 'setup')
+    #     menu_items.show()
         
-        # menu_items = gtk.MenuItem('Редактировать...')
-        # menu.append(menu_items)
-        # menu_items.connect("activate", self.menu_response, 'edit')
-        # menu_items.show()
+    #     # menu_items = gtk.MenuItem('Редактировать...')
+    #     # menu.append(menu_items)
+    #     # menu_items.connect("activate", self.menu_response, 'edit')
+    #     # menu_items.show()
 
-        menu_items = gtk.ImageMenuItem(gtk.STOCK_ABOUT)
-        menu.append(menu_items)
-        menu_items.connect("activate", self.menu_response, 'about')
-        menu_items.show()
+    #     menu_items = gtk.ImageMenuItem(gtk.STOCK_ABOUT)
+    #     menu.append(menu_items)
+    #     menu_items.connect("activate", self.menu_response, 'about')
+    #     menu_items.show()
 
-        menu_items = gtk.SeparatorMenuItem()
-        menu.append(menu_items)
-        menu_items.show()
+    #     menu_items = gtk.SeparatorMenuItem()
+    #     menu.append(menu_items)
+    #     menu_items.show()
 
-        menu_items = gtk.ImageMenuItem(gtk.STOCK_CLOSE)
-        menu.append(menu_items)
-        menu_items.connect("activate", gtk.main_quit)
-        menu_items.show()
-        return menu
+    #     menu_items = gtk.ImageMenuItem(gtk.STOCK_CLOSE)
+    #     menu.append(menu_items)
+    #     menu_items.connect("activate", gtk.main_quit)
+    #     menu_items.show()
+    #     return menu
 
     def screenshot(self, left, top, width, height):
         w = gtk.gdk.get_default_root_window()
@@ -1191,50 +1159,38 @@ class Weather_Widget:
 
     def menu_response(self, widget, event, value=None):
         if event == 'about':
-            about = gtk.AboutDialog()
-            about.set_program_name('Gis Weather')
-            about.set_version(v)
-            about.set_copyright('(С) 2013 - 2014 Alexander Koltsov')
-            about.set_comments('Погодный виджет')
-            about.set_website('http://sourceforge.net/projects/gis-weather/')
-            about.set_logo(gtk.gdk.pixbuf_new_from_file_at_size(os.path.join(APP_PATH, 'icon.png'), 128, 128))
-            about.set_license(license)
-            about.set_wrap_license(False)
-            about.set_authors(['Alexander Koltsov <ringov@mail.ru>\n',
-                'Помощь и идеи:\n    Karbunkul\n    Haron Prime\n    Yuriy_Y\n',
-                'draw_scaled_image, draw_text_Whise\nby Helder Fraga aka Whise <helder.fraga@hotmail.com>\n',
-                'autostart helper\nby Jonas Wagner\n',
-                'Sloth 0.2\nby Mikhail Valkov'])
-            about.set_artists(['backgrounds:',
-                'LightEasyShadow, LightWhiteShadow, DarkEasyShadow, DarkWithFlare',
-                'by wfedin',
-                '-------------------------------\n'
-                'icons:',
-                'colorful, flat_colorful, light, flat_white, dark, flat_black',
-                'by ~MerlinTheRed',
-                'http://merlinthered.deviantart.com/art/plain-weather-icons-157162192\n',
-                'tick by xiao4',
-                'http://www.deviantart.com/art/tick-weather-icons-96294478\n',
-                'weezle by d3stroy',
-                'http://www.deviantart.com/art/Weezle-Weather-Icons-187306753\n'])
-            #about.set_translator_credits('')
-            #about.set_documenters('')
+            about = Gtk_about_dialog.create(v, APP_PATH, license)
+            # about = gtk.AboutDialog()
+            # about.set_program_name('Gis Weather')
+            # about.set_version(v)
+            # about.set_copyright('(С) 2013 - 2014 Alexander Koltsov')
+            # about.set_comments('Погодный виджет')
+            # about.set_website('http://sourceforge.net/projects/gis-weather/')
+            # about.set_logo(gtk.gdk.pixbuf_new_from_file_at_size(os.path.join(APP_PATH, 'icon.png'), 128, 128))
+            # about.set_license(license)
+            # about.set_wrap_license(False)
+            # about.set_authors(['Alexander Koltsov <ringov@mail.ru>\n',
+            #     'Помощь и идеи:\n    Karbunkul\n    Haron Prime\n    Yuriy_Y\n',
+            #     'draw_scaled_image, draw_text_Whise\nby Helder Fraga aka Whise <helder.fraga@hotmail.com>\n',
+            #     'autostart helper\nby Jonas Wagner\n',
+            #     'Sloth 0.2\nby Mikhail Valkov'])
+            # about.set_artists(['backgrounds:',
+            #     'LightEasyShadow, LightWhiteShadow, DarkEasyShadow, DarkWithFlare',
+            #     'by wfedin',
+            #     '-------------------------------\n'
+            #     'icons:',
+            #     'colorful, flat_colorful, light, flat_white, dark, flat_black',
+            #     'by ~MerlinTheRed',
+            #     'http://merlinthered.deviantart.com/art/plain-weather-icons-157162192\n',
+            #     'tick by xiao4',
+            #     'http://www.deviantart.com/art/tick-weather-icons-96294478\n',
+            #     'weezle by d3stroy',
+            #     'http://www.deviantart.com/art/Weezle-Weather-Icons-187306753\n'])
+            # #about.set_translator_credits('')
+            # #about.set_documenters('')
             about.run()
             about.destroy()
             return
-        # if event == 'choose_font':
-        #     global font
-        #     fdia = gtk.FontSelectionDialog('Выберите шрифт')
-        #     fdia.set_font_name(font)
-        #     response = fdia.run()
-
-        #     if response == gtk.RESPONSE_OK:
-        #         font_desc = pango.FontDescription(fdia.get_font_name())
-        #         font = font_desc.get_family()
-        #         Save_Config()
-        #         self.drawing_area.redraw(False, False)
-        #     fdia.destroy()
-        #     return
         if event == 'edit':
             if sys.platform.startswith('linux'):
                 subprocess.Popen(['xdg-open', CONFIG_PATH])
@@ -1259,66 +1215,81 @@ class Weather_Widget:
             Save_Config()
         if event == 'setup':
             settings.main(gw_config_default, gw_config, self.drawing_area, app, icons_list, backgrounds_list)
-
-    def button_press(self, widget, event):
-        if event.button == 1 and not fix_position:
-            self.window.begin_move_drag(1, int(event.x_root), int(event.y_root), event.time)
-            return True
-        if event.button == 3:
-            self.menu = self.create_menu()
-            self.menu.popup(None, None, None, event.button, event.time)
-            return True
-        return False
-
-    def configure_event(self, widget, event):
-        global x_pos, y_pos
-        if event.x != x_pos or event.y != y_pos:
-            x_pos = event.x
-            y_pos = event.y
+        if event == 'redraw_icons':
+            global icons_name
+            icons_name = value
+            #self.drawing_area.redraw(False, False)
+            self.drawing_area.queue_draw()
             Save_Config()
-    def enter_leave_event(self, widget, event, param):
-        global show_time_receive_local
-        if param == 'enter' and show_time_receive:
-            show_time_receive_local = True
-        if param == 'leave' and show_time_receive_local:
-            show_time_receive_local = False
-        self.drawing_area.queue_draw()
+        if event == 'redraw_bg':
+            global bg_custom, show_bg_png, color_bg
+            show_bg_png = True
+            if value == 'Нет':
+                show_bg_png = False
+                color_bg = (1, 1, 1, 0)
+            bg_custom = value
+            #self.drawing_area.redraw(False, False)
+            self.drawing_area.queue_draw()
+            Save_Config()
+        if event == 'redraw_text':
+            Load_Color_Scheme(value)
+            self.drawing_area.redraw(False, False)
+            Save_Config()
+        if event == 'reload':
+            # если radio, то обновлялось 2 раза, фикс
+            if type(widget) == gtk.RadioMenuItem:
+                if not widget.get_active():
+                    return
 
-    def redraw_icons(self, widget, string):
-        global icons_name
-        icons_name = string
-        #self.drawing_area.redraw(False, False)
-        self.drawing_area.queue_draw()
-        Save_Config()
+            global city_id
+            Load_Config()
+            if value != 0:
+                city_id = value.split(';')[0]
+                Save_Config()
+            self.drawing_area.redraw(False)
+        if event == 'edit_city_id':
+            if self.show_edit_dialog():
+                Save_Config()
+                while gtk.events_pending():
+                    gtk.main_iteration_do(True)
+                self.drawing_area.redraw(False)
 
-    def redraw_bg(self, widget, string):
-        global bg_custom, show_bg_png, color_bg
-        show_bg_png = True
-        if string == 'Нет':
-            show_bg_png = False
-            color_bg = (1, 1, 1, 0)
-        bg_custom = string
-        #self.drawing_area.redraw(False, False)
-        self.drawing_area.queue_draw()
-        Save_Config()
+
+    # def reload(self, widget, c_id = 0):
+    #     # если radio, то обновлялось 2 раза, фикс
+    #     if type(widget) == gtk.RadioMenuItem:
+    #         if not widget.get_active():
+    #             return
+
+    #     global city_id
+    #     Load_Config()
+    #     if c_id != 0:
+    #         city_id = c_id.split(';')[0]
+    #         Save_Config()
+    #     self.drawing_area.redraw(False)
+
+    # def redraw_icons(self, widget, string):
+    #     global icons_name
+    #     icons_name = string
+    #     #self.drawing_area.redraw(False, False)
+    #     self.drawing_area.queue_draw()
+    #     Save_Config()
+
+    # def redraw_bg(self, widget, string):
+    #     global bg_custom, show_bg_png, color_bg
+    #     show_bg_png = True
+    #     if string == 'Нет':
+    #         show_bg_png = False
+    #         color_bg = (1, 1, 1, 0)
+    #     bg_custom = string
+    #     #self.drawing_area.redraw(False, False)
+    #     self.drawing_area.queue_draw()
+    #     Save_Config()
     
-    def redraw_text(self, widget, i):
-        Load_Color_Scheme(i)
-        self.drawing_area.redraw(False, False)
-        Save_Config()
-
-    def reload(self, widget, c_id = 0):
-        # если radio, то обновлялось 2 раза, фикс
-        if type(widget) == gtk.RadioMenuItem:
-            if not widget.get_active():
-                return
-
-        global city_id
-        Load_Config()
-        if c_id != 0:
-            city_id = c_id.split(';')[0]
-            Save_Config()
-        self.drawing_area.redraw(False)
+    # def redraw_text(self, widget, i):
+    #     Load_Color_Scheme(i)
+    #     self.drawing_area.redraw(False, False)
+    #     Save_Config()
 
     def show_edit_dialog(self):
         global city_id, city_id_add
@@ -1377,22 +1348,40 @@ class Weather_Widget:
         dialog.hide()
         return True
 
-    def edit_city_id(self, widget):
-        if self.show_edit_dialog():
-            Save_Config()
-            while gtk.events_pending():
-                gtk.main_iteration_do(True)
-            self.drawing_area.redraw(False)
+    # def edit_city_id(self):
+    #     if self.show_edit_dialog():
+    #         Save_Config()
+    #         while gtk.events_pending():
+    #             gtk.main_iteration_do(True)
+    #         self.drawing_area.redraw(False)
 
-    def main(self):
-        self.window.show_all()
-        x = self.window.get_size()
-        self.window.resize(width, height-(x[1]-height))
-        if city_id == 0:
-            if self.show_edit_dialog():
-                Save_Config()
-        gtk.main()
-        
+#---------------------- Обработчики событий окна --------------------------------
+    def button_press(self, widget, event):
+        if event.button == 1 and not fix_position:
+            self.window.begin_move_drag(1, int(event.x_root), int(event.y_root), event.time)
+            return True
+        if event.button == 3:
+            global icons_list, backgrounds_list
+            self.menu, icons_list, backgrounds_list = gw_menu.create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, 
+                icons_name, show_bg_png, color_bg, bg_custom, color_scheme, color_scheme_number, city_id_add, city_id, fix_position, sticky)
+            self.menu.popup(None, None, None, event.button, event.time)
+            return True
+        return False
+
+    def configure_event(self, widget, event):
+        global x_pos, y_pos
+        if event.x != x_pos or event.y != y_pos:
+            x_pos = event.x
+            y_pos = event.y
+            Save_Config()
+
+    def enter_leave_event(self, widget, event, param):
+        global show_time_receive_local
+        if param == 'enter' and show_time_receive:
+            show_time_receive_local = True
+        if param == 'leave' and show_time_receive_local:
+            show_time_receive_local = False
+        self.drawing_area.queue_draw()
 
     def screen_changed(self, widget, old_screen = None):
         screen = widget.get_screen()
@@ -1404,6 +1393,17 @@ class Weather_Widget:
             print 'Your screen supports alpha'
         widget.set_colormap(colormap)
         return True
+#--------------------------------------------------------------------------------
+
+    def main(self):
+        self.window.show_all()
+        # фик высоты виджета
+        x = self.window.get_size()
+        self.window.resize(width, height-(x[1]-height))
+        if city_id == 0:
+            if self.show_edit_dialog():
+                Save_Config()
+        gtk.main()
 
 
 if __name__ == "__main__":

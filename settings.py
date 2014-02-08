@@ -76,7 +76,7 @@ class settings():
         self.combobox_check_for_updates = self.widgets_tree.get_object('combobox_check_for_updates')
         self.combobox_check_for_updates.connect("changed", self.save_settings)
         self.button_city_id = self.widgets_tree.get_object('button_city_id')
-        self.button_city_id.connect("clicked", App_gw.edit_city_id)
+        self.button_city_id.connect("clicked", App_gw.menu_response, 'edit_city_id')
         self.button_open_config_folder = self.widgets_tree.get_object('button_open_config_folder')
         self.button_open_config_folder.connect("clicked", App_gw.menu_response, 'edit')
         self.checkbutton_autorun = self.widgets_tree.get_object('checkbutton_autorun')
