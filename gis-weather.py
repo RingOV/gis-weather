@@ -287,11 +287,13 @@ weather = {
     'text': [],            # Текст погоды
 
     't_tomorrow': [],      # Температура завтра
+    't_tomorrow_feel': [], # Температура завтра ощущается
     'icon_tomorrow': [],   # Иконка погоды завтра
     'wind_speed_tom': [],  # Скорость ветра завтра
     'wind_direct_tom': [], # Направление ветра завтра
 
     't_today': [],         # Температура сегодня
+    't_today_feel': [],    # Температура сегодня ощущается
     'icon_today': [],      # Иконка погоды сегодня
     'wind_speed_tod': [],  # Скорость ветра сегодня
     'wind_direct_tod': []  # Направление ветра сегодня
@@ -718,10 +720,10 @@ class MyDrawArea(gtk.DrawingArea):
                     if j > 1: j = j-2
                     self.draw_text(c[i], x0+a*((j+1)/2), y0+b*(i/2), font+' Bold', 7, 50,pango.ALIGN_LEFT)
                     if t_tomorrow:
-                        if t_feel:
-                            self.draw_text(t_tomorrow[1::2][i]+'°', x0+a*((j+1)/2), y0+13+b*(i/2), font+' Normal', 8, 50,pango.ALIGN_LEFT)
+                        if t_feel and t_tomorrow_feel:
+                            self.draw_text(t_tomorrow_feel[i]+'°', x0+a*((j+1)/2), y0+13+b*(i/2), font+' Normal', 8, 50,pango.ALIGN_LEFT)
                         else:
-                            self.draw_text(t_tomorrow[::2][i]+'°', x0+a*((j+1)/2), y0+13+b*(i/2), font+' Normal', 8, 50,pango.ALIGN_LEFT)
+                            self.draw_text(t_tomorrow[i]+'°', x0+a*((j+1)/2), y0+13+b*(i/2), font+' Normal', 8, 50,pango.ALIGN_LEFT)
                     self.draw_scaled_icon(x0+32+a*((j+1)/2), y0+b*(i/2), os.path.join(ICONS_PATH, icons_name, 'weather', icon_tomorrow[i]), 28, 28)
                     if (wind_direct and wind_speed): 
                         if int(wind_speed_tom[i]) >= high_wind:
@@ -749,10 +751,10 @@ class MyDrawArea(gtk.DrawingArea):
                     if j > 1: j = j-2
                     self.draw_text(c[i], x0+a*((j+1)/2), y0+b*(i/2), font+' Bold', 7, 50,pango.ALIGN_LEFT)
                     if t_tomorrow:
-                        if t_feel:
-                            self.draw_text(t_today[1::2][i]+'°', x0+a*((j+1)/2), y0+13+b*(i/2), font+' Normal', 8, 50,pango.ALIGN_LEFT)
+                        if t_feel and t_today_feel:
+                            self.draw_text(t_today_feel[i]+'°', x0+a*((j+1)/2), y0+13+b*(i/2), font+' Normal', 8, 50,pango.ALIGN_LEFT)
                         else:
-                            self.draw_text(t_today[::2][i]+'°', x0+a*((j+1)/2), y0+13+b*(i/2), font+' Normal', 8, 50,pango.ALIGN_LEFT)
+                            self.draw_text(t_today[i]+'°', x0+a*((j+1)/2), y0+13+b*(i/2), font+' Normal', 8, 50,pango.ALIGN_LEFT)
                     self.draw_scaled_icon(x0+32+a*((j+1)/2), y0+b*(i/2), os.path.join(ICONS_PATH, icons_name, 'weather', icon_today[i]), 28, 28)
                     if (wind_direct and wind_speed): 
                         if int(wind_speed_tod[i]) >= high_wind:
@@ -998,7 +1000,7 @@ class Weather_Widget:
         global n
         global width, height
 
-        if n > 13: n = 13
+        if n > 12: n = 12
         if n < 1: n = 1
         width = w_block*n + block_margin*2 + 10*(n - 1) + 2*margin
         height = 260 + block_margin + 2*margin

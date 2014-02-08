@@ -28,7 +28,7 @@
   </object>
   <object class="GtkAdjustment" id="adjustment6">
     <property name="lower">3</property>
-    <property name="upper">13</property>
+    <property name="upper">12</property>
     <property name="step_increment">1</property>
   </object>
   <object class="GtkAdjustment" id="adjustment7">
