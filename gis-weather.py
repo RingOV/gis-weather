@@ -73,7 +73,7 @@ gw_config_default = {
     'color_shadow': (1, 1, 1, 0.7),    # Цвет тени
     'draw_shadow': True,               # Рисовать тень
     'opacity': 1,                      # Прозрачность всего окна 0..1
-    'show_time_receive': False,        # Время получения погоды
+    'show_time_receive': True,         # Время получения погоды
     'show_block_wind_direct': True,    # Блок направление ветра
     'block_wind_direct_left': -170,    # Позиция слева относительно центра
     'wind_direct_small': False,        # Маленький блок направления ветра
@@ -220,6 +220,7 @@ else:
     check_for_updates_local = True
 icons_list = []
 backgrounds_list = []
+show_time_receive_local = False
 
 # переменные, в которые записывается погода
 city_name = []       # Город
@@ -560,7 +561,7 @@ class MyDrawArea(gtk.DrawingArea):
                 else:
                     self.draw_text(day[0]+', '+date[0], 0, y-15, font+' Bold', 12, width, pango.ALIGN_CENTER)
             
-            if show_time_receive:
+            if show_time_receive_local:
                 if time_update: self.draw_text('обновление на сервере '+time_update[0], x-margin, x+18+margin, font+' Normal', 8, width-10,pango.ALIGN_RIGHT)
                 self.draw_text('погода получена '+time.strftime('%H:%M', time.localtime()), x-margin, x+8+margin, font+' Normal', 8, width-10,pango.ALIGN_RIGHT)
             if city_name: self.draw_text(city_name[0], x+0, y, font+' Bold', 14, width, pango.ALIGN_CENTER)
@@ -957,6 +958,8 @@ class Weather_Widget:
         self.window.set_events(gtk.gdk.ALL_EVENTS_MASK)
         self.window.connect('button-press-event', self.button_press)
         self.window.connect("configure-event", self.configure_event)
+        self.window.connect("enter-notify-event", self.enter_leave_event, "enter")
+        self.window.connect("leave-notify-event", self.enter_leave_event, "leave")
 
         self.window.connect("destroy", gtk.main_quit)
         self.window.connect("screen-changed", self.screen_changed)
@@ -1273,11 +1276,19 @@ class Weather_Widget:
             x_pos = event.x
             y_pos = event.y
             Save_Config()
+    def enter_leave_event(self, widget, event, param):
+        global show_time_receive_local
+        if param == 'enter' and show_time_receive:
+            show_time_receive_local = True
+        if param == 'leave' and show_time_receive_local:
+            show_time_receive_local = False
+        self.drawing_area.queue_draw()
 
     def redraw_icons(self, widget, string):
         global icons_name
         icons_name = string
-        self.drawing_area.redraw(False, False)
+        #self.drawing_area.redraw(False, False)
+        self.drawing_area.queue_draw()
         Save_Config()
 
     def redraw_bg(self, widget, string):
@@ -1287,7 +1298,8 @@ class Weather_Widget:
             show_bg_png = False
             color_bg = (1, 1, 1, 0)
         bg_custom = string
-        self.drawing_area.redraw(False, False)
+        #self.drawing_area.redraw(False, False)
+        self.drawing_area.queue_draw()
         Save_Config()
     
     def redraw_text(self, widget, i):
