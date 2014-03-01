@@ -1431,7 +1431,8 @@ class Weather_Widget:
             show_time_receive_local = True
         if param == 'leave' and show_time_receive_local:
             show_time_receive_local = False
-        self.drawing_area.queue_draw()
+        if not err:
+            self.drawing_area.queue_draw()
 
     def screen_changed(self, widget, old_screen = None):
         screen = widget.get_screen()
