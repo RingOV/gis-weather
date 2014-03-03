@@ -30,18 +30,17 @@ import pango
 import autorun
 import sys
 if sys.platform.startswith("win"):
-    import win32api
     WIN = True
 else:
     WIN = False
 
 CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
 if WIN:
-    CONFIG_PATH = win32api.GetShortPathName(CONFIG_PATH)
+    CONFIG_PATH = CONFIG_PATH.decode(sys.getfilesystemencoding())
 
 work_path = os.path.dirname(sys.argv[0])
 if WIN:
-    work_path = win32api.GetShortPathName(work_path)
+    work_path = work_path.decode(sys.getfilesystemencoding())
 
 gw_config_default_set = {}
 gw_config_set = {}

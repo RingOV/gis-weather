@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #  gis_weather.py
-v = '0.4.1'
+v = '0.4.2'
 #  Copyright 2013-2014 Alexander Koltsov
 #
 #  draw_scaled_image, draw_text_Whise copyright by Helder Fraga
@@ -41,14 +41,13 @@ import settings
 import gw_menu
 import gismeteo
 if sys.platform.startswith("win"):
-    import win32api
     WIN = True
 else:
     WIN = False
 
 CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
 if WIN:
-    CONFIG_PATH = win32api.GetShortPathName(CONFIG_PATH)
+    CONFIG_PATH = CONFIG_PATH.decode(sys.getfilesystemencoding())
 
 if not os.path.exists(CONFIG_PATH):
     os.makedirs(CONFIG_PATH)
@@ -178,7 +177,7 @@ def Load_Color_Scheme(number = 0):
 
 APP_PATH = os.path.dirname(sys.argv[0])
 if WIN:
-    APP_PATH = win32api.GetShortPathName(APP_PATH)
+    APP_PATH = APP_PATH.decode(sys.getfilesystemencoding())
 
 if APP_PATH == '':
     print u'Указывайте полный путь к скрипту\nВыход.'
@@ -189,12 +188,6 @@ ICONS_PATH = os.path.join(THEMES_PATH, 'icons')
 BGS_PATH = os.path.join(THEMES_PATH, 'backgrounds')
 ICONS_USER_PATH = os.path.join(CONFIG_PATH, 'icons')
 BGS_USER_PATH = os.path.join(CONFIG_PATH, 'backgrounds')
-if WIN:
-    THEMES_PATH = win32api.GetShortPathName(THEMES_PATH)
-    ICONS_PATH = win32api.GetShortPathName(ICONS_PATH)
-    BGS_PATH = win32api.GetShortPathName(BGS_PATH)
-    ICONS_USER_PATH = win32api.GetShortPathName(ICONS_USER_PATH)
-    BGS_USER_PATH = win32api.GetShortPathName(BGS_USER_PATH)
 
 if not os.path.exists(os.path.join(ICONS_USER_PATH, 'default', 'weather')):
     os.makedirs(os.path.join(ICONS_USER_PATH, 'default', 'weather'))
@@ -919,8 +912,6 @@ class MyDrawArea(gtk.DrawingArea):
     
     def draw_scaled_image(self, x, y, pix, w, h, ang = 0):
         """Draws a picture from specified path with a certain width and height"""
-        if WIN:
-            pix = win32api.GetShortPathName(pix)
         w = int(w)
         h = int(h)
 
