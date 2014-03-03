@@ -25,6 +25,7 @@ def get_changes():
     changes = re.sub('<li>', '  - ', changes)
     changes = re.sub('</h1>', '', changes)
     changes = re.sub('<h1.*>', '', changes)
+    changes = re.sub('</ul>', '', changes)
     lines = changes.split('\n')
     changes = ['', '']
     changes[0] = lines[0]+'\n'
