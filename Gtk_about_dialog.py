@@ -6,7 +6,7 @@ import os
 
 def create(v, APP_PATH, license):
     about = gtk.AboutDialog()
-    about.set_icon_from_file("icon.png")
+    about.set_icon_from_file(os.path.join(APP_PATH, "icon.png"))
     about.set_program_name("Gis Weather")
     about.set_version(v)
     about.set_copyright("(С) 2013 - 2014 Alexander Koltsov")

@@ -1334,7 +1334,7 @@ class Weather_Widget:
 
     def show_edit_dialog(self):
         global city_id, city_id_add
-        dialog, entrybox, treeview, bar_err, bar_ok, bar_label = Gtk_city_id.create_gtk_city_id(self.window, city_id, city_id_add);
+        dialog, entrybox, treeview, bar_err, bar_ok, bar_label = Gtk_city_id.create_gtk_city_id(self.window, city_id, city_id_add, APP_PATH);
         dialog.show_all()
         bar_err.hide()
         bar_ok.hide()

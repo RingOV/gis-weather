@@ -2,14 +2,15 @@
 # -*- coding: utf-8 -*-
 
 import gtk
+import os
 
-def create_gtk_city_id(window, city_id, city_id_add):
+def create_gtk_city_id(window, city_id, city_id_add, APP_PATH):
     dialog = gtk.Dialog('Местоположение', window)
     dialog.resize(300, 100)
     dialog.add_buttons(gtk.STOCK_ADD, gtk.RESPONSE_OK,
         gtk.STOCK_CLOSE, gtk.RESPONSE_CANCEL,
         'Удалить выбранное', gtk.RESPONSE_ACCEPT)
-    dialog.set_icon_from_file("icon.png")
+    dialog.set_icon_from_file(os.path.join(APP_PATH, "icon.png"))
 
     hbox = gtk.HBox(False, 8)
     hbox.set_border_width(8)

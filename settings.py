@@ -64,7 +64,7 @@ class settings():
 
         #загружаем элементы формы
         self.window1 = self.widgets_tree.get_object('window1')
-        self.window1.set_icon_from_file("icon.png")
+        self.window1.set_icon_from_file(os.path.join(work_path, "icon.png"))
 
         # Общие
         self.spinbutton_upd_time = self.widgets_tree.get_object('spinbutton_upd_time')
