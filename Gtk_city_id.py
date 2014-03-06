@@ -9,6 +9,7 @@ def create_gtk_city_id(window, city_id, city_id_add):
     dialog.add_buttons(gtk.STOCK_ADD, gtk.RESPONSE_OK,
         gtk.STOCK_CLOSE, gtk.RESPONSE_CANCEL,
         'Удалить выбранное', gtk.RESPONSE_ACCEPT)
+    dialog.set_icon_from_file("icon.png")
 
     hbox = gtk.HBox(False, 8)
     hbox.set_border_width(8)
@@ -20,10 +21,10 @@ def create_gtk_city_id(window, city_id, city_id_add):
 
     entrybox = gtk.Entry()
     entrybox.set_text(str(city_id))
-    text = ''' Выберите свой город на сайте <a href='http://www.gismeteo.ru'>http://www.gismeteo.ru</a>
+    text = """ Выберите свой город на сайте <a href='http://www.gismeteo.com'>http://www.gismeteo.com</a>
  и скопируете число в конце ссылки
  Например <u><span foreground='blue'>http://www.gismeteo.ru/city/daily/<b>1234</b>/</span></u>
- Код города <b>1234</b>'''
+ Код города <b>1234</b>"""
     label = gtk.Label()
     label.set_markup(text)
 
