@@ -76,6 +76,19 @@ class settings():
         self.window1 = self.widgets_tree.get_object('window1')
         self.window1.set_icon_from_file(os.path.join(work_path, "icon.png"))
 
+        # создание словаря с оригинальным текстом объетов
+        self.dict_o = {}
+        list_o = self.widgets_tree.get_objects()
+        for i in range(len(list_o)):
+            try:
+                if list_o[i].get_name() == 'GtkLabel':
+                    if list_o[i].get_text() != '':
+                        self.dict_o[gtk.Buildable.get_name(list_o[i])] = list_o[i].get_text()
+            except:
+                pass
+
+        self.translate()
+
         # Общие
         self.spinbutton_upd_time = self.widgets_tree.get_object('spinbutton_upd_time')
         self.spinbutton_upd_time.connect("value-changed", self.save_settings)
@@ -95,6 +108,7 @@ class settings():
         self.combobox_app_lang.connect("changed", self.set_app_lang)
         self.combobox_weather_lang = self.widgets_tree.get_object('combobox_weather_lang')
         self.combobox_weather_lang.connect("changed", self.set_weather_lang)
+        self.liststore1 = self.widgets_tree.get_object('liststore1')
 
         self.clear_upd_time = self.widgets_tree.get_object('clear_upd_time')
         self.clear_upd_time.connect("clicked", self.clear_settings)
@@ -164,6 +178,7 @@ class settings():
         self.combobox_show_splash_screen.connect("changed", self.save_settings)
         self.spinbutton_max_try_show = self.widgets_tree.get_object('spinbutton_max_try_show')
         self.spinbutton_max_try_show.connect("value-changed", self.save_settings)
+        self.liststore2 = self.widgets_tree.get_object('liststore2')
 
 
         self.clear_show_block_today = self.widgets_tree.get_object('clear_show_block_today')
@@ -257,9 +272,31 @@ class settings():
         self.window1.connect("delete_event", self.close_window)
         self.window1.show()
 
+    def translate(self):
+        # перебор всех объетов и перевод на нужный язык
+        list_o = self.widgets_tree.get_objects()
+        for i in range(len(list_o)):
+            try:
+                if list_o[i].get_name() == 'GtkLabel':
+                    if list_o[i].get_text() != '':
+                        list_o[i].set_text(_(self.dict_o[gtk.Buildable.get_name(list_o[i])]))
+            except:
+                pass
+
+
     def load_config_into_form(self):
         global state_lock
         state_lock = True
+
+        self.liststore1.clear()
+        self.liststore1.append([_('Never')])
+        self.liststore1.append([_('Only at start')])
+        self.liststore1.append([_('Always')])
+
+        self.liststore2.clear()
+        self.liststore2.append([_('No')])
+        self.liststore2.append([_('Only background')])
+        self.liststore2.append([_('Yes')])
 
         self.load(self.spinbutton_upd_time)
         self.load(self.checkbutton_t_feel)
@@ -423,6 +460,8 @@ class settings():
         Save_Config()
         import localization
         localization.set()
+        self.translate()
+        self.load_config_into_form()
         drawing_area_set.redraw(False, False, load_config = True)
 
 

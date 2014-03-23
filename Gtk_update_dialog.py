@@ -16,7 +16,7 @@ def get_changes():
     try:
         source = urlopen('http://sourceforge.net/p/gis-weather/changelog/', timeout=10).read()
     except:
-        print '[!] Невозможно получить изменения'
+        print '[!] '+_('Unable to get changes')
         changes = ['','']
         return ''
     changes = re.findall('markdown_content.>(.*?)\.\.\. <a', source, re.DOTALL)
@@ -37,7 +37,7 @@ def dlProgress(count, blockSize, totalSize):
     global updating_step1
     percent = int(count*blockSize*100/totalSize)
     total = str(round(totalSize/1024/1024.0*10)/10.0)
-    updating_step1.set_text("1. Скачиваю (%s Мб)... %d%%" %(total, percent))
+    updating_step1.set_text("1. "+_('Downloading')+" (%s Мб)... %d%%" %(total, percent))
     # перерисовка окна
     while gtk.events_pending():
         gtk.main_iteration_do(True)
@@ -50,24 +50,24 @@ def restart(widget):
 
 
 def show(v, new_ver, CONFIG_PATH, APP_PATH):
-    dialog = gtk.Dialog('Gis Weather: Обновление')
+    dialog = gtk.Dialog('Gis Weather: '+_('Update'))
     dialog.set_border_width(10)
     dialog.resize(500, 200)
-    dialog.add_buttons('Обновить', gtk.RESPONSE_OK, gtk.STOCK_CLOSE, gtk.RESPONSE_CANCEL)
+    dialog.add_buttons(_('Update'), gtk.RESPONSE_OK, _('Close'), gtk.RESPONSE_CANCEL)
 
-    label_cur = gtk.Label('Установленная версия:')
+    label_cur = gtk.Label(_('Installed version')+':')
     label_cur.set_alignment(xalign=1.0, yalign=1.0)
     label_cur_ver = gtk.Label(v)
     label_cur_ver.set_alignment(xalign=0.0, yalign=1.0)
-    label_new = gtk.Label('Доступна версия:')
+    label_new = gtk.Label(_('Available version')+':')
     label_new.set_alignment(xalign=1.0, yalign=0.0)
     label_new_ver = gtk.Label()
-    label_new_ver.set_markup('<b><span gravity="east">%s</span></b>'%new_ver+' <a href="http://sourceforge.net/projects/gis-weather/files/gis-weather/%s/">На сайт</a>'%new_ver)
+    label_new_ver.set_markup('<b><span gravity="east">%s</span></b>'%new_ver+' <a href="http://sourceforge.net/projects/gis-weather/files/gis-weather/%s/">'%new_ver+_('Go to website')+'</a>')
     label_new_ver.set_alignment(xalign=0.0, yalign=0.0)
 
     label_links = gtk.Label()
-    label_links.set_markup('<a href="https://github.com/RingOV/gis-weather">Исходный код</a> | \
-<a href="http://sourceforge.net/p/gis-weather/changelog/2014/01/changelog/">История версий</a>')
+    label_links.set_markup('<a href="https://github.com/RingOV/gis-weather">'+_('Source code')+'</a> | \
+<a href="http://sourceforge.net/p/gis-weather/changelog/2014/01/changelog/">'+_('Changlog')+'</a>')
     # тестовый буфер, в него запишется форматированные текст
     changes = get_changes() # получаем текст обновления
     changes_text = gtk.TextBuffer()
@@ -94,11 +94,11 @@ def show(v, new_ver, CONFIG_PATH, APP_PATH):
 
     label_space = gtk.Label('')
     global updating_step1
-    updating_step1 = gtk.Label('1. Скачиваю... 0%')
+    updating_step1 = gtk.Label('1. '+_('Downloading')+'... 0%')
     updating_step1.set_alignment(xalign=0.0, yalign=0.0)
-    updating_step2 = gtk.Label('2. Установка')
+    updating_step2 = gtk.Label('2. '+_('Installation'))
     updating_step2.set_alignment(xalign=0.0, yalign=0.0)
-    updating_step3 = gtk.Label('3. Очистка временных файлов')
+    updating_step3 = gtk.Label('3. '+_('Cleaning temporary files'))
     updating_step3.set_alignment(xalign=0.0, yalign=0.0)
     updating_space = gtk.Label('')
     updating_status = gtk.Label('')
@@ -106,7 +106,7 @@ def show(v, new_ver, CONFIG_PATH, APP_PATH):
     bar.set_message_type(gtk.MESSAGE_ERROR)
     bar.get_content_area().pack_start(updating_status)
 
-    button_restart = gtk.Button('Перезапустить')
+    button_restart = gtk.Button(_('Restart'))
     button_restart.connect("clicked", restart)
 
     pix_loading = gtk.gdk.PixbufAnimation(os.path.join(APP_PATH, 'themes', 'loading.gif'))
@@ -156,7 +156,7 @@ def show(v, new_ver, CONFIG_PATH, APP_PATH):
         pic_step3.clear()
         button_restart.hide()
         bar.hide()
-        updating_status.set_text('Произошла ошибка при обновлении')
+        updating_status.set_text(_('Update error'))
         bar.set_message_type(gtk.MESSAGE_ERROR)
         # перерисовка окна
         while gtk.events_pending():
@@ -167,7 +167,7 @@ def show(v, new_ver, CONFIG_PATH, APP_PATH):
             urllib.urlretrieve(url, _file, reporthook=dlProgress)
             pic_step1.set_from_stock(gtk.STOCK_OK, 4)
         except:
-            print '[!] Ошибка скачивания обновления'
+            print '[!] '+_('Error downloading updates')
             pic_step1.set_from_stock(gtk.STOCK_DIALOG_ERROR, 4)
             bar.show()
         else:
@@ -178,11 +178,11 @@ def show(v, new_ver, CONFIG_PATH, APP_PATH):
             p = subprocess.Popen(["gksu", "dpkg -i %s" %_file], stdout=subprocess.PIPE)
             out, err = p.communicate()
             if (out == '' or out == 'None') and err != 'None':
-                print '[!] Ошибка установки обновления'
+                print '[!] '+_('Error installing updates')
                 pic_step2.set_from_stock(gtk.STOCK_DIALOG_ERROR, 4)
                 bar.show()
             else:
-                print '> Установка:'
+                print '> '+_('Installation')+':'
                 print out
                 pic_step2.set_from_stock(gtk.STOCK_OK, 4)
                 pic_step3.set_from_animation(pix_loading)
@@ -190,11 +190,11 @@ def show(v, new_ver, CONFIG_PATH, APP_PATH):
                     os.remove(_file)
                     pic_step3.set_from_stock(gtk.STOCK_OK, 4)
                 except:
-                    print '[!] Ошибка удаления'
+                    print '[!] '+_('Error removing')
                     pic_step3.set_from_stock(gtk.STOCK_DIALOG_ERROR, 4)
                     bar.show()
                 else:
-                    updating_status.set_text('Обновление успешно завершено')
+                    updating_status.set_text(_('Update successful'))
                     bar.set_message_type(gtk.MESSAGE_INFO)
                     bar.show()
                     button_restart.show()

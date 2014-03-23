@@ -58,7 +58,7 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, icons
 
     # Фоны
     group = None
-    menu_items = gtk.RadioMenuItem(group, '0. Нет')
+    menu_items = gtk.RadioMenuItem(group, '0. '+_('No'))
     if show_bg_png == False and color_bg[3]==0:
         menu_items.set_active(True)
     group = menu_items
@@ -79,7 +79,7 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, icons
     # Цвет текста
     group = None
     for i in range(len(color_scheme)):
-        menu_items = gtk.RadioMenuItem(group, 'Цветовая схема #' + str(i))
+        menu_items = gtk.RadioMenuItem(group, _('Color scheme')+' #' + str(i))
         if i == color_scheme_number:
             menu_items.set_active(True)
         group = menu_items
@@ -102,26 +102,29 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, icons
         sub_menu_place.append(menu_items)
         menu_items.show()
 
-    menu_items = gtk.MenuItem('Настроить...')
+    menu_items = gtk.MenuItem(_('Setup...'))
     sub_menu_place.append(menu_items)
     menu_items.connect("activate", app.menu_response, 'edit_city_id')
     menu_items.show()
 
     sub_menu_window
-    menu_items = gtk.CheckMenuItem('Зафиксировать')
+    menu_items = gtk.CheckMenuItem(_('Lock position'))
     menu_items.set_active(fix_position)
     menu_items.connect("activate", app.menu_response, 'fix')
     sub_menu_window.append(menu_items)
     menu_items.show()
 
-    menu_items = gtk.CheckMenuItem('На всех рабочих столах')
+    menu_items = gtk.CheckMenuItem(_('On all desktops'))
     menu_items.set_active(sticky)
     menu_items.connect("activate", app.menu_response, 'sticky')
     sub_menu_window.append(menu_items)
     menu_items.show()
 
     # main menu
-    menu_items = gtk.ImageMenuItem(gtk.STOCK_REFRESH)
+    menu_items = gtk.ImageMenuItem(_('Refresh'))
+    image = gtk.Image()
+    image.set_from_stock(gtk.STOCK_REFRESH, gtk.ICON_SIZE_MENU)
+    menu_items.set_image(image)
     menu.append(menu_items)
     menu_items.connect("activate", app.menu_response, 'reload', 0)
     menu_items.show()
@@ -130,37 +133,43 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, icons
     menu.append(menu_items)
     menu_items.show()
 
-    menu_items = gtk.MenuItem('Местоположение')
+    menu_items = gtk.MenuItem(_('Location'))
     menu.append(menu_items)
     menu_items.set_submenu(sub_menu_place)
     menu_items.show()
 
-    menu_items = gtk.MenuItem('Иконки')
+    menu_items = gtk.MenuItem(_('Icons'))
     menu.append(menu_items)
     menu_items.set_submenu(sub_menu_icons)
     menu_items.show()
     
-    menu_items = gtk.MenuItem('Фон')
+    menu_items = gtk.MenuItem(_('Background'))
     menu.append(menu_items)
     menu_items.set_submenu(sub_menu_bgs)
     menu_items.show()
     
-    menu_items = gtk.MenuItem('Текст')
+    menu_items = gtk.MenuItem(_('Text'))
     menu.append(menu_items)
     menu_items.set_submenu(sub_menu_color_text)
     menu_items.show()
 
-    menu_items = gtk.MenuItem('Окно')
+    menu_items = gtk.MenuItem(_('Window'))
     menu.append(menu_items)
     menu_items.set_submenu(sub_menu_window)
     menu_items.show()
 
-    menu_items = gtk.ImageMenuItem(gtk.STOCK_PROPERTIES)
+    menu_items = gtk.ImageMenuItem(_('Properties'))
+    image = gtk.Image()
+    image.set_from_stock(gtk.STOCK_PROPERTIES, gtk.ICON_SIZE_MENU)
+    menu_items.set_image(image)
     menu.append(menu_items)
     menu_items.connect("activate", app.menu_response, 'setup')
     menu_items.show()
 
-    menu_items = gtk.ImageMenuItem(gtk.STOCK_ABOUT)
+    menu_items = gtk.ImageMenuItem(_('About'))
+    image = gtk.Image()
+    image.set_from_stock(gtk.STOCK_ABOUT, gtk.ICON_SIZE_MENU)
+    menu_items.set_image(image)
     menu.append(menu_items)
     menu_items.connect("activate", app.menu_response, 'about')
     menu_items.show()
@@ -169,7 +178,10 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, icons
     menu.append(menu_items)
     menu_items.show()
 
-    menu_items = gtk.ImageMenuItem(gtk.STOCK_CLOSE)
+    menu_items = gtk.ImageMenuItem(_('Close'))
+    image = gtk.Image()
+    image.set_from_stock(gtk.STOCK_CLOSE, gtk.ICON_SIZE_MENU)
+    menu_items.set_image(image)
     menu.append(menu_items)
     menu_items.connect("activate", gtk.main_quit)
     menu_items.show()

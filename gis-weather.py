@@ -966,7 +966,7 @@ class Weather_Widget:
                     bar_ok.show()
                 except:
                     bar_err.show()
-                    print '[!]', _('Not correct location code')
+                    print '[!]', _('Invalid location code')
             response = dialog.run()
 
         dialog.hide()
@@ -1006,10 +1006,10 @@ class Weather_Widget:
         screen = widget.get_screen()
         colormap = screen.get_rgba_colormap()
         if colormap == None or not widget.is_composited():
-            print 'Your screen does not support alpha'
+            print _('Your screen does not support alpha')
             colormap = screen.get_rgb_colormap()
         else:
-            print 'Your screen supports alpha'
+            print _('Your screen supports alpha')
         widget.set_colormap(colormap)
         return True
 #--------------------------------------------------------------------------------

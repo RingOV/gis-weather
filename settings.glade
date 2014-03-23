@@ -255,34 +255,12 @@
       <!-- column-name text -->
       <column type="gchararray"/>
     </columns>
-    <data>
-      <row>
-        <col id="0" translatable="yes">Нет</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">При старте</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">Всегда</col>
-      </row>
-    </data>
   </object>
   <object class="GtkListStore" id="liststore2">
     <columns>
       <!-- column-name text -->
       <column type="gchararray"/>
     </columns>
-    <data>
-      <row>
-        <col id="0" translatable="yes">Нет</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">Только фон</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">Да</col>
-      </row>
-    </data>
   </object>
   <object class="GtkListStore" id="liststore3">
     <columns>
@@ -378,7 +356,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Местоположение</property>
+                                    <property name="label" translatable="yes">Location</property>
                                   </object>
                                   <packing>
                                     <property name="y_options"/>
@@ -389,7 +367,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Обновлять через (мин)</property>
+                                    <property name="label" translatable="yes">Update (in minutes)</property>
                                   </object>
                                   <packing>
                                     <property name="top_attach">1</property>
@@ -402,7 +380,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Температура как ощущается</property>
+                                    <property name="label" translatable="yes">Temperature as feel</property>
                                   </object>
                                   <packing>
                                     <property name="top_attach">2</property>
@@ -475,7 +453,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Проверять обновления</property>
+                                    <property name="label" translatable="yes">Check for updates</property>
                                   </object>
                                   <packing>
                                     <property name="top_attach">3</property>
@@ -502,7 +480,7 @@
                                 </child>
                                 <child>
                                   <object class="GtkButton" id="button_city_id">
-                                    <property name="label" translatable="yes">Настроить...</property>
+                                    <property name="label" translatable="yes">Setup...</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
@@ -558,7 +536,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Fix BadDrawable</property>
+                                    <property name="label" translatable="yes">Fix BadDrawable error</property>
                                   </object>
                                   <packing>
                                     <property name="top_attach">5</property>
@@ -629,7 +607,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Папка с конфигом</property>
+                                    <property name="label" translatable="yes">Folder with config</property>
                                   </object>
                                   <packing>
                                     <property name="top_attach">6</property>
@@ -639,7 +617,7 @@
                                 </child>
                                 <child>
                                   <object class="GtkButton" id="button_open_config_folder">
-                                    <property name="label" translatable="yes">Открыть...</property>
+                                    <property name="label" translatable="yes">Open...</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
@@ -685,7 +663,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Автозапуск при входе в систему</property>
+                                    <property name="label" translatable="yes">Autostart at login</property>
                                   </object>
                                   <packing>
                                     <property name="top_attach">8</property>
@@ -737,17 +715,11 @@
                                   </packing>
                                 </child>
                                 <child>
-                                  <placeholder/>
-                                </child>
-                                <child>
-                                  <placeholder/>
-                                </child>
-                                <child>
                                   <object class="GtkLabel" id="label_margin27">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Язык программы</property>
+                                    <property name="label" translatable="yes">Language program</property>
                                   </object>
                                   <packing>
                                     <property name="top_attach">10</property>
@@ -760,7 +732,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Язык погоды</property>
+                                    <property name="label" translatable="yes">Language weather</property>
                                   </object>
                                   <packing>
                                     <property name="top_attach">11</property>
@@ -810,6 +782,12 @@
                                     <property name="y_options"/>
                                   </packing>
                                 </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
                               </object>
                             </child>
                           </object>
@@ -836,7 +814,7 @@
               <object class="GtkLabel" id="label1">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Общие</property>
+                <property name="label" translatable="yes">General</property>
               </object>
               <packing>
                 <property name="tab_fill">False</property>
@@ -874,7 +852,7 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="xalign">0</property>
-                                <property name="label" translatable="yes">Координата Х</property>
+                                <property name="label" translatable="yes">Left</property>
                               </object>
                               <packing>
                                 <property name="y_options"/>
@@ -909,7 +887,7 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="xalign">0</property>
-                                <property name="label" translatable="yes">Координата Y</property>
+                                <property name="label" translatable="yes">Top</property>
                               </object>
                               <packing>
                                 <property name="top_attach">1</property>
@@ -937,7 +915,7 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="xalign">0</property>
-                                <property name="label" translatable="yes">Внутренний отступ</property>
+                                <property name="label" translatable="yes">Padding</property>
                               </object>
                               <packing>
                                 <property name="top_attach">2</property>
@@ -1036,7 +1014,7 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="xalign">0</property>
-                                <property name="label" translatable="yes">Прозрачность</property>
+                                <property name="label" translatable="yes">Transparency</property>
                               </object>
                               <packing>
                                 <property name="top_attach">3</property>
@@ -1127,7 +1105,7 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="xalign">0</property>
-                                <property name="label" translatable="yes">Зафиксировать</property>
+                                <property name="label" translatable="yes">Lock position</property>
                               </object>
                               <packing>
                                 <property name="top_attach">4</property>
@@ -1140,7 +1118,7 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="xalign">0</property>
-                                <property name="label" translatable="yes">На всех рабочих столах</property>
+                                <property name="label" translatable="yes">On all desktops</property>
                               </object>
                               <packing>
                                 <property name="top_attach">5</property>
@@ -1204,7 +1182,7 @@
               <object class="GtkLabel" id="label2">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Окно</property>
+                <property name="label" translatable="yes">Window</property>
               </object>
               <packing>
                 <property name="position">1</property>
@@ -1285,7 +1263,7 @@
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="xalign">0</property>
-                                        <property name="label" translatable="yes">Показывать</property>
+                                        <property name="label" translatable="yes">Show</property>
                                       </object>
                                       <packing>
                                         <property name="y_options"/>
@@ -1296,7 +1274,7 @@
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="xalign">0</property>
-                                        <property name="label" translatable="yes">Отступ от центра</property>
+                                        <property name="label" translatable="yes">Offset from center</property>
                                       </object>
                                       <packing>
                                         <property name="top_attach">1</property>
@@ -1355,7 +1333,7 @@
                               <object class="GtkLabel" id="label9">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label" translatable="yes">&lt;b&gt;Блок "Сегодня"&lt;/b&gt;</property>
+                                <property name="label" translatable="yes">Block Today</property>
                                 <property name="use_markup">True</property>
                               </object>
                             </child>
@@ -1416,7 +1394,7 @@
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="xalign">0</property>
-                                        <property name="label" translatable="yes">Показывать</property>
+                                        <property name="label" translatable="yes">Show</property>
                                       </object>
                                       <packing>
                                         <property name="y_options"/>
@@ -1444,7 +1422,7 @@
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="xalign">0</property>
-                                        <property name="label" translatable="yes">Отступ от центра</property>
+                                        <property name="label" translatable="yes">Offset from center</property>
                                       </object>
                                       <packing>
                                         <property name="top_attach">1</property>
@@ -1486,7 +1464,7 @@
                               <object class="GtkLabel" id="label10">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label" translatable="yes">&lt;b&gt;Блок "Завтра"&lt;/b&gt;</property>
+                                <property name="label" translatable="yes">Block Tomorrow</property>
                                 <property name="use_markup">True</property>
                               </object>
                             </child>
@@ -1551,7 +1529,7 @@
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="xalign">0</property>
-                                        <property name="label" translatable="yes">Показывать</property>
+                                        <property name="label" translatable="yes">Show</property>
                                       </object>
                                       <packing>
                                         <property name="y_options"/>
@@ -1562,7 +1540,7 @@
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="xalign">0</property>
-                                        <property name="label" translatable="yes">Отступ от центра</property>
+                                        <property name="label" translatable="yes">Offset from center</property>
                                       </object>
                                       <packing>
                                         <property name="top_attach">1</property>
@@ -1618,7 +1596,7 @@
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="xalign">0</property>
-                                        <property name="label" translatable="yes">Уменьшить</property>
+                                        <property name="label" translatable="yes">Reduce</property>
                                       </object>
                                       <packing>
                                         <property name="top_attach">2</property>
@@ -1665,7 +1643,7 @@
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="xalign">0</property>
-                                        <property name="label" translatable="yes">Угол поворота</property>
+                                        <property name="label" translatable="yes">Angle of rotation</property>
                                       </object>
                                       <packing>
                                         <property name="top_attach">3</property>
@@ -1724,7 +1702,7 @@
                               <object class="GtkLabel" id="label11">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label" translatable="yes">&lt;b&gt;Блок "Ветер"&lt;/b&gt;</property>
+                                <property name="label" translatable="yes">Block Wind</property>
                                 <property name="use_markup">True</property>
                               </object>
                             </child>
@@ -1789,7 +1767,7 @@
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="xalign">0</property>
-                                        <property name="label" translatable="yes">Показывать</property>
+                                        <property name="label" translatable="yes">Show</property>
                                       </object>
                                       <packing>
                                         <property name="y_options"/>
@@ -1800,7 +1778,7 @@
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="xalign">0</property>
-                                        <property name="label" translatable="yes">Отступ от центра</property>
+                                        <property name="label" translatable="yes">Offset from center</property>
                                       </object>
                                       <packing>
                                         <property name="top_attach">1</property>
@@ -1859,7 +1837,7 @@
                               <object class="GtkLabel" id="label12">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label" translatable="yes">&lt;b&gt;Блок "Доп инфо"&lt;/b&gt;</property>
+                                <property name="label" translatable="yes">Block Additional info</property>
                                 <property name="use_markup">True</property>
                               </object>
                             </child>
@@ -1935,7 +1913,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Количество дней</property>
+                                    <property name="label" translatable="yes">Number of days</property>
                                   </object>
                                   <packing>
                                     <property name="y_options"/>
@@ -1946,7 +1924,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Показывать время получения погоды</property>
+                                    <property name="label" translatable="yes">Show time receiving weather</property>
                                   </object>
                                   <packing>
                                     <property name="top_attach">1</property>
@@ -2017,7 +1995,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Показывать загрузочную заставку</property>
+                                    <property name="label" translatable="yes">Show splash screen</property>
                                   </object>
                                   <packing>
                                     <property name="top_attach">2</property>
@@ -2050,7 +2028,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Скрывать заставку после попыток (0 - не скрывать)</property>
+                                    <property name="label" translatable="yes">Hide splash screen after attempts (0 - do not hide)</property>
                                   </object>
                                   <packing>
                                     <property name="top_attach">3</property>
@@ -2130,7 +2108,7 @@
               <object class="GtkLabel" id="label3">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Вид</property>
+                <property name="label" translatable="yes">View</property>
               </object>
               <packing>
                 <property name="position">2</property>
@@ -2191,7 +2169,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Шрифт</property>
+                                    <property name="label" translatable="yes">Font</property>
                                   </object>
                                   <packing>
                                     <property name="y_options"/>
@@ -2202,7 +2180,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Цвет основной</property>
+                                    <property name="label" translatable="yes">Color main</property>
                                   </object>
                                   <packing>
                                     <property name="top_attach">1</property>
@@ -2232,7 +2210,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Цвет Сб, Вс</property>
+                                    <property name="label" translatable="yes">Color Sa, Su</property>
                                   </object>
                                   <packing>
                                     <property name="top_attach">2</property>
@@ -2245,7 +2223,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Тень</property>
+                                    <property name="label" translatable="yes">Shadow</property>
                                   </object>
                                   <packing>
                                     <property name="top_attach">3</property>
@@ -2258,7 +2236,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Цвет тени</property>
+                                    <property name="label" translatable="yes">Color shadow</property>
                                   </object>
                                   <packing>
                                     <property name="top_attach">4</property>
@@ -2271,8 +2249,8 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Сильный ветер
-(-1 = не выделять)</property>
+                                    <property name="label" translatable="yes">High wind
+(-1 = not highlight)</property>
                                   </object>
                                   <packing>
                                     <property name="top_attach">5</property>
@@ -2285,7 +2263,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Цвет ветра</property>
+                                    <property name="label" translatable="yes">Color wind</property>
                                   </object>
                                   <packing>
                                     <property name="top_attach">6</property>
@@ -2517,7 +2495,7 @@
                           <object class="GtkLabel" id="label5">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">&lt;b&gt;Текст&lt;/b&gt;</property>
+                            <property name="label" translatable="yes">Text</property>
                             <property name="use_markup">True</property>
                           </object>
                         </child>
@@ -2582,7 +2560,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Использовать PNG</property>
+                                    <property name="label" translatable="yes">Use PNG</property>
                                   </object>
                                   <packing>
                                     <property name="y_options"/>
@@ -2610,7 +2588,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Выбрать</property>
+                                    <property name="label" translatable="yes">Select</property>
                                   </object>
                                   <packing>
                                     <property name="top_attach">1</property>
@@ -2640,7 +2618,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Цвет (если не PNG)</property>
+                                    <property name="label" translatable="yes">Color (if not PNG)</property>
                                   </object>
                                   <packing>
                                     <property name="top_attach">2</property>
@@ -2653,8 +2631,8 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Радиус углов
-(если не PNG)</property>
+                                    <property name="label" translatable="yes">Radius corners
+(if not PNG)</property>
                                   </object>
                                   <packing>
                                     <property name="top_attach">3</property>
@@ -2751,7 +2729,7 @@
                           <object class="GtkLabel" id="label14">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">&lt;b&gt;Фон&lt;/b&gt;</property>
+                            <property name="label" translatable="yes">Background</property>
                             <property name="use_markup">True</property>
                           </object>
                         </child>
@@ -2801,7 +2779,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Выбрать</property>
+                                    <property name="label" translatable="yes">Select</property>
                                   </object>
                                   <packing>
                                     <property name="y_options"/>
@@ -2833,7 +2811,7 @@
                           <object class="GtkLabel" id="label15">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">&lt;b&gt;Иконки&lt;/b&gt;</property>
+                            <property name="label" translatable="yes">Icons</property>
                             <property name="use_markup">True</property>
                           </object>
                         </child>
@@ -2863,7 +2841,7 @@
               <object class="GtkLabel" id="label6">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Оформление</property>
+                <property name="label" translatable="yes">Appearance</property>
               </object>
               <packing>
                 <property name="position">3</property>

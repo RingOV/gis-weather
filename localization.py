@@ -17,8 +17,8 @@ def set():
         lang = 'auto'
     LANG_PATH = os.path.join(os.path.dirname(sys.argv[0]), 'i18n')
     if lang == 'auto':
-        l = gettext.translation('default', localedir=LANG_PATH, fallback=True)
+        l = gettext.translation('gis-weather', localedir=LANG_PATH, fallback=True)
         l.install(unicode=True)
     else:
-        l = gettext.translation('default', localedir=LANG_PATH, languages=[lang], fallback=True)
+        l = gettext.translation('gis-weather', localedir=LANG_PATH, languages=[lang], fallback=True)
         l.install(unicode=True)

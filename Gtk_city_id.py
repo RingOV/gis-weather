@@ -5,11 +5,11 @@ import gtk
 import os
 
 def create_gtk_city_id(window, city_id, city_id_add, APP_PATH):
-    dialog = gtk.Dialog('Местоположение', window)
+    dialog = gtk.Dialog(_('Location'), window)
     dialog.resize(300, 100)
-    dialog.add_buttons(gtk.STOCK_ADD, gtk.RESPONSE_OK,
-        gtk.STOCK_CLOSE, gtk.RESPONSE_CANCEL,
-        'Удалить выбранное', gtk.RESPONSE_ACCEPT)
+    dialog.add_buttons(_('Add'), gtk.RESPONSE_OK,
+        _('Close'), gtk.RESPONSE_CANCEL,
+        _('Remove selected'), gtk.RESPONSE_ACCEPT)
     dialog.set_icon_from_file(os.path.join(APP_PATH, "icon.png"))
 
     hbox = gtk.HBox(False, 8)
@@ -22,22 +22,23 @@ def create_gtk_city_id(window, city_id, city_id_add, APP_PATH):
 
     entrybox = gtk.Entry()
     entrybox.set_text(str(city_id))
-    text = """ Выберите свой город на сайте <a href='http://www.gismeteo.com'>http://www.gismeteo.com</a>
- и скопируете число в конце ссылки
- Например <u><span foreground='blue'>http://www.gismeteo.ru/city/daily/<b>1234</b>/</span></u>
- Код города <b>1234</b>"""
+    text = _("""Choose your city on <a href='http://www.gismeteo.com'> http://www.gismeteo.com </a>
+and copy number at the end of reference
+For example <u><span foreground='blue'>http://www.gismeteo.ru/city/daily/<b>1234</b>/</span></u>
+City code<b>1234</b>""")
+    
     label = gtk.Label()
     label.set_markup(text)
 
     bar_err = gtk.InfoBar()
     bar_err.set_message_type(gtk.MESSAGE_ERROR)
     bar_err.get_content_area().pack_start(
-        gtk.Label('Не верно введен код местоположения'))
+        gtk.Label(_('Invalid location code')))
     table.attach(bar_err, 0, 1, 2, 3)
 
     bar_ok = gtk.InfoBar()
     bar_ok.set_message_type(gtk.MESSAGE_INFO)
-    bar_label = gtk.Label('Добавлено')
+    bar_label = gtk.Label(_('Added'))
     bar_ok.get_content_area().pack_start(
         bar_label)
     table.attach(bar_ok, 0, 1, 2, 3)
@@ -69,9 +70,9 @@ def create_model(city_id_add):
 def create_columns(treeView):
 
     rendererText = gtk.CellRendererText()
-    column = gtk.TreeViewColumn("ID", rendererText, text=0)
+    column = gtk.TreeViewColumn(_('Code'), rendererText, text=0)
     treeView.append_column(column)
     
     rendererText = gtk.CellRendererText()
-    column = gtk.TreeViewColumn("Place", rendererText, text=1)
+    column = gtk.TreeViewColumn(_('Place'), rendererText, text=1)
     treeView.append_column(column)

@@ -68,7 +68,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
     #global err_connect, splash
     global city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod 
     print '>', _('Getting weather for'), n, _('days')
-    print '>', _('Uploading  page to a variable'), 'http://www.gismeteo.%s/city/weekly/'%weather_lang + str(city_id)
+    print '>', _('Uploading page to a variable'), 'http://www.gismeteo.%s/city/weekly/'%weather_lang + str(city_id)
     try:
         #source = urlopen('http://www.gismeteo.com/city/weekly/' + str(city_id), timeout=10).read()
         source = opener.open('http://www.gismeteo.%s/city/weekly/'%weather_lang + str(city_id), timeout=10).read()
