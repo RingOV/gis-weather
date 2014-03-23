@@ -51,6 +51,7 @@ def restart(widget):
 
 def show(v, new_ver, CONFIG_PATH, APP_PATH):
     dialog = gtk.Dialog('Gis Weather: '+_('Update'))
+    dialog.set_icon_from_file(os.path.join(APP_PATH, "icon.png"))
     dialog.set_border_width(10)
     dialog.resize(500, 200)
     dialog.add_buttons(_('Update'), gtk.RESPONSE_OK, _('Close'), gtk.RESPONSE_CANCEL)
@@ -67,7 +68,7 @@ def show(v, new_ver, CONFIG_PATH, APP_PATH):
 
     label_links = gtk.Label()
     label_links.set_markup('<a href="https://github.com/RingOV/gis-weather">'+_('Source code')+'</a> | \
-<a href="http://sourceforge.net/p/gis-weather/changelog/2014/01/changelog/">'+_('Changlog')+'</a>')
+<a href="http://sourceforge.net/p/gis-weather/changelog/2014/01/changelog/">'+_('Changelog')+'</a>')
     # тестовый буфер, в него запишется форматированные текст
     changes = get_changes() # получаем текст обновления
     changes_text = gtk.TextBuffer()

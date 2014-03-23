@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-03-23 22:26+0300\n"
-"PO-Revision-Date: 2014-03-23 22:26+0300\n"
+"POT-Creation-Date: 2014-03-23 22:46+0300\n"
+"PO-Revision-Date: 2014-03-23 22:46+0300\n"
 "Last-Translator: \n"
 "Language-Team: Gis Weather Team <ringov@mail.ru>\n"
 "Language: Russian\n"
@@ -66,7 +66,7 @@ msgstr "Свойства"
 msgid "About"
 msgstr "О программе"
 
-#: gw_menu.py:181 Gtk_update_dialog.py:56 Gtk_city_id.py:11
+#: gw_menu.py:181 Gtk_update_dialog.py:57 Gtk_city_id.py:11
 msgid "Close"
 msgstr "Закрыть"
 
@@ -74,63 +74,63 @@ msgstr "Закрыть"
 msgid "Unable to get changes"
 msgstr "Невозможно получить изменения"
 
-#: Gtk_update_dialog.py:40 Gtk_update_dialog.py:97
+#: Gtk_update_dialog.py:40 Gtk_update_dialog.py:98
 msgid "Downloading"
 msgstr "Скачиваю"
 
-#: Gtk_update_dialog.py:53 Gtk_update_dialog.py:56
+#: Gtk_update_dialog.py:53 Gtk_update_dialog.py:57
 msgid "Update"
 msgstr "Обновление"
 
-#: Gtk_update_dialog.py:58
+#: Gtk_update_dialog.py:59
 msgid "Installed version"
 msgstr "Установленная версия"
 
-#: Gtk_update_dialog.py:62
+#: Gtk_update_dialog.py:63
 msgid "Available version"
 msgstr "Доступна версия"
 
-#: Gtk_update_dialog.py:65
+#: Gtk_update_dialog.py:66
 msgid "Go to website"
 msgstr "На сайт"
 
-#: Gtk_update_dialog.py:69
+#: Gtk_update_dialog.py:70
 msgid "Source code"
 msgstr "Исходный код"
 
-#: Gtk_update_dialog.py:70
-msgid "Changlog"
+#: Gtk_update_dialog.py:71
+msgid "Changelog"
 msgstr "История версий"
 
-#: Gtk_update_dialog.py:99 Gtk_update_dialog.py:185
+#: Gtk_update_dialog.py:100 Gtk_update_dialog.py:186
 msgid "Installation"
 msgstr "Установка"
 
-#: Gtk_update_dialog.py:101
+#: Gtk_update_dialog.py:102
 msgid "Cleaning temporary files"
 msgstr "Очистка временных файлов"
 
-#: Gtk_update_dialog.py:109
+#: Gtk_update_dialog.py:110
 msgid "Restart"
 msgstr "Перезапустить"
 
-#: Gtk_update_dialog.py:159
+#: Gtk_update_dialog.py:160
 msgid "Update error"
 msgstr "Ошибка обновления"
 
-#: Gtk_update_dialog.py:170
+#: Gtk_update_dialog.py:171
 msgid "Error downloading updates"
 msgstr "Ошибка скачивания обновления"
 
-#: Gtk_update_dialog.py:181
+#: Gtk_update_dialog.py:182
 msgid "Error installing updates"
 msgstr "Ошибка установки обновления"
 
-#: Gtk_update_dialog.py:193
+#: Gtk_update_dialog.py:194
 msgid "Error removing"
 msgstr "Ошибка удаления"
 
-#: Gtk_update_dialog.py:197
+#: Gtk_update_dialog.py:198
 msgid "Update successful"
 msgstr "Обновление успешно завершено"
 
