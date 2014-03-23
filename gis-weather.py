@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #  gis_weather.py
-v = '0.4.2'
+v = '0.5.0'
 #  Copyright 2013-2014 Alexander Koltsov
 #
 #  draw_scaled_image, draw_text_Whise copyright by Helder Fraga
@@ -44,6 +44,9 @@ if sys.platform.startswith("win"):
     WIN = True
 else:
     WIN = False
+
+import localization
+localization.set()
 
 CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
 if WIN:
@@ -99,7 +102,9 @@ gw_config_default = {
     'fix_BadDrawable': False,          # Если выскакивает ошибка 'BadDrawable', то в конфиге исправьте на true
     'color_scheme_number': 0,
     'check_for_updates': 2,            # 0 - нет, 1 - только при запуске, 2 - всегда
-    'fix_position': False
+    'fix_position': False,
+    'app_lang': 'auto',
+    'weather_lang': 'com'             # com, ru, ua/ua, lv, lt, md/ro
 }
 gw_config = {}
 for i in gw_config_default.keys():
@@ -123,7 +128,7 @@ color_scheme = [
     }
     ]
 
-print u'Путь к файлу конфигурации:\n    '+os.path.join(CONFIG_PATH, 'gw_config.json')
+print _('Config path')+':\n    '+os.path.join(CONFIG_PATH, 'gw_config.json')
 
 def Save_Config():
     for i in gw_config.keys():
@@ -143,7 +148,7 @@ def Load_Config():
         for i in gw_config_loaded.keys():
             gw_config[i] = gw_config_loaded[i] # Присваиваем новые значения
     except:
-        print u'[!] Произошла ошибка при загрузке конфигурационного файла'
+        print '[!]', _('Error loading config file')
 
     # Создаем переменные
     for i in gw_config.keys():
@@ -164,7 +169,7 @@ def Load_Color_Scheme(number = 0):
             gw_config[i] = scheme_loaded[i]
         gw_config['color_scheme_number'] = number
     except:
-        print u'[!] Произошла ошибка при загрузке цветовой схемы # %s' %number
+        print '[!]', _('Error loading color scheme')+' # '+str(number)
 
     # Создаем переменные
     for i in gw_config.keys():
@@ -180,7 +185,8 @@ if WIN:
     APP_PATH = APP_PATH.decode(sys.getfilesystemencoding())
 
 if APP_PATH == '':
-    print u'Указывайте полный путь к скрипту\nВыход.'
+    print _('Enter full path to script')
+    print _('Exit')
     exit()
 
 THEMES_PATH = os.path.join(APP_PATH, 'themes')
@@ -217,41 +223,6 @@ else:
 icons_list = []
 backgrounds_list = []
 show_time_receive_local = False
-
-# # переменные, в которые записывается погода
-# city_name = []       # Город
-# t_now = []           # Температура сейчас
-# wind_speed_now = []  # Скорость ветра сейчас
-# wind_direct_now = [] # Направление ветра сейчас
-# icon_now = []        # Иконка погоды сейчас
-# icon_wind_now = []   # Иконка ветра сейчас
-# time_update = []     # Время обновления погоды на сайте
-# text_now = []        # Текст погоды сейчас
-# press_now = []       # Давление сейчас
-# hum_now = []         # Влажность сейчас
-# t_water_now = []     # Температура воды сейчас
-
-# t_night = []         # Температура ночью
-# t_night_feel = []    # Температура ночью ощущается
-# day = []             # День недели
-# date = []            # Дата
-# t_day = []           # Температура днем
-# t_day_feel = []      # Температура днем ощущается
-# icon = []            # Иконка погоды
-# icon_wind = []       # Иконка ветра
-# wind_speed = []      # Скорость ветра
-# wind_direct = []     # Направление ветра
-# text = []            # Текст погоды
-
-# t_tomorrow = []      # Температура завтра
-# icon_tomorrow = []   # Иконка погоды завтра
-# wind_speed_tom = []  # Скорость ветра завтра
-# wind_direct_tom = [] # Направление ветра завтра
-
-# t_today = []         # Температура сегодня
-# icon_today = []      # Иконка погоды сегодня
-# wind_speed_tod = []  # Скорость ветра сегодня
-# wind_direct_tod = [] # Направление ветра сегодня
 
 # переменные, в которые записывается погода
 weather = {
@@ -295,22 +266,22 @@ weather = {
 for i in weather.keys():
     globals()[i] = weather[i]
 
-def get_city_name(c_id):
-    try:
-        source = urlopen('http://www.gismeteo.ru/city/weekly/' + str(c_id), timeout=10).read()
-        c_name = re.findall('type[A-Z].*\">(.*)<', source)
-    except:
-        print u'[!] Не удалось получить название местоположения'
-        return 'None'
-    return c_name[0]
+# def get_city_name(c_id):
+#     try:
+#         source = urlopen('http://www.gismeteo.com/city/weekly/' + str(c_id), timeout=10).read()
+#         c_name = re.findall('type[A-Z].*\">(.*)<', source)
+#     except:
+#         print '[!]', _('Failed to get the name of the location')
+#         return 'None'
+#     return c_name[0]
 
 
 def check_updates():
-    print u'> Проверяю наличие новой версии'
+    print '>', _('Check for new version')
     try:
         source = urlopen('http://sourceforge.net/projects/gis-weather/files/gis-weather/', timeout=10).read()
     except:
-        print u'[!] Невозможно проверить обновления'
+        print '[!]', _('Unable to check for updates')
         print '-'*40
         return False
     new_ver1 = re.findall('<a href="/projects/gis-weather/files/gis-weather/(.+)/"', source)
@@ -322,162 +293,19 @@ def check_updates():
         cur_ver.append('0')
 
     new_v = None
-    for i in range(4):
-        if int(new_ver[i])>int(cur_ver[i]):
-            new_v = new_ver1[0]
-            break
+    # if int(new_ver[0])*1000+int(new_ver[1])*100+int(new_ver[2])*10+int(new_ver[3])>int(cur_ver[0])*1000+int(cur_ver[1])*100+int(cur_ver[2])*10+int(cur_ver[3]):
+    #     new_v = new_ver1[0]
     if new_v:
-        print u'>>> Доступна новая версия', new_v, '<<<'
+        print '>>>', _('New version available'), new_v, '<<<'
         print '-'*40
         global check_for_updates_local
         check_for_updates_local = False
         Gtk_update_dialog.show(v, new_v, CONFIG_PATH, APP_PATH)
     else:
-        print u'> Текущая версия актуальна'
+        print '>', _('Current version is relevant')
         print '-'*40
         if check_for_updates == 1 and check_for_updates_local:
             check_for_updates_local = False
-
-
-# def get_weather():
-#     global err_connect, splash
-#     global city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, icon_today, wind_speed_tod, wind_direct_tod 
-#     print u'> Получаю погоду на', n, u'дней'
-#     print u'> Загружаю в переменную страницу', 'http://www.gismeteo.ru/city/weekly/' + str(city_id)
-#     try:
-#         source = urlopen('http://www.gismeteo.ru/city/weekly/' + str(city_id), timeout=10).read()
-#         err_connect = False
-#         print u'OK'
-#     except:
-#         print u'[!] Невозможно скачать страницу, проверьте интернет соединение'
-#         if timer_bool:
-#             print u'[!] Следующая попытка через 10 секунд'
-#         err_connect = True
-#         return
-#     #### Текущая погода ####
-#     w_now = re.findall("type[A-Z].*>вода", source, re.DOTALL)
-    
-#     # Город
-#     city_name = re.findall('type[A-Z].*\">(.*)<', w_now[0])
-
-#     # Температура
-#     t_now = re.findall('m_temp c.>([&minus;+]*\d+)<', w_now[0])
-#     for i in range(0, len(t_now)):
-#         if t_now[i][0] == '&':
-#             t_now[i] = '-' + t_now[i][7:]
-
-#     # Ветер
-#     wind_speed_now = re.findall('m_wind ms.*>(\d+)<', w_now[0])
-#     wind_direct_now = re.findall('<dt>([СЮЗВШ]+)</dt>', w_now[0])
-
-#     # Иконка
-#     icon_now = re.findall('url\(.*?new\/(.+)\)', w_now[0])
-    
-#     #Иконка ветра
-#     icon_wind_now = re.findall('wind(\d)', w_now[0])
-
-#     # Время обновления
-#     time_update = re.findall('data-hr.* (\d?\d:\d\d)\s*</span>', source, re.DOTALL)
-    
-#     # Текст погоды сейчас
-#     text_now = re.findall('title=\"(.*?)\"', w_now[0])
-    
-#     # Давление сейчас
-#     press_now = re.findall('m_press torr\'>(\d+)<', w_now[0])
-    
-#     # Влажность сейчас
-#     hum_now = re.findall('Влажность">(\d+)<', w_now[0])
-    
-#     # Температура воды сейчас
-#     try:
-#         t_water_now = t_now[1]
-#     except:
-#         pass
-    
-#     #### Погода на неделю ####
-#     # Погода ночью
-#     w_night_list = re.findall('Ночь</th>.*?>Утро</th>', source, re.DOTALL)
-#     w_night = '\n'.join(w_night_list)
-    
-#     # Температура ночью
-#     t_night = re.findall('m_temp c.>([&minus;+]*\d+)<', w_night)
-#     for i in range(0, len(t_night)):
-#         if t_night[i][0] == '&':
-#             t_night[i] = '-' + t_night[i][7:]
-#     t_night_feel = t_night[1::2]
-#     t_night = t_night[::2]
-    
-#     # День недели и дата
-#     day = re.findall('weekday.>(.*?)<', source)
-#     date = re.findall('s_date.>(.*?)<', source)
-    
-#     # Погода днем
-#     w_day_list = re.findall('День</th>.*?>Вечер</th>', source, re.DOTALL)
-#     w_day = '\n'.join(w_day_list)
-    
-#     # Температура днем
-#     t_day = re.findall('m_temp c.>([&minus;+]*\d+)<', w_day) 
-#     for i in range(0, len(t_day)):
-#         if t_day[i][0] == '&':
-#             t_day[i] = '-' + t_day[i][7:]
-#     t_day_feel = t_day[1::2]
-#     t_day = t_day[::2]
-    
-#     # Иконка погоды днем
-#     icon = re.findall('src=\".*?new\/(.*?)\"', w_day)
-    
-#     # Иконка ветра
-#     icon_wind = re.findall('wind(\d)', w_day)
-    
-#     # Ветер
-#     wind_speed = re.findall('m_wind ms.>(\d+)', w_day)
-#     wind_direct = re.findall('>([СЮЗВШ]+)<', w_day)
-
-#     # Текст погоды
-#     text = re.findall('cltext.>(.*?)<', w_day)
-
-#     if show_block_tomorrow:
-#         #### Погода завтра ####
-#         w_tomorrow = re.findall('Ночь</th>.*?>Ночь</div>', source, re.DOTALL)
-        
-#         # Температура
-#         t_tomorrow = re.findall('m_temp c.>([&minus;+]*\d+)<', w_tomorrow[1])
-#         for i in range(0, len(t_tomorrow)):
-#             if t_tomorrow[i][0] == '&':
-#                 t_tomorrow[i] = '-' + t_tomorrow[i][7:]
-
-#         # Иконка погоды
-#         icon_tomorrow = re.findall('src=\".*?new\/(.*?)\"', w_tomorrow[1])
-
-#         # Ветер
-#         wind_speed_tom = re.findall('m_wind ms.>(\d+)', w_tomorrow[1])
-#         wind_direct_tom = re.findall('>([СЮЗВШ]+)<', w_tomorrow[1])
-        
-#     if show_block_today:
-#         #### Погода сегодня ####
-#         if not show_block_tomorrow:
-#             w_tomorrow = re.findall('Ночь</th>.*?>Ночь</div>', source, re.DOTALL)
-        
-#         # Температура
-#         t_today = re.findall('m_temp c.>([&minus;+]*\d+)<', w_tomorrow[0])
-#         for i in range(0, len(t_today)):
-#             if t_today[i][0] == '&':
-#                 t_today[i] = '-' + t_today[i][7:]
-        
-#         # Иконка погоды
-#         icon_today = re.findall('src=\".*?new\/(.*?)\"', w_tomorrow[0])
-
-#         # Ветер
-#         wind_speed_tod = re.findall('m_wind ms.>(\d+)', w_tomorrow[0])
-#         wind_direct_tod = re.findall('>([СЮЗВШ]+)<', w_tomorrow[0])
-#     ########
-    
-#     if time_update:
-#         print u'> Обновление на сервере в', time_update[0]
-#     print u'> Погода получена в', time.strftime('%H:%M', time.localtime())
-
-#     if splash:
-#         splash = False
 
 
 class MyDrawArea(gtk.DrawingArea):
@@ -501,12 +329,12 @@ class MyDrawArea(gtk.DrawingArea):
             self.draw_scaled_image(width/2 - 64, height/2 - 128, os.path.join(APP_PATH, 'icon.png'), 128, 128)
             self.draw_text('Gis Weather v ' + v, 0, height/2 - 8, font+' Normal', 14, width, pango.ALIGN_CENTER)
             if state == 0:
-                self.draw_text('Получаю погоду...', 0, height/2 + 40, font+' Normal', 10, width, pango.ALIGN_CENTER)
+                self.draw_text(_('Getting weather...'), 0, height/2 + 40, font+' Normal', 10, width, pango.ALIGN_CENTER)
             else:
                 try_no += 1
-                self.draw_text('Ошибка при получении погоды. Попытка № ' + str(try_no), 0, height/2 + 40, font+' Normal', 10, width, pango.ALIGN_CENTER)
+                self.draw_text(_('Error getting weather')+' '+ str(try_no), 0, height/2 + 40, font+' Normal', 10, width, pango.ALIGN_CENTER)
                 if city_id == 0:
-                    self.draw_text('Местоположение не настроено', 0, height/2 + 60, font+' Normal', 10, width, pango.ALIGN_CENTER)
+                    self.draw_text(_('Location not set'), 0, height/2 + 60, font+' Normal', 10, width, pango.ALIGN_CENTER)
 
 
     def redraw(self, timer1 = True, get_weather1 = True, load_config = False):
@@ -549,7 +377,7 @@ class MyDrawArea(gtk.DrawingArea):
             self.splash_screen()
             return
         if get_weather_bool:
-            weather1 = gismeteo.get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, timer_bool)
+            weather1 = gismeteo.get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, timer_bool, weather_lang)
             if weather1:
                 err_connect = False
                 splash = False
@@ -573,7 +401,7 @@ class MyDrawArea(gtk.DrawingArea):
                 if err == False:
                     self.Draw_Weather()
                     self.draw_scaled_image(margin + 10, margin + 10, os.path.join(THEMES_PATH, 'error.png'),24,24)
-                    self.draw_text('Ошибка соединения', margin + 35, margin + 14, font+' Normal', 10, color = color_text_week)
+                    self.draw_text(_('Connection error'), margin + 35, margin + 14, font+' Normal', 10, color = color_text_week)
                     err = True
         else:
             if err == True:
@@ -583,7 +411,7 @@ class MyDrawArea(gtk.DrawingArea):
                 on_redraw = False
                 if timer_bool:
                     self.timer = timeout_add(upd_time*60*1000, self.redraw)
-                    print u'> Следующее обновление через', upd_time, u'минут'
+                    print '>', _('Next update in'), upd_time, _('min')
                     print '-'*40
             self.Draw_Weather()
 
@@ -601,14 +429,14 @@ class MyDrawArea(gtk.DrawingArea):
             center = x+width/2
             
             if (day and date):
-                if day[0] in ('Сб', 'Вс'):
+                if day[0] in ('Sa', 'Su'):
                     self.draw_text(day[0]+', '+date[0], 0, y-15, font+' Bold', 12, width, pango.ALIGN_CENTER, color_text_week)
                 else:
                     self.draw_text(day[0]+', '+date[0], 0, y-15, font+' Bold', 12, width, pango.ALIGN_CENTER)
             
             if show_time_receive_local:
-                if time_update: self.draw_text('обновление на сервере '+time_update[0], x-margin, x+18+margin, font+' Normal', 8, width-10,pango.ALIGN_RIGHT)
-                self.draw_text('погода получена '+time.strftime('%H:%M', time.localtime()), x-margin, x+8+margin, font+' Normal', 8, width-10,pango.ALIGN_RIGHT)
+                if time_update: self.draw_text(_('updated on server')+' '+time_update[0], x-margin, x+18+margin, font+' Normal', 8, width-10,pango.ALIGN_RIGHT)
+                self.draw_text(_('weather received')+' '+time.strftime('%H:%M', time.localtime()), x-margin, x+8+margin, font+' Normal', 8, width-10,pango.ALIGN_RIGHT)
             if city_name: self.draw_text(city_name[0], x+0, y, font+' Bold', 14, width, pango.ALIGN_CENTER)
             self.draw_scaled_icon(center-40, y+30, os.path.join(ICONS_PATH, icons_name, 'weather', icon_now[0]),80,80)
             if t_now: self.draw_text(t_now[0]+'°', center-100, y+30, font+' Normal', 18, 60, pango.ALIGN_RIGHT)
@@ -631,7 +459,7 @@ class MyDrawArea(gtk.DrawingArea):
                     font_wind = 7
                 ################################
 
-                NS = ('В', 'Ю', 'З', 'С')
+                NS = (_('E'), _('S'), _('W'), _('N'))
                 x0 = center + left+a
                 y0 = top + r
                 angel_rad = angel*math.pi/180
@@ -640,9 +468,9 @@ class MyDrawArea(gtk.DrawingArea):
                         if i % 2 == 0:
                             self.draw_text(NS[i/2], x0+r*math.cos(i*0.25*math.pi+angel_rad), y0+r*math.sin(i*0.25*math.pi+angel_rad), font+' Bold', font_NS, 10, pango.ALIGN_LEFT)
                     if int(wind_speed_now[0]) >= high_wind:
-                        self.draw_text(wind_direct_now[0]+', '+wind_speed_now[0]+' м/с', x0-r-5, y0+r+font_wind+4, font+' Normal', font_wind, 2*r+10+font_NS,pango.ALIGN_CENTER, color_high_wind)
+                        self.draw_text(wind_direct_now[0]+', '+wind_speed_now[0]+' '+_('m/s'), x0-r-5, y0+r+font_wind+4, font+' Normal', font_wind, 2*r+10+font_NS,pango.ALIGN_CENTER, color_high_wind)
                     else:
-                        self.draw_text(wind_direct_now[0]+', '+wind_speed_now[0]+' м/с', x0-r-5, y0+r+font_wind+4, font+' Normal', font_wind, 2*r+10+font_NS,pango.ALIGN_CENTER)
+                        self.draw_text(wind_direct_now[0]+', '+wind_speed_now[0]+' '+_('m/s'), x0-r-5, y0+r+font_wind+4, font+' Normal', font_wind, 2*r+10+font_NS,pango.ALIGN_CENTER)
                 wind_icon = 0
                 if icon_wind_now[0] != '0': 
                     wind_icon = int(icon_wind_now[0])*45+45
@@ -672,27 +500,27 @@ class MyDrawArea(gtk.DrawingArea):
                         self.draw_scaled_image(x0, y0, os.path.join(ICONS_PATH, 'default', 'wind_small.png'), 16, 16, wind_icon+angel)
                 if (wind_direct_now and wind_speed_now):
                     if int(wind_speed_now[0]) >= high_wind:
-                        self.draw_text(wind_speed_now[0]+"<span size='x-small'> м/с</span>  <span size='small'>%s</span>"%wind_direct_now[0], x0+20, y0-1, font+' Normal', 12, 100,pango.ALIGN_LEFT, color_high_wind)
+                        self.draw_text(wind_speed_now[0]+"<span size='x-small'> %s</span>  <span size='small'>%s</span>"%(_('m/s'), wind_direct_now[0]), x0+20, y0-1, font+' Normal', 12, 100,pango.ALIGN_LEFT, color_high_wind)
                     else:
-                        self.draw_text(wind_speed_now[0]+"<span size='x-small'> м/с</span>  <span size='small'>%s</span>"%wind_direct_now[0], x0+20, y0-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
+                        self.draw_text(wind_speed_now[0]+"<span size='x-small'> %s</span>  <span size='small'>%s</span>"%(_('m/s'), wind_direct_now[0]), x0+20, y0-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
                 if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'press.png')):
                     self.draw_scaled_image(x0, y0+line_height, os.path.join(ICONS_PATH, icons_name, 'press.png'), 16, 16)
                 else:
                     self.draw_scaled_image(x0, y0+line_height, os.path.join(ICONS_PATH, 'default', 'press.png'), 16, 16)
                 if press_now:
-                    self.draw_text(press_now[0]+"<span size='x-small'> мм рт.ст.</span>", x0+20, y0+line_height-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
+                    self.draw_text(press_now[0]+"<span size='x-small'> %s</span>"%_("mmHg"), x0+20, y0+line_height-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
                 if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'hum.png')):
                     self.draw_scaled_image(x0, y0+line_height*2, os.path.join(ICONS_PATH, icons_name, 'hum.png'), 16, 16)
                 else:
                     self.draw_scaled_image(x0, y0+line_height*2, os.path.join(ICONS_PATH, 'default', 'hum.png'), 16, 16)
                 if hum_now:
-                    self.draw_text(hum_now[0]+"<span size='x-small'> % влажн.</span>", x0+20, y0+line_height*2-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
+                    self.draw_text(hum_now[0]+"<span size='x-small'> % "+_('humid.')+"</span>", x0+20, y0+line_height*2-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
                 if os.path.exists(os.path.join(ICONS_PATH, icons_name, 't_water.png')):
                     self.draw_scaled_image(x0, y0+line_height*3, os.path.join(ICONS_PATH, icons_name, 't_water.png'), 16, 16)
                 else:
                     self.draw_scaled_image(x0, y0+line_height*3, os.path.join(ICONS_PATH, 'default', 't_water.png'), 16, 16)
                 if t_water_now:
-                    self.draw_text(t_water_now+"<span size='x-small'> °C вода</span>", x0+20, y0+line_height*3-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
+                    self.draw_text(t_water_now+"<span size='x-small'> °C %s</span>"%_("water"), x0+20, y0+line_height*3-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
             
             if show_block_tomorrow:
                 ####-Блок погоды на завтра-####
@@ -705,9 +533,9 @@ class MyDrawArea(gtk.DrawingArea):
                 
                 x0 = center + left
                 y0 = top
-                c = ('Ночь', 'Утро', 'День', 'Вечер')
+                c = (_('Night'), _('Morning'), _('Day'), _('Evening'))
                 
-                self.draw_text('Завтра', x0, y0-13, font+' Bold', 8, a+60,pango.ALIGN_CENTER)
+                self.draw_text(_('Tomorrow'), x0, y0-13, font+' Bold', 8, a+60,pango.ALIGN_CENTER)
                 for i in range(0, 4):
                     j = i
                     if j > 1: j = j-2
@@ -720,9 +548,9 @@ class MyDrawArea(gtk.DrawingArea):
                     self.draw_scaled_icon(x0+32+a*((j+1)/2), y0+b*(i/2), os.path.join(ICONS_PATH, icons_name, 'weather', icon_tomorrow[i]), 28, 28)
                     if (wind_direct and wind_speed): 
                         if int(wind_speed_tom[i]) >= high_wind:
-                            self.draw_text(wind_direct_tom[i]+', '+wind_speed_tom[i]+' м/с', x0+a*((j+1)/2), y0+27+b*(i/2), font+' Normal', 7, 50,pango.ALIGN_LEFT, color_high_wind)
+                            self.draw_text(wind_direct_tom[i]+', '+wind_speed_tom[i]+' '+_('m/s'), x0+a*((j+1)/2), y0+27+b*(i/2), font+' Normal', 7, 50,pango.ALIGN_LEFT, color_high_wind)
                         else:
-                            self.draw_text(wind_direct_tom[i]+', '+wind_speed_tom[i]+' м/с', x0+a*((j+1)/2), y0+27+b*(i/2), font+' Normal', 7, 50,pango.ALIGN_LEFT)
+                            self.draw_text(wind_direct_tom[i]+', '+wind_speed_tom[i]+' '+_('m/s'), x0+a*((j+1)/2), y0+27+b*(i/2), font+' Normal', 7, 50,pango.ALIGN_LEFT)
 
 
             if show_block_today:
@@ -736,9 +564,9 @@ class MyDrawArea(gtk.DrawingArea):
                 
                 x0 = center + left
                 y0 = top
-                c = ('Ночь', 'Утро', 'День', 'Вечер')
+                c = (_('Night'), _('Morning'), _('Day'), _('Evening'))
                 
-                self.draw_text('Сегодня', x0, y0-13, font+' Bold', 8, a+60,pango.ALIGN_CENTER)
+                self.draw_text(_('Today'), x0, y0-13, font+' Bold', 8, a+60,pango.ALIGN_CENTER)
                 for i in range(0, 4):
                     j = i
                     if j > 1: j = j-2
@@ -751,9 +579,9 @@ class MyDrawArea(gtk.DrawingArea):
                     self.draw_scaled_icon(x0+32+a*((j+1)/2), y0+b*(i/2), os.path.join(ICONS_PATH, icons_name, 'weather', icon_today[i]), 28, 28)
                     if (wind_direct and wind_speed): 
                         if int(wind_speed_tod[i]) >= high_wind:
-                            self.draw_text(wind_direct_tod[i]+', '+wind_speed_tod[i]+' м/с', x0+a*((j+1)/2), y0+27+b*(i/2), font+' Normal', 7, 50,pango.ALIGN_LEFT, color_high_wind)
+                            self.draw_text(wind_direct_tod[i]+', '+wind_speed_tod[i]+' '+_('m/s'), x0+a*((j+1)/2), y0+27+b*(i/2), font+' Normal', 7, 50,pango.ALIGN_LEFT, color_high_wind)
                         else:
-                            self.draw_text(wind_direct_tod[i]+', '+wind_speed_tod[i]+' м/с', x0+a*((j+1)/2), y0+27+b*(i/2), font+' Normal', 7, 50,pango.ALIGN_LEFT)
+                            self.draw_text(wind_direct_tod[i]+', '+wind_speed_tod[i]+' '+_('m/s'), x0+a*((j+1)/2), y0+27+b*(i/2), font+' Normal', 7, 50,pango.ALIGN_LEFT)
 
 
     def draw_weather_icon(self, index, x, y):
@@ -765,7 +593,7 @@ class MyDrawArea(gtk.DrawingArea):
                 if math.fabs(int(t_day[index])) < 10: a = 20
             self.draw_scaled_icon(x+a, y+16, os.path.join(ICONS_PATH, icons_name, 'weather', icon[index]), 36, 36)
             if (day and date): 
-                if day[index] in ('Сб', 'Вс'):
+                if day[index] in (_('Sa'), _('Su')):
                     self.draw_text(day[index]+', '+date[index], x, y-2, font+' Bold', 9, w_block,pango.ALIGN_LEFT, color_text_week)
                 else:
                     self.draw_text(day[index]+', '+date[index], x, y-2, font+' Bold', 9, w_block,pango.ALIGN_LEFT)
@@ -778,9 +606,9 @@ class MyDrawArea(gtk.DrawingArea):
                 if t_night: self.draw_text(t_night[index]+'°', x, y+30, font+' Normal', 8, w_block-45,pango.ALIGN_LEFT)
             if (wind_direct and wind_speed): 
                 if int(wind_speed[index]) >= high_wind:
-                    self.draw_text(wind_direct[index]+', '+wind_speed[index]+' м/с', x, y+50, font+' Normal', 8, 80,pango.ALIGN_LEFT, color_high_wind)
+                    self.draw_text(wind_direct[index]+', '+wind_speed[index]+' '+_('m/s'), x, y+50, font+' Normal', 8, 80,pango.ALIGN_LEFT, color_high_wind)
                 else:
-                    self.draw_text(wind_direct[index]+', '+wind_speed[index]+' м/с', x, y+50, font+' Normal', 8, 80,pango.ALIGN_LEFT)
+                    self.draw_text(wind_direct[index]+', '+wind_speed[index]+' '+_('m/s'), x, y+50, font+' Normal', 8, 80,pango.ALIGN_LEFT)
             if text: self.draw_text(text[index], x, y+65, font+' Italic', 7, w_block, pango.ALIGN_LEFT)
 
 
@@ -795,7 +623,7 @@ class MyDrawArea(gtk.DrawingArea):
                 if os.path.exists(os.path.join(BGS_PATH, bg_custom)):
                     self.draw_scaled_image(0, 0, os.path.join(BGS_PATH, bg_custom), width, height)
                 else:
-                    print u'Не найдено фоновое изображение:', bg_custom
+                    print _('Background image not found')+':', bg_custom
         else:
             w = width
             h = height
@@ -860,10 +688,10 @@ class MyDrawArea(gtk.DrawingArea):
             pix = os.path.join(ICONS_USER_PATH, 'default', 'weather', os.path.split(pix)[1])
         if icons_name == 'default' and not os.path.exists(pix):
             try:
-                print u'> скачиваю', os.path.split(pix)[1]
+                print '>', _('downloading'), os.path.split(pix)[1], '('+'http://st8.gisstatic.ru/static/images/icons/new/'+os.path.split(pix)[1]+')'
                 urlretrieve('http://st8.gisstatic.ru/static/images/icons/new/'+os.path.split(pix)[1], pix)
             except:
-                print u'Не удалось скачать', 'http://st8.gisstatic.ru/static/images/icons/new/'+os.path.split(pix)[1]
+                print _('Unable to download'), 'http://st8.gisstatic.ru/static/images/icons/new/'+os.path.split(pix)[1]
             if not os.path.exists(pix):
                 pix = os.path.join(THEMES_PATH, 'na.png')
             self.draw_scaled_image(x, y, pix, w, h)
@@ -899,7 +727,7 @@ class MyDrawArea(gtk.DrawingArea):
             if not os.path.exists(pix):
                 pix = os.path.join(ICONS_USER_PATH, icons_name, 'weather', '.'.join(pix_convert))
                 if not os.path.exists(pix):
-                    print u'[!] отсутстует иконка:\n>', os.path.join(icons_name, 'weather', '.'.join(pix_convert))
+                    print '[!]', _('not found icon')+':\n>', os.path.join(icons_name, 'weather', '.'.join(pix_convert))
                     if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'weather', 'na.png')):
                         pix = os.path.join(ICONS_PATH, icons_name, 'weather', 'na.png')
                     else:
@@ -953,8 +781,8 @@ class Weather_Widget:
 
         self.set_window_properties()
 
-        print u'Размеры виджета:'
-        print u'    ширина =', width, u'высота =', height, u'в т.ч. отступ =', margin
+        print _('Widget size')+':'
+        print '    '+_('width')+' =', width, _('height')+' =', height, _('including indent')+' =', margin
 
         self.window.set_decorated(False)
 
@@ -1003,187 +831,6 @@ class Weather_Widget:
             self.window.unstick()
         self.window.set_opacity(opacity)
 
-    # def create_menu(self):
-    #     menu = None
-    #     # из папки скрипта (dirs - иконки, files - фоны)
-    #     root, dirs, files = os.walk(ICONS_PATH).next()
-    #     files = os.listdir(BGS_PATH)
-    #     dirs.sort()
-    #     files.sort()
-    #     dirs.remove('default')
-    #     # из папки пользователя (dirs_user - иконки, files_user - фоны)
-    #     root, dirs_user, files_user = os.walk(ICONS_USER_PATH).next()
-    #     files_user = os.listdir(BGS_USER_PATH)
-    #     dirs_user.sort()
-    #     files_user.sort()
-    #     dirs_user.remove('default')
-    #     # списки с иконками и фонами
-    #     global icons_list, backgrounds_list
-    #     icons_list = []
-    #     icons_list.extend(dirs)
-    #     icons_list.extend(dirs_user)
-    #     backgrounds_list = []
-    #     backgrounds_list.extend(files)
-    #     backgrounds_list.extend(files_user)
-    #     # Создаем меню и заполняем найденными иконками и фонами
-    #     menu = gtk.Menu()
-    #     sub_menu_icons = gtk.Menu()
-    #     sub_menu_bgs = gtk.Menu()
-    #     sub_menu_color_text = gtk.Menu()
-    #     sub_menu_place = gtk.Menu()
-    #     sub_menu_settings = gtk.Menu()
-    #     sub_menu_window = gtk.Menu()
-
-    #     # Иконки
-    #     group = None
-    #     menu_items = gtk.RadioMenuItem(group, '0. Default')
-    #     if icons_name == 'default':
-    #         menu_items.set_active(True)
-    #     group = menu_items
-    #     sub_menu_icons.append(menu_items)
-    #     menu_items.connect("activate", self.menu_response, 'redraw_icons', 'default')
-    #     menu_items.show()
-    #     for i in range(len(icons_list)):
-    #         buf = icons_list[i].split('_') # из _ делаем __ (отображается как _)
-    #         buf = '__'.join(buf)
-    #         menu_items = gtk.RadioMenuItem(group, str(i+1)+'. '+buf)
-    #         if icons_name == icons_list[i]:
-    #             menu_items.set_active(True)
-    #         group = menu_items
-    #         sub_menu_icons.append(menu_items)
-    #         menu_items.connect("activate", self.menu_response, 'redraw_icons', icons_list[i])
-    #         menu_items.show()
-
-    #     # Фоны
-    #     group = None
-    #     menu_items = gtk.RadioMenuItem(group, '0. Нет')
-    #     if show_bg_png == False and color_bg[3]==0:
-    #         menu_items.set_active(True)
-    #     group = menu_items
-    #     sub_menu_bgs.append(menu_items)
-    #     menu_items.connect("activate", self.menu_response, 'redraw_bg', 'Нет')
-    #     menu_items.show()
-    #     for i in range(len(backgrounds_list)):
-    #         buf = backgrounds_list[i].split('_')
-    #         buf = '__'.join(buf)
-    #         menu_items = gtk.RadioMenuItem(group, str(i+1)+'. '+buf)
-    #         if bg_custom == backgrounds_list[i]:
-    #             menu_items.set_active(True)
-    #         group = menu_items
-    #         sub_menu_bgs.append(menu_items)
-    #         menu_items.connect("activate", self.menu_response, 'redraw_bg', backgrounds_list[i])
-    #         menu_items.show()
-
-    #     # Цвет текста
-    #     group = None
-    #     for i in range(len(color_scheme)):
-    #         menu_items = gtk.RadioMenuItem(group, 'Цветовая схема #' + str(i))
-    #         if i == color_scheme_number:
-    #             menu_items.set_active(True)
-    #         group = menu_items
-    #         sub_menu_color_text.append(menu_items)
-    #         menu_items.connect("activate", self.menu_response, 'redraw_text', i)
-    #         menu_items.show()
-    #     # menu_items = gtk.SeparatorMenuItem()
-    #     # sub_menu_color_text.append(menu_items)
-    #     # menu_items.show()
-    #     # menu_items = gtk.MenuItem('Выбрать шрифт...')
-    #     # sub_menu_color_text.append(menu_items)
-    #     # menu_items.connect("activate", self.menu_response, 'choose_font')
-    #     # menu_items.show()
-
-    #     # sub_menu_place
-    #     group = None
-    #     if len(city_id_add) > 0:
-    #         for i in range(len(city_id_add)):
-    #             menu_items = gtk.RadioMenuItem(group, city_id_add[i].split(';')[1])
-    #             if city_id_add[i].split(';')[0] == str(city_id):
-    #                 menu_items.set_active(True)
-    #             group = menu_items
-    #             sub_menu_place.append(menu_items)
-    #             menu_items.connect("activate", self.menu_response, 'reload', city_id_add[i])
-    #             menu_items.show()
-    #         menu_items = gtk.SeparatorMenuItem()
-    #         sub_menu_place.append(menu_items)
-    #         menu_items.show()
-
-    #     menu_items = gtk.MenuItem('Настроить...')
-    #     sub_menu_place.append(menu_items)
-    #     menu_items.connect("activate", self.menu_response, 'edit_city_id')
-    #     menu_items.show()
-
-    #     sub_menu_window
-    #     menu_items = gtk.CheckMenuItem('Зафиксировать')
-    #     menu_items.set_active(fix_position)
-    #     menu_items.connect("activate", self.menu_response, 'fix')
-    #     sub_menu_window.append(menu_items)
-    #     menu_items.show()
-
-    #     menu_items = gtk.CheckMenuItem('На всех рабочих столах')
-    #     menu_items.set_active(sticky)
-    #     menu_items.connect("activate", self.menu_response, 'sticky')
-    #     sub_menu_window.append(menu_items)
-    #     menu_items.show()
-
-    #     # main menu
-    #     menu_items = gtk.ImageMenuItem(gtk.STOCK_REFRESH)
-    #     menu.append(menu_items)
-    #     menu_items.connect("activate", self.menu_response, 'reload', 0)
-    #     menu_items.show()
-
-    #     menu_items = gtk.SeparatorMenuItem()
-    #     menu.append(menu_items)
-    #     menu_items.show()
-
-    #     menu_items = gtk.MenuItem('Местоположение')
-    #     menu.append(menu_items)
-    #     menu_items.set_submenu(sub_menu_place)
-    #     menu_items.show()
-
-    #     menu_items = gtk.MenuItem('Иконки')
-    #     menu.append(menu_items)
-    #     menu_items.set_submenu(sub_menu_icons)
-    #     menu_items.show()
-        
-    #     menu_items = gtk.MenuItem('Фон')
-    #     menu.append(menu_items)
-    #     menu_items.set_submenu(sub_menu_bgs)
-    #     menu_items.show()
-        
-    #     menu_items = gtk.MenuItem('Текст')
-    #     menu.append(menu_items)
-    #     menu_items.set_submenu(sub_menu_color_text)
-    #     menu_items.show()
-
-    #     menu_items = gtk.MenuItem('Окно')
-    #     menu.append(menu_items)
-    #     menu_items.set_submenu(sub_menu_window)
-    #     menu_items.show()
-
-    #     menu_items = gtk.ImageMenuItem(gtk.STOCK_PROPERTIES)
-    #     menu.append(menu_items)
-    #     menu_items.connect("activate", self.menu_response, 'setup')
-    #     menu_items.show()
-        
-    #     # menu_items = gtk.MenuItem('Редактировать...')
-    #     # menu.append(menu_items)
-    #     # menu_items.connect("activate", self.menu_response, 'edit')
-    #     # menu_items.show()
-
-    #     menu_items = gtk.ImageMenuItem(gtk.STOCK_ABOUT)
-    #     menu.append(menu_items)
-    #     menu_items.connect("activate", self.menu_response, 'about')
-    #     menu_items.show()
-
-    #     menu_items = gtk.SeparatorMenuItem()
-    #     menu.append(menu_items)
-    #     menu_items.show()
-
-    #     menu_items = gtk.ImageMenuItem(gtk.STOCK_CLOSE)
-    #     menu.append(menu_items)
-    #     menu_items.connect("activate", gtk.main_quit)
-    #     menu_items.show()
-    #     return menu
 
     def screenshot(self, left, top, width, height):
         w = gtk.gdk.get_default_root_window()
@@ -1201,34 +848,6 @@ class Weather_Widget:
     def menu_response(self, widget, event, value=None):
         if event == 'about':
             about = Gtk_about_dialog.create(v, APP_PATH, license)
-            # about = gtk.AboutDialog()
-            # about.set_program_name('Gis Weather')
-            # about.set_version(v)
-            # about.set_copyright('(С) 2013 - 2014 Alexander Koltsov')
-            # about.set_comments('Погодный виджет')
-            # about.set_website('http://sourceforge.net/projects/gis-weather/')
-            # about.set_logo(gtk.gdk.pixbuf_new_from_file_at_size(os.path.join(APP_PATH, 'icon.png'), 128, 128))
-            # about.set_license(license)
-            # about.set_wrap_license(False)
-            # about.set_authors(['Alexander Koltsov <ringov@mail.ru>\n',
-            #     'Помощь и идеи:\n    Karbunkul\n    Haron Prime\n    Yuriy_Y\n',
-            #     'draw_scaled_image, draw_text_Whise\nby Helder Fraga aka Whise <helder.fraga@hotmail.com>\n',
-            #     'autostart helper\nby Jonas Wagner\n',
-            #     'Sloth 0.2\nby Mikhail Valkov'])
-            # about.set_artists(['backgrounds:',
-            #     'LightEasyShadow, LightWhiteShadow, DarkEasyShadow, DarkWithFlare',
-            #     'by wfedin',
-            #     '-------------------------------\n'
-            #     'icons:',
-            #     'colorful, flat_colorful, light, flat_white, dark, flat_black',
-            #     'by ~MerlinTheRed',
-            #     'http://merlinthered.deviantart.com/art/plain-weather-icons-157162192\n',
-            #     'tick by xiao4',
-            #     'http://www.deviantart.com/art/tick-weather-icons-96294478\n',
-            #     'weezle by d3stroy',
-            #     'http://www.deviantart.com/art/Weezle-Weather-Icons-187306753\n'])
-            # #about.set_translator_credits('')
-            # #about.set_documenters('')
             about.run()
             about.destroy()
             return
@@ -1296,42 +915,6 @@ class Weather_Widget:
                 self.drawing_area.redraw(False)
 
 
-    # def reload(self, widget, c_id = 0):
-    #     # если radio, то обновлялось 2 раза, фикс
-    #     if type(widget) == gtk.RadioMenuItem:
-    #         if not widget.get_active():
-    #             return
-
-    #     global city_id
-    #     Load_Config()
-    #     if c_id != 0:
-    #         city_id = c_id.split(';')[0]
-    #         Save_Config()
-    #     self.drawing_area.redraw(False)
-
-    # def redraw_icons(self, widget, string):
-    #     global icons_name
-    #     icons_name = string
-    #     #self.drawing_area.redraw(False, False)
-    #     self.drawing_area.queue_draw()
-    #     Save_Config()
-
-    # def redraw_bg(self, widget, string):
-    #     global bg_custom, show_bg_png, color_bg
-    #     show_bg_png = True
-    #     if string == 'Нет':
-    #         show_bg_png = False
-    #         color_bg = (1, 1, 1, 0)
-    #     bg_custom = string
-    #     #self.drawing_area.redraw(False, False)
-    #     self.drawing_area.queue_draw()
-    #     Save_Config()
-    
-    # def redraw_text(self, widget, i):
-    #     Load_Color_Scheme(i)
-    #     self.drawing_area.redraw(False, False)
-    #     Save_Config()
-
     def show_edit_dialog(self):
         global city_id, city_id_add
         dialog, entrybox, treeview, bar_err, bar_ok, bar_label = Gtk_city_id.create_gtk_city_id(self.window, city_id, city_id_add, APP_PATH);
@@ -1351,7 +934,7 @@ class Weather_Widget:
                     del_index=cde[0]
                     if iter:
                         model.remove(iter)
-                    bar_label.set_text('Удалено: %s'%city_id_add[int(del_index[0])].split(';')[1])
+                    bar_label.set_text(_('Removed')+': %s'%city_id_add[int(del_index[0])].split(';')[1])
                     if str(city_id) == city_id_add[int(del_index[0])].split(';')[0]:
                         del city_id_add[int(del_index[0])]
                         if len(city_id_add) != 0:
@@ -1367,7 +950,7 @@ class Weather_Widget:
             if response == gtk.RESPONSE_OK:
                 try:
                     city_id = int(entrybox.get_text())
-                    c_name = get_city_name(city_id)
+                    c_name = gismeteo.get_city_name(city_id, weather_lang)
                     if c_name == 'None':
                         if len(city_id_add) != 0:
                             city_id = int(city_id_add[0].split(';')[0])
@@ -1379,22 +962,16 @@ class Weather_Widget:
                     model.append([city_id_add[-1].split(';')[0], city_id_add[-1].split(';')[1]])
                     treeview.set_model(model)
                     Save_Config()
-                    bar_label.set_text('Добавлено: %s'%city_id_add[-1].split(';')[1])
+                    bar_label.set_text(_('Added')+': %s'%city_id_add[-1].split(';')[1])
                     bar_ok.show()
                 except:
                     bar_err.show()
-                    print u'[!] Не верно введен код местоположения'
+                    print '[!]', _('Not correct location code')
             response = dialog.run()
 
         dialog.hide()
         return True
 
-    # def edit_city_id(self):
-    #     if self.show_edit_dialog():
-    #         Save_Config()
-    #         while gtk.events_pending():
-    #             gtk.main_iteration_do(True)
-    #         self.drawing_area.redraw(False)
 
 #---------------------- Обработчики событий окна --------------------------------
     def button_press(self, widget, event):

@@ -50,6 +50,16 @@ App_gw = None
 icons_list_set = [] 
 backgrounds_list_set = []
 
+# доступные на сайте языки (com - с редиректом!)
+weather_lang_list = ('com', 'ru', 'ua/ua', 'lv', 'lt', 'md/ro')
+
+# находим все доступные переводы
+available_lang = ['auto', 'en']
+root, dirs, files = os.walk(os.path.join(os.path.dirname(sys.argv[0]), 'i18n')).next()
+dirs.sort()
+for i in range(len(dirs)):
+    available_lang.append(dirs[i])
+
 def Save_Config():
     json.dump(gw_config_set, open(os.path.join(CONFIG_PATH, 'gw_config.json'), "w"), sort_keys=True, indent=4, separators=(', ', ': '))
 
@@ -81,6 +91,10 @@ class settings():
         self.button_open_config_folder.connect("clicked", App_gw.menu_response, 'edit')
         self.checkbutton_autorun = self.widgets_tree.get_object('checkbutton_autorun')
         self.checkbutton_autorun.connect("toggled", self.set_autorun)
+        self.combobox_app_lang = self.widgets_tree.get_object('combobox_app_lang')
+        self.combobox_app_lang.connect("changed", self.set_app_lang)
+        self.combobox_weather_lang = self.widgets_tree.get_object('combobox_weather_lang')
+        self.combobox_weather_lang.connect("changed", self.set_weather_lang)
 
         self.clear_upd_time = self.widgets_tree.get_object('clear_upd_time')
         self.clear_upd_time.connect("clicked", self.clear_settings)
@@ -105,6 +119,8 @@ class settings():
         self.checkbutton_fix_position.connect("toggled", self.save_settings)
         self.checkbutton_sticky = self.widgets_tree.get_object('checkbutton_sticky')
         self.checkbutton_sticky.connect("toggled", self.save_settings)
+        self.liststore5 = self.widgets_tree.get_object('liststore5')
+        self.liststore6 = self.widgets_tree.get_object('liststore6')
 
         self.clear_x_pos = self.widgets_tree.get_object('clear_x_pos')
         self.clear_x_pos.connect("clicked", self.clear_settings)
@@ -293,6 +309,17 @@ class settings():
         if autorun.exists("Gis Weather"):
             self.checkbutton_autorun.set_active(True)
 
+        self.liststore5.clear()
+        for i in range(len(available_lang)):
+            self.liststore5.append([available_lang[i]])
+            if available_lang[i] == gw_config_set['app_lang']:
+                self.combobox_app_lang.set_active(i)
+        self.liststore6.clear()
+        for i in range(len(weather_lang_list)):
+            self.liststore6.append([weather_lang_list[i]])
+            if weather_lang_list[i] == gw_config_set['weather_lang']:
+                self.combobox_weather_lang.set_active(i)
+
         state_lock = False
 
     def load(self, widget):
@@ -371,6 +398,33 @@ class settings():
             gw_config_set[name] = backgrounds_list_set[i]
         Save_Config()
         drawing_area_set.redraw(False, False, load_config = True)
+
+    def set_weather_lang(self, widget):
+        if state_lock:
+            return
+        global gw_config_set
+        w_name = gtk.Buildable.get_name(widget)
+        w_name = w_name.split('_')
+        name = '_'.join(w_name[1:])
+        i = widget.get_active()
+        gw_config_set[name] = weather_lang_list[i]
+        Save_Config()
+        drawing_area_set.redraw(False, True, load_config = True)
+
+    def set_app_lang(self, widget):
+        if state_lock:
+            return
+        global gw_config_set
+        w_name = gtk.Buildable.get_name(widget)
+        w_name = w_name.split('_')
+        name = '_'.join(w_name[1:])
+        i = widget.get_active()
+        gw_config_set[name] = available_lang[i]
+        Save_Config()
+        import localization
+        localization.set()
+        drawing_area_set.redraw(False, False, load_config = True)
+
 
     def set_color(self, widget):
         if state_lock:

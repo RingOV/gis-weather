@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from urllib2 import urlopen
+import urllib2
 import re
 import time
 
@@ -42,18 +43,40 @@ icon_today = []      # Иконка погоды сегодня
 wind_speed_tod = []  # Скорость ветра сегодня
 wind_direct_tod = [] # Направление ветра сегодня
 
-def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, timer_bool):
+
+opener = urllib2.build_opener()
+opener.addheaders = [
+    ('Host', 'negoogle.ru'),
+    ('User-agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/534.13 (KHTML, like Gecko) Chrome/9.0.597.98 Safari/534.13'),
+    ('Accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'),
+    ('Accept-Language', 'ru,en-us;q=0.7,en;q=0.3'),
+    ('Accept-Charset', 'windows-1251,utf-8;q=0.7,*;q=0.7'),
+    ('Keep-Alive', '115'),
+    ('Connection', 'keep-alive'),
+]
+
+def get_city_name(c_id, weather_lang):
+    try:
+        source = urlopen('http://www.gismeteo.com/city/weekly/' + str(c_id), timeout=10).read()
+        c_name = re.findall('type[A-Z].*\">(.*)<', source)
+    except:
+        print '[!]', _('Failed to get the name of the location')
+        return 'None'
+    return c_name[0]
+
+def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, timer_bool, weather_lang):
     #global err_connect, splash
     global city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod 
-    print u'> Получаю погоду на', n, u'дней'
-    print u'> Загружаю в переменную страницу', 'http://www.gismeteo.com/city/weekly/' + str(city_id)
+    print '>', _('Getting weather for'), n, _('days')
+    print '>', _('Uploading  page to a variable'), 'http://www.gismeteo.%s/city/weekly/'%weather_lang + str(city_id)
     try:
-        source = urlopen('http://www.gismeteo.com/city/weekly/' + str(city_id), timeout=10).read()
-        print u'OK'
+        #source = urlopen('http://www.gismeteo.com/city/weekly/' + str(city_id), timeout=10).read()
+        source = opener.open('http://www.gismeteo.%s/city/weekly/'%weather_lang + str(city_id), timeout=10).read()
+        print 'OK'
     except:
-        print u'[!] Невозможно скачать страницу, проверьте интернет соединение'
+        print '[!]', _('Unable to download page, check the network connection')
         if timer_bool:
-            print u'[!] Следующая попытка через 10 секунд'
+            print '[!]', _('Next try in 10 seconds')
         return False
     #### Текущая погода ####
     w_now = re.findall("type[A-Z].*wrap f_link", source, re.DOTALL)
@@ -221,8 +244,8 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
     ########
     
     if time_update:
-        print u'> Обновление на сервере в', time_update[0]
-    print u'> Погода получена в', time.strftime('%H:%M', time.localtime())
+        print '>', _('updated on server'), time_update[0]
+    print '>', _('weather received'), time.strftime('%H:%M', time.localtime())
 
     # if splash:
     #     splash = False
