@@ -293,8 +293,8 @@ def check_updates():
         cur_ver.append('0')
 
     new_v = None
-    # if int(new_ver[0])*1000+int(new_ver[1])*100+int(new_ver[2])*10+int(new_ver[3])>int(cur_ver[0])*1000+int(cur_ver[1])*100+int(cur_ver[2])*10+int(cur_ver[3]):
-    #     new_v = new_ver1[0]
+    if int(new_ver[0])*1000+int(new_ver[1])*100+int(new_ver[2])*10+int(new_ver[3])>int(cur_ver[0])*1000+int(cur_ver[1])*100+int(cur_ver[2])*10+int(cur_ver[3]):
+        new_v = new_ver1[0]
     if new_v:
         print '>>>', _('New version available'), new_v, '<<<'
         print '-'*40
