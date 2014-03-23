@@ -84,6 +84,9 @@ class settings():
                 if list_o[i].get_name() == 'GtkLabel':
                     if list_o[i].get_text() != '':
                         self.dict_o[gtk.Buildable.get_name(list_o[i])] = list_o[i].get_text()
+                if list_o[i].get_name() == 'GtkButton':
+                    if list_o[i].get_label() != None:
+                        self.dict_o[gtk.Buildable.get_name(list_o[i])] = list_o[i].get_label()
             except:
                 pass
 
@@ -280,6 +283,9 @@ class settings():
                 if list_o[i].get_name() == 'GtkLabel':
                     if list_o[i].get_text() != '':
                         list_o[i].set_text(_(self.dict_o[gtk.Buildable.get_name(list_o[i])]))
+                if list_o[i].get_name() == 'GtkButton':
+                    if list_o[i].get_label() != None:
+                        list_o[i].set_label(_(self.dict_o[gtk.Buildable.get_name(list_o[i])]))
             except:
                 pass
 
