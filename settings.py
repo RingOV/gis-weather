@@ -349,7 +349,7 @@ class settings():
             self.liststore4.append([backgrounds_list_set[i]])
             if backgrounds_list_set[i] == gw_config_set['bg_custom']: 
                 self.combobox_bg_custom.set_active(i)
-        if autorun.exists("Gis Weather"):
+        if autorun.exists("gis-weather"):
             self.checkbutton_autorun.set_active(True)
 
         self.liststore5.clear()
@@ -490,11 +490,11 @@ class settings():
             return
         if widget.get_active() == True:
             if WIN:
-                autorun.add("Gis Weather", work_path+'\\gis-weather.exe')
+                autorun.add("gis-weather", os.path.join(work_path, 'gis-weather.exe'))
             else:
-                autorun.add("Gis Weather", "/usr/bin/gis-weather")
+                autorun.add("gis-weather", os.path.join(work_path, 'gis-weather.py'))
         else:
-            autorun.remove("Gis Weather")
+            autorun.remove("gis-weather")
 
 def main(gw_config_default, gw_config, drawing_area, app_gw, icons_list, backgrounds_list):
     global gw_config_default_set, gw_config_set, drawing_area_set, App_gw, icons_list_set, backgrounds_list_set

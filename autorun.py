@@ -52,11 +52,11 @@ else:
         """add a new autostart entry"""
         desktop_entry = "[Desktop Entry]\n"\
             "Name=%s\n"\
-            "Exec=%s\n"\
+            "Exec=python %s\n"\
             "Type=Application\n"\
             "Terminal=false\n"\
-            "Icon=/usr/share/gis-weather/icon.png\n"\
-            "Comment=Погодный виджет" % (name, application)
+            "Icon=%s\n"\
+            "Comment=Погодный виджет" % ('Gis Weather', application, os.path.join(os.path.dirname(application),'icon.png'))
         with open(getfilename(name), "w") as f:
             f.write(desktop_entry)
 
