@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-03-24 00:07+0300\n"
-"PO-Revision-Date: 2014-03-24 00:10+0300\n"
+"POT-Creation-Date: 2014-03-24 22:15+0300\n"
+"PO-Revision-Date: 2014-03-24 22:15+0300\n"
 "Last-Translator: \n"
 "Language-Team: Gis Weather Team <ringov@mail.ru>\n"
 "Language: Russian\n"
@@ -14,7 +14,7 @@ msgstr ""
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: gw_menu.py:61 settings.py:303
+#: gw_menu.py:61 settings.py:304
 msgid "No"
 msgstr "Нет"
 
@@ -58,9 +58,9 @@ msgstr "Текст"
 msgid "Window"
 msgstr "Окно"
 
-#: gw_menu.py:161
-msgid "Properties"
-msgstr "Свойства"
+#: gw_menu.py:161 settings.py:291
+msgid "Preferences"
+msgstr "Параметры"
 
 #: gw_menu.py:169
 msgid "About"
@@ -320,23 +320,23 @@ msgstr "Ваш экран не поддерживает прозрачность
 msgid "Your screen supports alpha"
 msgstr "Ваш экран поддерживает прозрачность"
 
-#: settings.py:298
+#: settings.py:299
 msgid "Never"
 msgstr "Никогда"
 
-#: settings.py:299
+#: settings.py:300
 msgid "Only at start"
 msgstr "Только при старте"
 
-#: settings.py:300
+#: settings.py:301
 msgid "Always"
 msgstr "Всегда"
 
-#: settings.py:304
+#: settings.py:305
 msgid "Only background"
 msgstr "Только фон"
 
-#: settings.py:305
+#: settings.py:306
 msgid "Yes"
 msgstr "Да"
 
@@ -601,6 +601,12 @@ msgstr ""
 #: settings.glade:2844
 msgid "Appearance"
 msgstr "Оформление"
+
+#~ msgid "Properties"
+#~ msgstr "Свойства"
+
+#~ msgid "Settings"
+#~ msgstr "Настройки"
 
 #~ msgid ""
 #~ "fafad\n"

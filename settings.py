@@ -288,6 +288,7 @@ class settings():
                         list_o[i].set_label(_(self.dict_o[gtk.Buildable.get_name(list_o[i])]))
             except:
                 pass
+        self.window1.set_title(_('Preferences')+' Gis Weather')
 
 
     def load_config_into_form(self):

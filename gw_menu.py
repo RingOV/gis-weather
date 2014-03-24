@@ -158,9 +158,9 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, icons
     menu_items.set_submenu(sub_menu_window)
     menu_items.show()
 
-    menu_items = gtk.ImageMenuItem(_('Properties'))
+    menu_items = gtk.ImageMenuItem(_('Preferences'))
     image = gtk.Image()
-    image.set_from_stock(gtk.STOCK_PROPERTIES, gtk.ICON_SIZE_MENU)
+    image.set_from_stock(gtk.STOCK_PREFERENCES, gtk.ICON_SIZE_MENU)
     menu_items.set_image(image)
     menu.append(menu_items)
     menu_items.connect("activate", app.menu_response, 'setup')
