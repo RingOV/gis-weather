@@ -3,7 +3,7 @@
 #
 #  gis_weather.py
 v = '0.5.0'
-#  Copyright (C) 2013-2014 Alexander Koltsov
+#  Copyright (C) 2013-2014 Alexander Koltsov <ringov@mail.ru>
 #
 #  draw_scaled_image, draw_text_Whise copyright by Helder Fraga
 #  aka Whise <helder.fraga@hotmail.com>
@@ -99,7 +99,7 @@ gw_config_default = {
     'high_wind': 10,                   # Ветер больше или равен этого значения выделяется цветом (-1 не выделять)
     'color_high_wind': (0, 0, 0.6, 1), # Цвет сильного ветра
     'icons_name': 'default',           # Имя папки с иконками погоды
-    'fix_BadDrawable': False,          # Если выскакивает ошибка 'BadDrawable', то в конфиге исправьте на true
+    'fix_BadDrawable': True,          # Если выскакивает ошибка 'BadDrawable', то в конфиге исправьте на true
     'color_scheme_number': 0,
     'check_for_updates': 2,            # 0 - нет, 1 - только при запуске, 2 - всегда
     'fix_position': False,
@@ -266,16 +266,6 @@ weather = {
 for i in weather.keys():
     globals()[i] = weather[i]
 
-# def get_city_name(c_id):
-#     try:
-#         source = urlopen('http://www.gismeteo.com/city/weekly/' + str(c_id), timeout=10).read()
-#         c_name = re.findall('type[A-Z].*\">(.*)<', source)
-#     except:
-#         print '[!]', _('Failed to get the name of the location')
-#         return 'None'
-#     return c_name[0]
-
-
 def check_updates():
     print '>', _('Check for new version')
     try:
@@ -360,7 +350,7 @@ class MyDrawArea(gtk.DrawingArea):
         self.cr = widget.window.cairo_create()
         self.cr.save()
         if fix_BadDrawable:
-            self.cr.set_source_rgba(1, 1, 1, 0.01)
+            self.cr.set_source_rgba(0.5, 0.5, 0.5, 0.01)
         else:
             self.cr.set_source_rgba(1, 1, 1, 0)
         self.cr.set_operator(cairo.OPERATOR_SOURCE)
@@ -530,16 +520,16 @@ class MyDrawArea(gtk.DrawingArea):
                 b = 53
                 b_width = a+60
                 ###############################
-                
+
                 x0 = center + left
                 y0 = top
                 c = (_('Night'), _('Morning'), _('Day'), _('Evening'))
-                
+
                 self.draw_text(_('Tomorrow'), x0, y0-13, font+' Bold', 8, a+60,pango.ALIGN_CENTER)
                 for i in range(0, 4):
                     j = i
                     if j > 1: j = j-2
-                    self.draw_text(c[i], x0+a*((j+1)/2), y0+b*(i/2), font+' Bold', 7, 50,pango.ALIGN_LEFT)
+                    self.draw_text(c[i], x0+a*((j+1)/2), y0+b*(i/2), font+' Bold', 7, 50,pango.ALIGN_LEFT, gradient=True)
                     if t_tomorrow:
                         if t_feel and t_tomorrow_feel:
                             self.draw_text(t_tomorrow_feel[i]+'°', x0+a*((j+1)/2), y0+13+b*(i/2), font+' Normal', 8, 50,pango.ALIGN_LEFT)
@@ -565,12 +555,12 @@ class MyDrawArea(gtk.DrawingArea):
                 x0 = center + left
                 y0 = top
                 c = (_('Night'), _('Morning'), _('Day'), _('Evening'))
-                
+
                 self.draw_text(_('Today'), x0, y0-13, font+' Bold', 8, a+60,pango.ALIGN_CENTER)
                 for i in range(0, 4):
                     j = i
                     if j > 1: j = j-2
-                    self.draw_text(c[i], x0+a*((j+1)/2), y0+b*(i/2), font+' Bold', 7, 50,pango.ALIGN_LEFT)
+                    self.draw_text(c[i], x0+a*((j+1)/2), y0+b*(i/2), font+' Bold', 7, 50,pango.ALIGN_LEFT, gradient=True)
                     if t_tomorrow:
                         if t_feel and t_today_feel:
                             self.draw_text(t_today_feel[i]+'°', x0+a*((j+1)/2), y0+13+b*(i/2), font+' Normal', 8, 50,pango.ALIGN_LEFT)
@@ -637,16 +627,16 @@ class MyDrawArea(gtk.DrawingArea):
             self.cr.arc(0+r, 0+r, r, 0, 8)
             self.cr.fill()
     
-    def draw_text(self, text, x, y,  font, size = None, width = 200, allignment=pango.ALIGN_LEFT, color = (-1, -1, -1, -1)):
+    def draw_text(self, text, x, y,  font, size=None, width=200, alignment=pango.ALIGN_LEFT, color=(-1, -1, -1, -1), gradient=False):
         if color == (-1, -1, -1, -1):
             color = color_text
         if draw_shadow:
             self.cr.set_source_rgba(color_shadow[0], color_shadow[1], color_shadow[2], color_shadow[3])
-            self.draw_text_Whise(text, x+1, y+1,  font, size , width, allignment)
+            self.draw_text_Whise(text, x+1, y+1,  font, size , width, alignment, gradient, color_shadow)
         self.cr.set_source_rgba(color[0], color[1], color[2], color[3])
-        self.draw_text_Whise(text, x, y,  font, size , width, allignment)
+        self.draw_text_Whise(text, x, y,  font, size , width, alignment, gradient, color)
         
-    def draw_text_Whise(self, text, x, y,  font, size = None, width = 200, allignment=pango.ALIGN_LEFT,alignment=None,justify = False,weight = None, ellipsize = pango.ELLIPSIZE_NONE):
+    def draw_text_Whise(self, text, x, y,  font, size=None, width=200, alignment=pango.ALIGN_LEFT, gradient=False, color=(-1, -1, -1, -1)):
         """Draws text"""
         if size is not None:
             size = int(size)
@@ -654,10 +644,8 @@ class MyDrawArea(gtk.DrawingArea):
         self.cr.save()
         self.cr.translate(x, y)
         if self.p_layout == None :
-    
             self.p_layout = self.cr.create_layout()
         else:
-            
             self.cr.update_layout(self.p_layout)
         if self.p_fdesc == None:self.p_fdesc = pango.FontDescription(font)
         else: pass
@@ -670,15 +658,21 @@ class MyDrawArea(gtk.DrawingArea):
             self.p_fdesc.set_family_static(font)
         if size is not None:
             self.p_fdesc.set_size(size * pango.SCALE)
-        if weight is not None:
-            self.p_fdesc.set_weight(weight)
+        #if weight is not None:
+        #    self.p_fdesc.set_weight(weight)
         self.p_layout.set_font_description(self.p_fdesc)
         self.p_layout.set_width(width * pango.SCALE)
-        self.p_layout.set_alignment(allignment)
-        if alignment != None:self.p_layout.set_alignment(alignment)
-        self.p_layout.set_justify(justify)
-        self.p_layout.set_ellipsize(ellipsize)
+        self.p_layout.set_alignment(alignment)
+        #if alignment != None:self.p_layout.set_alignment(alignment)
+        # self.p_layout.set_justify(justify)
+        # self.p_layout.set_ellipsize(ellipsize)
         self.p_layout.set_markup(text)
+        if gradient:
+            lg = cairo.LinearGradient(0, 0, 45, 0)
+            lg.add_color_stop_rgba(0.5, color[0], color[1], color[2], color[3])
+            lg.add_color_stop_rgba(0.8, color[0], color[1], color[2], 0)
+            self.cr.set_source(lg)
+            self.cr.fill()
         self.cr.show_layout(self.p_layout)
         self.cr.restore()
 
