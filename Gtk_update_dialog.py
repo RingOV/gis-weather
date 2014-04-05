@@ -8,9 +8,16 @@ import pango
 import os
 import subprocess
 import urllib
+import shlex
 import sys
+if sys.platform.startswith("win"):
+    WIN = True
+else:
+    WIN = False
 
 updating_step1 = None
+APP_PATH1 = None
+dialog = None
 
 def get_changes():
     try:
@@ -44,12 +51,16 @@ def dlProgress(count, blockSize, totalSize):
 
 
 def restart(widget):
-        if os.path.exists('/usr/bin/gis-weather'):
-            os.execl('/usr/bin/gis-weather', '')
+        if WIN:
+            pass
+        if os.path.exists(APP_PATH1):
+            subprocess.Popen(['/usr/bin/python', os.path.join(APP_PATH1, 'gis-weather.py')], stdout=subprocess.PIPE)
+            dialog.hide()
             gtk.main_quit()
 
-
 def show(v, new_ver, CONFIG_PATH, APP_PATH, update_link, file_name, package):
+    global APP_PATH1, dialog
+    APP_PATH1 = APP_PATH
     dialog = gtk.Dialog('Gis Weather: '+_('Update'))
     dialog.set_icon_from_file(os.path.join(APP_PATH, "icon.png"))
     dialog.set_border_width(10)
@@ -179,13 +190,11 @@ def show(v, new_ver, CONFIG_PATH, APP_PATH, update_link, file_name, package):
             while gtk.events_pending():
                 gtk.main_iteration_do(True)
             if package == 'gz':
+                cmd_line = "tar -xzf %s -C %s --strip=1"%(_file, APP_PATH)
+                args = shlex.split(cmd_line)
+                p = subprocess.Popen(args, stdout=subprocess.PIPE)
+                out, err = p.communicate()
                 out = 'OK'
-                err = 'None'
-                try:
-                    p = subprocess.Popen(["tar -xzf %s -C %s --strip=1"%(_file, APP_PATH)], stdout=subprocess.PIPE)
-                    out, err = p.communicate()
-                except:
-                    pass
             else:
                 if package == 'deb':
                     p = subprocess.Popen(["gksu", "dpkg -i %s" %_file], stdout=subprocess.PIPE)
@@ -203,7 +212,7 @@ def show(v, new_ver, CONFIG_PATH, APP_PATH, update_link, file_name, package):
                                 try:
                                     os.startfile(_file,'runas')
                                 except:
-                                    out = 'Error'
+                                    out = 'None'
                                     err = 'True'
                                 
             if (out == '' or out == 'None') and err != 'None':
