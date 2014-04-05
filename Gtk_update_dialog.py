@@ -49,7 +49,7 @@ def restart(widget):
             gtk.main_quit()
 
 
-def show(v, new_ver, CONFIG_PATH, APP_PATH):
+def show(v, new_ver, CONFIG_PATH, APP_PATH, update_link, file_name, package):
     dialog = gtk.Dialog('Gis Weather: '+_('Update'))
     dialog.set_icon_from_file(os.path.join(APP_PATH, "icon.png"))
     dialog.set_border_width(10)
@@ -162,8 +162,10 @@ def show(v, new_ver, CONFIG_PATH, APP_PATH):
         # перерисовка окна
         while gtk.events_pending():
             gtk.main_iteration_do(True)
-        url = 'http://sourceforge.net/projects/gis-weather/files/gis-weather/%s/gis-weather_%s_all.deb/download'%(new_ver, new_ver)
-        _file = os.path.join(CONFIG_PATH, 'gis-weather_%s_all.deb'%new_ver)
+        #url = 'http://sourceforge.net/projects/gis-weather/files/gis-weather/%s/gis-weather_%s_all.deb/download'%(new_ver, new_ver)
+        #_file = os.path.join(CONFIG_PATH, 'gis-weather_%s_all.deb'%new_ver)
+        url = update_link
+        _file = os.path.join(CONFIG_PATH, file_name)
         try:
             urllib.urlretrieve(url, _file, reporthook=dlProgress)
             pic_step1.set_from_stock(gtk.STOCK_OK, 4)
@@ -176,8 +178,34 @@ def show(v, new_ver, CONFIG_PATH, APP_PATH):
             # перерисовка окна
             while gtk.events_pending():
                 gtk.main_iteration_do(True)
-            p = subprocess.Popen(["gksu", "dpkg -i %s" %_file], stdout=subprocess.PIPE)
-            out, err = p.communicate()
+            if package == 'source':
+                out = 'OK'
+                err = 'None'
+                try:
+                    p = subprocess.Popen(["tar -xzf %s -C %s --strip=1"%(_file, APP_PATH)], stdout=subprocess.PIPE)
+                    out, err = p.communicate()
+                except:
+                    pass
+            else:
+                if package == 'deb':
+                    p = subprocess.Popen(["gksu", "dpkg -i %s" %_file], stdout=subprocess.PIPE)
+                    out, err = p.communicate()
+                else:
+                    if package == 'rpm':
+                        pass
+                    else:
+                        if package == 'aur':
+                            pass
+                        else:
+                            if package == 'exe':
+                                out = 'OK'
+                                err = 'None'
+                                try:
+                                    os.startfile(_file,'runas')
+                                except:
+                                    out = 'Error'
+                                    err = 'True'
+                                
             if (out == '' or out == 'None') and err != 'None':
                 print '[!] '+_('Error installing updates')
                 pic_step2.set_from_stock(gtk.STOCK_DIALOG_ERROR, 4)
