@@ -178,7 +178,7 @@ def show(v, new_ver, CONFIG_PATH, APP_PATH, update_link, file_name, package):
             # перерисовка окна
             while gtk.events_pending():
                 gtk.main_iteration_do(True)
-            if package == 'source':
+            if package == 'gz':
                 out = 'OK'
                 err = 'None'
                 try:

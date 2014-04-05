@@ -268,29 +268,16 @@ for i in weather.keys():
     globals()[i] = weather[i]
 
 def check_updates():
-    package = 'source'
+    package = 'gz'
     if os.path.exists(os.path.join(APP_PATH, 'package')):
         f = open(os.path.join(APP_PATH, 'package'),"r")
         package = f.readline().strip()
 
-    if package not in ('source', 'deb', 'exe', 'rpm', 'aur'):
+    if package not in ('gz', 'deb', 'exe', 'rpm', 'aur'):
         print 'package =', package
         return False
 
     print '>', _('Check for new version'), '(%s)'%package
-    # if package == 'source': # from github
-    #     try:
-    #         source = urlopen('https://github.com/RingOV/gis-weather/releases', timeout=10).read()
-    #     except:
-    #         print '[!]', _('Unable to check for updates')
-    #         print '-'*40
-    #         return False
-    #     new_ver1 = re.findall('<a href="/RingOV/gis-weather/archive/v(.+)\.tar\.gz"', source)
-    #     new_ver = new_ver1[0].split('.')
-    #     temp_links = re.findall('<a href="(.+\.tar\.gz)"', source)
-    #     update_link = 'https://github.com'+temp_links[0]
-    #     file_name = update_link.split('/')[-1]
-    # else: # from sourceforge
     try:
         source = urlopen('http://sourceforge.net/projects/gis-weather/files/gis-weather/', timeout=10).read()
     except:
@@ -306,8 +293,6 @@ def check_updates():
         print '-'*40
         return False
     temp_links = re.findall('http://sourceforge.net/projects/gis-weather/files/gis-weather/%s/(.+)/download'%new_ver1[0], temp)
-    if package == 'source':
-        package = 'gz'
     update_link = ''
     for i in range(len(temp_links)):
         if temp_links[i].split('.')[-1] == package:
@@ -315,7 +300,6 @@ def check_updates():
             file_name = temp_links[i]
     if update_link == '':
         new_ver = [0, 0, 0]
-    
 
     while len(new_ver)<4:
         new_ver.append('0')
