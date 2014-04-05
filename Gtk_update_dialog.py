@@ -214,6 +214,7 @@ def show(v, new_ver, CONFIG_PATH, APP_PATH, update_link, file_name, package):
                                 except:
                                     out = 'None'
                                     err = 'True'
+                                exit()
                                 
             if (out == '' or out == 'None') and err != 'None':
                 print '[!] '+_('Error installing updates')
