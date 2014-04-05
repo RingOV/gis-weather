@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 #  gis_weather.py
-v = '0.5.0'
+v = '0.4.0'
 #  Copyright (C) 2013-2014 Alexander Koltsov <ringov@mail.ru>
 #
 #  draw_scaled_image, draw_text_Whise copyright by Helder Fraga
@@ -99,12 +99,13 @@ gw_config_default = {
     'high_wind': 10,                   # Ветер больше или равен этого значения выделяется цветом (-1 не выделять)
     'color_high_wind': (0, 0, 0.6, 1), # Цвет сильного ветра
     'icons_name': 'default',           # Имя папки с иконками погоды
-    'fix_BadDrawable': True,          # Если выскакивает ошибка 'BadDrawable', то в конфиге исправьте на true
+    'fix_BadDrawable': True,           # Если выскакивает ошибка 'BadDrawable', то в конфиге исправьте на true
     'color_scheme_number': 0,
     'check_for_updates': 2,            # 0 - нет, 1 - только при запуске, 2 - всегда
     'fix_position': False,
     'app_lang': 'auto',
-    'weather_lang': 'com'             # com, ru, ua/ua, lv, lt, md/ro
+    'weather_lang': 'com',             # com, ru, ua/ua, lv, lt, md/ro
+    'delay_start_time': 0
 }
 gw_config = {}
 for i in gw_config_default.keys():
@@ -114,7 +115,7 @@ color_scheme = [
     {   'color_text': (0, 0, 0, 1), #RGBa    # Цвет текста
         'color_text_week': (0.5, 0, 0, 1),   # Цвет Сб и Вс
         'color_shadow': (1, 1, 1, 0.7),      # Цвет тени
-        'color_high_wind': (0, 0, 0.6, 1)# Цвет сильного ветра
+        'color_high_wind': (0, 0, 0.6, 1)    # Цвет сильного ветра
     },
     {   'color_text': (0.9, 0.9, 0.9, 1),    # Цвет текста
         'color_text_week': (1, 0.5, 0.5, 1), # Цвет Сб и Вс
@@ -267,15 +268,47 @@ for i in weather.keys():
     globals()[i] = weather[i]
 
 def check_updates():
-    print '>', _('Check for new version')
-    try:
-        source = urlopen('http://sourceforge.net/projects/gis-weather/files/gis-weather/', timeout=10).read()
-    except:
-        print '[!]', _('Unable to check for updates')
-        print '-'*40
-        return False
-    new_ver1 = re.findall('<a href="/projects/gis-weather/files/gis-weather/(.+)/"', source)
-    new_ver = new_ver1[0].split('.')
+    p = 'source'
+    if os.path.exists(os.path.join(APP_PATH, 'package')):
+        f = open(os.path.join(APP_PATH, 'package'),"r")
+        p = f.readline().strip()
+
+    print '>', _('Check for new version'), '(%s)'%p
+    if p == 'source': # from github
+        try:
+            source = urlopen('https://github.com/RingOV/gis-weather/releases', timeout=10).read()
+        except:
+            print '[!]', _('Unable to check for updates')
+            print '-'*40
+            return False
+        new_ver1 = re.findall('<a href="/RingOV/gis-weather/archive/v(.+)\.tar\.gz"', source)
+        new_ver = new_ver1[0].split('.')
+        temp_links = re.findall('<a href="(.+\.tar\.gz)"', source)
+        update_link = 'https://github.com'+temp_links[0]
+    else: # from sourceforge
+        try:
+            source = urlopen('http://sourceforge.net/projects/gis-weather/files/gis-weather/', timeout=10).read()
+        except:
+            print '[!]', _('Unable to check for updates')
+            print '-'*40
+            return False
+        new_ver1 = re.findall('<a href="/projects/gis-weather/files/gis-weather/(.+)/"', source)
+        new_ver = new_ver1[0].split('.')
+        try:
+            temp = urlopen('http://sourceforge.net/projects/gis-weather/files/gis-weather/%s/'%new_ver1[0], timeout=10).read()
+        except:
+            print '[!]', _('Unable to check for updates')
+            print '-'*40
+            return False
+        temp_links = re.findall('http://sourceforge.net/projects/gis-weather/files/gis-weather/%s/(.+)/download'%new_ver1[0], temp)
+        update_link = ''
+        for i in range(len(temp_links)):
+            if temp_links[i].split('.')[-1] == p:
+                update_link = 'http://sourceforge.net/projects/gis-weather/files/gis-weather/%s/%s/download'%(new_ver1[0], temp_links[i])
+        if update_link == '':
+            new_ver = [0, 0, 0]
+    
+
     while len(new_ver)<4:
         new_ver.append('0')
     cur_ver = v.split('.')
@@ -287,6 +320,7 @@ def check_updates():
         new_v = new_ver1[0]
     if new_v:
         print '>>>', _('New version available'), new_v, '<<<'
+        print '>>>', update_link
         print '-'*40
         global check_for_updates_local
         check_for_updates_local = False

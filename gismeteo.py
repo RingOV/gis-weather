@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 
-from urllib2 import urlopen
+#from urllib2 import urlopen
 import urllib2
 import re
 import time
@@ -45,19 +45,12 @@ wind_direct_tod = [] # Направление ветра сегодня
 
 
 opener = urllib2.build_opener()
-opener.addheaders = [
-    ('Host', 'negoogle.ru'),
-    ('User-agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/534.13 (KHTML, like Gecko) Chrome/9.0.597.98 Safari/534.13'),
-    ('Accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'),
-    ('Accept-Language', 'ru,en-us;q=0.7,en;q=0.3'),
-    ('Accept-Charset', 'windows-1251,utf-8;q=0.7,*;q=0.7'),
-    ('Keep-Alive', '115'),
-    ('Connection', 'keep-alive'),
-]
+opener.addheaders = [('User-agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/534.13 (KHTML, like Gecko) Chrome/9.0.597.98 Safari/534.13')]
 
 def get_city_name(c_id, weather_lang):
     try:
-        source = urlopen('http://www.gismeteo.com/city/weekly/' + str(c_id), timeout=10).read()
+        #source = urlopen('http://www.gismeteo.com/city/weekly/' + str(c_id), timeout=10).read()
+        source = opener.open('http://www.gismeteo.com/city/weekly/' + str(c_id), timeout=10).read()
         c_name = re.findall('type[A-Z].*\">(.*)<', source)
     except:
         print '[!]', _('Failed to get the name of the location')

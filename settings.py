@@ -112,7 +112,10 @@ class settings():
         self.combobox_weather_lang = self.widgets_tree.get_object('combobox_weather_lang')
         self.combobox_weather_lang.connect("changed", self.set_weather_lang)
         self.liststore1 = self.widgets_tree.get_object('liststore1')
-
+        self.spinbutton_delay_start_time = self.widgets_tree.get_object('spinbutton_delay_start_time')
+        self.spinbutton_delay_start_time.connect("value-changed", self.save_settings)
+        self.label_delay_start_time = self.widgets_tree.get_object('label_delay_start_time')
+        
         self.clear_upd_time = self.widgets_tree.get_object('clear_upd_time')
         self.clear_upd_time.connect("clicked", self.clear_settings)
         self.clear_t_feel = self.widgets_tree.get_object('clear_t_feel')
@@ -121,6 +124,8 @@ class settings():
         self.clear_fix_BadDrawable.connect("clicked", self.clear_settings)
         self.clear_check_for_updates = self.widgets_tree.get_object('clear_check_for_updates')
         self.clear_check_for_updates.connect("clicked", self.clear_settings)
+        self.clear_delay_start_time = self.widgets_tree.get_object('clear_delay_start_time')
+        self.clear_delay_start_time.connect("clicked", self.clear_settings)
 
 
         # Окно
@@ -267,6 +272,13 @@ class settings():
         self.clear_icons_name.connect("clicked", self.clear_settings)
         self.clear_bg_custom = self.widgets_tree.get_object('clear_bg_custom')
         self.clear_bg_custom.connect("clicked", self.clear_settings)
+        
+        if WIN:
+            self.clear_delay_start_time.hide()
+            self.spinbutton_delay_start_time.hide()
+            self.label_delay_start_time.hide()
+
+
 
         
         self.button_close = self.widgets_tree.get_object('button_close')
@@ -339,6 +351,7 @@ class settings():
         self.load(self.spinbutton_high_wind)
         self.load(self.checkbutton_show_bg_png)
         self.load(self.spinbutton_r)
+        self.load(self.spinbutton_delay_start_time)
 
         self.liststore3.clear()
         for i in range(len(icons_list_set)):
@@ -407,6 +420,11 @@ class settings():
             gw_config_set[name] = value
         Save_Config()
         drawing_area_set.redraw(False, False, load_config = True)
+        if name == 'delay_start_time':
+            if WIN:
+                autorun.add("gis-weather", os.path.join(work_path, 'gis-weather.exe'))
+            else:
+                autorun.add("gis-weather", os.path.join(work_path, 'gis-weather.py'), gw_config_set['delay_start_time'])
 
     def clear_settings(self, widget):
         global gw_config_set
@@ -493,7 +511,7 @@ class settings():
             if WIN:
                 autorun.add("gis-weather", os.path.join(work_path, 'gis-weather.exe'))
             else:
-                autorun.add("gis-weather", os.path.join(work_path, 'gis-weather.py'))
+                autorun.add("gis-weather", os.path.join(work_path, 'gis-weather.py'), gw_config_set['delay_start_time'])
         else:
             autorun.remove("gis-weather")
 

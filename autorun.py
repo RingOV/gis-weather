@@ -48,15 +48,18 @@ else:
         """get the filename of an autostart (.desktop) file"""
         return os.path.join(_xdg_user_autostart, name + ".desktop")
 
-    def add(name, application):
+    def add(name, application, delay_start_time):
         """add a new autostart entry"""
+        delay = ''
+        if delay_start_time != 0:
+            delay = 'sleep %s; '%delay_start_time
         desktop_entry = "[Desktop Entry]\n"\
             "Name=%s\n"\
-            "Exec=python %s\n"\
+            "Exec=%spython %s\n"\
             "Type=Application\n"\
             "Terminal=false\n"\
             "Icon=%s\n"\
-            "Comment=Погодный виджет" % ('Gis Weather', application, os.path.join(os.path.dirname(application),'icon.png'))
+            "Comment=Погодный виджет" % ('Gis Weather', delay, application, os.path.join(os.path.dirname(application),'icon.png'))
         with open(getfilename(name), "w") as f:
             f.write(desktop_entry)
 

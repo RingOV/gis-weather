@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-03-24 22:15+0300\n"
-"PO-Revision-Date: 2014-03-24 22:15+0300\n"
+"POT-Creation-Date: 2014-04-05 15:59+0300\n"
+"PO-Revision-Date: 2014-04-05 16:01+0300\n"
 "Last-Translator: \n"
 "Language-Team: Gis Weather Team <ringov@mail.ru>\n"
 "Language: Russian\n"
@@ -14,7 +14,7 @@ msgstr ""
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: gw_menu.py:61 settings.py:304
+#: gw_menu.py:61 settings.py:308
 msgid "No"
 msgstr "Нет"
 
@@ -22,15 +22,15 @@ msgstr "Нет"
 msgid "Color scheme"
 msgstr "Цветовая схема"
 
-#: gw_menu.py:105 settings.glade:483
+#: gw_menu.py:105 settings.glade:497
 msgid "Setup..."
 msgstr "Настроить..."
 
-#: gw_menu.py:111 settings.glade:1108
+#: gw_menu.py:111 settings.glade:1178
 msgid "Lock position"
 msgstr "Зафиксировать позицию"
 
-#: gw_menu.py:117 settings.glade:1121
+#: gw_menu.py:117 settings.glade:1191
 msgid "On all desktops"
 msgstr "На всех рабочих столах"
 
@@ -38,27 +38,27 @@ msgstr "На всех рабочих столах"
 msgid "Refresh"
 msgstr "Обновить"
 
-#: gw_menu.py:136 Gtk_city_id.py:8 settings.glade:359
+#: gw_menu.py:136 Gtk_city_id.py:8 settings.glade:373
 msgid "Location"
 msgstr "Местоположение"
 
-#: gw_menu.py:141 Gtk_about_dialog.py:39 settings.glade:2814
+#: gw_menu.py:141 Gtk_about_dialog.py:39 settings.glade:2884
 msgid "Icons"
 msgstr "Иконки"
 
-#: gw_menu.py:146 settings.glade:2732
+#: gw_menu.py:146 settings.glade:2802
 msgid "Background"
 msgstr "Фон"
 
-#: gw_menu.py:151 settings.glade:2498
+#: gw_menu.py:151 settings.glade:2568
 msgid "Text"
 msgstr "Текст"
 
-#: gw_menu.py:156 settings.glade:1185
+#: gw_menu.py:156 settings.glade:1255
 msgid "Window"
 msgstr "Окно"
 
-#: gw_menu.py:161 settings.py:291
+#: gw_menu.py:161 settings.py:295
 msgid "Preferences"
 msgstr "Параметры"
 
@@ -134,209 +134,209 @@ msgstr "Ошибка удаления"
 msgid "Update successful"
 msgstr "Обновление успешно завершено"
 
-#: gis-weather.py:131
+#: gis-weather.py:132
 msgid "Config path"
 msgstr "Путь к файлу конфигурации"
 
-#: gis-weather.py:151
+#: gis-weather.py:152
 msgid "Error loading config file"
 msgstr "Ошибка загрузки конфигурационного файла"
 
-#: gis-weather.py:172
+#: gis-weather.py:173
 msgid "Error loading color scheme"
 msgstr "Ошибка загрузки цветовой схемы"
 
-#: gis-weather.py:188
+#: gis-weather.py:189
 msgid "Enter full path to script"
 msgstr "Вводите полный путь к скрипту"
 
-#: gis-weather.py:189
+#: gis-weather.py:190
 msgid "Exit"
 msgstr "Выход"
 
-#: gis-weather.py:280
+#: gis-weather.py:271
 msgid "Check for new version"
 msgstr "Проверяю наличие новой версии"
 
-#: gis-weather.py:284
+#: gis-weather.py:275
 msgid "Unable to check for updates"
 msgstr "Невозможно проверить обновления"
 
-#: gis-weather.py:299
+#: gis-weather.py:290
 msgid "New version available"
 msgstr "Доступна новая версия"
 
-#: gis-weather.py:305
+#: gis-weather.py:296
 msgid "Current version is relevant"
 msgstr "Текущая версия актуальна"
 
-#: gis-weather.py:332
+#: gis-weather.py:323
 msgid "Getting weather..."
 msgstr "Получаю погоду..."
 
-#: gis-weather.py:335
+#: gis-weather.py:326
 msgid "Error getting weather"
 msgstr "Ошибка получения погоды"
 
-#: gis-weather.py:337
+#: gis-weather.py:328
 msgid "Location not set"
 msgstr "Местоположение не настроено"
 
-#: gis-weather.py:404
+#: gis-weather.py:395
 msgid "Connection error"
 msgstr "Ошибка соединения"
 
-#: gis-weather.py:414
+#: gis-weather.py:405
 msgid "Next update in"
 msgstr "Следующее обновление через"
 
-#: gis-weather.py:414
+#: gis-weather.py:405
 msgid "min"
 msgstr "мин"
 
-#: gis-weather.py:438 gismeteo.py:247
+#: gis-weather.py:429 gismeteo.py:240
 msgid "updated on server"
 msgstr "обновлено на сервере"
 
-#: gis-weather.py:439 gismeteo.py:248
+#: gis-weather.py:430 gismeteo.py:241
 msgid "weather received"
 msgstr "погода получена"
 
-#: gis-weather.py:462
+#: gis-weather.py:453
 msgid "E"
 msgstr "В"
 
-#: gis-weather.py:462
+#: gis-weather.py:453
 msgid "S"
 msgstr "Ю"
 
-#: gis-weather.py:462
+#: gis-weather.py:453
 msgid "W"
 msgstr "З"
 
-#: gis-weather.py:462
+#: gis-weather.py:453
 msgid "N"
 msgstr "С"
 
-#: gis-weather.py:471 gis-weather.py:473 gis-weather.py:503 gis-weather.py:505
-#: gis-weather.py:551 gis-weather.py:553 gis-weather.py:582 gis-weather.py:584
-#: gis-weather.py:609 gis-weather.py:611
+#: gis-weather.py:462 gis-weather.py:464 gis-weather.py:494 gis-weather.py:496
+#: gis-weather.py:542 gis-weather.py:544 gis-weather.py:573 gis-weather.py:575
+#: gis-weather.py:600 gis-weather.py:602
 msgid "m/s"
 msgstr "м/с"
 
-#: gis-weather.py:511
+#: gis-weather.py:502
 msgid "mmHg"
 msgstr "мм рт.ст."
 
-#: gis-weather.py:517
+#: gis-weather.py:508
 msgid "humid."
 msgstr "влажн."
 
-#: gis-weather.py:523
+#: gis-weather.py:514
 msgid "water"
 msgstr "вода"
 
-#: gis-weather.py:536 gis-weather.py:567
+#: gis-weather.py:527 gis-weather.py:558
 msgid "Night"
 msgstr "Ночь"
 
-#: gis-weather.py:536 gis-weather.py:567
+#: gis-weather.py:527 gis-weather.py:558
 msgid "Morning"
 msgstr "Утро"
 
-#: gis-weather.py:536 gis-weather.py:567
+#: gis-weather.py:527 gis-weather.py:558
 msgid "Day"
 msgstr "День"
 
-#: gis-weather.py:536 gis-weather.py:567
+#: gis-weather.py:527 gis-weather.py:558
 msgid "Evening"
 msgstr "Вечер"
 
-#: gis-weather.py:538
+#: gis-weather.py:529
 msgid "Tomorrow"
 msgstr "Завтра"
 
-#: gis-weather.py:569
+#: gis-weather.py:560
 msgid "Today"
 msgstr "Сегодня"
 
-#: gis-weather.py:596
+#: gis-weather.py:587
 msgid "Sa"
 msgstr "Сб"
 
-#: gis-weather.py:596
+#: gis-weather.py:587
 msgid "Su"
 msgstr "Вс"
 
-#: gis-weather.py:626
+#: gis-weather.py:617
 msgid "Background image not found"
 msgstr "Не найдено фоновое изображение"
 
-#: gis-weather.py:691
+#: gis-weather.py:686
 msgid "downloading"
 msgstr "скачиваю"
 
-#: gis-weather.py:694
+#: gis-weather.py:689
 msgid "Unable to download"
 msgstr "Не удалось скачать"
 
-#: gis-weather.py:730
+#: gis-weather.py:725
 msgid "not found icon"
 msgstr "не найдена иконка"
 
-#: gis-weather.py:784
+#: gis-weather.py:779
 msgid "Widget size"
 msgstr "Размеры виджета"
 
-#: gis-weather.py:785
+#: gis-weather.py:780
 msgid "width"
 msgstr "ширина"
 
-#: gis-weather.py:785
+#: gis-weather.py:780
 msgid "height"
 msgstr "высота"
 
-#: gis-weather.py:785
+#: gis-weather.py:780
 msgid "including indent"
 msgstr "в т.ч. отступ"
 
-#: gis-weather.py:937
+#: gis-weather.py:932
 msgid "Removed"
 msgstr "Удалено"
 
-#: gis-weather.py:965 Gtk_city_id.py:41
+#: gis-weather.py:960 Gtk_city_id.py:41
 msgid "Added"
 msgstr "Добавлено"
 
-#: gis-weather.py:969 Gtk_city_id.py:36
+#: gis-weather.py:964 Gtk_city_id.py:36
 msgid "Invalid location code"
 msgstr "Неверно введен код местоположения"
 
-#: gis-weather.py:1009
+#: gis-weather.py:1004
 msgid "Your screen does not support alpha"
 msgstr "Ваш экран не поддерживает прозрачность"
 
-#: gis-weather.py:1012
+#: gis-weather.py:1007
 msgid "Your screen supports alpha"
 msgstr "Ваш экран поддерживает прозрачность"
 
-#: settings.py:299
+#: settings.py:303
 msgid "Never"
 msgstr "Никогда"
 
-#: settings.py:300
+#: settings.py:304
 msgid "Only at start"
 msgstr "Только при старте"
 
-#: settings.py:301
+#: settings.py:305
 msgid "Always"
 msgstr "Всегда"
 
-#: settings.py:305
+#: settings.py:309
 msgid "Only background"
 msgstr "Только фон"
 
-#: settings.py:306
+#: settings.py:310
 msgid "Yes"
 msgstr "Да"
 
@@ -380,27 +380,27 @@ msgstr "Помощь и идеи"
 msgid "Backgrounds"
 msgstr "Фоны"
 
-#: gismeteo.py:63
+#: gismeteo.py:56
 msgid "Failed to get the name of the location"
 msgstr "Не удалось получить название местоположения"
 
-#: gismeteo.py:70
+#: gismeteo.py:63
 msgid "Getting weather for"
 msgstr "Получаю погоду на"
 
-#: gismeteo.py:70
+#: gismeteo.py:63
 msgid "days"
 msgstr "дней"
 
-#: gismeteo.py:71
+#: gismeteo.py:64
 msgid "Uploading page to a variable"
 msgstr "Загружаю в переменную страницу"
 
-#: gismeteo.py:77
+#: gismeteo.py:70
 msgid "Unable to download page, check the network connection"
 msgstr "Невозможно скачать страницу, проверьте интернет соединение"
 
-#: gismeteo.py:79
+#: gismeteo.py:72
 msgid "Next try in 10 seconds"
 msgstr "Следующая попытка через 10 секунд"
 
@@ -436,137 +436,141 @@ msgstr "Код"
 msgid "Place"
 msgstr "Место"
 
-#: settings.glade:370
+#: settings.glade:384
 msgid "Update (in minutes)"
-msgstr "Обновлять через (минут)"
+msgstr "Обновлять через (в минутах)"
 
-#: settings.glade:383
+#: settings.glade:397
 msgid "Temperature as feel"
 msgstr "Температура как ощущается"
 
-#: settings.glade:456
+#: settings.glade:470
 msgid "Check for updates"
 msgstr "Проверять обновления"
 
-#: settings.glade:539
+#: settings.glade:553
 msgid "Fix BadDrawable error"
 msgstr "Фикс ошибки BadDrawable"
 
-#: settings.glade:610
+#: settings.glade:624
 msgid "Folder with config"
 msgstr "Папка с конфигом"
 
-#: settings.glade:620
+#: settings.glade:634
 msgid "Open..."
 msgstr "Открыть..."
 
-#: settings.glade:666
+#: settings.glade:680
 msgid "Autostart at login"
 msgstr "Автозапуск при входе в систему"
 
-#: settings.glade:722
-msgid "Language program"
-msgstr "Язык программы"
-
-#: settings.glade:735
+#: settings.glade:724
 msgid "Language weather"
 msgstr "Язык погоды"
 
-#: settings.glade:817
+#: settings.glade:737
+msgid "Language program"
+msgstr "Язык программы"
+
+#: settings.glade:792
+msgid "Start delay (in seconds)"
+msgstr "Отложенный старт (в секундах)"
+
+#: settings.glade:887
 msgid "General"
 msgstr "Общие"
 
-#: settings.glade:855
+#: settings.glade:925
 msgid "Left"
 msgstr "Отступ слева"
 
-#: settings.glade:890
+#: settings.glade:960
 msgid "Top"
 msgstr "Отступ сверху"
 
-#: settings.glade:918
+#: settings.glade:988
 msgid "Padding"
 msgstr "Внутренний отступ"
 
-#: settings.glade:1017
+#: settings.glade:1087
 msgid "Transparency"
 msgstr "Прозрачность"
 
-#: settings.glade:1266 settings.glade:1397 settings.glade:1532
-#: settings.glade:1770
+#: settings.glade:1336 settings.glade:1467 settings.glade:1602
+#: settings.glade:1840
 msgid "Show"
 msgstr "Показывать"
 
-#: settings.glade:1277 settings.glade:1425 settings.glade:1543
-#: settings.glade:1781
+#: settings.glade:1347 settings.glade:1495 settings.glade:1613
+#: settings.glade:1851
 msgid "Offset from center"
 msgstr "Отступ от центра"
 
-#: settings.glade:1336
+#: settings.glade:1406
 msgid "Block Today"
 msgstr "Блок Сегодня"
 
-#: settings.glade:1467
+#: settings.glade:1537
 msgid "Block Tomorrow"
 msgstr "Блок Завтра"
 
-#: settings.glade:1599
+#: settings.glade:1669
 msgid "Reduce"
 msgstr "Уменьшить"
 
-#: settings.glade:1646
+#: settings.glade:1716
 msgid "Angle of rotation"
 msgstr "Угол поворота"
 
-#: settings.glade:1705
+#: settings.glade:1775
 msgid "Block Wind"
 msgstr "Блок Ветер"
 
-#: settings.glade:1840
+#: settings.glade:1910
 msgid "Block Additional info"
 msgstr "Блок Доп инфо"
 
-#: settings.glade:1916
+#: settings.glade:1986
 msgid "Number of days"
 msgstr "Количество дней"
 
-#: settings.glade:1927
+#: settings.glade:1997
 msgid "Show time receiving weather"
 msgstr "Показывать время получения погоды"
 
-#: settings.glade:1998
+#: settings.glade:2068
 msgid "Show splash screen"
 msgstr "Показывать загрузочную заставку"
 
-#: settings.glade:2031
+#: settings.glade:2101
 msgid "Hide splash screen after attempts (0 - do not hide)"
 msgstr "Скрывать заставку после попыток (0 - не скрывать)"
 
-#: settings.glade:2111
+#: settings.glade:2181
 msgid "View"
 msgstr "Вид"
 
-#: settings.glade:2172
+#: settings.glade:2242
 msgid "Font"
 msgstr "Шрифт"
 
-#: settings.glade:2183
+#: settings.glade:2253
 msgid "Color main"
 msgstr "Цвет основной"
 
-#: settings.glade:2213
+#: settings.glade:2283
 msgid "Color Sa, Su"
 msgstr "Цвет Сб, Вс"
 
-#: settings.glade:2226
+#: settings.glade:2296
 msgid "Shadow"
 msgstr "Тень"
 
-#: settings.glade:2239
+#: settings.glade:2309
 msgid "Color shadow"
 msgstr "Цвет тени"
 
-#: settings.glade:2252
+#: settings.glade:2322
 msgid ""
 "High wind\n"
 "(-1 = not highlight)"
@@ -574,23 +578,23 @@ msgstr ""
 "Сильный ветер\n"
 "(-1 = не выделять)"
 
-#: settings.glade:2266
+#: settings.glade:2336
 msgid "Color wind"
 msgstr "Цвет ветра"
 
-#: settings.glade:2563
+#: settings.glade:2633
 msgid "Use PNG"
 msgstr "Использовать PNG"
 
-#: settings.glade:2591 settings.glade:2782
+#: settings.glade:2661 settings.glade:2852
 msgid "Select"
 msgstr "Выбрать"
 
-#: settings.glade:2621
+#: settings.glade:2691
 msgid "Color (if not PNG)"
 msgstr "Цвет (если не PNG)"
 
-#: settings.glade:2634
+#: settings.glade:2704
 msgid ""
 "Radius corners\n"
 "(if not PNG)"
@@ -598,7 +602,7 @@ msgstr ""
 "Радиус углов\n"
 "(если не PNG)"
 
-#: settings.glade:2844
+#: settings.glade:2914
 msgid "Appearance"
 msgstr "Оформление"
 
