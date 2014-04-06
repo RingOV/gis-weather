@@ -51,15 +51,17 @@ else:
     def add(name, application, delay_start_time):
         """add a new autostart entry"""
         delay = ''
+        end = ""
         if delay_start_time != 0:
-            delay = 'sleep %s && '%delay_start_time
+            delay = "sh -c 'sleep %s; "%delay_start_time
+            end = "'"
         desktop_entry = "[Desktop Entry]\n"\
             "Name=%s\n"\
-            "Exec=%spython2 %s\n"\
+            "Exec=%spython2 %s%s\n"\
             "Type=Application\n"\
             "Terminal=false\n"\
             "Icon=%s\n"\
-            "Comment=Погодный виджет" % ('Gis Weather', delay, application, os.path.join(os.path.dirname(application),'icon.png'))
+            "Comment=Погодный виджет" % ('Gis Weather', delay, application, end, os.path.join(os.path.dirname(application),'icon.png'))
         with open(getfilename(name), "w") as f:
             f.write(desktop_entry)
 
