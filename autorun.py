@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 
 #  A simple crossplatform autostart helper
@@ -52,10 +52,10 @@ else:
         """add a new autostart entry"""
         delay = ''
         if delay_start_time != 0:
-            delay = 'sleep %s; '%delay_start_time
+            delay = 'sleep %s && '%delay_start_time
         desktop_entry = "[Desktop Entry]\n"\
             "Name=%s\n"\
-            "Exec=%spython %s\n"\
+            "Exec=%spython2 %s\n"\
             "Type=Application\n"\
             "Terminal=false\n"\
             "Icon=%s\n"\
