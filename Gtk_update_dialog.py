@@ -190,14 +190,14 @@ def show(v, new_ver, CONFIG_PATH, APP_PATH, update_link, file_name, package):
             while gtk.events_pending():
                 gtk.main_iteration_do(True)
             if package == 'gz':
-                cmd_line = "tar -xzf %s -C %s --strip=1"%(_file, APP_PATH)
+                cmd_line = 'tar -xzf "%s" -C "%s" --strip=1'%(_file, APP_PATH)
                 args = shlex.split(cmd_line)
                 p = subprocess.Popen(args, stdout=subprocess.PIPE)
                 out, err = p.communicate()
                 out = 'OK'
             else:
                 if package == 'deb':
-                    p = subprocess.Popen(["gksu", "dpkg -i %s" %_file], stdout=subprocess.PIPE)
+                    p = subprocess.Popen(['gksu', 'dpkg -i "%s"' %_file], stdout=subprocess.PIPE)
                     out, err = p.communicate()
                 else:
                     if package == 'rpm':

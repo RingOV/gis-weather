@@ -185,7 +185,7 @@ APP_PATH = os.path.dirname(sys.argv[0])
 if WIN:
     APP_PATH = APP_PATH.decode(sys.getfilesystemencoding())
 
-if APP_PATH == '':
+if APP_PATH == '' or APP_PATH.startswith('.'):
     print _('Enter full path to script')
     print _('Exit')
     exit()

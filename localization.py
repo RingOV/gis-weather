@@ -5,6 +5,7 @@ import gettext
 import sys
 import os
 import json
+import locale
 if sys.platform.startswith("win"):
     WIN = True
 else:
