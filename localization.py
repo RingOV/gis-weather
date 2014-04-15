@@ -20,7 +20,7 @@ def set():
         lang = gw_config_loaded['app_lang']
     except:
         lang = 'auto'
-    LANG_PATH = os.path.join(os.path.dirname(sys.argv[0]), 'i18n')
+    LANG_PATH = os.path.join(os.getcwd(), 'i18n')
     if lang == 'auto':
         if WIN:
             lang = gettext.translation('gis-weather', localedir=LANG_PATH, languages=[locale.getdefaultlocale()[0]], fallback=True)
