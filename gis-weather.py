@@ -180,8 +180,7 @@ def Load_Color_Scheme(number = 0):
 
 # Путь к виджету
 #APP_PATH = os.path.dirname(__file__)
-#APP_PATH = os.path.dirname(sys.argv[0])
-APP_PATH = os.getcwd()
+APP_PATH = os.path.abspath(os.path.dirname(sys.argv[0]))
 if WIN:
     APP_PATH = APP_PATH.decode(sys.getfilesystemencoding())
 

@@ -39,7 +39,7 @@ if WIN:
     CONFIG_PATH = CONFIG_PATH.decode(sys.getfilesystemencoding())
 
 #work_path = os.path.dirname(sys.argv[0])
-work_path = os.getcwd()
+work_path = os.path.abspath(os.path.dirname(sys.argv[0]))
 if WIN:
     work_path = work_path.decode(sys.getfilesystemencoding())
 
@@ -56,7 +56,7 @@ weather_lang_list = ('com', 'ru', 'ua/ua', 'lv', 'lt', 'md/ro')
 
 # находим все доступные переводы
 available_lang = ['auto', 'en']
-root, dirs, files = os.walk(os.path.join(os.getcwd(), 'i18n')).next()
+root, dirs, files = os.walk(os.path.join(os.path.abspath(os.path.dirname(sys.argv[0])), 'i18n')).next()
 dirs.sort()
 for i in range(len(dirs)):
     available_lang.append(dirs[i])
