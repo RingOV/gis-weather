@@ -197,7 +197,7 @@ def show(v, new_ver, CONFIG_PATH, APP_PATH, update_link, file_name, package):
                 out = 'OK'
             else:
                 if package == 'deb':
-                    p = subprocess.Popen(['gksu', 'dpkg -i "%s"' %_file], stdout=subprocess.PIPE)
+                    p = subprocess.Popen(['pkexec', 'dpkg -i "%s"' %_file], stdout=subprocess.PIPE)
                     out, err = p.communicate()
                 else:
                     if package == 'rpm':

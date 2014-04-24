@@ -482,7 +482,7 @@ class MyDrawArea(gtk.DrawingArea):
                     for i in range(0, 8):
                         if i % 2 == 0:
                             self.draw_text(NS[i/2], x0+r*math.cos(i*0.25*math.pi+angel_rad), y0+r*math.sin(i*0.25*math.pi+angel_rad), font+' Bold', font_NS, 10, pango.ALIGN_LEFT)
-                    if int(wind_speed_now[0]) >= high_wind:
+                    if int(wind_speed_now[0]) >= high_wind and high_wind != -1:
                         self.draw_text(wind_direct_now[0]+', '+wind_speed_now[0]+' '+_('m/s'), x0-r-5, y0+r+font_wind+4, font+' Normal', font_wind, 2*r+10+font_NS,pango.ALIGN_CENTER, color_high_wind)
                     else:
                         self.draw_text(wind_direct_now[0]+', '+wind_speed_now[0]+' '+_('m/s'), x0-r-5, y0+r+font_wind+4, font+' Normal', font_wind, 2*r+10+font_NS,pango.ALIGN_CENTER)
@@ -514,7 +514,7 @@ class MyDrawArea(gtk.DrawingArea):
                     else:
                         self.draw_scaled_image(x0, y0, os.path.join(ICONS_PATH, 'default', 'wind_small.png'), 16, 16, wind_icon+angel)
                 if (wind_direct_now and wind_speed_now):
-                    if int(wind_speed_now[0]) >= high_wind:
+                    if int(wind_speed_now[0]) >= high_wind and high_wind != -1:
                         self.draw_text(wind_speed_now[0]+"<span size='x-small'> %s</span>  <span size='small'>%s</span>"%(_('m/s'), wind_direct_now[0]), x0+20, y0-1, font+' Normal', 12, 100,pango.ALIGN_LEFT, color_high_wind)
                     else:
                         self.draw_text(wind_speed_now[0]+"<span size='x-small'> %s</span>  <span size='small'>%s</span>"%(_('m/s'), wind_direct_now[0]), x0+20, y0-1, font+' Normal', 12, 100,pango.ALIGN_LEFT)
@@ -562,7 +562,7 @@ class MyDrawArea(gtk.DrawingArea):
                             self.draw_text(t_tomorrow[i]+'°', x0+a*((j+1)/2), y0+13+b*(i/2), font+' Normal', 8, 50,pango.ALIGN_LEFT)
                     self.draw_scaled_icon(x0+32+a*((j+1)/2), y0+b*(i/2), os.path.join(ICONS_PATH, icons_name, 'weather', icon_tomorrow[i]), 28, 28)
                     if (wind_direct and wind_speed): 
-                        if int(wind_speed_tom[i]) >= high_wind:
+                        if int(wind_speed_tom[i]) >= high_wind and high_wind != -1:
                             self.draw_text(wind_direct_tom[i]+', '+wind_speed_tom[i]+' '+_('m/s'), x0+a*((j+1)/2), y0+27+b*(i/2), font+' Normal', 7, 50,pango.ALIGN_LEFT, color_high_wind)
                         else:
                             self.draw_text(wind_direct_tom[i]+', '+wind_speed_tom[i]+' '+_('m/s'), x0+a*((j+1)/2), y0+27+b*(i/2), font+' Normal', 7, 50,pango.ALIGN_LEFT)
@@ -593,7 +593,7 @@ class MyDrawArea(gtk.DrawingArea):
                             self.draw_text(t_today[i]+'°', x0+a*((j+1)/2), y0+13+b*(i/2), font+' Normal', 8, 50,pango.ALIGN_LEFT)
                     self.draw_scaled_icon(x0+32+a*((j+1)/2), y0+b*(i/2), os.path.join(ICONS_PATH, icons_name, 'weather', icon_today[i]), 28, 28)
                     if (wind_direct and wind_speed): 
-                        if int(wind_speed_tod[i]) >= high_wind:
+                        if int(wind_speed_tod[i]) >= high_wind and high_wind != -1:
                             self.draw_text(wind_direct_tod[i]+', '+wind_speed_tod[i]+' '+_('m/s'), x0+a*((j+1)/2), y0+27+b*(i/2), font+' Normal', 7, 50,pango.ALIGN_LEFT, color_high_wind)
                         else:
                             self.draw_text(wind_direct_tod[i]+', '+wind_speed_tod[i]+' '+_('m/s'), x0+a*((j+1)/2), y0+27+b*(i/2), font+' Normal', 7, 50,pango.ALIGN_LEFT)
@@ -620,7 +620,7 @@ class MyDrawArea(gtk.DrawingArea):
                 if t_day: self.draw_text(t_day[index]+'°', x, y+15, font+' Normal', 10, w_block-45,pango.ALIGN_LEFT)
                 if t_night: self.draw_text(t_night[index]+'°', x, y+30, font+' Normal', 8, w_block-45,pango.ALIGN_LEFT)
             if (wind_direct and wind_speed): 
-                if int(wind_speed[index]) >= high_wind:
+                if int(wind_speed[index]) >= high_wind and high_wind != -1:
                     self.draw_text(wind_direct[index]+', '+wind_speed[index]+' '+_('m/s'), x, y+50, font+' Normal', 8, 80,pango.ALIGN_LEFT, color_high_wind)
                 else:
                     self.draw_text(wind_direct[index]+', '+wind_speed[index]+' '+_('m/s'), x, y+50, font+' Normal', 8, 80,pango.ALIGN_LEFT)
@@ -633,10 +633,20 @@ class MyDrawArea(gtk.DrawingArea):
                 if os.path.exists(os.path.join(CONFIG_PATH, 'screenshot.png')):
                     self.draw_scaled_image(0, 0, os.path.join(CONFIG_PATH, 'screenshot.png'), width, height)
             if os.path.exists(os.path.join(BGS_USER_PATH, bg_custom)):
-                self.draw_scaled_image(0, 0, os.path.join(BGS_USER_PATH, bg_custom), width, height)
+                try:
+                    self.draw_scaled_image(0, 0, os.path.join(BGS_USER_PATH, bg_custom), width, height)
+                except:
+                    self.draw_scaled_image(0, 0, os.path.join(BGS_USER_PATH, bg_custom, "l.png"), 60, height)
+                    self.draw_scaled_image(60, 0, os.path.join(BGS_USER_PATH, bg_custom, "c.png"), width-120, height)
+                    self.draw_scaled_image(width-60, 0, os.path.join(BGS_USER_PATH, bg_custom, "r.png"), 60, height)
             else: 
                 if os.path.exists(os.path.join(BGS_PATH, bg_custom)):
-                    self.draw_scaled_image(0, 0, os.path.join(BGS_PATH, bg_custom), width, height)
+                    try:
+                        self.draw_scaled_image(0, 0, os.path.join(BGS_PATH, bg_custom), width, height)
+                    except:
+                        self.draw_scaled_image(0, 0, os.path.join(BGS_PATH, bg_custom, "l.png"), 60, height)
+                        self.draw_scaled_image(60, 0, os.path.join(BGS_PATH, bg_custom, "c.png"), width-120, height)
+                        self.draw_scaled_image(width-60, 0, os.path.join(BGS_PATH, bg_custom, "r.png"), 60, height)
                 else:
                     print _('Background image not found')+':', bg_custom
         else:
