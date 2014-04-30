@@ -50,7 +50,7 @@ opener.addheaders = [('User-agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US) App
 def get_city_name(c_id, weather_lang):
     try:
         #source = urlopen('http://www.gismeteo.com/city/weekly/' + str(c_id), timeout=10).read()
-        source = opener.open('http://www.gismeteo.com/city/weekly/' + str(c_id), timeout=10).read()
+        source = opener.open('http://www.gismeteo.%s/city/weekly/'%weather_lang + str(c_id), timeout=10).read()
         c_name = re.findall('type[A-Z].*\">(.*)<', source)
     except:
         print '[!]', _('Failed to get the name of the location')

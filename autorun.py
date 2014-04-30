@@ -57,7 +57,7 @@ else:
             end = "'"
         desktop_entry = "[Desktop Entry]\n"\
             "Name=%s\n"\
-            "Exec=%spython2 %s%s\n"\
+            "Exec=%spython2 \"%s\"%s\n"\
             "Type=Application\n"\
             "Terminal=false\n"\
             "Icon=%s\n"\

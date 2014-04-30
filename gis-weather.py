@@ -105,7 +105,8 @@ gw_config_default = {
     'fix_position': False,
     'app_lang': 'auto',
     'weather_lang': 'com',             # com, ru, ua/ua, lv, lt, md/ro
-    'delay_start_time': 0
+    'delay_start_time': 0,
+    'block_main_left': 0
 }
 gw_config = {}
 for i in gw_config_default.keys():
