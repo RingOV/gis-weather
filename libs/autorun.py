@@ -1,5 +1,4 @@
-#!/usr/bin/env python2
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
 
 #  A simple crossplatform autostart helper
 #  by Jonas Wagner
@@ -57,7 +56,7 @@ else:
             end = "'"
         desktop_entry = "[Desktop Entry]\n"\
             "Name=%s\n"\
-            "Exec=%spython2 \"%s\"%s\n"\
+            "Exec=%spython3 \"%s\"%s\n"\
             "Type=Application\n"\
             "Terminal=false\n"\
             "Icon=%s\n"\
