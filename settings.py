@@ -17,7 +17,7 @@
 # http://www.gnu.org/licenses/gpl.txt
 
 from gi.repository import Gtk, Pango, Gdk
-from libs import localization, autorun
+from utils import localization, autorun
 import os
 import json
 import sys

@@ -17,11 +17,10 @@ v = '0.5.95'
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from libs import localization
+from utils import localization, gw_menu
 localization.set()
 
 from gi.repository import Gtk, GObject, Pango, PangoCairo, Gdk, GdkPixbuf
-from libs import gw_menu
 from dialogs import about_dialog, city_id_dialog, update_dialog
 from services import gismeteo
 import cairo
