@@ -13,6 +13,14 @@ Customizable weather widget
 
 =
 
+### **Feedback**
+
+If you find bug, want translate, have issues?
+
+Please mail to ringov.gisweather@gmail.com
+
+=
+
 ### **Links**
 
 Source Code (GitHub) - https://github.com/RingOV/gis-weather
@@ -25,4 +33,3 @@ deb, exe, tar.gz - https://sourceforge.net/projects/gis-weather/
 If you like the software, don't forget to donate to further development of it!
 
 https://github.com/RingOV/gis-weather/wiki/Donate
-
