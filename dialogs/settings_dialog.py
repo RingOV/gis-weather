@@ -1,26 +1,11 @@
 #!/usr/bin/env python3
 
-# settings.py
-# Copyright 2013-2014 Alexander Koltsov
-
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You can find the full text of the license under
-# http://www.gnu.org/licenses/gpl.txt
-
 from gi.repository import Gtk, Pango, Gdk
-from utils import localization, autorun
+from utils import autorun, localization
 import os
 import json
 import sys
+from services import gismeteo
 if sys.platform.startswith("win"):
     WIN = True
 else:
@@ -30,7 +15,7 @@ CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
 if WIN:
     CONFIG_PATH = CONFIG_PATH.decode(sys.getfilesystemencoding())
 
-work_path = os.path.abspath(os.path.dirname(sys.argv[0]))
+work_path = os.path.abspath(os.path.dirname(__file__))
 if WIN:
     work_path = work_path.decode(sys.getfilesystemencoding())
 
@@ -42,12 +27,19 @@ App_gw = None
 icons_list_set = [] 
 backgrounds_list_set = []
 
-# available lang from gismeteo
-weather_lang_list = ('com', 'ru', 'ua/ua', 'lv', 'lt', 'md/ro')
+dict_weather_lang = gismeteo.dict_weather_lang
 
+# available lang from gismeteo
+weather_lang_list = gismeteo.weather_lang_list
+
+dict_app_lang = {
+    'auto': 'Auto',
+    'en': 'English',
+    'ru': 'Русский'
+}
 # find all available lang
 available_lang = ['auto', 'en']
-root, dirs, files = os.walk(os.path.join(os.path.abspath(os.path.dirname(sys.argv[0])), 'i18n'))
+root, dirs, files = os.walk(os.path.join(os.path.split(work_path)[0], 'i18n'))
 dirs = root[1]
 dirs.sort()
 for i in range(len(dirs)):
@@ -59,26 +51,15 @@ def Save_Config():
 class settings():
     def __init__(self):
         self.ui = Gtk.Builder()
-        self.ui.add_from_file(os.path.join(work_path, "dialogs","settings.ui"))
+        self.ui.add_from_file(os.path.join(work_path,"settings_dialog.ui"))
 
         self.window1 = self.ui.get_object('dialog1')
-        self.window1.set_icon_from_file(os.path.join(work_path, "icon.png"))
+        self.window1.set_icon_from_file(os.path.join(os.path.split(work_path)[0], "icon.png"))
 
-        # create dict with current text
+        self.list_o = self.ui.get_objects()
         self.dict_o = {}
-        list_o = self.ui.get_objects()
-        for i in range(len(list_o)):
-            try:
-                if list_o[i].get_name() == 'GtkLabel':
-                    if list_o[i].get_text() != '':
-                        self.dict_o[Gtk.Buildable.get_name(list_o[i])] = list_o[i].get_text()
-                if list_o[i].get_name() == 'GtkButton':
-                    if list_o[i].get_label() != None:
-                        self.dict_o[Gtk.Buildable.get_name(list_o[i])] = list_o[i].get_label()
-            except:
-                pass
-
-        self.translate()
+        self.dict_o = localization.translate_ui(self.list_o, self.dict_o)
+        self.window1.set_title(_('Preferences')+' Gis Weather')
 
         # General
         self.spinbutton_upd_time = self.ui.get_object('spinbutton_upd_time')
@@ -272,22 +253,6 @@ class settings():
         self.window1.connect("delete_event", self.close_window)
         self.window1.show()
 
-    def translate(self):
-        # translating all text
-        list_o = self.ui.get_objects()
-        for i in range(len(list_o)):
-            try:
-                if list_o[i].get_name() == 'GtkLabel':
-                    if list_o[i].get_text() != '':
-                        list_o[i].set_text(_(self.dict_o[Gtk.Buildable.get_name(list_o[i])]))
-                if list_o[i].get_name() == 'GtkButton':
-                    if list_o[i].get_label() != None:
-                        list_o[i].set_label(_(self.dict_o[Gtk.Buildable.get_name(list_o[i])]))
-            except:
-                pass
-        self.window1.set_title(_('Preferences')+' Gis Weather')
-
-
     def load_config_into_form(self):
         global state_lock
         state_lock = True
@@ -355,12 +320,18 @@ class settings():
 
         self.liststore5.clear()
         for i in range(len(available_lang)):
-            self.liststore5.append([available_lang[i]])
+            try:
+                self.liststore5.append([dict_app_lang[available_lang[i]]])
+            except:
+                self.liststore5.append([available_lang[i]])
             if available_lang[i] == gw_config_set['app_lang']:
                 self.combobox_app_lang.set_active(i)
         self.liststore6.clear()
         for i in range(len(weather_lang_list)):
-            self.liststore6.append([weather_lang_list[i]])
+            try:
+                self.liststore6.append([dict_weather_lang[weather_lang_list[i]]])
+            except:
+                self.liststore6.append([weather_lang_list[i]])
             if weather_lang_list[i] == gw_config_set['weather_lang']:
                 self.combobox_weather_lang.set_active(i)
 
@@ -471,7 +442,8 @@ class settings():
         gw_config_set[name] = available_lang[i]
         Save_Config()
         localization.set()
-        self.translate()
+        self.dict_o = localization.translate_ui(self.list_o, self.dict_o)
+        self.window1.set_title(_('Preferences')+' Gis Weather')
         self.load_config_into_form()
         drawing_area_set.redraw(False, False, load_config = True)
 

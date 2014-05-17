@@ -4,6 +4,19 @@ from urllib.request import urlopen
 import re
 import time
 
+service = "http://www.gismeteo.com"
+example = "http://www.gismeteo.com/city/daily/<b>1234</b>"
+code = "<b>1234</b>"
+dict_weather_lang = {
+    'com': 'English',
+    'ru': 'Русский',
+    'ua/ua': 'Український',
+    'lv': 'Latvijas',
+    'lt': 'Lietuviškai',
+    'md/ro': 'Română'
+}
+weather_lang_list = ('com', 'ru', 'ua/ua', 'lv', 'lt', 'md/ro', 'ua')
+
 # переменные, в которые записывается погода
 city_name = []       # Город
 t_now = []           # Температура сейчас
@@ -40,7 +53,6 @@ t_today_feel = []    # Температура сегодня ощущается
 icon_today = []      # Иконка погоды сегодня
 wind_speed_tod = []  # Скорость ветра сегодня
 wind_direct_tod = [] # Направление ветра сегодня
-
 
 def get_city_name(c_id, weather_lang):
     try:

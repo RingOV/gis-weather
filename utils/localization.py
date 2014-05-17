@@ -5,6 +5,8 @@ import sys
 import os
 import json
 import locale
+from gi.repository import Gtk
+
 if sys.platform.startswith("win"):
     WIN = True
 else:
@@ -30,3 +32,27 @@ def set():
     else:
         l = gettext.translation('gis-weather', localedir=LANG_PATH, languages=[lang], fallback=True)
         l.install()
+
+def translate_ui(list_o, dict_o):
+    # get original text
+    if dict_o == {}:
+        for i in range(len(list_o)):
+            try:
+                if list_o[i].get_name() == 'GtkLabel':
+                    dict_o[Gtk.Buildable.get_name(list_o[i])] = list_o[i].get_text()
+                if list_o[i].get_name() == 'GtkButton':
+                    dict_o[Gtk.Buildable.get_name(list_o[i])] = list_o[i].get_label()
+            except:
+                pass
+    # translate
+    for i in range(len(list_o)):
+        try:
+            if list_o[i].get_name() == 'GtkLabel':
+                if list_o[i].get_text() != '':
+                    list_o[i].set_text(_(dict_o[Gtk.Buildable.get_name(list_o[i])]))
+            if list_o[i].get_name() == 'GtkButton':
+                if list_o[i].get_label() != None:
+                    list_o[i].set_label(_(dict_o[Gtk.Buildable.get_name(list_o[i])]))
+        except:
+            pass
+    return dict_o

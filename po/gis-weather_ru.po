@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-04-05 15:59+0300\n"
-"PO-Revision-Date: 2014-04-05 16:01+0300\n"
+"POT-Creation-Date: 2014-05-17 19:03+0300\n"
+"PO-Revision-Date: 2014-05-17 19:04+0300\n"
 "Last-Translator: \n"
 "Language-Team: Gis Weather Team <ringov@mail.ru>\n"
 "Language: Russian\n"
@@ -12,335 +12,367 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-Basepath: ../\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: dialogs\n"
+"X-Poedit-SearchPath-2: utils\n"
+"X-Poedit-SearchPath-3: services\n"
 
-#: gw_menu.py:61 settings.py:308
-msgid "No"
-msgstr "Нет"
-
-#: gw_menu.py:82
-msgid "Color scheme"
-msgstr "Цветовая схема"
-
-#: gw_menu.py:105 settings.glade:497
-msgid "Setup..."
-msgstr "Настроить..."
-
-#: gw_menu.py:111 settings.glade:1178
-msgid "Lock position"
-msgstr "Зафиксировать позицию"
-
-#: gw_menu.py:117 settings.glade:1191
-msgid "On all desktops"
-msgstr "На всех рабочих столах"
-
-#: gw_menu.py:124
-msgid "Refresh"
-msgstr "Обновить"
-
-#: gw_menu.py:136 Gtk_city_id.py:8 settings.glade:373
-msgid "Location"
-msgstr "Местоположение"
-
-#: gw_menu.py:141 Gtk_about_dialog.py:39 settings.glade:2884
-msgid "Icons"
-msgstr "Иконки"
-
-#: gw_menu.py:146 settings.glade:2802
-msgid "Background"
-msgstr "Фон"
-
-#: gw_menu.py:151 settings.glade:2568
-msgid "Text"
-msgstr "Текст"
-
-#: gw_menu.py:156 settings.glade:1255
-msgid "Window"
-msgstr "Окно"
-
-#: gw_menu.py:161 settings.py:295
-msgid "Preferences"
-msgstr "Параметры"
-
-#: gw_menu.py:169
-msgid "About"
-msgstr "О программе"
-
-#: gw_menu.py:181 Gtk_update_dialog.py:57 Gtk_city_id.py:11
-msgid "Close"
-msgstr "Закрыть"
-
-#: Gtk_update_dialog.py:19
-msgid "Unable to get changes"
-msgstr "Невозможно получить изменения"
-
-#: Gtk_update_dialog.py:40 Gtk_update_dialog.py:98
-msgid "Downloading"
-msgstr "Скачиваю"
-
-#: Gtk_update_dialog.py:53 Gtk_update_dialog.py:57
-msgid "Update"
-msgstr "Обновление"
-
-#: Gtk_update_dialog.py:59
-msgid "Installed version"
-msgstr "Установленная версия"
-
-#: Gtk_update_dialog.py:63
-msgid "Available version"
-msgstr "Доступна версия"
-
-#: Gtk_update_dialog.py:66
-msgid "Go to website"
-msgstr "На сайт"
-
-#: Gtk_update_dialog.py:70
-msgid "Source code"
-msgstr "Исходный код"
-
-#: Gtk_update_dialog.py:71
-msgid "Changelog"
-msgstr "История версий"
-
-#: Gtk_update_dialog.py:100 Gtk_update_dialog.py:186
-msgid "Installation"
-msgstr "Установка"
-
-#: Gtk_update_dialog.py:102
-msgid "Cleaning temporary files"
-msgstr "Очистка временных файлов"
-
-#: Gtk_update_dialog.py:110
-msgid "Restart"
-msgstr "Перезапустить"
-
-#: Gtk_update_dialog.py:160
-msgid "Update error"
-msgstr "Ошибка обновления"
-
-#: Gtk_update_dialog.py:171
-msgid "Error downloading updates"
-msgstr "Ошибка скачивания обновления"
-
-#: Gtk_update_dialog.py:182
-msgid "Error installing updates"
-msgstr "Ошибка установки обновления"
-
-#: Gtk_update_dialog.py:194
-msgid "Error removing"
-msgstr "Ошибка удаления"
-
-#: Gtk_update_dialog.py:198
-msgid "Update successful"
-msgstr "Обновление успешно завершено"
-
-#: gis-weather.py:132
+#: gis-weather.py:126
 msgid "Config path"
 msgstr "Путь к файлу конфигурации"
 
-#: gis-weather.py:152
+#: gis-weather.py:146
 msgid "Error loading config file"
 msgstr "Ошибка загрузки конфигурационного файла"
 
-#: gis-weather.py:173
+#: gis-weather.py:167
 msgid "Error loading color scheme"
 msgstr "Ошибка загрузки цветовой схемы"
 
-#: gis-weather.py:189
+#: gis-weather.py:182
 msgid "Enter full path to script"
 msgstr "Вводите полный путь к скрипту"
 
-#: gis-weather.py:190
+#: gis-weather.py:183
 msgid "Exit"
 msgstr "Выход"
 
-#: gis-weather.py:271
+#: gis-weather.py:274
 msgid "Check for new version"
 msgstr "Проверяю наличие новой версии"
 
-#: gis-weather.py:275
+#: gis-weather.py:279 gis-weather.py:288
 msgid "Unable to check for updates"
 msgstr "Невозможно проверить обновления"
 
-#: gis-weather.py:290
+#: gis-weather.py:310
 msgid "New version available"
 msgstr "Доступна новая версия"
 
-#: gis-weather.py:296
+#: gis-weather.py:317
 msgid "Current version is relevant"
 msgstr "Текущая версия актуальна"
 
-#: gis-weather.py:323
+#: gis-weather.py:344
 msgid "Getting weather..."
 msgstr "Получаю погоду..."
 
-#: gis-weather.py:326
+#: gis-weather.py:347
 msgid "Error getting weather"
 msgstr "Ошибка получения погоды"
 
-#: gis-weather.py:328
+#: gis-weather.py:349
 msgid "Location not set"
 msgstr "Местоположение не настроено"
 
-#: gis-weather.py:395
+#: gis-weather.py:415
 msgid "Connection error"
 msgstr "Ошибка соединения"
 
-#: gis-weather.py:405
+#: gis-weather.py:425
 msgid "Next update in"
 msgstr "Следующее обновление через"
 
-#: gis-weather.py:405
+#: gis-weather.py:425
 msgid "min"
 msgstr "мин"
 
-#: gis-weather.py:429 gismeteo.py:240
+#: gis-weather.py:449 services/gismeteo.py:247
 msgid "updated on server"
 msgstr "обновлено на сервере"
 
-#: gis-weather.py:430 gismeteo.py:241
+#: gis-weather.py:450 services/gismeteo.py:248
 msgid "weather received"
 msgstr "погода получена"
 
-#: gis-weather.py:453
+#: gis-weather.py:473
 msgid "E"
 msgstr "В"
 
-#: gis-weather.py:453
+#: gis-weather.py:473
 msgid "S"
 msgstr "Ю"
 
-#: gis-weather.py:453
+#: gis-weather.py:473
 msgid "W"
 msgstr "З"
 
-#: gis-weather.py:453
+#: gis-weather.py:473
 msgid "N"
 msgstr "С"
 
-#: gis-weather.py:462 gis-weather.py:464 gis-weather.py:494 gis-weather.py:496
-#: gis-weather.py:542 gis-weather.py:544 gis-weather.py:573 gis-weather.py:575
-#: gis-weather.py:600 gis-weather.py:602
+#: gis-weather.py:482 gis-weather.py:484 gis-weather.py:514 gis-weather.py:516
+#: gis-weather.py:562 gis-weather.py:564 gis-weather.py:593 gis-weather.py:595
+#: gis-weather.py:620 gis-weather.py:622
 msgid "m/s"
 msgstr "м/с"
 
-#: gis-weather.py:502
+#: gis-weather.py:522
 msgid "mmHg"
 msgstr "мм рт.ст."
 
-#: gis-weather.py:508
+#: gis-weather.py:528
 msgid "humid."
 msgstr "влажн."
 
-#: gis-weather.py:514
+#: gis-weather.py:534
 msgid "water"
 msgstr "вода"
 
-#: gis-weather.py:527 gis-weather.py:558
+#: gis-weather.py:547 gis-weather.py:578
 msgid "Night"
 msgstr "Ночь"
 
-#: gis-weather.py:527 gis-weather.py:558
+#: gis-weather.py:547 gis-weather.py:578
 msgid "Morning"
 msgstr "Утро"
 
-#: gis-weather.py:527 gis-weather.py:558
+#: gis-weather.py:547 gis-weather.py:578
 msgid "Day"
 msgstr "День"
 
-#: gis-weather.py:527 gis-weather.py:558
+#: gis-weather.py:547 gis-weather.py:578
 msgid "Evening"
 msgstr "Вечер"
 
-#: gis-weather.py:529
+#: gis-weather.py:549
 msgid "Tomorrow"
 msgstr "Завтра"
 
-#: gis-weather.py:560
+#: gis-weather.py:580
 msgid "Today"
 msgstr "Сегодня"
 
-#: gis-weather.py:587
-msgid "Sa"
-msgstr "Сб"
-
-#: gis-weather.py:587
-msgid "Su"
-msgstr "Вс"
-
-#: gis-weather.py:617
+#: gis-weather.py:647
 msgid "Background image not found"
 msgstr "Не найдено фоновое изображение"
 
-#: gis-weather.py:686
+#: gis-weather.py:699
 msgid "downloading"
 msgstr "скачиваю"
 
-#: gis-weather.py:689
+#: gis-weather.py:702
 msgid "Unable to download"
 msgstr "Не удалось скачать"
 
-#: gis-weather.py:725
+#: gis-weather.py:738
 msgid "not found icon"
 msgstr "не найдена иконка"
 
-#: gis-weather.py:779
+#: gis-weather.py:774
 msgid "Widget size"
 msgstr "Размеры виджета"
 
-#: gis-weather.py:780
+#: gis-weather.py:775
 msgid "width"
 msgstr "ширина"
 
-#: gis-weather.py:780
+#: gis-weather.py:775
 msgid "height"
 msgstr "высота"
 
-#: gis-weather.py:780
+#: gis-weather.py:775
 msgid "including indent"
 msgstr "в т.ч. отступ"
 
-#: gis-weather.py:932
+#: gis-weather.py:833
+msgid "Screenshot saved to"
+msgstr "Скриншот сохранен в"
+
+#: gis-weather.py:835
+msgid "Unable to get the screenshot"
+msgstr "Невозможно получить скриншот"
+
+#: gis-weather.py:924
 msgid "Removed"
 msgstr "Удалено"
 
-#: gis-weather.py:960 Gtk_city_id.py:41
+#: gis-weather.py:952 dialogs/city_id_dialog.ui:157
 msgid "Added"
 msgstr "Добавлено"
 
-#: gis-weather.py:964 Gtk_city_id.py:36
+#: gis-weather.py:957 dialogs/city_id_dialog.ui:226
 msgid "Invalid location code"
 msgstr "Неверно введен код местоположения"
 
-#: gis-weather.py:1004
+#: gis-weather.py:1006
 msgid "Your screen does not support alpha"
 msgstr "Ваш экран не поддерживает прозрачность"
 
-#: gis-weather.py:1007
+#: gis-weather.py:1009
 msgid "Your screen supports alpha"
 msgstr "Ваш экран поддерживает прозрачность"
 
-#: settings.py:303
+#: utils/gw_menu.py:50 dialogs/settings_dialog.ui:585
+msgid "Setup..."
+msgstr "Настроить..."
+
+#: utils/gw_menu.py:71 dialogs/settings_dialog.py:266
+msgid "No"
+msgstr "Нет"
+
+#: utils/gw_menu.py:87
+msgid "Color scheme"
+msgstr "Цветовая схема"
+
+#: utils/gw_menu.py:95 dialogs/settings_dialog.ui:928
+msgid "Lock position"
+msgstr "Зафиксировать позицию"
+
+#: utils/gw_menu.py:101 dialogs/settings_dialog.ui:943
+msgid "On all desktops"
+msgstr "На всех рабочих столах"
+
+#: utils/gw_menu.py:108
+msgid "Refresh"
+msgstr "Обновить"
+
+#: utils/gw_menu.py:120 dialogs/city_id_dialog.py:18
+#: dialogs/settings_dialog.ui:403 dialogs/city_id_dialog.ui:15
+msgid "Location"
+msgstr "Местоположение"
+
+#: utils/gw_menu.py:125 dialogs/about_dialog.py:39
+#: dialogs/settings_dialog.ui:2693
+msgid "Icons"
+msgstr "Иконки"
+
+#: utils/gw_menu.py:130 dialogs/settings_dialog.ui:2603
+msgid "Background"
+msgstr "Фон"
+
+#: utils/gw_menu.py:135 dialogs/settings_dialog.ui:2377
+msgid "Text"
+msgstr "Текст"
+
+#: utils/gw_menu.py:140 dialogs/settings_dialog.ui:1143
+msgid "Window"
+msgstr "Окно"
+
+#: utils/gw_menu.py:145 dialogs/settings_dialog.py:62
+#: dialogs/settings_dialog.py:446
+msgid "Preferences"
+msgstr "Параметры"
+
+#: utils/gw_menu.py:153
+msgid "About"
+msgstr "О программе"
+
+#: utils/gw_menu.py:165 dialogs/update_dialog.py:67
+#: dialogs/settings_dialog.ui:361 dialogs/city_id_dialog.ui:44
+msgid "Close"
+msgstr "Закрыть"
+
+#: dialogs/city_id_dialog.py:23
+msgid "Choose your city on"
+msgstr "Выберите свой город на сайте"
+
+#: dialogs/city_id_dialog.py:24
+msgid "and copy city code from the reference"
+msgstr "и скопируйте код города из ссылки"
+
+#: dialogs/city_id_dialog.py:25
+msgid "For example"
+msgstr "Например"
+
+#: dialogs/city_id_dialog.py:26
+msgid "City code"
+msgstr "Код города"
+
+#: dialogs/city_id_dialog.py:48
+msgid "Code"
+msgstr "Код"
+
+#: dialogs/city_id_dialog.py:52
+msgid "Place"
+msgstr "Место"
+
+#: dialogs/update_dialog.py:25
+msgid "Unable to get changes"
+msgstr "Невозможно получить изменения"
+
+#: dialogs/update_dialog.py:46 dialogs/update_dialog.py:109
+msgid "Downloading"
+msgstr "Скачиваю"
+
+#: dialogs/update_dialog.py:63 dialogs/update_dialog.py:67
+msgid "Update"
+msgstr "Обновление"
+
+#: dialogs/update_dialog.py:69
+msgid "Installed version"
+msgstr "Установленная версия"
+
+#: dialogs/update_dialog.py:73
+msgid "Available version"
+msgstr "Доступна версия"
+
+#: dialogs/update_dialog.py:76
+msgid "Go to website"
+msgstr "На сайт"
+
+#: dialogs/update_dialog.py:80
+msgid "Source code"
+msgstr "Исходный код"
+
+#: dialogs/update_dialog.py:81
+msgid "Changelog"
+msgstr "История версий"
+
+#: dialogs/update_dialog.py:111 dialogs/update_dialog.py:224
+msgid "Installation"
+msgstr "Установка"
+
+#: dialogs/update_dialog.py:113
+msgid "Cleaning temporary files"
+msgstr "Очистка временных файлов"
+
+#: dialogs/update_dialog.py:121
+msgid "Restart"
+msgstr "Перезапустить"
+
+#: dialogs/update_dialog.py:171
+msgid "Update error"
+msgstr "Ошибка обновления"
+
+#: dialogs/update_dialog.py:184
+msgid "Error downloading updates"
+msgstr "Ошибка скачивания обновления"
+
+#: dialogs/update_dialog.py:220
+msgid "Error installing updates"
+msgstr "Ошибка установки обновления"
+
+#: dialogs/update_dialog.py:232
+msgid "Error removing"
+msgstr "Ошибка удаления"
+
+#: dialogs/update_dialog.py:236
+msgid "Update successful"
+msgstr "Обновление успешно завершено"
+
+#: dialogs/settings_dialog.py:261
 msgid "Never"
 msgstr "Никогда"
 
-#: settings.py:304
+#: dialogs/settings_dialog.py:262
 msgid "Only at start"
 msgstr "Только при старте"
 
-#: settings.py:305
+#: dialogs/settings_dialog.py:263
 msgid "Always"
 msgstr "Всегда"
 
-#: settings.py:309
+#: dialogs/settings_dialog.py:267
 msgid "Only background"
 msgstr "Только фон"
 
-#: settings.py:310
+#: dialogs/settings_dialog.py:268
 msgid "Yes"
 msgstr "Да"
 
-#: Gtk_about_dialog.py:8
+#: dialogs/about_dialog.py:7
 msgid ""
 "This program is free software: you can redistribute it and/or modify\n"
 "it under the terms of the GNU General Public License as published by\n"
@@ -368,209 +400,177 @@ msgstr ""
 "Вы можете найти полный текст лицензии по адресу\n"
 "http://www.gnu.org/licenses/gpl.txt"
 
-#: Gtk_about_dialog.py:25
+#: dialogs/about_dialog.py:24
 msgid "Weather widget"
 msgstr "Погодный виджет"
 
-#: Gtk_about_dialog.py:31
+#: dialogs/about_dialog.py:30
 msgid "Help and Ideas"
 msgstr "Помощь и идеи"
 
-#: Gtk_about_dialog.py:35
+#: dialogs/about_dialog.py:36
 msgid "Backgrounds"
 msgstr "Фоны"
 
-#: gismeteo.py:56
+#: services/gismeteo.py:63
 msgid "Failed to get the name of the location"
 msgstr "Не удалось получить название местоположения"
 
-#: gismeteo.py:63
+#: services/gismeteo.py:70
 msgid "Getting weather for"
 msgstr "Получаю погоду на"
 
-#: gismeteo.py:63
+#: services/gismeteo.py:70
 msgid "days"
 msgstr "дней"
 
-#: gismeteo.py:64
+#: services/gismeteo.py:71
 msgid "Uploading page to a variable"
 msgstr "Загружаю в переменную страницу"
 
-#: gismeteo.py:70
+#: services/gismeteo.py:77
 msgid "Unable to download page, check the network connection"
 msgstr "Невозможно скачать страницу, проверьте интернет соединение"
 
-#: gismeteo.py:72
+#: services/gismeteo.py:79
 msgid "Next try in 10 seconds"
 msgstr "Следующая попытка через 10 секунд"
 
-#: Gtk_city_id.py:10
-msgid "Add"
-msgstr "Добавить"
-
-#: Gtk_city_id.py:12
-msgid "Remove selected"
-msgstr "Удалить выбранное"
-
-#: Gtk_city_id.py:25
-msgid ""
-"Choose your city on <a href='http://www.gismeteo.com'> http://www.gismeteo."
-"com </a>\n"
-"and copy number at the end of reference\n"
-"For example <u><span foreground='blue'>http://www.gismeteo.ru/city/daily/"
-"<b>1234</b>/</span></u>\n"
-"City code<b>1234</b>"
-msgstr ""
-"Выберите свой город на сайте <a href='http://www.gismeteo.com'>http://www."
-"gismeteo.com</a>\n"
-"и скопируете число в конце ссылки\n"
-"Например <u><span foreground='blue'>http://www.gismeteo.ru/city/daily/"
-"<b>1234</b>/</span></u>\n"
-"Код города <b>1234</b>"
-
-#: Gtk_city_id.py:73
-msgid "Code"
-msgstr "Код"
-
-#: Gtk_city_id.py:77
-msgid "Place"
-msgstr "Место"
-
-#: settings.glade:384
+#: dialogs/settings_dialog.ui:418
 msgid "Update (in minutes)"
 msgstr "Обновлять через (в минутах)"
 
-#: settings.glade:397
+#: dialogs/settings_dialog.ui:433
 msgid "Temperature as feel"
 msgstr "Температура как ощущается"
 
-#: settings.glade:470
+#: dialogs/settings_dialog.ui:448
 msgid "Check for updates"
 msgstr "Проверять обновления"
 
-#: settings.glade:553
+#: dialogs/settings_dialog.ui:475
 msgid "Fix BadDrawable error"
 msgstr "Фикс ошибки BadDrawable"
 
-#: settings.glade:624
+#: dialogs/settings_dialog.ui:490
 msgid "Folder with config"
 msgstr "Папка с конфигом"
 
-#: settings.glade:634
-msgid "Open..."
-msgstr "Открыть..."
-
-#: settings.glade:680
+#: dialogs/settings_dialog.ui:517
 msgid "Autostart at login"
 msgstr "Автозапуск при входе в систему"
 
-#: settings.glade:724
-msgid "Language weather"
-msgstr "Язык погоды"
-
-#: settings.glade:737
-msgid "Language program"
-msgstr "Язык программы"
-
-#: settings.glade:792
+#: dialogs/settings_dialog.ui:532
 msgid "Start delay (in seconds)"
 msgstr "Отложенный старт (в секундах)"
 
-#: settings.glade:887
+#: dialogs/settings_dialog.ui:559
+msgid "Language program"
+msgstr "Язык программы"
+
+#: dialogs/settings_dialog.ui:574
+msgid "Language weather"
+msgstr "Язык погоды"
+
+#: dialogs/settings_dialog.ui:660
+msgid "Open..."
+msgstr "Открыть..."
+
+#: dialogs/settings_dialog.ui:845
 msgid "General"
 msgstr "Общие"
 
-#: settings.glade:925
+#: dialogs/settings_dialog.ui:868
 msgid "Left"
 msgstr "Отступ слева"
 
-#: settings.glade:960
+#: dialogs/settings_dialog.ui:883
 msgid "Top"
 msgstr "Отступ сверху"
 
-#: settings.glade:988
+#: dialogs/settings_dialog.ui:898
 msgid "Padding"
 msgstr "Внутренний отступ"
 
-#: settings.glade:1087
+#: dialogs/settings_dialog.ui:913
 msgid "Transparency"
 msgstr "Прозрачность"
 
-#: settings.glade:1336 settings.glade:1467 settings.glade:1602
-#: settings.glade:1840
+#: dialogs/settings_dialog.ui:1189 dialogs/settings_dialog.ui:1318
+#: dialogs/settings_dialog.ui:1447 dialogs/settings_dialog.ui:1576
 msgid "Show"
 msgstr "Показывать"
 
-#: settings.glade:1347 settings.glade:1495 settings.glade:1613
-#: settings.glade:1851
+#: dialogs/settings_dialog.ui:1204 dialogs/settings_dialog.ui:1333
+#: dialogs/settings_dialog.ui:1462 dialogs/settings_dialog.ui:1591
 msgid "Offset from center"
 msgstr "Отступ от центра"
 
-#: settings.glade:1406
+#: dialogs/settings_dialog.ui:1280
 msgid "Block Today"
 msgstr "Блок Сегодня"
 
-#: settings.glade:1537
+#: dialogs/settings_dialog.ui:1409
 msgid "Block Tomorrow"
 msgstr "Блок Завтра"
 
-#: settings.glade:1669
-msgid "Reduce"
-msgstr "Уменьшить"
-
-#: settings.glade:1716
-msgid "Angle of rotation"
-msgstr "Угол поворота"
-
-#: settings.glade:1775
-msgid "Block Wind"
-msgstr "Блок Ветер"
-
-#: settings.glade:1910
+#: dialogs/settings_dialog.ui:1538
 msgid "Block Additional info"
 msgstr "Блок Доп инфо"
 
-#: settings.glade:1986
+#: dialogs/settings_dialog.ui:1665
+msgid "Reduce"
+msgstr "Уменьшить"
+
+#: dialogs/settings_dialog.ui:1680
+msgid "Angle of rotation"
+msgstr "Угол поворота"
+
+#: dialogs/settings_dialog.ui:1756
+msgid "Block Wind"
+msgstr "Блок Ветер"
+
+#: dialogs/settings_dialog.ui:1804
 msgid "Number of days"
 msgstr "Количество дней"
 
-#: settings.glade:1997
+#: dialogs/settings_dialog.ui:1819
 msgid "Show time receiving weather"
 msgstr "Показывать время получения погоды"
 
-#: settings.glade:2068
+#: dialogs/settings_dialog.ui:1834
 msgid "Show splash screen"
 msgstr "Показывать загрузочную заставку"
 
-#: settings.glade:2101
+#: dialogs/settings_dialog.ui:1849
 msgid "Hide splash screen after attempts (0 - do not hide)"
 msgstr "Скрывать заставку после попыток (0 - не скрывать)"
 
-#: settings.glade:2181
+#: dialogs/settings_dialog.ui:2011
 msgid "View"
 msgstr "Вид"
 
-#: settings.glade:2242
+#: dialogs/settings_dialog.ui:2053
 msgid "Font"
 msgstr "Шрифт"
 
-#: settings.glade:2253
+#: dialogs/settings_dialog.ui:2068
 msgid "Color main"
 msgstr "Цвет основной"
 
-#: settings.glade:2283
+#: dialogs/settings_dialog.ui:2115
 msgid "Color Sa, Su"
 msgstr "Цвет Сб, Вс"
 
-#: settings.glade:2296
+#: dialogs/settings_dialog.ui:2130
 msgid "Shadow"
 msgstr "Тень"
 
-#: settings.glade:2309
+#: dialogs/settings_dialog.ui:2208
 msgid "Color shadow"
 msgstr "Цвет тени"
 
-#: settings.glade:2322
+#: dialogs/settings_dialog.ui:2223
 msgid ""
 "High wind\n"
 "(-1 = not highlight)"
@@ -578,23 +578,23 @@ msgstr ""
 "Сильный ветер\n"
 "(-1 = не выделять)"
 
-#: settings.glade:2336
+#: dialogs/settings_dialog.ui:2239
 msgid "Color wind"
 msgstr "Цвет ветра"
 
-#: settings.glade:2633
+#: dialogs/settings_dialog.ui:2414
 msgid "Use PNG"
 msgstr "Использовать PNG"
 
-#: settings.glade:2661 settings.glade:2852
+#: dialogs/settings_dialog.ui:2429 dialogs/settings_dialog.ui:2640
 msgid "Select"
 msgstr "Выбрать"
 
-#: settings.glade:2691
+#: dialogs/settings_dialog.ui:2489
 msgid "Color (if not PNG)"
 msgstr "Цвет (если не PNG)"
 
-#: settings.glade:2704
+#: dialogs/settings_dialog.ui:2504
 msgid ""
 "Radius corners\n"
 "(if not PNG)"
@@ -602,9 +602,38 @@ msgstr ""
 "Радиус углов\n"
 "(если не PNG)"
 
-#: settings.glade:2914
+#: dialogs/settings_dialog.ui:2716
 msgid "Appearance"
 msgstr "Оформление"
+
+#: dialogs/city_id_dialog.ui:31
+msgid "Add"
+msgstr "Добавить"
+
+#: dialogs/city_id_dialog.ui:57
+msgid "Remove selected"
+msgstr "Удалить выбранное"
+
+#~ msgid "Sa"
+#~ msgstr "Сб"
+
+#~ msgid "Su"
+#~ msgstr "Вс"
+
+#~ msgid ""
+#~ "Choose your city on <a href='http://www.gismeteo.com'> http://www."
+#~ "gismeteo.com </a>\n"
+#~ "and copy number at the end of reference\n"
+#~ "For example <u><span foreground='blue'>http://www.gismeteo.ru/city/daily/"
+#~ "<b>1234</b>/</span></u>\n"
+#~ "City code<b>1234</b>"
+#~ msgstr ""
+#~ "Выберите свой город на сайте <a href='http://www.gismeteo.com'>http://www."
+#~ "gismeteo.com</a>\n"
+#~ "и скопируете число в конце ссылки\n"
+#~ "Например <u><span foreground='blue'>http://www.gismeteo.ru/city/daily/"
+#~ "<b>1234</b>/</span></u>\n"
+#~ "Код города <b>1234</b>"
 
 #~ msgid "Properties"
 #~ msgstr "Свойства"

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.5.95'
+v = '0.5.96'
 #  Copyright (C) 2013-2014 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -17,12 +17,13 @@ v = '0.5.95'
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from utils import localization, gw_menu
+from utils import localization
 localization.set()
 
 from gi.repository import Gtk, GObject, Pango, PangoCairo, Gdk, GdkPixbuf
-from dialogs import about_dialog, city_id_dialog, update_dialog
+from dialogs import about_dialog, city_id_dialog, update_dialog, settings_dialog
 from services import gismeteo
+from utils import gw_menu
 import cairo
 import re
 import time
@@ -32,7 +33,6 @@ import os
 import json
 import sys
 import subprocess
-import settings
 
 if sys.platform.startswith("win"):
     WIN = True
@@ -120,6 +120,8 @@ color_scheme = [
         'color_high_wind': (0, 0, 0, 1)      # Цвет сильного ветра
     }
     ]
+
+weekend = ('Sa', 'Su', 'Сб', 'Вс')
 
 print (_('Config path')+':\n    '+os.path.join(CONFIG_PATH, 'gw_config.json'))
 
@@ -438,7 +440,7 @@ class MyDrawArea(Gtk.DrawingArea):
             center = x+width/2
             
             if (day and date):
-                if day[0] in ('Sa', 'Su'):
+                if day[0] in weekend:
                     self.draw_text(day[0]+', '+date[0], 0+block_now_left, y-15, font+' Bold', 12, width, Pango.Alignment.CENTER, color_text_week)
                 else:
                     self.draw_text(day[0]+', '+date[0], 0+block_now_left, y-15, font+' Bold', 12, width, Pango.Alignment.CENTER)
@@ -602,7 +604,7 @@ class MyDrawArea(Gtk.DrawingArea):
                 if math.fabs(int(t_day[index])) < 10: a = 20
             self.draw_scaled_icon(x+a, y+16, os.path.join(ICONS_PATH, icons_name, 'weather', icon[index]), 36, 36)
             if (day and date): 
-                if day[index] in (_('Sa'), _('Su')):
+                if day[index] in weekend:
                     self.draw_text(day[index]+', '+date[index], x, y-2, font+' Bold', 9, w_block,Pango.Alignment.LEFT, color_text_week)
                 else:
                     self.draw_text(day[index]+', '+date[index], x, y-2, font+' Bold', 9, w_block,Pango.Alignment.LEFT)
@@ -862,7 +864,7 @@ class Weather_Widget:
                 self.window_main.stick()
             Save_Config()
         if event == 'setup':
-            settings.main(gw_config_default, gw_config, self.drawing_area, app, icons_list, backgrounds_list)
+            settings_dialog.main(gw_config_default, gw_config, self.drawing_area, app, icons_list, backgrounds_list)
         if event == 'redraw_icons':
             global icons_name
             icons_name = value
@@ -907,13 +909,10 @@ class Weather_Widget:
         global city_id, city_id_add
         dialog, entrybox, treeview, bar_err, bar_ok, bar_label = city_id_dialog.create(self.window_main, city_id, city_id_add, APP_PATH);
         dialog.show_all()
-        bar_err.hide()
-        bar_ok.hide()
         response = dialog.run()
 
         while response == Gtk.ResponseType.ACCEPT or response == Gtk.ResponseType.OK:
             bar_err.hide()
-            bar_ok.hide()
             if response == Gtk.ResponseType.ACCEPT:
                 try:
                     selection = treeview.get_selection()
@@ -953,6 +952,7 @@ class Weather_Widget:
                     bar_label.set_text(_('Added')+': %s'%city_id_add[-1].split(';')[1])
                     bar_ok.show()
                 except:
+                    bar_ok.hide()
                     bar_err.show()
                     print ('[!] '+_('Invalid location code'))
             response = dialog.run()

@@ -2,3 +2,4 @@
 po/*.mo
 __pycache__
 */__pycache__
+dialogs/*.ui~

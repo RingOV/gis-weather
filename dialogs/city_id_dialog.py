@@ -2,69 +2,45 @@
 
 from gi.repository import Gtk
 import os
+from utils import localization
+from services import gismeteo
 
 def create(window, city_id, city_id_add, APP_PATH):
-    dialog = Gtk.Dialog(_('Location'), window)
-    dialog.resize(300, 100)
-    dialog.add_buttons(_('Add'), Gtk.ResponseType.OK,
-        _('Close'), Gtk.ResponseType.CANCEL,
-        _('Remove selected'), Gtk.ResponseType.ACCEPT)
+
+    ui = Gtk.Builder()
+    ui.add_from_file(os.path.join(APP_PATH, "dialogs","city_id_dialog.ui"))
+    dialog = ui.get_object('dialog1')
+
     dialog.set_icon_from_file(os.path.join(APP_PATH, "icon.png"))
+    list_o = ui.get_objects()
+    dict_o = {}
+    dict_o = localization.translate_ui(list_o, dict_o)
+    dialog.set_title(_('Location'))
 
-    hbox = Gtk.HBox(False, 8)
-    hbox.set_border_width(8)
-    dialog.vbox.pack_start(hbox, False, False, 0)
-    table = Gtk.Table(2, 3)
-    table.set_row_spacings(4)
-    table.set_col_spacings(4)
-    hbox.pack_start(table, True, True, 0)
-
-    entrybox = Gtk.Entry()
-    entrybox.set_text(str(city_id))
-    text = _("""Choose your city on <a href='http://www.gismeteo.com'> http://www.gismeteo.com </a>
-and copy number at the end of reference
-For example <u><span foreground='blue'>http://www.gismeteo.com/city/daily/<b>1234</b>/</span></u>
-City code<b>1234</b>""")
+    service = gismeteo.service
+    example = gismeteo.example
+    code = gismeteo.code
+    text = _("Choose your city on")+" <a href='%s'>%s</a>\n" %(service, service)+\
+        _("and copy city code from the reference")+"\n"+\
+        _("For example")+ " <u><span foreground='blue'>%s/</span></u>\n" %example+\
+        _("City code")+" %s" %code
     
-    label = Gtk.Label()
+    label = ui.get_object('label1')
     label.set_markup(text)
 
-    bar_err = Gtk.InfoBar()
-    bar_err.set_message_type(Gtk.MessageType.ERROR)
-    bar_err.get_content_area().pack_start(
-        Gtk.Label(_('Invalid location code')), True, True, 0)
-    table.attach(bar_err, 0, 1, 2, 3)
+    entrybox = ui.get_object('entrybox')
+    bar_ok = ui.get_object('bar_ok')
+    bar_err = ui.get_object('bar_err')
+    bar_label = ui.get_object('bar_label')
 
-    bar_ok = Gtk.InfoBar()
-    bar_ok.set_message_type(Gtk.MessageType.INFO)
-    bar_label = Gtk.Label(label=_('Added'))
-    bar_ok.get_content_area().pack_start(
-        bar_label, True, True, 0)
-    table.attach(bar_ok, 0, 1, 2, 3)
-
-    label_err = Gtk.Label(label='\n')
-    table.attach(label, 0, 1, 0, 1)
-    table.attach(entrybox, 0, 1, 1, 2)
-    table.attach(label_err, 0, 1, 2, 3)
-
-    sw = Gtk.ScrolledWindow()
-    sw.set_shadow_type(Gtk.ShadowType.ETCHED_IN)
-    sw.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
-
-    store = create_model(city_id_add)
-    treeView = Gtk.TreeView(store)
-    sw.add(treeView)
+    treeView = ui.get_object('treeView')
     create_columns(treeView)
-    table.attach(sw, 1, 2, 0, 3)
-    return dialog, entrybox, treeView, bar_err, bar_ok, bar_label
 
-def create_model(city_id_add):
-    store = Gtk.ListStore(str, str)
-
+    store = ui.get_object('liststore1')
     for item in city_id_add:
         store.append([item.split(';')[0], item.split(';')[1]])
-    return store
 
+    return dialog, entrybox, treeView, bar_err, bar_ok, bar_label
 
 def create_columns(treeView):
 

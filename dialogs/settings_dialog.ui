@@ -699,6 +699,7 @@
                 </child>
                 <child>
                   <object class="GtkComboBox" id="combobox_app_lang">
+                    <property name="width_request">150</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="halign">end</property>
@@ -719,6 +720,7 @@
                 </child>
                 <child>
                   <object class="GtkComboBox" id="combobox_weather_lang">
+                    <property name="width_request">150</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="halign">end</property>
@@ -1156,6 +1158,7 @@
                     <property name="can_focus">False</property>
                     <property name="margin_left">8</property>
                     <property name="margin_right">8</property>
+                    <property name="margin_top">8</property>
                     <property name="row_spacing">5</property>
                     <property name="column_spacing">8</property>
                     <child>
@@ -1276,7 +1279,9 @@
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="label" translatable="yes">Block Today</property>
-                            <property name="use_markup">True</property>
+                            <attributes>
+                              <attribute name="weight" value="bold"/>
+                            </attributes>
                           </object>
                         </child>
                       </object>
@@ -1405,7 +1410,9 @@
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="label" translatable="yes">Block Tomorrow</property>
-                            <property name="use_markup">True</property>
+                            <attributes>
+                              <attribute name="weight" value="bold"/>
+                            </attributes>
                           </object>
                         </child>
                       </object>
@@ -1421,6 +1428,7 @@
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="valign">start</property>
+                        <property name="margin_top">4</property>
                         <property name="label_xalign">0.5</property>
                         <child>
                           <object class="GtkAlignment" id="alignment3">
@@ -1534,7 +1542,9 @@
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="label" translatable="yes">Block Additional info</property>
-                            <property name="use_markup">True</property>
+                            <attributes>
+                              <attribute name="weight" value="bold"/>
+                            </attributes>
                           </object>
                         </child>
                       </object>
@@ -1550,6 +1560,7 @@
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="valign">start</property>
+                        <property name="margin_top">4</property>
                         <property name="label_xalign">0.5</property>
                         <child>
                           <object class="GtkAlignment" id="alignment4">
@@ -1752,7 +1763,9 @@
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="label" translatable="yes">Block Wind</property>
-                            <property name="use_markup">True</property>
+                            <attributes>
+                              <attribute name="weight" value="bold"/>
+                            </attributes>
                           </object>
                         </child>
                       </object>
@@ -2019,6 +2032,7 @@
                 <property name="can_focus">False</property>
                 <property name="margin_left">8</property>
                 <property name="margin_right">8</property>
+                <property name="margin_top">8</property>
                 <property name="margin_bottom">8</property>
                 <property name="row_spacing">5</property>
                 <property name="column_spacing">8</property>
@@ -2373,7 +2387,9 @@
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="label" translatable="yes">Text</property>
-                        <property name="use_markup">True</property>
+                        <attributes>
+                          <attribute name="weight" value="bold"/>
+                        </attributes>
                       </object>
                     </child>
                   </object>
@@ -2599,7 +2615,9 @@
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="label" translatable="yes">Background</property>
-                        <property name="use_markup">True</property>
+                        <attributes>
+                          <attribute name="weight" value="bold"/>
+                        </attributes>
                       </object>
                     </child>
                   </object>
@@ -2614,6 +2632,7 @@
                   <object class="GtkFrame" id="frame8">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="margin_top">4</property>
                     <property name="label_xalign">0.5</property>
                     <child>
                       <object class="GtkAlignment" id="alignment8">
@@ -2689,7 +2708,9 @@
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="label" translatable="yes">Icons</property>
-                        <property name="use_markup">True</property>
+                        <attributes>
+                          <attribute name="weight" value="bold"/>
+                        </attributes>
                       </object>
                     </child>
                   </object>
