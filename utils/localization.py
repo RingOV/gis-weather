@@ -40,7 +40,7 @@ def translate_ui(list_o, dict_o):
             try:
                 if list_o[i].get_name() == 'GtkLabel':
                     dict_o[Gtk.Buildable.get_name(list_o[i])] = list_o[i].get_text()
-                if list_o[i].get_name() == 'GtkButton':
+                if list_o[i].get_name() in  ('GtkButton', 'GtkLinkButton'):
                     dict_o[Gtk.Buildable.get_name(list_o[i])] = list_o[i].get_label()
             except:
                 pass
@@ -50,7 +50,7 @@ def translate_ui(list_o, dict_o):
             if list_o[i].get_name() == 'GtkLabel':
                 if list_o[i].get_text() != '':
                     list_o[i].set_text(_(dict_o[Gtk.Buildable.get_name(list_o[i])]))
-            if list_o[i].get_name() == 'GtkButton':
+            if list_o[i].get_name() in  ('GtkButton', 'GtkLinkButton'):
                 if list_o[i].get_label() != None:
                     list_o[i].set_label(_(dict_o[Gtk.Buildable.get_name(list_o[i])]))
         except:

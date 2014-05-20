@@ -15,7 +15,7 @@ dict_weather_lang = {
     'lt': 'Lietuviškai',
     'md/ro': 'Română'
 }
-weather_lang_list = ('com', 'ru', 'ua/ua', 'lv', 'lt', 'md/ro', 'ua')
+weather_lang_list = ('com', 'ru', 'ua/ua', 'lv', 'lt', 'md/ro')
 
 # переменные, в которые записывается погода
 city_name = []       # Город

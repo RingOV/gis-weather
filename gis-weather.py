@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.5.96'
+v = '0.4.97'
 #  Copyright (C) 2013-2014 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -84,7 +84,7 @@ gw_config_default = {
     'max_try_show': 30,                # После этого количества попыток загрузочная заставка исчезнет, 0 - будет видна всегда
     'sticky': True,                    # На всех рабочих столах
     'show_bg_png': True,               # Если True, то в фоне картинка
-    'bg_custom': 'Light50',         # А вот, собственно, и она
+    'bg_custom': 'Light50',            # А вот, собственно, и она
     'margin': 20,                      # Отступ от всех сторон виджета
     'output_display': 0,               # Номер дисплея, в который выводится виджет (нумерация в терминале, * - выбранный дисплей)
     'high_wind': 10,                   # Ветер больше или равен этого значения выделяется цветом (-1 не выделять)
@@ -267,8 +267,14 @@ def check_updates():
         f = open(os.path.join(APP_PATH, 'package'),"r")
         package = f.readline().strip()
 
-    if package not in ('gz', 'deb', 'exe', 'rpm', 'aur'):
+    if package not in ('gz', 'deb', 'exe', 'rpm', 'aur', 'ppa'):
         print ('package = '+package)
+        return False
+
+    if package in ('aur', 'ppa'):
+        global check_for_updates
+        check_for_updates = 0
+        Save_Config()
         return False
 
     print ('> '+_('Check for new version')+' '+'(%s)'%package)

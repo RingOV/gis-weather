@@ -53,7 +53,7 @@ def restart(widget):
         if WIN:
             pass
         if os.path.exists(APP_PATH1):
-            subprocess.Popen(['python2', os.path.join(APP_PATH1, 'gis-weather.py')], stdout=subprocess.PIPE)
+            subprocess.Popen(['python3', os.path.join(APP_PATH1, 'gis-weather.py')], stdout=subprocess.PIPE)
             dialog.hide()
             Gtk.main_quit()
 

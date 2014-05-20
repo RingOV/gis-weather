@@ -60,7 +60,7 @@ else:
             "Type=Application\n"\
             "Terminal=false\n"\
             "Icon=%s\n"\
-            "Comment=Погодный виджет" % ('Gis Weather', delay, application, end, os.path.join(os.path.dirname(application),'icon.png'))
+            "Comment=%s" % ('Gis Weather', delay, application, end, os.path.join(os.path.dirname(application),'icon.png'), _("Weather widget"))
         with open(getfilename(name), "w") as f:
             f.write(desktop_entry)
 

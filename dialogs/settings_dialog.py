@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from gi.repository import Gtk, Pango, Gdk
-from utils import autorun, localization
+from utils import autorun, localization, desktop
 import os
 import json
 import sys
@@ -84,6 +84,9 @@ class settings():
         self.spinbutton_delay_start_time = self.ui.get_object('spinbutton_delay_start_time')
         self.spinbutton_delay_start_time.connect("value-changed", self.save_settings)
         self.label_delay_start_time = self.ui.get_object('label_delay_start_time')
+        self.label_add_icon = self.ui.get_object('label_add_icon')
+        self.switch_add_icon = self.ui.get_object('switch_add_icon')
+        self.switch_add_icon.connect("notify::active", self.set_desktop)
         
         self.clear_upd_time = self.ui.get_object('clear_upd_time')
         self.clear_upd_time.connect("clicked", self.clear_settings)
@@ -318,6 +321,13 @@ class settings():
         if autorun.exists("gis-weather"):
             self.switch_autostart.set_active(True)
 
+        if desktop.main_exists():
+            self.switch_add_icon.hide()
+            self.label_add_icon.hide()
+        else:
+            if desktop.exists():
+                self.switch_add_icon.set_active(True)
+
         self.liststore5.clear()
         for i in range(len(available_lang)):
             try:
@@ -380,9 +390,9 @@ class settings():
         drawing_area_set.redraw(False, False, load_config = True)
         if name == 'delay_start_time':
             if WIN:
-                autorun.add("gis-weather", os.path.join(work_path, 'gis-weather.exe'))
+                autorun.add("gis-weather", os.path.join(os.path.split(work_path)[0], 'gis-weather.exe'))
             else:
-                autorun.add("gis-weather", os.path.join(work_path, 'gis-weather.py'), gw_config_set['delay_start_time'])
+                autorun.add("gis-weather", os.path.join(os.path.split(work_path)[0], 'gis-weather.py'), gw_config_set['delay_start_time'])
 
     def clear_settings(self, widget):
         global gw_config_set
@@ -467,11 +477,21 @@ class settings():
             return
         if widget.get_active() == True:
             if WIN:
-                autorun.add("gis-weather", os.path.join(work_path, 'gis-weather.exe'))
+                autorun.add("gis-weather", os.path.join(os.path.split(work_path)[0], 'gis-weather.exe'))
             else:
-                autorun.add("gis-weather", os.path.join(work_path, 'gis-weather.py'), gw_config_set['delay_start_time'])
+                autorun.add("gis-weather", os.path.join(os.path.split(work_path)[0], 'gis-weather.py'), gw_config_set['delay_start_time'])
         else:
             autorun.remove("gis-weather")
+
+    def set_desktop(self, widget, event):
+        if state_lock:
+            return
+        if widget.get_active() == True:
+            desktop.create(os.path.join(os.path.split(work_path)[0], 'gis-weather.py'))
+        else:
+            desktop.remove()
+
+
 
 def main(gw_config_default, gw_config, drawing_area, app_gw, icons_list, backgrounds_list):
     global gw_config_default_set, gw_config_set, drawing_area_set, App_gw, icons_list_set, backgrounds_list_set
