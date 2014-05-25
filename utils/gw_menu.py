@@ -150,6 +150,14 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, icons
     menu_items.connect("activate", app.menu_response, 'setup')
     menu_items.show()
 
+    menu_items = Gtk.ImageMenuItem(_('Help'))
+    image = Gtk.Image()
+    image.set_from_stock(Gtk.STOCK_HELP, Gtk.IconSize.MENU)
+    menu_items.set_image(image)
+    menu.append(menu_items)
+    menu_items.connect("activate", app.menu_response, 'help')
+    menu_items.show()
+
     menu_items = Gtk.ImageMenuItem(_('About'))
     image = Gtk.Image()
     image.set_from_stock(Gtk.STOCK_ABOUT, Gtk.IconSize.MENU)

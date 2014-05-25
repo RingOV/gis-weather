@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.5.97'
+v = '0.4.99'
 #  Copyright (C) 2013-2014 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -21,7 +21,7 @@ from utils import localization
 localization.set()
 
 from gi.repository import Gtk, GObject, Pango, PangoCairo, Gdk, GdkPixbuf
-from dialogs import about_dialog, city_id_dialog, update_dialog, settings_dialog
+from dialogs import about_dialog, city_id_dialog, update_dialog, settings_dialog, help_dialog
 from services import gismeteo
 from utils import gw_menu
 import cairo
@@ -97,7 +97,8 @@ gw_config_default = {
     'app_lang': 'auto',
     'weather_lang': 'com',             # com, ru, ua/ua, lv, lt, md/ro
     'delay_start_time': 0,
-    'block_now_left': 0
+    'block_now_left': 0,
+    't_scale': 0                       # 0 - °C, 1 - °F
 }
 gw_config = {}
 for i in gw_config_default.keys():
@@ -218,6 +219,10 @@ icons_list = []
 backgrounds_list = []
 show_time_receive_local = False
 time_receive = None
+t_scale_dict = {
+    0: "°C",
+    1: "°F"
+}
 
 # переменные, в которые записывается погода
 weather = {
@@ -260,6 +265,12 @@ weather = {
 # Создаем переменные
 for i in weather.keys():
     globals()[i] = weather[i]
+
+def C_to_F(t_c):
+    t_f = str(round(int(t_c)*1.8+32))
+    if t_f[0] not in ('+', '-'):
+        t_f = "+"+t_f
+    return t_f
 
 def check_updates():
     package = 'gz'
@@ -318,7 +329,7 @@ def check_updates():
         print ('-'*40)
         global check_for_updates_local
         check_for_updates_local = False
-        update_dialog.show(v, new_v, CONFIG_PATH, APP_PATH, update_link, file_name, package)
+        update_dialog.create(v, new_v, CONFIG_PATH, APP_PATH, update_link, file_name, package)
     else:
         print ('> '+_('Current version is relevant'))
         print ('-'*40)
@@ -456,7 +467,11 @@ class MyDrawArea(Gtk.DrawingArea):
                 self.draw_text(_('weather received')+' '+time_receive, x-margin, x+8+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
             if city_name: self.draw_text(city_name[0], x+block_now_left, y, font+' Bold', 14, width, Pango.Alignment.CENTER)
             self.draw_scaled_icon(center-40+block_now_left, y+30, os.path.join(ICONS_PATH, icons_name, 'weather', icon_now[0]),80,80)
-            if t_now: self.draw_text(t_now[0]+'°', center-100+block_now_left, y+30, font+' Normal', 18, 60, Pango.Alignment.RIGHT)
+            if t_now:
+                t = t_now[0]
+                if t_scale == 1:
+                    t = C_to_F(t)
+                self.draw_text(t+'°', center-100+block_now_left, y+30, font+' Normal', 18, 60, Pango.Alignment.RIGHT)
             if text_now: self.draw_text(text_now[0], center-70+block_now_left, y+106, font+' Normal', 10, 140, Pango.Alignment.CENTER)
             
             if show_block_wind_direct:
@@ -537,7 +552,10 @@ class MyDrawArea(Gtk.DrawingArea):
                 else:
                     self.draw_scaled_image(x0, y0+line_height*3, os.path.join(ICONS_PATH, 'default', 't_water.png'), 16, 16)
                 if t_water_now:
-                    self.draw_text(t_water_now+"<span size='x-small'> °C %s</span>"%_("water"), x0+20, y0+line_height*3-1, font+' Normal', 12, 100,Pango.Alignment.LEFT)
+                    t = t_water_now
+                    if t_scale == 1:
+                        t = str(round(int(t)*1.8+32))
+                    self.draw_text(t+"<span size='x-small'> %s %s</span>"%(t_scale_dict[t_scale], _("water")), x0+20, y0+line_height*3-1, font+' Normal', 12, 100,Pango.Alignment.LEFT)
             
             if show_block_tomorrow:
                 ####-Блок погоды на завтра-####
@@ -559,9 +577,15 @@ class MyDrawArea(Gtk.DrawingArea):
                     self.draw_text(c[i], x0+a*((j+1)//2), y0+b*(i//2), font+' Bold', 7, 50,Pango.Alignment.LEFT, gradient=True)
                     if t_tomorrow:
                         if t_feel and t_tomorrow_feel:
-                            self.draw_text(t_tomorrow_feel[i]+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
+                            t = t_tomorrow_feel[i]
+                            if t_scale == 1:
+                                t = C_to_F(t)
+                            self.draw_text(t+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
                         else:
-                            self.draw_text(t_tomorrow[i]+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
+                            t = t_tomorrow[i]
+                            if t_scale == 1:
+                                t = C_to_F(t)
+                            self.draw_text(t+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
                     self.draw_scaled_icon(x0+32+a*((j+1)//2), y0+b*(i//2), os.path.join(ICONS_PATH, icons_name, 'weather', icon_tomorrow[i]), 28, 28)
                     if (wind_direct and wind_speed): 
                         if int(wind_speed_tom[i]) >= high_wind and high_wind != -1:
@@ -590,9 +614,15 @@ class MyDrawArea(Gtk.DrawingArea):
                     self.draw_text(c[i], x0+a*((j+1)//2), y0+b*(i//2), font+' Bold', 7, 50,Pango.Alignment.LEFT, gradient=True)
                     if t_tomorrow:
                         if t_feel and t_today_feel:
-                            self.draw_text(t_today_feel[i]+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
+                            t = t_today_feel[i]
+                            if t_scale == 1:
+                                t = C_to_F(t)
+                            self.draw_text(t+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
                         else:
-                            self.draw_text(t_today[i]+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
+                            t = t_today[i]
+                            if t_scale == 1:
+                                t = C_to_F(t)
+                            self.draw_text(t+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
                     self.draw_scaled_icon(x0+32+a*((j+1)//2), y0+b*(i//2), os.path.join(ICONS_PATH, icons_name, 'weather', icon_today[i]), 28, 28)
                     if (wind_direct and wind_speed): 
                         if int(wind_speed_tod[i]) >= high_wind and high_wind != -1:
@@ -616,11 +646,27 @@ class MyDrawArea(Gtk.DrawingArea):
                     self.draw_text(day[index]+', '+date[index], x, y-2, font+' Bold', 9, w_block,Pango.Alignment.LEFT)
             self.cr.set_source_rgba(color_text[0], color_text[1], color_text[2], color_text[3])
             if t_feel:
-                if t_day_feel: self.draw_text(t_day_feel[index]+'°', x, y+15, font+' Normal', 10, w_block-45,Pango.Alignment.LEFT)
-                if t_night_feel: self.draw_text(t_night_feel[index]+'°', x, y+30, font+' Normal', 8, w_block-45,Pango.Alignment.LEFT)
+                if t_day_feel:
+                    t = t_day_feel[index]
+                    if t_scale == 1:
+                        t = C_to_F(t)
+                    self.draw_text(t+'°', x, y+15, font+' Normal', 10, w_block-45,Pango.Alignment.LEFT)
+                if t_night_feel:
+                    t = t_night_feel[index]
+                    if t_scale == 1:
+                        t = C_to_F(t)
+                    self.draw_text(t+'°', x, y+30, font+' Normal', 8, w_block-45,Pango.Alignment.LEFT)
             else:
-                if t_day: self.draw_text(t_day[index]+'°', x, y+15, font+' Normal', 10, w_block-45,Pango.Alignment.LEFT)
-                if t_night: self.draw_text(t_night[index]+'°', x, y+30, font+' Normal', 8, w_block-45,Pango.Alignment.LEFT)
+                if t_day:
+                    t = t_day[index]
+                    if t_scale == 1:
+                        t = C_to_F(t)
+                    self.draw_text(t+'°', x, y+15, font+' Normal', 10, w_block-45,Pango.Alignment.LEFT)
+                if t_night:
+                    t = t_night[index]
+                    if t_scale == 1:
+                        t = C_to_F(t)
+                    self.draw_text(t+'°', x, y+30, font+' Normal', 8, w_block-45,Pango.Alignment.LEFT)
             if (wind_direct and wind_speed): 
                 if int(wind_speed[index]) >= high_wind and high_wind != -1:
                     self.draw_text(wind_direct[index]+', '+wind_speed[index]+' '+_('m/s'), x, y+50, font+' Normal', 8, 80,Pango.Alignment.LEFT, color_high_wind)
@@ -842,6 +888,8 @@ class Weather_Widget:
 
 
     def menu_response(self, widget, event, value=None):
+        if event == 'help':
+            help_dialog.create(APP_PATH)
         if event == 'about':
             about = about_dialog.create(v, APP_PATH)
             about.run()

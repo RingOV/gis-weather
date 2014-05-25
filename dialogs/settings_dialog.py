@@ -64,6 +64,9 @@ class settings():
         # General
         self.spinbutton_upd_time = self.ui.get_object('spinbutton_upd_time')
         self.spinbutton_upd_time.connect("value-changed", self.save_settings)
+        self.combobox_t_scale = self.ui.get_object('combobox_t_scale')
+        self.combobox_t_scale.connect("changed", self.save_settings)
+        self.liststore7 = self.ui.get_object('liststore7')
         self.switch_t_feel = self.ui.get_object('switch_t_feel')
         self.switch_t_feel.connect("notify::active", self.save_settings)
         self.switch_fix_BadDrawable = self.ui.get_object('switch_fix_BadDrawable')
@@ -90,6 +93,8 @@ class settings():
         
         self.clear_upd_time = self.ui.get_object('clear_upd_time')
         self.clear_upd_time.connect("clicked", self.clear_settings)
+        self.clear_t_scale = self.ui.get_object('clear_t_scale')
+        self.clear_t_scale.connect("clicked", self.clear_settings)
         self.clear_t_feel = self.ui.get_object('clear_t_feel')
         self.clear_t_feel.connect("clicked", self.clear_settings)
         self.clear_fix_BadDrawable = self.ui.get_object('clear_fix_BadDrawable')
@@ -270,6 +275,10 @@ class settings():
         self.liststore2.append([_('Only background')])
         self.liststore2.append([_('Yes')])
 
+        self.liststore7.clear()
+        self.liststore7.append(['°C'])
+        self.liststore7.append(['°F'])
+
         self.load(self.spinbutton_upd_time)
         self.load(self.switch_t_feel)
         self.load(self.switch_fix_BadDrawable)
@@ -293,6 +302,7 @@ class settings():
         self.load(self.switch_show_time_receive)
         self.load(self.combobox_check_for_updates)
         self.load(self.combobox_show_splash_screen)
+        self.load(self.combobox_t_scale)
         self.load(self.spinbutton_max_try_show)
         self.fontbutton_font.set_font_name(gw_config_set['font'])
         self.load(self.colorbutton_color_text)

@@ -289,6 +289,12 @@
     <property name="stock">gtk-clear</property>
     <property name="icon_size">1</property>
   </object>
+  <object class="GtkImage" id="image6">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-clear</property>
+    <property name="icon_size">1</property>
+  </object>
   <object class="GtkImage" id="image7">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -338,6 +344,12 @@
     </columns>
   </object>
   <object class="GtkListStore" id="liststore6">
+    <columns>
+      <!-- column-name gchararray1 -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
+  <object class="GtkListStore" id="liststore7">
     <columns>
       <!-- column-name gchararray1 -->
       <column type="gchararray"/>
@@ -434,7 +446,7 @@
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">2</property>
+                    <property name="top_attach">3</property>
                     <property name="width">1</property>
                     <property name="height">1</property>
                   </packing>
@@ -449,7 +461,7 @@
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">3</property>
+                    <property name="top_attach">4</property>
                     <property name="width">1</property>
                     <property name="height">1</property>
                   </packing>
@@ -461,23 +473,8 @@
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">5</property>
-                    <property name="width">3</property>
-                    <property name="height">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkLabel" id="label8">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="hexpand">True</property>
-                    <property name="xalign">0</property>
-                    <property name="label" translatable="yes">Fix BadDrawable error</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">0</property>
                     <property name="top_attach">6</property>
-                    <property name="width">1</property>
+                    <property name="width">3</property>
                     <property name="height">1</property>
                   </packing>
                 </child>
@@ -587,7 +584,7 @@
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
-                    <property name="top_attach">2</property>
+                    <property name="top_attach">3</property>
                     <property name="width">1</property>
                     <property name="height">1</property>
                   </packing>
@@ -607,20 +604,7 @@
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
-                    <property name="top_attach">3</property>
-                    <property name="width">1</property>
-                    <property name="height">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkSwitch" id="switch_fix_BadDrawable">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="halign">end</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="top_attach">6</property>
+                    <property name="top_attach">4</property>
                     <property name="width">1</property>
                     <property name="height">1</property>
                   </packing>
@@ -673,6 +657,7 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">end</property>
+                    <property name="valign">center</property>
                     <property name="image">image2</property>
                     <property name="always_show_image">True</property>
                   </object>
@@ -689,23 +674,8 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">end</property>
+                    <property name="valign">center</property>
                     <property name="image">image3</property>
-                    <property name="always_show_image">True</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">2</property>
-                    <property name="top_attach">2</property>
-                    <property name="width">1</property>
-                    <property name="height">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkButton" id="clear_check_for_updates">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                    <property name="halign">end</property>
-                    <property name="image">image4</property>
                     <property name="always_show_image">True</property>
                   </object>
                   <packing>
@@ -716,17 +686,18 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton" id="clear_fix_BadDrawable">
+                  <object class="GtkButton" id="clear_check_for_updates">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">end</property>
-                    <property name="image">image5</property>
+                    <property name="valign">center</property>
+                    <property name="image">image4</property>
                     <property name="always_show_image">True</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
-                    <property name="top_attach">6</property>
+                    <property name="top_attach">4</property>
                     <property name="width">1</property>
                     <property name="height">1</property>
                   </packing>
@@ -737,6 +708,7 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">end</property>
+                    <property name="valign">center</property>
                     <property name="image">image7</property>
                     <property name="always_show_image">True</property>
                   </object>
@@ -798,7 +770,7 @@
                     <property name="halign">end</property>
                     <property name="relief">none</property>
                     <property name="focus_on_click">False</property>
-                    <property name="uri">mailto:ringov.gisweather@gmail.com</property>
+                    <property name="uri">mailto:ringov.gisweather@gmail.com?subject=Localization</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -847,7 +819,7 @@
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">4</property>
+                    <property name="top_attach">5</property>
                     <property name="width">1</property>
                     <property name="height">1</property>
                   </packing>
@@ -860,7 +832,59 @@
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
-                    <property name="top_attach">4</property>
+                    <property name="top_attach">5</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label53">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="vexpand">True</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">Temperature</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">2</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkComboBox" id="combobox_t_scale">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="halign">end</property>
+                    <property name="model">liststore7</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellrenderertext7"/>
+                      <attributes>
+                        <attribute name="text">0</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">2</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="clear_t_scale">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">end</property>
+                    <property name="valign">center</property>
+                    <property name="image">image6</property>
+                    <property name="always_show_image">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="top_attach">2</property>
                     <property name="width">1</property>
                     <property name="height">1</property>
                   </packing>
@@ -1095,6 +1119,7 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">end</property>
+                    <property name="valign">center</property>
                     <property name="image">image8</property>
                     <property name="always_show_image">True</property>
                   </object>
@@ -1111,6 +1136,7 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">end</property>
+                    <property name="valign">center</property>
                     <property name="image">image9</property>
                     <property name="always_show_image">True</property>
                   </object>
@@ -1127,6 +1153,7 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">end</property>
+                    <property name="valign">center</property>
                     <property name="image">image10</property>
                     <property name="always_show_image">True</property>
                   </object>
@@ -1143,6 +1170,7 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">end</property>
+                    <property name="valign">center</property>
                     <property name="image">image11</property>
                     <property name="always_show_image">True</property>
                   </object>
@@ -1159,6 +1187,7 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">end</property>
+                    <property name="valign">center</property>
                     <property name="image">image12</property>
                     <property name="always_show_image">True</property>
                   </object>
@@ -1175,12 +1204,58 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">end</property>
+                    <property name="valign">center</property>
                     <property name="image">image13</property>
                     <property name="always_show_image">True</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
                     <property name="top_attach">5</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label8">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="hexpand">True</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">Fix BadDrawable error</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">6</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkSwitch" id="switch_fix_BadDrawable">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="halign">end</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">6</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="clear_fix_BadDrawable">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">end</property>
+                    <property name="valign">center</property>
+                    <property name="image">image5</property>
+                    <property name="always_show_image">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="top_attach">6</property>
                     <property name="width">1</property>
                     <property name="height">1</property>
                   </packing>
@@ -1300,6 +1375,7 @@
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
                                     <property name="halign">end</property>
+                                    <property name="valign">center</property>
                                     <property name="image">image14</property>
                                     <property name="always_show_image">True</property>
                                   </object>
@@ -1316,6 +1392,7 @@
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
                                     <property name="halign">end</property>
+                                    <property name="valign">center</property>
                                     <property name="image">image15</property>
                                     <property name="always_show_image">True</property>
                                   </object>
@@ -1431,6 +1508,7 @@
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
                                     <property name="halign">end</property>
+                                    <property name="valign">center</property>
                                     <property name="image">image16</property>
                                     <property name="always_show_image">True</property>
                                   </object>
@@ -1447,6 +1525,7 @@
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
                                     <property name="halign">end</property>
+                                    <property name="valign">center</property>
                                     <property name="image">image17</property>
                                     <property name="always_show_image">True</property>
                                   </object>
@@ -1563,6 +1642,7 @@
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
                                     <property name="halign">end</property>
+                                    <property name="valign">center</property>
                                     <property name="image">image18</property>
                                     <property name="always_show_image">True</property>
                                   </object>
@@ -1579,6 +1659,7 @@
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
                                     <property name="halign">end</property>
+                                    <property name="valign">center</property>
                                     <property name="image">image19</property>
                                     <property name="always_show_image">True</property>
                                   </object>
@@ -1695,6 +1776,7 @@
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
                                     <property name="halign">end</property>
+                                    <property name="valign">center</property>
                                     <property name="image">image20</property>
                                     <property name="always_show_image">True</property>
                                   </object>
@@ -1711,6 +1793,7 @@
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
                                     <property name="halign">end</property>
+                                    <property name="valign">center</property>
                                     <property name="image">image21</property>
                                     <property name="always_show_image">True</property>
                                   </object>
@@ -1784,6 +1867,7 @@
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
                                     <property name="halign">end</property>
+                                    <property name="valign">center</property>
                                     <property name="image">image22</property>
                                     <property name="always_show_image">True</property>
                                   </object>
@@ -1800,6 +1884,7 @@
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">True</property>
                                     <property name="halign">end</property>
+                                    <property name="valign">center</property>
                                     <property name="image">image23</property>
                                     <property name="always_show_image">True</property>
                                   </object>
@@ -1956,6 +2041,7 @@
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="halign">end</property>
+                                <property name="valign">center</property>
                                 <property name="image">image24</property>
                                 <property name="always_show_image">True</property>
                               </object>
@@ -1972,6 +2058,7 @@
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="halign">end</property>
+                                <property name="valign">center</property>
                                 <property name="image">image25</property>
                                 <property name="always_show_image">True</property>
                               </object>
@@ -1988,6 +2075,7 @@
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="halign">end</property>
+                                <property name="valign">center</property>
                                 <property name="image">image26</property>
                                 <property name="always_show_image">True</property>
                               </object>
@@ -2004,6 +2092,7 @@
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="halign">end</property>
+                                <property name="valign">center</property>
                                 <property name="image">image27</property>
                                 <property name="always_show_image">True</property>
                               </object>
@@ -2148,6 +2237,7 @@
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="halign">end</property>
+                                <property name="valign">center</property>
                                 <property name="image">image28</property>
                                 <property name="always_show_image">True</property>
                               </object>
@@ -2164,6 +2254,7 @@
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="halign">end</property>
+                                <property name="valign">center</property>
                                 <property name="image">image29</property>
                                 <property name="always_show_image">True</property>
                               </object>
@@ -2210,6 +2301,7 @@
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="halign">end</property>
+                                <property name="valign">center</property>
                                 <property name="image">image30</property>
                                 <property name="always_show_image">True</property>
                               </object>
@@ -2226,6 +2318,7 @@
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="halign">end</property>
+                                <property name="valign">center</property>
                                 <property name="image">image31</property>
                                 <property name="always_show_image">True</property>
                               </object>
@@ -2332,6 +2425,7 @@
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="halign">end</property>
+                                <property name="valign">center</property>
                                 <property name="image">image36</property>
                                 <property name="always_show_image">True</property>
                               </object>
@@ -2348,6 +2442,7 @@
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="halign">end</property>
+                                <property name="valign">center</property>
                                 <property name="image">image37</property>
                                 <property name="always_show_image">True</property>
                               </object>
@@ -2364,6 +2459,7 @@
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="halign">end</property>
+                                <property name="valign">center</property>
                                 <property name="image">image38</property>
                                 <property name="always_show_image">True</property>
                               </object>
@@ -2524,6 +2620,7 @@
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="halign">end</property>
+                                <property name="valign">center</property>
                                 <property name="image">image32</property>
                                 <property name="always_show_image">True</property>
                               </object>
@@ -2540,6 +2637,7 @@
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="halign">end</property>
+                                <property name="valign">center</property>
                                 <property name="image">image33</property>
                                 <property name="always_show_image">True</property>
                               </object>
@@ -2601,6 +2699,7 @@
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="halign">end</property>
+                                <property name="valign">center</property>
                                 <property name="image">image34</property>
                                 <property name="always_show_image">True</property>
                               </object>
@@ -2617,6 +2716,7 @@
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="halign">end</property>
+                                <property name="valign">center</property>
                                 <property name="image">image35</property>
                                 <property name="always_show_image">True</property>
                               </object>
@@ -2745,6 +2845,7 @@
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="halign">end</property>
+                                <property name="valign">center</property>
                                 <property name="image">image40</property>
                                 <property name="always_show_image">True</property>
                               </object>
