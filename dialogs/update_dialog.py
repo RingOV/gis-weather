@@ -116,17 +116,16 @@ def create(v, new_ver, CONFIG_PATH, APP_PATH, update_link, file_name, package):
             while Gtk.events_pending():
                 Gtk.main_iteration_do(True)
             if package == 'gz':
-                # cmd_line = 'tar -xzf "%s" -C "%s" --strip=1'%(_file, APP_PATH)
-                # args = shlex.split(cmd_line)
-                # p = subprocess.Popen(args, stdout=subprocess.PIPE)
-                # out, err = p.communicate()
-                # out = 'OK'
+                cmd_line = 'tar -xzf "%s" -C "%s" --strip=1'%(_file, APP_PATH)
+                args = shlex.split(cmd_line)
+                p = subprocess.Popen(args, stdout=subprocess.PIPE)
+                out, err = p.communicate()
                 out = 'OK'
-                err = 'None'
-                print ("GZ")
             else:
                 if package == 'deb':
-                    p = subprocess.Popen(['pkexec', 'dpkg -i "%s"' %_file], stdout=subprocess.PIPE)
+                    cmd_line = 'pkexec dpkg -i "%s"' %_file
+                    args = shlex.split(cmd_line)
+                    p = subprocess.Popen(args, stdout=subprocess.PIPE)
                     out, err = p.communicate()
                 else:
                     if package == 'rpm':
