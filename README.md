@@ -16,6 +16,10 @@ Customizable weather widget
 - "Compass" with the wind direction, with adjustable angle of rotation
 - Highlighting the high wind
 
+### **How to Run**
+
+`python3 gis-weather.py`
+
 =
 
 ### **Feedback**
