@@ -876,12 +876,9 @@ class Weather_Widget:
 
     def screenshot(self, left, top, width, height):
         w = Gdk.get_default_root_window()
-        #sz = w.get_size()
-        #print "The size of the window is %d x %d" % sz
-        pb = GdkPixbuf.Pixbuf(GdkPixbuf.Colorspace.RGB,True,8,width,height)
-        pb = pb.get_from_drawable(w,w.get_colormap(),left,top,0,0,width,height)
+        pb = Gdk.pixbuf_get_from_window(w,left,top,width,height)
         if (pb != None):
-            pb.save(os.path.join(CONFIG_PATH, "screenshot.png"),"png")
+            pb.savev(os.path.join(CONFIG_PATH, "screenshot.png"),"png", (), ())
             print (_("Screenshot saved to")+' '+os.path.join(CONFIG_PATH, "screenshot.png"))
         else:
             print (_("Unable to get the screenshot"))
@@ -1045,15 +1042,6 @@ class Weather_Widget:
             self.drawing_area.queue_draw()
 
     def screen_changed(self, widget, old_screen = None):
-        # screen = widget.get_screen()
-        # colormap = screen.get_rgba_colormap()
-        # if colormap == None or not widget.is_composited():
-        #     print (_('Your screen does not support alpha'))
-        #     colormap = screen.get_rgb_colormap()
-        # else:
-        #     print (_('Your screen supports alpha'))
-        # widget.set_colormap(colormap)
-        # return True
         screen = widget.get_screen()
         visual = screen.get_rgba_visual()
         if visual == None or not widget.is_composited():
@@ -1063,9 +1051,6 @@ class Weather_Widget:
             print (_('Your screen supports alpha'))
             widget.set_visual(visual)
         return True
-        # if self.visual != None and self.screen.is_composited():
-        #     print "yay"
-        #     widget.set_visual(visual)
 
 #--------------------------------------------------------------------------------
 
