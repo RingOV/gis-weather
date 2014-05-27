@@ -1046,10 +1046,9 @@ class Weather_Widget:
         visual = screen.get_rgba_visual()
         if visual == None or not widget.is_composited():
             print (_('Your screen does not support alpha'))
-            widget.set_visual(screen.get_rgb_visual())
         else:
             print (_('Your screen supports alpha'))
-            widget.set_visual(visual)
+        widget.set_visual(visual)
         return True
 
 #--------------------------------------------------------------------------------
