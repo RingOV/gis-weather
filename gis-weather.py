@@ -483,7 +483,7 @@ class MyDrawArea(Gtk.DrawingArea):
                 font_NS = 8 # шрифт сторон горизонта
                 font_wind = 10
                 if wind_direct_small:
-                    left = block_wind_direct_left+90#-85
+                    left = block_now_left-90#-85
                     top = y + 55 #75 + margin
                     r = 16    #радиус окружности
                     a = 20     #ширина и высота стрелки (a < 2*r)
@@ -958,7 +958,8 @@ class Weather_Widget:
 
     def show_edit_dialog(self):
         global city_id, city_id_add
-        dialog, entrybox, treeview, bar_err, bar_ok, bar_label = city_id_dialog.create(self.window_main, city_id, city_id_add, APP_PATH);
+        dialog, entrybox, treeview, bar_err, bar_ok, bar_label, combobox_weather_lang, weather_lang_list = city_id_dialog.create(self.window_main, city_id, city_id_add, APP_PATH, weather_lang);
+        combobox_weather_lang.connect("changed", self.set_weather_lang, weather_lang_list)
         dialog.show_all()
         response = dialog.run()
 
@@ -1011,6 +1012,11 @@ class Weather_Widget:
         dialog.hide()
         return True
 
+    def set_weather_lang(self, widget, weather_lang_list):
+        global weather_lang
+        i = widget.get_active()
+        weather_lang = weather_lang_list[i]
+        Save_Config()
 
 #---------------------- Обработчики событий окна --------------------------------
     def button_press(self, widget, event):

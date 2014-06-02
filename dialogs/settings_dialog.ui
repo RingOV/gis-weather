@@ -385,6 +385,7 @@
                 <property name="label" translatable="yes">Close</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="has_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="image">image1</property>
               </object>
@@ -1308,7 +1309,7 @@
                       <object class="GtkGrid" id="grid14">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="row_spacing">12</property>
+                        <property name="row_spacing">9</property>
                         <child>
                           <object class="GtkFrame" id="frame2">
                             <property name="visible">True</property>
@@ -1614,7 +1615,6 @@
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="halign">end</property>
-                                        <property name="text" translatable="yes">0</property>
                                         <property name="adjustment">adjustment16</property>
                                       </object>
                                       <packing>

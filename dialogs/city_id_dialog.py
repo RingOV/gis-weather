@@ -5,7 +5,9 @@ import os
 from utils import localization
 from services import gismeteo
 
-def create(window, city_id, city_id_add, APP_PATH):
+CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
+
+def create(window, city_id, city_id_add, APP_PATH, weather_lang):
 
     ui = Gtk.Builder()
     ui.add_from_file(os.path.join(APP_PATH, "dialogs","city_id_dialog.ui"))
@@ -40,7 +42,19 @@ def create(window, city_id, city_id_add, APP_PATH):
     for item in city_id_add:
         store.append([item.split(';')[0], item.split(';')[1]])
 
-    return dialog, entrybox, treeView, bar_err, bar_ok, bar_label
+    dict_weather_lang = gismeteo.dict_weather_lang
+    weather_lang_list = gismeteo.weather_lang_list
+    liststore2 = ui.get_object('liststore2')
+    combobox_weather_lang = ui.get_object('combobox_weather_lang')
+    for i in range(len(weather_lang_list)):
+        try:
+            liststore2.append([dict_weather_lang[weather_lang_list[i]]])
+        except:
+            liststore2.append([weather_lang_list[i]])
+        if weather_lang_list[i] == weather_lang:
+            combobox_weather_lang.set_active(i)
+
+    return dialog, entrybox, treeView, bar_err, bar_ok, bar_label, combobox_weather_lang, weather_lang_list
 
 def create_columns(treeView):
 
