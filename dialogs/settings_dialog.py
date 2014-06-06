@@ -24,8 +24,10 @@ gw_config_set = {}
 drawing_area_set = None
 state_lock = True
 App_gw = None
-icons_list_set = [] 
+icons_list_set = []
 backgrounds_list_set = []
+BGS_PATH_SET = None
+ICONS_PATH_SET = None
 
 dict_weather_lang = gismeteo.dict_weather_lang
 
@@ -323,13 +325,21 @@ class settings():
 
         self.liststore3.clear()
         for i in range(len(icons_list_set)):
-            self.liststore3.append([icons_list_set[i]])
+            author = ""
+            if os.path.exists(os.path.join(ICONS_PATH_SET, icons_list_set[i], 'author')):
+                f = open(os.path.join(ICONS_PATH_SET, icons_list_set[i], 'author'),"r")
+                author = "\n"+"<i>"+_('Author')+": "+f.readline().strip()+"</i>"
+            self.liststore3.append(["<b>"+icons_list_set[i]+"</b>"+author])
             if icons_list_set[i] == gw_config_set['icons_name']: 
                 self.combobox_icons_name.set_active(i)
 
         self.liststore4.clear()
         for i in range(len(backgrounds_list_set)):
-            self.liststore4.append([backgrounds_list_set[i]])
+            author = ""
+            if os.path.exists(os.path.join(BGS_PATH_SET, backgrounds_list_set[i], 'author')):
+                f = open(os.path.join(BGS_PATH_SET, backgrounds_list_set[i], 'author'),"r")
+                author = "\n"+"<i>"+_('Author')+": "+f.readline().strip()+"</i>"
+            self.liststore4.append(["<b>"+backgrounds_list_set[i]+"</b>"+author])
             if backgrounds_list_set[i] == gw_config_set['bg_custom']: 
                 self.combobox_bg_custom.set_active(i)
 
@@ -508,13 +518,15 @@ class settings():
 
 
 
-def main(gw_config_default, gw_config, drawing_area, app_gw, icons_list, backgrounds_list):
-    global gw_config_default_set, gw_config_set, drawing_area_set, App_gw, icons_list_set, backgrounds_list_set
+def main(gw_config_default, gw_config, drawing_area, app_gw, icons_list, backgrounds_list, ICONS_PATH, BGS_PATH):
+    global gw_config_default_set, gw_config_set, drawing_area_set, App_gw, icons_list_set, backgrounds_list_set, ICONS_PATH_SET, BGS_PATH_SET
     for i in gw_config_default.keys():
         gw_config_default_set[i] = gw_config_default[i]
     for i in gw_config.keys():
         gw_config_set[i] = gw_config[i]
 
+    ICONS_PATH_SET = ICONS_PATH
+    BGS_PATH_SET = BGS_PATH
     icons_list_set = []
     backgrounds_list_set = []
     icons_list_set.append('default')

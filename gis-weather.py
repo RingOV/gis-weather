@@ -404,7 +404,7 @@ class MyDrawArea(Gtk.DrawingArea):
             self.splash_screen()
             return
         if get_weather_bool:
-            weather1 = gismeteo.get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, timer_bool, weather_lang)
+            weather1 = gismeteo.get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, timer_bool, weather_lang, icons_name)
             if weather1:
                 time_receive = time.strftime('%H:%M', time.localtime())
                 err_connect = False
@@ -466,7 +466,7 @@ class MyDrawArea(Gtk.DrawingArea):
                 if time_update: self.draw_text(_('updated on server')+' '+time_update[0], x-margin, x+18+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
                 self.draw_text(_('weather received')+' '+time_receive, x-margin, x+8+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
             if city_name: self.draw_text(city_name[0], x+block_now_left, y, font+' Bold', 14, width, Pango.Alignment.CENTER)
-            self.draw_scaled_icon(center-40+block_now_left, y+30, os.path.join(ICONS_PATH, icons_name, 'weather', icon_now[0]),80,80)
+            self.draw_scaled_icon(center-40+block_now_left, y+30, icon_now[0],80,80)
             if t_now:
                 t = t_now[0]
                 if t_scale == 1:
@@ -586,7 +586,7 @@ class MyDrawArea(Gtk.DrawingArea):
                             if t_scale == 1:
                                 t = C_to_F(t)
                             self.draw_text(t+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
-                    self.draw_scaled_icon(x0+32+a*((j+1)//2), y0+b*(i//2), os.path.join(ICONS_PATH, icons_name, 'weather', icon_tomorrow[i]), 28, 28)
+                    self.draw_scaled_icon(x0+32+a*((j+1)//2), y0+b*(i//2), icon_tomorrow[i], 28, 28)
                     if (wind_direct and wind_speed): 
                         if int(wind_speed_tom[i]) >= high_wind and high_wind != -1:
                             self.draw_text(wind_direct_tom[i]+', '+wind_speed_tom[i]+' '+_('m/s'), x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 50,Pango.Alignment.LEFT, color_high_wind)
@@ -623,7 +623,7 @@ class MyDrawArea(Gtk.DrawingArea):
                             if t_scale == 1:
                                 t = C_to_F(t)
                             self.draw_text(t+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
-                    self.draw_scaled_icon(x0+32+a*((j+1)//2), y0+b*(i//2), os.path.join(ICONS_PATH, icons_name, 'weather', icon_today[i]), 28, 28)
+                    self.draw_scaled_icon(x0+32+a*((j+1)//2), y0+b*(i//2), icon_today[i], 28, 28)
                     if (wind_direct and wind_speed): 
                         if int(wind_speed_tod[i]) >= high_wind and high_wind != -1:
                             self.draw_text(wind_direct_tod[i]+', '+wind_speed_tod[i]+' '+_('m/s'), x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 50,Pango.Alignment.LEFT, color_high_wind)
@@ -638,7 +638,7 @@ class MyDrawArea(Gtk.DrawingArea):
                 if math.fabs(int(t_day_feel[index])) < 10: a = 20
             else:
                 if math.fabs(int(t_day[index])) < 10: a = 20
-            self.draw_scaled_icon(x+a, y+16, os.path.join(ICONS_PATH, icons_name, 'weather', icon[index]), 36, 36)
+            self.draw_scaled_icon(x+a, y+16, icon[index], 36, 36)
             if (day and date): 
                 if day[index] in weekend:
                     self.draw_text(day[index]+', '+date[index], x, y-2, font+' Bold', 9, w_block,Pango.Alignment.LEFT, color_text_week)
@@ -745,58 +745,60 @@ class MyDrawArea(Gtk.DrawingArea):
 
     def draw_scaled_icon(self, x, y, pix, w, h):
         if icons_name == 'default':
-            pix = os.path.join(ICONS_USER_PATH, 'default', 'weather', os.path.split(pix)[1])
-        if icons_name == 'default' and not os.path.exists(pix):
-            try:
-                print ('> '+_('downloading')+' '+os.path.split(pix)[1]+' ('+'http://st8.gisstatic.ru/static/images/icons/new/'+os.path.split(pix)[1]+')')
-                urlretrieve('http://st8.gisstatic.ru/static/images/icons/new/'+os.path.split(pix)[1], pix)
-            except:
-                print (_('Unable to download')+' '+'http://st8.gisstatic.ru/static/images/icons/new/'+os.path.split(pix)[1])
-            if not os.path.exists(pix):
-                pix = os.path.join(THEMES_PATH, 'na.png')
-            self.draw_scaled_image(x, y, pix, w, h)
-            return
-        
-        if not os.path.exists(pix):
-            pix_convert = pix.split('.')
-            for i in range(2, 5):
+            pix = pix.split(';')[0]
+            pix_path = os.path.join(ICONS_USER_PATH, 'default', 'weather', os.path.split(pix)[1])
+            if not os.path.exists(pix_path):
                 try:
-                    a = int(pix_convert[-i][1])
-                    a = (a+1)//2+(a+1)//2
-                    pix_convert[-i] = pix_convert[-i][0]+str(a) # вместо четырех состояний, делаем два: 2 и 4
+                    print ('> '+_('downloading')+' '+os.path.split(pix)[1]+' ('+pix+')')
+                    urlretrieve(pix, pix_path)
                 except:
-                    pass    
-            pix = '.'.join(pix_convert)
+                    print (_('Unable to download')+' '+pix)
+                if not os.path.exists(pix_path):
+                    pix_path = os.path.join(THEMES_PATH, 'na.png')
+                self.draw_scaled_image(x, y, pix_path, w, h)
+                return
+        else:
+            pix = pix.split(';')[1]
+        # if not os.path.exists(pix):
+        #     pix_convert = pix.split('.')
+        #     for i in range(2, 5):
+        #         try:
+        #             a = int(pix_convert[-i][1])
+        #             a = (a+1)//2+(a+1)//2
+        #             pix_convert[-i] = pix_convert[-i][0]+str(a) # вместо четырех состояний, делаем два: 2 и 4
+        #         except:
+        #             pass    
+        #     pix = '.'.join(pix_convert)
             
-            pix_convert = os.path.split(pix)
-            pix_convert = pix_convert[1].split('.')
-            if pix_convert[2] == 'c4': # за тучами не видно: солнце там или луна (иконки только для солнца)
-                pix_convert[0] = 'd'
-                pix_convert[1] = 'sun'
-            if pix_convert[-2] == 'st' and pix_convert[-3] == 'r4': #гроза и дождь 2 и 4 - одинаковая иконка
-                pix_convert[-3] = 'r2'
-            if pix_convert[-3] == 'c2' and pix_convert[-2] != 'st': #при облаках c2 дождь 2 и 4 одинаковый
-                pix_convert[-2] = pix_convert[-2][0] +'2'
-            if pix_convert[1] == 'mist' and pix_convert[2] != 'png':
-                pix_convert[0] = 'd.sun'
-                pix_convert[1] = 'c4'
+        #     pix_convert = os.path.split(pix)
+        #     pix_convert = pix_convert[1].split('.')
+        #     if pix_convert[2] == 'c4': # за тучами не видно: солнце там или луна (иконки только для солнца)
+        #         pix_convert[0] = 'd'
+        #         pix_convert[1] = 'sun'
+        #     if pix_convert[-2] == 'st' and pix_convert[-3] == 'r4': #гроза и дождь 2 и 4 - одинаковая иконка
+        #         pix_convert[-3] = 'r2'
+        #     if pix_convert[-3] == 'c2' and pix_convert[-2] != 'st': #при облаках c2 дождь 2 и 4 одинаковый
+        #         pix_convert[-2] = pix_convert[-2][0] +'2'
+        #     if pix_convert[1] == 'mist' and pix_convert[2] != 'png':
+        #         pix_convert[0] = 'd.sun'
+        #         pix_convert[1] = 'c4'
             
-            pix = os.path.join(ICONS_PATH, icons_name, 'weather', '.'.join(pix_convert))
+            pix_path = os.path.join(ICONS_PATH, icons_name, 'weather', pix)
             
             
-            if not os.path.exists(pix):
-                pix = os.path.join(ICONS_USER_PATH, icons_name, 'weather', '.'.join(pix_convert))
-                if not os.path.exists(pix):
-                    print ('[!] '+_('not found icon')+':\n> '+os.path.join(icons_name, 'weather', '.'.join(pix_convert)))
+            if not os.path.exists(pix_path):
+                pix_path = os.path.join(ICONS_USER_PATH, icons_name, 'weather', pix)
+                if not os.path.exists(pix_path):
+                    print ('[!] '+_('not found icon')+':\n> '+pix_path)
                     if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'weather', 'na.png')):
-                        pix = os.path.join(ICONS_PATH, icons_name, 'weather', 'na.png')
+                        pix_path = os.path.join(ICONS_PATH, icons_name, 'weather', 'na.png')
                     else:
                         if os.path.exists(os.path.join(ICONS_USER_PATH, icons_name, 'weather', 'na.png')):
-                            pix = os.path.join(ICONS_USER_PATH, icons_name, 'weather', 'na.png')
+                            pix_path = os.path.join(ICONS_USER_PATH, icons_name, 'weather', 'na.png')
                         else:
-                            pix = os.path.join(THEMES_PATH, 'na.png')
+                            pix_path = os.path.join(THEMES_PATH, 'na.png')
             
-        self.draw_scaled_image(x, y, pix, w, h)
+        self.draw_scaled_image(x, y, pix_path, w, h)
     
     def draw_scaled_image(self, x, y, pix, w, h, ang = 0):
         self.cr.save()
@@ -915,7 +917,7 @@ class Weather_Widget:
                 self.window_main.stick()
             Save_Config()
         if event == 'setup':
-            settings_dialog.main(gw_config_default, gw_config, self.drawing_area, app, icons_list, backgrounds_list)
+            settings_dialog.main(gw_config_default, gw_config, self.drawing_area, app, icons_list, backgrounds_list, ICONS_PATH, BGS_PATH)
         if event == 'redraw_icons':
             global icons_name
             icons_name = value

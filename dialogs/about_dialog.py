@@ -40,12 +40,13 @@ http://www.gnu.org/licenses/gpl.txt''')
         "colorful, flat_colorful, light, flat_white, dark, flat_black",
         "by ~MerlinTheRed",
         "http://merlinthered.deviantart.com/art/plain-weather-icons-157162192\n",
-        "tick",
-        "by xiao4",
-        "http://www.deviantart.com/art/tick-weather-icons-96294478\n",
-        "weezle",
-        "by d3stroy",
-        "http://www.deviantart.com/art/Weezle-Weather-Icons-187306753\n"])
+        "Sticker",
+        "by KorToIk",
+        "http://kortoik.deviantart.com/art/Sticker-Weather-Icons-78827487\n",
+        "Simple",
+        "by LavAna",
+        "http://lavana.deviantart.com/art/Simple-Weather-Icons-23626765\n"
+        ])
     #about.set_translator_credits("")
     #about.set_documenters("")
     return about

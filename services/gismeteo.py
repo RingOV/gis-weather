@@ -3,6 +3,7 @@
 from urllib.request import urlopen
 import re
 import time
+import os
 
 service = "http://www.gismeteo.com"
 example = "http://www.gismeteo.com/city/daily/<b>1234</b>"
@@ -54,6 +55,174 @@ icon_today = []      # Иконка погоды сегодня
 wind_speed_tod = []  # Скорость ветра сегодня
 wind_direct_tod = [] # Направление ветра сегодня
 
+dict_icons = {
+    "d.sun.png": "32.png",
+
+    "d.sun.c1.png": "34.png",
+    "d.sun.c2.png": "30.png",
+    "d.sun.c3.png": "28.png",
+    "d.sun.c4.png": "26.png",
+
+    "d.sun.c1.s1.png": "41.png",
+    "d.sun.c1.s2.png": "41.png",
+    "d.sun.c1.s3.png": "41.png",
+    "d.sun.c1.s4.png": "41.png",
+    "d.sun.c2.s1.png": "41.png",
+    "d.sun.c2.s2.png": "41.png",
+    "d.sun.c2.s3.png": "41.png",
+    "d.sun.c2.s4.png": "41.png",
+    "d.sun.c3.s1.png": "41.png",
+    "d.sun.c3.s2.png": "41.png",
+    "d.sun.c3.s3.png": "41.png",
+    "d.sun.c3.s4.png": "41.png",
+    "d.sun.c4.s1.png": "13.png",
+    "d.sun.c4.s2.png": "14.png",
+    "d.sun.c4.s3.png": "16.png",
+    "d.sun.c4.s4.png": "16.png",
+
+    "d.sun.c1.r1.png": "39.png",
+    "d.sun.c1.r2.png": "39.png",
+    "d.sun.c1.r3.png": "39.png",
+    "d.sun.c1.r4.png": "40.png",
+    "d.sun.c2.r1.png": "39.png",
+    "d.sun.c2.r2.png": "39.png",
+    "d.sun.c2.r3.png": "39.png",
+    "d.sun.c2.r4.png": "40.png",
+    "d.sun.c3.r1.png": "39.png",
+    "d.sun.c3.r2.png": "39.png",
+    "d.sun.c3.r3.png": "39.png",
+    "d.sun.c3.r4.png": "40.png",
+    "d.sun.c4.r1.png": "11.png",
+    "d.sun.c4.r2.png": "40.png",
+    "d.sun.c4.r3.png": "40.png",
+    "d.sun.c4.r4.png": "40.png",
+
+    "d.sun.c1.r1.st.png": "38.png",
+    "d.sun.c1.r2.st.png": "37.png",
+    "d.sun.c1.r3.st.png": "37.png",
+    "d.sun.c1.r4.st.png": "37.png",
+    "d.sun.c2.r1.st.png": "38.png",
+    "d.sun.c2.r2.st.png": "37.png",
+    "d.sun.c2.r3.st.png": "37.png",
+    "d.sun.c2.r4.st.png": "37.png",
+    "d.sun.c3.r1.st.png": "38.png",
+    "d.sun.c3.r2.st.png": "37.png",
+    "d.sun.c3.r3.st.png": "37.png",
+    "d.sun.c3.r4.st.png": "37.png",
+    "d.sun.c4.r1.st.png": "35.png",
+    "d.sun.c4.r2.st.png": "35.png",
+    "d.sun.c4.r3.st.png": "35.png",
+    "d.sun.c4.r4.st.png": "35.png",
+
+    "d.sun.c1.s1.st.png": "38.png",
+    "d.sun.c1.s2.st.png": "35.png",
+    "d.sun.c1.s3.st.png": "35.png",
+    "d.sun.c1.s4.st.png": "35.png",
+    "d.sun.c2.s1.st.png": "38.png",
+    "d.sun.c2.s2.st.png": "35.png",
+    "d.sun.c2.s3.st.png": "35.png",
+    "d.sun.c2.s4.st.png": "35.png",
+    "d.sun.c3.s1.st.png": "38.png",
+    "d.sun.c3.s2.st.png": "35.png",
+    "d.sun.c3.s3.st.png": "35.png",
+    "d.sun.c3.s4.st.png": "35.png",
+    "d.sun.c4.s1.st.png": "35.png",
+    "d.sun.c4.s2.st.png": "35.png",
+    "d.sun.c4.s3.st.png": "35.png",
+    "d.sun.c4.s4.st.png": "35.png",
+
+    "n.moon.png": "31.png",
+    "n.moon.c1.png": "33.png",
+    "n.moon.c2.png": "29.png",
+    "n.moon.c3.png": "27.png",
+    "n.moon.c4.png": "26.png",
+
+    "n.moon.c1.s1.png": "46.png",
+    "n.moon.c1.s2.png": "46.png",
+    "n.moon.c1.s3.png": "46.png",
+    "n.moon.c1.s4.png": "46.png",
+    "n.moon.c2.s1.png": "46.png",
+    "n.moon.c2.s2.png": "46.png",
+    "n.moon.c2.s3.png": "46.png",
+    "n.moon.c2.s4.png": "46.png",
+    "n.moon.c3.s1.png": "46.png",
+    "n.moon.c3.s2.png": "46.png",
+    "n.moon.c3.s3.png": "46.png",
+    "n.moon.c3.s4.png": "46.png",
+    "n.moon.c4.s1.png": "13.png",
+    "n.moon.c4.s2.png": "15.png",
+    "n.moon.c4.s3.png": "16.png",
+    "n.moon.c4.s4.png": "16.png",
+
+    "n.moon.c1.r1.png": "45.png",
+    "n.moon.c1.r2.png": "45.png",
+    "n.moon.c1.r3.png": "45.png",
+    "n.moon.c1.r4.png": "40.png",
+    "n.moon.c2.r1.png": "45.png",
+    "n.moon.c2.r2.png": "45.png",
+    "n.moon.c2.r3.png": "45.png",
+    "n.moon.c2.r4.png": "40.png",
+    "n.moon.c3.r1.png": "45.png",
+    "n.moon.c3.r2.png": "45.png",
+    "n.moon.c3.r3.png": "45.png",
+    "n.moon.c3.r4.png": "40.png",
+    "n.moon.c4.r1.png": "11.png",
+    "n.moon.c4.r2.png": "40.png",
+    "n.moon.c4.r3.png": "40.png",
+    "n.moon.c4.r4.png": "40.png",
+
+    "n.moon.c1.r1.st.png": "47.png",
+    "n.moon.c1.r2.st.png": "47.png",
+    "n.moon.c1.r3.st.png": "47.png",
+    "n.moon.c1.r4.st.png": "47.png",
+    "n.moon.c2.r1.st.png": "47.png",
+    "n.moon.c2.r2.st.png": "47.png",
+    "n.moon.c2.r3.st.png": "47.png",
+    "n.moon.c2.r4.st.png": "47.png",
+    "n.moon.c3.r1.st.png": "47.png",
+    "n.moon.c3.r2.st.png": "47.png",
+    "n.moon.c3.r3.st.png": "47.png",
+    "n.moon.c3.r4.st.png": "47.png",
+    "n.moon.c4.r1.st.png": "35.png",
+    "n.moon.c4.r2.st.png": "35.png",
+    "n.moon.c4.r3.st.png": "35.png",
+    "n.moon.c4.r4.st.png": "35.png",
+
+    "n.moon.c1.s1.st.png": "47.png",
+    "n.moon.c1.s2.st.png": "47.png",
+    "n.moon.c1.s3.st.png": "47.png",
+    "n.moon.c1.s4.st.png": "47.png",
+    "n.moon.c2.s1.st.png": "47.png",
+    "n.moon.c2.s2.st.png": "47.png",
+    "n.moon.c2.s3.st.png": "47.png",
+    "n.moon.c2.s4.st.png": "47.png",
+    "n.moon.c3.s1.st.png": "47.png",
+    "n.moon.c3.s2.st.png": "47.png",
+    "n.moon.c3.s3.st.png": "47.png",
+    "n.moon.c3.s4.st.png": "47.png",
+    "n.moon.c4.s1.st.png": "35.png",
+    "n.moon.c4.s2.st.png": "35.png",
+    "n.moon.c4.s3.st.png": "35.png",
+    "n.moon.c4.s4.st.png": "35.png",
+    
+    "d.sun.c1.st.png": "38.png",
+    "d.sun.c2.st.png": "38.png",
+    "d.sun.c3.st.png": "38.png",
+    "d.sun.c4.st.png": "35.png",
+    "n.moon.c1.st.png": "47.png",
+    "n.moon.c2.st.png": "47.png",
+    "n.moon.c3.st.png": "47.png",
+    "n.moon.c4.st.png": "35.png"
+}
+
+def convert(icon, icons_name):
+    try:
+        icon_converted = dict_icons[os.path.split(icon)[1]]
+    except:
+        icon_converted = os.path.split(icon)[1]
+    return icon+';'+icon_converted
+
+
 def get_city_name(c_id, weather_lang):
     try:
         source = urlopen('http://www.gismeteo.%s/city/weekly/'%weather_lang + str(c_id), timeout=10).read()
@@ -64,8 +233,7 @@ def get_city_name(c_id, weather_lang):
         return 'None'
     return c_name[0]
 
-def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, timer_bool, weather_lang):
-    #global err_connect, splash
+def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, timer_bool, weather_lang, icons_name):
     global city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod 
     print ('> '+_('Getting weather for')+' '+str(n)+' '+_('days'))
     print ('> '+_('Uploading page to a variable')+' '+'http://www.gismeteo.%s/city/weekly/'%weather_lang + str(city_id))
@@ -92,14 +260,14 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
 
     # Ветер
     wind_speed_now = re.findall('m_wind ms.*>(\d+)<', w_now[0])
-    #wind_direct_now1 = re.findall('<dt>([СЮЗВШ]+)</dt>', w_now[0])
     wind_direct_now = re.findall('>(.+)</dt', w_now[0])
     wind_direct_now[0] = wind_direct_now[1]
 
     # Иконка
-    icon_now = re.findall('url\(.*?new\/(.+)\)', w_now[0])
+    icon_now = re.findall('url\((.*?new\/.+)\)', w_now[0])
+    icon_now[0] = convert(icon_now[0], icons_name)
     
-    #Иконка ветра
+    # Иконка ветра
     icon_wind_now = re.findall('wind(\d)', w_now[0])
 
     # Время обновления
@@ -135,18 +303,6 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
     t_feel = t_all[1::2]
 
 # -----------------------------------------------------------------
-    # Погода ночью
-    # w_night_list = re.findall('Ночь</th>.*?>Утро</th>', source, re.DOTALL)
-    # w_night = '\n'.join(w_night_list)
-    
-    # Температура ночью
-    # t_night = re.findall('m_temp c.>([&minus;+]*\d+)<', w_night)
-    # for i in range(0, len(t_night)):
-    #     if t_night[i][0] == '&':
-    #         t_night[i] = '-' + t_night[i][7:]
-    # t_night_feel = t_night[1::2]
-    # t_night = t_night[::2]
-
     # температура ночью
     t_night = t[::4]
     t_night_feel = t_feel[::4]
@@ -154,36 +310,22 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
     # День недели и дата
     day = re.findall('weekday.>(.*?)<', source)
     date = re.findall('s_date.>(.*?)<', source)
-    
-    # Погода днем
-    #w_day_list = re.findall('День</th>.*?>Вечер</th>', source, re.DOTALL)
-    #w_day = '\n'.join(w_day_list)
-    
-    # Температура днем
-    # t_day = re.findall('m_temp c.>([&minus;+]*\d+)<', w_day) 
-    # for i in range(0, len(t_day)):
-    #     if t_day[i][0] == '&':
-    #         t_day[i] = '-' + t_day[i][7:]
-    # t_day_feel = t_day[1::2]
-    # t_day = t_day[::2]
 
     # температура днем
     t_day = t[2::4]
     t_day_feel = t_feel[2::4]
     
     # Иконка погоды днем
-    # icon = re.findall('src=\".*?new\/(.*?)\"', w_day)
-    icons_list = re.findall('src=\".*?new\/(.*?)\"', w_all)
+    icons_list = re.findall('src=\"(.*?new\/.*?)\"', w_all)
     icon = icons_list[2::4]
+    for i in range(len(icon)):
+        icon[i] = convert(icon[i], icons_name)
     
     # Иконка ветра
-    # icon_wind = re.findall('wind(\d)', w_day)
     icon_wind_list = re.findall('wind(\d)', w_all)
     icon_wind = icon_wind_list[2::4]
     
     # Ветер
-    # wind_speed = re.findall('m_wind ms.>(\d+)', w_day)
-    # wind_direct = re.findall('>([СЮЗВШ]+)<', w_day)
     wind_speed_list = re.findall('m_wind ms.>(\d+)', w_all)
     wind_speed = wind_speed_list[2::4]
     wind_direct_list = re.findall('>(.+)</dt', w_all)
@@ -193,26 +335,20 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
 
 
     # Текст погоды
-    #text = re.findall('cltext.>(.*?)<', w_day)
     text_list = re.findall('cltext.>(.*?)<', w_all)
     text = text_list[2::4]
 
     if show_block_tomorrow:
         #### Погода завтра ####
-        #w_tomorrow = re.findall('Ночь</th>.*?>Ночь</div>', source, re.DOTALL)
         w_tomorrow = w_all_list[1]
         
         # Температура
-        # t_tomorrow = re.findall('m_temp c.>([&minus;+]*\d+)<', w_tomorrow[1])
-        # for i in range(0, len(t_tomorrow)):
-        #     if t_tomorrow[i][0] == '&':
-        #         t_tomorrow[i] = '-' + t_tomorrow[i][7:]
         t_tomorrow = t[4:8]
         t_tomorrow_feel = t_feel[4:8]
         # Иконка погоды
-        #icon_tomorrow = re.findall('src=\".*?new\/(.*?)\"', w_tomorrow[1])
-        icon_tomorrow = re.findall('src=\".*?new\/(.*?)\"', w_tomorrow)
-
+        icon_tomorrow = re.findall('src=\"(.*?new\/.*?)\"', w_tomorrow)
+        for i in range(len(icon_tomorrow)):
+            icon_tomorrow[i] = convert(icon_tomorrow[i], icons_name)
         # Ветер
         wind_speed_tom = re.findall('m_wind ms.>(\d+)', w_tomorrow)
         wind_direct_tom = re.findall('>(.+)</dt', w_tomorrow)
@@ -221,22 +357,15 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
         
     if show_block_today:
         #### Погода сегодня ####
-        # if not show_block_tomorrow:
-        #     w_tomorrow = re.findall('Ночь</th>.*?>Ночь</div>', source, re.DOTALL)
         w_today = w_all_list[0]
         # Температура
-        # t_today = re.findall('m_temp c.>([&minus;+]*\d+)<', w_tomorrow[0])
-        # for i in range(0, len(t_today)):
-        #     if t_today[i][0] == '&':
-        #         t_today[i] = '-' + t_today[i][7:]
         t_today = t[0:4]
         t_today_feel = t_feel[0:4]
         # Иконка погоды
-        #icon_today = re.findall('src=\".*?new\/(.*?)\"', w_tomorrow[0])
-        icon_today = re.findall('src=\".*?new\/(.*?)\"', w_today)
+        icon_today = re.findall('src=\"(.*?new\/.*?)\"', w_today)
+        for i in range(len(icon_today)):
+            icon_today[i] = convert(icon_today[i], icons_name)
         # Ветер
-        # wind_speed_tod = re.findall('m_wind ms.>(\d+)', w_tomorrow[0])
-        # wind_direct_tod = re.findall('>([СЮЗВШ]+)<', w_tomorrow[0])
         wind_speed_tod = re.findall('m_wind ms.>(\d+)', w_today)
         wind_direct_tod = re.findall('>(.+)</dt', w_today)
         for i in range(len(wind_direct_tod)):
@@ -247,8 +376,6 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
         print ('> '+_('updated on server')+' '+time_update[0]) 
     print ('> '+_('weather received')+' '+time.strftime('%H:%M', time.localtime()))
 
-    # if splash:
-    #     splash = False
     # записываем переменные
     for i in weather.keys():
         weather[i] = globals()[i]

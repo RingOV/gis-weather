@@ -386,6 +386,8 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="has_focus">True</property>
+                <property name="can_default">True</property>
+                <property name="has_default">True</property>
                 <property name="receives_default">True</property>
                 <property name="image">image1</property>
               </object>
@@ -2861,6 +2863,7 @@
                                 <child>
                                   <object class="GtkCellRendererText" id="cellrenderertext4"/>
                                   <attributes>
+                                    <attribute name="markup">0</attribute>
                                     <attribute name="text">0</attribute>
                                   </attributes>
                                 </child>
@@ -2953,6 +2956,7 @@
                                 <child>
                                   <object class="GtkCellRendererText" id="cellrenderertext3"/>
                                   <attributes>
+                                    <attribute name="markup">0</attribute>
                                     <attribute name="text">0</attribute>
                                   </attributes>
                                 </child>
