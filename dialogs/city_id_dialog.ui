@@ -112,6 +112,7 @@
                 <property name="can_focus">False</property>
                 <property name="halign">start</property>
                 <property name="valign">start</property>
+                <property name="margin_right">5</property>
                 <property name="hexpand">True</property>
                 <property name="xalign">0</property>
               </object>
@@ -128,8 +129,10 @@
                 <property name="can_focus">True</property>
                 <property name="halign">start</property>
                 <property name="valign">start</property>
-                <property name="margin_right">40</property>
+                <property name="hexpand">True</property>
                 <property name="vexpand">True</property>
+                <property name="max_length">5</property>
+                <property name="width_chars">10</property>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -311,6 +314,7 @@
                   <object class="GtkLabel" id="label2">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="halign">end</property>
                     <property name="xalign">1</property>
                     <property name="label" translatable="yes">Language weather</property>
                   </object>
@@ -325,6 +329,7 @@
                   <object class="GtkComboBox" id="combobox_weather_lang">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="halign">center</property>
                     <property name="margin_left">8</property>
                     <property name="model">liststore2</property>
                     <child>

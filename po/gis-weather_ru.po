@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-06-06 16:06+0300\n"
-"PO-Revision-Date: 2014-06-06 16:06+0300\n"
+"POT-Creation-Date: 2014-06-07 13:19+0300\n"
+"PO-Revision-Date: 2014-06-07 13:20+0300\n"
 "Last-Translator: \n"
 "Language-Team: Gis Weather Team <ringov@mail.ru>\n"
 "Language: Russian\n"
@@ -188,11 +188,11 @@ msgstr "Невозможно получить скриншот"
 msgid "Removed"
 msgstr "Удалено"
 
-#: gis-weather.py:1006 dialogs/city_id_dialog.ui:182
+#: gis-weather.py:1006 dialogs/city_id_dialog.ui:185
 msgid "Added"
 msgstr "Добавлено"
 
-#: gis-weather.py:1011 dialogs/city_id_dialog.ui:251
+#: gis-weather.py:1011 dialogs/city_id_dialog.ui:254
 msgid "Invalid location code"
 msgstr "Неверно введен код местоположения"
 
@@ -449,7 +449,7 @@ msgstr "Перевести"
 msgid "Language program"
 msgstr "Язык программы"
 
-#: dialogs/settings_dialog.ui:818 dialogs/city_id_dialog.ui:315
+#: dialogs/settings_dialog.ui:818 dialogs/city_id_dialog.ui:319
 msgid "Language weather"
 msgstr "Язык погоды"
 
@@ -635,6 +635,10 @@ msgstr "Изменения"
 #: dialogs/help_dialog.ui:254 dialogs/update_dialog.ui:171
 msgid "Source Code"
 msgstr "Исходный код"
+
+#: dialogs/help_dialog.ui:270
+msgid "What's New"
+msgstr "Что нового"
 
 #: dialogs/city_id_dialog.ui:52
 msgid "Add"

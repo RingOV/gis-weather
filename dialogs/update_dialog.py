@@ -85,7 +85,7 @@ def create(v, new_ver, CONFIG_PATH, APP_PATH, update_link, file_name, package):
     label.set_markup("<span size='xx-large'>Gis Weather</span>")
     button_restart.connect("clicked", restart)
 
-    image_logo.set_from_pixbuf(GdkPixbuf.Pixbuf.new_from_file_at_size(os.path.join(APP_PATH, 'icon.png'), 128, 128))
+    image_logo.set_from_pixbuf(GdkPixbuf.Pixbuf.new_from_file_at_size(os.path.join(APP_PATH, 'icon.png'), 160, 160))
     pix_loading = GdkPixbuf.PixbufAnimation.new_from_file(os.path.join(APP_PATH, 'themes', 'loading.gif'))
 
     response = dialog.run()
