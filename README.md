@@ -22,6 +22,12 @@ Customizable weather widget
 
 =
 
+### **What's New**
+
+https://github.com/RingOV/gis-weather/wiki/What%27s-New
+
+=
+
 ### **Feedback**
 
 If you find bug, want translate, have issues?
