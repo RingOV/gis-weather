@@ -367,6 +367,12 @@
       <column type="gchararray"/>
     </columns>
   </object>
+  <object class="GtkListStore" id="liststore8">
+    <columns>
+      <!-- column-name gchararray1 -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
   <object class="GtkDialog" id="dialog1">
     <property name="can_focus">False</property>
     <property name="modal">True</property>
@@ -735,27 +741,6 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkComboBox" id="combobox_weather_lang">
-                    <property name="width_request">150</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="halign">end</property>
-                    <property name="model">liststore6</property>
-                    <child>
-                      <object class="GtkCellRendererText" id="cellrenderertext6"/>
-                      <attributes>
-                        <attribute name="text">0</attribute>
-                      </attributes>
-                    </child>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="top_attach">12</property>
-                    <property name="width">1</property>
-                    <property name="height">1</property>
-                  </packing>
-                </child>
-                <child>
                   <object class="GtkComboBox" id="combobox_app_lang">
                     <property name="width_request">150</property>
                     <property name="visible">True</property>
@@ -771,7 +756,7 @@
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
-                    <property name="top_attach">13</property>
+                    <property name="top_attach">14</property>
                     <property name="width">1</property>
                     <property name="height">1</property>
                   </packing>
@@ -789,7 +774,7 @@
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
-                    <property name="top_attach">14</property>
+                    <property name="top_attach">15</property>
                     <property name="width">1</property>
                     <property name="height">1</property>
                   </packing>
@@ -804,7 +789,7 @@
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">13</property>
+                    <property name="top_attach">14</property>
                     <property name="width">1</property>
                     <property name="height">1</property>
                   </packing>
@@ -819,7 +804,7 @@
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">12</property>
+                    <property name="top_attach">13</property>
                     <property name="width">1</property>
                     <property name="height">1</property>
                   </packing>
@@ -903,6 +888,94 @@
                     <property name="width">1</property>
                     <property name="height">1</property>
                   </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label55">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="hexpand">True</property>
+                    <property name="xalign">0</property>
+                    <property name="label" translatable="yes">Forecast service</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">12</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkGrid" id="grid16">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="halign">end</property>
+                    <child>
+                      <object class="GtkComboBox" id="combobox_service">
+                        <property name="width_request">150</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="halign">end</property>
+                        <property name="model">liststore8</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="cellrenderertext8"/>
+                          <attributes>
+                            <attribute name="text">0</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">0</property>
+                        <property name="width">1</property>
+                        <property name="height">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkComboBox" id="combobox_weather_lang">
+                        <property name="width_request">150</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="halign">end</property>
+                        <property name="model">liststore6</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="cellrenderertext2"/>
+                          <attributes>
+                            <attribute name="text">0</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">1</property>
+                        <property name="width">1</property>
+                        <property name="height">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="button_refresh">
+                        <property name="label" translatable="yes">Refresh</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="halign">end</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">0</property>
+                        <property name="width">1</property>
+                        <property name="height">2</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">12</property>
+                    <property name="width">1</property>
+                    <property name="height">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <placeholder/>
                 </child>
                 <child>
                   <placeholder/>
@@ -2250,7 +2323,7 @@
                                 <property name="halign">end</property>
                                 <property name="model">liststore2</property>
                                 <child>
-                                  <object class="GtkCellRendererText" id="cellrenderertext2"/>
+                                  <object class="GtkCellRendererText" id="cellrenderertext3"/>
                                   <attributes>
                                     <attribute name="text">0</attribute>
                                   </attributes>
@@ -2954,7 +3027,7 @@
                                 <property name="halign">end</property>
                                 <property name="model">liststore3</property>
                                 <child>
-                                  <object class="GtkCellRendererText" id="cellrenderertext3"/>
+                                  <object class="GtkCellRendererText" id="cellrenderertext9"/>
                                   <attributes>
                                     <attribute name="markup">0</attribute>
                                     <attribute name="text">0</attribute>

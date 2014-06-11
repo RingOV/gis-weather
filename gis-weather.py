@@ -22,7 +22,8 @@ localization.set()
 
 from gi.repository import Gtk, GObject, Pango, PangoCairo, Gdk, GdkPixbuf
 from dialogs import about_dialog, city_id_dialog, update_dialog, settings_dialog, help_dialog
-from services import gismeteo
+from services import gismeteo, weather_com
+from services import data
 from utils import gw_menu
 import cairo
 import re
@@ -98,7 +99,8 @@ gw_config_default = {
     'weather_lang': 'com',             # com, ru, ua/ua, lv, lt, md/ro
     'delay_start_time': 0,
     'block_now_left': 0,
-    't_scale': 0                       # 0 - °C, 1 - °F
+    't_scale': 0,                      # 0 - °C, 1 - °F
+    'service': 0
 }
 gw_config = {}
 for i in gw_config_default.keys():
@@ -122,13 +124,16 @@ color_scheme = [
     }
     ]
 
-weekend = ('Sa', 'Su', 'Сб', 'Вс')
+weekend = ('Sa', 'Su', 'Сб', 'Вс', 'Sat', 'Sun')
 
 print (_('Config path')+':\n    '+os.path.join(CONFIG_PATH, 'gw_config.json'))
 
 def Save_Config():
     for i in gw_config.keys():
-        gw_config[i] = globals()[i]
+        try:
+            gw_config[i] = globals()[i]
+        except:
+            pass
     json.dump(gw_config, open(os.path.join(CONFIG_PATH, 'gw_config.json'), "w"), sort_keys=True, indent=4, separators=(', ', ': '))
 
 def Save_Color_Scheme(number = 0):
@@ -266,11 +271,11 @@ weather = {
 for i in weather.keys():
     globals()[i] = weather[i]
 
-def C_to_F(t_c):
-    t_f = str(round(int(t_c)*1.8+32))
-    if t_f[0] not in ('+', '-'):
-        t_f = "+"+t_f
-    return t_f
+def get_weather():
+    if service == 0:
+        return gismeteo.get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, timer_bool, weather_lang, icons_name)
+    if service == 1:
+        return weather_com.get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, timer_bool, weather_lang, icons_name)
 
 def check_updates():
     package = 'gz'
@@ -404,7 +409,7 @@ class MyDrawArea(Gtk.DrawingArea):
             self.splash_screen()
             return
         if get_weather_bool:
-            weather1 = gismeteo.get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, timer_bool, weather_lang, icons_name)
+            weather1 = get_weather()
             if weather1:
                 time_receive = time.strftime('%H:%M', time.localtime())
                 err_connect = False
@@ -467,11 +472,11 @@ class MyDrawArea(Gtk.DrawingArea):
                 self.draw_text(_('weather received')+' '+time_receive, x-margin, x+8+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
             if city_name: self.draw_text(city_name[0], x+block_now_left, y, font+' Bold', 14, width, Pango.Alignment.CENTER)
             self.draw_scaled_icon(center-40+block_now_left, y+30, icon_now[0],80,80)
+            t_index = t_scale*2
+            if t_feel:
+                t_index += 1
             if t_now:
-                t = t_now[0]
-                if t_scale == 1:
-                    t = C_to_F(t)
-                self.draw_text(t+'°', center-100+block_now_left, y+30, font+' Normal', 18, 60, Pango.Alignment.RIGHT)
+                self.draw_text(t_now[0].split(';')[t_index]+'°', center-100+block_now_left, y+30, font+' Normal', 18, 60, Pango.Alignment.RIGHT)
             if text_now: self.draw_text(text_now[0], center-70+block_now_left, y+106, font+' Normal', 10, 140, Pango.Alignment.CENTER)
             
             if show_block_wind_direct:
@@ -586,8 +591,11 @@ class MyDrawArea(Gtk.DrawingArea):
                             if t_scale == 1:
                                 t = C_to_F(t)
                             self.draw_text(t+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
-                    self.draw_scaled_icon(x0+32+a*((j+1)//2), y0+b*(i//2), icon_tomorrow[i], 28, 28)
-                    if (wind_direct and wind_speed): 
+                    try:
+                        self.draw_scaled_icon(x0+32+a*((j+1)//2), y0+b*(i//2), icon_tomorrow[i], 28, 28)
+                    except:
+                        self.draw_scaled_icon(x0+32+a*((j+1)//2), y0+b*(i//2), 'na.png;na.png', 28, 28)
+                    if (wind_direct_tom and wind_speed_tom): 
                         if int(wind_speed_tom[i]) >= high_wind and high_wind != -1:
                             self.draw_text(wind_direct_tom[i]+', '+wind_speed_tom[i]+' '+_('m/s'), x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 50,Pango.Alignment.LEFT, color_high_wind)
                         else:
@@ -623,8 +631,11 @@ class MyDrawArea(Gtk.DrawingArea):
                             if t_scale == 1:
                                 t = C_to_F(t)
                             self.draw_text(t+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
-                    self.draw_scaled_icon(x0+32+a*((j+1)//2), y0+b*(i//2), icon_today[i], 28, 28)
-                    if (wind_direct and wind_speed): 
+                    try:
+                        self.draw_scaled_icon(x0+32+a*((j+1)//2), y0+b*(i//2), icon_today[i], 28, 28)
+                    except:
+                        self.draw_scaled_icon(x0+32+a*((j+1)//2), y0+b*(i//2), 'na.png;na.png', 28, 28)
+                    if (wind_direct_tod and wind_speed_tod): 
                         if int(wind_speed_tod[i]) >= high_wind and high_wind != -1:
                             self.draw_text(wind_direct_tod[i]+', '+wind_speed_tod[i]+' '+_('m/s'), x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 50,Pango.Alignment.LEFT, color_high_wind)
                         else:
@@ -634,10 +645,10 @@ class MyDrawArea(Gtk.DrawingArea):
     def draw_weather_icon(self, index, x, y):
         if day != []:
             a = 30
-            if t_feel:
-                if math.fabs(int(t_day_feel[index])) < 10: a = 20
-            else:
-                if math.fabs(int(t_day[index])) < 10: a = 20
+            # if t_feel:
+            #     if math.fabs(int(t_day_feel[index])) < 10: a = 20
+            # else:
+            #     if math.fabs(int(t_day[index])) < 10: a = 20
             self.draw_scaled_icon(x+a, y+16, icon[index], 36, 36)
             if (day and date): 
                 if day[index] in weekend:
@@ -645,28 +656,33 @@ class MyDrawArea(Gtk.DrawingArea):
                 else:
                     self.draw_text(day[index]+', '+date[index], x, y-2, font+' Bold', 9, w_block,Pango.Alignment.LEFT)
             self.cr.set_source_rgba(color_text[0], color_text[1], color_text[2], color_text[3])
+            t_index = t_scale*2
             if t_feel:
-                if t_day_feel:
-                    t = t_day_feel[index]
-                    if t_scale == 1:
-                        t = C_to_F(t)
-                    self.draw_text(t+'°', x, y+15, font+' Normal', 10, w_block-45,Pango.Alignment.LEFT)
-                if t_night_feel:
-                    t = t_night_feel[index]
-                    if t_scale == 1:
-                        t = C_to_F(t)
-                    self.draw_text(t+'°', x, y+30, font+' Normal', 8, w_block-45,Pango.Alignment.LEFT)
-            else:
-                if t_day:
-                    t = t_day[index]
-                    if t_scale == 1:
-                        t = C_to_F(t)
-                    self.draw_text(t+'°', x, y+15, font+' Normal', 10, w_block-45,Pango.Alignment.LEFT)
-                if t_night:
-                    t = t_night[index]
-                    if t_scale == 1:
-                        t = C_to_F(t)
-                    self.draw_text(t+'°', x, y+30, font+' Normal', 8, w_block-45,Pango.Alignment.LEFT)
+                t_index += 1
+            self.draw_text(t_day[index].split(';')[t_index]+'°', x, y+15, font+' Normal', 10, w_block-45,Pango.Alignment.LEFT)
+            self.draw_text(t_night[index].split(';')[t_index]+'°', x, y+30, font+' Normal', 8, w_block-45,Pango.Alignment.LEFT)
+            # if t_feel:
+            #     if t_day_feel:
+            #         t = t_day_feel[index]
+            #         if t_scale == 1:
+            #             t = C_to_F(t)
+            #         self.draw_text(t+'°', x, y+15, font+' Normal', 10, w_block-45,Pango.Alignment.LEFT)
+            #     if t_night_feel:
+            #         t = t_night_feel[index]
+            #         if t_scale == 1:
+            #             t = C_to_F(t)
+            #         self.draw_text(t+'°', x, y+30, font+' Normal', 8, w_block-45,Pango.Alignment.LEFT)
+            # else:
+            #     if t_day:
+            #         t = t_day[index]
+            #         if t_scale == 1:
+            #             t = C_to_F(t)
+            #         self.draw_text(t+'°', x, y+15, font+' Normal', 10, w_block-45,Pango.Alignment.LEFT)
+            #     if t_night:
+            #         t = t_night[index]
+            #         if t_scale == 1:
+            #             t = C_to_F(t)
+            #         self.draw_text(t+'°', x, y+30, font+' Normal', 8, w_block-45,Pango.Alignment.LEFT)
             if (wind_direct and wind_speed): 
                 if int(wind_speed[index]) >= high_wind and high_wind != -1:
                     self.draw_text(wind_direct[index]+', '+wind_speed[index]+' '+_('m/s'), x, y+50, font+' Normal', 8, 80,Pango.Alignment.LEFT, color_high_wind)
@@ -917,7 +933,8 @@ class Weather_Widget:
                 self.window_main.stick()
             Save_Config()
         if event == 'setup':
-            settings_dialog.main(gw_config_default, gw_config, self.drawing_area, app, icons_list, backgrounds_list, ICONS_PATH, BGS_PATH)
+            Load_Config()
+            settings_dialog.main(gw_config_default, gw_config, self.drawing_area, app, icons_list, backgrounds_list, ICONS_PATH, BGS_PATH, service)
         if event == 'redraw_icons':
             global icons_name
             icons_name = value
@@ -952,21 +969,36 @@ class Weather_Widget:
             self.drawing_area.redraw(False)
         if event == 'edit_city_id':
             if self.show_edit_dialog():
-                Save_Config()
+                Load_Config()
                 while Gtk.events_pending():
                     Gtk.main_iteration_do(True)
                 self.drawing_area.redraw(False)
 
 
     def show_edit_dialog(self):
-        global city_id, city_id_add
-        dialog, entrybox, treeview, bar_err, bar_ok, bar_label, combobox_weather_lang, weather_lang_list = city_id_dialog.create(self.window_main, city_id, city_id_add, APP_PATH, weather_lang);
-        combobox_weather_lang.connect("changed", self.set_weather_lang, weather_lang_list)
+        global city_id, gw_config
+        try:
+            print(gw_config['city_list_weather_com'])
+        except:
+            pass
+        Load_Config()
+        dialog, entrybox, treeview, bar_err, bar_ok, bar_label, combobox_weather_lang, weather_lang_list, combobox_service = city_id_dialog.create(self.window_main, APP_PATH, weather_lang, service);
+        #combobox_weather_lang.connect("changed", self.set_weather_lang, weather_lang_list)
+        #combobox_service.connect("changed", )
+        try:
+            print(gw_config['city_list_weather_com'])
+        except:
+            pass
         dialog.show_all()
         response = dialog.run()
 
         while response == Gtk.ResponseType.ACCEPT or response == Gtk.ResponseType.OK:
             bar_err.hide()
+            Load_Config()
+            try:
+                city_list = gw_config[data.get_city_list(service)]
+            except:
+                city_list = []
             if response == Gtk.ResponseType.ACCEPT:
                 try:
                     selection = treeview.get_selection()
@@ -975,50 +1007,74 @@ class Weather_Widget:
                     del_index=cde[0]
                     if iter:
                         model.remove(iter)
-                    bar_label.set_text(_('Removed')+': %s'%city_id_add[int(del_index[0])].split(';')[1])
-                    if str(city_id) == city_id_add[int(del_index[0])].split(';')[0]:
-                        del city_id_add[int(del_index[0])]
-                        if len(city_id_add) != 0:
-                            city_id = int(city_id_add[0].split(';')[0])
-                        else:
-                            city_id = 0
+                    bar_label.set_text(_('Removed')+': %s'%city_list[int(del_index[0])].split(';')[1])
+                    #if str(city_id) == city_list[int(del_index[0])].split(';')[0]:
+                    del city_list[int(del_index[0])]
+                    selection = treeview.get_selection()
+                    model, iter = selection.get_selected()
+                    abc, cde =  selection.get_selected_rows()
+                    sel_index=cde[0]
+                    if iter:
+                        city_id = city_list[int(sel_index[0])].split(';')[0]
                     else:
-                        del city_id_add[int(del_index[0])]
+                        city_id = 0
+                    # if len(city_list) != 0:
+                    #     city_id = int(city_list[0].split(';')[0])
+                    # else:
+                    #     city_id = 0
+                    #else:
+                    #    del city_list[int(del_index[0])]
+                    gw_config[data.get_city_list(service)] = city_list
+
                     Save_Config()
                     bar_ok.show()
                 except:
                     pass
             if response == Gtk.ResponseType.OK:
                 try:
-                    city_id = int(entrybox.get_text())
-                    c_name = gismeteo.get_city_name(city_id, weather_lang)
+                    city_id = entrybox.get_text()
+                    c_name = data.get_city_name(service, city_id, weather_lang)
                     if c_name == 'None':
-                        if len(city_id_add) != 0:
-                            city_id = int(city_id_add[0].split(';')[0])
+                        if len(city_list) != 0:
+                            city_id = city_list[0].split(';')[0]
                         else:
                             city_id = 0
                         raise
-                    city_id_add.append(str(city_id) + ';' + c_name)
+                    city_list.append(str(city_id) + ';' + c_name)
                     model = treeview.get_model()
-                    model.append([city_id_add[-1].split(';')[0], city_id_add[-1].split(';')[1]])
+                    model.append([city_list[-1].split(';')[0], city_list[-1].split(';')[1]])
                     treeview.set_model(model)
+                    gw_config[data.get_city_list(service)] = city_list
                     Save_Config()
-                    bar_label.set_text(_('Added')+': %s'%city_id_add[-1].split(';')[1])
+                    bar_label.set_text(_('Added')+': %s'%city_list[-1].split(';')[1])
                     bar_ok.show()
                 except:
                     bar_ok.hide()
                     bar_err.show()
                     print ('[!] '+_('Invalid location code'))
             response = dialog.run()
+        Load_Config()
+        try:
+            city_list = gw_config[data.get_city_list(service)]
+        except:
+            city_list = []
+        selection = treeview.get_selection()
+        abc, cde =  selection.get_selected_rows()
+        try:
+            sel_index=cde[0]
+        except:
+            sel_index = None
+        if sel_index:
+            city_id = city_list[int(sel_index[0])].split(';')[0]
+        else:
+            if len(city_list) != 0:
+                city_id = city_list[0].split(';')[0]
+            else:
+                city_id = 0
+        Save_Config()
 
         dialog.hide()
         return True
-
-    def set_weather_lang(self, widget, weather_lang_list):
-        global weather_lang
-        i = widget.get_active()
-        weather_lang = weather_lang_list[i]
-        Save_Config()
 
 #---------------------- Обработчики событий окна --------------------------------
     def button_press(self, widget, event):
@@ -1028,7 +1084,7 @@ class Weather_Widget:
         if event.button == 3:
             global icons_list, backgrounds_list
             self.menu, icons_list, backgrounds_list = gw_menu.create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, 
-                icons_name, show_bg_png, color_bg, bg_custom, color_scheme, color_scheme_number, city_id_add, city_id, fix_position, sticky)
+                icons_name, show_bg_png, color_bg, bg_custom, color_scheme, color_scheme_number, gw_config[data.get_city_list(service)], city_id, fix_position, sticky)
             self.menu.popup(None, None, None, None, event.button, event.time)
             return True
         return False

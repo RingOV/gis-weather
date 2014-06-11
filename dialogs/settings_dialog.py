@@ -5,7 +5,9 @@ from utils import autorun, localization, desktop
 import os
 import json
 import sys
-from services import gismeteo
+from services import data
+from services.data import services_list
+
 if sys.platform.startswith("win"):
     WIN = True
 else:
@@ -28,11 +30,9 @@ icons_list_set = []
 backgrounds_list_set = []
 BGS_PATH_SET = None
 ICONS_PATH_SET = None
-
-dict_weather_lang = gismeteo.dict_weather_lang
-
-# available lang from gismeteo
-weather_lang_list = gismeteo.weather_lang_list
+service_set = None
+dict_weather_lang = None
+weather_lang_list = None
 
 dict_app_lang = {
     'auto': 'Auto',
@@ -92,6 +92,12 @@ class settings():
         self.label_add_icon = self.ui.get_object('label_add_icon')
         self.switch_add_icon = self.ui.get_object('switch_add_icon')
         self.switch_add_icon.connect("notify::active", self.set_desktop)
+        self.combobox_service = self.ui.get_object('combobox_service')
+        self.combobox_service.connect("changed", self.set_service)
+        self.liststore8 = self.ui.get_object('liststore8')
+        self.button_refresh = self.ui.get_object('button_refresh')
+        self.button_refresh.connect("clicked", self.refresh)
+
         
         self.clear_upd_time = self.ui.get_object('clear_upd_time')
         self.clear_upd_time.connect("clicked", self.clear_settings)
@@ -285,6 +291,11 @@ class settings():
         self.liststore7.append(['°C'])
         self.liststore7.append(['°F'])
 
+        self.liststore8.clear()
+        for i in range(len(services_list)):
+            self.liststore8.append([services_list[i]])
+        self.combobox_service.set_active(service_set)
+
         self.load(self.spinbutton_upd_time)
         self.load(self.switch_t_feel)
         self.load(self.switch_fix_BadDrawable)
@@ -361,14 +372,7 @@ class settings():
                 self.liststore5.append([available_lang[i]])
             if available_lang[i] == gw_config_set['app_lang']:
                 self.combobox_app_lang.set_active(i)
-        self.liststore6.clear()
-        for i in range(len(weather_lang_list)):
-            try:
-                self.liststore6.append([dict_weather_lang[weather_lang_list[i]]])
-            except:
-                self.liststore6.append([weather_lang_list[i]])
-            if weather_lang_list[i] == gw_config_set['weather_lang']:
-                self.combobox_weather_lang.set_active(i)
+        self.load_available_service_lang(service_set)
 
         state_lock = False
 
@@ -458,13 +462,10 @@ class settings():
         if state_lock:
             return
         global gw_config_set
-        w_name = Gtk.Buildable.get_name(widget)
-        w_name = w_name.split('_')
-        name = '_'.join(w_name[1:])
         i = widget.get_active()
-        gw_config_set[name] = weather_lang_list[i]
+        gw_config_set['weather_lang'] = weather_lang_list[i]
         Save_Config()
-        drawing_area_set.redraw(False, True, load_config = True)
+        #drawing_area_set.redraw(False, True, load_config = True)
 
     def set_app_lang(self, widget):
         if state_lock:
@@ -516,10 +517,46 @@ class settings():
         else:
             desktop.remove()
 
+    def set_service(self, widget):
+        if state_lock:
+            return
+        global gw_config_set
+        i = widget.get_active()
+        gw_config_set['service'] = i
+        try:
+            city_list = gw_config_set[data.get_city_list(i)]
+        except:
+            city_list = []
+        if city_list:
+            gw_config_set['city_id'] = city_list[0].split(';')[0]
+        else:
+            gw_config_set['city_id'] = 0
+        Save_Config()
+        self.load_available_service_lang(i)
+
+    def load_available_service_lang(self, i):
+        global dict_weather_lang, weather_lang_list
+        url, example, code, dict_weather_lang, weather_lang_list = data.get(gw_config_set['service'])
+        self.liststore6.clear()
+        for i in range(len(weather_lang_list)):
+            try:
+                self.liststore6.append([dict_weather_lang[weather_lang_list[i]]])
+            except:
+                if weather_lang_list[i] != '':
+                    self.liststore6.append([weather_lang_list[i]])
+            if weather_lang_list[i] == gw_config_set['weather_lang']:
+                self.combobox_weather_lang.set_active(i)
+            if self.combobox_weather_lang.get_active() == -1:
+                self.combobox_weather_lang.set_active(0)
+
+    def refresh(self, widget):
+        drawing_area_set.redraw(False, True, load_config = True)
 
 
-def main(gw_config_default, gw_config, drawing_area, app_gw, icons_list, backgrounds_list, ICONS_PATH, BGS_PATH):
-    global gw_config_default_set, gw_config_set, drawing_area_set, App_gw, icons_list_set, backgrounds_list_set, ICONS_PATH_SET, BGS_PATH_SET
+
+
+def main(gw_config_default, gw_config, drawing_area, app_gw, icons_list, backgrounds_list, ICONS_PATH, BGS_PATH, service):
+    global gw_config_default_set, gw_config_set, drawing_area_set, App_gw, icons_list_set, backgrounds_list_set, ICONS_PATH_SET, BGS_PATH_SET, service_set
     for i in gw_config_default.keys():
         gw_config_default_set[i] = gw_config_default[i]
     for i in gw_config.keys():
@@ -527,6 +564,7 @@ def main(gw_config_default, gw_config, drawing_area, app_gw, icons_list, backgro
 
     ICONS_PATH_SET = ICONS_PATH
     BGS_PATH_SET = BGS_PATH
+    service_set = service
     icons_list_set = []
     backgrounds_list_set = []
     icons_list_set.append('default')

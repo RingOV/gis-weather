@@ -3,12 +3,81 @@
 from gi.repository import Gtk
 import os
 from utils import localization
-from services import gismeteo
+from services import data
+from dialogs.settings_dialog import services_list
+import json
 
 CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
 
-def create(window, city_id, city_id_add, APP_PATH, weather_lang):
+url = None
+example = None
+code = None
+dict_weather_lang = None
+weather_lang_list = None
+gw_config = None
 
+def Save_Config():
+    json.dump(gw_config, open(os.path.join(CONFIG_PATH, 'gw_config.json'), "w"), sort_keys=True, indent=4, separators=(', ', ': '))
+
+def Load_Config():
+    global gw_config
+    try:
+        gw_config = json.load(open(os.path.join(CONFIG_PATH, 'gw_config.json')))
+    except:
+        print ('[!] '+_('Error loading config file'))
+
+def set_service(widget, label, liststore2, combobox_weather_lang, weather_lang, store):
+    global gw_config
+    Load_Config()
+    i = widget.get_active()
+    load_data(i, label, liststore2, combobox_weather_lang, weather_lang, store)
+    gw_config['service'] = i
+    gw_config['weather_lang'] = weather_lang_list[combobox_weather_lang.get_active()]
+    try:
+        gw_config['city_id'] = gw_config[data.get_city_list(i)][0].split(';')[0]
+    except:
+        pass
+    Save_Config()
+
+def set_weather_lang(widget):
+    global gw_config
+    i = widget.get_active()
+    gw_config['weather_lang'] = weather_lang_list[i]
+    Save_Config()
+
+def load_data(service, label, liststore2, combobox_weather_lang, weather_lang, store):
+    global url, example, code, dict_weather_lang, weather_lang_list, gw_config
+    url, example, code, dict_weather_lang, weather_lang_list = data.get(service)
+    text = _("Choose your city on")+" <a href='%s'>%s</a>\n" %(url, url)+\
+        _("and copy city code from the reference")+"\n"+\
+        _("For example")+ " <u><span foreground='blue'>%s/</span></u>\n" %example+\
+        _("City code")+" %s" %code
+    label.set_markup(text)
+    liststore2.clear()
+    for i in range(len(weather_lang_list)):
+        try:
+            liststore2.append([dict_weather_lang[weather_lang_list[i]]])
+        except:
+            if weather_lang_list[i] != '':
+                liststore2.append([weather_lang_list[i]])
+        if weather_lang_list[i] == weather_lang:
+            combobox_weather_lang.set_active(i)
+        if combobox_weather_lang.get_active() == -1:
+            combobox_weather_lang.set_active(0)
+    Load_Config()
+    print(data.get_city_list(service))
+    #print(gw_config[data.get_city_list(service)])
+    try:
+        city_list = gw_config[data.get_city_list(service)]
+    except:
+        city_list = []
+    print('dsfsdfsdfasd ', city_list)
+    store.clear()
+    for item in city_list:
+        store.append([item.split(';')[0], item.split(';')[1]])
+
+def create(window, APP_PATH, weather_lang, service):
+    Load_Config()
     ui = Gtk.Builder()
     ui.add_from_file(os.path.join(APP_PATH, "dialogs","city_id_dialog.ui"))
     dialog = ui.get_object('dialog1')
@@ -19,17 +88,21 @@ def create(window, city_id, city_id_add, APP_PATH, weather_lang):
     dict_o = localization.translate_ui(list_o, dict_o)
     dialog.set_title(_('Location'))
 
-    service = gismeteo.service
-    example = gismeteo.example
-    code = gismeteo.code
-    text = _("Choose your city on")+" <a href='%s'>%s</a>\n" %(service, service)+\
-        _("and copy city code from the reference")+"\n"+\
-        _("For example")+ " <u><span foreground='blue'>%s/</span></u>\n" %example+\
-        _("City code")+" %s" %code
-    
+    liststore2 = ui.get_object('liststore2')
+    combobox_weather_lang = ui.get_object('combobox_weather_lang')
+    combobox_weather_lang.connect("changed", set_weather_lang)
+    combobox_service = ui.get_object('combobox_service')
+    liststore3 = ui.get_object('liststore3')
     label = ui.get_object('label1')
-    label.set_markup(text)
+    for i in range(len(services_list)):
+        liststore3.append([services_list[i]])
+    combobox_service.set_active(service)
+    store = ui.get_object('liststore1')
 
+    load_data(service, label, liststore2, combobox_weather_lang, weather_lang, store)
+
+    combobox_service.connect("changed", set_service, label, liststore2, combobox_weather_lang, weather_lang, store)
+    
     entrybox = ui.get_object('entrybox')
     bar_ok = ui.get_object('bar_ok')
     bar_err = ui.get_object('bar_err')
@@ -38,26 +111,9 @@ def create(window, city_id, city_id_add, APP_PATH, weather_lang):
     treeView = ui.get_object('treeView')
     create_columns(treeView)
 
-    store = ui.get_object('liststore1')
-    for item in city_id_add:
-        store.append([item.split(';')[0], item.split(';')[1]])
-
-    dict_weather_lang = gismeteo.dict_weather_lang
-    weather_lang_list = gismeteo.weather_lang_list
-    liststore2 = ui.get_object('liststore2')
-    combobox_weather_lang = ui.get_object('combobox_weather_lang')
-    for i in range(len(weather_lang_list)):
-        try:
-            liststore2.append([dict_weather_lang[weather_lang_list[i]]])
-        except:
-            liststore2.append([weather_lang_list[i]])
-        if weather_lang_list[i] == weather_lang:
-            combobox_weather_lang.set_active(i)
-
-    return dialog, entrybox, treeView, bar_err, bar_ok, bar_label, combobox_weather_lang, weather_lang_list
+    return dialog, entrybox, treeView, bar_err, bar_ok, bar_label, combobox_weather_lang, weather_lang_list, combobox_service
 
 def create_columns(treeView):
-
     rendererText = Gtk.CellRendererText()
     column = Gtk.TreeViewColumn(_('Code'), rendererText, text=0)
     treeView.append_column(column)

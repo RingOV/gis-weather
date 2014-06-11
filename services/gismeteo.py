@@ -1,22 +1,25 @@
 #!/usr/bin/env python3
 
 from urllib.request import urlopen
+from utils.t_convert import C_to_F
 import re
 import time
 import os
 
-service = "http://www.gismeteo.com"
-example = "http://www.gismeteo.com/city/daily/<b>1234</b>"
-code = "<b>1234</b>"
-dict_weather_lang = {
-    'com': 'English',
-    'ru': 'Русский',
-    'ua/ua': 'Український',
-    'lv': 'Latvijas',
-    'lt': 'Lietuviškai',
-    'md/ro': 'Română'
-}
-weather_lang_list = ('com', 'ru', 'ua/ua', 'lv', 'lt', 'md/ro')
+data = [
+    "http://www.gismeteo.com", # url
+    "http://www.gismeteo.com/city/daily/<b>1234</b>", # example
+    "<b>1234</b>", #code
+    { 
+        'com': 'English',
+        'ru': 'Русский',
+        'ua/ua': 'Український',
+        'lv': 'Latvijas',
+        'lt': 'Lietuviškai',
+        'md/ro': 'Română'
+    }, # dict_weather_lang
+    ('com', 'ru', 'ua/ua', 'lv', 'lt', 'md/ro') # weather_lang_list
+]
 
 # переменные, в которые записывается погода
 city_name = []       # Город
@@ -222,7 +225,6 @@ def convert(icon, icons_name):
         icon_converted = os.path.split(icon)[1]
     return icon+';'+icon_converted
 
-
 def get_city_name(c_id, weather_lang):
     try:
         source = urlopen('http://www.gismeteo.%s/city/weekly/'%weather_lang + str(c_id), timeout=10).read()
@@ -254,9 +256,10 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
 
     # Температура
     t_now = re.findall('m_temp c.>([&minus;+]*\d+)<', w_now[0])
-    for i in range(0, len(t_now)):
+    for i in range(len(t_now)):
         if t_now[i][0] == '&':
             t_now[i] = '-' + t_now[i][7:]
+    t_now[0] = t_now[0]+';'+t_now[0]+';'+C_to_F(t_now[0])+';'+C_to_F(t_now[0])
 
     # Ветер
     wind_speed_now = re.findall('m_wind ms.*>(\d+)<', w_now[0])
@@ -306,6 +309,8 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
     # температура ночью
     t_night = t[::4]
     t_night_feel = t_feel[::4]
+    for i in range(len(t_night)):
+        t_night[i] = t_night[i]+';'+t_night_feel[i]+';'+C_to_F(t_night[i])+';'+C_to_F(t_night_feel[i])
     
     # День недели и дата
     day = re.findall('weekday.>(.*?)<', source)
@@ -314,6 +319,8 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
     # температура днем
     t_day = t[2::4]
     t_day_feel = t_feel[2::4]
+    for i in range(len(t_day)):
+        t_day[i] = t_day[i]+';'+t_day_feel[i]+';'+C_to_F(t_day[i])+';'+C_to_F(t_day_feel[i])
     
     # Иконка погоды днем
     icons_list = re.findall('src=\"(.*?new\/.*?)\"', w_all)

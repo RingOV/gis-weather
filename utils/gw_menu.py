@@ -4,7 +4,7 @@ from gi.repository import Gtk
 import os
 
 def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, icons_name, show_bg_png, 
-    color_bg, bg_custom, color_scheme, color_scheme_number, city_id_add, city_id, fix_position, sticky):
+    color_bg, bg_custom, color_scheme, color_scheme_number, city_list, city_id, fix_position, sticky):
     menu = None
     # из папки скрипта (dirs - иконки, files - фоны)
     for root, dirs, files in os.walk(ICONS_PATH):
@@ -36,13 +36,13 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, icons
     sub_menu_window = Gtk.Menu()
 
     # sub_menu_place
-    if len(city_id_add) > 0:
-        for i in range(len(city_id_add)):
-            menu_items = Gtk.RadioMenuItem(label=city_id_add[i].split(';')[1])
-            if city_id_add[i].split(';')[0] == str(city_id):
+    if len(city_list) > 0:
+        for i in range(len(city_list)):
+            menu_items = Gtk.RadioMenuItem(label=city_list[i].split(';')[1])
+            if city_list[i].split(';')[0] == str(city_id):
                 menu_items.set_active(True)
             sub_menu_place.append(menu_items)
-            menu_items.connect("activate", app.menu_response, 'reload', city_id_add[i])
+            menu_items.connect("activate", app.menu_response, 'reload', city_list[i])
             menu_items.show()
         menu_items = Gtk.SeparatorMenuItem()
         sub_menu_place.append(menu_items)
