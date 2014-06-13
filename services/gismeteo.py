@@ -20,7 +20,7 @@ data = [
     }, # dict_weather_lang
     ('com', 'ru', 'ua/ua', 'lv', 'lt', 'md/ro') # weather_lang_list
 ]
-
+max_days = 12
 # переменные, в которые записывается погода
 city_name = []       # Город
 t_now = []           # Температура сейчас
@@ -57,6 +57,7 @@ t_today_feel = []    # Температура сегодня ощущается
 icon_today = []      # Иконка погоды сегодня
 wind_speed_tod = []  # Скорость ветра сегодня
 wind_direct_tod = [] # Направление ветра сегодня
+chance_of_rain = []
 
 dict_icons = {
     "d.sun.png": "32.png",
@@ -272,6 +273,10 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
     
     # Иконка ветра
     icon_wind_now = re.findall('wind(\d)', w_now[0])
+    if icon_wind_now[0] == '0':
+        icon_wind_now[0] = 'None'
+    else:
+        icon_wind_now[0] = int(icon_wind_now[0])*45+45
 
     # Время обновления
     time_update = re.findall('data-hr.* (\d?\d:\d\d)\s*</span>', source, re.DOTALL)
@@ -287,7 +292,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
     
     # Температура воды сейчас
     try:
-        t_water_now = t_now[1]
+        t_water_now = t_now[1]+';'+C_to_F(t_now[1])
     except:
         pass
     
@@ -352,6 +357,8 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
         # Температура
         t_tomorrow = t[4:8]
         t_tomorrow_feel = t_feel[4:8]
+        for i in range(len(t_tomorrow)):
+            t_tomorrow[i] = t_tomorrow[i]+';'+t_tomorrow_feel[i]+';'+C_to_F(t_tomorrow[i])+';'+C_to_F(t_tomorrow_feel[i])
         # Иконка погоды
         icon_tomorrow = re.findall('src=\"(.*?new\/.*?)\"', w_tomorrow)
         for i in range(len(icon_tomorrow)):
@@ -368,6 +375,8 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
         # Температура
         t_today = t[0:4]
         t_today_feel = t_feel[0:4]
+        for i in range(len(t_today)):
+            t_today[i] = t_today[i]+';'+t_today_feel[i]+';'+C_to_F(t_today[i])+';'+C_to_F(t_today_feel[i])
         # Иконка погоды
         icon_today = re.findall('src=\"(.*?new\/.*?)\"', w_today)
         for i in range(len(icon_today)):

@@ -167,6 +167,8 @@ class settings():
         self.spinbutton_n.connect("value-changed", self.save_settings)
         self.switch_show_time_receive = self.ui.get_object('switch_show_time_receive')
         self.switch_show_time_receive.connect("notify::active", self.save_settings)
+        self.switch_show_chance_of_rain = self.ui.get_object('switch_show_chance_of_rain')
+        self.switch_show_chance_of_rain.connect("notify::active", self.save_settings)
         self.combobox_show_splash_screen = self.ui.get_object('combobox_show_splash_screen')
         self.combobox_show_splash_screen.connect("changed", self.save_settings)
         self.spinbutton_max_try_show = self.ui.get_object('spinbutton_max_try_show')
@@ -200,6 +202,8 @@ class settings():
         self.clear_n.connect("clicked", self.clear_settings)
         self.clear_show_time_receive = self.ui.get_object('clear_show_time_receive')
         self.clear_show_time_receive.connect("clicked", self.clear_settings)
+        self.clear_show_chance_of_rain = self.ui.get_object('clear_show_chance_of_rain')
+        self.clear_show_chance_of_rain.connect("clicked", self.clear_settings)
         self.clear_show_splash_screen = self.ui.get_object('clear_show_splash_screen')
         self.clear_show_splash_screen.connect("clicked", self.clear_settings)
         self.clear_max_try_show = self.ui.get_object('clear_max_try_show')
@@ -317,6 +321,7 @@ class settings():
         self.load(self.switch_show_block_add_info)
         self.load(self.spinbutton_n)
         self.load(self.switch_show_time_receive)
+        self.load(self.switch_show_chance_of_rain)
         self.load(self.combobox_check_for_updates)
         self.load(self.combobox_show_splash_screen)
         self.load(self.combobox_t_scale)
@@ -531,6 +536,11 @@ class settings():
             gw_config_set['city_id'] = city_list[0].split(';')[0]
         else:
             gw_config_set['city_id'] = 0
+        gw_config_set['max_days'] = data.get_max_days(i)
+        if gw_config_set['n'] > gw_config_set['max_days']:
+            gw_config_set['n'] = gw_config_set['max_days']
+        self.spinbutton_n.set_value(gw_config_set['n'])
+        self.spinbutton_n.set_range(3, gw_config_set['max_days'])
         Save_Config()
         self.load_available_service_lang(i)
 

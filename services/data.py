@@ -26,3 +26,9 @@ def get_city_name(service, city_id, weather_lang):
         return  gismeteo.get_city_name(city_id, weather_lang)
     if service == 1:
         return  weather_com.get_city_name(city_id, weather_lang)
+
+def get_max_days(service):
+    if service == 0:
+        return gismeteo.max_days
+    if service == 1:
+        return weather_com.max_days

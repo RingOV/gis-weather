@@ -100,7 +100,9 @@ gw_config_default = {
     'delay_start_time': 0,
     'block_now_left': 0,
     't_scale': 0,                      # 0 - °C, 1 - °F
-    'service': 0
+    'service': 0,
+    'max_days': 12,
+    'show_chance_of_rain': False
 }
 gw_config = {}
 for i in gw_config_default.keys():
@@ -265,7 +267,8 @@ weather = {
     't_today_feel': [],    # Температура сегодня ощущается
     'icon_today': [],      # Иконка погоды сегодня
     'wind_speed_tod': [],  # Скорость ветра сегодня
-    'wind_direct_tod': []  # Направление ветра сегодня
+    'wind_direct_tod': [], # Направление ветра сегодня
+    'chance_of_rain': []
 }
 # Создаем переменные
 for i in weather.keys():
@@ -509,12 +512,12 @@ class MyDrawArea(Gtk.DrawingArea):
                     else:
                         self.draw_text(wind_direct_now[0]+', '+wind_speed_now[0]+' '+_('m/s'), x0-r-5, y0+r+font_wind+4, font+' Normal', font_wind, 2*r+10+font_NS,Pango.Alignment.CENTER)
                 wind_icon = 0
-                if icon_wind_now[0] != '0': 
-                    wind_icon = int(icon_wind_now[0])*45+45
+                if icon_wind_now[0] != 'None': 
+                    #wind_icon = int(icon_wind_now[0])*45+45
                     if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'wind.png')):
-                        self.draw_scaled_image(x0-a/2+font_NS/2, y0-a/2+1+font_NS/2, os.path.join(ICONS_PATH, icons_name, 'wind.png'), a, a, wind_icon+angel)
+                        self.draw_scaled_image(x0-a/2+font_NS/2, y0-a/2+1+font_NS/2, os.path.join(ICONS_PATH, icons_name, 'wind.png'), a, a, icon_wind_now[0]+angel)
                     else:
-                        self.draw_scaled_image(x0-a/2+font_NS/2, y0-a/2+1+font_NS/2, os.path.join(ICONS_PATH, 'default', 'wind.png'), a, a, wind_icon+angel)
+                        self.draw_scaled_image(x0-a/2+font_NS/2, y0-a/2+1+font_NS/2, os.path.join(ICONS_PATH, 'default', 'wind.png'), a, a, icon_wind_now[0]+angel)
             
             if show_block_add_info:    
                 ####-Блок с доп инфо-####
@@ -540,27 +543,27 @@ class MyDrawArea(Gtk.DrawingArea):
                         self.draw_text(wind_speed_now[0]+"<span size='x-small'> %s</span>  <span size='small'>%s</span>"%(_('m/s'), wind_direct_now[0]), x0+20, y0-1, font+' Normal', 12, 100,Pango.Alignment.LEFT, color_high_wind)
                     else:
                         self.draw_text(wind_speed_now[0]+"<span size='x-small'> %s</span>  <span size='small'>%s</span>"%(_('m/s'), wind_direct_now[0]), x0+20, y0-1, font+' Normal', 12, 100,Pango.Alignment.LEFT)
-                if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'press.png')):
-                    self.draw_scaled_image(x0, y0+line_height, os.path.join(ICONS_PATH, icons_name, 'press.png'), 16, 16)
-                else:
-                    self.draw_scaled_image(x0, y0+line_height, os.path.join(ICONS_PATH, 'default', 'press.png'), 16, 16)
                 if press_now:
-                    self.draw_text(press_now[0]+"<span size='x-small'> %s</span>"%_("mmHg"), x0+20, y0+line_height-1, font+' Normal', 12, 100,Pango.Alignment.LEFT)
-                if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'hum.png')):
-                    self.draw_scaled_image(x0, y0+line_height*2, os.path.join(ICONS_PATH, icons_name, 'hum.png'), 16, 16)
-                else:
-                    self.draw_scaled_image(x0, y0+line_height*2, os.path.join(ICONS_PATH, 'default', 'hum.png'), 16, 16)
+                    self.draw_text(press_now[0]+"<span size='x-small'> %s</span>"%_("mmHg"), x0+20, y0+line_height-1, font+' Normal', 12, 150,Pango.Alignment.LEFT)
+                    if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'press.png')):
+                        self.draw_scaled_image(x0, y0+line_height, os.path.join(ICONS_PATH, icons_name, 'press.png'), 16, 16)
+                    else:
+                        self.draw_scaled_image(x0, y0+line_height, os.path.join(ICONS_PATH, 'default', 'press.png'), 16, 16)
                 if hum_now:
                     self.draw_text(hum_now[0]+"<span size='x-small'> % "+_('humid.')+"</span>", x0+20, y0+line_height*2-1, font+' Normal', 12, 100,Pango.Alignment.LEFT)
-                if os.path.exists(os.path.join(ICONS_PATH, icons_name, 't_water.png')):
-                    self.draw_scaled_image(x0, y0+line_height*3, os.path.join(ICONS_PATH, icons_name, 't_water.png'), 16, 16)
-                else:
-                    self.draw_scaled_image(x0, y0+line_height*3, os.path.join(ICONS_PATH, 'default', 't_water.png'), 16, 16)
+                    if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'hum.png')):
+                        self.draw_scaled_image(x0, y0+line_height*2, os.path.join(ICONS_PATH, icons_name, 'hum.png'), 16, 16)
+                    else:
+                        self.draw_scaled_image(x0, y0+line_height*2, os.path.join(ICONS_PATH, 'default', 'hum.png'), 16, 16)
                 if t_water_now:
-                    t = t_water_now
-                    if t_scale == 1:
-                        t = str(round(int(t)*1.8+32))
-                    self.draw_text(t+"<span size='x-small'> %s %s</span>"%(t_scale_dict[t_scale], _("water")), x0+20, y0+line_height*3-1, font+' Normal', 12, 100,Pango.Alignment.LEFT)
+                    # t = t_water_now
+                    # if t_scale == 1:
+                    #     t = str(round(int(t)*1.8+32))
+                    self.draw_text(t_water_now.split(';')[t_scale]+"<span size='x-small'> %s %s</span>"%(t_scale_dict[t_scale], _("water")), x0+20, y0+line_height*3-1, font+' Normal', 12, 100,Pango.Alignment.LEFT)
+                    if os.path.exists(os.path.join(ICONS_PATH, icons_name, 't_water.png')):
+                        self.draw_scaled_image(x0, y0+line_height*3, os.path.join(ICONS_PATH, icons_name, 't_water.png'), 16, 16)
+                    else:
+                        self.draw_scaled_image(x0, y0+line_height*3, os.path.join(ICONS_PATH, 'default', 't_water.png'), 16, 16)
             
             if show_block_tomorrow:
                 ####-Блок погоды на завтра-####
@@ -581,16 +584,17 @@ class MyDrawArea(Gtk.DrawingArea):
                     if j > 1: j = j-2
                     self.draw_text(c[i], x0+a*((j+1)//2), y0+b*(i//2), font+' Bold', 7, 50,Pango.Alignment.LEFT, gradient=True)
                     if t_tomorrow:
-                        if t_feel and t_tomorrow_feel:
-                            t = t_tomorrow_feel[i]
-                            if t_scale == 1:
-                                t = C_to_F(t)
-                            self.draw_text(t+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
-                        else:
-                            t = t_tomorrow[i]
-                            if t_scale == 1:
-                                t = C_to_F(t)
-                            self.draw_text(t+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
+                        self.draw_text(t_tomorrow[i].split(';')[t_index]+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
+                        # if t_feel and t_tomorrow_feel:
+                        #     t = t_tomorrow_feel[i]
+                        #     if t_scale == 1:
+                        #         t = C_to_F(t)
+                        #     self.draw_text(t+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
+                        # else:
+                        #     t = t_tomorrow[i]
+                        #     if t_scale == 1:
+                        #         t = C_to_F(t)
+                        #     self.draw_text(t+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
                     try:
                         self.draw_scaled_icon(x0+32+a*((j+1)//2), y0+b*(i//2), icon_tomorrow[i], 28, 28)
                     except:
@@ -620,17 +624,18 @@ class MyDrawArea(Gtk.DrawingArea):
                     j = i
                     if j > 1: j = j-2
                     self.draw_text(c[i], x0+a*((j+1)//2), y0+b*(i//2), font+' Bold', 7, 50,Pango.Alignment.LEFT, gradient=True)
-                    if t_tomorrow:
-                        if t_feel and t_today_feel:
-                            t = t_today_feel[i]
-                            if t_scale == 1:
-                                t = C_to_F(t)
-                            self.draw_text(t+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
-                        else:
-                            t = t_today[i]
-                            if t_scale == 1:
-                                t = C_to_F(t)
-                            self.draw_text(t+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
+                    if t_today:
+                        self.draw_text(t_today[i].split(';')[t_index]+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
+                        # if t_feel and t_today_feel:
+                        #     t = t_today_feel[i]
+                        #     if t_scale == 1:
+                        #         t = C_to_F(t)
+                        #     self.draw_text(t+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
+                        # else:
+                        #     t = t_today[i]
+                        #     if t_scale == 1:
+                        #         t = C_to_F(t)
+                        #     self.draw_text(t+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
                     try:
                         self.draw_scaled_icon(x0+32+a*((j+1)//2), y0+b*(i//2), icon_today[i], 28, 28)
                     except:
@@ -661,6 +666,9 @@ class MyDrawArea(Gtk.DrawingArea):
                 t_index += 1
             self.draw_text(t_day[index].split(';')[t_index]+'°', x, y+15, font+' Normal', 10, w_block-45,Pango.Alignment.LEFT)
             self.draw_text(t_night[index].split(';')[t_index]+'°', x, y+30, font+' Normal', 8, w_block-45,Pango.Alignment.LEFT)
+            if chance_of_rain and show_chance_of_rain:
+                self.draw_text(chance_of_rain[index], x+30, y+12, font+' Normal', 7, 36,Pango.Alignment.CENTER)
+
             # if t_feel:
             #     if t_day_feel:
             #         t = t_day_feel[index]
@@ -977,18 +985,8 @@ class Weather_Widget:
 
     def show_edit_dialog(self):
         global city_id, gw_config
-        try:
-            print(gw_config['city_list_weather_com'])
-        except:
-            pass
         Load_Config()
         dialog, entrybox, treeview, bar_err, bar_ok, bar_label, combobox_weather_lang, weather_lang_list, combobox_service = city_id_dialog.create(self.window_main, APP_PATH, weather_lang, service);
-        #combobox_weather_lang.connect("changed", self.set_weather_lang, weather_lang_list)
-        #combobox_service.connect("changed", )
-        try:
-            print(gw_config['city_list_weather_com'])
-        except:
-            pass
         dialog.show_all()
         response = dialog.run()
 
@@ -1008,24 +1006,14 @@ class Weather_Widget:
                     if iter:
                         model.remove(iter)
                     bar_label.set_text(_('Removed')+': %s'%city_list[int(del_index[0])].split(';')[1])
-                    #if str(city_id) == city_list[int(del_index[0])].split(';')[0]:
                     del city_list[int(del_index[0])]
                     selection = treeview.get_selection()
-                    model, iter = selection.get_selected()
                     abc, cde =  selection.get_selected_rows()
-                    sel_index=cde[0]
-                    if iter:
-                        city_id = city_list[int(sel_index[0])].split(';')[0]
+                    if cde:
+                        city_id = city_list[int(cde[0][0])].split(';')[0]
                     else:
                         city_id = 0
-                    # if len(city_list) != 0:
-                    #     city_id = int(city_list[0].split(';')[0])
-                    # else:
-                    #     city_id = 0
-                    #else:
-                    #    del city_list[int(del_index[0])]
                     gw_config[data.get_city_list(service)] = city_list
-
                     Save_Config()
                     bar_ok.show()
                 except:

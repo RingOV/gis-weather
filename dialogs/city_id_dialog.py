@@ -37,6 +37,9 @@ def set_service(widget, label, liststore2, combobox_weather_lang, weather_lang, 
         gw_config['city_id'] = gw_config[data.get_city_list(i)][0].split(';')[0]
     except:
         pass
+    gw_config['max_days'] = data.get_max_days(i)
+    if gw_config['n'] > gw_config['max_days']:
+        gw_config['n'] = gw_config['max_days']
     Save_Config()
 
 def set_weather_lang(widget):
@@ -65,13 +68,10 @@ def load_data(service, label, liststore2, combobox_weather_lang, weather_lang, s
         if combobox_weather_lang.get_active() == -1:
             combobox_weather_lang.set_active(0)
     Load_Config()
-    print(data.get_city_list(service))
-    #print(gw_config[data.get_city_list(service)])
     try:
         city_list = gw_config[data.get_city_list(service)]
     except:
         city_list = []
-    print('dsfsdfsdfasd ', city_list)
     store.clear()
     for item in city_list:
         store.append([item.split(';')[0], item.split(';')[1]])

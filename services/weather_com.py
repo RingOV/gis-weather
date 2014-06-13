@@ -15,7 +15,7 @@ data = [
     }, # dict_weather_lang
     ('http://www.weather.com/weather/tenday/', '') # weather_lang_list
 ]
-
+max_days = 8
 # переменные, в которые записывается погода
 city_name = []       # Город
 t_now = []           # Температура сейчас
@@ -52,6 +52,7 @@ t_today_feel = []    # Температура сегодня ощущается
 icon_today = []      # Иконка погоды сегодня
 wind_speed_tod = []  # Скорость ветра сегодня
 wind_direct_tod = [] # Направление ветра сегодня
+chance_of_rain = []
 
 dict_icons = {
     "0.png": "00.png",
@@ -113,6 +114,27 @@ def convert(icon_list, icons_name):
         icon_list[i] = icon_list[i]+';'+icon_converted
     return icon_list
 
+def wind_degree(s):
+    wind_dict = {
+        'W': 0,
+        'WNW': 23,
+        'NW': 45,
+        'NNW': 68,
+        'N': 90,
+        'NNE': 113,
+        'NE': 135,
+        'ENE': 158,
+        'E': 180,
+        'ESE': 203,
+        'SE': 225,
+        'SSE': 248,
+        'S': 270,
+        'SSW': 293,
+        'SW': 315,
+        'WSW': 338        
+    }
+    return wind_dict[s]
+
 
 def get_city_name(c_id, weather_lang):
     try:
@@ -125,7 +147,7 @@ def get_city_name(c_id, weather_lang):
     return c_name[0]
 
 def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, timer_bool, weather_lang, icons_name):
-    global city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod 
+    global city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain
     print ('> '+_('Getting weather for')+' '+str(n)+' '+_('days'))
     print ('> '+_('Uploading page to a variable')+' '+weather_lang + str(city_id))
     try:
@@ -165,6 +187,8 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
     wind_speed_now = re.findall('"wind-speed">(\d+)<', w_now[0])
     wind_speed_now[0] = str(round(int(wind_speed_now[0])*10/36))
     wind_direct_now = re.findall('"wx-dir-arrow wind-dir-(.+)"', w_now[0])
+    if not wind_direct_now:
+        wind_direct_now = ['0']
     # wind_direct_now[0] = wind_direct_now[1]
     print (wind_speed_now[0])
     print (wind_direct_now[0])
@@ -176,7 +200,11 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
     
     # Иконка ветра
     #icon_wind_now = re.findall('wind(\d)', w_now[0])
-    icon_wind_now = ['1']
+    icon_wind_now = ['']
+    try:
+        icon_wind_now[0] = wind_degree(wind_direct_now[0])
+    except:
+        icon_wind_now[0] = 'None'
 
     # Время обновления
     #time_update = re.findall('"last-updated">(.*)<', w_now[0])
@@ -233,8 +261,9 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
     day[0] = day[7]
     print(day)
     date = re.findall('<span class="wx-label">(.+)</span>', w_all)
-    #date.pop(1)
-    #date.pop(1)
+    if len(date) == 12:
+        date.pop(1)
+        date.pop(1)
     print(date)
 
     # Иконка погоды днем
@@ -263,6 +292,9 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
     # Текст погоды
     text = re.findall('"wx-phrase">(.*)<', w_all)
     print(text)
+
+    chance_of_rain = re.findall('<dd>(\d+%)</dd>', w_all)
+    print(chance_of_rain)
     
     # if show_block_tomorrow:
     #     #### Погода завтра ####
