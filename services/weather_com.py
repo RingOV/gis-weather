@@ -185,7 +185,8 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
 
     # Ветер
     wind_speed_now = re.findall('"wind-speed">(\d+)<', w_now[0])
-    wind_speed_now[0] = str(round(int(wind_speed_now[0])*10/36))
+    if wind_speed_now:
+        wind_speed_now[0] = str(round(int(wind_speed_now[0])*10/36))+' m/s;'+wind_speed_now[0]+' km/h'
     wind_direct_now = re.findall('"wx-dir-arrow wind-dir-(.+)"', w_now[0])
     if not wind_direct_now:
         wind_direct_now = ['0']
@@ -218,7 +219,9 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
     print(text_now[0])
     
     # Давление сейчас
-    press_now = re.findall('"barometric-pressure.*>(.*)', w_now[0])
+    press_now = re.findall('"barometric-pressure.*>(.*) ', w_now[0])
+    if press_now:
+        press_now[0] = str(round(float(press_now[0])*25.4))+' mm;'+press_now[0]+' in'
     print(press_now[0])
     
     # Влажность сейчас
@@ -282,8 +285,11 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
     #wind_direct_list = re.findall('>(.+)</dt', w_all)
     wind_direct = []
     for i in wind:
-        wind_speed.append(str(round(int(i.split()[-2])*10/36)))
+        wind_speed.append(i.split()[-2])
         wind_direct.append(i.split()[0])
+    if wind_speed:
+        for i in range(len(wind_speed)):
+            wind_speed[i] = str(round(int(wind_speed[i])*10/36))+' m/s;'+wind_speed[i]+' km/h'
     # for i in range(len(wind_direct)):
     #     wind_direct[i] = wind_direct[i].split('>')[-1]
     print(wind_speed)

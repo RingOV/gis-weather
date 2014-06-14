@@ -264,6 +264,8 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
 
     # Ветер
     wind_speed_now = re.findall('m_wind ms.*>(\d+)<', w_now[0])
+    if wind_speed_now:
+        wind_speed_now[0] = wind_speed_now[0]+' m/s;'+str(round(int(wind_speed_now[0])*3.6))+' km/h'
     wind_direct_now = re.findall('>(.+)</dt', w_now[0])
     wind_direct_now[0] = wind_direct_now[1]
 
@@ -286,6 +288,8 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
     
     # Давление сейчас
     press_now = re.findall('m_press torr\'>(\d+)<', w_now[0])
+    if press_now:
+        press_now[0] = press_now[0]+' mm;'+str(round(int(press_now[0])/25.4))+' in'
     
     # Влажность сейчас
     hum_now = re.findall('wicon hum".*>(\d+)<span class="unit"', w_now[0])
@@ -340,6 +344,9 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
     # Ветер
     wind_speed_list = re.findall('m_wind ms.>(\d+)', w_all)
     wind_speed = wind_speed_list[2::4]
+    if wind_speed:
+        for i in range(len(wind_speed)):
+            wind_speed[i] = wind_speed[i]+' m/s;'+str(round(int(wind_speed[i])*3.6))+' km/h'
     wind_direct_list = re.findall('>(.+)</dt', w_all)
     wind_direct = wind_direct_list[2::4]
     for i in range(len(wind_direct)):
@@ -365,6 +372,9 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
             icon_tomorrow[i] = convert(icon_tomorrow[i], icons_name)
         # Ветер
         wind_speed_tom = re.findall('m_wind ms.>(\d+)', w_tomorrow)
+        if wind_speed_tom:
+            for i in range(len(wind_speed_tom)):
+                wind_speed_tom[i] = wind_speed_tom[i]+' m/s;'+str(round(int(wind_speed_tom[i])*3.6))+' km/h'
         wind_direct_tom = re.findall('>(.+)</dt', w_tomorrow)
         for i in range(len(wind_direct_tom)):
             wind_direct_tom[i] = wind_direct_tom[i].split('>')[-1]
@@ -383,6 +393,9 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
             icon_today[i] = convert(icon_today[i], icons_name)
         # Ветер
         wind_speed_tod = re.findall('m_wind ms.>(\d+)', w_today)
+        if wind_speed_tod:
+            for i in range(len(wind_speed_tod)):
+                wind_speed_tod[i] = wind_speed_tod[i]+' m/s;'+str(round(int(wind_speed_tod[i])*3.6))+' km/h'
         wind_direct_tod = re.findall('>(.+)</dt', w_today)
         for i in range(len(wind_direct_tod)):
             wind_direct_tod[i] = wind_direct_tod[i].split('>')[-1]

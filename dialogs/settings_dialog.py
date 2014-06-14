@@ -39,6 +39,7 @@ dict_app_lang = {
     'en': 'English',
     'ru': 'Русский'
 }
+
 # find all available lang
 available_lang = ['auto', 'en']
 root, dirs, files = os.walk(os.path.join(os.path.split(work_path)[0], 'i18n'))
@@ -66,11 +67,6 @@ class settings():
         # General
         self.spinbutton_upd_time = self.ui.get_object('spinbutton_upd_time')
         self.spinbutton_upd_time.connect("value-changed", self.save_settings)
-        self.combobox_t_scale = self.ui.get_object('combobox_t_scale')
-        self.combobox_t_scale.connect("changed", self.save_settings)
-        self.liststore7 = self.ui.get_object('liststore7')
-        self.switch_t_feel = self.ui.get_object('switch_t_feel')
-        self.switch_t_feel.connect("notify::active", self.save_settings)
         self.switch_fix_BadDrawable = self.ui.get_object('switch_fix_BadDrawable')
         self.switch_fix_BadDrawable.connect("notify::active", self.save_settings)
         self.combobox_check_for_updates = self.ui.get_object('combobox_check_for_updates')
@@ -101,16 +97,35 @@ class settings():
         
         self.clear_upd_time = self.ui.get_object('clear_upd_time')
         self.clear_upd_time.connect("clicked", self.clear_settings)
-        self.clear_t_scale = self.ui.get_object('clear_t_scale')
-        self.clear_t_scale.connect("clicked", self.clear_settings)
-        self.clear_t_feel = self.ui.get_object('clear_t_feel')
-        self.clear_t_feel.connect("clicked", self.clear_settings)
         self.clear_fix_BadDrawable = self.ui.get_object('clear_fix_BadDrawable')
         self.clear_fix_BadDrawable.connect("clicked", self.clear_settings)
         self.clear_check_for_updates = self.ui.get_object('clear_check_for_updates')
         self.clear_check_for_updates.connect("clicked", self.clear_settings)
         self.clear_delay_start_time = self.ui.get_object('clear_delay_start_time')
         self.clear_delay_start_time.connect("clicked", self.clear_settings)
+
+
+        # Units
+        self.combobox_t_scale = self.ui.get_object('combobox_t_scale')
+        self.combobox_t_scale.connect("changed", self.save_settings)
+        self.liststore7 = self.ui.get_object('liststore7')
+        self.switch_t_feel = self.ui.get_object('switch_t_feel')
+        self.switch_t_feel.connect("notify::active", self.save_settings)
+        self.combobox_wind_units = self.ui.get_object('combobox_wind_units')
+        self.combobox_wind_units.connect("changed", self.save_settings)
+        self.liststore9 = self.ui.get_object('liststore9')
+        self.combobox_press_units = self.ui.get_object('combobox_press_units')
+        self.combobox_press_units.connect("changed", self.save_settings)
+        self.liststore10 = self.ui.get_object('liststore10')
+
+        self.clear_t_scale = self.ui.get_object('clear_t_scale')
+        self.clear_t_scale.connect("clicked", self.clear_settings)
+        self.clear_t_feel = self.ui.get_object('clear_t_feel')
+        self.clear_t_feel.connect("clicked", self.clear_settings)
+        self.clear_wind_units = self.ui.get_object('clear_wind_units')
+        self.clear_wind_units.connect("clicked", self.clear_settings)
+        self.clear_press_units = self.ui.get_object('clear_press_units')
+        self.clear_press_units.connect("clicked", self.clear_settings)
 
 
         # Window
@@ -280,6 +295,8 @@ class settings():
     def load_config_into_form(self):
         global state_lock
         state_lock = True
+        wind_units_list = [_('m/s'), _('km/h')]
+        press_units_list = [_('mm')+' '+_('Hg'), _('in')+' '+_('Hg')]
 
         self.liststore1.clear()
         self.liststore1.append([_('Never')])
@@ -295,11 +312,21 @@ class settings():
         self.liststore7.append(['°C'])
         self.liststore7.append(['°F'])
 
+        self.liststore9.clear()
+        for i in wind_units_list:
+            self.liststore9.append([i])
+
+        self.liststore10.clear()
+        for i in press_units_list:
+            self.liststore10.append([i])
+
         self.liststore8.clear()
         for i in range(len(services_list)):
             self.liststore8.append([services_list[i]])
         self.combobox_service.set_active(service_set)
 
+        self.load(self.combobox_wind_units)
+        self.load(self.combobox_press_units)
         self.load(self.spinbutton_upd_time)
         self.load(self.switch_t_feel)
         self.load(self.switch_fix_BadDrawable)
