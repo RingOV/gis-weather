@@ -37,13 +37,15 @@ weather_lang_list = None
 dict_app_lang = {
     'auto': 'Auto',
     'en': 'English',
-    'ru': 'Русский'
+    'ru': 'Русский',
+    'es': 'Español'
 }
 
 # find all available lang
 available_lang = ['auto', 'en']
-root, dirs, files = os.walk(os.path.join(os.path.split(work_path)[0], 'i18n'))
-dirs = root[1]
+print(os.path.join(os.path.split(work_path)[0], 'i18n'))
+for root, dirs, files in os.walk(os.path.join(os.path.split(work_path)[0], 'i18n')):
+    break
 dirs.sort()
 for i in range(len(dirs)):
     available_lang.append(dirs[i])
