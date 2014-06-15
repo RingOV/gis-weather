@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from urllib.request import urlopen
-from utils.t_convert import F_to_C
+from utils.t_convert import F_to_C, F_to_K
 import re
 import time
 import os
@@ -178,15 +178,17 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
             t_fill[0] = '+'+t_fill[0]
     t_c = F_to_C(t[0])
     t_c_fill = F_to_C(t_fill[0])
+    t_k = F_to_K(t[0])
+    t_k_fill = F_to_K(t_fill[0])
     t_now = ['']
-    t_now[0] = t_c+';'+t_c_fill+';'+t[0]+';'+t_fill[0]
+    t_now[0] = t_c+'°;'+t_c_fill+'°;'+t[0]+'°;'+t_fill[0]+'°;'+t_k+';'+t_k_fill
 
     print(t_now[0])
 
     # Ветер
     wind_speed_now = re.findall('"wind-speed">(\d+)<', w_now[0])
     if wind_speed_now:
-        wind_speed_now[0] = str(round(int(wind_speed_now[0])*10/36))+' m/s;'+wind_speed_now[0]+' km/h'
+        wind_speed_now[0] = str(round(int(wind_speed_now[0])*10/36))+' m/s;'+wind_speed_now[0]+' km/h;'+str(round(int(wind_speed_now[0])*0.621))+' mph'
     wind_direct_now = re.findall('"wx-dir-arrow wind-dir-(.+)"', w_now[0])
     if not wind_direct_now:
         wind_direct_now = ['0']
@@ -221,7 +223,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
     # Давление сейчас
     press_now = re.findall('"barometric-pressure.*>(.*) ', w_now[0])
     if press_now:
-        press_now[0] = str(round(float(press_now[0])*25.4))+' mm;'+press_now[0]+' in'
+        press_now[0] = str(round(float(press_now[0])*25.4))+' mmHg;'+press_now[0]+' inHg;'+str(round(float(press_now[0])*25.4*1.333))+' hPa'
     print(press_now[0])
     
     # Влажность сейчас
@@ -245,14 +247,14 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
     for i in range(len(t_day)):
         if t_day[i][0] not in ('+', '-', '0'):
             t_day[i] = '+'+t_day[i]
-        t_day[i] = F_to_C(t_day[i])+';'+F_to_C(t_day[i])+';'+t_day[i]+';'+t_day[i]
+        t_day[i] = F_to_C(t_day[i])+'°;'+F_to_C(t_day[i])+'°;'+t_day[i]+'°;'+t_day[i]+'°;'+F_to_K(t_day[i])+';'+F_to_K(t_day[i])
     #t_day_feel = t_day
     # температура ночью
     t_night = re.findall('"wx-temp-alt"> (-*\d+)<', w_all)
     for i in range(len(t_night)):
         if t_night[i][0] not in ('+', '-', '0'):
             t_night[i] = '+'+t_night[i]
-        t_night[i] = F_to_C(t_night[i])+';'+F_to_C(t_night[i])+';'+t_night[i]+';'+t_night[i]
+        t_night[i] = F_to_C(t_night[i])+'°;'+F_to_C(t_night[i])+'°;'+t_night[i]+'°;'+t_night[i]+'°;'+F_to_K(t_night[i])+';'+F_to_K(t_night[i])
     #t_night = f_to_c(t_night)
     #t_night_feel = t_night
 
@@ -289,7 +291,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
         wind_direct.append(i.split()[0])
     if wind_speed:
         for i in range(len(wind_speed)):
-            wind_speed[i] = str(round(int(wind_speed[i])*10/36))+' m/s;'+wind_speed[i]+' km/h'
+            wind_speed[i] = str(round(int(wind_speed[i])*10/36))+' m/s;'+wind_speed[i]+' km/h;'+str(round(int(wind_speed[i])*0.621))+' mph'
     # for i in range(len(wind_direct)):
     #     wind_direct[i] = wind_direct[i].split('>')[-1]
     print(wind_speed)

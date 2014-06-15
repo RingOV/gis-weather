@@ -11,3 +11,9 @@ def C_to_F(t_C):
     if t_F[0] not in ('+', '-', '0'):
         t_F = "+"+t_F
     return t_F
+
+def F_to_K(t_F):
+    return str(round((int(t_F)+459.67)*5/9))
+
+def C_to_K(t_C):
+    return str(int(t_C)+273)

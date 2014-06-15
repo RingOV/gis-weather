@@ -231,7 +231,8 @@ time_receive = None
 
 t_scale_dict = {
     0: "°C",
-    1: "°F"
+    1: "°F",
+    2: "K"
 }
 
 # переменные, в которые записывается погода
@@ -482,7 +483,7 @@ class MyDrawArea(Gtk.DrawingArea):
             if t_feel:
                 t_index += 1
             if t_now:
-                self.draw_text(t_now[0].split(';')[t_index]+'°', center-100+block_now_left, y+30, font+' Normal', 18, 60, Pango.Alignment.RIGHT)
+                self.draw_text(t_now[0].split(';')[t_index], center-100+block_now_left, y+30, font+' Normal', 18, 60, Pango.Alignment.RIGHT)
             if text_now: self.draw_text(text_now[0], center-70+block_now_left, y+106, font+' Normal', 10, 140, Pango.Alignment.CENTER)
             
             if show_block_wind_direct:
@@ -547,7 +548,7 @@ class MyDrawArea(Gtk.DrawingArea):
                     else:
                         self.draw_text(wind_speed_now[0].split(';')[wind_units].split()[0]+"<span size='x-small'> %s</span>  <span size='small'>%s</span>"%(_(wind_speed_now[0].split(';')[wind_units].split()[-1]), wind_direct_now[0]), x0+20, y0-1, font+' Normal', 12, 100,Pango.Alignment.LEFT)
                 if press_now:
-                    self.draw_text(press_now[0].split(';')[press_units].split()[0]+"<span size='x-small'> %s</span>"%(_(press_now[0].split(';')[press_units].split()[-1])+' '+_("Hg")), x0+20, y0+line_height-1, font+' Normal', 12, 150,Pango.Alignment.LEFT)
+                    self.draw_text(press_now[0].split(';')[press_units].split()[0]+"<span size='x-small'> %s</span>"%_(press_now[0].split(';')[press_units].split()[-1]), x0+20, y0+line_height-1, font+' Normal', 12, 150,Pango.Alignment.LEFT)
                     if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'press.png')):
                         self.draw_scaled_image(x0, y0+line_height, os.path.join(ICONS_PATH, icons_name, 'press.png'), 16, 16)
                     else:
@@ -562,7 +563,7 @@ class MyDrawArea(Gtk.DrawingArea):
                     # t = t_water_now
                     # if t_scale == 1:
                     #     t = str(round(int(t)*1.8+32))
-                    self.draw_text(str(int(t_water_now.split(';')[t_scale]))+"<span size='x-small'> %s %s</span>"%(t_scale_dict[t_scale], _("water")), x0+20, y0+line_height*3-1, font+' Normal', 12, 100,Pango.Alignment.LEFT)
+                    self.draw_text(t_water_now.split(';')[t_scale]+"<span size='x-small'> %s %s</span>"%(t_scale_dict[t_scale], _("water")), x0+20, y0+line_height*3-1, font+' Normal', 12, 100,Pango.Alignment.LEFT)
                     if os.path.exists(os.path.join(ICONS_PATH, icons_name, 't_water.png')):
                         self.draw_scaled_image(x0, y0+line_height*3, os.path.join(ICONS_PATH, icons_name, 't_water.png'), 16, 16)
                     else:
@@ -587,7 +588,7 @@ class MyDrawArea(Gtk.DrawingArea):
                     if j > 1: j = j-2
                     self.draw_text(c[i], x0+a*((j+1)//2), y0+b*(i//2), font+' Bold', 7, 50,Pango.Alignment.LEFT, gradient=True)
                     if t_tomorrow:
-                        self.draw_text(t_tomorrow[i].split(';')[t_index]+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
+                        self.draw_text(t_tomorrow[i].split(';')[t_index], x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
                         # if t_feel and t_tomorrow_feel:
                         #     t = t_tomorrow_feel[i]
                         #     if t_scale == 1:
@@ -628,7 +629,7 @@ class MyDrawArea(Gtk.DrawingArea):
                     if j > 1: j = j-2
                     self.draw_text(c[i], x0+a*((j+1)//2), y0+b*(i//2), font+' Bold', 7, 50,Pango.Alignment.LEFT, gradient=True)
                     if t_today:
-                        self.draw_text(t_today[i].split(';')[t_index]+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
+                        self.draw_text(t_today[i].split(';')[t_index], x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
                         # if t_feel and t_today_feel:
                         #     t = t_today_feel[i]
                         #     if t_scale == 1:
@@ -667,8 +668,8 @@ class MyDrawArea(Gtk.DrawingArea):
             t_index = t_scale*2
             if t_feel:
                 t_index += 1
-            self.draw_text(t_day[index].split(';')[t_index]+'°', x, y+15, font+' Normal', 10, w_block-45,Pango.Alignment.LEFT)
-            self.draw_text(t_night[index].split(';')[t_index]+'°', x, y+30, font+' Normal', 8, w_block-45,Pango.Alignment.LEFT)
+            self.draw_text(t_day[index].split(';')[t_index], x, y+15, font+' Normal', 10, w_block-45,Pango.Alignment.LEFT)
+            self.draw_text(t_night[index].split(';')[t_index], x, y+30, font+' Normal', 8, w_block-45,Pango.Alignment.LEFT)
             if chance_of_rain and show_chance_of_rain:
                 self.draw_text(chance_of_rain[index], x+30, y+12, font+' Normal', 7, 36,Pango.Alignment.CENTER)
 

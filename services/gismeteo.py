@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from urllib.request import urlopen
-from utils.t_convert import C_to_F
+from utils.t_convert import C_to_F, C_to_K
 import re
 import time
 import os
@@ -260,12 +260,12 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
     for i in range(len(t_now)):
         if t_now[i][0] == '&':
             t_now[i] = '-' + t_now[i][7:]
-    t_now[0] = t_now[0]+';'+t_now[0]+';'+C_to_F(t_now[0])+';'+C_to_F(t_now[0])
+    t_now[0] = t_now[0]+'°;'+t_now[0]+'°;'+C_to_F(t_now[0])+'°;'+C_to_F(t_now[0])+'°;'+C_to_K(t_now[0])+';'+C_to_K(t_now[0])
 
     # Ветер
     wind_speed_now = re.findall('m_wind ms.*>(\d+)<', w_now[0])
     if wind_speed_now:
-        wind_speed_now[0] = wind_speed_now[0]+' m/s;'+str(round(int(wind_speed_now[0])*3.6))+' km/h'
+        wind_speed_now[0] = wind_speed_now[0]+' m/s;'+str(round(int(wind_speed_now[0])*3.6))+' km/h;'+str(round(int(wind_speed_now[0])*2.237))+' mph'
     wind_direct_now = re.findall('>(.+)</dt', w_now[0])
     wind_direct_now[0] = wind_direct_now[1]
 
@@ -289,14 +289,14 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
     # Давление сейчас
     press_now = re.findall('m_press torr\'>(\d+)<', w_now[0])
     if press_now:
-        press_now[0] = press_now[0]+' mm;'+str(round(int(press_now[0])/25.4))+' in'
+        press_now[0] = press_now[0]+' mmHg;'+str(round(int(press_now[0])/25.4))+' inHg;'+str(round(int(press_now[0])*1.333))+' hPa'
     
     # Влажность сейчас
     hum_now = re.findall('wicon hum".*>(\d+)<span class="unit"', w_now[0])
     
     # Температура воды сейчас
     try:
-        t_water_now = t_now[1]+';'+C_to_F(t_now[1])
+        t_water_now = t_now[1]+';'+str(int(C_to_F(t_now[1])))+';'+C_to_K(t_now[1])
     except:
         pass
     
@@ -319,7 +319,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
     t_night = t[::4]
     t_night_feel = t_feel[::4]
     for i in range(len(t_night)):
-        t_night[i] = t_night[i]+';'+t_night_feel[i]+';'+C_to_F(t_night[i])+';'+C_to_F(t_night_feel[i])
+        t_night[i] = t_night[i]+'°;'+t_night_feel[i]+'°;'+C_to_F(t_night[i])+'°;'+C_to_F(t_night_feel[i])+'°;'+C_to_K(t_night[i])+';'+C_to_K(t_night_feel[i])
     
     # День недели и дата
     day = re.findall('weekday.>(.*?)<', source)
@@ -329,7 +329,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
     t_day = t[2::4]
     t_day_feel = t_feel[2::4]
     for i in range(len(t_day)):
-        t_day[i] = t_day[i]+';'+t_day_feel[i]+';'+C_to_F(t_day[i])+';'+C_to_F(t_day_feel[i])
+        t_day[i] = t_day[i]+'°;'+t_day_feel[i]+'°;'+C_to_F(t_day[i])+'°;'+C_to_F(t_day_feel[i])+'°;'+C_to_K(t_day[i])+';'+C_to_K(t_day_feel[i])
     
     # Иконка погоды днем
     icons_list = re.findall('src=\"(.*?new\/.*?)\"', w_all)
@@ -346,7 +346,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
     wind_speed = wind_speed_list[2::4]
     if wind_speed:
         for i in range(len(wind_speed)):
-            wind_speed[i] = wind_speed[i]+' m/s;'+str(round(int(wind_speed[i])*3.6))+' km/h'
+            wind_speed[i] = wind_speed[i]+' m/s;'+str(round(int(wind_speed[i])*3.6))+' km/h;'+str(round(int(wind_speed[i])*2.237))+' mph'
     wind_direct_list = re.findall('>(.+)</dt', w_all)
     wind_direct = wind_direct_list[2::4]
     for i in range(len(wind_direct)):
@@ -365,7 +365,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
         t_tomorrow = t[4:8]
         t_tomorrow_feel = t_feel[4:8]
         for i in range(len(t_tomorrow)):
-            t_tomorrow[i] = t_tomorrow[i]+';'+t_tomorrow_feel[i]+';'+C_to_F(t_tomorrow[i])+';'+C_to_F(t_tomorrow_feel[i])
+            t_tomorrow[i] = t_tomorrow[i]+'°;'+t_tomorrow_feel[i]+'°;'+C_to_F(t_tomorrow[i])+'°;'+C_to_F(t_tomorrow_feel[i])+'°;'+C_to_K(t_tomorrow[i])+';'+C_to_K(t_tomorrow_feel[i])
         # Иконка погоды
         icon_tomorrow = re.findall('src=\"(.*?new\/.*?)\"', w_tomorrow)
         for i in range(len(icon_tomorrow)):
@@ -386,7 +386,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
         t_today = t[0:4]
         t_today_feel = t_feel[0:4]
         for i in range(len(t_today)):
-            t_today[i] = t_today[i]+';'+t_today_feel[i]+';'+C_to_F(t_today[i])+';'+C_to_F(t_today_feel[i])
+            t_today[i] = t_today[i]+'°;'+t_today_feel[i]+'°;'+C_to_F(t_today[i])+'°;'+C_to_F(t_today_feel[i])+'°;'+C_to_K(t_today[i])+';'+C_to_K(t_today_feel[i])
         # Иконка погоды
         icon_today = re.findall('src=\"(.*?new\/.*?)\"', w_today)
         for i in range(len(icon_today)):

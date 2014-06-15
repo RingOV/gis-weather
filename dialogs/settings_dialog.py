@@ -295,8 +295,8 @@ class settings():
     def load_config_into_form(self):
         global state_lock
         state_lock = True
-        wind_units_list = [_('m/s'), _('km/h')]
-        press_units_list = [_('mm')+' '+_('Hg'), _('in')+' '+_('Hg')]
+        wind_units_list = [_('m/s'), _('km/h'), _('mph')]
+        press_units_list = [_('mmHg'), _('inHg'), _('hPa')]
 
         self.liststore1.clear()
         self.liststore1.append([_('Never')])
@@ -311,6 +311,7 @@ class settings():
         self.liststore7.clear()
         self.liststore7.append(['°C'])
         self.liststore7.append(['°F'])
+        self.liststore7.append(['K'])
 
         self.liststore9.clear()
         for i in wind_units_list:
