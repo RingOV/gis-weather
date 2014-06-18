@@ -331,6 +331,7 @@
                 </child>
                 <child>
                   <object class="GtkComboBox" id="combobox_weather_lang">
+                    <property name="width_request">150</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="halign">center</property>
@@ -367,6 +368,7 @@
                 </child>
                 <child>
                   <object class="GtkComboBox" id="combobox_service">
+                    <property name="width_request">150</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="halign">center</property>

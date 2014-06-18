@@ -188,10 +188,10 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
     # Ветер
     wind_speed_now = re.findall('"wind-speed">(\d+)<', w_now[0])
     if wind_speed_now:
-        wind_speed_now[0] = str(round(int(wind_speed_now[0])*10/36))+' m/s;'+wind_speed_now[0]+' km/h;'+str(round(int(wind_speed_now[0])*0.621))+' mph'
+        wind_speed_now[0] = str(round(int(wind_speed_now[0])*0.447))+' m/s;'+str(round(int(wind_speed_now[0])*1.609))+' km/h;'+wind_speed_now[0]+' mph'
     wind_direct_now = re.findall('"wx-dir-arrow wind-dir-(.+)"', w_now[0])
     if not wind_direct_now:
-        wind_direct_now = ['0']
+        wind_direct_now = ['C']
     # wind_direct_now[0] = wind_direct_now[1]
     print (wind_speed_now[0])
     print (wind_direct_now[0])
@@ -291,7 +291,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
         wind_direct.append(i.split()[0])
     if wind_speed:
         for i in range(len(wind_speed)):
-            wind_speed[i] = str(round(int(wind_speed[i])*10/36))+' m/s;'+wind_speed[i]+' km/h;'+str(round(int(wind_speed[i])*0.621))+' mph'
+            wind_speed[i] = str(round(int(wind_speed[i])*0.447))+' m/s;'+str(round(int(wind_speed[i])*1.609))+' km/h;'+wind_speed[i]+' mph'
     # for i in range(len(wind_direct)):
     #     wind_direct[i] = wind_direct[i].split('>')[-1]
     print(wind_speed)

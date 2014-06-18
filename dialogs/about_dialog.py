@@ -47,6 +47,6 @@ http://www.gnu.org/licenses/gpl.txt''')
         "by LavAna",
         "http://lavana.deviantart.com/art/Simple-Weather-Icons-23626765\n"
         ])
-    #about.set_translator_credits("")
+    about.set_translator_credits("Yasser López de Olmos (Spanish)")
     #about.set_documenters("")
     return about
