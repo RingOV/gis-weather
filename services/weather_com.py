@@ -283,12 +283,17 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, time
     # Ветер
     #wind_speed_list = re.findall('m_wind ms.>(\d+)', w_all)
     wind = re.findall('<dd>\n(.*)\n</dd>', w_all)
+    print (wind)
     wind_speed = []
     #wind_direct_list = re.findall('>(.+)</dt', w_all)
     wind_direct = []
     for i in wind:
-        wind_speed.append(i.split()[-2])
-        wind_direct.append(i.split()[0])
+        if i.split()[0]==i.split()[-1]:
+            wind_speed.append('0')
+            wind_direct.append('C')
+        else:
+            wind_speed.append(i.split()[-2])
+            wind_direct.append(i.split()[0])
     if wind_speed:
         for i in range(len(wind_speed)):
             wind_speed[i] = str(round(int(wind_speed[i])*0.447))+' m/s;'+str(round(int(wind_speed[i])*1.609))+' km/h;'+wind_speed[i]+' mph'

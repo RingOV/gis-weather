@@ -38,12 +38,12 @@ dict_app_lang = {
     'auto': 'Auto',
     'en': 'English',
     'ru': 'Русский',
-    'es': 'Español'
+    'es': 'Español',
+    'fr': 'Français'
 }
 
 # find all available lang
 available_lang = ['auto', 'en']
-print(os.path.join(os.path.split(work_path)[0], 'i18n'))
 for root, dirs, files in os.walk(os.path.join(os.path.split(work_path)[0], 'i18n')):
     break
 dirs.sort()
