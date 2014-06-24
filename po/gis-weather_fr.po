@@ -1,10 +1,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-06-15 15:12+0300\n"
-"PO-Revision-Date: 2014-06-23 22:23+0300\n"
+"POT-Creation-Date: 2014-06-24 12:07+0300\n"
+"PO-Revision-Date: 2014-06-24 12:07+0300\n"
 "Last-Translator: \n"
-"Language-Team: Gis Weather Team <ringov@mail.ru>\n"
+"Language-Team: spyder <ghostdarkhide@gmail.com>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,7 +14,6 @@ msgstr ""
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"Language: fr\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: dialogs\n"
 "X-Poedit-SearchPath-2: utils\n"
@@ -39,159 +39,159 @@ msgstr "Entrez le chemin complet vers un script"
 msgid "Exit"
 msgstr "Quitter"
 
-#: gis-weather.py:302
+#: gis-weather.py:303
 msgid "Check for new version"
 msgstr "Vérifiez une nouvelle version"
 
-#: gis-weather.py:307 gis-weather.py:316
+#: gis-weather.py:308 gis-weather.py:317
 msgid "Unable to check for updates"
 msgstr "Impossible de vérifier les mises à jour"
 
-#: gis-weather.py:338
+#: gis-weather.py:339
 msgid "New version available"
 msgstr "Nouvelle version disponible"
 
-#: gis-weather.py:345
+#: gis-weather.py:346
 msgid "Current version is relevant"
 msgstr "La version actuelle est concerné"
 
-#: gis-weather.py:372
+#: gis-weather.py:373
 msgid "Getting weather..."
 msgstr "Obtenir la météo ..."
 
-#: gis-weather.py:375
+#: gis-weather.py:376
 msgid "Error getting weather"
 msgstr "Erreur de récupération de la météo"
 
-#: gis-weather.py:377
+#: gis-weather.py:378
 msgid "Location not set"
 msgstr "Lieu pas encore défini"
 
-#: gis-weather.py:443
+#: gis-weather.py:444
 msgid "Connection error"
 msgstr "Erreur de connexion"
 
-#: gis-weather.py:453
+#: gis-weather.py:454
 msgid "Next update in"
 msgstr "Prochaine mise à jour dans"
 
-#: gis-weather.py:453
+#: gis-weather.py:454
 msgid "min"
 msgstr "min"
 
-#: gis-weather.py:477 services/gismeteo.py:405 services/weather_com.py:340
+#: gis-weather.py:478 services/gismeteo.py:405 services/weather_com.py:347
 msgid "updated on server"
 msgstr "mise à jour sur le serveur"
 
-#: gis-weather.py:478 services/gismeteo.py:406 services/weather_com.py:341
+#: gis-weather.py:479 services/gismeteo.py:406 services/weather_com.py:348
 msgid "weather received"
 msgstr "Météo reçue"
 
-#: gis-weather.py:505
+#: gis-weather.py:506
 msgid "E"
 msgstr "E"
 
-#: gis-weather.py:505
+#: gis-weather.py:506
 msgid "S"
 msgstr "S"
 
-#: gis-weather.py:505
+#: gis-weather.py:506
 msgid "W"
 msgstr "W"
 
-#: gis-weather.py:505
+#: gis-weather.py:506
 msgid "N"
 msgstr "N"
 
-#: gis-weather.py:556
+#: gis-weather.py:557
 msgid "humid."
 msgstr "humid."
 
-#: gis-weather.py:565
+#: gis-weather.py:566
 msgid "water"
 msgstr "pluie"
 
-#: gis-weather.py:582 gis-weather.py:623
+#: gis-weather.py:583 gis-weather.py:624
 msgid "Night"
 msgstr "Nuit"
 
-#: gis-weather.py:582 gis-weather.py:623
+#: gis-weather.py:583 gis-weather.py:624
 msgid "Morning"
 msgstr "Matin"
 
-#: gis-weather.py:582 gis-weather.py:623
+#: gis-weather.py:583 gis-weather.py:624
 msgid "Day"
 msgstr "Jour"
 
-#: gis-weather.py:582 gis-weather.py:623
+#: gis-weather.py:583 gis-weather.py:624
 msgid "Evening"
 msgstr "Soirée"
 
-#: gis-weather.py:584
+#: gis-weather.py:585
 msgid "Tomorrow"
 msgstr "Demain"
 
-#: gis-weather.py:625
+#: gis-weather.py:626
 msgid "Today"
 msgstr "Aujourd'hui"
 
-#: gis-weather.py:726
+#: gis-weather.py:727
 msgid "Background image not found"
 msgstr "L'image de fond n'a pas été trouvé"
 
-#: gis-weather.py:779
+#: gis-weather.py:780
 msgid "downloading"
 msgstr "téléchargement"
 
-#: gis-weather.py:782
+#: gis-weather.py:783
 msgid "Unable to download"
 msgstr "Impossible de télécharger"
 
-#: gis-weather.py:819
+#: gis-weather.py:820
 msgid "not found icon"
 msgstr "pas d'icône trouvé"
 
-#: gis-weather.py:855
+#: gis-weather.py:856
 msgid "Widget size"
 msgstr "Taille du Widget"
 
-#: gis-weather.py:856
+#: gis-weather.py:857
 msgid "width"
 msgstr "largeur"
 
-#: gis-weather.py:856
+#: gis-weather.py:857
 msgid "height"
 msgstr "hauteur"
 
-#: gis-weather.py:856
+#: gis-weather.py:857
 msgid "including indent"
 msgstr "comprenant le retrait"
 
-#: gis-weather.py:911
+#: gis-weather.py:912
 msgid "Screenshot saved to"
 msgstr "Capture d'écran enregistrée"
 
-#: gis-weather.py:913
+#: gis-weather.py:914
 msgid "Unable to get the screenshot"
 msgstr "Impossible d'obtenir la capture d'écran"
 
-#: gis-weather.py:1011
+#: gis-weather.py:1012
 msgid "Removed"
 msgstr "Suppression"
 
-#: gis-weather.py:1040 dialogs/city_id_dialog.ui:189
+#: gis-weather.py:1041 dialogs/city_id_dialog.ui:189
 msgid "Added"
 msgstr "Ajouter"
 
-#: gis-weather.py:1045 dialogs/city_id_dialog.ui:258
+#: gis-weather.py:1046 dialogs/city_id_dialog.ui:258
 msgid "Invalid location code"
 msgstr "Code de localisation invalide"
 
-#: gis-weather.py:1103
+#: gis-weather.py:1104
 msgid "Your screen does not support alpha"
 msgstr "Votre écran ne prend pas en charge alpha"
 
-#: gis-weather.py:1105
+#: gis-weather.py:1106
 msgid "Your screen supports alpha"
 msgstr "Votre écran supporte alpha"
 
@@ -199,7 +199,7 @@ msgstr "Votre écran supporte alpha"
 msgid "Setup..."
 msgstr "Configuration ..."
 
-#: utils/gw_menu.py:71 dialogs/settings_dialog.py:307
+#: utils/gw_menu.py:71 dialogs/settings_dialog.py:309
 msgid "No"
 msgstr "Non"
 
@@ -241,8 +241,8 @@ msgstr "Texte"
 msgid "Window"
 msgstr "Fenêtre"
 
-#: utils/gw_menu.py:145 dialogs/settings_dialog.py:65
-#: dialogs/settings_dialog.py:514
+#: utils/gw_menu.py:145 dialogs/settings_dialog.py:67
+#: dialogs/settings_dialog.py:517
 msgid "Preferences"
 msgstr "Préférences"
 
@@ -320,51 +320,51 @@ msgstr "Installation"
 msgid "Error removing"
 msgstr "Erreur de suppression"
 
-#: dialogs/settings_dialog.py:298
+#: dialogs/settings_dialog.py:300
 msgid "m/s"
 msgstr "m/s"
 
-#: dialogs/settings_dialog.py:298
+#: dialogs/settings_dialog.py:300
 msgid "km/h"
 msgstr "km/h"
 
-#: dialogs/settings_dialog.py:298
+#: dialogs/settings_dialog.py:300
 msgid "mph"
 msgstr "mph"
 
-#: dialogs/settings_dialog.py:299
+#: dialogs/settings_dialog.py:301
 msgid "mmHg"
 msgstr "mmHg"
 
-#: dialogs/settings_dialog.py:299
+#: dialogs/settings_dialog.py:301
 msgid "inHg"
 msgstr "inHg"
 
-#: dialogs/settings_dialog.py:299
+#: dialogs/settings_dialog.py:301
 msgid "hPa"
 msgstr "hPa"
 
-#: dialogs/settings_dialog.py:302
+#: dialogs/settings_dialog.py:304
 msgid "Never"
 msgstr "Jamais"
 
-#: dialogs/settings_dialog.py:303
+#: dialogs/settings_dialog.py:305
 msgid "Only at start"
 msgstr "Seulement au démarrage"
 
-#: dialogs/settings_dialog.py:304
+#: dialogs/settings_dialog.py:306
 msgid "Always"
 msgstr "Toujours"
 
-#: dialogs/settings_dialog.py:308
+#: dialogs/settings_dialog.py:310
 msgid "Only background"
 msgstr "Seulement le fond d'écran"
 
-#: dialogs/settings_dialog.py:309
+#: dialogs/settings_dialog.py:311
 msgid "Yes"
 msgstr "Oui"
 
-#: dialogs/settings_dialog.py:374 dialogs/settings_dialog.py:384
+#: dialogs/settings_dialog.py:377 dialogs/settings_dialog.py:387
 msgid "Author"
 msgstr "Auteur"
 
@@ -466,7 +466,7 @@ msgstr "Language de la météo"
 msgid "Add icon launcher to menu"
 msgstr "Ajouter lanceur d'icône au menu"
 
-#: dialogs/settings_dialog.ui:831 dialogs/city_id_dialog.ui:359
+#: dialogs/settings_dialog.ui:831 dialogs/city_id_dialog.ui:360
 msgid "Weather service"
 msgstr "Service météo"
 
@@ -710,66 +710,66 @@ msgstr "Mettre à jour réussie"
 msgid "Update error"
 msgstr "Erreur de mise à jour"
 
-msgid "Hg"
-msgstr "рт.ст."
+#~ msgid "Hg"
+#~ msgstr "рт.ст."
 
-msgid "mm"
-msgstr "мм"
+#~ msgid "mm"
+#~ msgstr "мм"
 
-msgid "in"
-msgstr "дюйм"
+#~ msgid "in"
+#~ msgstr "дюйм"
 
-msgid "Unable to get changes"
-msgstr "Невозможно получить изменения"
+#~ msgid "Unable to get changes"
+#~ msgstr "Невозможно получить изменения"
 
-msgid "Installed version"
-msgstr "Установленная версия"
+#~ msgid "Installed version"
+#~ msgstr "Установленная версия"
 
-msgid "Go to website"
-msgstr "На сайт"
+#~ msgid "Go to website"
+#~ msgstr "На сайт"
 
-msgid "Sa"
-msgstr "Сб"
+#~ msgid "Sa"
+#~ msgstr "Сб"
 
-msgid "Su"
-msgstr "Вс"
+#~ msgid "Su"
+#~ msgstr "Вс"
 
-msgid ""
-"Choose your city on <a href='http://www.gismeteo.com'> http://www.gismeteo."
-"com </a>\n"
-"and copy number at the end of reference\n"
-"For example <u><span foreground='blue'>http://www.gismeteo.ru/city/daily/"
-"<b>1234</b>/</span></u>\n"
-"City code<b>1234</b>"
-msgstr ""
-"Выберите свой город на сайте <a href='http://www.gismeteo.com'>http://www."
-"gismeteo.com</a>\n"
-"и скопируете число в конце ссылки\n"
-"Например <u><span foreground='blue'>http://www.gismeteo.ru/city/daily/"
-"<b>1234</b>/</span></u>\n"
-"Код города <b>1234</b>"
+#~ msgid ""
+#~ "Choose your city on <a href='http://www.gismeteo.com'> http://www."
+#~ "gismeteo.com </a>\n"
+#~ "and copy number at the end of reference\n"
+#~ "For example <u><span foreground='blue'>http://www.gismeteo.ru/city/daily/"
+#~ "<b>1234</b>/</span></u>\n"
+#~ "City code<b>1234</b>"
+#~ msgstr ""
+#~ "Выберите свой город на сайте <a href='http://www.gismeteo.com'>http://www."
+#~ "gismeteo.com</a>\n"
+#~ "и скопируете число в конце ссылки\n"
+#~ "Например <u><span foreground='blue'>http://www.gismeteo.ru/city/daily/"
+#~ "<b>1234</b>/</span></u>\n"
+#~ "Код города <b>1234</b>"
 
-msgid "Properties"
-msgstr "Свойства"
+#~ msgid "Properties"
+#~ msgstr "Свойства"
 
-msgid "Settings"
-msgstr "Настройки"
+#~ msgid "Settings"
+#~ msgstr "Настройки"
 
-msgid ""
-"fafad\n"
-"afdsf\n"
-"afdsfafds\n"
-"fdafads"
-msgstr ""
-"афываыфв\n"
-"афыаыф\n"
-"фывафыва"
+#~ msgid ""
+#~ "fafad\n"
+#~ "afdsf\n"
+#~ "afdsfafds\n"
+#~ "fdafads"
+#~ msgstr ""
+#~ "афываыфв\n"
+#~ "афыаыф\n"
+#~ "фывафыва"
 
-msgid "Not correct location code"
-msgstr "Неверно введен код местоположения"
+#~ msgid "Not correct location code"
+#~ msgstr "Неверно введен код местоположения"
 
-msgid "<b>Text</b>"
-msgstr "<b>Текст</b>"
+#~ msgid "<b>Text</b>"
+#~ msgstr "<b>Текст</b>"
 
-msgid "<b>Icons</b>"
-msgstr "<b>Иконки</b>"
+#~ msgid "<b>Icons</b>"
+#~ msgstr "<b>Иконки</b>"
