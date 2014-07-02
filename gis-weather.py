@@ -20,7 +20,7 @@ v = '0.6.2'
 from utils import localization
 localization.set()
 
-from gi.repository import Gtk, GObject, Pango, PangoCairo, Gdk, GdkPixbuf
+from gi.repository import Gtk, GObject, Pango, PangoCairo, Gdk, GdkPixbuf, GLib
 from dialogs import about_dialog, city_id_dialog, update_dialog, settings_dialog, help_dialog
 from services import gismeteo, weather_com
 from services import data
@@ -57,7 +57,6 @@ if not os.path.exists(os.path.join(CONFIG_PATH, 'backgrounds')):
 gw_config_default = {
     'angel': 0,                        # Угол поворота по часовой стрелке в градусах
     'city_id': 0,                      # Код города
-    'city_id_add': [],                 # Словарь дополнительных городов
     'upd_time': 30,                    # Обновлять через (в минутах)
     'n': 7,                            # Количество отображаемых дней от 1 до 13
     'x_pos': 60,                       # Позиция слева
@@ -354,7 +353,7 @@ class MyDrawArea(Gtk.DrawingArea):
     p_fdesc = None
 
     def __init__(self):
-        self.timer = GObject.timeout_add(1000, self.redraw)
+        self.timer = GLib.timeout_add(1000, self.redraw)
         GObject.GObject.__init__(self)
         self.set_app_paintable(True)
         self.connect('draw', self.expose)
@@ -433,7 +432,7 @@ class MyDrawArea(Gtk.DrawingArea):
             if on_redraw:
                 on_redraw = False
                 if timer_bool:
-                    self.timer = GObject.timeout_add(10000, self.redraw)
+                    self.timer = GLib.timeout_add(10000, self.redraw)
             print ('-'*40)
             if splash:
                 self.splash_screen(1)
@@ -450,7 +449,7 @@ class MyDrawArea(Gtk.DrawingArea):
             if on_redraw:
                 on_redraw = False
                 if timer_bool:
-                    self.timer = GObject.timeout_add(upd_time*60*1000, self.redraw)
+                    self.timer = GLib.timeout_add(upd_time*60*1000, self.redraw)
                     print ('> '+_('Next update in')+' '+str(upd_time)+' '+_('min'))
                     print ('-'*40)
             self.Draw_Weather()
@@ -1075,6 +1074,10 @@ class Weather_Widget:
             return True
         if event.button == 3:
             global icons_list, backgrounds_list
+            try:
+                a = gw_config[data.get_city_list(service)]
+            except:
+                gw_config[data.get_city_list(service)] = []
             self.menu, icons_list, backgrounds_list = gw_menu.create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, 
                 icons_name, show_bg_png, color_bg, bg_custom, color_scheme, color_scheme_number, gw_config[data.get_city_list(service)], city_id, fix_position, sticky)
             self.menu.popup(None, None, None, None, event.button, event.time)
