@@ -40,7 +40,7 @@ dict_app_lang = {
     'ru': 'Русский',
     'es': 'Español',
     'fr': 'Français',
-    'ro': 'Român'
+    'ro': 'Română'
 }
 
 # find all available lang

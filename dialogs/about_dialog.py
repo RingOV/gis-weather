@@ -48,6 +48,7 @@ http://www.gnu.org/licenses/gpl.txt''')
         "http://lavana.deviantart.com/art/Simple-Weather-Icons-23626765\n"
         ])
     about.set_translator_credits("Yasser López de Olmos <biolyasser@gmail.com> (Español)\n\
-        spyder <ghostdarkhide@gmail.com> (Français)\n")
+        spyder <ghostdarkhide@gmail.com> (Français)\n\
+        Daniel <hyperion_dani@yahoo.com> (Română)\n")
     #about.set_documenters("")
     return about

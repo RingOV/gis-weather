@@ -127,7 +127,7 @@ color_scheme = [
     }
     ]
 
-weekend = ('Sa', 'Su', 'Сб', 'Вс', 'Sat', 'Sun')
+weekend = ('Sa', 'Su', 'Сб', 'Вс', 'Нд', 'Sat', 'Sun', 'S', 'D', 'Sv', 'Sk', 'Št')
 
 print (_('Config path')+':\n    '+os.path.join(CONFIG_PATH, 'gw_config.json'))
 
