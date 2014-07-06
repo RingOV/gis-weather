@@ -22,7 +22,7 @@ localization.set()
 
 from gi.repository import Gtk, GObject, Pango, PangoCairo, Gdk, GdkPixbuf, GLib
 from dialogs import about_dialog, city_id_dialog, update_dialog, settings_dialog, help_dialog
-from services import gismeteo, weather_com
+#from services import gismeteo, weather_com, accuweather
 from services import data
 from utils import gw_menu
 import cairo
@@ -278,10 +278,7 @@ for i in weather.keys():
     globals()[i] = weather[i]
 
 def get_weather():
-    if service == 0:
-        return gismeteo.get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, timer_bool, weather_lang, icons_name)
-    if service == 1:
-        return weather_com.get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, timer_bool, weather_lang, icons_name)
+    return data.get_weather(service, weather, n, city_id, show_block_tomorrow, show_block_today, timer_bool, weather_lang, icons_name)
 
 def check_updates():
     package = 'gz'
@@ -466,12 +463,14 @@ class MyDrawArea(Gtk.DrawingArea):
     def draw_weather_icon_now(self, x, y):
         if day != []:
             center = x+width/2
-            
-            if (day and date):
+            s=''
+            if date:
+                s=', '+date[0]
+            if day:
                 if day[0] in weekend:
-                    self.draw_text(day[0]+', '+date[0], 0+block_now_left, y-15, font+' Bold', 12, width, Pango.Alignment.CENTER, color_text_week)
+                    self.draw_text(day[0]+s, 0+block_now_left, y-15, font+' Bold', 12, width, Pango.Alignment.CENTER, color_text_week)
                 else:
-                    self.draw_text(day[0]+', '+date[0], 0+block_now_left, y-15, font+' Bold', 12, width, Pango.Alignment.CENTER)
+                    self.draw_text(day[0]+s, 0+block_now_left, y-15, font+' Bold', 12, width, Pango.Alignment.CENTER)
             
             if show_time_receive_local:
                 if time_update: self.draw_text(_('updated on server')+' '+time_update[0], x-margin, x+18+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
@@ -581,13 +580,21 @@ class MyDrawArea(Gtk.DrawingArea):
                 y0 = top
                 c = (_('Night'), _('Morning'), _('Day'), _('Evening'))
 
-                self.draw_text(_('Tomorrow'), x0, y0-13, font+' Bold', 8, a+60,Pango.Alignment.CENTER)
+                if icon_tomorrow and icon_tomorrow[1] == 'None' and icon_tomorrow[3] == 'None':
+                    self.draw_text(_('Tomorrow'), x0-40, y0-13, font+' Bold', 8, a+60,Pango.Alignment.CENTER)
+                else:
+                    self.draw_text(_('Tomorrow'), x0, y0-13, font+' Bold', 8, a+60,Pango.Alignment.CENTER)
                 for i in range(0, 4):
                     j = i
                     if j > 1: j = j-2
-                    self.draw_text(c[i], x0+a*((j+1)//2), y0+b*(i//2), font+' Bold', 7, 50,Pango.Alignment.LEFT, gradient=True)
+                    
                     if t_tomorrow:
-                        self.draw_text(t_tomorrow[i].split(';')[t_index], x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
+                        try:
+                            if t_tomorrow[i]!='':
+                                self.draw_text(t_tomorrow[i].split(';')[t_index], x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
+                                self.draw_text(c[i], x0+a*((j+1)//2), y0+b*(i//2), font+' Bold', 7, 50,Pango.Alignment.LEFT, gradient=True)
+                        except:
+                            pass
                         # if t_feel and t_tomorrow_feel:
                         #     t = t_tomorrow_feel[i]
                         #     if t_scale == 1:
@@ -598,15 +605,19 @@ class MyDrawArea(Gtk.DrawingArea):
                         #     if t_scale == 1:
                         #         t = C_to_F(t)
                         #     self.draw_text(t+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
-                    try:
-                        self.draw_scaled_icon(x0+32+a*((j+1)//2), y0+b*(i//2), icon_tomorrow[i], 28, 28)
-                    except:
-                        self.draw_scaled_icon(x0+32+a*((j+1)//2), y0+b*(i//2), 'na.png;na.png', 28, 28)
-                    if (wind_direct_tom and wind_speed_tom): 
-                        if int(wind_speed_tom[i].split(';')[wind_units].split()[0]) >= high_wind and high_wind != -1:
-                            self.draw_text(wind_direct_tom[i]+', '+wind_speed_tom[i].split(';')[wind_units].split()[0]+' '+_(wind_speed_tom[i].split(';')[wind_units].split()[-1]), x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 64,Pango.Alignment.LEFT, color_high_wind)
-                        else:
-                            self.draw_text(wind_direct_tom[i]+', '+wind_speed_tom[i].split(';')[wind_units].split()[0]+' '+_(wind_speed_tom[i].split(';')[wind_units].split()[-1]), x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 64,Pango.Alignment.LEFT)
+                    if icon_tomorrow and icon_tomorrow[i] != 'None':
+                        try:
+                            self.draw_scaled_icon(x0+32+a*((j+1)//2), y0+b*(i//2), icon_tomorrow[i], 28, 28)
+                        except:
+                            self.draw_scaled_icon(x0+32+a*((j+1)//2), y0+b*(i//2), 'na.png;na.png', 28, 28)
+                    if (wind_direct_tom and wind_speed_tom):
+                        try:
+                            if int(wind_speed_tom[i].split(';')[wind_units].split()[0]) >= high_wind and high_wind != -1:
+                                self.draw_text(wind_direct_tom[i]+', '+wind_speed_tom[i].split(';')[wind_units].split()[0]+' '+_(wind_speed_tom[i].split(';')[wind_units].split()[-1]), x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 64,Pango.Alignment.LEFT, color_high_wind)
+                            else:
+                                self.draw_text(wind_direct_tom[i]+', '+wind_speed_tom[i].split(';')[wind_units].split()[0]+' '+_(wind_speed_tom[i].split(';')[wind_units].split()[-1]), x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 64,Pango.Alignment.LEFT)
+                        except:
+                            pass
 
 
             if show_block_today:
@@ -658,11 +669,14 @@ class MyDrawArea(Gtk.DrawingArea):
             # else:
             #     if math.fabs(int(t_day[index])) < 10: a = 20
             self.draw_scaled_icon(x+a, y+16, icon[index], 36, 36)
-            if (day and date): 
+            s=''
+            if date:
+                s=', '+date[index]
+            if day: 
                 if day[index] in weekend:
-                    self.draw_text(day[index]+', '+date[index], x, y-2, font+' Bold', 9, w_block,Pango.Alignment.LEFT, color_text_week)
+                    self.draw_text(day[index]+s, x, y-2, font+' Bold', 9, w_block,Pango.Alignment.LEFT, color_text_week)
                 else:
-                    self.draw_text(day[index]+', '+date[index], x, y-2, font+' Bold', 9, w_block,Pango.Alignment.LEFT)
+                    self.draw_text(day[index]+s, x, y-2, font+' Bold', 9, w_block,Pango.Alignment.LEFT)
             self.cr.set_source_rgba(color_text[0], color_text[1], color_text[2], color_text[3])
             t_index = t_scale*2
             if t_feel:
@@ -670,7 +684,7 @@ class MyDrawArea(Gtk.DrawingArea):
             self.draw_text(t_day[index].split(';')[t_index], x, y+15, font+' Normal', 10, w_block-45,Pango.Alignment.LEFT)
             self.draw_text(t_night[index].split(';')[t_index], x, y+30, font+' Normal', 8, w_block-45,Pango.Alignment.LEFT)
             if chance_of_rain and show_chance_of_rain:
-                self.draw_text(chance_of_rain[index], x+30, y+12, font+' Normal', 7, 36,Pango.Alignment.CENTER)
+                self.draw_text(chance_of_rain[index], x+30, y+8, font+' Normal', 7, 36,Pango.Alignment.CENTER)
 
             # if t_feel:
             #     if t_day_feel:
@@ -835,8 +849,15 @@ class MyDrawArea(Gtk.DrawingArea):
             self.cr.translate(-w//2, -h//2)
         else:
             self.cr.translate(x, y) 
-        pixbuf = GdkPixbuf.Pixbuf.new_from_file(pix).scale_simple(w,h,GdkPixbuf.InterpType.BILINEAR)
-        Gdk.cairo_set_source_pixbuf(self.cr, pixbuf, 0, 0)
+        pixbuf = GdkPixbuf.Pixbuf.new_from_file(pix)
+        k=1
+        if pixbuf.get_width()>pixbuf.get_height():
+            k = pixbuf.get_width()/pixbuf.get_height()
+        pixbuf = pixbuf.scale_simple(round(w*k),h,GdkPixbuf.InterpType.BILINEAR)
+        if k==1:
+            Gdk.cairo_set_source_pixbuf(self.cr, pixbuf, 0, 0)
+        else:
+            Gdk.cairo_set_source_pixbuf(self.cr, pixbuf, (h-round(w*k))/2, 0)
         self.cr.paint()
         self.cr.restore()
 
