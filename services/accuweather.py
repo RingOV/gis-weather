@@ -8,8 +8,8 @@ import os
 
 data = [
     "http://www.accuweather.com", # url
-    "http://www.gismeteo.com/city/daily/<b>1234</b>", # example!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    "<b>1234</b>", #code!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    "http://www.accuweather.com/vi/<b>za/sun-city/306096</b>/weather-forecast/306096", # example
+    "<b>za/sun-city/306096</b>", #code
     { 
     'en': 'English',
     'es': 'Español',
@@ -55,7 +55,7 @@ data = [
     'th': 'ไทย',
     'vi': 'Tiếng Việt'
     }, # dict_weather_lang
-    ('en', 'es', 'fr', 'da', 'pt', 'nl', 'no', 'it', 'de', 'sv', 'fi', 'zh', 'es', 'sk', 'ro', 'cs', 'hu', 'pl', 'ca', 'pt', 'hi', 'ru', 'ar', 'el', 'ja', 'ko', 'tr', 'he', 'sl', 'uk', 'id', 'bg', 'et', 'hr', 'kk', 'lt', 'lv', 'mk', 'ms', 'tl', 'sr', 'th', 'vi') # weather_lang_list
+    ('en', 'ru', 'es', 'fr', 'da', 'pt', 'nl', 'no', 'it', 'de', 'sv', 'fi', 'zh', 'es', 'sk', 'ro', 'cs', 'hu', 'pl', 'ca', 'pt', 'hi', 'ar', 'el', 'ja', 'ko', 'tr', 'he', 'sl', 'uk', 'id', 'bg', 'et', 'hr', 'kk', 'lt', 'lv', 'mk', 'ms', 'tl', 'sr', 'th', 'vi') # weather_lang_list
 ]
 
 max_days = 14
