@@ -266,10 +266,13 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
     except:
         icon_wind_now[0] = 'None'
 
-    a=''
-    for i in range(len(wind_direct_now[0])):
-        a=a+_(wind_direct_now[0][i])
-    wind_direct_now[0]=a
+    if wind_direct_now[0]=='CLM':
+        wind_direct_now[0]=_('Calm')
+    else:
+        a=''
+        for i in range(len(wind_direct_now[0])):
+            a=a+_(wind_direct_now[0][i])
+        wind_direct_now[0]=a
 
     # Время обновления
     #time_update = re.findall('data-hr.* (\d?\d:\d\d)\s*</span>', source, re.DOTALL)

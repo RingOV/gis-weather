@@ -368,18 +368,30 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
         t_tomorrow_feel = t_feel[4:8]
         for i in range(len(t_tomorrow)):
             t_tomorrow[i] = t_tomorrow[i]+'°;'+t_tomorrow_feel[i]+'°;'+C_to_F(t_tomorrow[i])+'°;'+C_to_F(t_tomorrow_feel[i])+'°;'+C_to_K(t_tomorrow[i])+';'+C_to_K(t_tomorrow_feel[i])
+        a = t_tomorrow[0]
+        del t_tomorrow[0]
+        t_tomorrow.append(a)
         # Иконка погоды
         icon_tomorrow = re.findall('src=\"(.*?new\/.*?)\"', w_tomorrow)
         for i in range(len(icon_tomorrow)):
             icon_tomorrow[i] = convert(icon_tomorrow[i], icons_name)
+        a = icon_tomorrow[0]
+        del icon_tomorrow[0]
+        icon_tomorrow.append(a)
         # Ветер
         wind_speed_tom = re.findall('m_wind ms.>(\d+)', w_tomorrow)
         if wind_speed_tom:
             for i in range(len(wind_speed_tom)):
-                wind_speed_tom[i] = wind_speed_tom[i]+' m/s;'+str(round(int(wind_speed_tom[i])*3.6))+' km/h'
+                wind_speed_tom[i] = wind_speed_tom[i]+' m/s;'+str(round(int(wind_speed_tom[i])*3.6))+' km/h;'+str(round(int(wind_speed_tom[i])*2.237))+' mph'
+        a = wind_speed_tom[0]
+        del wind_speed_tom[0]
+        wind_speed_tom.append(a)
         wind_direct_tom = re.findall('>(.+)</dt', w_tomorrow)
         for i in range(len(wind_direct_tom)):
             wind_direct_tom[i] = wind_direct_tom[i].split('>')[-1]
+        a = wind_direct_tom[0]
+        del wind_direct_tom[0]
+        wind_direct_tom.append(a)
         
     if show_block_today:
         #### Погода сегодня ####
@@ -389,18 +401,30 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
         t_today_feel = t_feel[0:4]
         for i in range(len(t_today)):
             t_today[i] = t_today[i]+'°;'+t_today_feel[i]+'°;'+C_to_F(t_today[i])+'°;'+C_to_F(t_today_feel[i])+'°;'+C_to_K(t_today[i])+';'+C_to_K(t_today_feel[i])
+        a = t_today[0]
+        del t_today[0]
+        t_today.append(a)
         # Иконка погоды
         icon_today = re.findall('src=\"(.*?new\/.*?)\"', w_today)
         for i in range(len(icon_today)):
             icon_today[i] = convert(icon_today[i], icons_name)
+        a = icon_today[0]
+        del icon_today[0]
+        icon_today.append(a)
         # Ветер
         wind_speed_tod = re.findall('m_wind ms.>(\d+)', w_today)
         if wind_speed_tod:
             for i in range(len(wind_speed_tod)):
-                wind_speed_tod[i] = wind_speed_tod[i]+' m/s;'+str(round(int(wind_speed_tod[i])*3.6))+' km/h'
+                wind_speed_tod[i] = wind_speed_tod[i]+' m/s;'+str(round(int(wind_speed_tod[i])*3.6))+' km/h;'+str(round(int(wind_speed_tod[i])*2.237))+' mph'
+        a = wind_speed_tod[0]
+        del wind_speed_tod[0]
+        wind_speed_tod.append(a)
         wind_direct_tod = re.findall('>(.+)</dt', w_today)
         for i in range(len(wind_direct_tod)):
             wind_direct_tod[i] = wind_direct_tod[i].split('>')[-1]
+        a = wind_direct_tod[0]
+        del wind_direct_tod[0]
+        wind_direct_tod.append(a)
     ########
     
     if time_update:

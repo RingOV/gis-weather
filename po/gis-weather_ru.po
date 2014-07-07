@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-06-15 15:12+0300\n"
-"PO-Revision-Date: 2014-06-15 15:15+0300\n"
+"POT-Creation-Date: 2014-07-07 16:48+0300\n"
+"PO-Revision-Date: 2014-07-07 16:48+0300\n"
 "Last-Translator: \n"
 "Language-Team: Gis Weather Team <ringov@mail.ru>\n"
 "Language: Russian\n"
@@ -18,179 +18,181 @@ msgstr ""
 "X-Poedit-SearchPath-2: utils\n"
 "X-Poedit-SearchPath-3: services\n"
 
-#: gis-weather.py:133
+#: gis-weather.py:132
 msgid "Config path"
 msgstr "Путь к файлу конфигурации"
 
-#: gis-weather.py:156 dialogs/city_id_dialog.py:27
+#: gis-weather.py:155 dialogs/city_id_dialog.py:27
 msgid "Error loading config file"
 msgstr "Ошибка загрузки конфигурационного файла"
 
-#: gis-weather.py:177
+#: gis-weather.py:176
 msgid "Error loading color scheme"
 msgstr "Ошибка загрузки цветовой схемы"
 
-#: gis-weather.py:192
+#: gis-weather.py:191
 msgid "Enter full path to script"
 msgstr "Вводите полный путь к скрипту"
 
-#: gis-weather.py:193
+#: gis-weather.py:192
 msgid "Exit"
 msgstr "Выход"
 
-#: gis-weather.py:302
+#: gis-weather.py:301
 msgid "Check for new version"
 msgstr "Проверяю наличие новой версии"
 
-#: gis-weather.py:307 gis-weather.py:316
+#: gis-weather.py:306 gis-weather.py:315
 msgid "Unable to check for updates"
 msgstr "Невозможно проверить обновления"
 
-#: gis-weather.py:338
+#: gis-weather.py:337
 msgid "New version available"
 msgstr "Доступна новая версия"
 
-#: gis-weather.py:345
+#: gis-weather.py:344
 msgid "Current version is relevant"
 msgstr "Текущая версия актуальна"
 
-#: gis-weather.py:372
+#: gis-weather.py:371
 msgid "Getting weather..."
 msgstr "Получаю погоду..."
 
-#: gis-weather.py:375
+#: gis-weather.py:374
 msgid "Error getting weather"
 msgstr "Ошибка получения погоды"
 
-#: gis-weather.py:377
+#: gis-weather.py:376
 msgid "Location not set"
 msgstr "Местоположение не настроено"
 
-#: gis-weather.py:443
+#: gis-weather.py:442
 msgid "Connection error"
 msgstr "Ошибка соединения"
 
-#: gis-weather.py:453
+#: gis-weather.py:452
 msgid "Next update in"
 msgstr "Следующее обновление через"
 
-#: gis-weather.py:453
+#: gis-weather.py:452
 msgid "min"
 msgstr "мин"
 
-#: gis-weather.py:477 services/gismeteo.py:405 services/weather_com.py:340
+#: gis-weather.py:478 services/accuweather.py:624 services/gismeteo.py:407
+#: services/weather_com.py:375
 msgid "updated on server"
 msgstr "обновлено на сервере"
 
-#: gis-weather.py:478 services/gismeteo.py:406 services/weather_com.py:341
+#: gis-weather.py:479 services/accuweather.py:625 services/gismeteo.py:408
+#: services/weather_com.py:376
 msgid "weather received"
 msgstr "погода получена"
 
-#: gis-weather.py:505
+#: gis-weather.py:506
 msgid "E"
 msgstr "В"
 
-#: gis-weather.py:505
+#: gis-weather.py:506
 msgid "S"
 msgstr "Ю"
 
-#: gis-weather.py:505
+#: gis-weather.py:506
 msgid "W"
 msgstr "З"
 
-#: gis-weather.py:505
+#: gis-weather.py:506
 msgid "N"
 msgstr "С"
 
-#: gis-weather.py:556
+#: gis-weather.py:557
 msgid "humid."
 msgstr "влажн."
 
-#: gis-weather.py:565
+#: gis-weather.py:566
 msgid "water"
 msgstr "вода"
 
-#: gis-weather.py:582 gis-weather.py:623
-msgid "Night"
-msgstr "Ночь"
-
-#: gis-weather.py:582 gis-weather.py:623
+#: gis-weather.py:583 gis-weather.py:632
 msgid "Morning"
 msgstr "Утро"
 
-#: gis-weather.py:582 gis-weather.py:623
+#: gis-weather.py:583 gis-weather.py:632
 msgid "Day"
 msgstr "День"
 
-#: gis-weather.py:582 gis-weather.py:623
+#: gis-weather.py:583 gis-weather.py:632
 msgid "Evening"
 msgstr "Вечер"
 
-#: gis-weather.py:584
+#: gis-weather.py:583 gis-weather.py:632
+msgid "Night"
+msgstr "Ночь"
+
+#: gis-weather.py:586 gis-weather.py:588
 msgid "Tomorrow"
 msgstr "Завтра"
 
-#: gis-weather.py:625
+#: gis-weather.py:634
 msgid "Today"
 msgstr "Сегодня"
 
-#: gis-weather.py:726
+#: gis-weather.py:740
 msgid "Background image not found"
 msgstr "Не найдено фоновое изображение"
 
-#: gis-weather.py:779
+#: gis-weather.py:793
 msgid "downloading"
 msgstr "скачиваю"
 
-#: gis-weather.py:782
+#: gis-weather.py:796
 msgid "Unable to download"
 msgstr "Не удалось скачать"
 
-#: gis-weather.py:819
+#: gis-weather.py:833
 msgid "not found icon"
 msgstr "не найдена иконка"
 
-#: gis-weather.py:855
+#: gis-weather.py:876
 msgid "Widget size"
 msgstr "Размеры виджета"
 
-#: gis-weather.py:856
+#: gis-weather.py:877
 msgid "width"
 msgstr "ширина"
 
-#: gis-weather.py:856
+#: gis-weather.py:877
 msgid "height"
 msgstr "высота"
 
-#: gis-weather.py:856
+#: gis-weather.py:877
 msgid "including indent"
 msgstr "в т.ч. отступ"
 
-#: gis-weather.py:911
+#: gis-weather.py:932
 msgid "Screenshot saved to"
 msgstr "Скриншот сохранен в"
 
-#: gis-weather.py:913
+#: gis-weather.py:934
 msgid "Unable to get the screenshot"
 msgstr "Невозможно получить скриншот"
 
-#: gis-weather.py:1011
+#: gis-weather.py:1032
 msgid "Removed"
 msgstr "Удалено"
 
-#: gis-weather.py:1040 dialogs/city_id_dialog.ui:189
+#: gis-weather.py:1061 dialogs/city_id_dialog.ui:189
 msgid "Added"
 msgstr "Добавлено"
 
-#: gis-weather.py:1045 dialogs/city_id_dialog.ui:258
+#: gis-weather.py:1066 dialogs/city_id_dialog.ui:258
 msgid "Invalid location code"
 msgstr "Неверно введен код местоположения"
 
-#: gis-weather.py:1103
+#: gis-weather.py:1128
 msgid "Your screen does not support alpha"
 msgstr "Ваш экран не поддерживает прозрачность"
 
-#: gis-weather.py:1105
+#: gis-weather.py:1130
 msgid "Your screen supports alpha"
 msgstr "Ваш экран поддерживает прозрачность"
 
@@ -198,7 +200,7 @@ msgstr "Ваш экран поддерживает прозрачность"
 msgid "Setup..."
 msgstr "Настроить..."
 
-#: utils/gw_menu.py:71 dialogs/settings_dialog.py:307
+#: utils/gw_menu.py:71 dialogs/settings_dialog.py:310
 msgid "No"
 msgstr "Нет"
 
@@ -240,8 +242,8 @@ msgstr "Текст"
 msgid "Window"
 msgstr "Окно"
 
-#: utils/gw_menu.py:145 dialogs/settings_dialog.py:65
-#: dialogs/settings_dialog.py:514
+#: utils/gw_menu.py:145 dialogs/settings_dialog.py:68
+#: dialogs/settings_dialog.py:518
 msgid "Preferences"
 msgstr "Параметры"
 
@@ -319,51 +321,51 @@ msgstr "Установка"
 msgid "Error removing"
 msgstr "Ошибка удаления"
 
-#: dialogs/settings_dialog.py:298
+#: dialogs/settings_dialog.py:301
 msgid "m/s"
 msgstr "м/с"
 
-#: dialogs/settings_dialog.py:298
+#: dialogs/settings_dialog.py:301
 msgid "km/h"
 msgstr "км/ч"
 
-#: dialogs/settings_dialog.py:298
+#: dialogs/settings_dialog.py:301
 msgid "mph"
 msgstr "мвч"
 
-#: dialogs/settings_dialog.py:299
+#: dialogs/settings_dialog.py:302
 msgid "mmHg"
 msgstr "мм рт. ст."
 
-#: dialogs/settings_dialog.py:299
+#: dialogs/settings_dialog.py:302
 msgid "inHg"
 msgstr "дюйм рт. ст."
 
-#: dialogs/settings_dialog.py:299
+#: dialogs/settings_dialog.py:302
 msgid "hPa"
 msgstr "гПа"
 
-#: dialogs/settings_dialog.py:302
+#: dialogs/settings_dialog.py:305
 msgid "Never"
 msgstr "Никогда"
 
-#: dialogs/settings_dialog.py:303
+#: dialogs/settings_dialog.py:306
 msgid "Only at start"
 msgstr "Только при старте"
 
-#: dialogs/settings_dialog.py:304
+#: dialogs/settings_dialog.py:307
 msgid "Always"
 msgstr "Всегда"
 
-#: dialogs/settings_dialog.py:308
+#: dialogs/settings_dialog.py:311
 msgid "Only background"
 msgstr "Только фон"
 
-#: dialogs/settings_dialog.py:309
+#: dialogs/settings_dialog.py:312
 msgid "Yes"
 msgstr "Да"
 
-#: dialogs/settings_dialog.py:374 dialogs/settings_dialog.py:384
+#: dialogs/settings_dialog.py:378 dialogs/settings_dialog.py:388
 msgid "Author"
 msgstr "Автор"
 
@@ -403,29 +405,49 @@ msgstr "Помощь и идеи"
 msgid "Backgrounds"
 msgstr "Фоны"
 
-#: services/gismeteo.py:235 services/weather_com.py:145
+#: services/accuweather.py:220 services/gismeteo.py:237
+#: services/weather_com.py:147
 msgid "Failed to get the name of the location"
 msgstr "Не удалось получить название местоположения"
 
-#: services/gismeteo.py:241 services/weather_com.py:151
+#: services/accuweather.py:226 services/gismeteo.py:243
+#: services/weather_com.py:153
 msgid "Getting weather for"
 msgstr "Получаю погоду на"
 
-#: services/gismeteo.py:241 services/weather_com.py:151
+#: services/accuweather.py:226 services/gismeteo.py:243
+#: services/weather_com.py:153
 msgid "days"
 msgstr "дней"
 
-#: services/gismeteo.py:242 services/weather_com.py:152
+#: services/accuweather.py:227 services/accuweather.py:285
+#: services/accuweather.py:311 services/accuweather.py:377
+#: services/accuweather.py:385 services/accuweather.py:393
+#: services/accuweather.py:401 services/accuweather.py:501
+#: services/accuweather.py:509 services/accuweather.py:517
+#: services/accuweather.py:525 services/gismeteo.py:244
+#: services/weather_com.py:154 services/weather_com.py:296
 msgid "Uploading page to a variable"
 msgstr "Загружаю в переменную страницу"
 
-#: services/gismeteo.py:248 services/weather_com.py:158
+#: services/accuweather.py:233 services/accuweather.py:291
+#: services/accuweather.py:317 services/accuweather.py:383
+#: services/accuweather.py:391 services/accuweather.py:399
+#: services/accuweather.py:407 services/accuweather.py:507
+#: services/accuweather.py:515 services/accuweather.py:523
+#: services/accuweather.py:531 services/gismeteo.py:250
+#: services/weather_com.py:160 services/weather_com.py:302
 msgid "Unable to download page, check the network connection"
 msgstr "Невозможно скачать страницу, проверьте интернет соединение"
 
-#: services/gismeteo.py:250 services/weather_com.py:160
+#: services/accuweather.py:235 services/gismeteo.py:252
+#: services/weather_com.py:162
 msgid "Next try in 10 seconds"
 msgstr "Следующая попытка через 10 секунд"
+
+#: services/accuweather.py:270
+msgid "Calm"
+msgstr "Штиль"
 
 #: dialogs/settings_dialog.ui:481
 msgid "Update (in minutes)"
@@ -467,7 +489,7 @@ msgstr "Язык погоды"
 msgid "Add icon launcher to menu"
 msgstr "Добавить иконку запуска в меню"
 
-#: dialogs/settings_dialog.ui:831 dialogs/city_id_dialog.ui:359
+#: dialogs/settings_dialog.ui:831 dialogs/city_id_dialog.ui:360
 msgid "Weather service"
 msgstr "Погодная служба"
 
