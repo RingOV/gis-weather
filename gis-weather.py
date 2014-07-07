@@ -271,14 +271,16 @@ weather = {
     'icon_today': [],      # Иконка погоды сегодня
     'wind_speed_tod': [],  # Скорость ветра сегодня
     'wind_direct_tod': [], # Направление ветра сегодня
-    'chance_of_rain': []
+    'chance_of_rain': [],
+    't_today_low': [],
+    't_tomorrow_low': []
 }
 # Создаем переменные
 for i in weather.keys():
     globals()[i] = weather[i]
 
 def get_weather():
-    return data.get_weather(service, weather, n, city_id, show_block_tomorrow, show_block_today, timer_bool, weather_lang, icons_name)
+    return data.get_weather(service, weather, n, city_id, show_block_tomorrow, show_block_today, show_block_add_info, timer_bool, weather_lang, icons_name)
 
 def check_updates():
     package = 'gz'
@@ -473,8 +475,8 @@ class MyDrawArea(Gtk.DrawingArea):
                     self.draw_text(day[0]+s, 0+block_now_left, y-15, font+' Bold', 12, width, Pango.Alignment.CENTER)
             
             if show_time_receive_local:
-                if time_update: self.draw_text(_('updated on server')+' '+time_update[0], x-margin, x+18+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
-                self.draw_text(_('weather received')+' '+time_receive, x-margin, x+8+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
+                if time_update: self.draw_text(_('updated on server')+' '+time_update[0], x-margin, x+20+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
+                self.draw_text(_('weather received')+' '+time_receive, x-margin, x+10+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
             if city_name: self.draw_text(city_name[0], x+block_now_left, y, font+' Bold', 14, width, Pango.Alignment.CENTER)
             self.draw_scaled_icon(center-40+block_now_left, y+30, icon_now[0],80,80)
             t_index = t_scale*2
@@ -578,7 +580,7 @@ class MyDrawArea(Gtk.DrawingArea):
 
                 x0 = center + left
                 y0 = top
-                c = (_('Night'), _('Morning'), _('Day'), _('Evening'))
+                c = ( _('Morning'), _('Day'), _('Evening'), _('Night'))
 
                 if icon_tomorrow and icon_tomorrow[1] == 'None' and icon_tomorrow[3] == 'None':
                     self.draw_text(_('Tomorrow'), x0-40, y0-13, font+' Bold', 8, a+60,Pango.Alignment.CENTER)
@@ -587,14 +589,11 @@ class MyDrawArea(Gtk.DrawingArea):
                 for i in range(0, 4):
                     j = i
                     if j > 1: j = j-2
-                    
+                    self.draw_text(c[i], x0+a*((j+1)//2), y0+b*(i//2), font+' Bold', 7, 50,Pango.Alignment.LEFT, gradient=True)
                     if t_tomorrow:
-                        try:
-                            if t_tomorrow[i]!='':
-                                self.draw_text(t_tomorrow[i].split(';')[t_index], x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
-                                self.draw_text(c[i], x0+a*((j+1)//2), y0+b*(i//2), font+' Bold', 7, 50,Pango.Alignment.LEFT, gradient=True)
-                        except:
-                            pass
+                        self.draw_text(t_tomorrow[i].split(';')[t_index], x0+a*((j+1)//2), y0+11+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)          
+                    if t_tomorrow_low:
+                        self.draw_text(t_tomorrow_low[i].split(';')[t_index], x0+a*((j+1)//2)+2, y0+22+b*(i//2), font+' Normal', 7, 50,Pango.Alignment.LEFT)
                         # if t_feel and t_tomorrow_feel:
                         #     t = t_tomorrow_feel[i]
                         #     if t_scale == 1:
@@ -605,11 +604,10 @@ class MyDrawArea(Gtk.DrawingArea):
                         #     if t_scale == 1:
                         #         t = C_to_F(t)
                         #     self.draw_text(t+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
-                    if icon_tomorrow and icon_tomorrow[i] != 'None':
-                        try:
-                            self.draw_scaled_icon(x0+32+a*((j+1)//2), y0+b*(i//2), icon_tomorrow[i], 28, 28)
-                        except:
-                            self.draw_scaled_icon(x0+32+a*((j+1)//2), y0+b*(i//2), 'na.png;na.png', 28, 28)
+                    try:
+                        self.draw_scaled_icon(x0+32+a*((j+1)//2), y0+b*(i//2), icon_tomorrow[i], 28, 28)
+                    except:
+                        self.draw_scaled_icon(x0+32+a*((j+1)//2), y0+b*(i//2), 'na.png;na.png', 28, 28)
                     if (wind_direct_tom and wind_speed_tom):
                         try:
                             if int(wind_speed_tom[i].split(';')[wind_units].split()[0]) >= high_wind and high_wind != -1:
@@ -631,7 +629,7 @@ class MyDrawArea(Gtk.DrawingArea):
                 
                 x0 = center + left
                 y0 = top
-                c = (_('Night'), _('Morning'), _('Day'), _('Evening'))
+                c = (_('Morning'), _('Day'), _('Evening'), _('Night'))
 
                 self.draw_text(_('Today'), x0, y0-13, font+' Bold', 8, a+60,Pango.Alignment.CENTER)
                 for i in range(0, 4):
@@ -639,7 +637,9 @@ class MyDrawArea(Gtk.DrawingArea):
                     if j > 1: j = j-2
                     self.draw_text(c[i], x0+a*((j+1)//2), y0+b*(i//2), font+' Bold', 7, 50,Pango.Alignment.LEFT, gradient=True)
                     if t_today:
-                        self.draw_text(t_today[i].split(';')[t_index], x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
+                        self.draw_text(t_today[i].split(';')[t_index], x0+a*((j+1)//2), y0+11+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
+                    if t_today_low:
+                        self.draw_text(t_today_low[i].split(';')[t_index], x0+a*((j+1)//2)+2, y0+22+b*(i//2), font+' Normal', 7, 50,Pango.Alignment.LEFT)
                         # if t_feel and t_today_feel:
                         #     t = t_today_feel[i]
                         #     if t_scale == 1:
@@ -684,7 +684,7 @@ class MyDrawArea(Gtk.DrawingArea):
             self.draw_text(t_day[index].split(';')[t_index], x, y+15, font+' Normal', 10, w_block-45,Pango.Alignment.LEFT)
             self.draw_text(t_night[index].split(';')[t_index], x, y+30, font+' Normal', 8, w_block-45,Pango.Alignment.LEFT)
             if chance_of_rain and show_chance_of_rain:
-                self.draw_text(chance_of_rain[index], x+30, y+8, font+' Normal', 7, 36,Pango.Alignment.CENTER)
+                self.draw_text(chance_of_rain[index], x+30, y+9, font+' Normal', 7, 36,Pango.Alignment.CENTER)
 
             # if t_feel:
             #     if t_day_feel:
