@@ -9,24 +9,38 @@ Customizable weather widget
 - gir1.2-gtk-3.0
 
 ### **Features**
-- View weather for several days - 3 to 12
+- View weather for several days
 - Detailed weather forecast for today and tomorrow
 - Fast switching between cities
 - Select the background and theme weather icons
 - "Compass" with the wind direction, with adjustable angle of rotation
 - Highlighting the high wind
+- Supported weather services:
+ - Gismeteo.com
+ - Weather.com
+ - AccuWeather.com
+
+
+### **How to Install**
+- For Debian based distro:
+ - `sudo add-apt-repository ppa:noobslab/apps`
+ - `sudo apt-get update`
+ - `sudo apt-get install gis-weather`
+- For any distro:
+ - Download [https://sourceforge.net/projects/gis-weather/files/latest/download](https://sourceforge.net/projects/gis-weather/files/latest/download)
+ - Unpack
+ - Run
+
 
 ### **How to Run**
 
 `python3 gis-weather.py`
 
-=
 
 ### **What's New**
 
-https://github.com/RingOV/gis-weather/wiki/What%27s-New
+[https://github.com/RingOV/gis-weather/wiki/What's-New](https://github.com/RingOV/gis-weather/wiki/What%27s-New)
 
-=
 
 ### **Feedback**
 
@@ -34,17 +48,16 @@ If you find bug, want translate, have issues?
 
 Please mail to ringov.gisweather@gmail.com
 
-=
 
 ### **Links**
 
-Source Code (GitHub) - https://github.com/RingOV/gis-weather
+Source Code (GitHub) - [https://github.com/RingOV/gis-weather](https://github.com/RingOV/gis-weather)
 
-deb, exe, tar.gz - https://sourceforge.net/projects/gis-weather/
+deb, exe, tar.gz - [https://sourceforge.net/projects/gis-weather/](https://sourceforge.net/projects/gis-weather/)
 
 
 # Donations:
 
 If you like the software, don't forget to donate to further development of it!
 
-https://github.com/RingOV/gis-weather/wiki/Donate
+[https://github.com/RingOV/gis-weather/wiki/Donate](https://github.com/RingOV/gis-weather/wiki/Donate)
