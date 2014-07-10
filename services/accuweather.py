@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from urllib.request import urlopen
-from utils.t_convert import C_to_F, C_to_K
+from utils.t_convert import C_to_F, C_to_K, F_to_C
 import re
 import time
 import os
@@ -129,7 +129,7 @@ dict_icons = {
     "31-h.png": "25.png",
     "32-h.png": "23.png",
     "33-h.png": "31.png",
-    "34-h.png": "23.png",
+    "34-h.png": "33.png",
     "35-h.png": "29.png",
     "36-h.png": "27.png",
     "37-h.png": "21.png",
@@ -170,7 +170,7 @@ dict_icons = {
     "31-xl.png": "25.png",
     "32-xl.png": "23.png",
     "33-xl.png": "31.png",
-    "34-xl.png": "23.png",
+    "34-xl.png": "33.png",
     "35-xl.png": "29.png",
     "36-xl.png": "27.png",
     "37-xl.png": "21.png",
@@ -213,7 +213,12 @@ def convert(icon, icons_name):
 
 def get_city_name(c_id, weather_lang):
     try:
-        source = urlopen('http://www.accuweather.com/%s/%s/weather-forecast/%s'%(weather_lang, c_id, c_id.split('/')[-1]), timeout=10).read()
+        if c_id.split(',')[0]==c_id.split(',')[-1]:
+            city_number = c_id.split('/')[-1]
+        else:
+            city_number = c_id.split(',')[-1].strip()
+            c_id = c_id.split(',')[0].strip()
+        source = urlopen('http://www.accuweather.com/%s/%s/weather-forecast/%s'%(weather_lang, c_id, city_number), timeout=10).read()
         source = source.decode(encoding='UTF-8')
         c_name = re.findall('"current-city"><h1>(.*),', source)
     except:
@@ -223,10 +228,15 @@ def get_city_name(c_id, weather_lang):
 
 def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show_block_add_info, timer_bool, weather_lang, icons_name):
     global city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain, t_today_low, t_tomorrow_low
+    if city_id.split(',')[0]==city_id.split(',')[-1]:
+        city_number = city_id.split('/')[-1]
+    else:
+        city_number = city_id.split(',')[-1].strip()
+        city_id = city_id.split(',')[0].strip()
     print ('\033[34m>\033[0m '+_('Getting weather for')+' '+str(n)+' '+_('days'))
-    print ('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+'http://www.accuweather.com/%s/%s/current-weather/%s'%(weather_lang, city_id, city_id.split('/')[-1]))
+    print ('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+'http://www.accuweather.com/%s/%s/current-weather/%s'%(weather_lang, city_id, city_number))
     try:
-        source = urlopen('http://www.accuweather.com/%s/%s/current-weather/%s'%(weather_lang, city_id, city_id.split('/')[-1]), timeout=10).read()
+        source = urlopen('http://www.accuweather.com/%s/%s/current-weather/%s'%(weather_lang, city_id, city_number), timeout=10).read()
         source = source.decode(encoding='UTF-8')
         print ('\033[1;32mOK\033[0m')
     except:
@@ -239,8 +249,12 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
     # Город
     city_name = re.findall('"current-city"><h1>(.*),', source)
 
+    celsius = re.findall('celsius.*checked', source)
+
     # Температура
     t_now = re.findall('<span class="temp">(.?\d+)<', source)
+    if not celsius:
+        t_now[0] = F_to_C(t_now[0])
     if t_now[0][0] not in ('+', '-', '0'):
             t_now[0] = '+'+t_now[0]
     t_now[0] = t_now[0]+'°;'+t_now[0]+'°;'+C_to_F(t_now[0])+'°;'+C_to_F(t_now[0])+'°;'+C_to_K(t_now[0])+';'+C_to_K(t_now[0])
@@ -282,9 +296,9 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
     text_now[0]=text_now[0].split('<')[0]
 
     if show_block_add_info:
-        print ('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+'http://www.accuweather.com/en/%s/current-weather/%s'%(city_id, city_id.split('/')[-1]))
+        print ('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+'http://www.accuweather.com/en/%s/current-weather/%s'%(city_id, city_number))
         try:
-            source = urlopen('http://www.accuweather.com/en/%s/current-weather/%s'%(city_id, city_id.split('/')[-1]), timeout=10).read()
+            source = urlopen('http://www.accuweather.com/en/%s/current-weather/%s'%(city_id, city_number), timeout=10).read()
             source = source.decode(encoding='UTF-8')
             print ('\033[1;32mOK\033[0m')
         except:
@@ -308,9 +322,9 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
     #     pass
     
     #### Погода на 2 недели ####
-    print ('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+'http://www.accuweather.com/%s/%s/month/%s?view=table'%(weather_lang, city_id, city_id.split('/')[-1]))
+    print ('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+'http://www.accuweather.com/%s/%s/month/%s?view=table'%(weather_lang, city_id, city_number))
     try:
-        source = urlopen('http://www.accuweather.com/%s/%s/month/%s?view=table'%(weather_lang, city_id, city_id.split('/')[-1]), timeout=10).read()
+        source = urlopen('http://www.accuweather.com/%s/%s/month/%s?view=table'%(weather_lang, city_id, city_number), timeout=10).read()
         source = source.decode(encoding='UTF-8')
         print ('\033[1;32mOK\033[0m')
     except:
@@ -325,6 +339,8 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
     for i in range(len(t_day)):
         if t_day[i][0] not in ('+', '-', '0'):
             t_day[i] = '+' + t_day[i]
+        if not celsius:
+            t_day[i] = F_to_C(t_day[i])
         t_day[i] = t_day[i]+'°;'+t_day[i]+'°;'+C_to_F(t_day[i])+'°;'+C_to_F(t_day[i])+'°;'+C_to_K(t_day[i])+';'+C_to_K(t_day[i]) 
 
     # температура ночью
@@ -332,6 +348,8 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
     for i in range(len(t_night)):
         if t_night[i][0] not in ('+', '-', '0'):
             t_night[i] = '+' + t_night[i]
+        if not celsius:
+            t_night[i] = F_to_C(t_night[i])
         t_night[i] = t_night[i]+'°;'+t_night[i]+'°;'+C_to_F(t_night[i])+'°;'+C_to_F(t_night[i])+'°;'+C_to_K(t_night[i])+';'+C_to_K(t_night[i])
 
 
@@ -374,33 +392,33 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
 
     if show_block_tomorrow:
         #### Погода завтра ####
-        print ('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+'http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=2'%(city_id, city_id.split('/')[-1]))
+        print ('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+'http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=2'%(city_id, city_number))
         try:
-            w_night = urlopen('http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=2'%(city_id, city_id.split('/')[-1]), timeout=10).read()
+            w_night = urlopen('http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=2'%(city_id, city_number), timeout=10).read()
             w_night = w_night.decode(encoding='UTF-8')
             print ('\033[1;32mOK\033[0m')
         except:
             print ('\033[1;31m[!]\033[0m '+_('Unable to download page, check the network connection'))
 
-        print ('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+'http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=2'%(city_id, city_id.split('/')[-1]))
+        print ('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+'http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=2'%(city_id, city_number))
         try:
-            w_morning = urlopen('http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=2'%(city_id, city_id.split('/')[-1]), timeout=10).read()
+            w_morning = urlopen('http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=2'%(city_id, city_number), timeout=10).read()
             w_morning = w_morning.decode(encoding='UTF-8')
             print ('\033[1;32mOK\033[0m')
         except:
             print ('\033[1;31m[!]\033[0m '+_('Unable to download page, check the network connection'))
 
-        print ('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+'http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=2'%(city_id, city_id.split('/')[-1]))
+        print ('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+'http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=2'%(city_id, city_number))
         try:
-            w_day = urlopen('http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=2'%(city_id, city_id.split('/')[-1]), timeout=10).read()
+            w_day = urlopen('http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=2'%(city_id, city_number), timeout=10).read()
             w_day = w_day.decode(encoding='UTF-8')
             print ('\033[1;32mOK\033[0m')
         except:
             print ('\033[1;31m[!]\033[0m '+_('Unable to download page, check the network connection'))
 
-        print ('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+'http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=2'%(city_id, city_id.split('/')[-1]))
+        print ('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+'http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=2'%(city_id, city_number))
         try:
-            w_evening = urlopen('http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=2'%(city_id, city_id.split('/')[-1]), timeout=10).read()
+            w_evening = urlopen('http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=2'%(city_id, city_number), timeout=10).read()
             w_evening = w_evening.decode(encoding='UTF-8')
             print ('\033[1;32mOK\033[0m')
         except:
@@ -412,24 +430,32 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
         t = re.findall('<span class="temp">(.?\d+)<', w_morning)
         if t[0][0] not in ('+', '-', '0'):
                 t[0] = '+'+t[0]
+        if not celsius:
+            t[0] = F_to_C(t[0])
         t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
         t_tomorrow.append(t[0])
 
         t = re.findall('<span class="temp">(.?\d+)<', w_day)
         if t[0][0] not in ('+', '-', '0'):
                 t[0] = '+'+t[0]
+        if not celsius:
+            t[0] = F_to_C(t[0])
         t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
         t_tomorrow.append(t[0])
 
         t = re.findall('<span class="temp">(.?\d+)<', w_evening)
         if t[0][0] not in ('+', '-', '0'):
                 t[0] = '+'+t[0]
+        if not celsius:
+            t[0] = F_to_C(t[0])
         t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
         t_tomorrow.append(t[0])
 
         t = re.findall('<span class="temp">(.?\d+)<', w_night)
         if t[0][0] not in ('+', '-', '0'):
                 t[0] = '+'+t[0]
+        if not celsius:
+            t[0] = F_to_C(t[0])
         t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
         t_tomorrow.append(t[0])
 
@@ -439,24 +465,32 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
         t = re.findall('<span class="lo">Lo (.?\d+)<', w_morning)
         if t[0][0] not in ('+', '-', '0'):
                 t[0] = '+'+t[0]
+        if not celsius:
+            t[0] = F_to_C(t[0])
         t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
         t_tomorrow_low.append(t[0])
 
         t = re.findall('<span class="lo">Lo (.?\d+)<', w_day)
         if t[0][0] not in ('+', '-', '0'):
                 t[0] = '+'+t[0]
+        if not celsius:
+            t[0] = F_to_C(t[0])
         t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
         t_tomorrow_low.append(t[0])
 
         t = re.findall('<span class="lo">Lo (.?\d+)<', w_evening)
         if t[0][0] not in ('+', '-', '0'):
                 t[0] = '+'+t[0]
+        if not celsius:
+            t[0] = F_to_C(t[0])
         t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
         t_tomorrow_low.append(t[0])
 
         t = re.findall('<span class="lo">Lo (.?\d+)<', w_night)
         if t[0][0] not in ('+', '-', '0'):
                 t[0] = '+'+t[0]
+        if not celsius:
+            t[0] = F_to_C(t[0])
         t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
         t_tomorrow_low.append(t[0])
 
@@ -498,33 +532,33 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
         
     if show_block_today:
         #### Погода сегодня ####
-        print ('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+'http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=1'%(city_id, city_id.split('/')[-1]))
+        print ('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+'http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=1'%(city_id, city_number))
         try:
-            w_night = urlopen('http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=1'%(city_id, city_id.split('/')[-1]), timeout=10).read()
+            w_night = urlopen('http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=1'%(city_id, city_number), timeout=10).read()
             w_night = w_night.decode(encoding='UTF-8')
             print ('\033[1;32mOK\033[0m')
         except:
             print ('\033[1;31m[!]\033[0m '+_('Unable to download page, check the network connection'))
 
-        print ('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+'http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=1'%(city_id, city_id.split('/')[-1]))
+        print ('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+'http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=1'%(city_id, city_number))
         try:
-            w_morning = urlopen('http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=1'%(city_id, city_id.split('/')[-1]), timeout=10).read()
+            w_morning = urlopen('http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=1'%(city_id, city_number), timeout=10).read()
             w_morning = w_morning.decode(encoding='UTF-8')
             print ('\033[1;32mOK\033[0m')
         except:
             print ('\033[1;31m[!]\033[0m '+_('Unable to download page, check the network connection'))
 
-        print ('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+'http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=1'%(city_id, city_id.split('/')[-1]))
+        print ('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+'http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=1'%(city_id, city_number))
         try:
-            w_day = urlopen('http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=1'%(city_id, city_id.split('/')[-1]), timeout=10).read()
+            w_day = urlopen('http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=1'%(city_id, city_number), timeout=10).read()
             w_day = w_day.decode(encoding='UTF-8')
             print ('\033[1;32mOK\033[0m')
         except:
             print ('\033[1;31m[!]\033[0m '+_('Unable to download page, check the network connection'))
 
-        print ('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+'http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=1'%(city_id, city_id.split('/')[-1]))
+        print ('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+'http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=1'%(city_id, city_number))
         try:
-            w_evening = urlopen('http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=1'%(city_id, city_id.split('/')[-1]), timeout=10).read()
+            w_evening = urlopen('http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=1'%(city_id, city_number), timeout=10).read()
             w_evening = w_evening.decode(encoding='UTF-8')
             print ('\033[1;32mOK\033[0m')
         except:
@@ -536,24 +570,32 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
         t = re.findall('<span class="temp">(.?\d+)<', w_morning)
         if t[0][0] not in ('+', '-', '0'):
                 t[0] = '+'+t[0]
+        if not celsius:
+            t[0] = F_to_C(t[0])
         t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
         t_today.append(t[0])
 
         t = re.findall('<span class="temp">(.?\d+)<', w_day)
         if t[0][0] not in ('+', '-', '0'):
                 t[0] = '+'+t[0]
+        if not celsius:
+            t[0] = F_to_C(t[0])
         t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
         t_today.append(t[0])
 
         t = re.findall('<span class="temp">(.?\d+)<', w_evening)
         if t[0][0] not in ('+', '-', '0'):
                 t[0] = '+'+t[0]
+        if not celsius:
+            t[0] = F_to_C(t[0])
         t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
         t_today.append(t[0])
 
         t = re.findall('<span class="temp">(.?\d+)<', w_night)
         if t[0][0] not in ('+', '-', '0'):
                 t[0] = '+'+t[0]
+        if not celsius:
+            t[0] = F_to_C(t[0])
         t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
         t_today.append(t[0])
 
@@ -563,24 +605,32 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
         t = re.findall('<span class="lo">Lo (.?\d+)<', w_morning)
         if t[0][0] not in ('+', '-', '0'):
                 t[0] = '+'+t[0]
+        if not celsius:
+            t[0] = F_to_C(t[0])
         t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
         t_today_low.append(t[0])
 
         t = re.findall('<span class="lo">Lo (.?\d+)<', w_day)
         if t[0][0] not in ('+', '-', '0'):
                 t[0] = '+'+t[0]
+        if not celsius:
+            t[0] = F_to_C(t[0])
         t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
         t_today_low.append(t[0])
 
         t = re.findall('<span class="lo">Lo (.?\d+)<', w_evening)
         if t[0][0] not in ('+', '-', '0'):
                 t[0] = '+'+t[0]
+        if not celsius:
+            t[0] = F_to_C(t[0])
         t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
         t_today_low.append(t[0])
 
         t = re.findall('<span class="lo">Lo (.?\d+)<', w_night)
         if t[0][0] not in ('+', '-', '0'):
                 t[0] = '+'+t[0]
+        if not celsius:
+            t[0] = F_to_C(t[0])
         t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
         t_today_low.append(t[0])
 
