@@ -20,9 +20,8 @@ v = '0.6.4'
 from utils import localization
 localization.set()
 
-from gi.repository import Gtk, GObject, Pango, PangoCairo, Gdk, GdkPixbuf, GLib
+from gi.repository import Gtk, GObject, Pango, PangoCairo, Gdk, GdkPixbuf, GLib, AppIndicator3
 from dialogs import about_dialog, city_id_dialog, update_dialog, settings_dialog, help_dialog
-#from services import gismeteo, weather_com, accuweather
 from services import data
 from utils import gw_menu
 import cairo
@@ -103,7 +102,8 @@ gw_config_default = {
     'max_days': 12,
     'show_chance_of_rain': False,
     'wind_units': 0,
-    'press_units': 0
+    'press_units': 0,
+    'show_indicator': 2                # 0 - widget only, 1 - indicator only, 2 - widget + indicator
 }
 gw_config = {}
 for i in gw_config_default.keys():
@@ -227,6 +227,8 @@ icons_list = []
 backgrounds_list = []
 show_time_receive_local = False
 time_receive = None
+ind = None
+pix_path = None
 
 t_scale_dict = {
     0: "°C",
@@ -346,6 +348,36 @@ def check_updates():
         if check_for_updates == 1 and check_for_updates_local:
             check_for_updates_local = False
 
+class Indicator:
+    def __init__(self):
+        if show_indicator != 0:
+            self.hiden = False
+        else:
+            self.hiden = True
+            return
+
+        self.indicator = AppIndicator3.Indicator.new("gis-weather", os.path.join(APP_PATH, "icon.png"), AppIndicator3.IndicatorCategory.APPLICATION_STATUS)
+        self.indicator.set_status(AppIndicator3.IndicatorStatus.ACTIVE)
+
+    def set_label(self, txt):
+        self.indicator.set_label(txt, txt)
+
+    def set_icon(self, icon):
+        self.indicator.set_icon(icon)
+
+    def set_menu(self, menu):
+        self.indicator.set_menu(menu)
+
+    def hide(self):
+        if not self.hiden:
+            self.indicator = AppIndicator3.Indicator.new("gis-weather", os.path.join(APP_PATH, "icon.png"), AppIndicator3.IndicatorCategory.APPLICATION_STATUS)
+            self.hiden = True
+
+    def show(self):
+        if self.hiden:
+            self.indicator.set_status(AppIndicator3.IndicatorStatus.ACTIVE)
+            self.indicator.set_menu(app.menu)
+            self.hiden = False
 
 class MyDrawArea(Gtk.DrawingArea):
     p_layout = None
@@ -386,6 +418,15 @@ class MyDrawArea(Gtk.DrawingArea):
         on_redraw = True
         if first_start:
             first_start = False
+        if show_indicator == 0:
+            ind.hide()
+        else:
+            ind.show()
+        if show_indicator == 1:
+            app.window_main.hide()
+        else:
+            app.window_main.show()
+
         self.queue_draw()
         while Gtk.events_pending():
             Gtk.main_iteration_do(True)
@@ -479,10 +520,14 @@ class MyDrawArea(Gtk.DrawingArea):
                 self.draw_text(_('weather received')+' '+time_receive, x-margin, x+10+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
             if city_name: self.draw_text(city_name[0], x+block_now_left, y, font+' Bold', 14, width, Pango.Alignment.CENTER)
             self.draw_scaled_icon(center-40+block_now_left, y+30, icon_now[0],80,80)
+            if show_indicator != 0:
+                ind.set_icon(pix_path) # indicator
             t_index = t_scale*2
             if t_feel:
                 t_index += 1
             if t_now:
+                if show_indicator != 0:
+                    ind.set_label(t_now[0].split(';')[t_index]) # indicator
                 self.draw_text(t_now[0].split(';')[t_index], center-100+block_now_left, y+30, font+' Normal', 18, 60, Pango.Alignment.RIGHT)
             if text_now: self.draw_text(text_now[0], center-70+block_now_left, y+106, font+' Normal', 10, 140, Pango.Alignment.CENTER)
             
@@ -686,28 +731,6 @@ class MyDrawArea(Gtk.DrawingArea):
             if chance_of_rain and show_chance_of_rain:
                 self.draw_text(chance_of_rain[index], x+30, y+9, font+' Normal', 7, 36,Pango.Alignment.CENTER)
 
-            # if t_feel:
-            #     if t_day_feel:
-            #         t = t_day_feel[index]
-            #         if t_scale == 1:
-            #             t = C_to_F(t)
-            #         self.draw_text(t+'°', x, y+15, font+' Normal', 10, w_block-45,Pango.Alignment.LEFT)
-            #     if t_night_feel:
-            #         t = t_night_feel[index]
-            #         if t_scale == 1:
-            #             t = C_to_F(t)
-            #         self.draw_text(t+'°', x, y+30, font+' Normal', 8, w_block-45,Pango.Alignment.LEFT)
-            # else:
-            #     if t_day:
-            #         t = t_day[index]
-            #         if t_scale == 1:
-            #             t = C_to_F(t)
-            #         self.draw_text(t+'°', x, y+15, font+' Normal', 10, w_block-45,Pango.Alignment.LEFT)
-            #     if t_night:
-            #         t = t_night[index]
-            #         if t_scale == 1:
-            #             t = C_to_F(t)
-            #         self.draw_text(t+'°', x, y+30, font+' Normal', 8, w_block-45,Pango.Alignment.LEFT)
             if (wind_direct and wind_speed): 
                 if int(wind_speed[index].split(';')[wind_units].split()[0]) >= high_wind and high_wind != -1:
                     self.draw_text(wind_direct[index]+', '+wind_speed[index].split(';')[wind_units].split()[0]+' '+_(wind_speed[index].split(';')[wind_units].split()[-1]), x, y+50, font+' Normal', 8, 80,Pango.Alignment.LEFT, color_high_wind)
@@ -787,6 +810,7 @@ class MyDrawArea(Gtk.DrawingArea):
         self.cr.restore()
 
     def draw_scaled_icon(self, x, y, pix, w, h):
+        global pix_path
         if icons_name == 'default':
             pix = pix.split(';')[0]
             pix_path = os.path.join(ICONS_USER_PATH, 'default', 'weather', os.path.split(pix)[1])
@@ -802,30 +826,6 @@ class MyDrawArea(Gtk.DrawingArea):
                 return
         else:
             pix = pix.split(';')[1]
-        # if not os.path.exists(pix):
-        #     pix_convert = pix.split('.')
-        #     for i in range(2, 5):
-        #         try:
-        #             a = int(pix_convert[-i][1])
-        #             a = (a+1)//2+(a+1)//2
-        #             pix_convert[-i] = pix_convert[-i][0]+str(a) # вместо четырех состояний, делаем два: 2 и 4
-        #         except:
-        #             pass    
-        #     pix = '.'.join(pix_convert)
-            
-        #     pix_convert = os.path.split(pix)
-        #     pix_convert = pix_convert[1].split('.')
-        #     if pix_convert[2] == 'c4': # за тучами не видно: солнце там или луна (иконки только для солнца)
-        #         pix_convert[0] = 'd'
-        #         pix_convert[1] = 'sun'
-        #     if pix_convert[-2] == 'st' and pix_convert[-3] == 'r4': #гроза и дождь 2 и 4 - одинаковая иконка
-        #         pix_convert[-3] = 'r2'
-        #     if pix_convert[-3] == 'c2' and pix_convert[-2] != 'st': #при облаках c2 дождь 2 и 4 одинаковый
-        #         pix_convert[-2] = pix_convert[-2][0] +'2'
-        #     if pix_convert[1] == 'mist' and pix_convert[2] != 'png':
-        #         pix_convert[0] = 'd.sun'
-        #         pix_convert[1] = 'c4'
-            
             pix_path = os.path.join(ICONS_PATH, icons_name, 'weather', pix)
             
             
@@ -853,7 +853,7 @@ class MyDrawArea(Gtk.DrawingArea):
             self.cr.translate(x, y) 
         pixbuf = GdkPixbuf.Pixbuf.new_from_file(pix)
         k=1
-        if pixbuf.get_width()>pixbuf.get_height():
+        if pixbuf.get_width()>pixbuf.get_height() and os.path.split(pix)[-2][-11:]!='backgrounds':
             k = pixbuf.get_width()/pixbuf.get_height()
         pixbuf = pixbuf.scale_simple(round(w*k),h,GdkPixbuf.InterpType.BILINEAR)
         if k==1:
@@ -865,9 +865,6 @@ class MyDrawArea(Gtk.DrawingArea):
 
 
 class Weather_Widget:
-
-    menu = None
-
     def __init__(self):
         self.window_main = Gtk.Window()
         self.window_main.set_accept_focus(False)
@@ -1096,16 +1093,19 @@ class Weather_Widget:
             self.window_main.begin_move_drag(1, int(event.x_root), int(event.y_root), event.time)
             return True
         if event.button == 3:
-            global icons_list, backgrounds_list
-            try:
-                a = gw_config[data.get_city_list(service)]
-            except:
-                gw_config[data.get_city_list(service)] = []
-            self.menu, icons_list, backgrounds_list = gw_menu.create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, 
-                icons_name, show_bg_png, color_bg, bg_custom, color_scheme, color_scheme_number, gw_config[data.get_city_list(service)], city_id, fix_position, sticky)
+            self.create_menu()
             self.menu.popup(None, None, None, None, event.button, event.time)
             return True
         return False
+
+    def create_menu(self):
+        global icons_list, backgrounds_list
+        try:
+            a = gw_config[data.get_city_list(service)]
+        except:
+            gw_config[data.get_city_list(service)] = []
+        self.menu, icons_list, backgrounds_list = gw_menu.create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, 
+                icons_name, show_bg_png, color_bg, bg_custom, color_scheme, color_scheme_number, gw_config[data.get_city_list(service)], city_id, fix_position, sticky)
 
     def configure_event(self, widget, event):
         global x_pos, y_pos
@@ -1143,11 +1143,15 @@ class Weather_Widget:
         if city_id == 0:
             if self.show_edit_dialog():
                 Save_Config()
+        ind.set_menu(self.menu)
         Gtk.main()
 
 
 if __name__ == "__main__":
     import signal
     signal.signal(signal.SIGINT, signal.SIG_DFL)
+    ind = Indicator()
     app = Weather_Widget()
+    app.create_menu()
+    ind.set_menu(app.menu)
     app.main()

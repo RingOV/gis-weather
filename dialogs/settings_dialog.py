@@ -146,6 +146,10 @@ class settings():
         self.switch_sticky.connect("notify::active", self.save_settings)
         self.liststore5 = self.ui.get_object('liststore5')
         self.liststore6 = self.ui.get_object('liststore6')
+        self.combobox_show_indicator = self.ui.get_object('combobox_show_indicator')
+        self.combobox_show_indicator.connect("changed", self.save_settings)
+        self.liststore11 = self.ui.get_object('liststore11')
+
 
         self.clear_x_pos = self.ui.get_object('clear_x_pos')
         self.clear_x_pos.connect("clicked", self.clear_settings)
@@ -159,6 +163,8 @@ class settings():
         self.clear_fix_position.connect("clicked", self.clear_settings)
         self.clear_sticky = self.ui.get_object('clear_sticky')
         self.clear_sticky.connect("clicked", self.clear_settings)
+        self.clear_show_indicator = self.ui.get_object('clear_show_indicator')
+        self.clear_show_indicator.connect("clicked", self.clear_settings)
 
         # View
         self.switch_show_block_today = self.ui.get_object('switch_show_block_today')
@@ -316,6 +322,11 @@ class settings():
         self.liststore7.append(['°F'])
         self.liststore7.append(['K'])
 
+        self.liststore11.clear()
+        self.liststore11.append([_('Widget only')])
+        self.liststore11.append([_('Indicator only')])
+        self.liststore11.append([_('Widget + Indicator')])
+
         self.liststore9.clear()
         for i in wind_units_list:
             self.liststore9.append([i])
@@ -369,6 +380,7 @@ class settings():
         self.load(self.spinbutton_r)
         self.load(self.spinbutton_delay_start_time)
         self.load(self.spinbutton_block_now_left)
+        self.load(self.combobox_show_indicator)
 
         self.liststore3.clear()
         for i in range(len(icons_list_set)):
