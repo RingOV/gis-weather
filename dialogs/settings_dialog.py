@@ -146,9 +146,6 @@ class settings():
         self.switch_sticky.connect("notify::active", self.save_settings)
         self.liststore5 = self.ui.get_object('liststore5')
         self.liststore6 = self.ui.get_object('liststore6')
-        self.combobox_show_indicator = self.ui.get_object('combobox_show_indicator')
-        self.combobox_show_indicator.connect("changed", self.save_settings)
-        self.liststore11 = self.ui.get_object('liststore11')
 
 
         self.clear_x_pos = self.ui.get_object('clear_x_pos')
@@ -163,8 +160,6 @@ class settings():
         self.clear_fix_position.connect("clicked", self.clear_settings)
         self.clear_sticky = self.ui.get_object('clear_sticky')
         self.clear_sticky.connect("clicked", self.clear_settings)
-        self.clear_show_indicator = self.ui.get_object('clear_show_indicator')
-        self.clear_show_indicator.connect("clicked", self.clear_settings)
 
         # View
         self.switch_show_block_today = self.ui.get_object('switch_show_block_today')
@@ -289,6 +284,39 @@ class settings():
         self.clear_icons_name.connect("clicked", self.clear_settings)
         self.clear_bg_custom = self.ui.get_object('clear_bg_custom')
         self.clear_bg_custom.connect("clicked", self.clear_settings)
+
+
+        # Indicator
+        self.combobox_show_indicator = self.ui.get_object('combobox_show_indicator')
+        self.combobox_show_indicator.connect("changed", self.save_settings)
+        self.liststore11 = self.ui.get_object('liststore11')
+        self.combobox_indicator_is_appindicator = self.ui.get_object('combobox_indicator_is_appindicator')
+        self.combobox_indicator_is_appindicator.connect("changed", self.save_settings)
+        self.liststore12 = self.ui.get_object('liststore12')
+        self.combobox_indicator_icons_name = self.ui.get_object('combobox_indicator_icons_name')
+        self.combobox_indicator_icons_name.connect("changed", self.set_icon_bg)
+        self.liststore13 = self.ui.get_object('liststore13')
+        self.switch_indicator_draw_shadow = self.ui.get_object('switch_indicator_draw_shadow')
+        self.switch_indicator_draw_shadow.connect("notify::active", self.save_settings)
+        self.fontbutton_indicator_font = self.ui.get_object('fontbutton_indicator_font')
+        self.fontbutton_indicator_font.connect("font-set", self.set_font)
+        self.colorbutton_indicator_color_text = self.ui.get_object('colorbutton_indicator_color_text')
+        self.colorbutton_indicator_color_text.connect("color-set", self.set_color)
+        self.colorbutton_indicator_color_shadow = self.ui.get_object('colorbutton_indicator_color_shadow')
+        self.colorbutton_indicator_color_shadow.connect("color-set", self.set_color)
+        self.frame10 = self.ui.get_object('frame10')
+        self.spinbutton_indicator_top = self.ui.get_object('spinbutton_indicator_top')
+        self.spinbutton_indicator_top.connect("value-changed", self.save_settings)
+
+        self.clear_show_indicator = self.ui.get_object('clear_show_indicator')
+        self.clear_show_indicator.connect("clicked", self.clear_settings)
+        self.clear_indicator_draw_shadow = self.ui.get_object('clear_indicator_draw_shadow')
+        self.clear_indicator_draw_shadow.connect("clicked", self.clear_settings)
+        self.clear_indicator_font = self.ui.get_object('clear_indicator_font')
+        self.clear_indicator_font.connect("clicked", self.clear_settings)
+        self.clear_indicator_top = self.ui.get_object('clear_indicator_top')
+        self.clear_indicator_top.connect("clicked", self.clear_settings)
+
         
         if WIN:
             self.clear_delay_start_time.hide()
@@ -326,6 +354,10 @@ class settings():
         self.liststore11.append(['Widget only'])
         self.liststore11.append(['Indicator only'])
         self.liststore11.append(['Widget + Indicator'])
+
+        self.liststore12.clear()
+        self.liststore12.append(['Gtk.StatusIcon (Other)'])
+        self.liststore12.append(['AppIndicator3 (Unity only)'])
 
         self.liststore9.clear()
         for i in wind_units_list:
@@ -381,6 +413,14 @@ class settings():
         self.load(self.spinbutton_delay_start_time)
         self.load(self.spinbutton_block_now_left)
         self.load(self.combobox_show_indicator)
+        self.load(self.combobox_indicator_is_appindicator)
+        self.load(self.switch_indicator_draw_shadow)
+        self.fontbutton_indicator_font.set_font_name(gw_config_set['indicator_font']+' '+str(gw_config_set['indicator_font_size']))
+        self.load(self.colorbutton_indicator_color_text)
+        self.load(self.colorbutton_indicator_color_shadow)
+        self.load(self.spinbutton_indicator_top)
+        if gw_config_set['indicator_is_appindicator'] != 0:
+            self.frame10.hide()
 
         self.liststore3.clear()
         for i in range(len(icons_list_set)):
@@ -391,6 +431,16 @@ class settings():
             self.liststore3.append(["<b>"+icons_list_set[i]+"</b>"+author])
             if icons_list_set[i] == gw_config_set['icons_name']: 
                 self.combobox_icons_name.set_active(i)
+
+        self.liststore13.clear()
+        for i in range(len(icons_list_set)):
+            author = ""
+            if os.path.exists(os.path.join(ICONS_PATH_SET, icons_list_set[i], 'author')):
+                f = open(os.path.join(ICONS_PATH_SET, icons_list_set[i], 'author'),"r")
+                author = "\n"+"<i>"+_('Author')+": "+f.readline().strip()+"</i>"
+            self.liststore13.append(["<b>"+icons_list_set[i]+"</b>"+author])
+            if icons_list_set[i] == gw_config_set['indicator_icons_name']: 
+                self.combobox_indicator_icons_name.set_active(i)
 
         self.liststore4.clear()
         for i in range(len(backgrounds_list_set)):
@@ -470,6 +520,11 @@ class settings():
                 autorun.add("gis-weather", os.path.join(os.path.split(work_path)[0], 'gis-weather.exe'))
             else:
                 autorun.add("gis-weather", os.path.join(os.path.split(work_path)[0], 'gis-weather.py'), gw_config_set['delay_start_time'])
+        if name == 'indicator_is_appindicator':
+            if value:
+                self.frame10.hide()
+            else:
+                self.frame10.show()
 
     def clear_settings(self, widget):
         global gw_config_set
@@ -485,9 +540,16 @@ class settings():
         if state_lock:
             return
         global gw_config_set
-        font_desc = Pango.FontDescription(self.fontbutton_font.get_font_name())
+        font_desc = Pango.FontDescription(widget.get_font_name())
         font = font_desc.get_family()
-        gw_config_set['font'] = font
+        w_name = Gtk.Buildable.get_name(widget)
+        w_name = w_name.split('_')
+        name = '_'.join(w_name[1:])
+        if name == 'font':
+            gw_config_set['font'] = font
+        if name == 'indicator_font':
+            gw_config_set['indicator_font'] = font
+            gw_config_set['indicator_font_size'] = font_desc.get_size()//Pango.SCALE
         Save_Config()
         drawing_area_set.redraw(False, False, load_config = True)
 
@@ -501,8 +563,10 @@ class settings():
         i = widget.get_active()
         if name == 'icons_name':
             gw_config_set[name] = icons_list_set[i]
-        else:
+        if name == 'bg_custom':
             gw_config_set[name] = backgrounds_list_set[i]
+        if name == 'indicator_icons_name':
+            gw_config_set[name] = icons_list_set[i]
         Save_Config()
         drawing_area_set.redraw(False, False, load_config = True)
 

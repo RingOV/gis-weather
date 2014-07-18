@@ -26,6 +26,7 @@ try:
     HAS_INDICATOR=True
 except:
     HAS_INDICATOR=False
+    print('Import error: from gi.repository import AppIndicator3')
 from dialogs import about_dialog, city_id_dialog, update_dialog, settings_dialog, help_dialog
 from services import data
 from utils import gw_menu
@@ -110,7 +111,13 @@ gw_config_default = {
     'press_units': 0,
     'show_indicator': 2,               # 0 - widget only, 1 - indicator only, 2 - widget + indicator
     'indicator_is_appindicator': 'None',
-    'indicator_icons_name': 'default'
+    'indicator_icons_name': 'default',
+    'indicator_font': 'Sans',
+    'indicator_font_size': 8,
+    'indicator_color_text': (0, 0, 0, 1),
+    'indicator_color_shadow': (1, 1, 1, 0.7),
+    'indicator_draw_shadow': True,
+    'indicator_top': 0
 }
 gw_config = {}
 for i in gw_config_default.keys():
@@ -209,9 +216,9 @@ if not os.path.exists(os.path.join(ICONS_USER_PATH, 'default', 'weather')):
 
 if indicator_is_appindicator == 'None':
     if os.environ.get('DESKTOP_SESSION') == "ubuntu" and HAS_INDICATOR:
-        indicator_is_appindicator = True
+        indicator_is_appindicator = 1
     else:
-        indicator_is_appindicator = False
+        indicator_is_appindicator = 0
     Save_Config()
 # Вспомогательные переменные
 height = None
@@ -371,8 +378,8 @@ class Indicator:
             else:
                 self.indicator.set_status(AppIndicator3.IndicatorStatus.PASSIVE)
                 self.hiden = True
-        def set_label(self, txt):
-            self.indicator.set_label(txt, '')
+        def set_label(self, text):
+            self.indicator.set_label(text, '')
 
         def set_icon(self, icon):
             self.indicator.set_icon(icon)
@@ -390,26 +397,33 @@ class Indicator:
                 self.indicator.set_status(AppIndicator3.IndicatorStatus.ACTIVE)
                 self.indicator.set_menu(app.menu)
                 self.hiden = False
+
     else: # Gtk.StatusIcon
         def __init__(self):
-            print(print('\033[1;31mGtk.StatusIcon\033[0m'))
+            print('\033[1;31mGtk.StatusIcon\033[0m')
             self.indicator = Gtk.StatusIcon()
+            self.indicator_label = Gtk.StatusIcon()
             self.indicator.set_from_file(os.path.join(APP_PATH, "icon.png"))
             if show_indicator:
                 self.indicator.set_visible(True)
+                self.indicator_label.set_visible(True)
                 self.hiden = False
             else:
                 self.indicator.set_visible(False)
+                self.indicator_label.set_visible(False)
                 self.hiden = True
+            # self.set_label('+20°')
             
-        def set_label(self, txt):
-            self.indicator.set_title(txt)
+        def set_label(self, text):
+            self.draw_text_to_png(self.indicator.get_size(), text)
+            self.indicator_label.set_from_file(os.path.join(CONFIG_PATH, "text.png"))
 
         def set_icon(self, icon):
             self.indicator.set_from_file(icon)
 
         def set_menu(self, menu):
             self.indicator.connect("popup-menu", self.popup_menu)
+            self.indicator_label.connect("popup-menu", self.popup_menu)
 
         def popup_menu(self, icon, widget, time):
             app.create_menu()
@@ -418,12 +432,41 @@ class Indicator:
         def hide(self):
             if not self.hiden:
                 self.indicator.set_visible(False)
+                self.indicator_label.set_visible(False)
                 self.hiden = True
 
         def show(self):
             if self.hiden:
                 self.indicator.set_visible(True)
+                self.indicator_label.set_visible(True)
                 self.hiden = False
+
+        def draw_text_to_png(self, HEIGHT, text):
+            WIDTH, HEIGHT = int(HEIGHT*1.2), HEIGHT
+
+            surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, WIDTH, HEIGHT)
+            self.cr = cairo.Context(surface)
+            if indicator_draw_shadow:
+                self.cr.set_source_rgba(indicator_color_shadow[0], indicator_color_shadow[1], indicator_color_shadow[2], indicator_color_shadow[3])
+                self.draw_indicator_text(text, 1, indicator_top+HEIGHT//8+1, indicator_font, indicator_font_size, WIDTH)
+            self.cr.set_source_rgba(indicator_color_text[0], indicator_color_text[1], indicator_color_text[2], indicator_color_text[3])
+            self.draw_indicator_text(text, 0, indicator_top+HEIGHT//8, indicator_font, indicator_font_size, WIDTH)
+            surface.write_to_png(os.path.join(CONFIG_PATH, "text.png"))
+
+        def draw_indicator_text(self, text, x, y, font, size, width=200, alignment=Pango.Alignment.LEFT):
+            self.cr.save()
+            self.cr.translate(x, y)
+            
+            font_desc = Pango.FontDescription(font)
+            font_desc.set_size(size * Pango.SCALE)
+
+            self.p_layout = PangoCairo.create_layout(self.cr)
+            self.p_layout.set_font_description(font_desc)
+            self.p_layout.set_width(width * Pango.SCALE)
+            self.p_layout.set_alignment(alignment)
+            self.p_layout.set_markup(text)
+            PangoCairo.show_layout(self.cr, self.p_layout)
+            self.cr.restore()
 
 
 class MyDrawArea(Gtk.DrawingArea):
