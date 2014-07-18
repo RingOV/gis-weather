@@ -323,9 +323,9 @@ class settings():
         self.liststore7.append(['K'])
 
         self.liststore11.clear()
-        self.liststore11.append([_('Widget only')])
-        self.liststore11.append([_('Indicator only')])
-        self.liststore11.append([_('Widget + Indicator')])
+        self.liststore11.append(['Widget only'])
+        self.liststore11.append(['Indicator only'])
+        self.liststore11.append(['Widget + Indicator'])
 
         self.liststore9.clear()
         for i in wind_units_list:

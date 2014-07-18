@@ -4,7 +4,7 @@ from gi.repository import Gtk
 import os
 
 def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, icons_name, show_bg_png, 
-    color_bg, bg_custom, color_scheme, color_scheme_number, city_list, city_id, fix_position, sticky):
+    color_bg, bg_custom, color_scheme, color_scheme_number, city_list, city_id, fix_position, sticky, indicator_icons_name):
     menu = None
     # из папки скрипта (dirs - иконки, files - фоны)
     for root, dirs, files in os.walk(ICONS_PATH):
@@ -31,6 +31,7 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, icons
     menu = Gtk.Menu()
     sub_menu_place = Gtk.Menu()
     sub_menu_icons = Gtk.Menu()
+    sub_menu_indicator_icons = Gtk.Menu()
     sub_menu_bgs = Gtk.Menu()
     sub_menu_color_text = Gtk.Menu()
     sub_menu_window = Gtk.Menu()
@@ -65,6 +66,21 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, icons
             menu_items.set_active(True)
         sub_menu_icons.append(menu_items)
         menu_items.connect("activate", app.menu_response, 'redraw_icons', icons_list[i])
+        menu_items.show()
+
+    # sub_menu_indicator_icons
+    menu_items = Gtk.RadioMenuItem(label='0. Default')
+    if indicator_icons_name == 'default':
+        menu_items.set_active(True)
+    sub_menu_indicator_icons.append(menu_items)
+    menu_items.connect("activate", app.menu_response, 'redraw_indicator_icons', 'default')
+    menu_items.show()
+    for i in range(len(icons_list)):
+        menu_items = Gtk.RadioMenuItem(label=str(i+1)+'. '+icons_list[i])
+        if indicator_icons_name == icons_list[i]:
+            menu_items.set_active(True)
+        sub_menu_indicator_icons.append(menu_items)
+        menu_items.connect("activate", app.menu_response, 'redraw_indicator_icons', icons_list[i])
         menu_items.show()
 
     # sub_menu_bgs
@@ -125,6 +141,11 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, icons
     menu_items = Gtk.MenuItem(_('Icons'))
     menu.append(menu_items)
     menu_items.set_submenu(sub_menu_icons)
+    menu_items.show()
+
+    menu_items = Gtk.MenuItem(_('Indicator icons'))
+    menu.append(menu_items)
+    menu_items.set_submenu(sub_menu_indicator_icons)
     menu_items.show()
     
     menu_items = Gtk.MenuItem(_('Background'))

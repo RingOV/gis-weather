@@ -148,9 +148,10 @@ def get_city_name(c_id, weather_lang):
         return 'None'
     return c_name[0]
 
-def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show_block_add_info, timer_bool, weather_lang, icons_name):
+def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show_block_add_info, timer_bool, weather_lang, icons_name, indicator_only):
     global city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain
-    print ('> '+_('Getting weather for')+' '+str(n)+' '+_('days'))
+    if not indicator_only:
+        print ('> '+_('Getting weather for')+' '+str(n)+' '+_('days'))
     print ('> '+_('Uploading page to a variable')+' '+weather_lang + str(city_id))
     try:
         source = urlopen(weather_lang + str(city_id), timeout=10).read()
@@ -197,7 +198,12 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
     # Иконка
     icon_now = re.findall('itemprop="weather-icon">(.*)<', w_now[0])
     icon_now = convert(icon_now, icons_name)
-    
+
+    if indicator_only:
+        for i in weather.keys():
+            weather[i] = globals()[i]
+        return weather
+
     # Иконка ветра
     #icon_wind_now = re.findall('wind(\d)', w_now[0])
     icon_wind_now = ['']

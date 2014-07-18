@@ -109,7 +109,8 @@ gw_config_default = {
     'wind_units': 0,
     'press_units': 0,
     'show_indicator': 2,               # 0 - widget only, 1 - indicator only, 2 - widget + indicator
-    'indicator_is_appindicator': 'None'
+    'indicator_is_appindicator': 'None',
+    'indicator_icons_name': 'default'
 }
 gw_config = {}
 for i in gw_config_default.keys():
@@ -211,6 +212,7 @@ if indicator_is_appindicator == 'None':
         indicator_is_appindicator = True
     else:
         indicator_is_appindicator = False
+    Save_Config()
 # Вспомогательные переменные
 height = None
 width = None
@@ -291,8 +293,8 @@ weather = {
 for i in weather.keys():
     globals()[i] = weather[i]
 
-def get_weather():
-    return data.get_weather(service, weather, n, city_id, show_block_tomorrow, show_block_today, show_block_add_info, timer_bool, weather_lang, icons_name)
+def get_weather(indicator_only=False):
+    return data.get_weather(service, weather, n, city_id, show_block_tomorrow, show_block_today, show_block_add_info, timer_bool, weather_lang, icons_name, indicator_only)
 
 def check_updates():
     package = 'gz'
@@ -361,7 +363,7 @@ def check_updates():
 class Indicator:
     if indicator_is_appindicator and HAS_INDICATOR: # AppIndicator3
         def __init__(self):
-            print('AppIndicator3')
+            print('\033[1;31mAppIndicator3\033[0m')
             self.indicator = AppIndicator3.Indicator.new("gis-weather", os.path.join(APP_PATH, "icon.png"), AppIndicator3.IndicatorCategory.APPLICATION_STATUS)
             if show_indicator:
                 self.indicator.set_status(AppIndicator3.IndicatorStatus.ACTIVE)
@@ -390,7 +392,7 @@ class Indicator:
                 self.hiden = False
     else: # Gtk.StatusIcon
         def __init__(self):
-            print('Gtk.StatusIcon')
+            print(print('\033[1;31mGtk.StatusIcon\033[0m'))
             self.indicator = Gtk.StatusIcon()
             self.indicator.set_from_file(os.path.join(APP_PATH, "icon.png"))
             if show_indicator:
@@ -407,20 +409,21 @@ class Indicator:
             self.indicator.set_from_file(icon)
 
         def set_menu(self, menu):
-        #     self.indicator.set_menu(menu)
-            pass
+            self.indicator.connect("popup-menu", self.popup_menu)
+
+        def popup_menu(self, icon, widget, time):
+            app.create_menu()
+            app.menu.popup(None, None, None, None, widget, time)
 
         def hide(self):
             if not self.hiden:
                 self.indicator.set_visible(False)
                 self.hiden = True
-            pass
 
         def show(self):
             if self.hiden:
                 self.indicator.set_visible(True)
                 self.hiden = False
-            pass
 
 
 class MyDrawArea(Gtk.DrawingArea):
@@ -471,15 +474,43 @@ class MyDrawArea(Gtk.DrawingArea):
         else:
             app.window_main.show()
 
+        if show_indicator == 1:
+            self.expose_indicator()
+
         self.queue_draw()
         while Gtk.events_pending():
             Gtk.main_iteration_do(True)
         if get_weather1 and check_for_updates_local and not err_connect:
             check_updates()
 
+    def expose_indicator(self):
+        global err, on_redraw, get_weather_bool, weather, err_connect
+        if get_weather_bool:
+            weather1 = get_weather(indicator_only=True)
+            if weather1:
+                err_connect = False
+                splash = False
+                weather = weather1
+            else:
+                err_connect = True
+            get_weather_bool = False
+            if not timer_bool:
+                print ('-'*40)
+        if err_connect:
+            if on_redraw:
+                on_redraw = False
+                if timer_bool:
+                    self.timer = GLib.timeout_add(10000, self.redraw)         
+        else:
+            if on_redraw:
+                on_redraw = False
+                if timer_bool:
+                    self.timer = GLib.timeout_add(upd_time*60*1000, self.redraw)
+                    print ('> '+_('Next update in')+' '+str(upd_time)+' '+_('min'))
+                    print ('-'*40)
+            self.Draw_Weather()
     
     def clear_draw_area(self, widget):
-        #self.cr =  self.get_window().cairo_create()
         self.cr = Gdk.cairo_create(self.get_window())
         self.cr.save()
         if fix_BadDrawable:
@@ -540,6 +571,17 @@ class MyDrawArea(Gtk.DrawingArea):
 
     
     def Draw_Weather(self):
+        if show_indicator:
+            self.draw_scaled_icon(0, 0, weather['icon_now'][0],1,1, indicator_icons_name)
+            ind.set_icon(pix_path)
+            t_index = t_scale*2
+            if t_feel:
+                t_index += 1
+            if weather['t_now']:
+                ind.set_label(weather['t_now'][0].split(';')[t_index])
+        if show_indicator == 1:
+            return
+
         self.draw_bg()
         self.draw_weather_icon_now(0, 20 + margin)
         
@@ -564,14 +606,10 @@ class MyDrawArea(Gtk.DrawingArea):
                 self.draw_text(_('weather received')+' '+time_receive, x-margin, x+10+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
             if city_name: self.draw_text(city_name[0], x+block_now_left, y, font+' Bold', 14, width, Pango.Alignment.CENTER)
             self.draw_scaled_icon(center-40+block_now_left, y+30, icon_now[0],80,80)
-            if show_indicator:
-                ind.set_icon(pix_path) # indicator
             t_index = t_scale*2
             if t_feel:
                 t_index += 1
             if t_now:
-                if show_indicator:
-                    ind.set_label(t_now[0].split(';')[t_index]) # indicator
                 self.draw_text(t_now[0].split(';')[t_index], center-100+block_now_left, y+30, font+' Normal', 18, 60, Pango.Alignment.RIGHT)
             if text_now: self.draw_text(text_now[0], center-70+block_now_left, y+106, font+' Normal', 10, 140, Pango.Alignment.CENTER)
             
@@ -853,9 +891,12 @@ class MyDrawArea(Gtk.DrawingArea):
         PangoCairo.show_layout(self.cr, self.p_layout)
         self.cr.restore()
 
-    def draw_scaled_icon(self, x, y, pix, w, h):
-        global pix_path
-        if icons_name == 'default':
+    def draw_scaled_icon(self, x, y, pix, w, h, indicator_icon_name=False):
+        icons_name1 = icons_name    
+        if indicator_icon_name:
+            global pix_path
+            icons_name1 = indicator_icon_name
+        if icons_name1 == 'default':
             pix = pix.split(';')[0]
             pix_path = os.path.join(ICONS_USER_PATH, 'default', 'weather', os.path.split(pix)[1])
             if not os.path.exists(pix_path):
@@ -866,26 +907,27 @@ class MyDrawArea(Gtk.DrawingArea):
                     print (_('Unable to download')+' '+pix)
                 if not os.path.exists(pix_path):
                     pix_path = os.path.join(THEMES_PATH, 'na.png')
-                self.draw_scaled_image(x, y, pix_path, w, h)
+                if not indicator_icon_name:
+                    self.draw_scaled_image(x, y, pix_path, w, h)
                 return
         else:
             pix = pix.split(';')[1]
-            pix_path = os.path.join(ICONS_PATH, icons_name, 'weather', pix)
+            pix_path = os.path.join(ICONS_PATH, icons_name1, 'weather', pix)
             
             
             if not os.path.exists(pix_path):
-                pix_path = os.path.join(ICONS_USER_PATH, icons_name, 'weather', pix)
+                pix_path = os.path.join(ICONS_USER_PATH, icons_name1, 'weather', pix)
                 if not os.path.exists(pix_path):
                     print ('[!] '+_('not found icon')+':\n> '+pix_path)
-                    if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'weather', 'na.png')):
-                        pix_path = os.path.join(ICONS_PATH, icons_name, 'weather', 'na.png')
+                    if os.path.exists(os.path.join(ICONS_PATH, icons_name1, 'weather', 'na.png')):
+                        pix_path = os.path.join(ICONS_PATH, icons_name1, 'weather', 'na.png')
                     else:
-                        if os.path.exists(os.path.join(ICONS_USER_PATH, icons_name, 'weather', 'na.png')):
-                            pix_path = os.path.join(ICONS_USER_PATH, icons_name, 'weather', 'na.png')
+                        if os.path.exists(os.path.join(ICONS_USER_PATH, icons_name1, 'weather', 'na.png')):
+                            pix_path = os.path.join(ICONS_USER_PATH, icons_name1, 'weather', 'na.png')
                         else:
                             pix_path = os.path.join(THEMES_PATH, 'na.png')
-            
-        self.draw_scaled_image(x, y, pix_path, w, h)
+        if not indicator_icon_name:    
+            self.draw_scaled_image(x, y, pix_path, w, h)
     
     def draw_scaled_image(self, x, y, pix, w, h, ang = 0):
         self.cr.save()
@@ -1013,7 +1055,13 @@ class Weather_Widget:
         if event == 'redraw_icons':
             global icons_name
             icons_name = value
-            #self.drawing_area.redraw(False, False)
+            self.drawing_area.queue_draw()
+            Save_Config()
+        if event == 'redraw_indicator_icons':
+            global indicator_icons_name
+            indicator_icons_name = value
+            if show_indicator == 1:
+                self.drawing_area.redraw(False, False)
             self.drawing_area.queue_draw()
             Save_Config()
         if event == 'redraw_bg':
@@ -1048,6 +1096,9 @@ class Weather_Widget:
                 while Gtk.events_pending():
                     Gtk.main_iteration_do(True)
                 self.drawing_area.redraw(False)
+        if indicator_is_appindicator:
+            app.create_menu()
+            ind.set_menu(app.menu)
 
 
     def show_edit_dialog(self):
@@ -1149,7 +1200,7 @@ class Weather_Widget:
         except:
             gw_config[data.get_city_list(service)] = []
         self.menu, icons_list, backgrounds_list = gw_menu.create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, 
-                icons_name, show_bg_png, color_bg, bg_custom, color_scheme, color_scheme_number, gw_config[data.get_city_list(service)], city_id, fix_position, sticky)
+                icons_name, show_bg_png, color_bg, bg_custom, color_scheme, color_scheme_number, gw_config[data.get_city_list(service)], city_id, fix_position, sticky, indicator_icons_name)
 
     def configure_event(self, widget, event):
         global x_pos, y_pos
@@ -1181,6 +1232,8 @@ class Weather_Widget:
 
     def main(self):
         self.window_main.show_all()
+        if show_indicator == 1:
+            self.window_main.hide()
         # фикс высоты виджета
         x = self.window_main.get_size()
         self.window_main.resize(width, height-(x[1]-height))
