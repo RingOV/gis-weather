@@ -20,7 +20,12 @@ v = '0.6.4'
 from utils import localization
 localization.set()
 
-from gi.repository import Gtk, GObject, Pango, PangoCairo, Gdk, GdkPixbuf, GLib, AppIndicator3
+from gi.repository import Gtk, GObject, Pango, PangoCairo, Gdk, GdkPixbuf, GLib
+try:
+    from gi.repository import AppIndicator3
+    HAS_INDICATOR=True
+except:
+    HAS_INDICATOR=False
 from dialogs import about_dialog, city_id_dialog, update_dialog, settings_dialog, help_dialog
 from services import data
 from utils import gw_menu
@@ -103,7 +108,8 @@ gw_config_default = {
     'show_chance_of_rain': False,
     'wind_units': 0,
     'press_units': 0,
-    'show_indicator': 2                # 0 - widget only, 1 - indicator only, 2 - widget + indicator
+    'show_indicator': 2,               # 0 - widget only, 1 - indicator only, 2 - widget + indicator
+    'indicator_is_appindicator': 'None'
 }
 gw_config = {}
 for i in gw_config_default.keys():
@@ -182,7 +188,6 @@ def Load_Color_Scheme(number = 0):
 # ------------------------------------------------------------------------------
 
 # Путь к виджету
-#APP_PATH = os.path.dirname(__file__)
 APP_PATH = os.path.abspath(os.path.dirname(__file__))
 if WIN:
     APP_PATH = APP_PATH.decode(sys.getfilesystemencoding())
@@ -201,6 +206,11 @@ BGS_USER_PATH = os.path.join(CONFIG_PATH, 'backgrounds')
 if not os.path.exists(os.path.join(ICONS_USER_PATH, 'default', 'weather')):
     os.makedirs(os.path.join(ICONS_USER_PATH, 'default', 'weather'))
 
+if indicator_is_appindicator == 'None':
+    if os.environ.get('DESKTOP_SESSION') == "ubuntu" and HAS_INDICATOR:
+        indicator_is_appindicator = True
+    else:
+        indicator_is_appindicator = False
 # Вспомогательные переменные
 height = None
 width = None
@@ -349,35 +359,69 @@ def check_updates():
             check_for_updates_local = False
 
 class Indicator:
-    def __init__(self):
-        if show_indicator != 0:
-            self.hiden = False
-        else:
-            self.hiden = True
-            return
-
-        self.indicator = AppIndicator3.Indicator.new("gis-weather", os.path.join(APP_PATH, "icon.png"), AppIndicator3.IndicatorCategory.APPLICATION_STATUS)
-        self.indicator.set_status(AppIndicator3.IndicatorStatus.ACTIVE)
-
-    def set_label(self, txt):
-        self.indicator.set_label(txt, txt)
-
-    def set_icon(self, icon):
-        self.indicator.set_icon(icon)
-
-    def set_menu(self, menu):
-        self.indicator.set_menu(menu)
-
-    def hide(self):
-        if not self.hiden:
+    if indicator_is_appindicator and HAS_INDICATOR: # AppIndicator3
+        def __init__(self):
+            print('AppIndicator3')
             self.indicator = AppIndicator3.Indicator.new("gis-weather", os.path.join(APP_PATH, "icon.png"), AppIndicator3.IndicatorCategory.APPLICATION_STATUS)
-            self.hiden = True
+            if show_indicator:
+                self.indicator.set_status(AppIndicator3.IndicatorStatus.ACTIVE)
+                self.hiden = False
+            else:
+                self.indicator.set_status(AppIndicator3.IndicatorStatus.PASSIVE)
+                self.hiden = True
+        def set_label(self, txt):
+            self.indicator.set_label(txt, '')
 
-    def show(self):
-        if self.hiden:
-            self.indicator.set_status(AppIndicator3.IndicatorStatus.ACTIVE)
-            self.indicator.set_menu(app.menu)
-            self.hiden = False
+        def set_icon(self, icon):
+            self.indicator.set_icon(icon)
+
+        def set_menu(self, menu):
+            self.indicator.set_menu(menu)
+
+        def hide(self):
+            if not self.hiden:
+                self.indicator.set_status(AppIndicator3.IndicatorStatus.PASSIVE)
+                self.hiden = True
+
+        def show(self):
+            if self.hiden:
+                self.indicator.set_status(AppIndicator3.IndicatorStatus.ACTIVE)
+                self.indicator.set_menu(app.menu)
+                self.hiden = False
+    else: # Gtk.StatusIcon
+        def __init__(self):
+            print('Gtk.StatusIcon')
+            self.indicator = Gtk.StatusIcon()
+            self.indicator.set_from_file(os.path.join(APP_PATH, "icon.png"))
+            if show_indicator:
+                self.indicator.set_visible(True)
+                self.hiden = False
+            else:
+                self.indicator.set_visible(False)
+                self.hiden = True
+            
+        def set_label(self, txt):
+            self.indicator.set_title(txt)
+
+        def set_icon(self, icon):
+            self.indicator.set_from_file(icon)
+
+        def set_menu(self, menu):
+        #     self.indicator.set_menu(menu)
+            pass
+
+        def hide(self):
+            if not self.hiden:
+                self.indicator.set_visible(False)
+                self.hiden = True
+            pass
+
+        def show(self):
+            if self.hiden:
+                self.indicator.set_visible(True)
+                self.hiden = False
+            pass
+
 
 class MyDrawArea(Gtk.DrawingArea):
     p_layout = None
@@ -520,13 +564,13 @@ class MyDrawArea(Gtk.DrawingArea):
                 self.draw_text(_('weather received')+' '+time_receive, x-margin, x+10+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
             if city_name: self.draw_text(city_name[0], x+block_now_left, y, font+' Bold', 14, width, Pango.Alignment.CENTER)
             self.draw_scaled_icon(center-40+block_now_left, y+30, icon_now[0],80,80)
-            if show_indicator != 0:
+            if show_indicator:
                 ind.set_icon(pix_path) # indicator
             t_index = t_scale*2
             if t_feel:
                 t_index += 1
             if t_now:
-                if show_indicator != 0:
+                if show_indicator:
                     ind.set_label(t_now[0].split(';')[t_index]) # indicator
                 self.draw_text(t_now[0].split(';')[t_index], center-100+block_now_left, y+30, font+' Normal', 18, 60, Pango.Alignment.RIGHT)
             if text_now: self.draw_text(text_now[0], center-70+block_now_left, y+106, font+' Normal', 10, 140, Pango.Alignment.CENTER)
@@ -1143,7 +1187,6 @@ class Weather_Widget:
         if city_id == 0:
             if self.show_edit_dialog():
                 Save_Config()
-        ind.set_menu(self.menu)
         Gtk.main()
 
 
@@ -1154,4 +1197,5 @@ if __name__ == "__main__":
     app = Weather_Widget()
     app.create_menu()
     ind.set_menu(app.menu)
+    GLib.set_application_name("gis-weather") #!!!!!!!!!!!!!!!!!!!!
     app.main()
