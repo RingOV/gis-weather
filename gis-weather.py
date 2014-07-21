@@ -113,7 +113,7 @@ gw_config_default = {
     'indicator_is_appindicator': 'None',
     'indicator_icons_name': 'default',
     'indicator_font': 'Sans',
-    'indicator_font_size': 8,
+    'indicator_font_size': 9,
     'indicator_color_text': (0, 0, 0, 1),
     'indicator_color_shadow': (1, 1, 1, 0.7),
     'indicator_draw_shadow': True,
@@ -982,7 +982,7 @@ class MyDrawArea(Gtk.DrawingArea):
             self.cr.translate(x, y) 
         pixbuf = GdkPixbuf.Pixbuf.new_from_file(pix)
         k=1
-        if pixbuf.get_width()>pixbuf.get_height() and os.path.split(pix)[-2][-11:]!='backgrounds':
+        if pixbuf.get_width()>pixbuf.get_height() and os.path.split(pix)[-2][-11:]!='backgrounds' and os.path.basename(pix)!='screenshot.png':
             k = pixbuf.get_width()/pixbuf.get_height()
         pixbuf = pixbuf.scale_simple(round(w*k),h,GdkPixbuf.InterpType.BILINEAR)
         if k==1:
