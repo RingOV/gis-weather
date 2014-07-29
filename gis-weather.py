@@ -117,7 +117,8 @@ gw_config_default = {
     'indicator_color_text': (0, 0, 0, 1),
     'indicator_color_shadow': (1, 1, 1, 0.7),
     'indicator_draw_shadow': True,
-    'indicator_top': 0
+    'indicator_top': 0,
+    'scale': 1
 }
 gw_config = {}
 for i in gw_config_default.keys():
@@ -563,6 +564,7 @@ class MyDrawArea(Gtk.DrawingArea):
         self.cr.set_operator(cairo.OPERATOR_SOURCE)
         self.cr.paint()
         self.cr.restore()
+        self.cr.scale(scale, scale)
     
     
     def expose(self, widget, event):
@@ -1005,7 +1007,7 @@ class Weather_Widget:
         self.window_main.set_icon_from_file(os.path.join(APP_PATH, "icon.png"))
 
         print (_('Widget size')+':')
-        print ('    '+_('width')+' = '+str(width)+' '+_('height')+' = '+str(height)+' '+_('including indent')+' = '+str(margin))
+        print ('    '+_('width')+' = '+str(int(width*scale))+' '+_('height')+' = '+str(int(height*scale))+' '+_('including indent')+' = '+str(margin))
 
         self.window_main.set_decorated(False)
 
@@ -1013,7 +1015,7 @@ class Weather_Widget:
 
         if not self.window_main.is_composited():
             not_composited = True
-            self.screenshot(x_pos, y_pos, width, height)
+            self.screenshot(x_pos, y_pos, int(width*scale), int(height*scale))
 
         self.window_main.set_events(Gdk.EventMask.ALL_EVENTS_MASK)
         self.window_main.connect('button-press-event', self.button_press)
@@ -1042,11 +1044,10 @@ class Weather_Widget:
         global n
         global width, height
 
-        if n > 12: n = 12
         if n < 1: n = 1
         width = w_block*n + block_margin*2 + 10*(n - 1) + 2*margin
         height = 260 + block_margin + 2*margin
-        self.window_main.resize(width, height)
+        self.window_main.resize(int(width*scale), int(height*scale))
         self.window_main.move(x_pos, y_pos)
         if sticky:
             self.window_main.stick()
@@ -1280,9 +1281,10 @@ class Weather_Widget:
         self.window_main.show_all()
         if show_indicator == 1:
             self.window_main.hide()
-        # фикс высоты виджета
-        x = self.window_main.get_size()
-        self.window_main.resize(width, height-(x[1]-height))
+        # фикс высоты виджета ? нужен ли
+        # x = self.window_main.get_size()
+        # self.window_main.resize(width, height-(x[1]-height))
+        self.window_main.resize(int(width*scale), int(height*scale))
         if city_id == 0:
             if self.show_edit_dialog():
                 Save_Config()

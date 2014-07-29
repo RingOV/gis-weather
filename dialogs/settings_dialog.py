@@ -146,6 +146,8 @@ class settings():
         self.switch_sticky.connect("notify::active", self.save_settings)
         self.liststore5 = self.ui.get_object('liststore5')
         self.liststore6 = self.ui.get_object('liststore6')
+        self.spinbutton_scale = self.ui.get_object('spinbutton_scale')
+        self.spinbutton_scale.connect("value-changed", self.save_settings)
 
 
         self.clear_x_pos = self.ui.get_object('clear_x_pos')
@@ -160,6 +162,8 @@ class settings():
         self.clear_fix_position.connect("clicked", self.clear_settings)
         self.clear_sticky = self.ui.get_object('clear_sticky')
         self.clear_sticky.connect("clicked", self.clear_settings)
+        self.clear_scale = self.ui.get_object('clear_scale')
+        self.clear_scale.connect("clicked", self.clear_settings)
 
         # View
         self.switch_show_block_today = self.ui.get_object('switch_show_block_today')
@@ -419,6 +423,7 @@ class settings():
         self.load(self.colorbutton_indicator_color_text)
         self.load(self.colorbutton_indicator_color_shadow)
         self.load(self.spinbutton_indicator_top)
+        self.load(self.spinbutton_scale)
         if gw_config_set['indicator_is_appindicator'] != 0:
             self.frame10.hide()
 
@@ -505,7 +510,7 @@ class settings():
         w_name = w_name.split('_')
         name = '_'.join(w_name[1:])
         if w_type == 'GtkSpinButton':
-            if name in ('opacity'):
+            if name in ('opacity', 'scale'):
                 value = widget.get_value()
             else:
                 value = int(widget.get_value())
