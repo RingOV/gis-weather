@@ -21,12 +21,21 @@ from utils import localization
 localization.set()
 
 from gi.repository import Gtk, GObject, Pango, PangoCairo, Gdk, GdkPixbuf, GLib
+
 try:
     from gi.repository import AppIndicator3
     HAS_INDICATOR=True
 except:
     HAS_INDICATOR=False
-    print('Import error: from gi.repository import AppIndicator3')
+    print('Not found gir1.2-appindicator3-0.1')
+
+try:
+    from gi.repository import Rsvg
+    HAS_RSVG=True
+except:
+    HAS_RSVG=False
+    print('Not found gir1.2-rsvg-2.0')
+
 from dialogs import about_dialog, city_id_dialog, update_dialog, settings_dialog, help_dialog
 from services import data
 from utils import gw_menu
@@ -905,6 +914,7 @@ class MyDrawArea(Gtk.DrawingArea):
             self.cr.arc(0+r, h-r, r, 0, 8)
             self.cr.arc(0+r, 0+r, r, 0, 8)
             self.cr.fill()
+
     
     def draw_text(self, text, x, y, font, size=None, width=200, alignment=Pango.Alignment.LEFT, color=(-1, -1, -1, -1), gradient=False):
         if color == (-1, -1, -1, -1):
@@ -964,20 +974,31 @@ class MyDrawArea(Gtk.DrawingArea):
             
             
             if not os.path.exists(pix_path):
-                pix_path = os.path.join(ICONS_USER_PATH, icons_name1, 'weather', pix)
+                pix_path = pix_path[:-3]+'svg'
                 if not os.path.exists(pix_path):
-                    print ('[!] '+_('not found icon')+':\n> '+pix_path)
-                    if os.path.exists(os.path.join(ICONS_PATH, icons_name1, 'weather', 'na.png')):
-                        pix_path = os.path.join(ICONS_PATH, icons_name1, 'weather', 'na.png')
-                    else:
-                        if os.path.exists(os.path.join(ICONS_USER_PATH, icons_name1, 'weather', 'na.png')):
-                            pix_path = os.path.join(ICONS_USER_PATH, icons_name1, 'weather', 'na.png')
-                        else:
-                            pix_path = os.path.join(THEMES_PATH, 'na.png')
+                    pix_path = os.path.join(ICONS_USER_PATH, icons_name1, 'weather', pix)
+                    if not os.path.exists(pix_path):
+                        pix_path = pix_path[:-3]+'svg'
+                        if not os.path.exists(pix_path):
+                            print ('[!] '+_('not found icon')+':\n> '+pix_path)
+                            if os.path.exists(os.path.join(ICONS_PATH, icons_name1, 'weather', 'na.png')):
+                                pix_path = os.path.join(ICONS_PATH, icons_name1, 'weather', 'na.png')
+                            else:
+                                if os.path.exists(os.path.join(ICONS_USER_PATH, icons_name1, 'weather', 'na.png')):
+                                    pix_path = os.path.join(ICONS_USER_PATH, icons_name1, 'weather', 'na.png')
+                                else:
+                                    pix_path = os.path.join(THEMES_PATH, 'na.png')
         if not indicator_icon_name:    
             self.draw_scaled_image(x, y, pix_path, w, h)
-    
+
     def draw_scaled_image(self, x, y, pix, w, h, ang = 0):
+        if pix.split('.')[-1] == 'svg' and HAS_RSVG:
+            self.draw_scaled_image_svg(x, y, pix, w, h, ang)
+        else:
+            self.draw_scaled_image_png(x, y, pix, w, h, ang)
+ 
+
+    def draw_scaled_image_png(self, x, y, pix, w, h, ang = 0):
         self.cr.save()
         if ang !=0:
             self.cr.translate(x+w//2, y+h//2)
@@ -995,6 +1016,21 @@ class MyDrawArea(Gtk.DrawingArea):
         else:
             Gdk.cairo_set_source_pixbuf(self.cr, pixbuf, (h-round(w*k))/2, 0)
         self.cr.paint()
+        self.cr.restore()
+
+
+    def draw_scaled_image_svg(self, x, y, pix, w, h, ang = 0):
+        self.cr.save()
+        handle = Rsvg.Handle()
+        svg = handle.new_from_file(pix)
+        if ang !=0:
+            self.cr.translate(x+w//2, y+h//2)
+            self.cr.rotate(math.radians(ang))
+            self.cr.translate(-w//2, -h//2)
+        else:
+            self.cr.translate(x, y)
+        self.cr.scale(w/svg.props.width, h/svg.props.height)
+        svg.render_cairo(self.cr)
         self.cr.restore()
 
 
