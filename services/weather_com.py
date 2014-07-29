@@ -7,13 +7,13 @@ import time
 import os
 
 data = [
-    "http://www.weather.com", # url
-    "http://www.weather.com/weather/today/<b>ARTF0105</b>:1", # example
-    "<b>ARTF0105</b>", #code
+    "http://www.weather.com",  # url
+    "http://www.weather.com/weather/today/<b>ARTF0105</b>:1",  # example
+    "<b>ARTF0105</b>",  # code
     {
         'http://www.weather.com/weather/tenday/': 'English'
-    }, # dict_weather_lang
-    ('http://www.weather.com/weather/tenday/', '') # weather_lang_list
+    },  # dict_weather_lang
+    ('http://www.weather.com/weather/tenday/', '')  # weather_lang_list
 ]
 max_days = 8
 # переменные, в которые записывается погода
@@ -107,6 +107,7 @@ dict_icons = {
     "47.png": "47.png"
 }
 
+
 def convert(icon_list, icons_name):
     for i in range(len(icon_list)):
         try:
@@ -115,6 +116,7 @@ def convert(icon_list, icons_name):
             icon_converted = os.path.split(icon_list[i])[1]
         icon_list[i] = icon_list[i]+';'+icon_converted
     return icon_list
+
 
 def wind_degree(s):
     wind_dict = {
@@ -144,15 +146,16 @@ def get_city_name(c_id, weather_lang):
         source = source.decode(encoding='UTF-8')
         c_name = re.findall('data-location-presentation-name="(.*)"', source)
     except:
-        print ('[!] '+_('Failed to get the name of the location'))
+        print('[!] '+_('Failed to get the name of the location'))
         return 'None'
     return c_name[0]
+
 
 def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show_block_add_info, timer_bool, weather_lang, icons_name, indicator_only):
     global city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain
     if not indicator_only:
-        print ('> '+_('Getting weather for')+' '+str(n)+' '+_('days'))
-    print ('> '+_('Uploading page to a variable')+' '+weather_lang + str(city_id))
+        print('> '+_('Getting weather for')+' '+str(n)+' '+_('days'))
+    print('> '+_('Uploading page to a variable')+' '+weather_lang + str(city_id))
     try:
         source = urlopen(weather_lang + str(city_id), timeout=10).read()
         source = source.decode(encoding='UTF-8')
@@ -287,7 +290,6 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
             wind_speed.append(i.split()[-2])
             wind_direct.append(i.split()[0])
     if wind_speed:
-        print(wind_speed)
         for i in range(len(wind_speed)):
             wind_speed[i] = str(round(int(wind_speed[i])*0.447))+' m/s;'+str(round(int(wind_speed[i])*1.609))+' km/h;'+wind_speed[i]+' mph'
     # for i in range(len(wind_direct)):
@@ -298,50 +300,50 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
 
     chance_of_rain = re.findall('<dd>(\d+%)</dd>', w_all)
     
-    if show_block_tomorrow:
-        print ('> '+_('Uploading page to a variable')+' http://www.weather.com/weather/tomorrow/' + str(city_id))
-        try:
-            source = urlopen('http://www.weather.com/weather/tomorrow/' + str(city_id), timeout=10).read()
-            source = source.decode(encoding='UTF-8')
-            print ('OK')
-        except:
-            print ('[!] '+_('Unable to download page, check the network connection'))
-        t=re.findall('"wx-temp"> (.+)<sup>', source)
-        t_tomorrow=[]
-        for i in range(len(t)):
-            if t[i][0] not in ('+', '-', '0'):
-                t[i] = '+'+t[i]
-        t_tomorrow.append(F_to_C(t[1])+'°;'+F_to_C(t[1])+'°;'+t[1]+'°;'+t[1]+'°;'+F_to_K(t[1])+';'+F_to_K(t[1]))
-        t_tomorrow.append('');
-        t_tomorrow.append(F_to_C(t[0])+'°;'+F_to_C(t[0])+'°;'+t[0]+'°;'+t[0]+'°;'+F_to_K(t[0])+';'+F_to_K(t[0]))
-        t_tomorrow.append('')
-        ic = re.findall('src=\"(.*png)\" ', source)
-        ic = convert(ic, icons_name)
-        icon_tomorrow=[]
-        icon_tomorrow.append(ic[2])
-        icon_tomorrow.append('None')
-        icon_tomorrow.append(ic[1])
-        icon_tomorrow.append('None')
-        wind = re.findall('<dt>Wind:</dt>\n<dd>\n(.*)\n</dd>', source)
-        wind_speed_tom1=[]
-        wind_direct_tom1=[]
-        for i in wind:
-            if i.split()[0]==i.split()[-1]:
-                wind_speed_tom1.append('0')
-                wind_direct_tom1.append('C')
-            else:
-                wind_speed_tom1.append(i.split()[-2])
-                wind_direct_tom1.append(i.split()[0])
-        wind_direct_tom=[]
-        wind_direct_tom.append(wind_direct_tom1[1])
-        wind_direct_tom.append('')
-        wind_direct_tom.append(wind_direct_tom1[0])
-        wind_direct_tom.append('')
-        wind_speed_tom=[]
-        wind_speed_tom.append(str(round(int(wind_speed_tom1[1])*0.447))+' m/s;'+str(round(int(wind_speed_tom1[1])*1.609))+' km/h;'+wind_speed_tom1[1]+' mph')
-        wind_speed_tom.append('')
-        wind_speed_tom.append(str(round(int(wind_speed_tom1[0])*0.447))+' m/s;'+str(round(int(wind_speed_tom1[0])*1.609))+' km/h;'+wind_speed_tom1[0]+' mph')
-        wind_speed_tom.append('')
+    # if show_block_tomorrow:
+    #     print ('> '+_('Uploading page to a variable')+' http://www.weather.com/weather/tomorrow/' + str(city_id))
+    #     try:http://manjaro.org/
+    #         source = urlopen('http://www.weather.com/weather/tomorrow/' + str(city_id), timeout=10).read()
+    #         source = source.decode(encoding='UTF-8')
+    #         print ('OK')
+    #     except:
+    #         print ('[!] '+_('Unable to download page, check the network connection'))
+    #     t=re.findall('"wx-temp"> (.+)<sup>', source)
+    #     t_tomorrow=[]
+    #     for i in range(len(t)):
+    #         if t[i][0] not in ('+', '-', '0'):
+    #             t[i] = '+'+t[i]
+    #     t_tomorrow.append(F_to_C(t[1])+'°;'+F_to_C(t[1])+'°;'+t[1]+'°;'+t[1]+'°;'+F_to_K(t[1])+';'+F_to_K(t[1]))
+    #     t_tomorrow.append('');
+    #     t_tomorrow.append(F_to_C(t[0])+'°;'+F_to_C(t[0])+'°;'+t[0]+'°;'+t[0]+'°;'+F_to_K(t[0])+';'+F_to_K(t[0]))
+    #     t_tomorrow.append('')
+    #     ic = re.findall('src=\"(.*png)\" ', source)
+    #     ic = convert(ic, icons_name)
+    #     icon_tomorrow=[]
+    #     icon_tomorrow.append(ic[2])
+    #     icon_tomorrow.append('None')
+    #     icon_tomorrow.append(ic[1])
+    #     icon_tomorrow.append('None')
+    #     wind = re.findall('<dt>Wind:</dt>\n<dd>\n(.*)\n</dd>', source)
+    #     wind_speed_tom1=[]
+    #     wind_direct_tom1=[]
+    #     for i in wind:
+    #         if i.split()[0]==i.split()[-1]:
+    #             wind_speed_tom1.append('0')
+    #             wind_direct_tom1.append('C')
+    #         else:
+    #             wind_speed_tom1.append(i.split()[-2])
+    #             wind_direct_tom1.append(i.split()[0])
+    #     wind_direct_tom=[]
+    #     wind_direct_tom.append(wind_direct_tom1[1])
+    #     wind_direct_tom.append('')
+    #     wind_direct_tom.append(wind_direct_tom1[0])
+    #     wind_direct_tom.append('')
+    #     wind_speed_tom=[]
+    #     wind_speed_tom.append(str(round(int(wind_speed_tom1[1])*0.447))+' m/s;'+str(round(int(wind_speed_tom1[1])*1.609))+' km/h;'+wind_speed_tom1[1]+' mph')
+    #     wind_speed_tom.append('')
+    #     wind_speed_tom.append(str(round(int(wind_speed_tom1[0])*0.447))+' m/s;'+str(round(int(wind_speed_tom1[0])*1.609))+' km/h;'+wind_speed_tom1[0]+' mph')
+    #     wind_speed_tom.append('')
 
 
     #     #### Погода завтра ####

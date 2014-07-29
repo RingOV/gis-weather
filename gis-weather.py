@@ -319,7 +319,7 @@ def check_updates():
         Save_Config()
         return False
 
-    print ('> '+_('Check for new version')+' '+'(%s)'%package)
+    print ('> '+_('Check for new version')+' '+'(%s)' % package)
     try:
         source = urlopen('http://sourceforge.net/projects/gis-weather/files/gis-weather/', timeout=10).read()
         source = source.decode(encoding='UTF-8')
@@ -398,7 +398,7 @@ class Indicator:
                 self.indicator.set_menu(app.menu)
                 self.hiden = False
 
-    else: # Gtk.StatusIcon
+    else:  # Gtk.StatusIcon
         def __init__(self):
             print('\033[1;31mGtk.StatusIcon\033[0m')
             self.indicator = Gtk.StatusIcon()
@@ -833,37 +833,40 @@ class MyDrawArea(Gtk.DrawingArea):
 
     def draw_weather_icon(self, index, x, y):
         if day != []:
-            a = 30
-            # if t_feel:
-            #     if math.fabs(int(t_day_feel[index])) < 10: a = 20
-            # else:
-            #     if math.fabs(int(t_day[index])) < 10: a = 20
-            self.draw_scaled_icon(x+a, y+16, icon[index], 36, 36)
-            s=''
-            if date:
-                s=', '+date[index]
-            if day: 
-                if day[index] in weekend:
-                    self.draw_text(day[index]+s, x, y-2, font+' Bold', 9, w_block,Pango.Alignment.LEFT, color_text_week)
-                else:
-                    self.draw_text(day[index]+s, x, y-2, font+' Bold', 9, w_block,Pango.Alignment.LEFT)
-            self.cr.set_source_rgba(color_text[0], color_text[1], color_text[2], color_text[3])
-            t_index = t_scale*2
-            if t_feel:
-                t_index += 1
-            self.draw_text(t_day[index].split(';')[t_index], x, y+15, font+' Normal', 10, w_block-45,Pango.Alignment.LEFT)
-            self.draw_text(t_night[index].split(';')[t_index], x, y+30, font+' Normal', 8, w_block-45,Pango.Alignment.LEFT)
-            if chance_of_rain and show_chance_of_rain:
-                self.draw_text(chance_of_rain[index], x+30, y+9, font+' Normal', 7, 36,Pango.Alignment.CENTER)
+            try:
+                a = 30
+                # if t_feel:
+                #     if math.fabs(int(t_day_feel[index])) < 10: a = 20
+                # else:
+                #     if math.fabs(int(t_day[index])) < 10: a = 20
+                self.draw_scaled_icon(x+a, y+16, icon[index], 36, 36)
+                s=''
+                if date:
+                    s=', '+date[index]
+                if day: 
+                    if day[index] in weekend:
+                        self.draw_text(day[index]+s, x, y-2, font+' Bold', 9, w_block,Pango.Alignment.LEFT, color_text_week)
+                    else:
+                        self.draw_text(day[index]+s, x, y-2, font+' Bold', 9, w_block,Pango.Alignment.LEFT)
+                self.cr.set_source_rgba(color_text[0], color_text[1], color_text[2], color_text[3])
+                t_index = t_scale*2
+                if t_feel:
+                    t_index += 1
+                self.draw_text(t_day[index].split(';')[t_index], x, y+15, font+' Normal', 10, w_block-45,Pango.Alignment.LEFT)
+                self.draw_text(t_night[index].split(';')[t_index], x, y+30, font+' Normal', 8, w_block-45,Pango.Alignment.LEFT)
+                if chance_of_rain and show_chance_of_rain:
+                    self.draw_text(chance_of_rain[index], x+30, y+9, font+' Normal', 7, 36,Pango.Alignment.CENTER)
 
-            if (wind_direct and wind_speed): 
-                if int(wind_speed[index].split(';')[wind_units].split()[0]) >= high_wind and high_wind != -1:
-                    self.draw_text(wind_direct[index]+', '+wind_speed[index].split(';')[wind_units].split()[0]+' '+_(wind_speed[index].split(';')[wind_units].split()[-1]), x, y+50, font+' Normal', 8, 80,Pango.Alignment.LEFT, color_high_wind)
+                if (wind_direct and wind_speed): 
+                    if int(wind_speed[index].split(';')[wind_units].split()[0]) >= high_wind and high_wind != -1:
+                        self.draw_text(wind_direct[index]+', '+wind_speed[index].split(';')[wind_units].split()[0]+' '+_(wind_speed[index].split(';')[wind_units].split()[-1]), x, y+50, font+' Normal', 8, 80,Pango.Alignment.LEFT, color_high_wind)
+                    else:
+                        self.draw_text(wind_direct[index]+', '+wind_speed[index].split(';')[wind_units].split()[0]+' '+_(wind_speed[index].split(';')[wind_units].split()[-1]), x, y+50, font+' Normal', 8, 80,Pango.Alignment.LEFT)
+                    if text: self.draw_text(text[index], x, y+65, font+' Italic', 7, w_block, Pango.Alignment.LEFT)
                 else:
-                    self.draw_text(wind_direct[index]+', '+wind_speed[index].split(';')[wind_units].split()[0]+' '+_(wind_speed[index].split(';')[wind_units].split()[-1]), x, y+50, font+' Normal', 8, 80,Pango.Alignment.LEFT)
-                if text: self.draw_text(text[index], x, y+65, font+' Italic', 7, w_block, Pango.Alignment.LEFT)
-            else:
-                if text: self.draw_text(text[index], x, y+55, font+' Italic', 7, w_block, Pango.Alignment.LEFT)
+                    if text: self.draw_text(text[index], x, y+55, font+' Italic', 7, w_block, Pango.Alignment.LEFT)
+            except:
+                pass
 
 
     def draw_bg(self):
