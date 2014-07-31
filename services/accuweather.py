@@ -374,27 +374,75 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
     icon = re.findall('src=\"(.*png)\" ', w_all[0])
     for i in range(len(icon)):
         icon[i] = convert(icon[i], icons_name)
-    
-    # Иконка ветра
-    #icon_wind_list = re.findall('wind(\d)', w_all)
-    #icon_wind = icon_wind_list[2::4]
-    
-    # Ветер
-    #wind_speed_list = re.findall('m_wind ms.>(\d+)', w_all)
-    #wind_speed = wind_speed_list[2::4]
-    # if wind_speed:
-    #     for i in range(len(wind_speed)):
-    #         wind_speed[i] = wind_speed[i]+' m/s;'+str(round(int(wind_speed[i])*3.6))+' km/h;'+str(round(int(wind_speed[i])*2.237))+' mph'
-    # wind_direct_list = re.findall('>(.+)</dt', w_all)
-    # wind_direct = wind_direct_list[2::4]
-    # for i in range(len(wind_direct)):
-    #     wind_direct[i] = wind_direct[i].split('>')[-1]
 
 
     # Текст погоды
     text = re.findall('src=.*>(.*)\r', w_all[0])
 
     chance_of_rain = re.findall('<td style="font-weight:bold;">.*\s*<td>.*\s*<td>(.*)<', w_all[0])
+    # Если не хватает дней в текущем месяце, то нужно загружать следующий месяц.
+    if len(t_day)<n:
+        try:
+            next_month = re.findall('href="(.*)&amp;view=table".*next-month"', source)
+            next_month[0] = next_month[0]+'&view=table'
+            print ('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+next_month[0])
+            try:
+                source = urlopen(next_month[0], timeout=10).read()
+                source = source.decode(encoding='UTF-8')
+                print ('\033[1;32mOK\033[0m')
+            except:
+                print ('\033[1;31m[!]\033[0m '+_('Unable to download page, check the network connection'))
+
+
+            # все дни с погодой
+            w_all = re.findall('<tr class="lo calendar.*</table>', source, re.DOTALL)
+
+            # температура днем
+            t_day2 = re.findall('<td style="font-weight:bold;">(.*)&#176;', w_all[0])
+            for i in range(len(t_day2)):
+                if t_day2[i][0] not in ('+', '-', '0'):
+                    t_day2[i] = '+' + t_day2[i]
+                if not celsius:
+                    t_day2[i] = F_to_C(t_day2[i])
+                t_day2[i] = t_day2[i]+'°;'+t_day2[i]+'°;'+C_to_F(t_day2[i])+'°;'+C_to_F(t_day2[i])+'°;'+C_to_K(t_day2[i])+';'+C_to_K(t_day2[i]) 
+            t_day.extend(t_day2)
+
+            # температура ночью
+            t_night2 = re.findall('<td style="font-weight:bold;">.*\s*<td>(.*)&#176;', w_all[0])
+            for i in range(len(t_night2)):
+                if t_night2[i][0] not in ('+', '-', '0'):
+                    t_night2[i] = '+' + t_night2[i]
+                if not celsius:
+                    t_night2[i] = F_to_C(t_night2[i])
+                t_night2[i] = t_night2[i]+'°;'+t_night2[i]+'°;'+C_to_F(t_night2[i])+'°;'+C_to_F(t_night2[i])+'°;'+C_to_K(t_night2[i])+';'+C_to_K(t_night2[i])
+            t_night.extend(t_night2)
+
+            # День недели и дата
+            day2 = re.findall('color:.*>(.*)<br', w_all[0])
+            date2 = re.findall('<br />([\d|.\-/]+)<', w_all[0])
+            try:
+                int(date2[0][:4])
+                for i in range(len(date2)):
+                    date2[i]=date2[i][5:]
+            except:    
+                for i in range(len(date2)):
+                    date2[i]=date2[i][:-5]
+            day.extend(day2)
+            date.extend(date2)
+            # Иконка погоды днем
+            icon2 = re.findall('src=\"(.*png)\" ', w_all[0])
+            for i in range(len(icon2)):
+                icon2[i] = convert(icon2[i], icons_name)
+            icon.extend(icon2)
+
+            # Текст погоды
+            text2 = re.findall('src=.*>(.*)\r', w_all[0])
+
+            chance_of_rain2 = re.findall('<td style="font-weight:bold;">.*\s*<td>.*\s*<td>(.*)<', w_all[0])
+            text.extend(text2)
+            chance_of_rain.extend(chance_of_rain2)
+        except:
+            pass
 
     if show_block_tomorrow:
         #### Погода завтра ####

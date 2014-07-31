@@ -825,7 +825,7 @@
                 </child>
                 <child>
                   <object class="GtkLinkButton" id="linkbutton1">
-                    <property name="label" translatable="yes">Translate</property>
+                    <property name="label" translatable="yes">Want to translate?</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>

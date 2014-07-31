@@ -48,8 +48,9 @@ available_lang = ['auto', 'en']
 for root, dirs, files in os.walk(os.path.join(os.path.split(work_path)[0], 'i18n')):
     break
 dirs.sort()
-for i in range(len(dirs)):
-    available_lang.append(dirs[i])
+# for i in range(len(dirs)):
+#     available_lang.append(dirs[i])
+available_lang.extend(dirs)
 
 def Save_Config():
     json.dump(gw_config_set, open(os.path.join(CONFIG_PATH, 'gw_config.json'), "w"), sort_keys=True, indent=4, separators=(', ', ': '))
