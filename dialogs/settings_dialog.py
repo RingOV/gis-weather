@@ -14,12 +14,12 @@ else:
     WIN = False
 
 CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
-if WIN:
-    CONFIG_PATH = CONFIG_PATH.decode(sys.getfilesystemencoding())
+# if WIN:
+#     CONFIG_PATH = CONFIG_PATH.decode(sys.getfilesystemencoding())
 
 work_path = os.path.abspath(os.path.dirname(__file__))
-if WIN:
-    work_path = work_path.decode(sys.getfilesystemencoding())
+# if WIN:
+#     work_path = work_path.decode(sys.getfilesystemencoding())
 
 gw_config_default_set = {}
 gw_config_set = {}
@@ -458,8 +458,9 @@ class settings():
             if backgrounds_list_set[i] == gw_config_set['bg_custom']: 
                 self.combobox_bg_custom.set_active(i)
 
-        if autorun.exists("gis-weather"):
-            self.switch_autostart.set_active(True)
+        if not WIN:  # FIXME autorun for windows not worked
+            if autorun.exists("gis-weather"):
+                self.switch_autostart.set_active(True)
 
         if desktop.main_exists():
             self.switch_add_icon.hide()

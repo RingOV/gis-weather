@@ -27,14 +27,14 @@ try:
     HAS_INDICATOR=True
 except:
     HAS_INDICATOR=False
-    print('Not found gir1.2-appindicator3-0.1')
+    print('Not found gir1.2-appindicator3-0.1 (libappindicator3)')
 
 try:
     from gi.repository import Rsvg
     HAS_RSVG=True
 except:
     HAS_RSVG=False
-    print('Not found gir1.2-rsvg-2.0')
+    print('Not found gir1.2-rsvg-2.0 (librsvg)')
 
 from dialogs import about_dialog, city_id_dialog, update_dialog, settings_dialog, help_dialog
 from services import data
@@ -55,8 +55,8 @@ else:
     WIN = False
 
 CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
-if WIN:
-    CONFIG_PATH = CONFIG_PATH.decode(sys.getfilesystemencoding())
+# if WIN:
+#     CONFIG_PATH = CONFIG_PATH.decode(sys.getfilesystemencoding())
 
 if not os.path.exists(CONFIG_PATH):
     os.makedirs(CONFIG_PATH)
@@ -206,9 +206,9 @@ def Load_Color_Scheme(number = 0):
 # ------------------------------------------------------------------------------
 
 # Путь к виджету
-APP_PATH = os.path.abspath(os.path.dirname(__file__))
-if WIN:
-    APP_PATH = APP_PATH.decode(sys.getfilesystemencoding())
+APP_PATH = os.path.abspath(os.path.dirname(sys.argv[0]))
+# if WIN:
+#     APP_PATH = APP_PATH.decode(sys.getfilesystemencoding())
 
 if APP_PATH == '' or APP_PATH.startswith('.'):
     print (_('Enter full path to script'))
@@ -1317,10 +1317,11 @@ class Weather_Widget:
         self.window_main.show_all()
         if show_indicator == 1:
             self.window_main.hide()
-        # фикс высоты виджета ? нужен ли
-        # x = self.window_main.get_size()
-        # self.window_main.resize(width, height-(x[1]-height))
-        self.window_main.resize(int(width*scale), int(height*scale))
+        # фикс высоты виджета
+        if WIN:
+            x = self.window_main.get_size()
+            self.window_main.resize(int(width*scale), int((height-(x[1]-height))*scale))
+        # self.window_main.resize(int(width*scale), int(height*scale))
         if city_id == 0:
             if self.show_edit_dialog():
                 Save_Config()

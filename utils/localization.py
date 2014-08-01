@@ -14,8 +14,8 @@ else:
 
 def set():
     CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
-    if sys.platform.startswith("win"):
-        CONFIG_PATH = CONFIG_PATH.decode(sys.getfilesystemencoding())
+    # if sys.platform.startswith("win"):
+    #     CONFIG_PATH = CONFIG_PATH.decode(sys.getfilesystemencoding())
     try:
         gw_config_loaded=json.load(open(os.path.join(CONFIG_PATH, 'gw_config.json')))
         lang = gw_config_loaded['app_lang']

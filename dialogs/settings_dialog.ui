@@ -634,7 +634,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="label11">
+                  <object class="GtkLabel" id="label_delay_start_time">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="hexpand">True</property>
