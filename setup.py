@@ -2,7 +2,14 @@ import sys
 if sys.platform != "win32":
     exit()
 
-v = '0.6.4'
+# v = '0.6.4'
+f = open('gis-weather.py', 'r')
+count = 1
+for line in f:
+    if count == 4:
+        break
+    count=count+1
+v = line.split("'")[1]
 
 import site, os
 from cx_Freeze import setup, Executable
@@ -59,7 +66,8 @@ addFiles = ['utils',
     'themes',
     'i18n',
     'po',
-    'icon.png']
+    'icon.png',
+    'icon.ico']
 
 
 for files in addFiles:
