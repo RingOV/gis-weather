@@ -1,6 +1,6 @@
 import sys
 if sys.platform != "win32":
-	exit()
+    exit()
 
 v = '0.6.4'
 
@@ -45,21 +45,21 @@ for dll in missing_dll:
     includeFiles.append((os.path.join(includeDllPath, dll), dll))
 
 gtkLibs = ['lib\\gdk-pixbuf-2.0',
-           'lib\\girepository-1.0',
-           'share\\glib-2.0',
-           'lib\\gtk-3.0']
+    'lib\\girepository-1.0',
+    'share\\glib-2.0',
+    'lib\\gtk-3.0']
 
 
 for lib in gtkLibs:
     includeFiles.append((os.path.join(includeDllPath, lib), lib))
 
 addFiles = ['utils',
-           'services',
-           'dialogs',
-           'themes',
-           'i18n',
-           'po',
-           'icon.png']
+    'services',
+    'dialogs',
+    'themes',
+    'i18n',
+    'po',
+    'icon.png']
 
 
 for files in addFiles:
@@ -70,13 +70,12 @@ buildOptions = dict(
     includes = ["gi"],
     excludes = ['wx', 'pydoc_data', 'curses', 'pygtkcompat','utils', 'dialogs', 'services'],
     packages = ["gi"],
-    include_files = includeFiles
-    )
+    include_files = includeFiles)
 
 base = "Win32GUI"
 
-setup(  name = "Gis Weather",
-        version = v,
-        description = "Weather widget",
-        options = {"build_exe": buildOptions},
-        executables = [Executable("gis-weather.py", base=base, icon="icon.ico")])
+setup(name = "Gis Weather",
+    version = v,
+    description = "Weather widget",
+    options = {"build_exe": buildOptions},
+    executables = [Executable("gis-weather.py", base=base, icon="icon.ico")])
