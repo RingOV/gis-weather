@@ -2,15 +2,6 @@ import sys
 if sys.platform != "win32":
     exit()
 
-# v = '0.6.4'
-f = open('gis-weather.py', 'r')
-count = 1
-for line in f:
-    if count == 4:
-        break
-    count=count+1
-v = line.split("'")[1]
-
 import site, os
 from cx_Freeze import setup, Executable
 
@@ -83,7 +74,6 @@ buildOptions = dict(
 base = "Win32GUI"
 
 setup(name = "Gis Weather",
-    version = v,
     description = "Weather widget",
     options = {"build_exe": buildOptions},
     executables = [Executable("gis-weather.py", base=base, icon="icon.ico")])

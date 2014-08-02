@@ -378,6 +378,21 @@ def check_updates():
         if check_for_updates == 1 and check_for_updates_local:
             check_for_updates_local = False
 
+def screenshot():
+    w = Gdk.get_default_root_window()
+    left, top, width, height = w.get_geometry()
+    pb = Gdk.pixbuf_get_from_window(w,left,top,width,height)
+    if (pb != None):
+        pb.savev(os.path.join(CONFIG_PATH, "main_screenshot.png"),"png", (), ())
+        print (_("Screenshot saved to")+' '+os.path.join(CONFIG_PATH, "main_screenshot.png"))
+    else:
+        print (_("Unable to get the screenshot"))
+
+def crop_image(left, top, width, height):
+    surface = cairo.ImageSurface.create_from_png(os.path.join(CONFIG_PATH, "main_screenshot.png"))
+    pb = Gdk.pixbuf_get_from_surface(surface, left, top, int(width*scale), int(height*scale))
+    pb.savev(os.path.join(CONFIG_PATH, "screenshot.png"),"png", (), ())
+
 class Indicator:
     if indicator_is_appindicator and HAS_INDICATOR: # AppIndicator3
         def __init__(self):
@@ -882,10 +897,11 @@ class MyDrawArea(Gtk.DrawingArea):
 
 
     def draw_bg(self):
+        if not_composited:
+            if os.path.exists(os.path.join(CONFIG_PATH, 'main_screenshot.png')):
+                crop_image(x_pos, y_pos, width, height)
+                self.draw_scaled_image(0, 0, os.path.join(CONFIG_PATH, 'screenshot.png'), width, height)
         if show_bg_png:
-            if not_composited:
-                if os.path.exists(os.path.join(CONFIG_PATH, 'screenshot.png')):
-                    self.draw_scaled_image(0, 0, os.path.join(CONFIG_PATH, 'screenshot.png'), width, height)
             if os.path.exists(os.path.join(BGS_USER_PATH, bg_custom)):
                 try:
                     self.draw_scaled_image(0, 0, os.path.join(BGS_USER_PATH, bg_custom), width, height)
@@ -1052,7 +1068,8 @@ class Weather_Widget:
 
         if not self.window_main.is_composited():
             not_composited = True
-            self.screenshot(x_pos, y_pos, int(width*scale), int(height*scale))
+            # self.screenshot(x_pos, y_pos, int(width*scale), int(height*scale))
+            screenshot()
 
         self.window_main.set_events(Gdk.EventMask.ALL_EVENTS_MASK)
         self.window_main.connect('button-press-event', self.button_press)
@@ -1093,15 +1110,14 @@ class Weather_Widget:
         self.window_main.set_opacity(opacity)
 
 
-    def screenshot(self, left, top, width, height):
-        w = Gdk.get_default_root_window()
-        pb = Gdk.pixbuf_get_from_window(w,left,top,width,height)
-        if (pb != None):
-            pb.savev(os.path.join(CONFIG_PATH, "screenshot.png"),"png", (), ())
-            print (_("Screenshot saved to")+' '+os.path.join(CONFIG_PATH, "screenshot.png"))
-        else:
-            print (_("Unable to get the screenshot"))
-
+    # def screenshot(self, left, top, width, height):
+    #     w = Gdk.get_default_root_window()
+    #     pb = Gdk.pixbuf_get_from_window(w,left,top,width,height)
+    #     if (pb != None):
+    #         pb.savev(os.path.join(CONFIG_PATH, "screenshot.png"),"png", (), ())
+    #         print (_("Screenshot saved to")+' '+os.path.join(CONFIG_PATH, "screenshot.png"))
+    #     else:
+    #         print (_("Unable to get the screenshot"))
 
     def menu_response(self, widget, event, value=None):
         if event == 'help':
@@ -1292,6 +1308,8 @@ class Weather_Widget:
             x_pos = event.x
             y_pos = event.y
             Save_Config()
+            if not_composited:
+                self.drawing_area.draw_bg()
 
     def enter_leave_event(self, widget, event, param):
         global show_time_receive_local
