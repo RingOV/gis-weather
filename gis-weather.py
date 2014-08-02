@@ -379,8 +379,13 @@ def check_updates():
             check_for_updates_local = False
 
 def screenshot():
-    w = Gdk.get_default_root_window()
-    left, top, width, height = w.get_geometry()
+    if WIN:
+        import ctypes
+        user32 = ctypes.windll.user32
+        left, top, width, height = 0, 0, user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
+    else:
+        w = Gdk.get_default_root_window()
+        left, top, width, height = w.get_geometry()
     pb = Gdk.pixbuf_get_from_window(w,left,top,width,height)
     if (pb != None):
         pb.savev(os.path.join(CONFIG_PATH, "main_screenshot.png"),"png", (), ())
@@ -1340,7 +1345,7 @@ class Weather_Widget:
         # фикс высоты виджета
         if WIN:
             x = self.window_main.get_size()
-            self.window_main.resize(int(width*scale), int((height-(x[1]-height))*scale))
+            self.window_main.resize(int(width*scale), int(height*scale-(x[1]-height*scale)))
         # self.window_main.resize(int(width*scale), int(height*scale))
         if city_id == 0:
             if self.show_edit_dialog():
