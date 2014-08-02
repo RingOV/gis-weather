@@ -10,7 +10,7 @@ from cx_Freeze import setup, Executable
 siteDir = site.getsitepackages()[1]
 includeDllPath = os.path.join(siteDir, 'gnome')
 
-missing_dll = ['libatk-1.0-0.dll',
+missingDll = ['libatk-1.0-0.dll',
     'libcairo-gobject-2.dll',
     'libffi-6.dll',
     'libfontconfig-1.dll',
@@ -41,7 +41,7 @@ missing_dll = ['libatk-1.0-0.dll',
     'libzzz.dll']
 
 includeFiles = []
-for dll in missing_dll:
+for dll in missingDll:
     includeFiles.append((os.path.join(includeDllPath, dll), dll))
 
 gtkLibs = ['lib\\gdk-pixbuf-2.0',
