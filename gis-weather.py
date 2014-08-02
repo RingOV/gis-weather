@@ -1038,7 +1038,7 @@ class Weather_Widget:
     def __init__(self):
         self.window_main = Gtk.Window()
         self.window_main.set_accept_focus(False)
-
+        self.window_main.set_has_resize_grip(False)
         self.set_window_properties()
         self.window_main.set_icon_from_file(os.path.join(APP_PATH, "icon.png"))
 
@@ -1308,7 +1308,8 @@ class Weather_Widget:
             print (_('Your screen does not support alpha'))
         else:
             print (_('Your screen supports alpha'))
-        widget.set_visual(visual)
+        if not WIN:
+            widget.set_visual(visual)
         return True
 
 #--------------------------------------------------------------------------------
