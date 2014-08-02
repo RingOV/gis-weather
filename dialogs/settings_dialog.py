@@ -312,6 +312,8 @@ class settings():
         self.frame10 = self.ui.get_object('frame10')
         self.spinbutton_indicator_top = self.ui.get_object('spinbutton_indicator_top')
         self.spinbutton_indicator_top.connect("value-changed", self.save_settings)
+        self.spinbutton_indicator_width = self.ui.get_object('spinbutton_indicator_width')
+        self.spinbutton_indicator_width.connect("value-changed", self.save_settings)
 
         self.clear_show_indicator = self.ui.get_object('clear_show_indicator')
         self.clear_show_indicator.connect("clicked", self.clear_settings)
@@ -321,7 +323,8 @@ class settings():
         self.clear_indicator_font.connect("clicked", self.clear_settings)
         self.clear_indicator_top = self.ui.get_object('clear_indicator_top')
         self.clear_indicator_top.connect("clicked", self.clear_settings)
-
+        self.clear_indicator_width = self.ui.get_object('clear_indicator_width')
+        self.clear_indicator_width.connect("clicked", self.clear_settings)
         
         if WIN:
             self.clear_delay_start_time.hide()
@@ -424,6 +427,7 @@ class settings():
         self.load(self.colorbutton_indicator_color_text)
         self.load(self.colorbutton_indicator_color_shadow)
         self.load(self.spinbutton_indicator_top)
+        self.load(self.spinbutton_indicator_width)
         self.load(self.spinbutton_scale)
         if gw_config_set['indicator_is_appindicator'] != 0:
             self.frame10.hide()

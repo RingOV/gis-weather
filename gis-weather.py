@@ -127,6 +127,7 @@ gw_config_default = {
     'indicator_color_shadow': (1, 1, 1, 0.7),
     'indicator_draw_shadow': True,
     'indicator_top': 0,
+    'indicator_width': 30,
     'scale': 1
 }
 gw_config = {}
@@ -452,7 +453,7 @@ class Indicator:
                 self.hiden = False
 
         def draw_text_to_png(self, HEIGHT, text):
-            WIDTH, HEIGHT = int(HEIGHT*1.2), HEIGHT
+            WIDTH = indicator_width
 
             surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, WIDTH, HEIGHT)
             self.cr = cairo.Context(surface)
