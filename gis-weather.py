@@ -404,7 +404,7 @@ class Indicator:
     if indicator_is_appindicator and HAS_INDICATOR: # AppIndicator3
         def __init__(self):
             print('\033[1;31mAppIndicator3\033[0m')
-            self.indicator = AppIndicator3.Indicator.new("gis-weather", os.path.join(APP_PATH, "icon.png"), AppIndicator3.IndicatorCategory.APPLICATION_STATUS)
+            self.indicator = AppIndicator3.Indicator.new("gis-weather", "weather-clear", AppIndicator3.IndicatorCategory.APPLICATION_STATUS)
             if show_indicator:
                 self.indicator.set_status(AppIndicator3.IndicatorStatus.ACTIVE)
                 self.hiden = False
