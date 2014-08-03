@@ -128,6 +128,8 @@ gw_config_default = {
     'indicator_draw_shadow': True,
     'indicator_top': 0,
     'indicator_width': 30,
+    'app_indicator_fix_size': False,
+    'app_indicator_size': 22,
     'scale': 1
 }
 gw_config = {}
@@ -413,7 +415,16 @@ class Indicator:
             self.indicator.set_label(text, '')
 
         def set_icon(self, icon):
-            self.indicator.set_icon(icon)
+            if app_indicator_fix_size:
+                self.set_icon_fixed(icon, app_indicator_size)
+            else:
+                self.indicator.set_icon(icon)
+
+        def set_icon_fixed(self, icon, size=22):
+            pixbuf = GdkPixbuf.Pixbuf.new_from_file(icon)
+            pixbuf = pixbuf.scale_simple(size,size,GdkPixbuf.InterpType.BILINEAR)
+            pixbuf.savev(os.path.join(CONFIG_PATH, "cur_icon.png"),"png", (), ())
+            self.indicator.set_icon(os.path.join(CONFIG_PATH, "cur_icon.png"))
 
         def set_menu(self, menu):
             self.indicator.set_menu(menu)

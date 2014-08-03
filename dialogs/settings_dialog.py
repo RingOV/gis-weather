@@ -309,11 +309,16 @@ class settings():
         self.colorbutton_indicator_color_text.connect("color-set", self.set_color)
         self.colorbutton_indicator_color_shadow = self.ui.get_object('colorbutton_indicator_color_shadow')
         self.colorbutton_indicator_color_shadow.connect("color-set", self.set_color)
-        self.frame10 = self.ui.get_object('frame10')
+        self.frame_status_icon = self.ui.get_object('frame_status_icon')
         self.spinbutton_indicator_top = self.ui.get_object('spinbutton_indicator_top')
         self.spinbutton_indicator_top.connect("value-changed", self.save_settings)
         self.spinbutton_indicator_width = self.ui.get_object('spinbutton_indicator_width')
         self.spinbutton_indicator_width.connect("value-changed", self.save_settings)
+        self.frame_app_indicator = self.ui.get_object('frame_app_indicator')
+        self.spinbutton_app_indicator_size = self.ui.get_object('spinbutton_app_indicator_size')
+        self.spinbutton_app_indicator_size.connect("value-changed", self.save_settings)
+        self.switch_app_indicator_fix_size = self.ui.get_object('switch_app_indicator_fix_size')
+        self.switch_app_indicator_fix_size.connect("notify::active", self.save_settings)
 
         self.clear_show_indicator = self.ui.get_object('clear_show_indicator')
         self.clear_show_indicator.connect("clicked", self.clear_settings)
@@ -325,6 +330,10 @@ class settings():
         self.clear_indicator_top.connect("clicked", self.clear_settings)
         self.clear_indicator_width = self.ui.get_object('clear_indicator_width')
         self.clear_indicator_width.connect("clicked", self.clear_settings)
+        self.clear_app_indicator_size = self.ui.get_object('clear_app_indicator_size')
+        self.clear_app_indicator_size.connect("clicked", self.clear_settings)
+        self.clear_app_indicator_fix_size = self.ui.get_object('clear_app_indicator_fix_size')
+        self.clear_app_indicator_fix_size.connect("clicked", self.clear_settings)
         
         if WIN:
             self.clear_delay_start_time.hide()
@@ -364,8 +373,8 @@ class settings():
         self.liststore11.append(['Widget + Indicator'])
 
         self.liststore12.clear()
-        self.liststore12.append(['Gtk.StatusIcon (Other)'])
-        self.liststore12.append(['AppIndicator3 (Unity only)'])
+        self.liststore12.append(['Gtk.StatusIcon'])
+        self.liststore12.append(['AppIndicator3'])
 
         self.liststore9.clear()
         for i in wind_units_list:
@@ -429,8 +438,12 @@ class settings():
         self.load(self.spinbutton_indicator_top)
         self.load(self.spinbutton_indicator_width)
         self.load(self.spinbutton_scale)
+        self.load(self.spinbutton_app_indicator_size)
+        self.load(self.switch_app_indicator_fix_size)
         if gw_config_set['indicator_is_appindicator'] != 0:
-            self.frame10.hide()
+            self.frame_status_icon.hide()
+        if gw_config_set['indicator_is_appindicator'] == 0:
+            self.frame_app_indicator.hide()
 
         self.liststore3.clear()
         for i in range(len(icons_list_set)):
@@ -533,9 +546,11 @@ class settings():
                 autorun.add("gis-weather", os.path.join(os.path.split(work_path)[0], 'gis-weather.py'), gw_config_set['delay_start_time'])
         if name == 'indicator_is_appindicator':
             if value:
-                self.frame10.hide()
+                self.frame_status_icon.hide()
+                self.frame_app_indicator.show()
             else:
-                self.frame10.show()
+                self.frame_status_icon.show()
+                self.frame_app_indicator.hide()
 
     def clear_settings(self, widget):
         global gw_config_set

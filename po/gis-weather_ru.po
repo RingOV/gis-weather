@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-08-02 14:54+0300\n"
-"PO-Revision-Date: 2014-08-02 14:54+0300\n"
+"POT-Creation-Date: 2014-08-03 16:02+0300\n"
+"PO-Revision-Date: 2014-08-03 16:02+0300\n"
 "Last-Translator: \n"
 "Language-Team: Gis Weather Team <ringov@mail.ru>\n"
 "Language: Russian\n"
@@ -18,189 +18,189 @@ msgstr ""
 "X-Poedit-SearchPath-2: utils\n"
 "X-Poedit-SearchPath-3: services\n"
 
-#: gis-weather.py:157
+#: gis-weather.py:159
 msgid "Config path"
 msgstr "Путь к файлу конфигурации"
 
-#: gis-weather.py:180 dialogs/city_id_dialog.py:27
+#: gis-weather.py:182 dialogs/city_id_dialog.py:27
 msgid "Error loading config file"
 msgstr "Ошибка загрузки конфигурационного файла"
 
-#: gis-weather.py:201
+#: gis-weather.py:203
 msgid "Error loading color scheme"
 msgstr "Ошибка загрузки цветовой схемы"
 
-#: gis-weather.py:215
+#: gis-weather.py:217
 msgid "Enter full path to script"
 msgstr "Вводите полный путь к скрипту"
 
-#: gis-weather.py:216
+#: gis-weather.py:218
 msgid "Exit"
 msgstr "Выход"
 
-#: gis-weather.py:333
+#: gis-weather.py:335
 msgid "Check for new version"
 msgstr "Проверяю наличие новой версии"
 
-#: gis-weather.py:338 gis-weather.py:347
+#: gis-weather.py:340 gis-weather.py:349
 msgid "Unable to check for updates"
 msgstr "Невозможно проверить обновления"
 
-#: gis-weather.py:369
+#: gis-weather.py:371
 msgid "New version available"
 msgstr "Доступна новая версия"
 
-#: gis-weather.py:376
+#: gis-weather.py:378
 msgid "Current version is relevant"
 msgstr "Текущая версия актуальна"
 
-#: gis-weather.py:504
+#: gis-weather.py:394
+msgid "Screenshot saved to"
+msgstr "Скриншот сохранен в"
+
+#: gis-weather.py:396
+msgid "Unable to get the screenshot"
+msgstr "Невозможно получить скриншот"
+
+#: gis-weather.py:535
 msgid "Getting weather..."
 msgstr "Получаю погоду..."
 
-#: gis-weather.py:507
+#: gis-weather.py:538
 msgid "Error getting weather"
 msgstr "Ошибка получения погоды"
 
-#: gis-weather.py:509
+#: gis-weather.py:540
 msgid "Location not set"
 msgstr "Местоположение не настроено"
 
-#: gis-weather.py:563 gis-weather.py:623
+#: gis-weather.py:594 gis-weather.py:654
 msgid "Next update in"
 msgstr "Следующее обновление через"
 
-#: gis-weather.py:563 gis-weather.py:623
+#: gis-weather.py:594 gis-weather.py:654
 msgid "min"
 msgstr "мин"
 
-#: gis-weather.py:613
+#: gis-weather.py:644
 msgid "Connection error"
 msgstr "Ошибка соединения"
 
-#: gis-weather.py:660 services/accuweather.py:728 services/gismeteo.py:437
+#: gis-weather.py:691 services/accuweather.py:728 services/gismeteo.py:437
 #: services/weather_com.py:383
 msgid "updated on server"
 msgstr "обновлено на сервере"
 
-#: gis-weather.py:661 services/accuweather.py:729 services/gismeteo.py:438
+#: gis-weather.py:692 services/accuweather.py:729 services/gismeteo.py:438
 #: services/weather_com.py:384
 msgid "weather received"
 msgstr "погода получена"
 
-#: gis-weather.py:688
+#: gis-weather.py:719
 msgid "E"
 msgstr "В"
 
-#: gis-weather.py:688
+#: gis-weather.py:719
 msgid "S"
 msgstr "Ю"
 
-#: gis-weather.py:688
+#: gis-weather.py:719
 msgid "W"
 msgstr "З"
 
-#: gis-weather.py:688
+#: gis-weather.py:719
 msgid "N"
 msgstr "С"
 
-#: gis-weather.py:739
+#: gis-weather.py:770
 msgid "humid."
 msgstr "влажн."
 
-#: gis-weather.py:748
+#: gis-weather.py:779
 msgid "water"
 msgstr "вода"
 
-#: gis-weather.py:765 gis-weather.py:814
+#: gis-weather.py:796 gis-weather.py:845
 msgid "Morning"
 msgstr "Утро"
 
-#: gis-weather.py:765 gis-weather.py:814
+#: gis-weather.py:796 gis-weather.py:845
 msgid "Day"
 msgstr "День"
 
-#: gis-weather.py:765 gis-weather.py:814
+#: gis-weather.py:796 gis-weather.py:845
 msgid "Evening"
 msgstr "Вечер"
 
-#: gis-weather.py:765 gis-weather.py:814
+#: gis-weather.py:796 gis-weather.py:845
 msgid "Night"
 msgstr "Ночь"
 
-#: gis-weather.py:768 gis-weather.py:770
+#: gis-weather.py:799 gis-weather.py:801
 msgid "Tomorrow"
 msgstr "Завтра"
 
-#: gis-weather.py:816
+#: gis-weather.py:847
 msgid "Today"
 msgstr "Сегодня"
 
-#: gis-weather.py:905
+#: gis-weather.py:937
 msgid "Background image not found"
 msgstr "Не найдено фоновое изображение"
 
-#: gis-weather.py:963
+#: gis-weather.py:995
 msgid "downloading"
 msgstr "скачиваю"
 
-#: gis-weather.py:966
+#: gis-weather.py:998
 msgid "Unable to download"
 msgstr "Не удалось скачать"
 
-#: gis-weather.py:984
+#: gis-weather.py:1016
 msgid "not found icon"
 msgstr "не найдена иконка"
 
-#: gis-weather.py:1046
+#: gis-weather.py:1078
 msgid "Widget size"
 msgstr "Размеры виджета"
 
-#: gis-weather.py:1047
+#: gis-weather.py:1079
 msgid "width"
 msgstr "ширина"
 
-#: gis-weather.py:1047
+#: gis-weather.py:1079
 msgid "height"
 msgstr "высота"
 
-#: gis-weather.py:1047
+#: gis-weather.py:1079
 msgid "including indent"
 msgstr "в т.ч. отступ"
 
-#: gis-weather.py:1101
-msgid "Screenshot saved to"
-msgstr "Скриншот сохранен в"
-
-#: gis-weather.py:1103
-msgid "Unable to get the screenshot"
-msgstr "Невозможно получить скриншот"
-
-#: gis-weather.py:1210
+#: gis-weather.py:1242
 msgid "Removed"
 msgstr "Удалено"
 
-#: gis-weather.py:1239 dialogs/city_id_dialog.ui:189
+#: gis-weather.py:1271 dialogs/city_id_dialog.ui:189
 msgid "Added"
 msgstr "Добавлено"
 
-#: gis-weather.py:1244 dialogs/city_id_dialog.ui:258
+#: gis-weather.py:1276 dialogs/city_id_dialog.ui:258
 msgid "Invalid location code"
 msgstr "Неверно введен код местоположения"
 
-#: gis-weather.py:1309
+#: gis-weather.py:1343
 msgid "Your screen does not support alpha"
 msgstr "Ваш экран не поддерживает прозрачность"
 
-#: gis-weather.py:1311
+#: gis-weather.py:1345
 msgid "Your screen supports alpha"
 msgstr "Ваш экран поддерживает прозрачность"
 
-#: utils/gw_menu.py:51 dialogs/settings_dialog.ui:675
+#: utils/gw_menu.py:51 dialogs/settings_dialog.ui:692
 msgid "Setup..."
 msgstr "Настроить..."
 
-#: utils/gw_menu.py:87 dialogs/settings_dialog.py:352
+#: utils/gw_menu.py:87 dialogs/settings_dialog.py:361
 msgid "No"
 msgstr "Нет"
 
@@ -208,25 +208,25 @@ msgstr "Нет"
 msgid "Color scheme"
 msgstr "Цветовая схема"
 
-#: utils/gw_menu.py:111 dialogs/settings_dialog.ui:1472
+#: utils/gw_menu.py:111 dialogs/settings_dialog.ui:1489
 msgid "Lock position"
 msgstr "Зафиксировать позицию"
 
-#: utils/gw_menu.py:117 dialogs/settings_dialog.ui:1457
+#: utils/gw_menu.py:117 dialogs/settings_dialog.ui:1474
 msgid "On all desktops"
 msgstr "На всех рабочих столах"
 
-#: utils/gw_menu.py:124 dialogs/settings_dialog.ui:976
+#: utils/gw_menu.py:124 dialogs/settings_dialog.ui:993
 msgid "Refresh"
 msgstr "Обновить"
 
 #: utils/gw_menu.py:136 dialogs/city_id_dialog.py:89
-#: dialogs/settings_dialog.ui:553 dialogs/city_id_dialog.ui:42
+#: dialogs/settings_dialog.ui:570 dialogs/city_id_dialog.ui:42
 msgid "Location"
 msgstr "Местоположение"
 
 #: utils/gw_menu.py:141 dialogs/about_dialog.py:39
-#: dialogs/settings_dialog.ui:3434 dialogs/settings_dialog.ui:3920
+#: dialogs/settings_dialog.ui:3451 dialogs/settings_dialog.ui:3937
 msgid "Icons"
 msgstr "Иконки"
 
@@ -234,20 +234,20 @@ msgstr "Иконки"
 msgid "Indicator icons"
 msgstr "Иконки индикатора"
 
-#: utils/gw_menu.py:151 dialogs/settings_dialog.ui:3339
+#: utils/gw_menu.py:151 dialogs/settings_dialog.ui:3356
 msgid "Background"
 msgstr "Фон"
 
-#: utils/gw_menu.py:156 dialogs/settings_dialog.ui:3106
+#: utils/gw_menu.py:156 dialogs/settings_dialog.ui:3123
 msgid "Text"
 msgstr "Текст"
 
-#: utils/gw_menu.py:161 dialogs/settings_dialog.ui:1682
+#: utils/gw_menu.py:161 dialogs/settings_dialog.ui:1699
 msgid "Window"
 msgstr "Окно"
 
 #: utils/gw_menu.py:166 dialogs/settings_dialog.py:69
-#: dialogs/settings_dialog.py:605
+#: dialogs/settings_dialog.py:620
 msgid "Preferences"
 msgstr "Параметры"
 
@@ -259,7 +259,7 @@ msgstr "Помощь"
 msgid "About"
 msgstr "О программе"
 
-#: utils/gw_menu.py:194 dialogs/settings_dialog.ui:508
+#: utils/gw_menu.py:194 dialogs/settings_dialog.ui:525
 #: dialogs/help_dialog.ui:25 dialogs/city_id_dialog.ui:72
 #: dialogs/update_dialog.ui:44
 msgid "Close"
@@ -325,52 +325,52 @@ msgstr "Установка"
 msgid "Error removing"
 msgstr "Ошибка удаления"
 
-#: dialogs/settings_dialog.py:343
+#: dialogs/settings_dialog.py:352
 msgid "m/s"
 msgstr "м/с"
 
-#: dialogs/settings_dialog.py:343
+#: dialogs/settings_dialog.py:352
 msgid "km/h"
 msgstr "км/ч"
 
-#: dialogs/settings_dialog.py:343
+#: dialogs/settings_dialog.py:352
 msgid "mph"
 msgstr "мвч"
 
-#: dialogs/settings_dialog.py:344
+#: dialogs/settings_dialog.py:353
 msgid "mmHg"
 msgstr "мм рт. ст."
 
-#: dialogs/settings_dialog.py:344
+#: dialogs/settings_dialog.py:353
 msgid "inHg"
 msgstr "дюйм рт. ст."
 
-#: dialogs/settings_dialog.py:344
+#: dialogs/settings_dialog.py:353
 msgid "hPa"
 msgstr "гПа"
 
-#: dialogs/settings_dialog.py:347
+#: dialogs/settings_dialog.py:356
 msgid "Never"
 msgstr "Никогда"
 
-#: dialogs/settings_dialog.py:348
+#: dialogs/settings_dialog.py:357
 msgid "Only at start"
 msgstr "Только при старте"
 
-#: dialogs/settings_dialog.py:349
+#: dialogs/settings_dialog.py:358
 msgid "Always"
 msgstr "Всегда"
 
-#: dialogs/settings_dialog.py:353
+#: dialogs/settings_dialog.py:362
 msgid "Only background"
 msgstr "Только фон"
 
-#: dialogs/settings_dialog.py:354
+#: dialogs/settings_dialog.py:363
 msgid "Yes"
 msgstr "Да"
 
-#: dialogs/settings_dialog.py:440 dialogs/settings_dialog.py:450
-#: dialogs/settings_dialog.py:460
+#: dialogs/settings_dialog.py:453 dialogs/settings_dialog.py:463
+#: dialogs/settings_dialog.py:473
 msgid "Author"
 msgstr "Автор"
 
@@ -454,184 +454,184 @@ msgstr "Следующая попытка через 10 секунд"
 msgid "Calm"
 msgstr "Штиль"
 
-#: dialogs/settings_dialog.ui:568
+#: dialogs/settings_dialog.ui:585
 msgid "Update (in minutes)"
 msgstr "Обновлять через (в минутах)"
 
-#: dialogs/settings_dialog.ui:583
+#: dialogs/settings_dialog.ui:600
 msgid "Check for updates"
 msgstr "Проверять обновления"
 
-#: dialogs/settings_dialog.ui:610
+#: dialogs/settings_dialog.ui:627
 msgid "Folder with config"
 msgstr "Папка с конфигом"
 
-#: dialogs/settings_dialog.ui:637
+#: dialogs/settings_dialog.ui:654
 msgid "Autostart at login"
 msgstr "Автозапуск при входе в систему"
 
-#: dialogs/settings_dialog.ui:652
+#: dialogs/settings_dialog.ui:669
 msgid "Start delay (in seconds)"
 msgstr "Отложенный старт (в секундах)"
 
-#: dialogs/settings_dialog.ui:724
+#: dialogs/settings_dialog.ui:741
 msgid "Open..."
 msgstr "Открыть..."
 
-#: dialogs/settings_dialog.ui:838 dialogs/help_dialog.ui:109
+#: dialogs/settings_dialog.ui:855 dialogs/help_dialog.ui:109
 #: dialogs/update_dialog.ui:351
 msgid "Want to translate?"
 msgstr "Хотите перевести?"
 
-#: dialogs/settings_dialog.ui:860
+#: dialogs/settings_dialog.ui:877
 msgid "Language program"
 msgstr "Язык программы"
 
-#: dialogs/settings_dialog.ui:875 dialogs/city_id_dialog.ui:323
+#: dialogs/settings_dialog.ui:892 dialogs/city_id_dialog.ui:323
 msgid "Language weather"
 msgstr "Язык погоды"
 
-#: dialogs/settings_dialog.ui:890
+#: dialogs/settings_dialog.ui:907
 msgid "Add icon launcher to menu"
 msgstr "Добавить иконку запуска в меню"
 
-#: dialogs/settings_dialog.ui:918 dialogs/city_id_dialog.ui:360
+#: dialogs/settings_dialog.ui:935 dialogs/city_id_dialog.ui:360
 msgid "Weather service"
 msgstr "Погодная служба"
 
-#: dialogs/settings_dialog.ui:1050
+#: dialogs/settings_dialog.ui:1067
 msgid "General"
 msgstr "Общие"
 
-#: dialogs/settings_dialog.ui:1073
+#: dialogs/settings_dialog.ui:1090
 msgid "Wind"
 msgstr "Ветер"
 
-#: dialogs/settings_dialog.ui:1088
+#: dialogs/settings_dialog.ui:1105
 msgid "Pressure"
 msgstr "Давление"
 
-#: dialogs/settings_dialog.ui:1137
+#: dialogs/settings_dialog.ui:1154
 msgid "Temperature"
 msgstr "Температура"
 
-#: dialogs/settings_dialog.ui:1190
+#: dialogs/settings_dialog.ui:1207
 msgid "Temperature as feel"
 msgstr "Температура как ощущается"
 
-#: dialogs/settings_dialog.ui:1280
+#: dialogs/settings_dialog.ui:1297
 msgid "Units"
 msgstr "Единицы измерения"
 
-#: dialogs/settings_dialog.ui:1304
+#: dialogs/settings_dialog.ui:1321
 msgid "Left"
 msgstr "Отступ слева"
 
-#: dialogs/settings_dialog.ui:1319 dialogs/settings_dialog.ui:3818
+#: dialogs/settings_dialog.ui:1336 dialogs/settings_dialog.ui:3835
 msgid "Top"
 msgstr "Отступ сверху"
 
-#: dialogs/settings_dialog.ui:1334
+#: dialogs/settings_dialog.ui:1351
 msgid "Padding"
 msgstr "Внутренний отступ"
 
-#: dialogs/settings_dialog.ui:1442
+#: dialogs/settings_dialog.ui:1459
 msgid "Fix BadDrawable error"
 msgstr "Фикс ошибки BadDrawable"
 
-#: dialogs/settings_dialog.ui:1487
+#: dialogs/settings_dialog.ui:1504
 msgid "Transparency"
 msgstr "Прозрачность"
 
-#: dialogs/settings_dialog.ui:1626
+#: dialogs/settings_dialog.ui:1643
 msgid "Scale"
 msgstr "Масштаб"
 
-#: dialogs/settings_dialog.ui:1734 dialogs/settings_dialog.ui:1867
-#: dialogs/settings_dialog.ui:2101 dialogs/settings_dialog.ui:2325
-#: dialogs/settings_dialog.ui:3498
+#: dialogs/settings_dialog.ui:1751 dialogs/settings_dialog.ui:1884
+#: dialogs/settings_dialog.ui:2118 dialogs/settings_dialog.ui:2342
+#: dialogs/settings_dialog.ui:3515
 msgid "Show"
 msgstr "Показывать"
 
-#: dialogs/settings_dialog.ui:1749 dialogs/settings_dialog.ui:1882
-#: dialogs/settings_dialog.ui:1999 dialogs/settings_dialog.ui:2116
-#: dialogs/settings_dialog.ui:2340
+#: dialogs/settings_dialog.ui:1766 dialogs/settings_dialog.ui:1899
+#: dialogs/settings_dialog.ui:2016 dialogs/settings_dialog.ui:2133
+#: dialogs/settings_dialog.ui:2357
 msgid "Offset from center"
 msgstr "Отступ от центра"
 
-#: dialogs/settings_dialog.ui:1827
+#: dialogs/settings_dialog.ui:1844
 msgid "Block Tomorrow"
 msgstr "Блок Завтра"
 
-#: dialogs/settings_dialog.ui:1960
+#: dialogs/settings_dialog.ui:1977
 msgid "Block Today"
 msgstr "Блок Сегодня"
 
-#: dialogs/settings_dialog.ui:2047
+#: dialogs/settings_dialog.ui:2064
 msgid "Block Now"
 msgstr "Блок Сейчас"
 
-#: dialogs/settings_dialog.ui:2192
+#: dialogs/settings_dialog.ui:2209
 msgid "Reduce"
 msgstr "Уменьшить"
 
-#: dialogs/settings_dialog.ui:2207
+#: dialogs/settings_dialog.ui:2224
 msgid "Angle of rotation"
 msgstr "Угол поворота"
 
-#: dialogs/settings_dialog.ui:2285
+#: dialogs/settings_dialog.ui:2302
 msgid "Block Wind"
 msgstr "Блок Ветер"
 
-#: dialogs/settings_dialog.ui:2418
+#: dialogs/settings_dialog.ui:2435
 msgid "Block Additional info"
 msgstr "Блок Доп инфо"
 
-#: dialogs/settings_dialog.ui:2476
+#: dialogs/settings_dialog.ui:2493
 msgid "Number of days"
 msgstr "Количество дней"
 
-#: dialogs/settings_dialog.ui:2491
+#: dialogs/settings_dialog.ui:2508
 msgid "Show time receiving weather"
 msgstr "Показывать время получения погоды"
 
-#: dialogs/settings_dialog.ui:2506
+#: dialogs/settings_dialog.ui:2523
 msgid "Show splash screen"
 msgstr "Показывать загрузочную заставку"
 
-#: dialogs/settings_dialog.ui:2521
+#: dialogs/settings_dialog.ui:2538
 msgid "Hide splash screen after attempts (0 - do not hide)"
 msgstr "Скрывать заставку после попыток (0 - не скрывать)"
 
-#: dialogs/settings_dialog.ui:2665
+#: dialogs/settings_dialog.ui:2682
 msgid "Show chance of rain"
 msgstr "Показывать вероятность дождя"
 
-#: dialogs/settings_dialog.ui:2732
+#: dialogs/settings_dialog.ui:2749
 msgid "View"
 msgstr "Вид"
 
-#: dialogs/settings_dialog.ui:2775 dialogs/settings_dialog.ui:3658
+#: dialogs/settings_dialog.ui:2792 dialogs/settings_dialog.ui:3675
 msgid "Font"
 msgstr "Шрифт"
 
-#: dialogs/settings_dialog.ui:2790
+#: dialogs/settings_dialog.ui:2807
 msgid "Color main"
 msgstr "Цвет основной"
 
-#: dialogs/settings_dialog.ui:2839
+#: dialogs/settings_dialog.ui:2856
 msgid "Color Sa, Su"
 msgstr "Цвет Сб, Вс"
 
-#: dialogs/settings_dialog.ui:2854 dialogs/settings_dialog.ui:3613
+#: dialogs/settings_dialog.ui:2871 dialogs/settings_dialog.ui:3630
 msgid "Shadow"
 msgstr "Тень"
 
-#: dialogs/settings_dialog.ui:2934 dialogs/settings_dialog.ui:3722
+#: dialogs/settings_dialog.ui:2951 dialogs/settings_dialog.ui:3739
 msgid "Color shadow"
 msgstr "Цвет тени"
 
-#: dialogs/settings_dialog.ui:2949
+#: dialogs/settings_dialog.ui:2966
 msgid ""
 "High wind\n"
 "(-1 = not highlight)"
@@ -639,23 +639,23 @@ msgstr ""
 "Сильный ветер\n"
 "(-1 = не выделять)"
 
-#: dialogs/settings_dialog.ui:2965
+#: dialogs/settings_dialog.ui:2982
 msgid "Color wind"
 msgstr "Цвет ветра"
 
-#: dialogs/settings_dialog.ui:3145
+#: dialogs/settings_dialog.ui:3162
 msgid "Use PNG"
 msgstr "Использовать PNG"
 
-#: dialogs/settings_dialog.ui:3160 dialogs/settings_dialog.ui:3379
+#: dialogs/settings_dialog.ui:3177 dialogs/settings_dialog.ui:3396
 msgid "Select"
 msgstr "Выбрать"
 
-#: dialogs/settings_dialog.ui:3222
+#: dialogs/settings_dialog.ui:3239
 msgid "Color (if not PNG)"
 msgstr "Цвет (если не PNG)"
 
-#: dialogs/settings_dialog.ui:3237
+#: dialogs/settings_dialog.ui:3254
 msgid ""
 "Radius corners\n"
 "(if not PNG)"
@@ -663,23 +663,31 @@ msgstr ""
 "Радиус углов\n"
 "(если не PNG)"
 
-#: dialogs/settings_dialog.ui:3459
+#: dialogs/settings_dialog.ui:3476
 msgid "Appearance"
 msgstr "Оформление"
 
-#: dialogs/settings_dialog.ui:3483
+#: dialogs/settings_dialog.ui:3500
 msgid "Type (need restart widget)"
 msgstr "Тип (необходим перезапуск виджета)"
 
-#: dialogs/settings_dialog.ui:3707
+#: dialogs/settings_dialog.ui:3724
 msgid "Color"
 msgstr "Цвет"
 
-#: dialogs/settings_dialog.ui:3850
+#: dialogs/settings_dialog.ui:3867
 msgid "Width"
 msgstr "Ширина"
 
-#: dialogs/settings_dialog.ui:3958
+#: dialogs/settings_dialog.ui:3989
+msgid "Fix the size"
+msgstr "Зафиксировать размер"
+
+#: dialogs/settings_dialog.ui:4034
+msgid "Size"
+msgstr "Размер"
+
+#: dialogs/settings_dialog.ui:4110
 msgid "Indicator"
 msgstr "Индикатор"
 

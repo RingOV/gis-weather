@@ -65,6 +65,11 @@
     <property name="upper">1000</property>
     <property name="step_increment">1</property>
   </object>
+  <object class="GtkAdjustment" id="adjustment20">
+    <property name="lower">1</property>
+    <property name="upper">100</property>
+    <property name="step_increment">1</property>
+  </object>
   <object class="GtkAdjustment" id="adjustment3">
     <property name="upper">10000</property>
     <property name="step_increment">1</property>
@@ -383,6 +388,18 @@
     <property name="icon_size">1</property>
   </object>
   <object class="GtkImage" id="image52">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-clear</property>
+    <property name="icon_size">1</property>
+  </object>
+  <object class="GtkImage" id="image53">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-clear</property>
+    <property name="icon_size">1</property>
+  </object>
+  <object class="GtkImage" id="image57">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="stock">gtk-clear</property>
@@ -3585,7 +3602,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkFrame" id="frame10">
+                  <object class="GtkFrame" id="frame_status_icon">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="margin_top">4</property>
@@ -3940,6 +3957,141 @@
                     <property name="left_attach">2</property>
                     <property name="top_attach">1</property>
                     <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkFrame" id="frame_app_indicator">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="margin_top">4</property>
+                    <property name="label_xalign">0.5</property>
+                    <child>
+                      <object class="GtkAlignment" id="alignment11">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="margin_left">5</property>
+                        <property name="margin_right">5</property>
+                        <property name="margin_bottom">5</property>
+                        <child>
+                          <object class="GtkGrid" id="grid20">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="valign">start</property>
+                            <property name="row_spacing">5</property>
+                            <property name="column_spacing">5</property>
+                            <child>
+                              <object class="GtkLabel" id="label74">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="xalign">0</property>
+                                <property name="label" translatable="yes">Fix the size</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">0</property>
+                                <property name="width">1</property>
+                                <property name="height">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkSwitch" id="switch_app_indicator_fix_size">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="halign">end</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="top_attach">0</property>
+                                <property name="width">1</property>
+                                <property name="height">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="clear_app_indicator_fix_size">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="halign">end</property>
+                                <property name="valign">center</property>
+                                <property name="image">image53</property>
+                                <property name="always_show_image">True</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">2</property>
+                                <property name="top_attach">0</property>
+                                <property name="width">1</property>
+                                <property name="height">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkLabel" id="label78">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="xalign">0</property>
+                                <property name="label" translatable="yes">Size</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">1</property>
+                                <property name="width">1</property>
+                                <property name="height">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkSpinButton" id="spinbutton_app_indicator_size">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="halign">end</property>
+                                <property name="max_length">4</property>
+                                <property name="width_chars">4</property>
+                                <property name="text">0</property>
+                                <property name="adjustment">adjustment20</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="top_attach">1</property>
+                                <property name="width">1</property>
+                                <property name="height">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="clear_app_indicator_size">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="halign">end</property>
+                                <property name="valign">center</property>
+                                <property name="image">image57</property>
+                                <property name="always_show_image">True</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">2</property>
+                                <property name="top_attach">1</property>
+                                <property name="width">1</property>
+                                <property name="height">1</property>
+                              </packing>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child type="label">
+                      <object class="GtkLabel" id="label80">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <attributes>
+                          <attribute name="weight" value="bold"/>
+                        </attributes>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">4</property>
+                    <property name="width">3</property>
                     <property name="height">1</property>
                   </packing>
                 </child>
