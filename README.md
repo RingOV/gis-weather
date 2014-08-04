@@ -4,9 +4,10 @@
 Customizable weather widget
 
 ### **Dependencies**
-- python3-gi
+Used Python3 and GTK3
+- python3-gi (python-gobject)
 - python3-gi-cairo
-- gir1.2-gtk-3.0
+- gir1.2-gtk-3.0 (gtk3)
 
 ### **Features**
 - View weather for several days
