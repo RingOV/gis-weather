@@ -15,10 +15,11 @@ Customizable weather widget
 - Select the background and theme weather icons
 - "Compass" with the wind direction, with adjustable angle of rotation
 - Highlighting the high wind
-- Supported weather services:
- - Gismeteo.com
- - Weather.com
- - AccuWeather.com
+- Support weather services:
+  - Gismeteo.com
+  - Weather.com
+  - AccuWeather.com
+- Support SVG and widget scale
 
 
 ### **How to Install**
