@@ -55,7 +55,11 @@ Please mail to ringov.gisweather@gmail.com
 
 Source Code (GitHub) - [https://github.com/RingOV/gis-weather](https://github.com/RingOV/gis-weather)
 
-deb, exe, tar.gz - [https://sourceforge.net/projects/gis-weather/](https://sourceforge.net/projects/gis-weather/)
+deb, rpm, exe, tar.gz - [https://sourceforge.net/projects/gis-weather/](https://sourceforge.net/projects/gis-weather/)
+
+AUR - [https://aur.archlinux.org/packages/gis-weather/](https://aur.archlinux.org/packages/gis-weather/)
+
+NoobsLAB - [http://www.noobslab.com/2014/05/gis-weather-widget-for-linux-desktop.html](http://www.noobslab.com/2014/05/gis-weather-widget-for-linux-desktop.html)
 
 
 # Donations:
