@@ -440,10 +440,11 @@ class settings():
         self.load(self.spinbutton_scale)
         self.load(self.spinbutton_app_indicator_size)
         self.load(self.switch_app_indicator_fix_size)
-        if gw_config_set['indicator_is_appindicator'] != 0:
-            self.frame_status_icon.hide()
+
         if gw_config_set['indicator_is_appindicator'] == 0:
             self.frame_app_indicator.hide()
+        else:
+            self.frame_status_icon.hide()
 
         self.liststore3.clear()
         for i in range(len(icons_list_set)):

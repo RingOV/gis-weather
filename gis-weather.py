@@ -118,7 +118,7 @@ gw_config_default = {
     'show_chance_of_rain': False,
     'wind_units': 0,
     'press_units': 0,
-    'show_indicator': 2,               # 0 - widget only, 1 - indicator only, 2 - widget + indicator
+    'show_indicator': 0,               # 0 - widget only, 1 - indicator only, 2 - widget + indicator
     'indicator_is_appindicator': 'None',
     'indicator_icons_name': 'default',
     'indicator_font': 'Sans',

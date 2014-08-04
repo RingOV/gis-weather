@@ -22,19 +22,21 @@ Customizable weather widget
 
 
 ### **How to Install**
-- For Debian based distro:
- - `sudo add-apt-repository ppa:noobslab/apps`
- - `sudo apt-get update`
- - `sudo apt-get install gis-weather`
+- Download package from [http://sourceforge.net/projects/gis-weather/files/gis-weather/](http://sourceforge.net/projects/gis-weather/files/gis-weather/)
+  - deb
+  - rpm
+  - exe
+- AUR
+  - [https://aur.archlinux.org/packages/gis-weather/](https://aur.archlinux.org/packages/gis-weather/)
+- For Debian based distro you can use Noobslab ppa:
+  - `sudo add-apt-repository ppa:noobslab/apps`
+  - `sudo apt-get update`
+  - `sudo apt-get install gis-weather`
 - For any distro:
- - Download [https://sourceforge.net/projects/gis-weather/files/latest/download](https://sourceforge.net/projects/gis-weather/files/latest/download)
- - Unpack
- - Run
-
-
-### **How to Run**
-
-`python3 gis-weather.py`
+  - Download [https://sourceforge.net/projects/gis-weather/files/latest/download](https://sourceforge.net/projects/gis-weather/files/latest/download)
+  - Unpack
+  - Run
+  - `python3 gis-weather.py`
 
 
 ### **What's New**
