@@ -48,6 +48,7 @@ import os
 import json
 import sys
 import subprocess
+import gzip
 
 if sys.platform.startswith("win"):
     WIN = True
@@ -421,7 +422,15 @@ class Indicator:
                 self.indicator.set_icon(icon)
 
         def set_icon_fixed(self, icon, size=22):
-            pixbuf = GdkPixbuf.Pixbuf.new_from_file(icon)
+            if icon[-4:] == 'svgz':
+                inF = gzip.open(icon, 'rb')
+                outF = open(os.path.join(CONFIG_PATH, "cur_icon.png"), 'wb')
+                outF.write(inF.read())
+                inF.close()
+                outF.close()
+                pixbuf = GdkPixbuf.Pixbuf.new_from_file(os.path.join(CONFIG_PATH, "cur_icon.png"))
+            else:
+                pixbuf = GdkPixbuf.Pixbuf.new_from_file(icon)
             pixbuf = pixbuf.scale_simple(size,size,GdkPixbuf.InterpType.BILINEAR)
             pixbuf.savev(os.path.join(CONFIG_PATH, "cur_icon.png"),"png", (), ())
             self.indicator.set_icon(os.path.join(CONFIG_PATH, "cur_icon.png"))
@@ -912,6 +921,22 @@ class MyDrawArea(Gtk.DrawingArea):
                 pass
 
 
+    def draw_bg_png_svg(self, path):
+        if os.path.exists(os.path.join(path, "l.png")):
+            self.draw_scaled_image(0, 0, os.path.join(path, "l.png"), 60, height)
+            self.draw_scaled_image(60, 0, os.path.join(path, "c.png"), width-120, height)
+            self.draw_scaled_image(width-60, 0, os.path.join(path, "r.png"), 60, height)
+        else:
+            if os.path.exists(os.path.join(path, "l.svg")):
+                self.draw_scaled_image(0, 0, os.path.join(path, "l.svg"), 60, height)
+                self.draw_scaled_image(60, 0, os.path.join(path, "c.svg"), width-120, height)
+                self.draw_scaled_image(width-60, 0, os.path.join(path, "r.svg"), 60, height)
+            else:
+                self.draw_scaled_image(0, 0, os.path.join(path, "l.svgz"), 60, height)
+                self.draw_scaled_image(60, 0, os.path.join(path, "c.svgz"), width-120, height)
+                self.draw_scaled_image(width-60, 0, os.path.join(path, "r.svgz"), 60, height)
+
+
     def draw_bg(self):
         if not_composited:
             if os.path.exists(os.path.join(CONFIG_PATH, 'main_screenshot.png')):
@@ -922,17 +947,13 @@ class MyDrawArea(Gtk.DrawingArea):
                 try:
                     self.draw_scaled_image(0, 0, os.path.join(BGS_USER_PATH, bg_custom), width, height)
                 except:
-                    self.draw_scaled_image(0, 0, os.path.join(BGS_USER_PATH, bg_custom, "l.png"), 60, height)
-                    self.draw_scaled_image(60, 0, os.path.join(BGS_USER_PATH, bg_custom, "c.png"), width-120, height)
-                    self.draw_scaled_image(width-60, 0, os.path.join(BGS_USER_PATH, bg_custom, "r.png"), 60, height)
+                    self.draw_bg_png_svg(os.path.join(BGS_USER_PATH, bg_custom))
             else: 
                 if os.path.exists(os.path.join(BGS_PATH, bg_custom)):
                     try:
                         self.draw_scaled_image(0, 0, os.path.join(BGS_PATH, bg_custom), width, height)
                     except:
-                        self.draw_scaled_image(0, 0, os.path.join(BGS_PATH, bg_custom, "l.png"), 60, height)
-                        self.draw_scaled_image(60, 0, os.path.join(BGS_PATH, bg_custom, "c.png"), width-120, height)
-                        self.draw_scaled_image(width-60, 0, os.path.join(BGS_PATH, bg_custom, "r.png"), 60, height)
+                        self.draw_bg_png_svg(os.path.join(BGS_PATH, bg_custom))
                 else:
                     print (_('Background image not found')+': '+str(bg_custom))
         else:
@@ -1009,23 +1030,27 @@ class MyDrawArea(Gtk.DrawingArea):
             if not os.path.exists(pix_path):
                 pix_path = pix_path[:-3]+'svg'
                 if not os.path.exists(pix_path):
-                    pix_path = os.path.join(ICONS_USER_PATH, icons_name1, 'weather', pix)
+                    pix_path = pix_path[:-3]+'svgz'
                     if not os.path.exists(pix_path):
-                        pix_path = pix_path[:-3]+'svg'
+                        pix_path = os.path.join(ICONS_USER_PATH, icons_name1, 'weather', pix)
                         if not os.path.exists(pix_path):
-                            print ('[!] '+_('not found icon')+':\n> '+pix_path)
-                            if os.path.exists(os.path.join(ICONS_PATH, icons_name1, 'weather', 'na.png')):
-                                pix_path = os.path.join(ICONS_PATH, icons_name1, 'weather', 'na.png')
-                            else:
-                                if os.path.exists(os.path.join(ICONS_USER_PATH, icons_name1, 'weather', 'na.png')):
-                                    pix_path = os.path.join(ICONS_USER_PATH, icons_name1, 'weather', 'na.png')
-                                else:
-                                    pix_path = os.path.join(THEMES_PATH, 'na.png')
+                            pix_path = pix_path[:-3]+'svg'
+                            if not os.path.exists(pix_path):
+                                pix_path = pix_path[:-3]+'svgz'
+                                if not os.path.exists(pix_path):
+                                    print ('[!] '+_('not found icon')+':\n> '+pix_path)
+                                    if os.path.exists(os.path.join(ICONS_PATH, icons_name1, 'weather', 'na.png')):
+                                        pix_path = os.path.join(ICONS_PATH, icons_name1, 'weather', 'na.png')
+                                    else:
+                                        if os.path.exists(os.path.join(ICONS_USER_PATH, icons_name1, 'weather', 'na.png')):
+                                            pix_path = os.path.join(ICONS_USER_PATH, icons_name1, 'weather', 'na.png')
+                                        else:
+                                            pix_path = os.path.join(THEMES_PATH, 'na.png')
         if not indicator_icon_name:    
             self.draw_scaled_image(x, y, pix_path, w, h)
 
     def draw_scaled_image(self, x, y, pix, w, h, ang = 0):
-        if pix.split('.')[-1] == 'svg' and HAS_RSVG:
+        if pix.split('.')[-1] == 'svg' or pix.split('.')[-1] == 'svgz' and HAS_RSVG:
             self.draw_scaled_image_svg(x, y, pix, w, h, ang)
         else:
             self.draw_scaled_image_png(x, y, pix, w, h, ang)
