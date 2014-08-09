@@ -7,4 +7,4 @@
 `   gis-weather_ru.po` `  171/171` ![](https://dl.dropboxusercontent.com/u/99404329/bars/100.png) `100%`
 
 
-_Updated 09.08.2014 23:36_
+_Updated 09.08.2014 23:38_
