@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-06-24 12:07+0300\n"
-"PO-Revision-Date: 2014-06-24 12:07+0300\n"
+"POT-Creation-Date: 2014-08-09 18:43+0300\n"
+"PO-Revision-Date: 2014-08-09 18:43+0300\n"
 "Last-Translator: \n"
 "Language-Team: spyder <ghostdarkhide@gmail.com>\n"
 "Language: fr\n"
@@ -19,248 +19,254 @@ msgstr ""
 "X-Poedit-SearchPath-2: utils\n"
 "X-Poedit-SearchPath-3: services\n"
 
-#: gis-weather.py:133
+#: gis-weather.py:160
 msgid "Config path"
 msgstr "Chemin de Configuration"
 
-#: gis-weather.py:156 dialogs/city_id_dialog.py:27
+#: gis-weather.py:183 dialogs/city_id_dialog.py:27
 msgid "Error loading config file"
 msgstr "Erreur de chargement du fichier de configuration"
 
-#: gis-weather.py:177
+#: gis-weather.py:204
 msgid "Error loading color scheme"
 msgstr "Erreur de chargement des modèle de couleurs"
 
-#: gis-weather.py:192
+#: gis-weather.py:218
 msgid "Enter full path to script"
 msgstr "Entrez le chemin complet vers un script"
 
-#: gis-weather.py:193
+#: gis-weather.py:219
 msgid "Exit"
 msgstr "Quitter"
 
-#: gis-weather.py:303
+#: gis-weather.py:336
 msgid "Check for new version"
 msgstr "Vérifiez une nouvelle version"
 
-#: gis-weather.py:308 gis-weather.py:317
+#: gis-weather.py:341 gis-weather.py:350
 msgid "Unable to check for updates"
 msgstr "Impossible de vérifier les mises à jour"
 
-#: gis-weather.py:339
+#: gis-weather.py:372
 msgid "New version available"
 msgstr "Nouvelle version disponible"
 
-#: gis-weather.py:346
+#: gis-weather.py:379
 msgid "Current version is relevant"
 msgstr "La version actuelle est concerné"
 
-#: gis-weather.py:373
-msgid "Getting weather..."
-msgstr "Obtenir la météo ..."
-
-#: gis-weather.py:376
-msgid "Error getting weather"
-msgstr "Erreur de récupération de la météo"
-
-#: gis-weather.py:378
-msgid "Location not set"
-msgstr "Lieu pas encore défini"
-
-#: gis-weather.py:444
-msgid "Connection error"
-msgstr "Erreur de connexion"
-
-#: gis-weather.py:454
-msgid "Next update in"
-msgstr "Prochaine mise à jour dans"
-
-#: gis-weather.py:454
-msgid "min"
-msgstr "min"
-
-#: gis-weather.py:478 services/gismeteo.py:405 services/weather_com.py:347
-msgid "updated on server"
-msgstr "mise à jour sur le serveur"
-
-#: gis-weather.py:479 services/gismeteo.py:406 services/weather_com.py:348
-msgid "weather received"
-msgstr "Météo reçue"
-
-#: gis-weather.py:506
-msgid "E"
-msgstr "E"
-
-#: gis-weather.py:506
-msgid "S"
-msgstr "S"
-
-#: gis-weather.py:506
-msgid "W"
-msgstr "W"
-
-#: gis-weather.py:506
-msgid "N"
-msgstr "N"
-
-#: gis-weather.py:557
-msgid "humid."
-msgstr "humid."
-
-#: gis-weather.py:566
-msgid "water"
-msgstr "pluie"
-
-#: gis-weather.py:583 gis-weather.py:624
-msgid "Night"
-msgstr "Nuit"
-
-#: gis-weather.py:583 gis-weather.py:624
-msgid "Morning"
-msgstr "Matin"
-
-#: gis-weather.py:583 gis-weather.py:624
-msgid "Day"
-msgstr "Jour"
-
-#: gis-weather.py:583 gis-weather.py:624
-msgid "Evening"
-msgstr "Soirée"
-
-#: gis-weather.py:585
-msgid "Tomorrow"
-msgstr "Demain"
-
-#: gis-weather.py:626
-msgid "Today"
-msgstr "Aujourd'hui"
-
-#: gis-weather.py:727
-msgid "Background image not found"
-msgstr "L'image de fond n'a pas été trouvé"
-
-#: gis-weather.py:780
-msgid "downloading"
-msgstr "téléchargement"
-
-#: gis-weather.py:783
-msgid "Unable to download"
-msgstr "Impossible de télécharger"
-
-#: gis-weather.py:820
-msgid "not found icon"
-msgstr "pas d'icône trouvé"
-
-#: gis-weather.py:856
-msgid "Widget size"
-msgstr "Taille du Widget"
-
-#: gis-weather.py:857
-msgid "width"
-msgstr "largeur"
-
-#: gis-weather.py:857
-msgid "height"
-msgstr "hauteur"
-
-#: gis-weather.py:857
-msgid "including indent"
-msgstr "comprenant le retrait"
-
-#: gis-weather.py:912
+#: gis-weather.py:395
 msgid "Screenshot saved to"
 msgstr "Capture d'écran enregistrée"
 
-#: gis-weather.py:914
+#: gis-weather.py:397
 msgid "Unable to get the screenshot"
 msgstr "Impossible d'obtenir la capture d'écran"
 
-#: gis-weather.py:1012
+#: gis-weather.py:561
+msgid "Getting weather..."
+msgstr "Obtenir la météo ..."
+
+#: gis-weather.py:564
+msgid "Error getting weather"
+msgstr "Erreur de récupération de la météo"
+
+#: gis-weather.py:566
+msgid "Location not set"
+msgstr "Lieu pas encore défini"
+
+#: gis-weather.py:620 gis-weather.py:681
+msgid "Next update in"
+msgstr "Prochaine mise à jour dans"
+
+#: gis-weather.py:620 gis-weather.py:681
+msgid "min"
+msgstr "min"
+
+#: gis-weather.py:671
+msgid "Connection error"
+msgstr "Erreur de connexion"
+
+#: gis-weather.py:718 services/accuweather.py:728 services/gismeteo.py:437
+#: services/weather_com.py:383
+msgid "updated on server"
+msgstr "mise à jour sur le serveur"
+
+#: gis-weather.py:719 services/accuweather.py:729 services/gismeteo.py:438
+#: services/weather_com.py:384
+msgid "weather received"
+msgstr "Météo reçue"
+
+#: gis-weather.py:746
+msgid "E"
+msgstr "E"
+
+#: gis-weather.py:746
+msgid "S"
+msgstr "S"
+
+#: gis-weather.py:746
+msgid "W"
+msgstr "W"
+
+#: gis-weather.py:746
+msgid "N"
+msgstr "N"
+
+#: gis-weather.py:797
+msgid "humid."
+msgstr "humid."
+
+#: gis-weather.py:806
+msgid "water"
+msgstr "pluie"
+
+#: gis-weather.py:823 gis-weather.py:872
+msgid "Morning"
+msgstr "Matin"
+
+#: gis-weather.py:823 gis-weather.py:872
+msgid "Day"
+msgstr "Jour"
+
+#: gis-weather.py:823 gis-weather.py:872
+msgid "Evening"
+msgstr "Soirée"
+
+#: gis-weather.py:823 gis-weather.py:872
+msgid "Night"
+msgstr "Nuit"
+
+#: gis-weather.py:826 gis-weather.py:828
+msgid "Tomorrow"
+msgstr "Demain"
+
+#: gis-weather.py:874
+msgid "Today"
+msgstr "Aujourd'hui"
+
+#: gis-weather.py:976
+msgid "Background image not found"
+msgstr "L'image de fond n'a pas été trouvé"
+
+#: gis-weather.py:1034
+msgid "downloading"
+msgstr "téléchargement"
+
+#: gis-weather.py:1037
+msgid "Unable to download"
+msgstr "Impossible de télécharger"
+
+#: gis-weather.py:1059
+msgid "not found icon"
+msgstr "pas d'icône trouvé"
+
+#: gis-weather.py:1129
+msgid "Widget size"
+msgstr "Taille du Widget"
+
+#: gis-weather.py:1130
+msgid "width"
+msgstr "largeur"
+
+#: gis-weather.py:1130
+msgid "height"
+msgstr "hauteur"
+
+#: gis-weather.py:1130
+msgid "including indent"
+msgstr "comprenant le retrait"
+
+#: gis-weather.py:1293
 msgid "Removed"
 msgstr "Suppression"
 
-#: gis-weather.py:1041 dialogs/city_id_dialog.ui:189
+#: gis-weather.py:1322 dialogs/city_id_dialog.ui:189
 msgid "Added"
 msgstr "Ajouter"
 
-#: gis-weather.py:1046 dialogs/city_id_dialog.ui:258
+#: gis-weather.py:1327 dialogs/city_id_dialog.ui:258
 msgid "Invalid location code"
 msgstr "Code de localisation invalide"
 
-#: gis-weather.py:1104
+#: gis-weather.py:1394
 msgid "Your screen does not support alpha"
 msgstr "Votre écran ne prend pas en charge alpha"
 
-#: gis-weather.py:1106
+#: gis-weather.py:1396
 msgid "Your screen supports alpha"
 msgstr "Votre écran supporte alpha"
 
-#: utils/gw_menu.py:50 dialogs/settings_dialog.ui:588
+#: utils/gw_menu.py:51 dialogs/settings_dialog.ui:692
 msgid "Setup..."
 msgstr "Configuration ..."
 
-#: utils/gw_menu.py:71 dialogs/settings_dialog.py:309
+#: utils/gw_menu.py:87 dialogs/settings_dialog.py:361
 msgid "No"
 msgstr "Non"
 
-#: utils/gw_menu.py:87
+#: utils/gw_menu.py:103
 msgid "Color scheme"
 msgstr "Jeu de couleurs"
 
-#: utils/gw_menu.py:95 dialogs/settings_dialog.ui:1277
+#: utils/gw_menu.py:111 dialogs/settings_dialog.ui:1489
 msgid "Lock position"
 msgstr "Verrouiller la position"
 
-#: utils/gw_menu.py:101 dialogs/settings_dialog.ui:1292
+#: utils/gw_menu.py:117 dialogs/settings_dialog.ui:1474
 msgid "On all desktops"
 msgstr "Sur tous les bureaux"
 
-#: utils/gw_menu.py:108 dialogs/settings_dialog.ui:889
+#: utils/gw_menu.py:124 dialogs/settings_dialog.ui:993
 msgid "Refresh"
 msgstr "Actualiser"
 
-#: utils/gw_menu.py:120 dialogs/city_id_dialog.py:89
-#: dialogs/settings_dialog.ui:466 dialogs/city_id_dialog.ui:42
+#: utils/gw_menu.py:136 dialogs/city_id_dialog.py:89
+#: dialogs/settings_dialog.ui:570 dialogs/city_id_dialog.ui:42
 msgid "Location"
 msgstr "Lieu"
 
-#: utils/gw_menu.py:125 dialogs/about_dialog.py:39
-#: dialogs/settings_dialog.ui:3296
+#: utils/gw_menu.py:141 dialogs/about_dialog.py:39
+#: dialogs/settings_dialog.ui:3451 dialogs/settings_dialog.ui:3937
 msgid "Icons"
 msgstr "Icones"
 
-#: utils/gw_menu.py:130 dialogs/settings_dialog.ui:3201
+#: utils/gw_menu.py:146
+msgid "Indicator icons"
+msgstr ""
+
+#: utils/gw_menu.py:151 dialogs/settings_dialog.ui:3356
 msgid "Background"
 msgstr "Fond d'écran"
 
-#: utils/gw_menu.py:135 dialogs/settings_dialog.ui:2968
+#: utils/gw_menu.py:156 dialogs/settings_dialog.ui:3123
 msgid "Text"
 msgstr "Texte"
 
-#: utils/gw_menu.py:140 dialogs/settings_dialog.ui:1544
+#: utils/gw_menu.py:161 dialogs/settings_dialog.ui:1699
 msgid "Window"
 msgstr "Fenêtre"
 
-#: utils/gw_menu.py:145 dialogs/settings_dialog.py:67
-#: dialogs/settings_dialog.py:517
+#: utils/gw_menu.py:166 dialogs/settings_dialog.py:69
+#: dialogs/settings_dialog.py:621
 msgid "Preferences"
 msgstr "Préférences"
 
-#: utils/gw_menu.py:153 dialogs/help_dialog.py:23
+#: utils/gw_menu.py:174 dialogs/help_dialog.py:23
 msgid "Help"
 msgstr "Aide"
 
-#: utils/gw_menu.py:161
+#: utils/gw_menu.py:182
 msgid "About"
 msgstr "Sur"
 
-#: utils/gw_menu.py:173 dialogs/settings_dialog.ui:421
+#: utils/gw_menu.py:194 dialogs/settings_dialog.ui:525
 #: dialogs/help_dialog.ui:25 dialogs/city_id_dialog.ui:72
 #: dialogs/update_dialog.ui:44
 msgid "Close"
 msgstr "Fermer"
 
-#: utils/desktop.py:23 utils/autorun.py:63 dialogs/about_dialog.py:24
+#: utils/desktop.py:23 utils/autorun.py:64 dialogs/about_dialog.py:24
 msgid "Weather widget"
 msgstr "Widget Météo"
 
@@ -320,51 +326,52 @@ msgstr "Installation"
 msgid "Error removing"
 msgstr "Erreur de suppression"
 
-#: dialogs/settings_dialog.py:300
+#: dialogs/settings_dialog.py:352
 msgid "m/s"
 msgstr "m/s"
 
-#: dialogs/settings_dialog.py:300
+#: dialogs/settings_dialog.py:352
 msgid "km/h"
 msgstr "km/h"
 
-#: dialogs/settings_dialog.py:300
+#: dialogs/settings_dialog.py:352
 msgid "mph"
 msgstr "mph"
 
-#: dialogs/settings_dialog.py:301
+#: dialogs/settings_dialog.py:353
 msgid "mmHg"
 msgstr "mmHg"
 
-#: dialogs/settings_dialog.py:301
+#: dialogs/settings_dialog.py:353
 msgid "inHg"
 msgstr "inHg"
 
-#: dialogs/settings_dialog.py:301
+#: dialogs/settings_dialog.py:353
 msgid "hPa"
 msgstr "hPa"
 
-#: dialogs/settings_dialog.py:304
+#: dialogs/settings_dialog.py:356
 msgid "Never"
 msgstr "Jamais"
 
-#: dialogs/settings_dialog.py:305
+#: dialogs/settings_dialog.py:357
 msgid "Only at start"
 msgstr "Seulement au démarrage"
 
-#: dialogs/settings_dialog.py:306
+#: dialogs/settings_dialog.py:358
 msgid "Always"
 msgstr "Toujours"
 
-#: dialogs/settings_dialog.py:310
+#: dialogs/settings_dialog.py:362
 msgid "Only background"
 msgstr "Seulement le fond d'écran"
 
-#: dialogs/settings_dialog.py:311
+#: dialogs/settings_dialog.py:363
 msgid "Yes"
 msgstr "Oui"
 
-#: dialogs/settings_dialog.py:377 dialogs/settings_dialog.py:387
+#: dialogs/settings_dialog.py:454 dialogs/settings_dialog.py:464
+#: dialogs/settings_dialog.py:474
 msgid "Author"
 msgstr "Auteur"
 
@@ -400,205 +407,231 @@ msgstr "Aide et Idées"
 msgid "Backgrounds"
 msgstr "Fonds d'écran"
 
-#: services/gismeteo.py:235 services/weather_com.py:145
+#: services/accuweather.py:225 services/gismeteo.py:237
+#: services/weather_com.py:149
 msgid "Failed to get the name of the location"
 msgstr "Impossible d'obtenir le nom de l'emplacement"
 
-#: services/gismeteo.py:241 services/weather_com.py:151
+#: services/accuweather.py:237 services/gismeteo.py:244
+#: services/weather_com.py:157
 msgid "Getting weather for"
 msgstr "Obtenir la météo pour"
 
-#: services/gismeteo.py:241 services/weather_com.py:151
+#: services/accuweather.py:237 services/gismeteo.py:244
+#: services/weather_com.py:157
 msgid "days"
 msgstr "jours"
 
-#: services/gismeteo.py:242 services/weather_com.py:152
+#: services/accuweather.py:238 services/accuweather.py:305
+#: services/accuweather.py:331 services/accuweather.py:388
+#: services/accuweather.py:449 services/accuweather.py:457
+#: services/accuweather.py:465 services/accuweather.py:473
+#: services/accuweather.py:589 services/accuweather.py:597
+#: services/accuweather.py:605 services/accuweather.py:613
+#: services/gismeteo.py:245 services/weather_com.py:158
 msgid "Uploading page to a variable"
 msgstr "Page de téléchargement à une variable"
 
-#: services/gismeteo.py:248 services/weather_com.py:158
+#: services/accuweather.py:244 services/accuweather.py:311
+#: services/accuweather.py:337 services/accuweather.py:394
+#: services/accuweather.py:455 services/accuweather.py:463
+#: services/accuweather.py:471 services/accuweather.py:479
+#: services/accuweather.py:595 services/accuweather.py:603
+#: services/accuweather.py:611 services/accuweather.py:619
+#: services/gismeteo.py:251 services/weather_com.py:164
 msgid "Unable to download page, check the network connection"
 msgstr ""
 "Impossible d'acceder à la page de téléchargement, vérifiez la connexion "
 "réseau"
 
-#: services/gismeteo.py:250 services/weather_com.py:160
+#: services/accuweather.py:246 services/gismeteo.py:253
+#: services/weather_com.py:166
 msgid "Next try in 10 seconds"
 msgstr "Essayer dans 10 secondes"
 
-#: dialogs/settings_dialog.ui:481
+#: services/accuweather.py:290
+msgid "Calm"
+msgstr ""
+
+#: dialogs/settings_dialog.ui:585
 msgid "Update (in minutes)"
 msgstr "Mise à jour (en minutes)"
 
-#: dialogs/settings_dialog.ui:496
+#: dialogs/settings_dialog.ui:600
 msgid "Check for updates"
 msgstr "Vérifier les mises à jour"
 
-#: dialogs/settings_dialog.ui:523
+#: dialogs/settings_dialog.ui:627
 msgid "Folder with config"
 msgstr "Dossier de configuration"
 
-#: dialogs/settings_dialog.ui:550
+#: dialogs/settings_dialog.ui:654
 msgid "Autostart at login"
 msgstr "Demarrage automatique à la connexion"
 
-#: dialogs/settings_dialog.ui:565
+#: dialogs/settings_dialog.ui:669
 msgid "Start delay (in seconds)"
 msgstr "Départ différé (en secondes)"
 
-#: dialogs/settings_dialog.ui:637
+#: dialogs/settings_dialog.ui:741
 msgid "Open..."
 msgstr "Ouvrir..."
 
-#: dialogs/settings_dialog.ui:751
-msgid "Translate"
-msgstr "Traduire"
+#: dialogs/settings_dialog.ui:855 dialogs/help_dialog.ui:109
+#: dialogs/update_dialog.ui:351
+msgid "Want to translate?"
+msgstr "Vous voulez traduire?"
 
-#: dialogs/settings_dialog.ui:773
+#: dialogs/settings_dialog.ui:877
 msgid "Language program"
 msgstr "Programme de langue"
 
-#: dialogs/settings_dialog.ui:788 dialogs/city_id_dialog.ui:323
+#: dialogs/settings_dialog.ui:892 dialogs/city_id_dialog.ui:323
 msgid "Language weather"
 msgstr "Language de la météo"
 
-#: dialogs/settings_dialog.ui:803
+#: dialogs/settings_dialog.ui:907
 msgid "Add icon launcher to menu"
 msgstr "Ajouter lanceur d'icône au menu"
 
-#: dialogs/settings_dialog.ui:831 dialogs/city_id_dialog.ui:360
+#: dialogs/settings_dialog.ui:935 dialogs/city_id_dialog.ui:360
 msgid "Weather service"
 msgstr "Service météo"
 
-#: dialogs/settings_dialog.ui:963
+#: dialogs/settings_dialog.ui:1067
 msgid "General"
 msgstr "Général"
 
-#: dialogs/settings_dialog.ui:986
+#: dialogs/settings_dialog.ui:1090
 msgid "Wind"
 msgstr "Vent"
 
-#: dialogs/settings_dialog.ui:1001
+#: dialogs/settings_dialog.ui:1105
 msgid "Pressure"
 msgstr "Pression"
 
-#: dialogs/settings_dialog.ui:1050
+#: dialogs/settings_dialog.ui:1154
 msgid "Temperature"
 msgstr "Température"
 
-#: dialogs/settings_dialog.ui:1103
+#: dialogs/settings_dialog.ui:1207
 msgid "Temperature as feel"
 msgstr "Température atmosphérique"
 
-#: dialogs/settings_dialog.ui:1193
+#: dialogs/settings_dialog.ui:1297
 msgid "Units"
 msgstr "Unités"
 
-#: dialogs/settings_dialog.ui:1217
+#: dialogs/settings_dialog.ui:1321
 msgid "Left"
 msgstr "Gauche"
 
-#: dialogs/settings_dialog.ui:1232
+#: dialogs/settings_dialog.ui:1336 dialogs/settings_dialog.ui:3835
 msgid "Top"
 msgstr "Haut"
 
-#: dialogs/settings_dialog.ui:1247
+#: dialogs/settings_dialog.ui:1351
 msgid "Padding"
 msgstr "Padding"
 
-#: dialogs/settings_dialog.ui:1262
-msgid "Transparency"
-msgstr "Transparence"
-
-#: dialogs/settings_dialog.ui:1494
+#: dialogs/settings_dialog.ui:1459
 msgid "Fix BadDrawable error"
 msgstr "Correction d'une erreur BadDrawable"
 
-#: dialogs/settings_dialog.ui:1596 dialogs/settings_dialog.ui:1729
-#: dialogs/settings_dialog.ui:1963 dialogs/settings_dialog.ui:2187
+#: dialogs/settings_dialog.ui:1504
+msgid "Transparency"
+msgstr "Transparence"
+
+#: dialogs/settings_dialog.ui:1643
+msgid "Scale"
+msgstr ""
+
+#: dialogs/settings_dialog.ui:1751 dialogs/settings_dialog.ui:1884
+#: dialogs/settings_dialog.ui:2118 dialogs/settings_dialog.ui:2342
+#: dialogs/settings_dialog.ui:3515
 msgid "Show"
 msgstr "Montrer"
 
-#: dialogs/settings_dialog.ui:1611 dialogs/settings_dialog.ui:1744
-#: dialogs/settings_dialog.ui:1861 dialogs/settings_dialog.ui:1978
-#: dialogs/settings_dialog.ui:2202
+#: dialogs/settings_dialog.ui:1766 dialogs/settings_dialog.ui:1899
+#: dialogs/settings_dialog.ui:2016 dialogs/settings_dialog.ui:2133
+#: dialogs/settings_dialog.ui:2357
 msgid "Offset from center"
 msgstr "Décalage du centre"
 
-#: dialogs/settings_dialog.ui:1689
+#: dialogs/settings_dialog.ui:1844
 msgid "Block Tomorrow"
 msgstr "Bloc Demain"
 
-#: dialogs/settings_dialog.ui:1822
+#: dialogs/settings_dialog.ui:1977
 msgid "Block Today"
 msgstr "Bloc Aujourd'hui"
 
-#: dialogs/settings_dialog.ui:1909
+#: dialogs/settings_dialog.ui:2064
 msgid "Block Now"
 msgstr "Bloc Maintenant"
 
-#: dialogs/settings_dialog.ui:2054
+#: dialogs/settings_dialog.ui:2209
 msgid "Reduce"
 msgstr "Réduire"
 
-#: dialogs/settings_dialog.ui:2069
+#: dialogs/settings_dialog.ui:2224
 msgid "Angle of rotation"
 msgstr "Angle de rotation"
 
-#: dialogs/settings_dialog.ui:2147
+#: dialogs/settings_dialog.ui:2302
 msgid "Block Wind"
 msgstr "Bloc Vent"
 
-#: dialogs/settings_dialog.ui:2280
+#: dialogs/settings_dialog.ui:2435
 msgid "Block Additional info"
 msgstr "Bloc Informations complémentaires"
 
-#: dialogs/settings_dialog.ui:2338
+#: dialogs/settings_dialog.ui:2493
 msgid "Number of days"
 msgstr "Nombre de jours"
 
-#: dialogs/settings_dialog.ui:2353
+#: dialogs/settings_dialog.ui:2508
 msgid "Show time receiving weather"
 msgstr "Afficher l'heure de la réception Météo"
 
-#: dialogs/settings_dialog.ui:2368
+#: dialogs/settings_dialog.ui:2523
 msgid "Show splash screen"
 msgstr "Afficher l'écran de démarrage"
 
-#: dialogs/settings_dialog.ui:2383
+#: dialogs/settings_dialog.ui:2538
 msgid "Hide splash screen after attempts (0 - do not hide)"
 msgstr ""
 "Masquer l'écran de démarrage, après plusieurs tentatives (0 - ne pas cacher)"
 
-#: dialogs/settings_dialog.ui:2527
+#: dialogs/settings_dialog.ui:2682
 msgid "Show chance of rain"
 msgstr "Afficher risque de pluie"
 
-#: dialogs/settings_dialog.ui:2594
+#: dialogs/settings_dialog.ui:2749
 msgid "View"
 msgstr "Voir"
 
-#: dialogs/settings_dialog.ui:2637
+#: dialogs/settings_dialog.ui:2792 dialogs/settings_dialog.ui:3675
 msgid "Font"
 msgstr "Fond"
 
-#: dialogs/settings_dialog.ui:2652
+#: dialogs/settings_dialog.ui:2807
 msgid "Color main"
 msgstr "Couleur principale "
 
-#: dialogs/settings_dialog.ui:2701
+#: dialogs/settings_dialog.ui:2856
 msgid "Color Sa, Su"
 msgstr "Couleur Sa, Su"
 
-#: dialogs/settings_dialog.ui:2716
+#: dialogs/settings_dialog.ui:2871 dialogs/settings_dialog.ui:3630
 msgid "Shadow"
 msgstr "Opacité"
 
-#: dialogs/settings_dialog.ui:2796
+#: dialogs/settings_dialog.ui:2951 dialogs/settings_dialog.ui:3739
 msgid "Color shadow"
 msgstr "Couleur de l'opacité"
 
-#: dialogs/settings_dialog.ui:2811
+#: dialogs/settings_dialog.ui:2966
 msgid ""
 "High wind\n"
 "(-1 = not highlight)"
@@ -606,23 +639,23 @@ msgstr ""
 "Vent fort\n"
 " (-1 = Pas en surbrillance)"
 
-#: dialogs/settings_dialog.ui:2827
+#: dialogs/settings_dialog.ui:2982
 msgid "Color wind"
 msgstr "Couleur du vent"
 
-#: dialogs/settings_dialog.ui:3007
+#: dialogs/settings_dialog.ui:3162
 msgid "Use PNG"
 msgstr "Utilisez PNG"
 
-#: dialogs/settings_dialog.ui:3022 dialogs/settings_dialog.ui:3241
+#: dialogs/settings_dialog.ui:3177 dialogs/settings_dialog.ui:3396
 msgid "Select"
 msgstr "Sélectionner"
 
-#: dialogs/settings_dialog.ui:3084
+#: dialogs/settings_dialog.ui:3239
 msgid "Color (if not PNG)"
 msgstr "Couleur (si pas PNG)"
 
-#: dialogs/settings_dialog.ui:3099
+#: dialogs/settings_dialog.ui:3254
 msgid ""
 "Radius corners\n"
 "(if not PNG)"
@@ -630,9 +663,36 @@ msgstr ""
 "Arrondir les coins\n"
 " (si pas PNG)"
 
-#: dialogs/settings_dialog.ui:3321
+#: dialogs/settings_dialog.ui:3476
 msgid "Appearance"
 msgstr "Apparence"
+
+#: dialogs/settings_dialog.ui:3500
+msgid "Type (need restart widget)"
+msgstr ""
+
+#: dialogs/settings_dialog.ui:3724
+#, fuzzy
+msgid "Color"
+msgstr "Couleur principale "
+
+#: dialogs/settings_dialog.ui:3867
+#, fuzzy
+msgid "Width"
+msgstr "largeur"
+
+#: dialogs/settings_dialog.ui:3989
+#, fuzzy
+msgid "Fix the size"
+msgstr "Taille du Widget"
+
+#: dialogs/settings_dialog.ui:4034
+msgid "Size"
+msgstr ""
+
+#: dialogs/settings_dialog.ui:4110
+msgid "Indicator"
+msgstr ""
 
 #: dialogs/help_dialog.ui:76 dialogs/update_dialog.ui:318
 msgid "Send email"
@@ -641,10 +701,6 @@ msgstr "Envoyer un email"
 #: dialogs/help_dialog.ui:92 dialogs/update_dialog.ui:334
 msgid "Found a bug?"
 msgstr "Vous avez trouvé un bug?"
-
-#: dialogs/help_dialog.ui:109 dialogs/update_dialog.ui:351
-msgid "Want to translate?"
-msgstr "Vous voulez traduire?"
 
 #: dialogs/help_dialog.ui:126 dialogs/update_dialog.ui:369
 msgid "Have any questions?"
@@ -709,6 +765,9 @@ msgstr "Mettre à jour réussie"
 #: dialogs/update_dialog.ui:756
 msgid "Update error"
 msgstr "Erreur de mise à jour"
+
+#~ msgid "Translate"
+#~ msgstr "Traduire"
 
 #~ msgid "Hg"
 #~ msgstr "рт.ст."

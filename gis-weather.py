@@ -387,8 +387,8 @@ def screenshot():
         user32 = ctypes.windll.user32
         left, top, width, height = 0, 0, user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
     else:
-        w = Gdk.get_default_root_window()
         left, top, width, height = w.get_geometry()
+    w = Gdk.get_default_root_window()
     pb = Gdk.pixbuf_get_from_window(w,left,top,width,height)
     if (pb != None):
         pb.savev(os.path.join(CONFIG_PATH, "main_screenshot.png"),"png", (), ())
@@ -419,19 +419,28 @@ class Indicator:
             if app_indicator_fix_size:
                 self.set_icon_fixed(icon, app_indicator_size)
             else:
-                self.indicator.set_icon(icon)
+                if icon[-4:] == 'svgz':
+                    inF = gzip.open(icon, 'rb')
+                    outF = open(os.path.join(CONFIG_PATH, 'cur_icon.svg'), 'wb')
+                    outF.write(inF.read())
+                    inF.close()
+                    outF.close()
+                    self.indicator.set_icon(os.path.join(CONFIG_PATH, 'cur_icon.svg'))
+                else:
+                    self.indicator.set_icon(icon)
 
-        def set_icon_fixed(self, icon, size=22):
+        def set_icon_fixed(self, icon, size=None):
             if icon[-4:] == 'svgz':
-                inF = gzip.open(icon, 'rb')
-                outF = open(os.path.join(CONFIG_PATH, "cur_icon.png"), 'wb')
-                outF.write(inF.read())
+                inF = gzip.open(icon, 'r')
+                loader = GdkPixbuf.PixbufLoader()
+                loader.write(inF.read())
+                loader.close()
                 inF.close()
-                outF.close()
-                pixbuf = GdkPixbuf.Pixbuf.new_from_file(os.path.join(CONFIG_PATH, "cur_icon.png"))
+                pixbuf = loader.get_pixbuf()
             else:
                 pixbuf = GdkPixbuf.Pixbuf.new_from_file(icon)
-            pixbuf = pixbuf.scale_simple(size,size,GdkPixbuf.InterpType.BILINEAR)
+            if size:
+                pixbuf = pixbuf.scale_simple(size,size,GdkPixbuf.InterpType.BILINEAR)
             pixbuf.savev(os.path.join(CONFIG_PATH, "cur_icon.png"),"png", (), ())
             self.indicator.set_icon(os.path.join(CONFIG_PATH, "cur_icon.png"))
 
@@ -470,7 +479,15 @@ class Indicator:
             self.indicator_label.set_from_file(os.path.join(CONFIG_PATH, "text.png"))
 
         def set_icon(self, icon):
-            self.indicator.set_from_file(icon)
+            if icon[-4:] == 'svgz':
+                inF = gzip.open(icon, 'rb')
+                outF = open(os.path.join(CONFIG_PATH, 'cur_icon.svg'), 'wb')
+                outF.write(inF.read())
+                inF.close()
+                outF.close()
+                self.indicator.set_icon(os.path.join(CONFIG_PATH, 'cur_icon.svg'))
+            else:
+                self.indicator.set_from_file(icon)
 
         def set_menu(self, menu):
             self.indicator.connect("popup-menu", self.popup_menu)
@@ -618,6 +635,7 @@ class MyDrawArea(Gtk.DrawingArea):
     
     
     def expose(self, widget, event):
+        print('expose')
         global err, on_redraw, get_weather_bool, weather, err_connect, splash, time_receive
         if err == False:
             self.clear_draw_area(widget)
@@ -1063,8 +1081,16 @@ class MyDrawArea(Gtk.DrawingArea):
             self.cr.rotate(math.radians(ang))
             self.cr.translate(-w//2, -h//2)
         else:
-            self.cr.translate(x, y) 
-        pixbuf = GdkPixbuf.Pixbuf.new_from_file(pix)
+            self.cr.translate(x, y)
+        if pix[-4:] == 'svgz':
+            inF = gzip.open(pix, 'r')
+            loader = GdkPixbuf.PixbufLoader()
+            loader.write(inF.read())
+            loader.close()
+            inF.close()
+            pixbuf = loader.get_pixbuf()
+        else:
+            pixbuf = GdkPixbuf.Pixbuf.new_from_file(pix)
         k=1
         if pixbuf.get_width()>pixbuf.get_height() and os.path.split(pix)[-2][-11:]!='backgrounds' and os.path.basename(pix)!='screenshot.png':
             k = pixbuf.get_width()/pixbuf.get_height()
@@ -1358,7 +1384,7 @@ class Weather_Widget:
             show_time_receive_local = True
         if param == 'leave' and show_time_receive_local:
             show_time_receive_local = False
-        if not err:
+        if not err and show_time_receive:
             self.drawing_area.queue_draw()
 
     def screen_changed(self, widget, old_screen = None):
@@ -1396,5 +1422,5 @@ if __name__ == "__main__":
     app = Weather_Widget()
     app.create_menu()
     ind.set_menu(app.menu)
-    GLib.set_application_name("gis-weather") #!!!!!!!!!!!!!!!!!!!!
+    # GLib.set_application_name("gis-weather") #!!!!!!!!!!!!!!!!!!!!
     app.main()
