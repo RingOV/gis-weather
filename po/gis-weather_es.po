@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-08-10 11:30+0300\n"
-"PO-Revision-Date: 2014-08-10 11:30+0300\n"
+"POT-Creation-Date: 2014-08-10 12:58+0300\n"
+"PO-Revision-Date: 2014-08-10 12:58+0300\n"
 "Last-Translator: \n"
 "Language-Team: Gis Weather Team\n"
 "Language: Español\n"
@@ -201,7 +201,7 @@ msgstr "Tu pantalla tiene soporte para transparencia"
 msgid "Setup..."
 msgstr "Configuración..."
 
-#: utils/gw_menu.py:87 dialogs/settings_dialog.py:361
+#: utils/gw_menu.py:87 dialogs/settings_dialog.py:363
 msgid "No"
 msgstr "No"
 
@@ -209,11 +209,11 @@ msgstr "No"
 msgid "Color scheme"
 msgstr "Esquema de colores"
 
-#: utils/gw_menu.py:111 dialogs/settings_dialog.ui:1489
+#: utils/gw_menu.py:111 dialogs/settings_dialog.ui:1513
 msgid "Lock position"
 msgstr "Fijar posición"
 
-#: utils/gw_menu.py:117 dialogs/settings_dialog.ui:1474
+#: utils/gw_menu.py:117 dialogs/settings_dialog.ui:1498
 msgid "On all desktops"
 msgstr "En todos los escritorios"
 
@@ -227,7 +227,7 @@ msgid "Location"
 msgstr "Ubicación"
 
 #: utils/gw_menu.py:141 dialogs/about_dialog.py:39
-#: dialogs/settings_dialog.ui:3451 dialogs/settings_dialog.ui:3937
+#: dialogs/settings_dialog.ui:3535 dialogs/settings_dialog.ui:4021
 msgid "Icons"
 msgstr "Íconos"
 
@@ -235,20 +235,20 @@ msgstr "Íconos"
 msgid "Indicator icons"
 msgstr ""
 
-#: utils/gw_menu.py:151 dialogs/settings_dialog.ui:3356
+#: utils/gw_menu.py:151 dialogs/settings_dialog.ui:3440
 msgid "Background"
 msgstr "Fondo"
 
-#: utils/gw_menu.py:156 dialogs/settings_dialog.ui:3123
+#: utils/gw_menu.py:156 dialogs/settings_dialog.ui:3147
 msgid "Text"
 msgstr "Texto"
 
-#: utils/gw_menu.py:161 dialogs/settings_dialog.ui:1699
+#: utils/gw_menu.py:161 dialogs/settings_dialog.ui:1723
 msgid "Window"
 msgstr "Ventana"
 
 #: utils/gw_menu.py:166 dialogs/settings_dialog.py:69
-#: dialogs/settings_dialog.py:621
+#: dialogs/settings_dialog.py:636
 msgid "Preferences"
 msgstr "Preferencias"
 
@@ -326,52 +326,52 @@ msgstr "Instalación"
 msgid "Error removing"
 msgstr "Error eliminando"
 
-#: dialogs/settings_dialog.py:352
+#: dialogs/settings_dialog.py:354
 msgid "m/s"
 msgstr "m/s"
 
-#: dialogs/settings_dialog.py:352
+#: dialogs/settings_dialog.py:354
 msgid "km/h"
 msgstr ""
 
-#: dialogs/settings_dialog.py:352
+#: dialogs/settings_dialog.py:354
 msgid "mph"
 msgstr ""
 
-#: dialogs/settings_dialog.py:353
+#: dialogs/settings_dialog.py:355
 msgid "mmHg"
 msgstr "mmHg"
 
-#: dialogs/settings_dialog.py:353
+#: dialogs/settings_dialog.py:355
 msgid "inHg"
 msgstr ""
 
-#: dialogs/settings_dialog.py:353
+#: dialogs/settings_dialog.py:355
 msgid "hPa"
 msgstr ""
 
-#: dialogs/settings_dialog.py:356
+#: dialogs/settings_dialog.py:358
 msgid "Never"
 msgstr "Nunca"
 
-#: dialogs/settings_dialog.py:357
+#: dialogs/settings_dialog.py:359
 msgid "Only at start"
 msgstr "Sólo al iniciar"
 
-#: dialogs/settings_dialog.py:358
+#: dialogs/settings_dialog.py:360
 msgid "Always"
 msgstr "Siempre"
 
-#: dialogs/settings_dialog.py:362
+#: dialogs/settings_dialog.py:364
 msgid "Only background"
 msgstr "Sólo al fondo"
 
-#: dialogs/settings_dialog.py:363
+#: dialogs/settings_dialog.py:365
 msgid "Yes"
 msgstr "Sí"
 
-#: dialogs/settings_dialog.py:454 dialogs/settings_dialog.py:464
-#: dialogs/settings_dialog.py:474
+#: dialogs/settings_dialog.py:461 dialogs/settings_dialog.py:471
+#: dialogs/settings_dialog.py:481
 msgid "Author"
 msgstr "Autor"
 
@@ -509,140 +509,144 @@ msgstr "Añadir ícono al lanzador de menú"
 msgid "Weather service"
 msgstr "Widget de tiempo meteorológico"
 
-#: dialogs/settings_dialog.ui:1067
+#: dialogs/settings_dialog.ui:1016 dialogs/help_dialog.ui:286
+msgid "Translation status"
+msgstr ""
+
+#: dialogs/settings_dialog.ui:1091
 msgid "General"
 msgstr "General"
 
-#: dialogs/settings_dialog.ui:1090
+#: dialogs/settings_dialog.ui:1114
 #, fuzzy
 msgid "Wind"
 msgstr "Ventana"
 
-#: dialogs/settings_dialog.ui:1105
+#: dialogs/settings_dialog.ui:1129
 msgid "Pressure"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:1154
+#: dialogs/settings_dialog.ui:1178
 msgid "Temperature"
 msgstr "Temperatura"
 
-#: dialogs/settings_dialog.ui:1207
+#: dialogs/settings_dialog.ui:1231
 msgid "Temperature as feel"
 msgstr "Sensación térmica"
 
-#: dialogs/settings_dialog.ui:1297
+#: dialogs/settings_dialog.ui:1321
 msgid "Units"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:1321
+#: dialogs/settings_dialog.ui:1345
 msgid "Left"
 msgstr "Izquierda"
 
-#: dialogs/settings_dialog.ui:1336 dialogs/settings_dialog.ui:3835
+#: dialogs/settings_dialog.ui:1360 dialogs/settings_dialog.ui:3919
 msgid "Top"
 msgstr "Arriba"
 
-#: dialogs/settings_dialog.ui:1351
+#: dialogs/settings_dialog.ui:1375
 msgid "Padding"
 msgstr "Espaciado"
 
-#: dialogs/settings_dialog.ui:1459
+#: dialogs/settings_dialog.ui:1483
 msgid "Fix BadDrawable error"
 msgstr "Arreglar BadDrawable error"
 
-#: dialogs/settings_dialog.ui:1504
+#: dialogs/settings_dialog.ui:1528
 msgid "Transparency"
 msgstr "Transparencia"
 
-#: dialogs/settings_dialog.ui:1643
+#: dialogs/settings_dialog.ui:1667
 msgid "Scale"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:1751 dialogs/settings_dialog.ui:1884
-#: dialogs/settings_dialog.ui:2118 dialogs/settings_dialog.ui:2342
-#: dialogs/settings_dialog.ui:3515
+#: dialogs/settings_dialog.ui:1775 dialogs/settings_dialog.ui:1908
+#: dialogs/settings_dialog.ui:2142 dialogs/settings_dialog.ui:2366
+#: dialogs/settings_dialog.ui:3599
 msgid "Show"
 msgstr "Mostrar"
 
-#: dialogs/settings_dialog.ui:1766 dialogs/settings_dialog.ui:1899
-#: dialogs/settings_dialog.ui:2016 dialogs/settings_dialog.ui:2133
-#: dialogs/settings_dialog.ui:2357
+#: dialogs/settings_dialog.ui:1790 dialogs/settings_dialog.ui:1923
+#: dialogs/settings_dialog.ui:2040 dialogs/settings_dialog.ui:2157
+#: dialogs/settings_dialog.ui:2381
 msgid "Offset from center"
 msgstr "Desplazamiento desde el centro"
 
-#: dialogs/settings_dialog.ui:1844
+#: dialogs/settings_dialog.ui:1868
 msgid "Block Tomorrow"
 msgstr "Bloquear \"Mañana\""
 
-#: dialogs/settings_dialog.ui:1977
+#: dialogs/settings_dialog.ui:2001
 msgid "Block Today"
 msgstr "Bloquear Hoy"
 
-#: dialogs/settings_dialog.ui:2064
+#: dialogs/settings_dialog.ui:2088
 msgid "Block Now"
 msgstr "Bloquear Ahora"
 
-#: dialogs/settings_dialog.ui:2209
+#: dialogs/settings_dialog.ui:2233
 msgid "Reduce"
 msgstr "Reducir"
 
-#: dialogs/settings_dialog.ui:2224
+#: dialogs/settings_dialog.ui:2248
 msgid "Angle of rotation"
 msgstr "Ángulo de rotación"
 
-#: dialogs/settings_dialog.ui:2302
+#: dialogs/settings_dialog.ui:2326
 msgid "Block Wind"
 msgstr "Bloquear Viento"
 
-#: dialogs/settings_dialog.ui:2435
+#: dialogs/settings_dialog.ui:2459
 msgid "Block Additional info"
 msgstr "Bloquear Información adicional"
 
-#: dialogs/settings_dialog.ui:2493
+#: dialogs/settings_dialog.ui:2517
 msgid "Number of days"
 msgstr "Número de días"
 
-#: dialogs/settings_dialog.ui:2508
+#: dialogs/settings_dialog.ui:2532
 msgid "Show time receiving weather"
 msgstr "Mostrar hora de actualización"
 
-#: dialogs/settings_dialog.ui:2523
+#: dialogs/settings_dialog.ui:2547
 msgid "Show splash screen"
 msgstr "Mostrar pantalla de bienvenida"
 
-#: dialogs/settings_dialog.ui:2538
+#: dialogs/settings_dialog.ui:2562
 msgid "Hide splash screen after attempts (0 - do not hide)"
 msgstr "Ocultar pantalla de bienvenida después de intentos (0 - no oculta)"
 
-#: dialogs/settings_dialog.ui:2682
+#: dialogs/settings_dialog.ui:2706
 msgid "Show chance of rain"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:2749
+#: dialogs/settings_dialog.ui:2773
 msgid "View"
 msgstr "Ver"
 
-#: dialogs/settings_dialog.ui:2792 dialogs/settings_dialog.ui:3675
+#: dialogs/settings_dialog.ui:2816 dialogs/settings_dialog.ui:3759
 msgid "Font"
 msgstr "Tipografía"
 
-#: dialogs/settings_dialog.ui:2807
+#: dialogs/settings_dialog.ui:2831
 msgid "Color main"
 msgstr "Color principal"
 
-#: dialogs/settings_dialog.ui:2856
+#: dialogs/settings_dialog.ui:2880
 msgid "Color Sa, Su"
 msgstr "Color, Sá, Do"
 
-#: dialogs/settings_dialog.ui:2871 dialogs/settings_dialog.ui:3630
+#: dialogs/settings_dialog.ui:2895 dialogs/settings_dialog.ui:3714
 msgid "Shadow"
 msgstr "Sombra"
 
-#: dialogs/settings_dialog.ui:2951 dialogs/settings_dialog.ui:3739
+#: dialogs/settings_dialog.ui:2975 dialogs/settings_dialog.ui:3823
 msgid "Color shadow"
 msgstr "Color de la sombra"
 
-#: dialogs/settings_dialog.ui:2966
+#: dialogs/settings_dialog.ui:2990
 msgid ""
 "High wind\n"
 "(-1 = not highlight)"
@@ -650,58 +654,53 @@ msgstr ""
 "Viento máximo\n"
 "(-1 = no resaltar)"
 
-#: dialogs/settings_dialog.ui:2982
+#: dialogs/settings_dialog.ui:3006
 msgid "Color wind"
 msgstr "Color para viento"
 
-#: dialogs/settings_dialog.ui:3162
-msgid "Use PNG"
-msgstr "Usar PNG"
+#: dialogs/settings_dialog.ui:3186
+msgid "Use image"
+msgstr ""
 
-#: dialogs/settings_dialog.ui:3177 dialogs/settings_dialog.ui:3396
+#: dialogs/settings_dialog.ui:3246 dialogs/settings_dialog.ui:3480
 msgid "Select"
 msgstr "Seleccionar"
 
-#: dialogs/settings_dialog.ui:3239
-msgid "Color (if not PNG)"
-msgstr "Color (si no usa PNG)"
-
-#: dialogs/settings_dialog.ui:3254
-msgid ""
-"Radius corners\n"
-"(if not PNG)"
+#: dialogs/settings_dialog.ui:3330
+#, fuzzy
+msgid "Radius corners"
 msgstr ""
 "Radio de las esquinas\n"
 "(si no usa PNG)"
 
-#: dialogs/settings_dialog.ui:3476
-msgid "Appearance"
-msgstr "Apariencia"
-
-#: dialogs/settings_dialog.ui:3500
-msgid "Type (need restart widget)"
-msgstr ""
-
-#: dialogs/settings_dialog.ui:3724
+#: dialogs/settings_dialog.ui:3345 dialogs/settings_dialog.ui:3808
 #, fuzzy
 msgid "Color"
 msgstr "Color principal"
 
-#: dialogs/settings_dialog.ui:3867
+#: dialogs/settings_dialog.ui:3560
+msgid "Appearance"
+msgstr "Apariencia"
+
+#: dialogs/settings_dialog.ui:3584
+msgid "Type (need restart widget)"
+msgstr ""
+
+#: dialogs/settings_dialog.ui:3951
 #, fuzzy
 msgid "Width"
 msgstr "ancho"
 
-#: dialogs/settings_dialog.ui:3989
+#: dialogs/settings_dialog.ui:4073
 #, fuzzy
 msgid "Fix the size"
 msgstr "Tamaño del widget"
 
-#: dialogs/settings_dialog.ui:4034
+#: dialogs/settings_dialog.ui:4118
 msgid "Size"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:4110
+#: dialogs/settings_dialog.ui:4194
 msgid "Indicator"
 msgstr ""
 
@@ -772,6 +771,16 @@ msgstr "Actualización exitosa"
 #: dialogs/update_dialog.ui:756
 msgid "Update error"
 msgstr "Error al actualizar"
+
+#~ msgid "Use PNG"
+#~ msgstr "Usar PNG"
+
+#~ msgid "Color (if not PNG)"
+#~ msgstr "Color (si no usa PNG)"
+
+#, fuzzy
+#~ msgid "ReadMe"
+#~ msgstr "Leer más"
 
 #~ msgid "Translate"
 #~ msgstr "Traducir"

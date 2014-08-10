@@ -256,6 +256,8 @@ class settings():
         self.switch_show_bg_png.connect("notify::active", self.save_settings)
         self.spinbutton_r = self.ui.get_object('spinbutton_r')
         self.spinbutton_r.connect("value-changed", self.save_settings)
+        self.frame_image = self.ui.get_object('frame_image')
+        self.frame_not_image = self.ui.get_object('frame_not_image')
 
         self.combobox_icons_name = self.ui.get_object('combobox_icons_name')
         self.combobox_icons_name.connect("changed", self.set_icon_bg)
@@ -441,6 +443,11 @@ class settings():
         self.load(self.spinbutton_app_indicator_size)
         self.load(self.switch_app_indicator_fix_size)
 
+        if gw_config_set['show_bg_png'] == True:
+            self.frame_not_image.hide()
+        else:
+            self.frame_image.hide()
+
         if gw_config_set['indicator_is_appindicator'] == 0:
             self.frame_app_indicator.hide()
         else:
@@ -552,6 +559,14 @@ class settings():
             else:
                 self.frame_status_icon.show()
                 self.frame_app_indicator.hide()
+
+        if name == 'show_bg_png':
+            if value:
+                self.frame_image.show()
+                self.frame_not_image.hide()
+            else:
+                self.frame_image.hide()
+                self.frame_not_image.show()
 
     def clear_settings(self, widget):
         global gw_config_set
