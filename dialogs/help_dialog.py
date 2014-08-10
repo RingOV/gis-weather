@@ -8,7 +8,12 @@ linkbutton_send = None
 
 def set_message_subject(widget, subject):
     if widget.get_active():
-        linkbutton_send.set_uri("mailto:ringov.gisweather@gmail.com?subject="+subject)
+        if subject == 'Localization':
+            linkbutton_send.set_uri("https://github.com/RingOV/gis-weather/wiki/Want-to-translate%3F")
+            linkbutton_send.set_label(_("Go to link"))
+        else:
+            linkbutton_send.set_uri("mailto:ringov.gisweather@gmail.com?subject="+subject)
+            linkbutton_send.set_label(_("Send email"))
 
 def create(APP_PATH):
     global linkbutton_send

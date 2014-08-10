@@ -859,7 +859,7 @@
                     <property name="halign">end</property>
                     <property name="relief">none</property>
                     <property name="focus_on_click">False</property>
-                    <property name="uri">mailto:ringov.gisweather@gmail.com?subject=Localization</property>
+                    <property name="uri">https://github.com/RingOV/gis-weather/wiki/Want-to-translate%3F</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>

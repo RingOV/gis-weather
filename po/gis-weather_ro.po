@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-08-09 18:43+0300\n"
-"PO-Revision-Date: 2014-08-09 18:43+0300\n"
+"POT-Creation-Date: 2014-08-10 11:30+0300\n"
+"PO-Revision-Date: 2014-08-10 11:30+0300\n"
 "Last-Translator: \n"
 "Language-Team: Daniel <hyperion_dani@yahoo.com>\n"
 "Language: Română\n"
@@ -252,7 +252,7 @@ msgstr "Fereastră"
 msgid "Preferences"
 msgstr "Preferințe"
 
-#: utils/gw_menu.py:174 dialogs/help_dialog.py:23
+#: utils/gw_menu.py:174 dialogs/help_dialog.py:28
 msgid "Help"
 msgstr "Ajutor"
 
@@ -374,6 +374,15 @@ msgstr "Da"
 #: dialogs/settings_dialog.py:474
 msgid "Author"
 msgstr "Autor"
+
+#: dialogs/help_dialog.py:13
+msgid "Go to link"
+msgstr ""
+
+#: dialogs/help_dialog.py:16 dialogs/help_dialog.ui:76
+#: dialogs/update_dialog.ui:318
+msgid "Send email"
+msgstr "Trimite email"
 
 #: dialogs/about_dialog.py:7
 msgid ""
@@ -695,10 +704,6 @@ msgstr ""
 msgid "Indicator"
 msgstr ""
 
-#: dialogs/help_dialog.ui:76 dialogs/update_dialog.ui:318
-msgid "Send email"
-msgstr "Trimite email"
-
 #: dialogs/help_dialog.ui:92 dialogs/update_dialog.ui:334
 msgid "Found a bug?"
 msgstr "Ai găsit o eroare?"
@@ -784,9 +789,6 @@ msgstr "Eroare Actualizare"
 
 #~ msgid "Installed version"
 #~ msgstr "Установленная версия"
-
-#~ msgid "Go to website"
-#~ msgstr "На сайт"
 
 #~ msgid "Sa"
 #~ msgstr "Сб"
