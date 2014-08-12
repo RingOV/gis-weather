@@ -7,6 +7,7 @@ import json
 import sys
 from services import data
 from services.data import services_list
+import re
 
 if sys.platform.startswith("win"):
     WIN = True
@@ -36,20 +37,24 @@ weather_lang_list = None
 
 dict_app_lang = {
     'auto': 'Auto',
-    'en': 'English',
-    'ru': 'Русский',
-    'es': 'Español',
-    'fr': 'Français',
-    'ro': 'Română'
+    'en': 'English'
 }
+
+for root, dirs, files in os.walk(os.path.join(os.path.split(work_path)[0], 'po')):
+    break
+files.remove('README.md')
+for item in files:
+    if item[-2:] == 'po':
+        f = open(os.path.join(root, item), 'r')
+        l = f.read()
+        language = re.findall('"Language: (.*)"', l)
+        dict_app_lang[item.split('_')[-1][:-3]] = language[0][:-2]
 
 # find all available lang
 available_lang = ['auto', 'en']
 for root, dirs, files in os.walk(os.path.join(os.path.split(work_path)[0], 'i18n')):
     break
 dirs.sort()
-# for i in range(len(dirs)):
-#     available_lang.append(dirs[i])
 available_lang.extend(dirs)
 
 def Save_Config():
