@@ -180,7 +180,7 @@ def Load_Config():
         for i in gw_config_loaded.keys():
             gw_config[i] = gw_config_loaded[i] # Присваиваем новые значения
     except:
-        print ('[!] '+_('Error loading config file'))
+        print ('\033[1;31m[!]\033[0m '+_('Error loading config file'))
 
     # Создаем переменные
     for i in gw_config.keys():
@@ -201,7 +201,7 @@ def Load_Color_Scheme(number = 0):
             gw_config[i] = scheme_loaded[i]
         gw_config['color_scheme_number'] = number
     except:
-        print ('[!] '+_('Error loading color scheme')+' # '+str(number))
+        print ('\033[1;31m[!]\033[0m '+_('Error loading color scheme')+' # '+str(number))
 
     # Создаем переменные
     for i in gw_config.keys():
@@ -229,7 +229,7 @@ if not os.path.exists(os.path.join(ICONS_USER_PATH, 'default', 'weather')):
     os.makedirs(os.path.join(ICONS_USER_PATH, 'default', 'weather'))
 
 if indicator_is_appindicator == 'None':
-    if os.environ.get('DESKTOP_SESSION') == "ubuntu" and HAS_INDICATOR:
+    if HAS_INDICATOR:
         indicator_is_appindicator = 1
     else:
         indicator_is_appindicator = 0
@@ -237,7 +237,7 @@ if indicator_is_appindicator == 'None':
 # Вспомогательные переменные
 height = None
 width = None
-cr = None
+# cr = None
 h_block = 95         
 w_block = 80         
 block_margin = 20 
@@ -314,8 +314,8 @@ weather = {
 for i in weather.keys():
     globals()[i] = weather[i]
 
-def get_weather(indicator_only=False):
-    return data.get_weather(service, weather, n, city_id, show_block_tomorrow, show_block_today, show_block_add_info, timer_bool, weather_lang, icons_name, indicator_only)
+def get_weather():
+    return data.get_weather(service, weather, n, city_id, show_block_tomorrow, show_block_today, show_block_add_info, timer_bool, weather_lang, icons_name)
 
 def check_updates():
     package = 'gz'
@@ -333,12 +333,12 @@ def check_updates():
         Save_Config()
         return False
 
-    print ('> '+_('Check for new version')+' '+'(%s)' % package)
+    print ('\033[34m>\033[0m '+_('Check for new version')+' '+'(%s)' % package)
     try:
         source = urlopen('http://sourceforge.net/projects/gis-weather/files/gis-weather/', timeout=10).read()
         source = source.decode(encoding='UTF-8')
     except:
-        print ('[!] '+_('Unable to check for updates'))
+        print ('\033[1;31m[!]\033[0m '+_('Unable to check for updates'))
         print ('-'*40)
         return False
     new_ver1 = re.findall('<a href="/projects/gis-weather/files/gis-weather/(.+)/"', source)
@@ -347,7 +347,7 @@ def check_updates():
         temp = urlopen('http://sourceforge.net/projects/gis-weather/files/gis-weather/%s/'%new_ver1[0], timeout=10).read()
         temp = temp.decode(encoding='UTF-8')
     except:
-        print ('[!] '+_('Unable to check for updates'))
+        print ('\033[1;31m[!]\033[0m '+_('Unable to check for updates'))
         print ('-'*40)
         return False
     temp_links = re.findall('http://sourceforge.net/projects/gis-weather/files/gis-weather/%s/(.+)/download'%new_ver1[0], temp)
@@ -369,14 +369,14 @@ def check_updates():
     if int(new_ver[0])*10000+int(new_ver[1])*100+int(new_ver[2])>int(cur_ver[0])*10000+int(cur_ver[1])*100+int(cur_ver[2]):
         new_v = new_ver1[0]
     if new_v:
-        print ('>>> '+_('New version available')+' '+str(new_v))
-        print ('>>> '+str(update_link))
+        print ('\033[34m>>>\033[0m '+_('New version available')+' '+str(new_v))
+        print ('\033[34m>>>\033[0m '+str(update_link))
         print ('-'*40)
         global check_for_updates_local
         check_for_updates_local = False
         update_dialog.create(v, new_v, CONFIG_PATH, APP_PATH, update_link, file_name, package)
     else:
-        print ('> '+_('Current version is relevant'))
+        print ('\033[34m>\033[0m '+_('Current version is relevant'))
         print ('-'*40)
         if check_for_updates == 1 and check_for_updates_local:
             check_for_updates_local = False
@@ -404,7 +404,6 @@ def crop_image(left, top, width, height):
 class Indicator:
     if indicator_is_appindicator and HAS_INDICATOR: # AppIndicator3
         def __init__(self):
-            print('\033[1;31mAppIndicator3\033[0m')
             self.indicator = AppIndicator3.Indicator.new("gis-weather", "weather-clear", AppIndicator3.IndicatorCategory.APPLICATION_STATUS)
             if show_indicator:
                 self.indicator.set_status(AppIndicator3.IndicatorStatus.ACTIVE)
@@ -460,7 +459,6 @@ class Indicator:
 
     else:  # Gtk.StatusIcon
         def __init__(self):
-            print('\033[1;31mGtk.StatusIcon\033[0m')
             self.indicator = Gtk.StatusIcon()
             self.indicator_label = Gtk.StatusIcon()
             self.indicator.set_from_file(os.path.join(APP_PATH, "icon.png"))
@@ -494,7 +492,7 @@ class Indicator:
             self.indicator_label.connect("popup-menu", self.popup_menu)
 
         def popup_menu(self, icon, widget, time):
-            app.create_menu()
+            app.create_menu(for_indicator=True)
             app.menu.popup(None, None, None, None, widget, time)
 
         def hide(self):
@@ -597,11 +595,13 @@ class MyDrawArea(Gtk.DrawingArea):
     def expose_indicator(self):
         global err, on_redraw, get_weather_bool, weather, err_connect
         if get_weather_bool:
-            weather1 = get_weather(indicator_only=True)
+            weather1 = get_weather()
             if weather1:
                 err_connect = False
                 splash = False
                 weather = weather1
+                for i in weather.keys():
+                    globals()[i] = weather[i]
             else:
                 err_connect = True
             get_weather_bool = False
@@ -617,7 +617,7 @@ class MyDrawArea(Gtk.DrawingArea):
                 on_redraw = False
                 if timer_bool:
                     self.timer = GLib.timeout_add(upd_time*60*1000, self.redraw)
-                    print ('> '+_('Next update in')+' '+str(upd_time)+' '+_('min'))
+                    print ('\033[34m>\033[0m '+_('Next update in')+' '+str(upd_time)+' '+_('min'))
                     print ('-'*40)
             self.Draw_Weather()
     
@@ -678,7 +678,7 @@ class MyDrawArea(Gtk.DrawingArea):
                 on_redraw = False
                 if timer_bool:
                     self.timer = GLib.timeout_add(upd_time*60*1000, self.redraw)
-                    print ('> '+_('Next update in')+' '+str(upd_time)+' '+_('min'))
+                    print ('\033[34m>\033[0m '+_('Next update in')+' '+str(upd_time)+' '+_('min'))
                     print ('-'*40)
             self.Draw_Weather()
 
@@ -1031,7 +1031,7 @@ class MyDrawArea(Gtk.DrawingArea):
             pix_path = os.path.join(ICONS_USER_PATH, 'default', 'weather', os.path.split(pix)[1])
             if not os.path.exists(pix_path):
                 try:
-                    print ('> '+_('downloading')+' '+os.path.split(pix)[1]+' ('+pix+')')
+                    print ('\033[34m>\033[0m '+_('downloading')+' '+os.path.split(pix)[1]+' ('+pix+')')
                     urlretrieve(pix, pix_path)
                 except:
                     print (_('Unable to download')+' '+pix)
@@ -1056,7 +1056,7 @@ class MyDrawArea(Gtk.DrawingArea):
                             if not os.path.exists(pix_path):
                                 pix_path = pix_path[:-3]+'svgz'
                                 if not os.path.exists(pix_path):
-                                    print ('[!] '+_('not found icon')+':\n> '+pix_path)
+                                    print ('\033[1;31m[!]\033[0m '+_('not found icon')+':\n> '+pix_path)
                                     if os.path.exists(os.path.join(ICONS_PATH, icons_name1, 'weather', 'na.png')):
                                         pix_path = os.path.join(ICONS_PATH, icons_name1, 'weather', 'na.png')
                                     else:
@@ -1187,6 +1187,14 @@ class Weather_Widget:
     #         print (_("Unable to get the screenshot"))
 
     def menu_response(self, widget, event, value=None):
+        if event == 'show_hide_widget':
+            global show_indicator
+            if show_indicator == 1:
+                show_indicator = 2
+            else:
+                show_indicator = 1
+            Save_Config()
+            self.drawing_area.redraw(False, False)
         if event == 'help':
             help_dialog.create(APP_PATH)
         if event == 'about':
@@ -1263,8 +1271,9 @@ class Weather_Widget:
                 while Gtk.events_pending():
                     Gtk.main_iteration_do(True)
                 self.drawing_area.redraw(False)
+
         if indicator_is_appindicator:
-            app.create_menu()
+            app.create_menu(for_indicator=True)
             ind.set_menu(app.menu)
 
 
@@ -1324,7 +1333,7 @@ class Weather_Widget:
                 except:
                     bar_ok.hide()
                     bar_err.show()
-                    print ('[!] '+_('Invalid location code'))
+                    print ('\033[1;31m[!]\033[0m '+_('Invalid location code'))
             response = dialog.run()
         Load_Config()
         try:
@@ -1360,14 +1369,14 @@ class Weather_Widget:
             return True
         return False
 
-    def create_menu(self):
+    def create_menu(self, for_indicator=False):
         global icons_list, backgrounds_list
         try:
             a = gw_config[data.get_city_list(service)]
         except:
             gw_config[data.get_city_list(service)] = []
         self.menu, icons_list, backgrounds_list = gw_menu.create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, 
-                icons_name, show_bg_png, color_bg, bg_custom, color_scheme, color_scheme_number, gw_config[data.get_city_list(service)], city_id, fix_position, sticky, indicator_icons_name)
+                icons_name, show_bg_png, color_bg, bg_custom, color_scheme, color_scheme_number, gw_config[data.get_city_list(service)], city_id, fix_position, sticky, indicator_icons_name, for_indicator)
 
     def configure_event(self, widget, event):
         global x_pos, y_pos
@@ -1420,7 +1429,7 @@ if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     ind = Indicator()
     app = Weather_Widget()
-    app.create_menu()
+    app.create_menu(for_indicator=True)
     ind.set_menu(app.menu)
     # GLib.set_application_name("gis-weather") #!!!!!!!!!!!!!!!!!!!!
     app.main()

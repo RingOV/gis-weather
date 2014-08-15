@@ -226,15 +226,14 @@ def get_city_name(c_id, weather_lang):
         return 'None'
     return c_name[0]
 
-def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show_block_add_info, timer_bool, weather_lang, icons_name, indicator_only):
+def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show_block_add_info, timer_bool, weather_lang, icons_name):
     global city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain, t_today_low, t_tomorrow_low
     if city_id.split(',')[0]==city_id.split(',')[-1]:
         city_number = city_id.split('/')[-1]
     else:
         city_number = city_id.split(',')[-1].strip()
         city_id = city_id.split(',')[0].strip()
-    if not indicator_only:
-        print ('\033[34m>\033[0m '+_('Getting weather for')+' '+str(n)+' '+_('days'))
+    print ('\033[34m>\033[0m '+_('Getting weather for')+' '+str(n)+' '+_('days'))
     print ('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+'http://www.accuweather.com/%s/%s/current-weather/%s'%(weather_lang, city_id, city_number))
     try:
         source = urlopen('http://www.accuweather.com/%s/%s/current-weather/%s'%(weather_lang, city_id, city_number), timeout=10).read()
@@ -273,11 +272,6 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
         icon_now[0]='0'+icon_now[0]
     icon_now[0] = 'http://vortex.accuweather.com/adc2010/images/icons-numbered/'+icon_now[0]+'.png'
     icon_now[0] = convert(icon_now[0], icons_name)
-
-    if indicator_only:
-        for i in weather.keys():
-            weather[i] = globals()[i]
-        return weather
     
     # Иконка ветра
     icon_wind_now = ['']

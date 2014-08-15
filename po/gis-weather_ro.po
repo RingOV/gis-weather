@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-08-12 10:54+0300\n"
-"PO-Revision-Date: 2014-08-12 10:54+0300\n"
+"POT-Creation-Date: 2014-08-15 14:43+0300\n"
+"PO-Revision-Date: 2014-08-15 14:43+0300\n"
 "Last-Translator: \n"
 "Language-Team: Daniel <hyperion_dani@yahoo.com>\n"
 "Language: Română\n"
@@ -63,15 +63,15 @@ msgstr "Captură ecran salvată în"
 msgid "Unable to get the screenshot"
 msgstr "Imposibil de obținut captură de ecran"
 
-#: gis-weather.py:561
+#: gis-weather.py:559
 msgid "Getting weather..."
 msgstr "Obținere vreme"
 
-#: gis-weather.py:564
+#: gis-weather.py:562
 msgid "Error getting weather"
 msgstr "Eroare obținere vreme"
 
-#: gis-weather.py:566
+#: gis-weather.py:564
 msgid "Location not set"
 msgstr "Locația nu este setată"
 
@@ -87,13 +87,13 @@ msgstr "min"
 msgid "Connection error"
 msgstr "Eroare conexiune"
 
-#: gis-weather.py:718 services/accuweather.py:728 services/gismeteo.py:437
-#: services/weather_com.py:383
+#: gis-weather.py:718 services/accuweather.py:722 services/gismeteo.py:431
+#: services/weather_com.py:377
 msgid "updated on server"
 msgstr "Actualizat pe server"
 
-#: gis-weather.py:719 services/accuweather.py:729 services/gismeteo.py:438
-#: services/weather_com.py:384
+#: gis-weather.py:719 services/accuweather.py:723 services/gismeteo.py:432
+#: services/weather_com.py:378
 msgid "weather received"
 msgstr "Vreme primită"
 
@@ -177,23 +177,23 @@ msgstr "înălțime"
 msgid "including indent"
 msgstr "include aliniat"
 
-#: gis-weather.py:1293
+#: gis-weather.py:1302
 msgid "Removed"
 msgstr "Eliminat"
 
-#: gis-weather.py:1322 dialogs/city_id_dialog.ui:189
+#: gis-weather.py:1331 dialogs/city_id_dialog.ui:189
 msgid "Added"
 msgstr "Adăugat"
 
-#: gis-weather.py:1327 dialogs/city_id_dialog.ui:258
+#: gis-weather.py:1336 dialogs/city_id_dialog.ui:258
 msgid "Invalid location code"
 msgstr "Cod de locație invalid"
 
-#: gis-weather.py:1394
+#: gis-weather.py:1403
 msgid "Your screen does not support alpha"
 msgstr "Ecranul tău nu acceptă alpha"
 
-#: gis-weather.py:1396
+#: gis-weather.py:1405
 msgid "Your screen supports alpha"
 msgstr "Ecranul tău acceptă alpha"
 
@@ -201,7 +201,7 @@ msgstr "Ecranul tău acceptă alpha"
 msgid "Setup..."
 msgstr "Configurare ..."
 
-#: utils/gw_menu.py:87 dialogs/settings_dialog.py:363
+#: utils/gw_menu.py:87 dialogs/settings_dialog.py:368
 msgid "No"
 msgstr "Nu"
 
@@ -217,50 +217,55 @@ msgstr "Fixează poziția"
 msgid "On all desktops"
 msgstr "Pe toate spațiile de lucru"
 
-#: utils/gw_menu.py:124 dialogs/settings_dialog.ui:993
+#: utils/gw_menu.py:125
+#, fuzzy
+msgid "Show/Hide widget"
+msgstr "Gadget meteo"
+
+#: utils/gw_menu.py:134 dialogs/settings_dialog.ui:993
 msgid "Refresh"
 msgstr "Reîmprospătează"
 
-#: utils/gw_menu.py:136 dialogs/city_id_dialog.py:89
+#: utils/gw_menu.py:146 dialogs/city_id_dialog.py:89
 #: dialogs/settings_dialog.ui:570 dialogs/city_id_dialog.ui:42
 msgid "Location"
 msgstr "Locație"
 
-#: utils/gw_menu.py:141 dialogs/about_dialog.py:39
+#: utils/gw_menu.py:151 dialogs/about_dialog.py:39
 #: dialogs/settings_dialog.ui:3535 dialogs/settings_dialog.ui:4021
 msgid "Icons"
 msgstr "Pictograme"
 
-#: utils/gw_menu.py:146
+#: utils/gw_menu.py:156
 msgid "Indicator icons"
 msgstr ""
 
-#: utils/gw_menu.py:151 dialogs/settings_dialog.ui:3440
+#: utils/gw_menu.py:161 dialogs/settings_dialog.ui:3440
 msgid "Background"
 msgstr "Fundal"
 
-#: utils/gw_menu.py:156 dialogs/settings_dialog.ui:3147
+#: utils/gw_menu.py:166 dialogs/settings_dialog.ui:3147
 msgid "Text"
 msgstr "Text"
 
-#: utils/gw_menu.py:161 dialogs/settings_dialog.ui:1723
+#: utils/gw_menu.py:171 dialogs/settings_dialog.ui:1723
 msgid "Window"
 msgstr "Fereastră"
 
-#: utils/gw_menu.py:166 dialogs/settings_dialog.py:69
-#: dialogs/settings_dialog.py:636
+#: utils/gw_menu.py:176 dialogs/settings_dialog.py:74
+#: dialogs/settings_dialog.py:641
 msgid "Preferences"
 msgstr "Preferințe"
 
-#: utils/gw_menu.py:174 dialogs/help_dialog.py:28
+#: utils/gw_menu.py:184 dialogs/help_dialog.py:28
 msgid "Help"
 msgstr "Ajutor"
 
-#: utils/gw_menu.py:182
+#: utils/gw_menu.py:192
 msgid "About"
 msgstr "Despre"
 
-#: utils/gw_menu.py:194 dialogs/settings_dialog.ui:525
+#: utils/gw_menu.py:204 dialogs/settings_dialog.ui:525
 #: dialogs/help_dialog.ui:25 dialogs/city_id_dialog.ui:72
 #: dialogs/update_dialog.ui:44
 msgid "Close"
@@ -326,52 +331,52 @@ msgstr "Instalare"
 msgid "Error removing"
 msgstr "Eroare eliminare"
 
-#: dialogs/settings_dialog.py:354
+#: dialogs/settings_dialog.py:359
 msgid "m/s"
 msgstr "m/s"
 
-#: dialogs/settings_dialog.py:354
+#: dialogs/settings_dialog.py:359
 msgid "km/h"
 msgstr "km/h"
 
-#: dialogs/settings_dialog.py:354
+#: dialogs/settings_dialog.py:359
 msgid "mph"
 msgstr "mph"
 
-#: dialogs/settings_dialog.py:355
+#: dialogs/settings_dialog.py:360
 msgid "mmHg"
 msgstr "mmHg"
 
-#: dialogs/settings_dialog.py:355
+#: dialogs/settings_dialog.py:360
 msgid "inHg"
 msgstr "inHg"
 
-#: dialogs/settings_dialog.py:355
+#: dialogs/settings_dialog.py:360
 msgid "hPa"
 msgstr "hPa"
 
-#: dialogs/settings_dialog.py:358
+#: dialogs/settings_dialog.py:363
 msgid "Never"
 msgstr "Niciodată"
 
-#: dialogs/settings_dialog.py:359
+#: dialogs/settings_dialog.py:364
 msgid "Only at start"
 msgstr "Numai la pornire"
 
-#: dialogs/settings_dialog.py:360
+#: dialogs/settings_dialog.py:365
 msgid "Always"
 msgstr "Întotdeauna"
 
-#: dialogs/settings_dialog.py:364
+#: dialogs/settings_dialog.py:369
 msgid "Only background"
 msgstr "Numai fundal"
 
-#: dialogs/settings_dialog.py:365
+#: dialogs/settings_dialog.py:370
 msgid "Yes"
 msgstr "Da"
 
-#: dialogs/settings_dialog.py:461 dialogs/settings_dialog.py:471
-#: dialogs/settings_dialog.py:481
+#: dialogs/settings_dialog.py:466 dialogs/settings_dialog.py:476
+#: dialogs/settings_dialog.py:486
 msgid "Author"
 msgstr "Autor"
 
@@ -425,42 +430,42 @@ msgstr "Fundaluri"
 msgid "Failed to get the name of the location"
 msgstr "Imposibil de obținut numele locației"
 
-#: services/accuweather.py:237 services/gismeteo.py:244
-#: services/weather_com.py:157
+#: services/accuweather.py:236 services/gismeteo.py:243
+#: services/weather_com.py:156
 msgid "Getting weather for"
 msgstr "Obținere vreme pentru"
 
-#: services/accuweather.py:237 services/gismeteo.py:244
-#: services/weather_com.py:157
+#: services/accuweather.py:236 services/gismeteo.py:243
+#: services/weather_com.py:156
 msgid "days"
 msgstr "zile"
 
-#: services/accuweather.py:238 services/accuweather.py:305
+#: services/accuweather.py:237 services/accuweather.py:299
+#: services/accuweather.py:325 services/accuweather.py:382
+#: services/accuweather.py:443 services/accuweather.py:451
+#: services/accuweather.py:459 services/accuweather.py:467
+#: services/accuweather.py:583 services/accuweather.py:591
+#: services/accuweather.py:599 services/accuweather.py:607
+#: services/gismeteo.py:244 services/weather_com.py:157
+msgid "Uploading page to a variable"
+msgstr "Încărcare pagină către o variabilă"
+
+#: services/accuweather.py:243 services/accuweather.py:305
 #: services/accuweather.py:331 services/accuweather.py:388
 #: services/accuweather.py:449 services/accuweather.py:457
 #: services/accuweather.py:465 services/accuweather.py:473
 #: services/accuweather.py:589 services/accuweather.py:597
 #: services/accuweather.py:605 services/accuweather.py:613
-#: services/gismeteo.py:245 services/weather_com.py:158
-msgid "Uploading page to a variable"
-msgstr "Încărcare pagină către o variabilă"
-
-#: services/accuweather.py:244 services/accuweather.py:311
-#: services/accuweather.py:337 services/accuweather.py:394
-#: services/accuweather.py:455 services/accuweather.py:463
-#: services/accuweather.py:471 services/accuweather.py:479
-#: services/accuweather.py:595 services/accuweather.py:603
-#: services/accuweather.py:611 services/accuweather.py:619
-#: services/gismeteo.py:251 services/weather_com.py:164
+#: services/gismeteo.py:250 services/weather_com.py:163
 msgid "Unable to download page, check the network connection"
 msgstr "Imposibil de descărcat pagina, vezi conexiune Internet"
 
-#: services/accuweather.py:246 services/gismeteo.py:253
-#: services/weather_com.py:166
+#: services/accuweather.py:245 services/gismeteo.py:252
+#: services/weather_com.py:165
 msgid "Next try in 10 seconds"
 msgstr "Următoarea încercare în 10 secunde"
 
-#: services/accuweather.py:290
+#: services/accuweather.py:284
 msgid "Calm"
 msgstr ""
 
@@ -682,7 +687,7 @@ msgid "Appearance"
 msgstr "Aspect"
 
 #: dialogs/settings_dialog.ui:3584
-msgid "Type (need restart widget)"
+msgid "Type (restart required)"
 msgstr ""
 
 #: dialogs/settings_dialog.ui:3951

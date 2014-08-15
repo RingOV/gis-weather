@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-08-12 10:54+0300\n"
-"PO-Revision-Date: 2014-08-12 10:54+0300\n"
+"POT-Creation-Date: 2014-08-15 14:43+0300\n"
+"PO-Revision-Date: 2014-08-15 14:43+0300\n"
 "Last-Translator: \n"
 "Language-Team: Gis Weather Team\n"
 "Language: Español\n"
@@ -63,15 +63,15 @@ msgstr "Captura de pantalla guardada en"
 msgid "Unable to get the screenshot"
 msgstr "No se pudo capturar la pantalla"
 
-#: gis-weather.py:561
+#: gis-weather.py:559
 msgid "Getting weather..."
 msgstr "Obteniendo el tiempo..."
 
-#: gis-weather.py:564
+#: gis-weather.py:562
 msgid "Error getting weather"
 msgstr "Error obteniendo el tiempo"
 
-#: gis-weather.py:566
+#: gis-weather.py:564
 msgid "Location not set"
 msgstr "Ubicación no configurada"
 
@@ -87,13 +87,13 @@ msgstr "min"
 msgid "Connection error"
 msgstr "Error de conexión"
 
-#: gis-weather.py:718 services/accuweather.py:728 services/gismeteo.py:437
-#: services/weather_com.py:383
+#: gis-weather.py:718 services/accuweather.py:722 services/gismeteo.py:431
+#: services/weather_com.py:377
 msgid "updated on server"
 msgstr "Actualizado en el servidor"
 
-#: gis-weather.py:719 services/accuweather.py:729 services/gismeteo.py:438
-#: services/weather_com.py:384
+#: gis-weather.py:719 services/accuweather.py:723 services/gismeteo.py:432
+#: services/weather_com.py:378
 msgid "weather received"
 msgstr "Tiempo recibido"
 
@@ -177,23 +177,23 @@ msgstr "alto"
 msgid "including indent"
 msgstr "incluyendo sangría"
 
-#: gis-weather.py:1293
+#: gis-weather.py:1302
 msgid "Removed"
 msgstr "Eliminado"
 
-#: gis-weather.py:1322 dialogs/city_id_dialog.ui:189
+#: gis-weather.py:1331 dialogs/city_id_dialog.ui:189
 msgid "Added"
 msgstr "Añadido"
 
-#: gis-weather.py:1327 dialogs/city_id_dialog.ui:258
+#: gis-weather.py:1336 dialogs/city_id_dialog.ui:258
 msgid "Invalid location code"
 msgstr "Código de ubicación inválido"
 
-#: gis-weather.py:1394
+#: gis-weather.py:1403
 msgid "Your screen does not support alpha"
 msgstr "Tu pantalla no tiene soporte para transparencia"
 
-#: gis-weather.py:1396
+#: gis-weather.py:1405
 msgid "Your screen supports alpha"
 msgstr "Tu pantalla tiene soporte para transparencia"
 
@@ -201,7 +201,7 @@ msgstr "Tu pantalla tiene soporte para transparencia"
 msgid "Setup..."
 msgstr "Configuración..."
 
-#: utils/gw_menu.py:87 dialogs/settings_dialog.py:363
+#: utils/gw_menu.py:87 dialogs/settings_dialog.py:368
 msgid "No"
 msgstr "No"
 
@@ -217,50 +217,55 @@ msgstr "Fijar posición"
 msgid "On all desktops"
 msgstr "En todos los escritorios"
 
-#: utils/gw_menu.py:124 dialogs/settings_dialog.ui:993
+#: utils/gw_menu.py:125
+#, fuzzy
+msgid "Show/Hide widget"
+msgstr "Widget de tiempo meteorológico"
+
+#: utils/gw_menu.py:134 dialogs/settings_dialog.ui:993
 msgid "Refresh"
 msgstr "Actualizar"
 
-#: utils/gw_menu.py:136 dialogs/city_id_dialog.py:89
+#: utils/gw_menu.py:146 dialogs/city_id_dialog.py:89
 #: dialogs/settings_dialog.ui:570 dialogs/city_id_dialog.ui:42
 msgid "Location"
 msgstr "Ubicación"
 
-#: utils/gw_menu.py:141 dialogs/about_dialog.py:39
+#: utils/gw_menu.py:151 dialogs/about_dialog.py:39
 #: dialogs/settings_dialog.ui:3535 dialogs/settings_dialog.ui:4021
 msgid "Icons"
 msgstr "Íconos"
 
-#: utils/gw_menu.py:146
+#: utils/gw_menu.py:156
 msgid "Indicator icons"
 msgstr ""
 
-#: utils/gw_menu.py:151 dialogs/settings_dialog.ui:3440
+#: utils/gw_menu.py:161 dialogs/settings_dialog.ui:3440
 msgid "Background"
 msgstr "Fondo"
 
-#: utils/gw_menu.py:156 dialogs/settings_dialog.ui:3147
+#: utils/gw_menu.py:166 dialogs/settings_dialog.ui:3147
 msgid "Text"
 msgstr "Texto"
 
-#: utils/gw_menu.py:161 dialogs/settings_dialog.ui:1723
+#: utils/gw_menu.py:171 dialogs/settings_dialog.ui:1723
 msgid "Window"
 msgstr "Ventana"
 
-#: utils/gw_menu.py:166 dialogs/settings_dialog.py:69
-#: dialogs/settings_dialog.py:636
+#: utils/gw_menu.py:176 dialogs/settings_dialog.py:74
+#: dialogs/settings_dialog.py:641
 msgid "Preferences"
 msgstr "Preferencias"
 
-#: utils/gw_menu.py:174 dialogs/help_dialog.py:28
+#: utils/gw_menu.py:184 dialogs/help_dialog.py:28
 msgid "Help"
 msgstr "Ayuda"
 
-#: utils/gw_menu.py:182
+#: utils/gw_menu.py:192
 msgid "About"
 msgstr "Acerca de"
 
-#: utils/gw_menu.py:194 dialogs/settings_dialog.ui:525
+#: utils/gw_menu.py:204 dialogs/settings_dialog.ui:525
 #: dialogs/help_dialog.ui:25 dialogs/city_id_dialog.ui:72
 #: dialogs/update_dialog.ui:44
 msgid "Close"
@@ -326,52 +331,52 @@ msgstr "Instalación"
 msgid "Error removing"
 msgstr "Error eliminando"
 
-#: dialogs/settings_dialog.py:354
+#: dialogs/settings_dialog.py:359
 msgid "m/s"
 msgstr "m/s"
 
-#: dialogs/settings_dialog.py:354
+#: dialogs/settings_dialog.py:359
 msgid "km/h"
 msgstr ""
 
-#: dialogs/settings_dialog.py:354
+#: dialogs/settings_dialog.py:359
 msgid "mph"
 msgstr ""
 
-#: dialogs/settings_dialog.py:355
+#: dialogs/settings_dialog.py:360
 msgid "mmHg"
 msgstr "mmHg"
 
-#: dialogs/settings_dialog.py:355
+#: dialogs/settings_dialog.py:360
 msgid "inHg"
 msgstr ""
 
-#: dialogs/settings_dialog.py:355
+#: dialogs/settings_dialog.py:360
 msgid "hPa"
 msgstr ""
 
-#: dialogs/settings_dialog.py:358
+#: dialogs/settings_dialog.py:363
 msgid "Never"
 msgstr "Nunca"
 
-#: dialogs/settings_dialog.py:359
+#: dialogs/settings_dialog.py:364
 msgid "Only at start"
 msgstr "Sólo al iniciar"
 
-#: dialogs/settings_dialog.py:360
+#: dialogs/settings_dialog.py:365
 msgid "Always"
 msgstr "Siempre"
 
-#: dialogs/settings_dialog.py:364
+#: dialogs/settings_dialog.py:369
 msgid "Only background"
 msgstr "Sólo al fondo"
 
-#: dialogs/settings_dialog.py:365
+#: dialogs/settings_dialog.py:370
 msgid "Yes"
 msgstr "Sí"
 
-#: dialogs/settings_dialog.py:461 dialogs/settings_dialog.py:471
-#: dialogs/settings_dialog.py:481
+#: dialogs/settings_dialog.py:466 dialogs/settings_dialog.py:476
+#: dialogs/settings_dialog.py:486
 msgid "Author"
 msgstr "Autor"
 
@@ -424,42 +429,42 @@ msgstr "Fondos"
 msgid "Failed to get the name of the location"
 msgstr "Falló la obtención del nombre de la ubicación"
 
-#: services/accuweather.py:237 services/gismeteo.py:244
-#: services/weather_com.py:157
+#: services/accuweather.py:236 services/gismeteo.py:243
+#: services/weather_com.py:156
 msgid "Getting weather for"
 msgstr "Obteniendo el tiempo para"
 
-#: services/accuweather.py:237 services/gismeteo.py:244
-#: services/weather_com.py:157
+#: services/accuweather.py:236 services/gismeteo.py:243
+#: services/weather_com.py:156
 msgid "days"
 msgstr "días"
 
-#: services/accuweather.py:238 services/accuweather.py:305
+#: services/accuweather.py:237 services/accuweather.py:299
+#: services/accuweather.py:325 services/accuweather.py:382
+#: services/accuweather.py:443 services/accuweather.py:451
+#: services/accuweather.py:459 services/accuweather.py:467
+#: services/accuweather.py:583 services/accuweather.py:591
+#: services/accuweather.py:599 services/accuweather.py:607
+#: services/gismeteo.py:244 services/weather_com.py:157
+msgid "Uploading page to a variable"
+msgstr "Subiendo página a una variable"
+
+#: services/accuweather.py:243 services/accuweather.py:305
 #: services/accuweather.py:331 services/accuweather.py:388
 #: services/accuweather.py:449 services/accuweather.py:457
 #: services/accuweather.py:465 services/accuweather.py:473
 #: services/accuweather.py:589 services/accuweather.py:597
 #: services/accuweather.py:605 services/accuweather.py:613
-#: services/gismeteo.py:245 services/weather_com.py:158
-msgid "Uploading page to a variable"
-msgstr "Subiendo página a una variable"
-
-#: services/accuweather.py:244 services/accuweather.py:311
-#: services/accuweather.py:337 services/accuweather.py:394
-#: services/accuweather.py:455 services/accuweather.py:463
-#: services/accuweather.py:471 services/accuweather.py:479
-#: services/accuweather.py:595 services/accuweather.py:603
-#: services/accuweather.py:611 services/accuweather.py:619
-#: services/gismeteo.py:251 services/weather_com.py:164
+#: services/gismeteo.py:250 services/weather_com.py:163
 msgid "Unable to download page, check the network connection"
 msgstr "No se pudo descargar página, verifica la conexión a internet"
 
-#: services/accuweather.py:246 services/gismeteo.py:253
-#: services/weather_com.py:166
+#: services/accuweather.py:245 services/gismeteo.py:252
+#: services/weather_com.py:165
 msgid "Next try in 10 seconds"
 msgstr "Se volverá a intentar en 10 segundos"
 
-#: services/accuweather.py:290
+#: services/accuweather.py:284
 msgid "Calm"
 msgstr ""
 
@@ -683,7 +688,7 @@ msgid "Appearance"
 msgstr "Apariencia"
 
 #: dialogs/settings_dialog.ui:3584
-msgid "Type (need restart widget)"
+msgid "Type (restart required)"
 msgstr ""
 
 #: dialogs/settings_dialog.ui:3951

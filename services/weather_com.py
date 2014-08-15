@@ -146,24 +146,23 @@ def get_city_name(c_id, weather_lang):
         source = source.decode(encoding='UTF-8')
         c_name = re.findall('data-location-presentation-name="(.*)"', source)
     except:
-        print('[!] '+_('Failed to get the name of the location'))
+        print('\033[1;31m[!]\033[0m '+_('Failed to get the name of the location'))
         return 'None'
     return c_name[0]
 
 
-def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show_block_add_info, timer_bool, weather_lang, icons_name, indicator_only):
+def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show_block_add_info, timer_bool, weather_lang, icons_name):
     global city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain
-    if not indicator_only:
-        print('> '+_('Getting weather for')+' '+str(n)+' '+_('days'))
-    print('> '+_('Uploading page to a variable')+' '+weather_lang + str(city_id))
+    print('\033[34m>\033[0m '+_('Getting weather for')+' '+str(n)+' '+_('days'))
+    print('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+weather_lang + str(city_id))
     try:
         source = urlopen(weather_lang + str(city_id), timeout=10).read()
         source = source.decode(encoding='UTF-8')
-        print ('OK')
+        print ('\033[1;32mOK\033[0m')
     except:
-        print ('[!] '+_('Unable to download page, check the network connection'))
+        print ('\033[1;31m[!]\033[0m '+_('Unable to download page, check the network connection'))
         if timer_bool:
-            print ('[!] '+_('Next try in 10 seconds'))
+            print ('\033[1;31m[!]\033[0m '+_('Next try in 10 seconds'))
         return False
     #### Текущая погода ####
     w_now = re.findall('data-location-presentation-name=.*<ul class="wx-conditions">', source, re.DOTALL)
@@ -201,11 +200,6 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
     # Иконка
     icon_now = re.findall('itemprop="weather-icon">(.*)<', w_now[0])
     icon_now = convert(icon_now, icons_name)
-
-    if indicator_only:
-        for i in weather.keys():
-            weather[i] = globals()[i]
-        return weather
 
     # Иконка ветра
     #icon_wind_now = re.findall('wind(\d)', w_now[0])
@@ -380,8 +374,8 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
     ########
     
     if time_update:
-        print ('> '+_('updated on server')+' '+time_update[0]) 
-    print ('> '+_('weather received')+' '+time.strftime('%H:%M', time.localtime()))
+        print ('\033[34m>\033[0m '+_('updated on server')+' '+time_update[0]) 
+    print ('\033[34m>\033[0m '+_('weather received')+' '+time.strftime('%H:%M', time.localtime()))
 
     # записываем переменные
     for i in weather.keys():

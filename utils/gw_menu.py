@@ -4,7 +4,7 @@ from gi.repository import Gtk
 import os
 
 def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, icons_name, show_bg_png, 
-    color_bg, bg_custom, color_scheme, color_scheme_number, city_list, city_id, fix_position, sticky, indicator_icons_name):
+    color_bg, bg_custom, color_scheme, color_scheme_number, city_list, city_id, fix_position, sticky, indicator_icons_name, for_indicator):
     menu = None
     # из папки скрипта (dirs - иконки, files - фоны)
     for root, dirs, files in os.walk(ICONS_PATH):
@@ -121,6 +121,16 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, icons
     menu_items.show()
 
     # main menu
+    if for_indicator:
+        menu_items = Gtk.ImageMenuItem(_('Show/Hide widget'))
+        menu.append(menu_items)
+        menu_items.connect("activate", app.menu_response, 'show_hide_widget')
+        menu_items.show()
+
+        menu_items = Gtk.SeparatorMenuItem()
+        menu.append(menu_items)
+        menu_items.show()
+
     menu_items = Gtk.ImageMenuItem(_('Refresh'))
     image = Gtk.Image()
     image.set_from_stock(Gtk.STOCK_REFRESH, Gtk.IconSize.MENU)
