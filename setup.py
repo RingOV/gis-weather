@@ -62,7 +62,8 @@ addFiles = ['utils',
     'i18n',
     'po',
     'icon.png',
-    'icon.ico']
+    'icon.ico',
+    'package']
 
 
 for files in addFiles:

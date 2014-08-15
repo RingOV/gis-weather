@@ -347,6 +347,9 @@ class settings():
             self.spinbutton_delay_start_time.hide()
             self.label_delay_start_time.hide()
 
+            self.switch_add_icon.hide()
+            self.label_add_icon.hide()
+
         self.button_close = self.ui.get_object('button_close')
         self.button_close.connect("clicked", self.close_window)
 

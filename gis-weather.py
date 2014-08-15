@@ -382,13 +382,13 @@ def check_updates():
             check_for_updates_local = False
 
 def screenshot():
+    w = Gdk.get_default_root_window()
     if WIN:
         import ctypes
         user32 = ctypes.windll.user32
         left, top, width, height = 0, 0, user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
     else:
         left, top, width, height = w.get_geometry()
-    w = Gdk.get_default_root_window()
     pb = Gdk.pixbuf_get_from_window(w,left,top,width,height)
     if (pb != None):
         pb.savev(os.path.join(CONFIG_PATH, "main_screenshot.png"),"png", (), ())
@@ -483,7 +483,7 @@ class Indicator:
                 outF.write(inF.read())
                 inF.close()
                 outF.close()
-                self.indicator.set_icon(os.path.join(CONFIG_PATH, 'cur_icon.svg'))
+                self.indicator.set_from_file(os.path.join(CONFIG_PATH, 'cur_icon.svg'))
             else:
                 self.indicator.set_from_file(icon)
 
@@ -635,7 +635,6 @@ class MyDrawArea(Gtk.DrawingArea):
     
     
     def expose(self, widget, event):
-        print('expose')
         global err, on_redraw, get_weather_bool, weather, err_connect, splash, time_receive
         if err == False:
             self.clear_draw_area(widget)
