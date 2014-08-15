@@ -51,6 +51,10 @@ gtkLibs = ['lib\\gdk-pixbuf-2.0',
 for lib in gtkLibs:
     includeFiles.append((os.path.join(includeDllPath, lib), lib))
 
+f = open('package', 'w')
+f.write('exe')
+f.close()
+
 addFiles = ['utils',
     'services',
     'dialogs',

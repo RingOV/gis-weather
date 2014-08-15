@@ -9,36 +9,35 @@ import os
 import sys
 
 if sys.platform == 'win32':
-    pass
-    # import _winreg
-    # _registry = _winreg.ConnectRegistry(None, _winreg.HKEY_CURRENT_USER)
-    # def get_runonce():
-    #     return _winreg.OpenKey(_registry,
-    #             r"Software\Microsoft\Windows\CurrentVersion\Run", 0,
-    #     _winreg.KEY_ALL_ACCESS)
+    import winreg
+    _registry = winreg.ConnectRegistry(None, winreg.HKEY_CURRENT_USER)
+    def get_runonce():
+        return winreg.OpenKey(_registry,
+                r"Software\Microsoft\Windows\CurrentVersion\Run", 0,
+        winreg.KEY_ALL_ACCESS)
 
-    # def add(name, application):
-    #     """add a new autostart entry"""
-    #     key = get_runonce()
-    #     _winreg.SetValueEx(key, name, 0, _winreg.REG_SZ, application)
-    #     _winreg.CloseKey(key)
+    def add(name, application):
+        """add a new autostart entry"""
+        key = get_runonce()
+        winreg.SetValueEx(key, name, 0, winreg.REG_SZ, application)
+        winreg.CloseKey(key)
 
-    # def exists(name):
-    #     """check if an autostart entry exists"""
-    #     key = get_runonce()
-    #     exists = True
-    #     try:
-    #         _winreg.QueryValueEx(key, name)
-    #     except WindowsError:
-    #         exists = False
-    #     _winreg.CloseKey(key)
-    #     return exists
+    def exists(name):
+        """check if an autostart entry exists"""
+        key = get_runonce()
+        exists = True
+        try:
+            winreg.QueryValueEx(key, name)
+        except WindowsError:
+            exists = False
+        winreg.CloseKey(key)
+        return exists
 
-    # def remove(name):
-    #     """delete an autostart entry"""
-    #     key = get_runonce()
-    #     _winreg.DeleteValue(key, name)
-    #     _winreg.CloseKey(key)
+    def remove(name):
+        """delete an autostart entry"""
+        key = get_runonce()
+        winreg.DeleteValue(key, name)
+        winreg.CloseKey(key)
 else:
     _xdg_config_home = os.environ.get("XDG_CONFIG_HOME", "~/.config")
     _xdg_user_autostart = os.path.join(os.path.expanduser(_xdg_config_home),

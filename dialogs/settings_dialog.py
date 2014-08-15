@@ -45,8 +45,8 @@ for root, dirs, files in os.walk(os.path.join(os.path.split(work_path)[0], 'po')
 files.remove('README.md')
 for item in files:
     if item[-2:] == 'po':
-        f = open(os.path.join(root, item), 'r')
-        l = f.read()
+        f = open(os.path.join(root, item), 'rb')
+        l = f.read().decode(encoding='UTF-8')
         language = re.findall('"Language: (.*)"', l)
         dict_app_lang[item.split('_')[-1][:-3]] = language[0][:-2]
 
