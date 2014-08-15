@@ -21,6 +21,7 @@ Used Python3 and GTK3
   - Weather.com
   - AccuWeather.com
 - Support SVG and widget scale
+- Indicator to panel
 
 
 ### **How to Install**
