@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-08-15 14:43+0300\n"
-"PO-Revision-Date: 2014-08-15 14:43+0300\n"
+"POT-Creation-Date: 2014-08-16 16:53+0300\n"
+"PO-Revision-Date: 2014-08-16 16:53+0300\n"
 "Last-Translator: \n"
 "Language-Team: Daniel <hyperion_dani@yahoo.com>\n"
 "Language: Română\n"
@@ -75,125 +75,125 @@ msgstr "Eroare obținere vreme"
 msgid "Location not set"
 msgstr "Locația nu este setată"
 
-#: gis-weather.py:620 gis-weather.py:681
+#: gis-weather.py:620 gis-weather.py:680
 msgid "Next update in"
 msgstr "Următoarea actualizare în"
 
-#: gis-weather.py:620 gis-weather.py:681
+#: gis-weather.py:620 gis-weather.py:680
 msgid "min"
 msgstr "min"
 
-#: gis-weather.py:671
+#: gis-weather.py:670
 msgid "Connection error"
 msgstr "Eroare conexiune"
 
-#: gis-weather.py:718 services/accuweather.py:722 services/gismeteo.py:431
+#: gis-weather.py:717 services/accuweather.py:722 services/gismeteo.py:431
 #: services/weather_com.py:377
 msgid "updated on server"
 msgstr "Actualizat pe server"
 
-#: gis-weather.py:719 services/accuweather.py:723 services/gismeteo.py:432
+#: gis-weather.py:718 services/accuweather.py:723 services/gismeteo.py:432
 #: services/weather_com.py:378
 msgid "weather received"
 msgstr "Vreme primită"
 
-#: gis-weather.py:746
+#: gis-weather.py:745
 msgid "E"
 msgstr "E"
 
-#: gis-weather.py:746
+#: gis-weather.py:745
 msgid "S"
 msgstr "S"
 
-#: gis-weather.py:746
+#: gis-weather.py:745
 msgid "W"
 msgstr "V"
 
-#: gis-weather.py:746
+#: gis-weather.py:745
 msgid "N"
 msgstr "N"
 
-#: gis-weather.py:797
+#: gis-weather.py:796
 msgid "humid."
 msgstr "umid."
 
-#: gis-weather.py:806
+#: gis-weather.py:805
 msgid "water"
 msgstr "apă"
 
-#: gis-weather.py:823 gis-weather.py:872
+#: gis-weather.py:822 gis-weather.py:871
 msgid "Morning"
 msgstr "Dimineață"
 
-#: gis-weather.py:823 gis-weather.py:872
+#: gis-weather.py:822 gis-weather.py:871
 msgid "Day"
 msgstr "Prânz"
 
-#: gis-weather.py:823 gis-weather.py:872
+#: gis-weather.py:822 gis-weather.py:871
 msgid "Evening"
 msgstr "Seară"
 
-#: gis-weather.py:823 gis-weather.py:872
+#: gis-weather.py:822 gis-weather.py:871
 msgid "Night"
 msgstr "Noapte"
 
-#: gis-weather.py:826 gis-weather.py:828
+#: gis-weather.py:825 gis-weather.py:827
 msgid "Tomorrow"
 msgstr "Măine"
 
-#: gis-weather.py:874
+#: gis-weather.py:873
 msgid "Today"
 msgstr "Azi"
 
-#: gis-weather.py:976
+#: gis-weather.py:975
 msgid "Background image not found"
 msgstr "Imagine de fundal negăsită"
 
-#: gis-weather.py:1034
+#: gis-weather.py:1033
 msgid "downloading"
 msgstr "Se descarcă"
 
-#: gis-weather.py:1037
+#: gis-weather.py:1036
 msgid "Unable to download"
 msgstr "Imposibil de descărcat"
 
-#: gis-weather.py:1059
+#: gis-weather.py:1058
 msgid "not found icon"
 msgstr "pictogramă negăsită"
 
-#: gis-weather.py:1129
+#: gis-weather.py:1128
 msgid "Widget size"
 msgstr "Mărime gadget"
 
-#: gis-weather.py:1130
+#: gis-weather.py:1129
 msgid "width"
 msgstr "lățime"
 
-#: gis-weather.py:1130
+#: gis-weather.py:1129
 msgid "height"
 msgstr "înălțime"
 
-#: gis-weather.py:1130
+#: gis-weather.py:1129
 msgid "including indent"
 msgstr "include aliniat"
 
-#: gis-weather.py:1302
+#: gis-weather.py:1301
 msgid "Removed"
 msgstr "Eliminat"
 
-#: gis-weather.py:1331 dialogs/city_id_dialog.ui:189
+#: gis-weather.py:1330 dialogs/city_id_dialog.ui:189
 msgid "Added"
 msgstr "Adăugat"
 
-#: gis-weather.py:1336 dialogs/city_id_dialog.ui:258
+#: gis-weather.py:1335 dialogs/city_id_dialog.ui:258
 msgid "Invalid location code"
 msgstr "Cod de locație invalid"
 
-#: gis-weather.py:1403
+#: gis-weather.py:1402
 msgid "Your screen does not support alpha"
 msgstr "Ecranul tău nu acceptă alpha"
 
-#: gis-weather.py:1405
+#: gis-weather.py:1404
 msgid "Your screen supports alpha"
 msgstr "Ecranul tău acceptă alpha"
 
@@ -201,7 +201,7 @@ msgstr "Ecranul tău acceptă alpha"
 msgid "Setup..."
 msgstr "Configurare ..."
 
-#: utils/gw_menu.py:87 dialogs/settings_dialog.py:368
+#: utils/gw_menu.py:87 dialogs/settings_dialog.py:371
 msgid "No"
 msgstr "Nu"
 
@@ -231,7 +231,7 @@ msgstr "Reîmprospătează"
 msgid "Location"
 msgstr "Locație"
 
-#: utils/gw_menu.py:151 dialogs/about_dialog.py:39
+#: utils/gw_menu.py:151 dialogs/about_dialog.py:55
 #: dialogs/settings_dialog.ui:3535 dialogs/settings_dialog.ui:4021
 msgid "Icons"
 msgstr "Pictograme"
@@ -253,7 +253,7 @@ msgid "Window"
 msgstr "Fereastră"
 
 #: utils/gw_menu.py:176 dialogs/settings_dialog.py:74
-#: dialogs/settings_dialog.py:641
+#: dialogs/settings_dialog.py:644
 msgid "Preferences"
 msgstr "Preferințe"
 
@@ -271,7 +271,7 @@ msgstr "Despre"
 msgid "Close"
 msgstr "Închide"
 
-#: utils/desktop.py:23 utils/autorun.py:64 dialogs/about_dialog.py:24
+#: utils/desktop.py:23 utils/autorun.py:63 dialogs/about_dialog.py:40
 msgid "Weather widget"
 msgstr "Gadget meteo"
 
@@ -303,93 +303,93 @@ msgstr "Loc"
 msgid "Downloading"
 msgstr "Se descarcă"
 
-#: dialogs/update_dialog.py:55
-msgid "Update"
-msgstr "Actualizare"
-
-#: dialogs/update_dialog.py:83
-msgid "Current version"
-msgstr "Versiune curentă"
-
-#: dialogs/update_dialog.py:84
-msgid "Available new version"
-msgstr "O nouă versiune disponibilă"
-
-#: dialogs/update_dialog.py:110
-msgid "Error downloading updates"
-msgstr "Eroare descărcare actualizări"
-
-#: dialogs/update_dialog.py:145
-msgid "Error installing updates"
-msgstr "Eroare instalare actualizări"
-
-#: dialogs/update_dialog.py:149 dialogs/update_dialog.ui:575
-msgid "Installation"
-msgstr "Instalare"
-
-#: dialogs/update_dialog.py:157
-msgid "Error removing"
-msgstr "Eroare eliminare"
-
-#: dialogs/settings_dialog.py:359
-msgid "m/s"
-msgstr "m/s"
-
-#: dialogs/settings_dialog.py:359
-msgid "km/h"
-msgstr "km/h"
-
-#: dialogs/settings_dialog.py:359
-msgid "mph"
-msgstr "mph"
-
-#: dialogs/settings_dialog.py:360
-msgid "mmHg"
-msgstr "mmHg"
-
-#: dialogs/settings_dialog.py:360
-msgid "inHg"
-msgstr "inHg"
-
-#: dialogs/settings_dialog.py:360
-msgid "hPa"
-msgstr "hPa"
-
-#: dialogs/settings_dialog.py:363
-msgid "Never"
-msgstr "Niciodată"
-
-#: dialogs/settings_dialog.py:364
-msgid "Only at start"
-msgstr "Numai la pornire"
-
-#: dialogs/settings_dialog.py:365
-msgid "Always"
-msgstr "Întotdeauna"
-
-#: dialogs/settings_dialog.py:369
-msgid "Only background"
-msgstr "Numai fundal"
-
-#: dialogs/settings_dialog.py:370
-msgid "Yes"
-msgstr "Da"
-
-#: dialogs/settings_dialog.py:466 dialogs/settings_dialog.py:476
-#: dialogs/settings_dialog.py:486
-msgid "Author"
-msgstr "Autor"
-
-#: dialogs/help_dialog.py:13
+#: dialogs/update_dialog.py:44 dialogs/help_dialog.py:13
 msgid "Go to link"
 msgstr ""
 
-#: dialogs/help_dialog.py:16 dialogs/help_dialog.ui:76
-#: dialogs/update_dialog.ui:318
+#: dialogs/update_dialog.py:47 dialogs/help_dialog.py:16
+#: dialogs/help_dialog.ui:76 dialogs/update_dialog.ui:318
 msgid "Send email"
 msgstr "Trimite email"
 
-#: dialogs/about_dialog.py:7
+#: dialogs/update_dialog.py:60
+msgid "Update"
+msgstr "Actualizare"
+
+#: dialogs/update_dialog.py:88
+msgid "Current version"
+msgstr "Versiune curentă"
+
+#: dialogs/update_dialog.py:89
+msgid "Available new version"
+msgstr "O nouă versiune disponibilă"
+
+#: dialogs/update_dialog.py:115
+msgid "Error downloading updates"
+msgstr "Eroare descărcare actualizări"
+
+#: dialogs/update_dialog.py:150
+msgid "Error installing updates"
+msgstr "Eroare instalare actualizări"
+
+#: dialogs/update_dialog.py:154 dialogs/update_dialog.ui:575
+msgid "Installation"
+msgstr "Instalare"
+
+#: dialogs/update_dialog.py:162
+msgid "Error removing"
+msgstr "Eroare eliminare"
+
+#: dialogs/settings_dialog.py:362
+msgid "m/s"
+msgstr "m/s"
+
+#: dialogs/settings_dialog.py:362
+msgid "km/h"
+msgstr "km/h"
+
+#: dialogs/settings_dialog.py:362
+msgid "mph"
+msgstr "mph"
+
+#: dialogs/settings_dialog.py:363
+msgid "mmHg"
+msgstr "mmHg"
+
+#: dialogs/settings_dialog.py:363
+msgid "inHg"
+msgstr "inHg"
+
+#: dialogs/settings_dialog.py:363
+msgid "hPa"
+msgstr "hPa"
+
+#: dialogs/settings_dialog.py:366
+msgid "Never"
+msgstr "Niciodată"
+
+#: dialogs/settings_dialog.py:367
+msgid "Only at start"
+msgstr "Numai la pornire"
+
+#: dialogs/settings_dialog.py:368
+msgid "Always"
+msgstr "Întotdeauna"
+
+#: dialogs/settings_dialog.py:372
+msgid "Only background"
+msgstr "Numai fundal"
+
+#: dialogs/settings_dialog.py:373
+msgid "Yes"
+msgstr "Da"
+
+#: dialogs/settings_dialog.py:469 dialogs/settings_dialog.py:479
+#: dialogs/settings_dialog.py:489
+msgid "Author"
+msgstr "Autor"
+
+#: dialogs/about_dialog.py:23
 msgid ""
 "This program is free software: you can redistribute it and/or modify\n"
 "it under the terms of the GNU General Public License as published by\n"
@@ -417,11 +417,11 @@ msgstr ""
 "Poți găsi textul complet al licenței la\n"
 "http://www.gnu.org/licenses/gpl.txt"
 
-#: dialogs/about_dialog.py:30
+#: dialogs/about_dialog.py:46
 msgid "Help and Ideas"
 msgstr "Ajutor și idei"
 
-#: dialogs/about_dialog.py:36
+#: dialogs/about_dialog.py:52
 msgid "Backgrounds"
 msgstr "Fundaluri"
 

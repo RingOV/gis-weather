@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-08-15 14:43+0300\n"
-"PO-Revision-Date: 2014-08-16 11:59+0300\n"
+"POT-Creation-Date: 2014-08-16 16:53+0300\n"
+"PO-Revision-Date: 2014-08-16 16:53+0300\n"
 "Last-Translator: \n"
 "Language-Team: Yasser López de Olmos <biolyasser@gmail.com>\n"
 "Language: Español\n"
@@ -75,125 +75,125 @@ msgstr "Error obteniendo el tiempo"
 msgid "Location not set"
 msgstr "Ubicación no configurada"
 
-#: gis-weather.py:620 gis-weather.py:681
+#: gis-weather.py:620 gis-weather.py:680
 msgid "Next update in"
 msgstr "Se actualizará en"
 
-#: gis-weather.py:620 gis-weather.py:681
+#: gis-weather.py:620 gis-weather.py:680
 msgid "min"
 msgstr "min"
 
-#: gis-weather.py:671
+#: gis-weather.py:670
 msgid "Connection error"
 msgstr "Error de conexión"
 
-#: gis-weather.py:718 services/accuweather.py:722 services/gismeteo.py:431
+#: gis-weather.py:717 services/accuweather.py:722 services/gismeteo.py:431
 #: services/weather_com.py:377
 msgid "updated on server"
 msgstr "Actualizado en el servidor"
 
-#: gis-weather.py:719 services/accuweather.py:723 services/gismeteo.py:432
+#: gis-weather.py:718 services/accuweather.py:723 services/gismeteo.py:432
 #: services/weather_com.py:378
 msgid "weather received"
 msgstr "Tiempo recibido"
 
-#: gis-weather.py:746
+#: gis-weather.py:745
 msgid "E"
 msgstr "E"
 
-#: gis-weather.py:746
+#: gis-weather.py:745
 msgid "S"
 msgstr "S"
 
-#: gis-weather.py:746
+#: gis-weather.py:745
 msgid "W"
 msgstr "O"
 
-#: gis-weather.py:746
+#: gis-weather.py:745
 msgid "N"
 msgstr "N"
 
-#: gis-weather.py:797
+#: gis-weather.py:796
 msgid "humid."
 msgstr "humedad"
 
-#: gis-weather.py:806
+#: gis-weather.py:805
 msgid "water"
 msgstr "agua"
 
-#: gis-weather.py:823 gis-weather.py:872
+#: gis-weather.py:822 gis-weather.py:871
 msgid "Morning"
 msgstr "Mañana"
 
-#: gis-weather.py:823 gis-weather.py:872
+#: gis-weather.py:822 gis-weather.py:871
 msgid "Day"
 msgstr "Día"
 
-#: gis-weather.py:823 gis-weather.py:872
+#: gis-weather.py:822 gis-weather.py:871
 msgid "Evening"
 msgstr "Tarde"
 
-#: gis-weather.py:823 gis-weather.py:872
+#: gis-weather.py:822 gis-weather.py:871
 msgid "Night"
 msgstr "Noche"
 
-#: gis-weather.py:826 gis-weather.py:828
+#: gis-weather.py:825 gis-weather.py:827
 msgid "Tomorrow"
 msgstr "Mañana"
 
-#: gis-weather.py:874
+#: gis-weather.py:873
 msgid "Today"
 msgstr "Hoy"
 
-#: gis-weather.py:976
+#: gis-weather.py:975
 msgid "Background image not found"
 msgstr "No se encontró la imagen de fondo"
 
-#: gis-weather.py:1034
+#: gis-weather.py:1033
 msgid "downloading"
 msgstr "descargando"
 
-#: gis-weather.py:1037
+#: gis-weather.py:1036
 msgid "Unable to download"
 msgstr "No se pudo descargar"
 
-#: gis-weather.py:1059
+#: gis-weather.py:1058
 msgid "not found icon"
 msgstr "No se encontró el ícono"
 
-#: gis-weather.py:1129
+#: gis-weather.py:1128
 msgid "Widget size"
 msgstr "Tamaño del widget"
 
-#: gis-weather.py:1130
+#: gis-weather.py:1129
 msgid "width"
 msgstr "ancho"
 
-#: gis-weather.py:1130
+#: gis-weather.py:1129
 msgid "height"
 msgstr "alto"
 
-#: gis-weather.py:1130
+#: gis-weather.py:1129
 msgid "including indent"
 msgstr "incluyendo sangría"
 
-#: gis-weather.py:1302
+#: gis-weather.py:1301
 msgid "Removed"
 msgstr "Eliminado"
 
-#: gis-weather.py:1331 dialogs/city_id_dialog.ui:189
+#: gis-weather.py:1330 dialogs/city_id_dialog.ui:189
 msgid "Added"
 msgstr "Añadido"
 
-#: gis-weather.py:1336 dialogs/city_id_dialog.ui:258
+#: gis-weather.py:1335 dialogs/city_id_dialog.ui:258
 msgid "Invalid location code"
 msgstr "Código de ubicación inválido"
 
-#: gis-weather.py:1403
+#: gis-weather.py:1402
 msgid "Your screen does not support alpha"
 msgstr "Tu pantalla no tiene soporte para transparencia"
 
-#: gis-weather.py:1405
+#: gis-weather.py:1404
 msgid "Your screen supports alpha"
 msgstr "Tu pantalla tiene soporte para transparencia"
 
@@ -201,7 +201,7 @@ msgstr "Tu pantalla tiene soporte para transparencia"
 msgid "Setup..."
 msgstr "Configuración..."
 
-#: utils/gw_menu.py:87 dialogs/settings_dialog.py:368
+#: utils/gw_menu.py:87 dialogs/settings_dialog.py:371
 msgid "No"
 msgstr "No"
 
@@ -231,7 +231,7 @@ msgstr "Actualizar"
 msgid "Location"
 msgstr "Ubicación"
 
-#: utils/gw_menu.py:151 dialogs/about_dialog.py:39
+#: utils/gw_menu.py:151 dialogs/about_dialog.py:55
 #: dialogs/settings_dialog.ui:3535 dialogs/settings_dialog.ui:4021
 msgid "Icons"
 msgstr "Íconos"
@@ -253,7 +253,7 @@ msgid "Window"
 msgstr "Ventana"
 
 #: utils/gw_menu.py:176 dialogs/settings_dialog.py:74
-#: dialogs/settings_dialog.py:641
+#: dialogs/settings_dialog.py:644
 msgid "Preferences"
 msgstr "Preferencias"
 
@@ -271,7 +271,7 @@ msgstr "Acerca de"
 msgid "Close"
 msgstr "Cerrar"
 
-#: utils/desktop.py:23 utils/autorun.py:64 dialogs/about_dialog.py:24
+#: utils/desktop.py:23 utils/autorun.py:63 dialogs/about_dialog.py:40
 msgid "Weather widget"
 msgstr "Widget de tiempo meteorológico"
 
@@ -303,93 +303,93 @@ msgstr "Lugar"
 msgid "Downloading"
 msgstr "Descargando"
 
-#: dialogs/update_dialog.py:55
-msgid "Update"
-msgstr "Actualizar"
-
-#: dialogs/update_dialog.py:83
-msgid "Current version"
-msgstr "Versión actual"
-
-#: dialogs/update_dialog.py:84
-msgid "Available new version"
-msgstr "Versión disponible"
-
-#: dialogs/update_dialog.py:110
-msgid "Error downloading updates"
-msgstr "Error descargando actualizaciones"
-
-#: dialogs/update_dialog.py:145
-msgid "Error installing updates"
-msgstr "Error instalando actualizaciones"
-
-#: dialogs/update_dialog.py:149 dialogs/update_dialog.ui:575
-msgid "Installation"
-msgstr "Instalación"
-
-#: dialogs/update_dialog.py:157
-msgid "Error removing"
-msgstr "Error eliminando"
-
-#: dialogs/settings_dialog.py:359
-msgid "m/s"
-msgstr "m/s"
-
-#: dialogs/settings_dialog.py:359
-msgid "km/h"
-msgstr ""
-
-#: dialogs/settings_dialog.py:359
-msgid "mph"
-msgstr ""
-
-#: dialogs/settings_dialog.py:360
-msgid "mmHg"
-msgstr "mmHg"
-
-#: dialogs/settings_dialog.py:360
-msgid "inHg"
-msgstr ""
-
-#: dialogs/settings_dialog.py:360
-msgid "hPa"
-msgstr ""
-
-#: dialogs/settings_dialog.py:363
-msgid "Never"
-msgstr "Nunca"
-
-#: dialogs/settings_dialog.py:364
-msgid "Only at start"
-msgstr "Sólo al iniciar"
-
-#: dialogs/settings_dialog.py:365
-msgid "Always"
-msgstr "Siempre"
-
-#: dialogs/settings_dialog.py:369
-msgid "Only background"
-msgstr "Sólo al fondo"
-
-#: dialogs/settings_dialog.py:370
-msgid "Yes"
-msgstr "Sí"
-
-#: dialogs/settings_dialog.py:466 dialogs/settings_dialog.py:476
-#: dialogs/settings_dialog.py:486
-msgid "Author"
-msgstr "Autor"
-
-#: dialogs/help_dialog.py:13
+#: dialogs/update_dialog.py:44 dialogs/help_dialog.py:13
 msgid "Go to link"
 msgstr ""
 
-#: dialogs/help_dialog.py:16 dialogs/help_dialog.ui:76
-#: dialogs/update_dialog.ui:318
+#: dialogs/update_dialog.py:47 dialogs/help_dialog.py:16
+#: dialogs/help_dialog.ui:76 dialogs/update_dialog.ui:318
 msgid "Send email"
 msgstr "Enviar email"
 
-#: dialogs/about_dialog.py:7
+#: dialogs/update_dialog.py:60
+msgid "Update"
+msgstr "Actualizar"
+
+#: dialogs/update_dialog.py:88
+msgid "Current version"
+msgstr "Versión actual"
+
+#: dialogs/update_dialog.py:89
+msgid "Available new version"
+msgstr "Versión disponible"
+
+#: dialogs/update_dialog.py:115
+msgid "Error downloading updates"
+msgstr "Error descargando actualizaciones"
+
+#: dialogs/update_dialog.py:150
+msgid "Error installing updates"
+msgstr "Error instalando actualizaciones"
+
+#: dialogs/update_dialog.py:154 dialogs/update_dialog.ui:575
+msgid "Installation"
+msgstr "Instalación"
+
+#: dialogs/update_dialog.py:162
+msgid "Error removing"
+msgstr "Error eliminando"
+
+#: dialogs/settings_dialog.py:362
+msgid "m/s"
+msgstr "m/s"
+
+#: dialogs/settings_dialog.py:362
+msgid "km/h"
+msgstr ""
+
+#: dialogs/settings_dialog.py:362
+msgid "mph"
+msgstr ""
+
+#: dialogs/settings_dialog.py:363
+msgid "mmHg"
+msgstr "mmHg"
+
+#: dialogs/settings_dialog.py:363
+msgid "inHg"
+msgstr ""
+
+#: dialogs/settings_dialog.py:363
+msgid "hPa"
+msgstr ""
+
+#: dialogs/settings_dialog.py:366
+msgid "Never"
+msgstr "Nunca"
+
+#: dialogs/settings_dialog.py:367
+msgid "Only at start"
+msgstr "Sólo al iniciar"
+
+#: dialogs/settings_dialog.py:368
+msgid "Always"
+msgstr "Siempre"
+
+#: dialogs/settings_dialog.py:372
+msgid "Only background"
+msgstr "Sólo al fondo"
+
+#: dialogs/settings_dialog.py:373
+msgid "Yes"
+msgstr "Sí"
+
+#: dialogs/settings_dialog.py:469 dialogs/settings_dialog.py:479
+#: dialogs/settings_dialog.py:489
+msgid "Author"
+msgstr "Autor"
+
+#: dialogs/about_dialog.py:23
 msgid ""
 "This program is free software: you can redistribute it and/or modify\n"
 "it under the terms of the GNU General Public License as published by\n"
@@ -416,11 +416,11 @@ msgstr ""
 "Puedes encontrar el texto completo de la licencia en\n"
 "http://www.gnu.org/licenses/gpl.txt"
 
-#: dialogs/about_dialog.py:30
+#: dialogs/about_dialog.py:46
 msgid "Help and Ideas"
 msgstr "Ayuda e ideas"
 
-#: dialogs/about_dialog.py:36
+#: dialogs/about_dialog.py:52
 msgid "Backgrounds"
 msgstr "Fondos"
 
