@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-08-16 16:53+0300\n"
-"PO-Revision-Date: 2014-08-16 16:57+0300\n"
+"POT-Creation-Date: 2014-08-16 18:41+0300\n"
+"PO-Revision-Date: 2014-08-16 18:41+0300\n"
 "Last-Translator: \n"
-"Language-Team: jarek <jarek@strony-www.net>\n"
+"Language-Team: Jarosław Harasiuk <jarek@strony-www.net>\n"
 "Language: Polski\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -56,11 +56,11 @@ msgstr "Obecna wersja istotne"
 
 #: gis-weather.py:395
 msgid "Screenshot saved to"
-msgstr "Скриншот сохранен в"
+msgstr "Zrzut ekranu zapisywane"
 
 #: gis-weather.py:397
 msgid "Unable to get the screenshot"
-msgstr "Zrzut ekranu zapisywane"
+msgstr "Nie można zapisać zrzutu ekranu"
 
 #: gis-weather.py:559
 msgid "Getting weather..."
@@ -114,7 +114,7 @@ msgstr "N"
 
 #: gis-weather.py:796
 msgid "humid."
-msgstr "влажн."
+msgstr "humid."
 
 #: gis-weather.py:805
 msgid "water"
@@ -190,11 +190,11 @@ msgstr "Błędny kod lokalizacji"
 
 #: gis-weather.py:1402
 msgid "Your screen does not support alpha"
-msgstr "Ваш экран не поддерживает прозрачность"
+msgstr "Ekran nie obsługuje kanał alfa"
 
 #: gis-weather.py:1404
 msgid "Your screen supports alpha"
-msgstr "Ekran nie obsługuje kanału alfa"
+msgstr "Ekran obsługuje kanał alfa"
 
 #: utils/gw_menu.py:51 dialogs/settings_dialog.ui:692
 msgid "Setup..."
@@ -261,7 +261,7 @@ msgstr "Pomoc"
 
 #: utils/gw_menu.py:192
 msgid "About"
-msgstr "О программе"
+msgstr "O programie"
 
 #: utils/gw_menu.py:204 dialogs/settings_dialog.ui:525
 #: dialogs/help_dialog.ui:25 dialogs/city_id_dialog.ui:72
@@ -486,11 +486,11 @@ msgstr ""
 
 #: dialogs/settings_dialog.ui:877
 msgid "Language program"
-msgstr "Язык программы"
+msgstr "Język programu"
 
 #: dialogs/settings_dialog.ui:892 dialogs/city_id_dialog.ui:323
 msgid "Language weather"
-msgstr "Język programu"
+msgstr "Język weather"
 
 #: dialogs/settings_dialog.ui:907
 msgid "Add icon launcher to menu"
@@ -498,7 +498,7 @@ msgstr "Dodaj ikonę do menu "
 
 #: dialogs/settings_dialog.ui:935 dialogs/city_id_dialog.ui:360
 msgid "Weather service"
-msgstr "Usługa pogod"
+msgstr "Usługa pogody"
 
 #: dialogs/settings_dialog.ui:1016 dialogs/help_dialog.ui:286
 msgid "Translation status"
@@ -545,8 +545,9 @@ msgid "Fix BadDrawable error"
 msgstr ""
 
 #: dialogs/settings_dialog.ui:1528
+#, fuzzy
 msgid "Transparency"
-msgstr ""
+msgstr "Translate"
 
 #: dialogs/settings_dialog.ui:1667
 msgid "Scale"
@@ -763,3 +764,80 @@ msgstr "Aktualizacja zakończona sukcesem"
 #: dialogs/update_dialog.ui:756
 msgid "Update error"
 msgstr "Błąd aktualizacji"
+
+#~ msgid "Use PNG"
+#~ msgstr "Użyj PNG"
+
+#~ msgid "Color (if not PNG)"
+#~ msgstr "Color (if not PNG)"
+
+#, fuzzy
+#~ msgid "ReadMe"
+#~ msgstr "ReadMe"
+
+#~ msgid "Widget only"
+#~ msgstr "Widget only"
+
+#~ msgid "Widget + Indicator"
+#~ msgstr "Widget + Indicator"
+
+#~ msgid "Hg"
+#~ msgstr "Hg"
+
+#~ msgid "mm"
+#~ msgstr "mm"
+
+#~ msgid "in"
+#~ msgstr "w"
+
+#~ msgid "Unable to get changes"
+#~ msgstr "Unable to get changes"
+
+#~ msgid "Installed version"
+#~ msgstr "Installed version"
+
+#~ msgid "Sa"
+#~ msgstr "Sa"
+
+#~ msgid "Su"
+#~ msgstr "Su"
+
+#~ msgid ""
+#~ "Choose your city on <a href='http://www.gismeteo.com'> http://www."
+#~ "gismeteo.com </a>\n"
+#~ "and copy number at the end of reference\n"
+#~ "For example <u><span foreground='blue'>http://www.gismeteo.ru/city/daily/"
+#~ "<b>1234</b>/</span></u>\n"
+#~ "City code<b>1234</b>"
+#~ msgstr ""
+#~ "Choose your city on <a href='http://www.gismeteo.com'> http://www."
+#~ "gismeteo.com </a>\n"
+#~ "and copy number at the end of reference\n"
+#~ "For example <u><span foreground='blue'>http://www.gismeteo.ru/city/daily/"
+#~ "<b>1234</b>/</span></u>\n"
+#~ "City code<b>1234</b>"
+
+#~ msgid "Properties"
+#~ msgstr "Properties"
+
+#~ msgid "Settings"
+#~ msgstr "Settings"
+
+#~ msgid ""
+#~ "fafad\n"
+#~ "afdsf\n"
+#~ "afdsfafds\n"
+#~ msgstr ""
+#~ "fafad\n"
+#~ "afdsf\n"
+#~ "afdsfafds\n"
+#~ "fdafads"
+
+#~ msgid "Not correct location code"
+#~ msgstr "Nieprawidłowy kod lokalizacji"
+
+#~ msgid "<b>Text</b>"
+#~ msgstr "<b>Text</b>"
+
+#~ msgid "<b>Icons</b>"
+#~ msgstr "<b>Ikony</b>"
