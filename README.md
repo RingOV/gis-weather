@@ -9,6 +9,10 @@ Used Python3 and GTK3
 - python3-gi-cairo
 - gir1.2-gtk-3.0 (gtk3)
 
+
+Recommends:
+- gir1.2-rsvg-2.0 (librsvg)
+
 ### **Features**
 - View weather for several days
 - Detailed weather forecast for today and tomorrow
