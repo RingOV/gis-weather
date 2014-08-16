@@ -2,8 +2,24 @@
 
 from gi.repository import Gtk, GdkPixbuf
 import os
+import re
 
 def create(v, APP_PATH):
+    for root, dirs, files in os.walk(os.path.join(APP_PATH, 'po')):
+        break
+    files.remove('README.md')
+    translator_credits = ''
+    for item in files:
+        if item[-2:] == 'po':
+            f = open(os.path.join(root, item), 'rb')
+            l = f.read().decode(encoding='UTF-8')
+            language = re.findall('"Language: (.*)"', l)
+            language = language[0][:-2]
+            team = re.findall('"Language-Team: (.*)"', l)
+            team = team[0][:-2]
+            translator_credits = translator_credits + team+' ('+language+')\n'
+
+
     license = _('''This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
@@ -47,8 +63,6 @@ http://www.gnu.org/licenses/gpl.txt''')
         "by LavAna",
         "http://lavana.deviantart.com/art/Simple-Weather-Icons-23626765\n"
         ])
-    about.set_translator_credits("Yasser López de Olmos <biolyasser@gmail.com> (Español)\n\
-        spyder <ghostdarkhide@gmail.com> (Français)\n\
-        Daniel <hyperion_dani@yahoo.com> (Română)\n")
+    about.set_translator_credits(translator_credits)
     #about.set_documenters("")
     return about
