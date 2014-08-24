@@ -59,42 +59,42 @@ data = [
 ]
 
 max_days = 14
-# переменные, в которые записывается погода
-city_name = []       # Город
-t_now = []           # Температура сейчас
-wind_speed_now = []  # Скорость ветра сейчас
-wind_direct_now = [] # Направление ветра сейчас
-icon_now = []        # Иконка погоды сейчас
-icon_wind_now = []   # Иконка ветра сейчас
-time_update = []     # Время обновления погоды на сайте
-text_now = []        # Текст погоды сейчас
-press_now = []       # Давление сейчас
-hum_now = []         # Влажность сейчас
-t_water_now = []     # Температура воды сейчас
+# weather variables
+city_name = []
+t_now = []
+wind_speed_now = []
+wind_direct_now = []
+icon_now = []
+icon_wind_now = []
+time_update = []
+text_now = []
+press_now = []
+hum_now = []
+t_water_now = []
 
-t_night = []         # Температура ночью
-t_night_feel = []    # Температура ночью ощущается
-day = []             # День недели
-date = []            # Дата
-t_day = []           # Температура днем
-t_day_feel = []      # Температура днем ощущается
-icon = []            # Иконка погоды
-icon_wind = []       # Иконка ветра
-wind_speed = []      # Скорость ветра
-wind_direct = []     # Направление ветра
-text = []            # Текст погоды
+t_night = []
+t_night_feel = []
+day = []
+date = []
+t_day = []
+t_day_feel = []
+icon = []
+icon_wind = []
+wind_speed = []
+wind_direct = []
+text = []
 
-t_tomorrow = []      # Температура завтра
-t_tomorrow_feel = [] # Температура завтра ощущается
-icon_tomorrow = []   # Иконка погоды завтра
-wind_speed_tom = []  # Скорость ветра завтра
-wind_direct_tom = [] # Направление ветра завтра
+t_tomorrow = []
+t_tomorrow_feel = []
+icon_tomorrow = []
+wind_speed_tom = []
+wind_direct_tom = []
 
-t_today = []         # Температура сегодня
-t_today_feel = []    # Температура сегодня ощущается
-icon_today = []      # Иконка погоды сегодня
-wind_speed_tod = []  # Скорость ветра сегодня
-wind_direct_tod = [] # Направление ветра сегодня
+t_today = []
+t_today_feel = []
+icon_today = []
+wind_speed_tod = []
+wind_direct_tod = []
 chance_of_rain = []
 t_today_low=[]
 t_tomorrow_low=[]
@@ -244,14 +244,14 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
         if timer_bool:
             print ('\033[1;31m[!]\033[0m '+_('Next try in 10 seconds'))
         return False
-    #### Текущая погода ####
+    #### current weather ####
     
-    # Город
+    # city
     city_name = re.findall('"current-city"><h1>(.*),', source)
 
     celsius = re.findall('celsius.*checked', source)
 
-    # Температура
+    # temperature
     t_now = re.findall('<span class="temp">(.?\d+)<', source)
     if not celsius:
         t_now[0] = F_to_C(t_now[0])
@@ -259,13 +259,13 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
             t_now[0] = '+'+t_now[0]
     t_now[0] = t_now[0]+'°;'+t_now[0]+'°;'+C_to_F(t_now[0])+'°;'+C_to_F(t_now[0])+'°;'+C_to_K(t_now[0])+';'+C_to_K(t_now[0])
 
-    # Ветер
+    # wind
     wind_speed_now = re.findall("var s = '(\d*)", source)
     if wind_speed_now:
         wind_speed_now[0] = str(round(int(wind_speed_now[0])*0.278))+' m/s;'+wind_speed_now[0]+' km/h;'+str(round(int(wind_speed_now[0])*0.621))+' mph'
     wind_direct_now = re.findall("var d = '(.*)'", source)
 
-    # Иконка
+    # icon
     icon_now = re.findall('<div class="forecast">\s*<div class="icon (.*)"></div>', source)
     icon_now[0] = icon_now[0][2:]
     if len(icon_now[0])==4:
@@ -273,7 +273,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
     icon_now[0] = 'http://vortex.accuweather.com/adc2010/images/icons-numbered/'+icon_now[0]+'.png'
     icon_now[0] = convert(icon_now[0], icons_name)
     
-    # Иконка ветра
+    # wind icon
     icon_wind_now = ['']
     try:
         icon_wind_now[0] = wind_degree(wind_direct_now[0])
@@ -288,10 +288,8 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
             a=a+_(wind_direct_now[0][i])
         wind_direct_now[0]=a
 
-    # Время обновления
-    #time_update = re.findall('data-hr.* (\d?\d:\d\d)\s*</span>', source, re.DOTALL)
     
-    # Текст погоды сейчас
+    # weather text now
     text_now = re.findall('<div class="info"> <span class="cond">(.*)<', source)
     text_now[0]=text_now[0].split('<')[0]
 
@@ -304,24 +302,18 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
         except:
             print ('\033[1;31m[!]\033[0m '+_('Unable to download page, check the network connection'))
         
-        # Давление сейчас
+        # pressure now
         press_now = re.findall('Pressure.*>(\d+)', source)
         try:
             press_now[0] = str(round(int(press_now[0])*0.75))+' mmHg;'+str(round(int(press_now[0])*0.0295))+' inHg;'+press_now[0]+' hPa'
         except:
             press_now = ['n/a mmHg;n/a inHg;n/a hPa']
-        # Влажность сейчас
+        # humidity now
         hum_now = re.findall('Humidity.*>(\d+)', source)
         if not hum_now:
             hum_now=['n/a']
     
-    # # Температура воды сейчас
-    # try:
-    #     t_water_now = t_now[1]+';'+str(int(C_to_F(t_now[1])))+';'+C_to_K(t_now[1])
-    # except:
-    #     pass
-    
-    #### Погода на 2 недели ####
+    #### weather to several days ####
     print ('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+'http://www.accuweather.com/%s/%s/month/%s?view=table'%(weather_lang, city_id, city_number))
     try:
         source = urlopen('http://www.accuweather.com/%s/%s/month/%s?view=table'%(weather_lang, city_id, city_number), timeout=10).read()
@@ -331,10 +323,10 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
         print ('\033[1;31m[!]\033[0m '+_('Unable to download page, check the network connection'))
 
 
-    # все дни с погодой
+    # all days
     w_all = re.findall('<tr class="lo calendar.*</table>', source, re.DOTALL)
 
-    # температура днем
+    # day temperature
     t_day = re.findall('<td style="font-weight:bold;">(.*)&#176;', w_all[0])
     for i in range(len(t_day)):
         if t_day[i][0] not in ('+', '-', '0'):
@@ -343,7 +335,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
             t_day[i] = F_to_C(t_day[i])
         t_day[i] = t_day[i]+'°;'+t_day[i]+'°;'+C_to_F(t_day[i])+'°;'+C_to_F(t_day[i])+'°;'+C_to_K(t_day[i])+';'+C_to_K(t_day[i]) 
 
-    # температура ночью
+    # night temperature
     t_night = re.findall('<td style="font-weight:bold;">.*\s*<td>(.*)&#176;', w_all[0])
     for i in range(len(t_night)):
         if t_night[i][0] not in ('+', '-', '0'):
@@ -353,7 +345,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
         t_night[i] = t_night[i]+'°;'+t_night[i]+'°;'+C_to_F(t_night[i])+'°;'+C_to_F(t_night[i])+'°;'+C_to_K(t_night[i])+';'+C_to_K(t_night[i])
 
 
-    # День недели и дата
+    # day of week, date
     day = re.findall('color:.*>(.*)<br', w_all[0])
     date = re.findall('<br />([\d|.\-/]+)<', w_all[0])
     try:
@@ -364,17 +356,17 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
         for i in range(len(date)):
             date[i]=date[i][:-5]
 
-    # Иконка погоды днем
+    # weather icon day
     icon = re.findall('src=\"(.*png)\" ', w_all[0])
     for i in range(len(icon)):
         icon[i] = convert(icon[i], icons_name)
 
 
-    # Текст погоды
+    # weather text
     text = re.findall('src=.*>(.*)\r', w_all[0])
 
     chance_of_rain = re.findall('<td style="font-weight:bold;">.*\s*<td>.*\s*<td>(.*)<', w_all[0])
-    # Если не хватает дней в текущем месяце, то нужно загружать следующий месяц.
+    # if end of month, get days from next month
     if len(t_day)<n:
         try:
             next_month = re.findall('href="(.*)&amp;view=table".*next-month"', source)
@@ -388,10 +380,10 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
                 print ('\033[1;31m[!]\033[0m '+_('Unable to download page, check the network connection'))
 
 
-            # все дни с погодой
+            # all days
             w_all = re.findall('<tr class="lo calendar.*</table>', source, re.DOTALL)
 
-            # температура днем
+            # day temperature
             t_day2 = re.findall('<td style="font-weight:bold;">(.*)&#176;', w_all[0])
             for i in range(len(t_day2)):
                 if t_day2[i][0] not in ('+', '-', '0'):
@@ -401,7 +393,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
                 t_day2[i] = t_day2[i]+'°;'+t_day2[i]+'°;'+C_to_F(t_day2[i])+'°;'+C_to_F(t_day2[i])+'°;'+C_to_K(t_day2[i])+';'+C_to_K(t_day2[i]) 
             t_day.extend(t_day2)
 
-            # температура ночью
+            # night temperature
             t_night2 = re.findall('<td style="font-weight:bold;">.*\s*<td>(.*)&#176;', w_all[0])
             for i in range(len(t_night2)):
                 if t_night2[i][0] not in ('+', '-', '0'):
@@ -411,7 +403,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
                 t_night2[i] = t_night2[i]+'°;'+t_night2[i]+'°;'+C_to_F(t_night2[i])+'°;'+C_to_F(t_night2[i])+'°;'+C_to_K(t_night2[i])+';'+C_to_K(t_night2[i])
             t_night.extend(t_night2)
 
-            # День недели и дата
+            # day of week, date
             day2 = re.findall('color:.*>(.*)<br', w_all[0])
             date2 = re.findall('<br />([\d|.\-/]+)<', w_all[0])
             try:
@@ -423,13 +415,13 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
                     date2[i]=date2[i][:-5]
             day.extend(day2)
             date.extend(date2)
-            # Иконка погоды днем
+            # weather icon day
             icon2 = re.findall('src=\"(.*png)\" ', w_all[0])
             for i in range(len(icon2)):
                 icon2[i] = convert(icon2[i], icons_name)
             icon.extend(icon2)
 
-            # Текст погоды
+            # weather text
             text2 = re.findall('src=.*>(.*)\r', w_all[0])
 
             chance_of_rain2 = re.findall('<td style="font-weight:bold;">.*\s*<td>.*\s*<td>(.*)<', w_all[0])
@@ -439,7 +431,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
             pass
 
     if show_block_tomorrow:
-        #### Погода завтра ####
+        #### weather tomorrow ####
         print ('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+'http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=2'%(city_id, city_number))
         try:
             w_night = urlopen('http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=2'%(city_id, city_number), timeout=10).read()
@@ -579,7 +571,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
 
         
     if show_block_today:
-        #### Погода сегодня ####
+        #### weather today ####
         print ('\033[34m>\033[0m '+_('Uploading page to a variable')+' '+'http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=1'%(city_id, city_number))
         try:
             w_night = urlopen('http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=1'%(city_id, city_number), timeout=10).read()
@@ -722,7 +714,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
         print ('\033[34m>\033[0m '+_('updated on server')+' '+time_update[0]) 
     print ('\033[34m>\033[0m '+_('weather received')+' '+time.strftime('%H:%M', time.localtime()))
 
-    # записываем переменные
+    # write variables
     for i in weather.keys():
         weather[i] = globals()[i]
     return weather

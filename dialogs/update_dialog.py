@@ -25,7 +25,7 @@ def dlProgress(count, blockSize, totalSize):
     percent = int(count*blockSize*100/totalSize)
     total = str(round(totalSize/1024/1024.0*10)/10.0)
     label_updating_step1.set_text(_('Downloading')+" (%s Мб)... %d%%" %(total, percent))
-    # перерисовка окна
+    # redraw window
     while Gtk.events_pending():
         Gtk.main_iteration_do(True)
 
@@ -102,9 +102,6 @@ def create(v, new_ver, CONFIG_PATH, APP_PATH, update_link, file_name, package):
         pic_step2.clear()
         pic_step3.clear()
         infobar_error.hide()
-        # перерисовка окна
-        #while Gtk.events_pending():
-        #    Gtk.main_iteration_do(True)
         url = update_link
         _file = os.path.join(CONFIG_PATH, file_name)
         
@@ -117,7 +114,7 @@ def create(v, new_ver, CONFIG_PATH, APP_PATH, update_link, file_name, package):
             infobar_error.show()
         else:
             pic_step2.set_from_animation(pix_loading)
-            # перерисовка окна
+            # redraw window
             while Gtk.events_pending():
                 Gtk.main_iteration_do(True)
             if package == 'gz':

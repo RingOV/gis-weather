@@ -491,9 +491,8 @@ class settings():
             if backgrounds_list_set[i] == gw_config_set['bg_custom']: 
                 self.combobox_bg_custom.set_active(i)
 
-        if not WIN:  # FIXME autorun for windows not worked
-            if autorun.exists("gis-weather"):
-                self.switch_autostart.set_active(True)
+        if autorun.exists("gis-weather"):
+            self.switch_autostart.set_active(True)
 
         if desktop.main_exists():
             self.switch_add_icon.hide()

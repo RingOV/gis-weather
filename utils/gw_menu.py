@@ -6,28 +6,28 @@ import os
 def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, icons_name, show_bg_png, 
     color_bg, bg_custom, color_scheme, color_scheme_number, city_list, city_id, fix_position, sticky, indicator_icons_name, for_indicator):
     menu = None
-    # из папки скрипта (dirs - иконки, files - фоны)
+    # from script folder (dirs - icons, files - backdrounds)
     for root, dirs, files in os.walk(ICONS_PATH):
         break
     files = os.listdir(BGS_PATH)
     dirs.sort()
     files.sort()
     dirs.remove('default')
-    # из папки пользователя (dirs_user - иконки, files_user - фоны)
+    # from user folder (dirs_user - icons, files_user - backdrounds)
     for root, dirs_user, files_user in os.walk(ICONS_USER_PATH):
         break
     files_user = os.listdir(BGS_USER_PATH)
     dirs_user.sort()
     files_user.sort()
     dirs_user.remove('default')
-    # списки с иконками и фонами
+    # list with icons and backdrounds
     icons_list = []
     icons_list.extend(dirs)
     icons_list.extend(dirs_user)
     backgrounds_list = []
     backgrounds_list.extend(files)
     backgrounds_list.extend(files_user)
-    # Создаем меню и заполняем найденными иконками и фонами
+    # create menu and fill 
     menu = Gtk.Menu()
     sub_menu_place = Gtk.Menu()
     sub_menu_icons = Gtk.Menu()

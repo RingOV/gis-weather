@@ -70,50 +70,49 @@ if not os.path.exists(os.path.join(CONFIG_PATH, 'backgrounds')):
 
 # Default values
 gw_config_default = {
-    'angel': 0,                        # Угол поворота по часовой стрелке в градусах
-    'city_id': 0,                      # Код города
-    'upd_time': 30,                    # Обновлять через (в минутах)
-    'n': 7,                            # Количество отображаемых дней от 1 до 13
-    'x_pos': 60,                       # Позиция слева
-    'y_pos': 60,                       # Позиция сверху
-    't_feel': False,                   # Температура как ощущается
-    'font': 'Sans',                  # Шрифт
-    'color_text': (0, 0, 0, 1), #RGBa  # Цвет текста
-    'color_text_week': (0.5, 0, 0, 1), # Цвет Сб и Вс
-    'color_bg': (0.8, 0.8, 0.8, 1),    # Цвет фона
-    'color_shadow': (1, 1, 1, 0.7),    # Цвет тени
-    'draw_shadow': True,               # Рисовать тень
-    'opacity': 1,                      # Прозрачность всего окна 0..1
-    'show_time_receive': True,         # Время получения погоды
-    'show_block_wind_direct': True,    # Блок направление ветра
-    'block_wind_direct_left': -170,    # Позиция слева относительно центра
-    'wind_direct_small': False,        # Маленький блок направления ветра
-    'show_block_add_info': True,       # Блок с дополнительной информацией
-    'block_add_info_left': 70,         # Позиция слева относительно центра
-    'show_block_tomorrow': True,       # Блок с погодой на завтра
-    'block_tomorrow_left': 180,        # Позиция слева относительно центра
-    'show_block_today': True,          # Блок с погодой на сегодня
-    'block_today_left': -310,          # Позиция слева относительно центра
-    'r': 0,                            # Радиус углов фона (только, если фон не изображение)
-    'show_splash_screen': 2,           # Загрузочная заставка 0 - нет, 1 - только фон, 2 - есть
-    'max_try_show': 30,                # После этого количества попыток загрузочная заставка исчезнет, 0 - будет видна всегда
-    'sticky': True,                    # На всех рабочих столах
-    'show_bg_png': True,               # Если True, то в фоне картинка
-    'bg_custom': 'Light50',            # А вот, собственно, и она
-    'margin': 20,                      # Отступ от всех сторон виджета
-    'output_display': 0,               # Номер дисплея, в который выводится виджет (нумерация в терминале, * - выбранный дисплей)
-    'high_wind': 10,                   # Ветер больше или равен этого значения выделяется цветом (-1 не выделять)
-    'color_high_wind': (0, 0, 0.6, 1), # Цвет сильного ветра
-    'icons_name': 'default',           # Имя папки с иконками погоды
-    'fix_BadDrawable': True,           # Если выскакивает ошибка 'BadDrawable', то в конфиге исправьте на true
+    'angel': 0,                        # angle of clockwise rotation in degrees 
+    'city_id': 0,                      # location code
+    'upd_time': 30,                    # Update by (in minutes) 
+    'n': 7,                            # Display days
+    'x_pos': 60,                       # left position
+    'y_pos': 60,                       # top position
+    't_feel': False,                   # temperature as feel
+    'font': 'Sans',                    # font
+    'color_text': (0, 0, 0, 1), #RGBa  # color text
+    'color_text_week': (0.5, 0, 0, 1), # color weekend
+    'color_bg': (0.8, 0.8, 0.8, 1),    # color background
+    'color_shadow': (1, 1, 1, 0.7),    # color shadow
+    'draw_shadow': True,               # draw shadow
+    'opacity': 1,                      # opacity window
+    'show_time_receive': True,         # time of receipt of weather 
+    'show_block_wind_direct': True,    # block wind direct
+    'block_wind_direct_left': -170,    # position
+    'wind_direct_small': False,        # small block wind direct
+    'show_block_add_info': True,       # block with additional information
+    'block_add_info_left': 70,         # position
+    'show_block_tomorrow': True,       # block with the weather for tomorrow
+    'block_tomorrow_left': 180,        # position
+    'show_block_today': True,          # block with the weather for today
+    'block_today_left': -310,          # position
+    'r': 0,                            # border radius
+    'show_splash_screen': 2,           # splash creen 0 - no, 1 - only backdround, 2 - yes
+    'max_try_show': 30,                # hide splash, 0 - show always
+    'sticky': True,                    # on all desktops
+    'show_bg_png': True,               # picture in background
+    'bg_custom': 'Light50',            # this picture
+    'margin': 20,                      # inside padding
+    'high_wind': 10,                   # wind greater or equal to this value is highlighted (-1 do not allocate) 
+    'color_high_wind': (0, 0, 0.6, 1), # color
+    'icons_name': 'default',           # name folder with icon
+    'fix_BadDrawable': True,           # if BadDrawable error
     'color_scheme_number': 0,
-    'check_for_updates': 2,            # 0 - нет, 1 - только при запуске, 2 - всегда
+    'check_for_updates': 2,            # 0 - no, 1 - only when startup, 2 - always
     'fix_position': False,
     'app_lang': 'auto',
-    'weather_lang': 'com',             # com, ru, ua/ua, lv, lt, md/ro
+    'weather_lang': 'com',
     'delay_start_time': 0,
     'block_now_left': 0,
-    't_scale': 0,                      # 0 - °C, 1 - °F
+    't_scale': 0,                      # 0 - °C, 1 - °F, 2 - K
     'service': 0,
     'max_days': 12,
     'show_chance_of_rain': False,
@@ -138,24 +137,24 @@ for i in gw_config_default.keys():
     gw_config[i] = gw_config_default[i]
 
 color_scheme = [
-    {   'color_text': (0, 0, 0, 1), #RGBa    # Цвет текста
-        'color_text_week': (0.5, 0, 0, 1),   # Цвет Сб и Вс
-        'color_shadow': (1, 1, 1, 0.7),      # Цвет тени
-        'color_high_wind': (0, 0, 0.6, 1)    # Цвет сильного ветра
+    {   'color_text': (0, 0, 0, 1), #RGBa    # text color
+        'color_text_week': (0.5, 0, 0, 1),   # color weekend
+        'color_shadow': (1, 1, 1, 0.7),      # color shadow
+        'color_high_wind': (0, 0, 0.6, 1)    # color high wind
     },
-    {   'color_text': (0.9, 0.9, 0.9, 1),    # Цвет текста
-        'color_text_week': (1, 0.5, 0.5, 1), # Цвет Сб и Вс
-        'color_shadow': (0, 0, 0, 0.7),      # Цвет тени
-        'color_high_wind': (0.5, 0.5, 1, 1)  # Цвет сильного ветра
+    {   'color_text': (0.9, 0.9, 0.9, 1),    # text color
+        'color_text_week': (1, 0.5, 0.5, 1), # color weekend
+        'color_shadow': (0, 0, 0, 0.7),      # color shadow
+        'color_high_wind': (0.5, 0.5, 1, 1)  # color high wind
     },
-    {   'color_text': (0.2, 0.2, 0.2, 1),    # Цвет текста
-        'color_text_week': (0.5, 0, 0, 1),   # Цвет Сб и Вс
-        'color_shadow': (0, 0, 0, 0),        # Цвет тени
-        'color_high_wind': (0, 0, 0, 1)      # Цвет сильного ветра
+    {   'color_text': (0.2, 0.2, 0.2, 1),    # text color
+        'color_text_week': (0.5, 0, 0, 1),   # color weekend
+        'color_shadow': (0, 0, 0, 0),        # color shadow
+        'color_high_wind': (0, 0, 0, 1)      # color high wind
     }
     ]
 
-weekend = ('Sa', 'Su', 'Сб', 'Вс', 'Нд', 'Sat', 'Sun', 'S', 'D', 'Sv', 'Sk', 'Št')
+weekend = ('Sa', 'Su', 'Сб', 'Вс', 'Нд', 'Sat', 'Sun', 'S', 'D', 'Sv', 'Sk', 'Št') #FIXME add to settings dialog
 
 print (_('Config path')+':\n    '+os.path.join(CONFIG_PATH, 'gw_config.json'))
 
@@ -178,21 +177,21 @@ def Load_Config():
     try:
         gw_config_loaded=json.load(open(os.path.join(CONFIG_PATH, 'gw_config.json')))
         for i in gw_config_loaded.keys():
-            gw_config[i] = gw_config_loaded[i] # Присваиваем новые значения
+            gw_config[i] = gw_config_loaded[i] # new values
     except:
         print ('\033[1;31m[!]\033[0m '+_('Error loading config file'))
 
-    # Создаем переменные
+    # create variables
     for i in gw_config.keys():
         globals()[i] = gw_config[i]
 
-# Первый запуск, отсутствует конфиг
+# first start, config missed
 if not os.path.exists(os.path.join(CONFIG_PATH, 'gw_config.json')):
-    # Создаем переменные
+    # create variables
     for i in gw_config.keys():
         globals()[i] = gw_config[i]
     Save_Config()
-# Загружаем конфиг
+# load config
 Load_Config()
 def Load_Color_Scheme(number = 0):
     try:
@@ -203,13 +202,13 @@ def Load_Color_Scheme(number = 0):
     except:
         print ('\033[1;31m[!]\033[0m '+_('Error loading color scheme')+' # '+str(number))
 
-    # Создаем переменные
+    # create variables
     for i in gw_config.keys():
         globals()[i] = gw_config[i]
 
 # ------------------------------------------------------------------------------
 
-# Путь к виджету
+# path to gis-weather.py
 APP_PATH = os.path.abspath(os.path.dirname(sys.argv[0]))
 # if WIN:
 #     APP_PATH = APP_PATH.decode(sys.getfilesystemencoding())
@@ -234,7 +233,7 @@ if indicator_is_appindicator == 'None':
     else:
         indicator_is_appindicator = 0
     Save_Config()
-# Вспомогательные переменные
+# additional variables
 height = None
 width = None
 # cr = None
@@ -269,48 +268,48 @@ t_scale_dict = {
     2: "K"
 }
 
-# переменные, в которые записывается погода
+# weather variables
 weather = {
-    'city_name': [],       # Город
-    't_now': [],           # Температура сейчас
-    'wind_speed_now': [],  # Скорость ветра сейчас
-    'wind_direct_now': [], # Направление ветра сейчас
-    'icon_now': [],        # Иконка погоды сейчас
-    'icon_wind_now': [],   # Иконка ветра сейчас
-    'time_update': [],     # Время обновления погоды на сайте
-    'text_now': [],        # Текст погоды сейчас
-    'press_now': [],       # Давление сейчас
-    'hum_now': [],         # Влажность сейчас
-    't_water_now': [],     # Температура воды сейчас
+    'city_name': [],
+    't_now': [],
+    'wind_speed_now': [],
+    'wind_direct_now': [],
+    'icon_now': [],
+    'icon_wind_now': [],
+    'time_update': [],
+    'text_now': [],
+    'press_now': [],
+    'hum_now': [],
+    't_water_now': [],
 
-    't_night': [],         # Температура ночью
-    't_night_feel': [],    # Температура ночью ощущается
-    'day': [],             # День недели
-    'date': [],            # Дата
-    't_day': [],           # Температура днем
-    't_day_feel': [],      # Температура днем ощущается
-    'icon': [],            # Иконка погоды
-    'icon_wind': [],       # Иконка ветра
-    'wind_speed': [],      # Скорость ветра
-    'wind_direct': [],     # Направление ветра
-    'text': [],            # Текст погоды
+    't_night': [],
+    't_night_feel': [],
+    'day': [],
+    'date': [],
+    't_day': [],
+    't_day_feel': [],
+    'icon': [],
+    'icon_wind': [],
+    'wind_speed': [],
+    'wind_direct': [],
+    'text': [],
 
-    't_tomorrow': [],      # Температура завтра
-    't_tomorrow_feel': [], # Температура завтра ощущается
-    'icon_tomorrow': [],   # Иконка погоды завтра
-    'wind_speed_tom': [],  # Скорость ветра завтра
-    'wind_direct_tom': [], # Направление ветра завтра
+    't_tomorrow': [],
+    't_tomorrow_feel': [],
+    'icon_tomorrow': [],
+    'wind_speed_tom': [],
+    'wind_direct_tom': [],
 
-    't_today': [],         # Температура сегодня
-    't_today_feel': [],    # Температура сегодня ощущается
-    'icon_today': [],      # Иконка погоды сегодня
-    'wind_speed_tod': [],  # Скорость ветра сегодня
-    'wind_direct_tod': [], # Направление ветра сегодня
+    't_today': [],
+    't_today_feel': [],
+    'icon_today': [],
+    'wind_speed_tod': [],
+    'wind_direct_tod': [],
     'chance_of_rain': [],
     't_today_low': [],
     't_tomorrow_low': []
 }
-# Создаем переменные
+# create variables
 for i in weather.keys():
     globals()[i] = weather[i]
 
@@ -726,19 +725,19 @@ class MyDrawArea(Gtk.DrawingArea):
             if text_now: self.draw_text(text_now[0], center-70+block_now_left, y+106, font+' Normal', 10, 140, Pango.Alignment.CENTER)
             
             if show_block_wind_direct:
-                ####-Блок направление ветра-####
+                ####-block wind direct-####
                 left = block_wind_direct_left
-                top = y + 30 #50 + margin
-                r = 31     #радиус окружности
-                a = 36     #ширина и высота стрелки (a < 2*r)
-                font_NS = 8 # шрифт сторон горизонта
+                top = y + 30 # top
+                r = 31     # radius
+                a = 36     # width and height arrow (a < 2*r)
+                font_NS = 8 # font
                 font_wind = 10
                 if wind_direct_small:
                     left = block_now_left-90#-85
-                    top = y + 55 #75 + margin
-                    r = 16    #радиус окружности
-                    a = 20     #ширина и высота стрелки (a < 2*r)
-                    font_NS = 6 # шрифт сторон горизонта
+                    top = y + 55 # top
+                    r = 16    # radius
+                    a = 20     # width and height arrow (a < 2*r)
+                    font_NS = 6 # font
                     font_wind = 7
                 ################################
 
@@ -763,10 +762,10 @@ class MyDrawArea(Gtk.DrawingArea):
                         self.draw_scaled_image(x0-a/2+font_NS/2, y0-a/2+1+font_NS/2, os.path.join(ICONS_PATH, 'default', 'wind.png'), a, a, icon_wind_now[0]+angel)
             
             if show_block_add_info:    
-                ####-Блок с доп инфо-####
+                ####-block with additional info-####
                 left = block_add_info_left
-                top = y + 30 # 50 + margin
-                line_height = 25  #отступ между строк
+                top = y + 30 # top
+                line_height = 25  # spacing between rows
                 #########################
                 
                 x0 = center + left
@@ -809,9 +808,9 @@ class MyDrawArea(Gtk.DrawingArea):
                         self.draw_scaled_image(x0, y0+line_height*3, os.path.join(ICONS_PATH, 'default', 't_water.png'), 16, 16)
             
             if show_block_tomorrow:
-                ####-Блок погоды на завтра-####
+                ####-block tomorrow-####
                 left = block_tomorrow_left
-                top = y + 30 # 50 + margin
+                top = y + 30
                 a = 70
                 b = 53
                 b_width = a+60
@@ -858,9 +857,9 @@ class MyDrawArea(Gtk.DrawingArea):
 
 
             if show_block_today:
-                ####-Блок погоды на сегодня-####
+                ####-block today-####
                 left = block_today_left
-                top = y + 30 # 50 + margin
+                top = y + 30
                 a = 70
                 b = 53
                 b_width = a+60
@@ -1253,7 +1252,7 @@ class Weather_Widget:
             self.drawing_area.redraw(False, False)
             Save_Config()
         if event == 'reload':
-            # если radio, то обновлялось 2 раза, фикс
+            # if radio, then reloaded 2 time, fix
             if type(widget) == Gtk.RadioMenuItem:
                 if not widget.get_active():
                     return
@@ -1357,7 +1356,7 @@ class Weather_Widget:
         dialog.hide()
         return True
 
-#---------------------- Обработчики событий окна --------------------------------
+#---------------------- Event handlers window --------------------------------
     def button_press(self, widget, event):
         if event.button == 1 and not fix_position:
             self.window_main.begin_move_drag(1, int(event.x_root), int(event.y_root), event.time)
@@ -1412,7 +1411,7 @@ class Weather_Widget:
         self.window_main.show_all()
         if show_indicator == 1:
             self.window_main.hide()
-        # фикс высоты виджета
+        # fix height window
         if WIN:
             x = self.window_main.get_size()
             self.window_main.resize(int(width*scale), int(height*scale-(x[1]-height*scale)))
@@ -1430,5 +1429,4 @@ if __name__ == "__main__":
     app = Weather_Widget()
     app.create_menu(for_indicator=True)
     ind.set_menu(app.menu)
-    # GLib.set_application_name("gis-weather") #!!!!!!!!!!!!!!!!!!!!
     app.main()
