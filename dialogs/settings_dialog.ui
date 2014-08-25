@@ -399,6 +399,12 @@
     <property name="stock">gtk-clear</property>
     <property name="icon_size">1</property>
   </object>
+  <object class="GtkImage" id="image54">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-clear</property>
+    <property name="icon_size">1</property>
+  </object>
   <object class="GtkImage" id="image57">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -2877,26 +2883,11 @@
                                 <property name="can_focus">False</property>
                                 <property name="hexpand">True</property>
                                 <property name="xalign">0</property>
-                                <property name="label" translatable="yes">Color Sa, Su</property>
+                                <property name="label" translatable="yes">Color weekend</property>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
                                 <property name="top_attach">2</property>
-                                <property name="width">1</property>
-                                <property name="height">1</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkLabel" id="label43">
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="hexpand">True</property>
-                                <property name="xalign">0</property>
-                                <property name="label" translatable="yes">Shadow</property>
-                              </object>
-                              <packing>
-                                <property name="left_attach">0</property>
-                                <property name="top_attach">3</property>
                                 <property name="width">1</property>
                                 <property name="height">1</property>
                               </packing>
@@ -2919,23 +2910,6 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="clear_draw_shadow">
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="halign">end</property>
-                                <property name="valign">center</property>
-                                <property name="image">image31</property>
-                                <property name="always_show_image">True</property>
-                              </object>
-                              <packing>
-                                <property name="left_attach">2</property>
-                                <property name="top_attach">3</property>
-                                <property name="width">1</property>
-                                <property name="height">1</property>
-                              </packing>
-                            </child>
-                            <child>
                               <object class="GtkFontButton" id="fontbutton_font">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
@@ -2948,130 +2922,6 @@
                               <packing>
                                 <property name="left_attach">1</property>
                                 <property name="top_attach">0</property>
-                                <property name="width">1</property>
-                                <property name="height">1</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkSpinButton" id="spinbutton_high_wind">
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="halign">end</property>
-                                <property name="adjustment">adjustment14</property>
-                              </object>
-                              <packing>
-                                <property name="left_attach">1</property>
-                                <property name="top_attach">5</property>
-                                <property name="width">1</property>
-                                <property name="height">1</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkLabel" id="label50">
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="hexpand">True</property>
-                                <property name="xalign">0</property>
-                                <property name="label" translatable="yes">Color shadow</property>
-                              </object>
-                              <packing>
-                                <property name="left_attach">0</property>
-                                <property name="top_attach">4</property>
-                                <property name="width">1</property>
-                                <property name="height">1</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkLabel" id="label51">
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="hexpand">True</property>
-                                <property name="xalign">0</property>
-                                <property name="label" translatable="yes">High wind
-(-1 = not highlight)</property>
-                              </object>
-                              <packing>
-                                <property name="left_attach">0</property>
-                                <property name="top_attach">5</property>
-                                <property name="width">1</property>
-                                <property name="height">1</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkLabel" id="label52">
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="hexpand">True</property>
-                                <property name="xalign">0</property>
-                                <property name="label" translatable="yes">Color wind</property>
-                              </object>
-                              <packing>
-                                <property name="left_attach">0</property>
-                                <property name="top_attach">6</property>
-                                <property name="width">1</property>
-                                <property name="height">1</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkSwitch" id="switch_draw_shadow">
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="halign">end</property>
-                              </object>
-                              <packing>
-                                <property name="left_attach">1</property>
-                                <property name="top_attach">3</property>
-                                <property name="width">1</property>
-                                <property name="height">1</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkButton" id="clear_color_shadow">
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="halign">end</property>
-                                <property name="valign">center</property>
-                                <property name="image">image36</property>
-                                <property name="always_show_image">True</property>
-                              </object>
-                              <packing>
-                                <property name="left_attach">2</property>
-                                <property name="top_attach">4</property>
-                                <property name="width">1</property>
-                                <property name="height">1</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkButton" id="clear_high_wind">
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="halign">end</property>
-                                <property name="valign">center</property>
-                                <property name="image">image37</property>
-                                <property name="always_show_image">True</property>
-                              </object>
-                              <packing>
-                                <property name="left_attach">2</property>
-                                <property name="top_attach">5</property>
-                                <property name="width">1</property>
-                                <property name="height">1</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkButton" id="clear_color_high_wind">
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="halign">end</property>
-                                <property name="valign">center</property>
-                                <property name="image">image38</property>
-                                <property name="always_show_image">True</property>
-                              </object>
-                              <packing>
-                                <property name="left_attach">2</property>
-                                <property name="top_attach">6</property>
                                 <property name="width">1</property>
                                 <property name="height">1</property>
                               </packing>
@@ -3107,15 +2957,61 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkColorButton" id="colorbutton_color_shadow">
+                              <object class="GtkLabel" id="label52">
                                 <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="receives_default">True</property>
-                                <property name="halign">end</property>
-                                <property name="use_alpha">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="xalign">0</property>
+                                <property name="label" translatable="yes">Color wind</property>
                               </object>
                               <packing>
-                                <property name="left_attach">1</property>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">7</property>
+                                <property name="width">1</property>
+                                <property name="height">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkLabel" id="label51">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="xalign">0</property>
+                                <property name="label" translatable="yes">High wind
+(-1 = not highlight)</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">6</property>
+                                <property name="width">1</property>
+                                <property name="height">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkLabel" id="label50">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="xalign">0</property>
+                                <property name="label" translatable="yes">Color shadow</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">5</property>
+                                <property name="width">1</property>
+                                <property name="height">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkLabel" id="label43">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="xalign">0</property>
+                                <property name="label" translatable="yes">Shadow</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
                                 <property name="top_attach">4</property>
                                 <property name="width">1</property>
                                 <property name="height">1</property>
@@ -3131,7 +3027,161 @@
                               </object>
                               <packing>
                                 <property name="left_attach">1</property>
+                                <property name="top_attach">7</property>
+                                <property name="width">1</property>
+                                <property name="height">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="clear_color_high_wind">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="halign">end</property>
+                                <property name="valign">center</property>
+                                <property name="image">image38</property>
+                                <property name="always_show_image">True</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">2</property>
+                                <property name="top_attach">7</property>
+                                <property name="width">1</property>
+                                <property name="height">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="clear_high_wind">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="halign">end</property>
+                                <property name="valign">center</property>
+                                <property name="image">image37</property>
+                                <property name="always_show_image">True</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">2</property>
                                 <property name="top_attach">6</property>
+                                <property name="width">1</property>
+                                <property name="height">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="clear_color_shadow">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="halign">end</property>
+                                <property name="valign">center</property>
+                                <property name="image">image36</property>
+                                <property name="always_show_image">True</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">2</property>
+                                <property name="top_attach">5</property>
+                                <property name="width">1</property>
+                                <property name="height">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="clear_draw_shadow">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="halign">end</property>
+                                <property name="valign">center</property>
+                                <property name="image">image31</property>
+                                <property name="always_show_image">True</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">2</property>
+                                <property name="top_attach">4</property>
+                                <property name="width">1</property>
+                                <property name="height">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkSpinButton" id="spinbutton_high_wind">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="halign">end</property>
+                                <property name="adjustment">adjustment14</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="top_attach">6</property>
+                                <property name="width">1</property>
+                                <property name="height">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkColorButton" id="colorbutton_color_shadow">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="halign">end</property>
+                                <property name="use_alpha">True</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="top_attach">5</property>
+                                <property name="width">1</property>
+                                <property name="height">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkSwitch" id="switch_draw_shadow">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="halign">end</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="top_attach">4</property>
+                                <property name="width">1</property>
+                                <property name="height">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkLabel" id="label75">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="hexpand">True</property>
+                                <property name="xalign">0</property>
+                                <property name="label" translatable="yes">Weekend</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">0</property>
+                                <property name="top_attach">3</property>
+                                <property name="width">1</property>
+                                <property name="height">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="clear_weekend">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <property name="halign">end</property>
+                                <property name="valign">center</property>
+                                <property name="image">image54</property>
+                                <property name="always_show_image">True</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">2</property>
+                                <property name="top_attach">3</property>
+                                <property name="width">1</property>
+                                <property name="height">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkEntry" id="entry_weekend">
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                              </object>
+                              <packing>
+                                <property name="left_attach">1</property>
+                                <property name="top_attach">3</property>
                                 <property name="width">1</property>
                                 <property name="height">1</property>
                               </packing>

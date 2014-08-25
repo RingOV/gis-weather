@@ -120,6 +120,14 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, icons
     sub_menu_window.append(menu_items)
     menu_items.show()
 
+    menu_items = Gtk.SeparatorMenuItem()
+    sub_menu_window.append(menu_items)
+    menu_items.show()
+
+    menu_items = Gtk.MenuItem(_('Take screenshot'))
+    sub_menu_window.append(menu_items)
+    menu_items.connect("activate", app.menu_response, 'take_screenshot')
+    menu_items.show()
     # main menu
     if for_indicator:
         menu_items = Gtk.ImageMenuItem(_('Show/Hide widget'))
@@ -148,30 +156,31 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, icons
     menu_items.set_submenu(sub_menu_place)
     menu_items.show()
 
-    menu_items = Gtk.MenuItem(_('Icons'))
-    menu.append(menu_items)
-    menu_items.set_submenu(sub_menu_icons)
-    menu_items.show()
+    if for_indicator:
+        menu_items = Gtk.MenuItem(_('Indicator icons'))
+        menu.append(menu_items)
+        menu_items.set_submenu(sub_menu_indicator_icons)
+        menu_items.show()
+    else:
+        menu_items = Gtk.MenuItem(_('Icons'))
+        menu.append(menu_items)
+        menu_items.set_submenu(sub_menu_icons)
+        menu_items.show()
+        
+        menu_items = Gtk.MenuItem(_('Background'))
+        menu.append(menu_items)
+        menu_items.set_submenu(sub_menu_bgs)
+        menu_items.show()
+        
+        menu_items = Gtk.MenuItem(_('Text'))
+        menu.append(menu_items)
+        menu_items.set_submenu(sub_menu_color_text)
+        menu_items.show()
 
-    menu_items = Gtk.MenuItem(_('Indicator icons'))
-    menu.append(menu_items)
-    menu_items.set_submenu(sub_menu_indicator_icons)
-    menu_items.show()
-    
-    menu_items = Gtk.MenuItem(_('Background'))
-    menu.append(menu_items)
-    menu_items.set_submenu(sub_menu_bgs)
-    menu_items.show()
-    
-    menu_items = Gtk.MenuItem(_('Text'))
-    menu.append(menu_items)
-    menu_items.set_submenu(sub_menu_color_text)
-    menu_items.show()
-
-    menu_items = Gtk.MenuItem(_('Window'))
-    menu.append(menu_items)
-    menu_items.set_submenu(sub_menu_window)
-    menu_items.show()
+        menu_items = Gtk.MenuItem(_('Window'))
+        menu.append(menu_items)
+        menu_items.set_submenu(sub_menu_window)
+        menu_items.show()
 
     menu_items = Gtk.ImageMenuItem(_('Preferences'))
     image = Gtk.Image()

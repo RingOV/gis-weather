@@ -80,6 +80,7 @@ gw_config_default = {
     'font': 'Sans',                    # font
     'color_text': (0, 0, 0, 1), #RGBa  # color text
     'color_text_week': (0.5, 0, 0, 1), # color weekend
+    'weekend': 'Sa, Su',
     'color_bg': (0.8, 0.8, 0.8, 1),    # color background
     'color_shadow': (1, 1, 1, 0.7),    # color shadow
     'draw_shadow': True,               # draw shadow
@@ -153,8 +154,6 @@ color_scheme = [
         'color_high_wind': (0, 0, 0, 1)      # color high wind
     }
     ]
-
-weekend = ('Sa', 'Su', 'Сб', 'Вс', 'Нд', 'Sat', 'Sun', 'S', 'D', 'Sv', 'Sk', 'Št') #FIXME add to settings dialog
 
 print (_('Config path')+':\n    '+os.path.join(CONFIG_PATH, 'gw_config.json'))
 
@@ -544,23 +543,23 @@ class MyDrawArea(Gtk.DrawingArea):
         self.set_app_paintable(True)
         self.connect('draw', self.expose)
 
-    def splash_screen(self, state = 0):
+    def splash_screen(self, cr, state = 0):
         if show_splash_screen == 0:
             return
         global try_no
         if max_try_show != 0 and try_no >= max_try_show:
             return
-        self.draw_bg()
+        self.draw_bg(cr)
         if show_splash_screen != 1:
-            self.draw_scaled_image(width/2 - 64, height/2 - 128, os.path.join(APP_PATH, 'icon.png'), 128, 128)
-            self.draw_text('Gis Weather v ' + v, 0, height/2 - 8, font+' Normal', 14, width, Pango.Alignment.CENTER)
+            self.draw_scaled_image(cr, width/2 - 64, height/2 - 128, os.path.join(APP_PATH, 'icon.png'), 128, 128)
+            self.draw_text(cr, 'Gis Weather v ' + v, 0, height/2 - 8, font+' Normal', 14, width, Pango.Alignment.CENTER)
             if state == 0:
-                self.draw_text(_('Getting weather...'), 0, height/2 + 40, font+' Normal', 10, width, Pango.Alignment.CENTER)
+                self.draw_text(cr, _('Getting weather...'), 0, height/2 + 40, font+' Normal', 10, width, Pango.Alignment.CENTER)
             else:
                 try_no += 1
-                self.draw_text(_('Error getting weather')+' '+ str(try_no), 0, height/2 + 40, font+' Normal', 10, width, Pango.Alignment.CENTER)
+                self.draw_text(cr, _('Error getting weather')+' '+ str(try_no), 0, height/2 + 40, font+' Normal', 10, width, Pango.Alignment.CENTER)
                 if city_id == 0:
-                    self.draw_text(_('Location not set'), 0, height/2 + 60, font+' Normal', 10, width, Pango.Alignment.CENTER)
+                    self.draw_text(cr, _('Location not set'), 0, height/2 + 60, font+' Normal', 10, width, Pango.Alignment.CENTER)
 
 
     def redraw(self, timer1 = True, get_weather1 = True, load_config = False):
@@ -618,7 +617,7 @@ class MyDrawArea(Gtk.DrawingArea):
                     self.timer = GLib.timeout_add(upd_time*60*1000, self.redraw)
                     print ('\033[34m>\033[0m '+_('Next update in')+' '+str(upd_time)+' '+_('min'))
                     print ('-'*40)
-            self.Draw_Weather()
+            self.Draw_Weather(self.cr)
     
     def clear_draw_area(self, widget):
         self.cr = Gdk.cairo_create(self.get_window())
@@ -638,7 +637,7 @@ class MyDrawArea(Gtk.DrawingArea):
         if err == False:
             self.clear_draw_area(widget)
         if first_start:
-            self.splash_screen()
+            self.splash_screen(self.cr)
             return
         if get_weather_bool:
             weather1 = get_weather()
@@ -661,7 +660,7 @@ class MyDrawArea(Gtk.DrawingArea):
                     self.timer = GLib.timeout_add(10000, self.redraw)
             print ('-'*40)
             if splash:
-                self.splash_screen(1)
+                self.splash_screen(self.cr, 1)
             else:
                 if err == False:
                     self.Draw_Weather()
@@ -678,12 +677,12 @@ class MyDrawArea(Gtk.DrawingArea):
                     self.timer = GLib.timeout_add(upd_time*60*1000, self.redraw)
                     print ('\033[34m>\033[0m '+_('Next update in')+' '+str(upd_time)+' '+_('min'))
                     print ('-'*40)
-            self.Draw_Weather()
+            self.Draw_Weather(self.cr)
 
     
-    def Draw_Weather(self):
+    def Draw_Weather(self, cr):
         if show_indicator:
-            self.draw_scaled_icon(0, 0, weather['icon_now'][0],1,1, indicator_icons_name)
+            self.draw_scaled_icon(cr, 0, 0, weather['icon_now'][0],1,1, indicator_icons_name)
             ind.set_icon(pix_path)
             t_index = t_scale*2
             if t_feel:
@@ -693,36 +692,39 @@ class MyDrawArea(Gtk.DrawingArea):
         if show_indicator == 1:
             return
 
-        self.draw_bg()
-        self.draw_weather_icon_now(0, 20 + margin)
+        self.draw_bg(cr)
+        self.draw_weather_icon_now(cr, 0, 20 + margin)
         
         for i in range(1, n+1):
-            self.draw_weather_icon(i, margin + block_margin + (i-1)*w_block + (i-1)*(10+10/(n-2)), height-h_block-10 - margin)
+            self.draw_weather_icon(cr, i, margin + block_margin + (i-1)*w_block + (i-1)*(10+10/(n-2)), height-h_block-10 - margin)
         
 
-    def draw_weather_icon_now(self, x, y):
+    def draw_weather_icon_now(self, cr, x, y):
         if day != []:
             center = x+width/2
             s=''
             if date:
                 s=', '+date[0]
             if day:
-                if day[0] in weekend:
-                    self.draw_text(day[0]+s, 0+block_now_left, y-15, font+' Bold', 12, width, Pango.Alignment.CENTER, color_text_week)
+                weekend1 = []
+                for item in weekend.split(','):
+                    weekend1.append(item.strip())
+                if day[0] in weekend1:
+                    self.draw_text(cr, day[0]+s, 0+block_now_left, y-15, font+' Bold', 12, width, Pango.Alignment.CENTER, color_text_week)
                 else:
-                    self.draw_text(day[0]+s, 0+block_now_left, y-15, font+' Bold', 12, width, Pango.Alignment.CENTER)
+                    self.draw_text(cr, day[0]+s, 0+block_now_left, y-15, font+' Bold', 12, width, Pango.Alignment.CENTER)
             
             if show_time_receive_local:
-                if time_update: self.draw_text(_('updated on server')+' '+time_update[0], x-margin, x+20+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
-                self.draw_text(_('weather received')+' '+time_receive, x-margin, x+10+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
-            if city_name: self.draw_text(city_name[0], x+block_now_left, y, font+' Bold', 14, width, Pango.Alignment.CENTER)
-            self.draw_scaled_icon(center-40+block_now_left, y+30, icon_now[0],80,80)
+                if time_update: self.draw_text(cr, _('updated on server')+' '+time_update[0], x-margin, x+20+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
+                self.draw_text(cr, _('weather received')+' '+time_receive, x-margin, x+10+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
+            if city_name: self.draw_text(cr, city_name[0], x+block_now_left, y, font+' Bold', 14, width, Pango.Alignment.CENTER)
+            self.draw_scaled_icon(cr, center-40+block_now_left, y+30, icon_now[0],80,80)
             t_index = t_scale*2
             if t_feel:
                 t_index += 1
             if t_now:
-                self.draw_text(t_now[0].split(';')[t_index], center-100+block_now_left, y+30, font+' Normal', 18, 60, Pango.Alignment.RIGHT)
-            if text_now: self.draw_text(text_now[0], center-70+block_now_left, y+106, font+' Normal', 10, 140, Pango.Alignment.CENTER)
+                self.draw_text(cr, t_now[0].split(';')[t_index], center-100+block_now_left, y+30, font+' Normal', 18, 60, Pango.Alignment.RIGHT)
+            if text_now: self.draw_text(cr, text_now[0], center-70+block_now_left, y+106, font+' Normal', 10, 140, Pango.Alignment.CENTER)
             
             if show_block_wind_direct:
                 ####-block wind direct-####
@@ -748,18 +750,16 @@ class MyDrawArea(Gtk.DrawingArea):
                 if (wind_direct_now and wind_speed_now):
                     for i in range(0, 8):
                         if i % 2 == 0:
-                            self.draw_text(NS[i//2], int(x0+r*math.cos(i*0.25*math.pi+angel_rad)), int(y0+r*math.sin(i*0.25*math.pi+angel_rad)), font+' Bold', font_NS, 10, Pango.Alignment.LEFT)
+                            self.draw_text(cr, NS[i//2], int(x0+r*math.cos(i*0.25*math.pi+angel_rad)), int(y0+r*math.sin(i*0.25*math.pi+angel_rad)), font+' Bold', font_NS, 10, Pango.Alignment.LEFT)
                     if int(wind_speed_now[0].split(';')[wind_units].split()[0]) >= high_wind and high_wind != -1:
-                        self.draw_text(wind_direct_now[0]+', '+wind_speed_now[0].split(';')[wind_units].split()[0]+' '+_(wind_speed_now[0].split(';')[wind_units].split()[-1]), x0-r-10, y0+r+font_wind+4, font+' Normal', font_wind, 2*r+20+font_NS,Pango.Alignment.CENTER, color_high_wind)
+                        self.draw_text(cr, wind_direct_now[0]+', '+wind_speed_now[0].split(';')[wind_units].split()[0]+' '+_(wind_speed_now[0].split(';')[wind_units].split()[-1]), x0-r-10, y0+r+font_wind+4, font+' Normal', font_wind, 2*r+20+font_NS,Pango.Alignment.CENTER, color_high_wind)
                     else:
-                        self.draw_text(wind_direct_now[0]+', '+wind_speed_now[0].split(';')[wind_units].split()[0]+' '+_(wind_speed_now[0].split(';')[wind_units].split()[-1]), x0-r-10, y0+r+font_wind+4, font+' Normal', font_wind, 2*r+20+font_NS,Pango.Alignment.CENTER)
-                #wind_icon = 0
+                        self.draw_text(cr, wind_direct_now[0]+', '+wind_speed_now[0].split(';')[wind_units].split()[0]+' '+_(wind_speed_now[0].split(';')[wind_units].split()[-1]), x0-r-10, y0+r+font_wind+4, font+' Normal', font_wind, 2*r+20+font_NS,Pango.Alignment.CENTER)
                 if icon_wind_now[0] != 'None': 
-                    #wind_icon = int(icon_wind_now[0])*45+45
                     if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'wind.png')):
-                        self.draw_scaled_image(x0-a/2+font_NS/2, y0-a/2+1+font_NS/2, os.path.join(ICONS_PATH, icons_name, 'wind.png'), a, a, icon_wind_now[0]+angel)
+                        self.draw_scaled_image(cr, x0-a/2+font_NS/2, y0-a/2+1+font_NS/2, os.path.join(ICONS_PATH, icons_name, 'wind.png'), a, a, icon_wind_now[0]+angel)
                     else:
-                        self.draw_scaled_image(x0-a/2+font_NS/2, y0-a/2+1+font_NS/2, os.path.join(ICONS_PATH, 'default', 'wind.png'), a, a, icon_wind_now[0]+angel)
+                        self.draw_scaled_image(cr, x0-a/2+font_NS/2, y0-a/2+1+font_NS/2, os.path.join(ICONS_PATH, 'default', 'wind.png'), a, a, icon_wind_now[0]+angel)
             
             if show_block_add_info:    
                 ####-block with additional info-####
@@ -771,41 +771,34 @@ class MyDrawArea(Gtk.DrawingArea):
                 x0 = center + left
                 y0 = top
                 
-                #if not show_block_wind_direct:
-                    #wind_icon = 0
                 if icon_wind_now[0] != 'None': 
-                        #wind_icon = int(icon_wind_now[0])*45+45
-                #if wind_icon != 0:
                     if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'wind_small.png')):
-                        self.draw_scaled_image(x0, y0, os.path.join(ICONS_PATH, icons_name, 'wind_small.png'), 16, 16, icon_wind_now[0]+angel)
+                        self.draw_scaled_image(cr, x0, y0, os.path.join(ICONS_PATH, icons_name, 'wind_small.png'), 16, 16, icon_wind_now[0]+angel)
                     else:
-                        self.draw_scaled_image(x0, y0, os.path.join(ICONS_PATH, 'default', 'wind_small.png'), 16, 16, icon_wind_now[0]+angel)
+                        self.draw_scaled_image(cr, x0, y0, os.path.join(ICONS_PATH, 'default', 'wind_small.png'), 16, 16, icon_wind_now[0]+angel)
                 if (wind_direct_now and wind_speed_now):
                     if int(wind_speed_now[0].split(';')[wind_units].split()[0]) >= high_wind and high_wind != -1:
-                        self.draw_text(wind_speed_now[0].split(';')[wind_units].split()[0]+"<span size='x-small'> %s</span>  <span size='small'>%s</span>"%(_(wind_speed_now[0].split(';')[wind_units].split()[-1]), wind_direct_now[0]), x0+20, y0-1, font+' Normal', 12, 100,Pango.Alignment.LEFT, color_high_wind)
+                        self.draw_text(cr, wind_speed_now[0].split(';')[wind_units].split()[0]+"<span size='x-small'> %s</span>  <span size='small'>%s</span>"%(_(wind_speed_now[0].split(';')[wind_units].split()[-1]), wind_direct_now[0]), x0+20, y0-1, font+' Normal', 12, 100,Pango.Alignment.LEFT, color_high_wind)
                     else:
-                        self.draw_text(wind_speed_now[0].split(';')[wind_units].split()[0]+"<span size='x-small'> %s</span>  <span size='small'>%s</span>"%(_(wind_speed_now[0].split(';')[wind_units].split()[-1]), wind_direct_now[0]), x0+20, y0-1, font+' Normal', 12, 100,Pango.Alignment.LEFT)
+                        self.draw_text(cr, wind_speed_now[0].split(';')[wind_units].split()[0]+"<span size='x-small'> %s</span>  <span size='small'>%s</span>"%(_(wind_speed_now[0].split(';')[wind_units].split()[-1]), wind_direct_now[0]), x0+20, y0-1, font+' Normal', 12, 100,Pango.Alignment.LEFT)
                 if press_now:
-                    self.draw_text(press_now[0].split(';')[press_units].split()[0]+"<span size='x-small'> %s</span>"%_(press_now[0].split(';')[press_units].split()[-1]), x0+20, y0+line_height-1, font+' Normal', 12, 150,Pango.Alignment.LEFT)
+                    self.draw_text(cr, press_now[0].split(';')[press_units].split()[0]+"<span size='x-small'> %s</span>"%_(press_now[0].split(';')[press_units].split()[-1]), x0+20, y0+line_height-1, font+' Normal', 12, 150,Pango.Alignment.LEFT)
                     if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'press.png')):
-                        self.draw_scaled_image(x0, y0+line_height, os.path.join(ICONS_PATH, icons_name, 'press.png'), 16, 16)
+                        self.draw_scaled_image(cr, x0, y0+line_height, os.path.join(ICONS_PATH, icons_name, 'press.png'), 16, 16)
                     else:
-                        self.draw_scaled_image(x0, y0+line_height, os.path.join(ICONS_PATH, 'default', 'press.png'), 16, 16)
+                        self.draw_scaled_image(cr, x0, y0+line_height, os.path.join(ICONS_PATH, 'default', 'press.png'), 16, 16)
                 if hum_now:
-                    self.draw_text(hum_now[0]+"<span size='x-small'> % "+_('humid.')+"</span>", x0+20, y0+line_height*2-1, font+' Normal', 12, 100,Pango.Alignment.LEFT)
+                    self.draw_text(cr, hum_now[0]+"<span size='x-small'> % "+_('humid.')+"</span>", x0+20, y0+line_height*2-1, font+' Normal', 12, 100,Pango.Alignment.LEFT)
                     if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'hum.png')):
-                        self.draw_scaled_image(x0, y0+line_height*2, os.path.join(ICONS_PATH, icons_name, 'hum.png'), 16, 16)
+                        self.draw_scaled_image(cr, x0, y0+line_height*2, os.path.join(ICONS_PATH, icons_name, 'hum.png'), 16, 16)
                     else:
-                        self.draw_scaled_image(x0, y0+line_height*2, os.path.join(ICONS_PATH, 'default', 'hum.png'), 16, 16)
+                        self.draw_scaled_image(cr, x0, y0+line_height*2, os.path.join(ICONS_PATH, 'default', 'hum.png'), 16, 16)
                 if t_water_now:
-                    # t = t_water_now
-                    # if t_scale == 1:
-                    #     t = str(round(int(t)*1.8+32))
-                    self.draw_text(t_water_now.split(';')[t_scale]+"<span size='x-small'> %s %s</span>"%(t_scale_dict[t_scale], _("water")), x0+20, y0+line_height*3-1, font+' Normal', 12, 100,Pango.Alignment.LEFT)
+                    self.draw_text(cr, t_water_now.split(';')[t_scale]+"<span size='x-small'> %s %s</span>"%(t_scale_dict[t_scale], _("water")), x0+20, y0+line_height*3-1, font+' Normal', 12, 100,Pango.Alignment.LEFT)
                     if os.path.exists(os.path.join(ICONS_PATH, icons_name, 't_water.png')):
-                        self.draw_scaled_image(x0, y0+line_height*3, os.path.join(ICONS_PATH, icons_name, 't_water.png'), 16, 16)
+                        self.draw_scaled_image(cr, x0, y0+line_height*3, os.path.join(ICONS_PATH, icons_name, 't_water.png'), 16, 16)
                     else:
-                        self.draw_scaled_image(x0, y0+line_height*3, os.path.join(ICONS_PATH, 'default', 't_water.png'), 16, 16)
+                        self.draw_scaled_image(cr, x0, y0+line_height*3, os.path.join(ICONS_PATH, 'default', 't_water.png'), 16, 16)
             
             if show_block_tomorrow:
                 ####-block tomorrow-####
@@ -821,37 +814,27 @@ class MyDrawArea(Gtk.DrawingArea):
                 c = ( _('Morning'), _('Day'), _('Evening'), _('Night'))
 
                 if icon_tomorrow and icon_tomorrow[1] == 'None' and icon_tomorrow[3] == 'None':
-                    self.draw_text(_('Tomorrow'), x0-40, y0-13, font+' Bold', 8, a+60,Pango.Alignment.CENTER)
+                    self.draw_text(cr, _('Tomorrow'), x0-40, y0-13, font+' Bold', 8, a+60,Pango.Alignment.CENTER)
                 else:
-                    self.draw_text(_('Tomorrow'), x0, y0-13, font+' Bold', 8, a+60,Pango.Alignment.CENTER)
+                    self.draw_text(cr, _('Tomorrow'), x0, y0-13, font+' Bold', 8, a+60,Pango.Alignment.CENTER)
                 for i in range(0, 4):
                     j = i
                     if j > 1: j = j-2
-                    self.draw_text(c[i], x0+a*((j+1)//2), y0+b*(i//2), font+' Bold', 7, 50,Pango.Alignment.LEFT, gradient=True)
+                    self.draw_text(cr, c[i], x0+a*((j+1)//2), y0+b*(i//2), font+' Bold', 7, 50,Pango.Alignment.LEFT, gradient=True)
                     if t_tomorrow:
-                        self.draw_text(t_tomorrow[i].split(';')[t_index], x0+a*((j+1)//2), y0+11+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)          
+                        self.draw_text(cr, t_tomorrow[i].split(';')[t_index], x0+a*((j+1)//2), y0+11+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)          
                     if t_tomorrow_low:
-                        self.draw_text(t_tomorrow_low[i].split(';')[t_index], x0+a*((j+1)//2)+2, y0+22+b*(i//2), font+' Normal', 7, 50,Pango.Alignment.LEFT)
-                        # if t_feel and t_tomorrow_feel:
-                        #     t = t_tomorrow_feel[i]
-                        #     if t_scale == 1:
-                        #         t = C_to_F(t)
-                        #     self.draw_text(t+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
-                        # else:
-                        #     t = t_tomorrow[i]
-                        #     if t_scale == 1:
-                        #         t = C_to_F(t)
-                        #     self.draw_text(t+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
+                        self.draw_text(cr, t_tomorrow_low[i].split(';')[t_index], x0+a*((j+1)//2)+2, y0+22+b*(i//2), font+' Normal', 7, 50,Pango.Alignment.LEFT)
                     try:
-                        self.draw_scaled_icon(x0+32+a*((j+1)//2), y0+b*(i//2), icon_tomorrow[i], 28, 28)
+                        self.draw_scaled_icon(cr, x0+32+a*((j+1)//2), y0+b*(i//2), icon_tomorrow[i], 28, 28)
                     except:
-                        self.draw_scaled_icon(x0+32+a*((j+1)//2), y0+b*(i//2), 'na.png;na.png', 28, 28)
+                        self.draw_scaled_icon(cr, x0+32+a*((j+1)//2), y0+b*(i//2), 'na.png;na.png', 28, 28)
                     if (wind_direct_tom and wind_speed_tom):
                         try:
                             if int(wind_speed_tom[i].split(';')[wind_units].split()[0]) >= high_wind and high_wind != -1:
-                                self.draw_text(wind_direct_tom[i]+', '+wind_speed_tom[i].split(';')[wind_units].split()[0]+' '+_(wind_speed_tom[i].split(';')[wind_units].split()[-1]), x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 64,Pango.Alignment.LEFT, color_high_wind)
+                                self.draw_text(cr, wind_direct_tom[i]+', '+wind_speed_tom[i].split(';')[wind_units].split()[0]+' '+_(wind_speed_tom[i].split(';')[wind_units].split()[-1]), x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 64,Pango.Alignment.LEFT, color_high_wind)
                             else:
-                                self.draw_text(wind_direct_tom[i]+', '+wind_speed_tom[i].split(';')[wind_units].split()[0]+' '+_(wind_speed_tom[i].split(';')[wind_units].split()[-1]), x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 64,Pango.Alignment.LEFT)
+                                self.draw_text(cr, wind_direct_tom[i]+', '+wind_speed_tom[i].split(';')[wind_units].split()[0]+' '+_(wind_speed_tom[i].split(';')[wind_units].split()[-1]), x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 64,Pango.Alignment.LEFT)
                         except:
                             pass
 
@@ -869,143 +852,132 @@ class MyDrawArea(Gtk.DrawingArea):
                 y0 = top
                 c = (_('Morning'), _('Day'), _('Evening'), _('Night'))
 
-                self.draw_text(_('Today'), x0, y0-13, font+' Bold', 8, a+60,Pango.Alignment.CENTER)
+                self.draw_text(cr, _('Today'), x0, y0-13, font+' Bold', 8, a+60,Pango.Alignment.CENTER)
                 for i in range(0, 4):
                     j = i
                     if j > 1: j = j-2
-                    self.draw_text(c[i], x0+a*((j+1)//2), y0+b*(i//2), font+' Bold', 7, 50,Pango.Alignment.LEFT, gradient=True)
+                    self.draw_text(cr, c[i], x0+a*((j+1)//2), y0+b*(i//2), font+' Bold', 7, 50,Pango.Alignment.LEFT, gradient=True)
                     if t_today:
-                        self.draw_text(t_today[i].split(';')[t_index], x0+a*((j+1)//2), y0+11+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
+                        self.draw_text(cr, t_today[i].split(';')[t_index], x0+a*((j+1)//2), y0+11+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
                     if t_today_low:
-                        self.draw_text(t_today_low[i].split(';')[t_index], x0+a*((j+1)//2)+2, y0+22+b*(i//2), font+' Normal', 7, 50,Pango.Alignment.LEFT)
-                        # if t_feel and t_today_feel:
-                        #     t = t_today_feel[i]
-                        #     if t_scale == 1:
-                        #         t = C_to_F(t)
-                        #     self.draw_text(t+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
-                        # else:
-                        #     t = t_today[i]
-                        #     if t_scale == 1:
-                        #         t = C_to_F(t)
-                        #     self.draw_text(t+'°', x0+a*((j+1)//2), y0+13+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
+                        self.draw_text(cr, t_today_low[i].split(';')[t_index], x0+a*((j+1)//2)+2, y0+22+b*(i//2), font+' Normal', 7, 50,Pango.Alignment.LEFT)
                     try:
-                        self.draw_scaled_icon(x0+32+a*((j+1)//2), y0+b*(i//2), icon_today[i], 28, 28)
+                        self.draw_scaled_icon(cr, x0+32+a*((j+1)//2), y0+b*(i//2), icon_today[i], 28, 28)
                     except:
-                        self.draw_scaled_icon(x0+32+a*((j+1)//2), y0+b*(i//2), 'na.png;na.png', 28, 28)
+                        self.draw_scaled_icon(cr, x0+32+a*((j+1)//2), y0+b*(i//2), 'na.png;na.png', 28, 28)
                     if (wind_direct_tod and wind_speed_tod): 
                         if int(wind_speed_tod[i].split(';')[wind_units].split()[0]) >= high_wind and high_wind != -1:
-                            self.draw_text(wind_direct_tod[i]+', '+wind_speed_tod[i].split(';')[wind_units].split()[0]+' '+_(wind_speed_tod[i].split(';')[wind_units].split()[-1]), x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 64,Pango.Alignment.LEFT, color_high_wind)
+                            self.draw_text(cr, wind_direct_tod[i]+', '+wind_speed_tod[i].split(';')[wind_units].split()[0]+' '+_(wind_speed_tod[i].split(';')[wind_units].split()[-1]), x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 64,Pango.Alignment.LEFT, color_high_wind)
                         else:
-                            self.draw_text(wind_direct_tod[i]+', '+wind_speed_tod[i].split(';')[wind_units].split()[0]+' '+_(wind_speed_tod[i].split(';')[wind_units].split()[-1]), x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 64,Pango.Alignment.LEFT)
+                            self.draw_text(cr, wind_direct_tod[i]+', '+wind_speed_tod[i].split(';')[wind_units].split()[0]+' '+_(wind_speed_tod[i].split(';')[wind_units].split()[-1]), x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 64,Pango.Alignment.LEFT)
 
 
-    def draw_weather_icon(self, index, x, y):
+    def draw_weather_icon(self, cr, index, x, y):
         if day != []:
             try:
                 a = 30
-                # if t_feel:
-                #     if math.fabs(int(t_day_feel[index])) < 10: a = 20
-                # else:
-                #     if math.fabs(int(t_day[index])) < 10: a = 20
-                self.draw_scaled_icon(x+a, y+16, icon[index], 36, 36)
+                self.draw_scaled_icon(cr, x+a, y+16, icon[index], 36, 36)
                 s=''
                 if date:
                     s=', '+date[index]
-                if day: 
-                    if day[index] in weekend:
-                        self.draw_text(day[index]+s, x, y-2, font+' Bold', 9, w_block,Pango.Alignment.LEFT, color_text_week)
+                if day:
+                    weekend1 = []
+                    for item in weekend.split(','):
+                        weekend1.append(item.strip())
+                    if day[index] in weekend1:
+                        self.draw_text(cr, day[index]+s, x, y-2, font+' Bold', 9, w_block,Pango.Alignment.LEFT, color_text_week)
                     else:
-                        self.draw_text(day[index]+s, x, y-2, font+' Bold', 9, w_block,Pango.Alignment.LEFT)
-                self.cr.set_source_rgba(color_text[0], color_text[1], color_text[2], color_text[3])
+                        self.draw_text(cr, day[index]+s, x, y-2, font+' Bold', 9, w_block,Pango.Alignment.LEFT)
+                cr.set_source_rgba(color_text[0], color_text[1], color_text[2], color_text[3])
                 t_index = t_scale*2
                 if t_feel:
                     t_index += 1
-                self.draw_text(t_day[index].split(';')[t_index], x, y+15, font+' Normal', 10, w_block-45,Pango.Alignment.LEFT)
-                self.draw_text(t_night[index].split(';')[t_index], x, y+30, font+' Normal', 8, w_block-45,Pango.Alignment.LEFT)
+                self.draw_text(cr, t_day[index].split(';')[t_index], x, y+15, font+' Normal', 10, w_block-45,Pango.Alignment.LEFT)
+                self.draw_text(cr, t_night[index].split(';')[t_index], x, y+30, font+' Normal', 8, w_block-45,Pango.Alignment.LEFT)
                 if chance_of_rain and show_chance_of_rain:
-                    self.draw_text(chance_of_rain[index], x+30, y+9, font+' Normal', 7, 36,Pango.Alignment.CENTER)
+                    self.draw_text(cr, chance_of_rain[index], x+30, y+9, font+' Normal', 7, 36,Pango.Alignment.CENTER)
 
                 if (wind_direct and wind_speed): 
                     if int(wind_speed[index].split(';')[wind_units].split()[0]) >= high_wind and high_wind != -1:
-                        self.draw_text(wind_direct[index]+', '+wind_speed[index].split(';')[wind_units].split()[0]+' '+_(wind_speed[index].split(';')[wind_units].split()[-1]), x, y+50, font+' Normal', 8, 80,Pango.Alignment.LEFT, color_high_wind)
+                        self.draw_text(cr, wind_direct[index]+', '+wind_speed[index].split(';')[wind_units].split()[0]+' '+_(wind_speed[index].split(';')[wind_units].split()[-1]), x, y+50, font+' Normal', 8, 80,Pango.Alignment.LEFT, color_high_wind)
                     else:
-                        self.draw_text(wind_direct[index]+', '+wind_speed[index].split(';')[wind_units].split()[0]+' '+_(wind_speed[index].split(';')[wind_units].split()[-1]), x, y+50, font+' Normal', 8, 80,Pango.Alignment.LEFT)
-                    if text: self.draw_text(text[index], x, y+65, font+' Italic', 7, w_block, Pango.Alignment.LEFT)
+                        self.draw_text(cr, wind_direct[index]+', '+wind_speed[index].split(';')[wind_units].split()[0]+' '+_(wind_speed[index].split(';')[wind_units].split()[-1]), x, y+50, font+' Normal', 8, 80,Pango.Alignment.LEFT)
+                    if text: self.draw_text(cr, text[index], x, y+65, font+' Italic', 7, w_block, Pango.Alignment.LEFT)
                 else:
-                    if text: self.draw_text(text[index], x, y+55, font+' Italic', 7, w_block, Pango.Alignment.LEFT)
+                    if text: self.draw_text(cr, text[index], x, y+55, font+' Italic', 7, w_block, Pango.Alignment.LEFT)
             except:
                 pass
 
 
-    def draw_bg_png_svg(self, path):
+    def draw_bg_png_svg(self, cr, path):
         if os.path.exists(os.path.join(path, "l.png")):
-            self.draw_scaled_image(0, 0, os.path.join(path, "l.png"), 60, height)
-            self.draw_scaled_image(60, 0, os.path.join(path, "c.png"), width-120, height)
-            self.draw_scaled_image(width-60, 0, os.path.join(path, "r.png"), 60, height)
+            self.draw_scaled_image(cr, 0, 0, os.path.join(path, "l.png"), 60, height)
+            self.draw_scaled_image(cr, 60, 0, os.path.join(path, "c.png"), width-120, height)
+            self.draw_scaled_image(cr, width-60, 0, os.path.join(path, "r.png"), 60, height)
         else:
             if os.path.exists(os.path.join(path, "l.svg")):
-                self.draw_scaled_image(0, 0, os.path.join(path, "l.svg"), 60, height)
-                self.draw_scaled_image(60, 0, os.path.join(path, "c.svg"), width-120, height)
-                self.draw_scaled_image(width-60, 0, os.path.join(path, "r.svg"), 60, height)
+                self.draw_scaled_image(cr, 0, 0, os.path.join(path, "l.svg"), 60, height)
+                self.draw_scaled_image(cr, 60, 0, os.path.join(path, "c.svg"), width-120, height)
+                self.draw_scaled_image(cr, width-60, 0, os.path.join(path, "r.svg"), 60, height)
             else:
-                self.draw_scaled_image(0, 0, os.path.join(path, "l.svgz"), 60, height)
-                self.draw_scaled_image(60, 0, os.path.join(path, "c.svgz"), width-120, height)
-                self.draw_scaled_image(width-60, 0, os.path.join(path, "r.svgz"), 60, height)
+                self.draw_scaled_image(cr, 0, 0, os.path.join(path, "l.svgz"), 60, height)
+                self.draw_scaled_image(cr, 60, 0, os.path.join(path, "c.svgz"), width-120, height)
+                self.draw_scaled_image(cr, width-60, 0, os.path.join(path, "r.svgz"), 60, height)
 
 
-    def draw_bg(self):
+    def draw_bg(self, cr):
         if not_composited:
             if os.path.exists(os.path.join(CONFIG_PATH, 'main_screenshot.png')):
                 crop_image(x_pos, y_pos, width, height)
-                self.draw_scaled_image(0, 0, os.path.join(CONFIG_PATH, 'screenshot.png'), width, height)
+                self.draw_scaled_image(cr, 0, 0, os.path.join(CONFIG_PATH, 'screenshot.png'), width, height)
         if show_bg_png:
             if os.path.exists(os.path.join(BGS_USER_PATH, bg_custom)):
                 try:
-                    self.draw_scaled_image(0, 0, os.path.join(BGS_USER_PATH, bg_custom), width, height)
+                    self.draw_scaled_image(cr, 0, 0, os.path.join(BGS_USER_PATH, bg_custom), width, height)
                 except:
-                    self.draw_bg_png_svg(os.path.join(BGS_USER_PATH, bg_custom))
+                    self.draw_bg_png_svg(cr, os.path.join(BGS_USER_PATH, bg_custom))
             else: 
                 if os.path.exists(os.path.join(BGS_PATH, bg_custom)):
                     try:
-                        self.draw_scaled_image(0, 0, os.path.join(BGS_PATH, bg_custom), width, height)
+                        self.draw_scaled_image(cr, 0, 0, os.path.join(BGS_PATH, bg_custom), width, height)
                     except:
-                        self.draw_bg_png_svg(os.path.join(BGS_PATH, bg_custom))
+                        self.draw_bg_png_svg(cr, os.path.join(BGS_PATH, bg_custom))
                 else:
                     print (_('Background image not found')+': '+str(bg_custom))
         else:
             w = width
             h = height
-            self.cr.set_source_rgba(color_bg[0], color_bg[1], color_bg[2], color_bg[3])
-            self.cr.rectangle(r, 0, w-2*r, h)
-            self.cr.rectangle(0, r, w, h-2*r)
-            self.cr.arc(w-r, 0+r, r, 0 , 8)
-            self.cr.arc(w-r, 0+r, r, 0 , 8)
-            self.cr.arc(w-r, h-r, r, 0, 8)
-            self.cr.arc(0+r, h-r, r, 0, 8)
-            self.cr.arc(0+r, 0+r, r, 0, 8)
-            self.cr.fill()
+            cr.set_source_rgba(color_bg[0], color_bg[1], color_bg[2], color_bg[3])
+            cr.rectangle(r, 0, w-2*r, h)
+            cr.rectangle(0, r, w, h-2*r)
+            cr.arc(w-r, 0+r, r, 0 , 8)
+            cr.arc(w-r, 0+r, r, 0 , 8)
+            cr.arc(w-r, h-r, r, 0, 8)
+            cr.arc(0+r, h-r, r, 0, 8)
+            cr.arc(0+r, 0+r, r, 0, 8)
+            cr.fill()
 
     
-    def draw_text(self, text, x, y, font, size=None, width=200, alignment=Pango.Alignment.LEFT, color=(-1, -1, -1, -1), gradient=False):
+    def draw_text(self, cr, text, x, y, font, size=None, width=200, alignment=Pango.Alignment.LEFT, color=(-1, -1, -1, -1), gradient=False):
         if color == (-1, -1, -1, -1):
             color = color_text
         if draw_shadow:
-            self.cr.set_source_rgba(color_shadow[0], color_shadow[1], color_shadow[2], color_shadow[3])
-            self.draw_custom_text(text, x+1, y+1,  font, size , width, alignment, gradient, color_shadow)
-        self.cr.set_source_rgba(color[0], color[1], color[2], color[3])
-        self.draw_custom_text(text, x, y,  font, size , width, alignment, gradient, color)
+            cr.set_source_rgba(color_shadow[0], color_shadow[1], color_shadow[2], color_shadow[3])
+            self.draw_custom_text(cr, text, x+1, y+1,  font, size , width, alignment, gradient, color_shadow)
+        cr.set_source_rgba(color[0], color[1], color[2], color[3])
+        self.draw_custom_text(cr, text, x, y,  font, size , width, alignment, gradient, color)
         
-    def draw_custom_text(self, text, x, y, font, size, width=200, alignment=Pango.Alignment.LEFT, gradient=False, color=(-1, -1, -1, -1)):
-        self.cr.save()
-        self.cr.translate(x, y)
+    def draw_custom_text(self, cr, text, x, y, font, size, width=200, alignment=Pango.Alignment.LEFT, gradient=False, color=(-1, -1, -1, -1)):
+        cr.save()
+        cr.translate(x, y)
         
         font_desc = Pango.FontDescription(font)
         font_desc.set_size(size * Pango.SCALE)
 
         if self.p_layout == None :
-            self.p_layout = PangoCairo.create_layout(self.cr)
+            self.p_layout = PangoCairo.create_layout(cr)
         else:
-            PangoCairo.update_layout(self.cr, self.p_layout)
+            PangoCairo.update_layout(cr, self.p_layout)
         self.p_layout.set_font_description(font_desc)
         self.p_layout.set_width(width * Pango.SCALE)
         self.p_layout.set_alignment(alignment)
@@ -1014,12 +986,12 @@ class MyDrawArea(Gtk.DrawingArea):
             lg = cairo.LinearGradient(0, 0, 45, 0)
             lg.add_color_stop_rgba(0.5, color[0], color[1], color[2], color[3])
             lg.add_color_stop_rgba(0.8, color[0], color[1], color[2], 0)
-            self.cr.set_source(lg)
-            self.cr.fill()
-        PangoCairo.show_layout(self.cr, self.p_layout)
-        self.cr.restore()
+            cr.set_source(lg)
+            cr.fill()
+        PangoCairo.show_layout(cr, self.p_layout)
+        cr.restore()
 
-    def draw_scaled_icon(self, x, y, pix, w, h, indicator_icon_name=False):
+    def draw_scaled_icon(self, cr, x, y, pix, w, h, indicator_icon_name=False):
         icons_name1 = icons_name    
         if indicator_icon_name:
             global pix_path
@@ -1063,23 +1035,23 @@ class MyDrawArea(Gtk.DrawingArea):
                                         else:
                                             pix_path = os.path.join(THEMES_PATH, 'na.png')
         if not indicator_icon_name:    
-            self.draw_scaled_image(x, y, pix_path, w, h)
+            self.draw_scaled_image(cr, x, y, pix_path, w, h)
 
-    def draw_scaled_image(self, x, y, pix, w, h, ang = 0):
+    def draw_scaled_image(self, cr, x, y, pix, w, h, ang = 0):
         if pix.split('.')[-1] == 'svg' or pix.split('.')[-1] == 'svgz' and HAS_RSVG:
-            self.draw_scaled_image_svg(x, y, pix, w, h, ang)
+            self.draw_scaled_image_svg(cr, x, y, pix, w, h, ang)
         else:
-            self.draw_scaled_image_png(x, y, pix, w, h, ang)
+            self.draw_scaled_image_png(cr, x, y, pix, w, h, ang)
  
 
-    def draw_scaled_image_png(self, x, y, pix, w, h, ang = 0):
-        self.cr.save()
+    def draw_scaled_image_png(self, cr, x, y, pix, w, h, ang = 0):
+        cr.save()
         if ang !=0:
-            self.cr.translate(x+w//2, y+h//2)
-            self.cr.rotate(math.radians(ang))
-            self.cr.translate(-w//2, -h//2)
+            cr.translate(x+w//2, y+h//2)
+            cr.rotate(math.radians(ang))
+            cr.translate(-w//2, -h//2)
         else:
-            self.cr.translate(x, y)
+            cr.translate(x, y)
         if pix[-4:] == 'svgz':
             inF = gzip.open(pix, 'r')
             loader = GdkPixbuf.PixbufLoader()
@@ -1094,26 +1066,26 @@ class MyDrawArea(Gtk.DrawingArea):
             k = pixbuf.get_width()/pixbuf.get_height()
         pixbuf = pixbuf.scale_simple(round(w*k),h,GdkPixbuf.InterpType.BILINEAR)
         if k==1:
-            Gdk.cairo_set_source_pixbuf(self.cr, pixbuf, 0, 0)
+            Gdk.cairo_set_source_pixbuf(cr, pixbuf, 0, 0)
         else:
-            Gdk.cairo_set_source_pixbuf(self.cr, pixbuf, (h-round(w*k))/2, 0)
-        self.cr.paint()
-        self.cr.restore()
+            Gdk.cairo_set_source_pixbuf(cr, pixbuf, (h-round(w*k))/2, 0)
+        cr.paint()
+        cr.restore()
 
 
-    def draw_scaled_image_svg(self, x, y, pix, w, h, ang = 0):
-        self.cr.save()
+    def draw_scaled_image_svg(self, cr, x, y, pix, w, h, ang = 0):
+        cr.save()
         handle = Rsvg.Handle()
         svg = handle.new_from_file(pix)
         if ang !=0:
-            self.cr.translate(x+w//2, y+h//2)
-            self.cr.rotate(math.radians(ang))
-            self.cr.translate(-w//2, -h//2)
+            cr.translate(x+w//2, y+h//2)
+            cr.rotate(math.radians(ang))
+            cr.translate(-w//2, -h//2)
         else:
-            self.cr.translate(x, y)
-        self.cr.scale(w/svg.props.width, h/svg.props.height)
-        svg.render_cairo(self.cr)
-        self.cr.restore()
+            cr.translate(x, y)
+        cr.scale(w/svg.props.width, h/svg.props.height)
+        svg.render_cairo(cr)
+        cr.restore()
 
 
 class Weather_Widget:
@@ -1175,16 +1147,9 @@ class Weather_Widget:
         self.window_main.set_opacity(opacity)
 
 
-    # def screenshot(self, left, top, width, height):
-    #     w = Gdk.get_default_root_window()
-    #     pb = Gdk.pixbuf_get_from_window(w,left,top,width,height)
-    #     if (pb != None):
-    #         pb.savev(os.path.join(CONFIG_PATH, "screenshot.png"),"png", (), ())
-    #         print (_("Screenshot saved to")+' '+os.path.join(CONFIG_PATH, "screenshot.png"))
-    #     else:
-    #         print (_("Unable to get the screenshot"))
-
     def menu_response(self, widget, event, value=None):
+        if event == 'take_screenshot':
+            pass
         if event == 'show_hide_widget':
             global show_indicator
             if show_indicator == 1:

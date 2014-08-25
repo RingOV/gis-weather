@@ -247,6 +247,8 @@ class settings():
         self.colorbutton_color_text.connect("color-set", self.set_color)
         self.colorbutton_color_text_week = self.ui.get_object('colorbutton_color_text_week')
         self.colorbutton_color_text_week.connect("color-set", self.set_color)
+        self.entry_weekend = self.ui.get_object('entry_weekend')
+        # self.entry_weekend.connect("color-set", self.set_color) FIXME
         self.colorbutton_color_shadow = self.ui.get_object('colorbutton_color_shadow')
         self.colorbutton_color_shadow.connect("color-set", self.set_color)
         self.colorbutton_color_high_wind = self.ui.get_object('colorbutton_color_high_wind')
@@ -296,6 +298,8 @@ class settings():
         self.clear_icons_name.connect("clicked", self.clear_settings)
         self.clear_bg_custom = self.ui.get_object('clear_bg_custom')
         self.clear_bg_custom.connect("clicked", self.clear_settings)
+        self.clear_weekend = self.ui.get_object('clear_weekend')
+        self.clear_weekend.connect("clicked", self.clear_settings)
 
 
         # Indicator
@@ -450,6 +454,7 @@ class settings():
         self.load(self.spinbutton_scale)
         self.load(self.spinbutton_app_indicator_size)
         self.load(self.switch_app_indicator_fix_size)
+        self.load(self.entry_weekend)
 
         if gw_config_set['show_bg_png'] == True:
             self.frame_not_image.hide()
@@ -527,10 +532,17 @@ class settings():
                 widget.set_color(color)
                 widget.set_alpha(int(c[3]*65535))
             else:
-                widget.set_active(gw_config_set[name])
+                if w_type == 'GtkEntry':
+                    widget.set_text(gw_config_set[name])
+                else:
+                    widget.set_active(gw_config_set[name])
 
 
     def close_window(self, widget, data = None):
+        if gw_config_set['weekend'] != self.entry_weekend.get_text():
+            gw_config_set['weekend'] = self.entry_weekend.get_text()
+            Save_Config()
+            drawing_area_set.redraw(False, False, load_config = True)
         self.window1.hide()
         Gtk.main_quit()
 
