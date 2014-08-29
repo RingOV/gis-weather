@@ -423,7 +423,8 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
 
             # weather text
             text2 = re.findall('src=.*>(.*)\r', w_all[0])
-
+            if text[-1] == '':
+                del text[-1]
             chance_of_rain2 = re.findall('<td style="font-weight:bold;">.*\s*<td>.*\s*<td>(.*)<', w_all[0])
             text.extend(text2)
             chance_of_rain.extend(chance_of_rain2)
