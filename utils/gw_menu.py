@@ -2,9 +2,10 @@
 
 from gi.repository import Gtk
 import os
+from utils import presets
 
 def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, icons_name, show_bg_png, 
-    color_bg, bg_custom, color_scheme, color_scheme_number, city_list, city_id, fix_position, sticky, indicator_icons_name, for_indicator):
+    color_bg, bg_custom, color_scheme, color_scheme_number, city_list, city_id, fix_position, sticky, indicator_icons_name, for_indicator, preset_number):
     menu = None
     # from script folder (dirs - icons, files - backdrounds)
     for root, dirs, files in os.walk(ICONS_PATH):
@@ -35,6 +36,7 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, icons
     sub_menu_bgs = Gtk.Menu()
     sub_menu_color_text = Gtk.Menu()
     sub_menu_window = Gtk.Menu()
+    sub_menu_presets = Gtk.Menu()
 
     # sub_menu_place
     if len(city_list) > 0:
@@ -124,10 +126,20 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, icons
     sub_menu_window.append(menu_items)
     menu_items.show()
 
-    menu_items = Gtk.MenuItem(_('Take screenshot'))
+    menu_items = Gtk.MenuItem(_('Save screenshot'))
     sub_menu_window.append(menu_items)
-    menu_items.connect("activate", app.menu_response, 'take_screenshot')
+    menu_items.connect("activate", app.menu_response, 'save_screenshot')
     menu_items.show()
+
+    # sub_menu_presets
+    for i in range(len(presets.list)):
+        menu_items = Gtk.RadioMenuItem(label=presets.names[i])
+        if i == preset_number:
+            menu_items.set_active(True)
+        sub_menu_presets.append(menu_items)
+        menu_items.connect("activate", app.menu_response, 'load_preset', i)
+        menu_items.show()
+
     # main menu
     if for_indicator:
         menu_items = Gtk.ImageMenuItem(_('Show/Hide widget'))
@@ -180,6 +192,11 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, icons
         menu_items = Gtk.MenuItem(_('Window'))
         menu.append(menu_items)
         menu_items.set_submenu(sub_menu_window)
+        menu_items.show()
+
+        menu_items = Gtk.MenuItem(_('Presets'))
+        menu.append(menu_items)
+        menu_items.set_submenu(sub_menu_presets)
         menu_items.show()
 
     menu_items = Gtk.ImageMenuItem(_('Preferences'))

@@ -367,7 +367,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
 
     chance_of_rain = re.findall('<td style="font-weight:bold;">.*\s*<td>.*\s*<td>(.*)<', w_all[0])
     # if end of month, get days from next month
-    if len(t_day)<n:
+    if len(t_day)-1<n:
         try:
             next_month = re.findall('href="(.*)&amp;view=table".*next-month"', source)
             next_month[0] = next_month[0]+'&view=table'

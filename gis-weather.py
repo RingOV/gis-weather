@@ -38,7 +38,7 @@ except:
 
 from dialogs import about_dialog, city_id_dialog, update_dialog, settings_dialog, help_dialog
 from services import data
-from utils import gw_menu
+from utils import gw_menu, presets
 import cairo
 import re
 import time
@@ -67,6 +67,10 @@ if not os.path.exists(os.path.join(CONFIG_PATH, 'icons')):
     os.makedirs(os.path.join(CONFIG_PATH, 'icons'))
 if not os.path.exists(os.path.join(CONFIG_PATH, 'backgrounds')):
     os.makedirs(os.path.join(CONFIG_PATH, 'backgrounds'))
+if not os.path.exists(os.path.join(CONFIG_PATH, 'presets')):
+    os.makedirs(os.path.join(CONFIG_PATH, 'presets'))
+
+presets.save_to_file(CONFIG_PATH)
 
 # Default values
 gw_config_default = {
@@ -131,7 +135,30 @@ gw_config_default = {
     'indicator_width': 30,
     'app_indicator_fix_size': False,
     'app_indicator_size': 22,
-    'scale': 1
+    'scale': 1,
+    # customizable options
+    'preset_number':0,
+    'bg_left': 0,
+    'bg_top': 0,
+    'bg_width': -1,
+    'bg_height': -1,
+    'icon_now_top': 0,
+    'icon_now_left': 0,
+    'icon_now_size': 0,
+    'block_icons_left': 0,
+    'block_icons_top': 0,
+    'city_name_left': 0,
+    'city_name_top': 0,
+    'day_left': 0,
+    'day_top': 0,
+    't_now_left': 0,
+    't_now_top': 0,
+    't_now_size': 0,
+    'text_now_left': 0,
+    'text_now_top': 0,
+    'height_fix': 0,
+    'splash_icon_top': 0,
+    'splash_version_top': 0
 }
 gw_config = {}
 for i in gw_config_default.keys():
@@ -154,6 +181,10 @@ color_scheme = [
         'color_high_wind': (0, 0, 0, 1)      # color high wind
     }
     ]
+
+def create_variables():
+    for i in gw_config.keys():
+        globals()[i] = gw_config[i]
 
 print (_('Config path')+':\n    '+os.path.join(CONFIG_PATH, 'gw_config.json'))
 
@@ -180,15 +211,11 @@ def Load_Config():
     except:
         print ('\033[1;31m[!]\033[0m '+_('Error loading config file'))
 
-    # create variables
-    for i in gw_config.keys():
-        globals()[i] = gw_config[i]
+    create_variables()
 
 # first start, config missed
 if not os.path.exists(os.path.join(CONFIG_PATH, 'gw_config.json')):
-    # create variables
-    for i in gw_config.keys():
-        globals()[i] = gw_config[i]
+    create_variables()
     Save_Config()
 # load config
 Load_Config()
@@ -201,9 +228,19 @@ def Load_Color_Scheme(number = 0):
     except:
         print ('\033[1;31m[!]\033[0m '+_('Error loading color scheme')+' # '+str(number))
 
-    # create variables
-    for i in gw_config.keys():
-        globals()[i] = gw_config[i]
+    create_variables()
+    
+
+def Load_Preset(number = 0):
+    try:
+        preset_loaded=json.load(open(os.path.join(CONFIG_PATH, 'presets', 'preset_%s.json' %number)))
+        for i in preset_loaded.keys():
+            gw_config[i] = preset_loaded[i]
+        gw_config['preset_number'] = number
+    except:
+        print ('\033[1;31m[!]\033[0m '+_('Error loading preset')+' # '+str(number))
+
+    create_variables()
 
 # ------------------------------------------------------------------------------
 
@@ -549,10 +586,10 @@ class MyDrawArea(Gtk.DrawingArea):
         global try_no
         if max_try_show != 0 and try_no >= max_try_show:
             return
-        self.draw_bg(cr)
+        self.draw_bg(cr, bg_left, bg_top, bg_width, bg_height)
         if show_splash_screen != 1:
-            self.draw_scaled_image(cr, width/2 - 64, height/2 - 128, os.path.join(APP_PATH, 'icon.png'), 128, 128)
-            self.draw_text(cr, 'Gis Weather v ' + v, 0, height/2 - 8, font+' Normal', 14, width, Pango.Alignment.CENTER)
+            self.draw_scaled_image(cr, width/2 - 64, splash_icon_top+height/2 - 128, os.path.join(APP_PATH, 'icon.png'), 128, 128)
+            self.draw_text(cr, 'Gis Weather v ' + v, 0, splash_version_top+height/2 - 8, font+' Normal', 14, width, Pango.Alignment.CENTER)
             if state == 0:
                 self.draw_text(cr, _('Getting weather...'), 0, height/2 + 40, font+' Normal', 10, width, Pango.Alignment.CENTER)
             else:
@@ -630,6 +667,7 @@ class MyDrawArea(Gtk.DrawingArea):
         self.cr.paint()
         self.cr.restore()
         self.cr.scale(scale, scale)
+        # self.cr.set_antialias(cairo.ANTIALIAS_SUBPIXEL)
     
     
     def expose(self, widget, event):
@@ -692,16 +730,28 @@ class MyDrawArea(Gtk.DrawingArea):
         if show_indicator == 1:
             return
 
-        self.draw_bg(cr)
+        self.draw_bg(cr, bg_left, bg_top, bg_width, bg_height)
+        self.cr.fill()
         self.draw_weather_icon_now(cr, 0, 20 + margin)
         
         for i in range(1, n+1):
-            self.draw_weather_icon(cr, i, margin + block_margin + (i-1)*w_block + (i-1)*(10+10/(n-2)), height-h_block-10 - margin)
+            self.draw_weather_icon(cr, i, block_icons_left + margin + block_margin + (i-1)*w_block + (i-1)*(10+10/(n-2)), block_icons_top + height-h_block-10 - margin)
         
 
     def draw_weather_icon_now(self, cr, x, y):
         if day != []:
+            global t_now_left, text_now_left
             center = x+width/2
+
+            if icon_now_left > 999: icon_now_left2 = icon_now_left - 1000 - center
+            else: icon_now_left2 = icon_now_left
+            
+            if t_now_left > 999: t_now_left2 = t_now_left - 1000 - center
+            else: t_now_left2 = t_now_left
+
+            if text_now_left > 999: text_now_left2 = text_now_left - 1000 - center
+            else: text_now_left2 = text_now_left
+
             s=''
             if date:
                 s=', '+date[0]
@@ -710,21 +760,21 @@ class MyDrawArea(Gtk.DrawingArea):
                 for item in weekend.split(','):
                     weekend1.append(item.strip())
                 if day[0] in weekend1:
-                    self.draw_text(cr, day[0]+s, 0+block_now_left, y-15, font+' Bold', 12, width, Pango.Alignment.CENTER, color_text_week)
+                    self.draw_text(cr, day[0]+s, day_left+0+block_now_left, day_top+y-15, font+' Bold', 12, width-day_left, Pango.Alignment.CENTER, color_text_week)
                 else:
-                    self.draw_text(cr, day[0]+s, 0+block_now_left, y-15, font+' Bold', 12, width, Pango.Alignment.CENTER)
+                    self.draw_text(cr, day[0]+s, day_left+0+block_now_left, day_top+y-15, font+' Bold', 12, width-day_left, Pango.Alignment.CENTER)
             
             if show_time_receive_local:
                 if time_update: self.draw_text(cr, _('updated on server')+' '+time_update[0], x-margin, x+20+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
                 self.draw_text(cr, _('weather received')+' '+time_receive, x-margin, x+10+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
-            if city_name: self.draw_text(cr, city_name[0], x+block_now_left, y, font+' Bold', 14, width, Pango.Alignment.CENTER)
-            self.draw_scaled_icon(cr, center-40+block_now_left, y+30, icon_now[0],80,80)
+            if city_name: self.draw_text(cr, city_name[0], city_name_left+x+block_now_left, city_name_top+y, font+' Bold', 14, width - city_name_left, Pango.Alignment.CENTER)
+            self.draw_scaled_icon(cr, icon_now_left2+center-40+block_now_left, icon_now_top+y+30, icon_now[0],80+icon_now_size,80+icon_now_size)
             t_index = t_scale*2
             if t_feel:
                 t_index += 1
             if t_now:
-                self.draw_text(cr, t_now[0].split(';')[t_index], center-100+block_now_left, y+30, font+' Normal', 18, 60, Pango.Alignment.RIGHT)
-            if text_now: self.draw_text(cr, text_now[0], center-70+block_now_left, y+106, font+' Normal', 10, 140, Pango.Alignment.CENTER)
+                self.draw_text(cr, t_now[0].split(';')[t_index], t_now_left2+center-100+block_now_left, t_now_top+y+30, font+' Normal', 18+t_now_size, 60, Pango.Alignment.RIGHT)
+            if text_now: self.draw_text(cr, text_now[0], text_now_left2+center-70+block_now_left, text_now_top+y+106, font+' Normal', 10, 140, Pango.Alignment.CENTER)
             
             if show_block_wind_direct:
                 ####-block wind direct-####
@@ -909,52 +959,81 @@ class MyDrawArea(Gtk.DrawingArea):
                 pass
 
 
-    def draw_bg_png_svg(self, cr, path):
+    def draw_bg_png_svg(self, cr, path, l, t, w, h):
         if os.path.exists(os.path.join(path, "l.png")):
-            self.draw_scaled_image(cr, 0, 0, os.path.join(path, "l.png"), 60, height)
-            self.draw_scaled_image(cr, 60, 0, os.path.join(path, "c.png"), width-120, height)
-            self.draw_scaled_image(cr, width-60, 0, os.path.join(path, "r.png"), 60, height)
+            self.draw_scaled_image(cr, l, t, os.path.join(path, "l.png"), 60, h)
+            self.draw_scaled_image(cr, l+60, t, os.path.join(path, "c.png"), w-120, h)
+            self.draw_scaled_image(cr, l+w-60, t, os.path.join(path, "r.png"), 60, h)
         else:
             if os.path.exists(os.path.join(path, "l.svg")):
-                self.draw_scaled_image(cr, 0, 0, os.path.join(path, "l.svg"), 60, height)
-                self.draw_scaled_image(cr, 60, 0, os.path.join(path, "c.svg"), width-120, height)
-                self.draw_scaled_image(cr, width-60, 0, os.path.join(path, "r.svg"), 60, height)
+                self.draw_scaled_image(cr, l, t, os.path.join(path, "l.svg"), 60, h)
+                self.draw_scaled_image(cr, l+60, t, os.path.join(path, "c.svg"), w-120, h)
+                self.draw_scaled_image(cr, l+w-60, t, os.path.join(path, "r.svg"), 60, h)
             else:
-                self.draw_scaled_image(cr, 0, 0, os.path.join(path, "l.svgz"), 60, height)
-                self.draw_scaled_image(cr, 60, 0, os.path.join(path, "c.svgz"), width-120, height)
-                self.draw_scaled_image(cr, width-60, 0, os.path.join(path, "r.svgz"), 60, height)
+                if os.path.exists(os.path.join(path, "l.svgz")):
+                    self.draw_scaled_image(cr, l, t, os.path.join(path, "l.svgz"), 60, h)
+                    self.draw_scaled_image(cr, l+60, t, os.path.join(path, "c.svgz"), w-120, h)
+                    self.draw_scaled_image(cr, l+w-60, t, os.path.join(path, "r.svgz"), 60, h)
+                else:
+                    if os.path.exists(os.path.join(path, "corner.png")):
+                        self.draw_scaled_image(cr, l, t, os.path.join(path, "corner.png"), 60, 60)
+                        self.draw_scaled_image(cr, l, t+60, os.path.join(path, "border_left.png"), 60, h-120)
+                        self.draw_scaled_image(cr, l+w-60, t+60, os.path.join(path, "border_left.png"), 60, h-120, 180)
+                        self.draw_scaled_image(cr, l+60, t, os.path.join(path, "border_top.png"), w-120, 60)
+                        self.draw_scaled_image(cr, l+w-60, t, os.path.join(path, "corner.png"), 60, 60, 90)
+                        self.draw_scaled_image(cr, l+60, t+60, os.path.join(path, "fill.png"), w-120, h-120)
+                        self.draw_scaled_image(cr, l, t+h-60, os.path.join(path, "corner.png"), 60, 60, 270)
+                        self.draw_scaled_image(cr, l+w-60, t+h-60, os.path.join(path, "corner.png"), 60, 60, 180)
+                        self.draw_scaled_image(cr, l+60, t+h-60, os.path.join(path, "border_top.png"), l+w-120, 60, 180)
 
 
-    def draw_bg(self, cr):
+    # def create_bg(self):
+    #     self.cr_bg = Gdk.cairo_create(self.get_window())
+    #     self.cr_bg.save()
+    #     if fix_BadDrawable:
+    #         self.cr_bg.set_source_rgba(0.5, 0.5, 0.5, 0.01)
+    #     else:
+    #         self.cr_bg.set_source_rgba(1, 1, 1, 0)
+    #     self.cr_bg.set_operator(cairo.OPERATOR_SOURCE)
+    #     self.cr_bg.paint()
+    #     self.cr_bg.restore()
+    #     self.cr_bg.scale(scale, scale)
+
+    def draw_bg(self, cr, l, t, w, h):
+        if w == -1:
+            w = width
+        if h == -1:
+            h = height
         if not_composited:
             if os.path.exists(os.path.join(CONFIG_PATH, 'main_screenshot.png')):
-                crop_image(x_pos, y_pos, width, height)
-                self.draw_scaled_image(cr, 0, 0, os.path.join(CONFIG_PATH, 'screenshot.png'), width, height)
+                crop_image(x_pos, y_pos, w, h)
+                self.draw_scaled_image(cr, l, t, os.path.join(CONFIG_PATH, 'screenshot.png'), w, h)
         if show_bg_png:
+            l = l//2
+            t = t//2
             if os.path.exists(os.path.join(BGS_USER_PATH, bg_custom)):
                 try:
-                    self.draw_scaled_image(cr, 0, 0, os.path.join(BGS_USER_PATH, bg_custom), width, height)
+                    self.draw_scaled_image(cr, l, t, os.path.join(BGS_USER_PATH, bg_custom), w, h)
                 except:
-                    self.draw_bg_png_svg(cr, os.path.join(BGS_USER_PATH, bg_custom))
+                    self.draw_bg_png_svg(cr, os.path.join(BGS_USER_PATH, bg_custom), l, t, w, h)
             else: 
                 if os.path.exists(os.path.join(BGS_PATH, bg_custom)):
                     try:
-                        self.draw_scaled_image(cr, 0, 0, os.path.join(BGS_PATH, bg_custom), width, height)
+                        self.draw_scaled_image(cr, l, t, os.path.join(BGS_PATH, bg_custom), w, h)
                     except:
-                        self.draw_bg_png_svg(cr, os.path.join(BGS_PATH, bg_custom))
+                        self.draw_bg_png_svg(cr, os.path.join(BGS_PATH, bg_custom), l, t, w, h)
                 else:
                     print (_('Background image not found')+': '+str(bg_custom))
+            cr.translate(-l, -t)
         else:
-            w = width
-            h = height
             cr.set_source_rgba(color_bg[0], color_bg[1], color_bg[2], color_bg[3])
-            cr.rectangle(r, 0, w-2*r, h)
-            cr.rectangle(0, r, w, h-2*r)
-            cr.arc(w-r, 0+r, r, 0 , 8)
-            cr.arc(w-r, 0+r, r, 0 , 8)
-            cr.arc(w-r, h-r, r, 0, 8)
-            cr.arc(0+r, h-r, r, 0, 8)
-            cr.arc(0+r, 0+r, r, 0, 8)
+            cr.rectangle(l+r, t+0, w-2*r, h)
+            cr.rectangle(l+0, t+r, w, h-2*r)
+            cr.arc(l+w-r, t+0+r, r, 0 , 8)
+            cr.arc(l+w-r, t+0+r, r, 0 , 8)
+            cr.arc(l+w-r, t+h-r, r, 0, 8)
+            cr.arc(l+0+r, t+h-r, r, 0, 8)
+            cr.arc(l+0+r, t+0+r, r, 0, 8)
             cr.fill()
 
     
@@ -1088,6 +1167,14 @@ class MyDrawArea(Gtk.DrawingArea):
         cr.restore()
 
 
+    def save_widget_screenshot(self):
+        surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, int(width*scale), int(height*scale))
+        ctx = cairo.Context(surface)
+        ctx.scale(scale, scale)
+        self.Draw_Weather(ctx)
+        print(_('Screenshot saved to')+' '+os.path.join(os.path.expanduser('~'), "gis-weather %s.png"%time.strftime('%d-%m-%y %T', time.localtime())))
+        surface.write_to_png(os.path.join(os.path.expanduser('~'), "gis-weather %s.png"%time.strftime('%d-%m-%y %T', time.localtime())))
+
 class Weather_Widget:
     def __init__(self):
         self.window_main = Gtk.Window()
@@ -1105,7 +1192,6 @@ class Weather_Widget:
 
         if not self.window_main.is_composited():
             not_composited = True
-            # self.screenshot(x_pos, y_pos, int(width*scale), int(height*scale))
             screenshot()
 
         self.window_main.set_events(Gdk.EventMask.ALL_EVENTS_MASK)
@@ -1136,8 +1222,8 @@ class Weather_Widget:
         global width, height
 
         if n < 1: n = 1
-        width = w_block*n + block_margin*2 + 10*(n - 1) + 2*margin
-        height = 260 + block_margin + 2*margin
+        width = w_block*n + block_margin*2 + 10*(n - 1) + 2*margin + block_icons_left
+        height = 260 + block_margin + 2*margin + height_fix
         self.window_main.resize(int(width*scale), int(height*scale))
         self.window_main.move(x_pos, y_pos)
         if sticky:
@@ -1148,8 +1234,14 @@ class Weather_Widget:
 
 
     def menu_response(self, widget, event, value=None):
-        if event == 'take_screenshot':
-            pass
+
+        if event == 'load_preset':
+            Load_Preset(value)
+            self.set_window_properties()
+            self.drawing_area.redraw(False, False)
+            Save_Config()
+        if event == 'save_screenshot':
+            self.drawing_area.save_widget_screenshot()
         if event == 'show_hide_widget':
             global show_indicator
             if show_indicator == 1:
@@ -1211,6 +1303,8 @@ class Weather_Widget:
             bg_custom = value
             #self.drawing_area.redraw(False, False)
             self.drawing_area.queue_draw()
+            # self.drawing_area.create_bg()
+            # self.drawing_area.draw_bg(self.drawing_area.cr_bg)
             Save_Config()
         if event == 'redraw_text':
             Load_Color_Scheme(value)
@@ -1339,7 +1433,7 @@ class Weather_Widget:
         except:
             gw_config[data.get_city_list(service)] = []
         self.menu, icons_list, backgrounds_list = gw_menu.create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, 
-                icons_name, show_bg_png, color_bg, bg_custom, color_scheme, color_scheme_number, gw_config[data.get_city_list(service)], city_id, fix_position, sticky, indicator_icons_name, for_indicator)
+                icons_name, show_bg_png, color_bg, bg_custom, color_scheme, color_scheme_number, gw_config[data.get_city_list(service)], city_id, fix_position, sticky, indicator_icons_name, for_indicator, preset_number)
 
     def configure_event(self, widget, event):
         global x_pos, y_pos
@@ -1348,7 +1442,7 @@ class Weather_Widget:
             y_pos = event.y
             Save_Config()
             if not_composited:
-                self.drawing_area.draw_bg()
+                self.drawing_area.draw_bg(cr, bg_left, bg_top, bg_width, bg_height)
 
     def enter_leave_event(self, widget, event, param):
         global show_time_receive_local
