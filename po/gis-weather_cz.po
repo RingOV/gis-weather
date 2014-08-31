@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-08-29 10:42+0300\n"
-"PO-Revision-Date: 2014-08-29 10:42+0300\n"
+"POT-Creation-Date: 2014-08-31 14:53+0300\n"
+"PO-Revision-Date: 2014-08-31 14:53+0300\n"
 "Last-Translator: \n"
 "Language-Team: Miroslav Fótyi <m.fotyi@seznam.cz>\n"
 "Language: České\n"
@@ -91,12 +91,12 @@ msgstr "min"
 msgid "Connection error"
 msgstr "Problém s připojením"
 
-#: gis-weather.py:768 services/accuweather.py:714 services/gismeteo.py:429
+#: gis-weather.py:768 services/accuweather.py:715 services/gismeteo.py:429
 #: services/weather_com.py:274
 msgid "updated on server"
 msgstr "Aktualizace na serveru"
 
-#: gis-weather.py:769 services/accuweather.py:715 services/gismeteo.py:430
+#: gis-weather.py:769 services/accuweather.py:716 services/gismeteo.py:430
 #: services/weather_com.py:275
 msgid "weather received"
 msgstr "přijaté počasí"
@@ -451,20 +451,20 @@ msgstr "dny"
 
 #: services/accuweather.py:237 services/accuweather.py:297
 #: services/accuweather.py:317 services/accuweather.py:374
-#: services/accuweather.py:435 services/accuweather.py:443
-#: services/accuweather.py:451 services/accuweather.py:459
-#: services/accuweather.py:575 services/accuweather.py:583
-#: services/accuweather.py:591 services/accuweather.py:599
+#: services/accuweather.py:436 services/accuweather.py:444
+#: services/accuweather.py:452 services/accuweather.py:460
+#: services/accuweather.py:576 services/accuweather.py:584
+#: services/accuweather.py:592 services/accuweather.py:600
 #: services/gismeteo.py:244 services/weather_com.py:157
 msgid "Uploading page to a variable"
 msgstr "Nahrávání stránky do proměnné"
 
 #: services/accuweather.py:243 services/accuweather.py:303
 #: services/accuweather.py:323 services/accuweather.py:380
-#: services/accuweather.py:441 services/accuweather.py:449
-#: services/accuweather.py:457 services/accuweather.py:465
-#: services/accuweather.py:581 services/accuweather.py:589
-#: services/accuweather.py:597 services/accuweather.py:605
+#: services/accuweather.py:442 services/accuweather.py:450
+#: services/accuweather.py:458 services/accuweather.py:466
+#: services/accuweather.py:582 services/accuweather.py:590
+#: services/accuweather.py:598 services/accuweather.py:606
 #: services/gismeteo.py:250 services/weather_com.py:163
 msgid "Unable to download page, check the network connection"
 msgstr "Nelze stáhnout stránky, zkontrolujte síťové připojení"
