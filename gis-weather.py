@@ -154,6 +154,7 @@ gw_config_default = {
     't_now_left': 0,
     't_now_top': 0,
     't_now_size': 0,
+    't_now_alignment': 'right',
     'text_now_left': 0,
     'text_now_top': 0,
     'height_fix': 0,
@@ -773,7 +774,10 @@ class MyDrawArea(Gtk.DrawingArea):
             if t_feel:
                 t_index += 1
             if t_now:
-                self.draw_text(cr, t_now[0].split(';')[t_index], t_now_left2+center-100+block_now_left, t_now_top+y+30, font+' Normal', 18+t_now_size, 60, Pango.Alignment.RIGHT)
+                if t_now_alignment == 'right':
+                    self.draw_text(cr, t_now[0].split(';')[t_index], t_now_left2+center-100+block_now_left, t_now_top+y+30, font+' Normal', 18+t_now_size, 60, Pango.Alignment.RIGHT)
+                elif t_now_alignment == 'left':
+                    self.draw_text(cr, t_now[0].split(';')[t_index], t_now_left2+center-100+block_now_left, t_now_top+y+30, font+' Normal', 18+t_now_size, 60, Pango.Alignment.LEFT)
             if text_now: self.draw_text(cr, text_now[0], text_now_left2+center-70+block_now_left, text_now_top+y+106, font+' Normal', 10, 140, Pango.Alignment.CENTER)
             
             if show_block_wind_direct:
