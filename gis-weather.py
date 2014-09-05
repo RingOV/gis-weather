@@ -658,6 +658,7 @@ class MyDrawArea(Gtk.DrawingArea):
             self.Draw_Weather(self.cr)
     
     def clear_draw_area(self, widget):
+        print('clear_draw_area')
         self.cr = Gdk.cairo_create(self.get_window())
         self.cr.save()
         if fix_BadDrawable:
@@ -702,9 +703,9 @@ class MyDrawArea(Gtk.DrawingArea):
                 self.splash_screen(self.cr, 1)
             else:
                 if err == False:
-                    self.Draw_Weather()
-                    self.draw_scaled_image(margin + 10, margin + 10, os.path.join(THEMES_PATH, 'error.png'),24,24)
-                    self.draw_text(_('Connection error'), margin + 35, margin + 14, font+' Normal', 10, color = color_text_week)
+                    self.Draw_Weather(self.cr)
+                    self.draw_scaled_image(self.cr, margin + 10, margin + 10, os.path.join(THEMES_PATH, 'error.png'),24,24)
+                    self.draw_text(self.cr, _('Connection error'), margin + 35, margin + 14, font+' Normal', 10, color = color_text_week)
                     err = True
         else:
             if err == True:
@@ -1011,7 +1012,7 @@ class MyDrawArea(Gtk.DrawingArea):
         if not_composited:
             if os.path.exists(os.path.join(CONFIG_PATH, 'main_screenshot.png')):
                 crop_image(x_pos, y_pos, w, h)
-                self.draw_scaled_image(cr, l, t, os.path.join(CONFIG_PATH, 'screenshot.png'), w, h)
+                self.draw_scaled_image(cr, 0, 0, os.path.join(CONFIG_PATH, 'screenshot.png'), w+l, h+t)
         if show_bg_png:
             l = l//2
             t = t//2
