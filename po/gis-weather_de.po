@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2014-08-31 14:53+0300\n"
-"PO-Revision-Date: 2014-08-31 14:53+0300\n"
+"PO-Revision-Date: 2014-09-06 12:24+0100\n"
 "Last-Translator: Jonathan Hooverman <Jonathan.Hooverman@gmail.com>\n"
 "Language-Team: Jonathan Hooverman <Jonathan.Hooverman@gmail.com>\n"
 "Language: Deutsch\n"
@@ -94,12 +94,12 @@ msgstr "Verbindungsfehler"
 #: gis-weather.py:768 services/accuweather.py:715 services/gismeteo.py:429
 #: services/weather_com.py:274
 msgid "updated on server"
-msgstr "Auf Server aktualisiert"
+msgstr "Wetterdaten auf Server aktualisiert"
 
 #: gis-weather.py:769 services/accuweather.py:716 services/gismeteo.py:430
 #: services/weather_com.py:275
 msgid "weather received"
-msgstr "Wetterdaten erhalten"
+msgstr "Wetterdaten abgerufen"
 
 #: gis-weather.py:796
 msgid "E"
@@ -123,7 +123,7 @@ msgstr "Feuchte"
 
 #: gis-weather.py:847
 msgid "water"
-msgstr "Wasser"
+msgstr "Regen"
 
 #: gis-weather.py:864 gis-weather.py:903
 msgid "Morning"
@@ -459,7 +459,7 @@ msgstr "Tage"
 #: services/accuweather.py:592 services/accuweather.py:600
 #: services/gismeteo.py:244 services/weather_com.py:157
 msgid "Uploading page to a variable"
-msgstr "Seite zu einer Variablen laden"
+msgstr "Wetterdaten laden von"
 
 #: services/accuweather.py:243 services/accuweather.py:303
 #: services/accuweather.py:323 services/accuweather.py:380
@@ -513,11 +513,11 @@ msgstr "Möchten Sie übersetzen?"
 
 #: dialogs/settings_dialog.ui:883
 msgid "Language program"
-msgstr "Sprache des Programms"
+msgstr "Lokalisierung des Programms"
 
 #: dialogs/settings_dialog.ui:898 dialogs/city_id_dialog.ui:323
 msgid "Language weather"
-msgstr "Sprache des Wetters"
+msgstr "Lokalisierung der Wetterdaten"
 
 #: dialogs/settings_dialog.ui:913
 msgid "Add icon launcher to menu"
@@ -537,11 +537,11 @@ msgstr "Allgemein"
 
 #: dialogs/settings_dialog.ui:1120
 msgid "Wind"
-msgstr "Wind"
+msgstr "Windgeschwindigkeit"
 
 #: dialogs/settings_dialog.ui:1135
 msgid "Pressure"
-msgstr "Druck"
+msgstr "Luftdruck"
 
 #: dialogs/settings_dialog.ui:1184
 msgid "Temperature"
@@ -577,13 +577,13 @@ msgstr "Transparenz"
 
 #: dialogs/settings_dialog.ui:1673
 msgid "Scale"
-msgstr "Skala"
+msgstr "Skalierung"
 
 #: dialogs/settings_dialog.ui:1781 dialogs/settings_dialog.ui:1914
 #: dialogs/settings_dialog.ui:2148 dialogs/settings_dialog.ui:2372
 #: dialogs/settings_dialog.ui:3649
 msgid "Show"
-msgstr "Anzeigen"
+msgstr "Anzeige von"
 
 #: dialogs/settings_dialog.ui:1796 dialogs/settings_dialog.ui:1929
 #: dialogs/settings_dialog.ui:2046 dialogs/settings_dialog.ui:2163
@@ -633,7 +633,7 @@ msgstr "Begrüßungsbild anzeigen"
 
 #: dialogs/settings_dialog.ui:2568
 msgid "Hide splash screen after attempts (0 - do not hide)"
-msgstr "Begrüßungsbild nach Versuchen verbergen (0 - nicht verbergen)"
+msgstr "Begrüßungsbild nach <Anzahl> Versuchen verbergen (0 - nicht verbergen)"
 
 #: dialogs/settings_dialog.ui:2712
 msgid "Show chance of rain"
