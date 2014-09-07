@@ -1,7 +1,6 @@
 # Gis Weather
+### ![](https://db.tt/2LHAHrTP)
 
-
-Customizable weather widget
 
 ### **Dependencies**
 Used Python3 and GTK3
