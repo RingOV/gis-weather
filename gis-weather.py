@@ -38,7 +38,7 @@ except:
 
 from dialogs import about_dialog, city_id_dialog, update_dialog, settings_dialog, help_dialog
 from services import data
-from utils import gw_menu, presets
+from utils import gw_menu, presets, instance
 import cairo
 import re
 import time
@@ -48,38 +48,26 @@ import os
 import json
 import sys
 import subprocess
-import shlex
 import gzip
+import shutil
 
 if sys.platform.startswith("win"):
     WIN = True
 else:
     WIN = False
 
-def set_procname(newname):
-    from ctypes import cdll, byref, create_string_buffer
-    libc = cdll.LoadLibrary('libc.so.6')
-    buff = create_string_buffer(len(newname)+1)
-    buff.value = newname
-    libc.prctl(15, byref(buff), 0, 0, 0)
-
-def count_instances():
-    cmd_line = 'ps -C gis-weather'
-    args = shlex.split(cmd_line)
-    p = subprocess.Popen(args, stdout=subprocess.PIPE)
-    out, err = p.communicate()
-    instances = re.findall('gis-weather', out.decode(encoding='UTF-8'))
-    return len(instances)
 try:
-    set_procname(b'gis-weather')
+    instance.set_procname(b'gis-weather')
     multInstances = True
 except:
     multInstances = False
     print(_('Running multiple instances of not supported'))
-INSTANCE_NO = count_instances()
+
+INSTANCE_NO = instance.count()
 print(INSTANCE_NO)
 
 CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
+CONFIG_PATH_FILE = os.path.join(CONFIG_PATH, 'gw_config%s.json'%str(INSTANCE_NO))
 
 if not os.path.exists(CONFIG_PATH):
     os.makedirs(CONFIG_PATH)
@@ -158,6 +146,7 @@ gw_config_default = {
     'app_indicator_fix_size': False,
     'app_indicator_size': 22,
     'scale': 1,
+    'autostart': False,
     # customizable options
     'preset_number':0,
     'bg_left': 0,
@@ -209,7 +198,7 @@ def create_variables():
     for i in gw_config.keys():
         globals()[i] = gw_config[i]
 
-print (_('Config path')+':\n    '+os.path.join(CONFIG_PATH, 'gw_config.json'))
+print (_('Config path')+':\n    '+CONFIG_PATH_FILE)
 
 def Save_Config():
     for i in gw_config.keys():
@@ -217,7 +206,7 @@ def Save_Config():
             gw_config[i] = globals()[i]
         except:
             pass
-    json.dump(gw_config, open(os.path.join(CONFIG_PATH, 'gw_config.json'), "w"), sort_keys=True, indent=4, separators=(', ', ': '))
+    json.dump(gw_config, open(CONFIG_PATH_FILE, "w"), sort_keys=True, indent=4, separators=(', ', ': '))
 
 def Save_Color_Scheme(number = 0):
     json.dump(color_scheme[number], open(os.path.join(CONFIG_PATH, 'color_schemes', 'color_sheme_%s.json' %number), "w"), sort_keys=True, indent=4, separators=(', ', ': '))
@@ -228,7 +217,7 @@ for i in range(len(color_scheme)):
 
 def Load_Config():
     try:
-        gw_config_loaded=json.load(open(os.path.join(CONFIG_PATH, 'gw_config.json')))
+        gw_config_loaded=json.load(open(CONFIG_PATH_FILE))
         for i in gw_config_loaded.keys():
             gw_config[i] = gw_config_loaded[i] # new values
     except:
@@ -237,9 +226,15 @@ def Load_Config():
     create_variables()
 
 # first start, config missed
-if not os.path.exists(os.path.join(CONFIG_PATH, 'gw_config.json')):
-    create_variables()
-    Save_Config()
+if not os.path.exists(CONFIG_PATH_FILE):
+    if INSTANCE_NO == 1:
+        if os.path.exists(os.path.join(CONFIG_PATH, 'gw_config.json')):
+            shutil.copy(os.path.join(CONFIG_PATH, 'gw_config.json'), CONFIG_PATH_FILE)
+        else:
+            create_variables()
+            Save_Config()
+    else:
+        shutil.copy(os.path.join(CONFIG_PATH, 'gw_config%s.json'%str(INSTANCE_NO-1)), CONFIG_PATH_FILE)
 # load config
 Load_Config()
 def Load_Color_Scheme(number = 0):
@@ -681,7 +676,6 @@ class MyDrawArea(Gtk.DrawingArea):
             self.Draw_Weather(self.cr)
     
     def clear_draw_area(self, widget):
-        print('clear_draw_area')
         self.cr = Gdk.cairo_create(self.get_window())
         self.cr.save()
         if fix_BadDrawable:

@@ -2,12 +2,13 @@
 
 from gi.repository import Gtk
 import os
-from utils import localization
+from utils import localization, instance
 from services import data
 from dialogs.settings_dialog import services_list
 import json
 
 CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
+CONFIG_PATH_FILE = os.path.join(CONFIG_PATH, instance.get_config_file())
 
 url = None
 example = None
@@ -17,12 +18,12 @@ weather_lang_list = None
 gw_config = None
 
 def Save_Config():
-    json.dump(gw_config, open(os.path.join(CONFIG_PATH, 'gw_config.json'), "w"), sort_keys=True, indent=4, separators=(', ', ': '))
+    json.dump(gw_config, open(CONFIG_PATH_FILE, "w"), sort_keys=True, indent=4, separators=(', ', ': '))
 
 def Load_Config():
     global gw_config
     try:
-        gw_config = json.load(open(os.path.join(CONFIG_PATH, 'gw_config.json')))
+        gw_config = json.load(open(CONFIG_PATH_FILE))
     except:
         print ('[!] '+_('Error loading config file'))
 

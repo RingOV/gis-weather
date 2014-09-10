@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from gi.repository import Gtk, Pango, Gdk
-from utils import autorun, localization, desktop
+from utils import autorun, localization, desktop, instance
 import os
 import json
 import sys
@@ -15,12 +15,9 @@ else:
     WIN = False
 
 CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
-# if WIN:
-#     CONFIG_PATH = CONFIG_PATH.decode(sys.getfilesystemencoding())
+CONFIG_PATH_FILE = os.path.join(CONFIG_PATH, instance.get_config_file())
 
 work_path = os.path.abspath(os.path.dirname(__file__))
-# if WIN:
-#     work_path = work_path.decode(sys.getfilesystemencoding())
 
 gw_config_default_set = {}
 gw_config_set = {}
@@ -58,7 +55,7 @@ dirs.sort()
 available_lang.extend(dirs)
 
 def Save_Config():
-    json.dump(gw_config_set, open(os.path.join(CONFIG_PATH, 'gw_config.json'), "w"), sort_keys=True, indent=4, separators=(', ', ': '))
+    json.dump(gw_config_set, open(CONFIG_PATH_FILE, "w"), sort_keys=True, indent=4, separators=(', ', ': '))
 
 class settings():
     def __init__(self):
