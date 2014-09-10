@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 #
 #  gis_weather.py
 v = '0.7.1'
@@ -48,6 +48,7 @@ import os
 import json
 import sys
 import subprocess
+import shlex
 import gzip
 
 if sys.platform.startswith("win"):
@@ -55,9 +56,30 @@ if sys.platform.startswith("win"):
 else:
     WIN = False
 
+def set_procname(newname):
+    from ctypes import cdll, byref, create_string_buffer
+    libc = cdll.LoadLibrary('libc.so.6')
+    buff = create_string_buffer(len(newname)+1)
+    buff.value = newname
+    libc.prctl(15, byref(buff), 0, 0, 0)
+
+def count_instances():
+    cmd_line = 'ps -C gis-weather'
+    args = shlex.split(cmd_line)
+    p = subprocess.Popen(args, stdout=subprocess.PIPE)
+    out, err = p.communicate()
+    instances = re.findall('gis-weather', out.decode(encoding='UTF-8'))
+    return len(instances)
+try:
+    set_procname(b'gis-weather')
+    multInstances = True
+except:
+    multInstances = False
+    print(_('Running multiple instances of not supported'))
+INSTANCE_NO = count_instances()
+print(INSTANCE_NO)
+
 CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
-# if WIN:
-#     CONFIG_PATH = CONFIG_PATH.decode(sys.getfilesystemencoding())
 
 if not os.path.exists(CONFIG_PATH):
     os.makedirs(CONFIG_PATH)
@@ -447,6 +469,7 @@ class Indicator:
             else:
                 self.indicator.set_status(AppIndicator3.IndicatorStatus.PASSIVE)
                 self.hiden = True
+
         def set_label(self, text):
             self.indicator.set_label(text, '')
 
@@ -1487,6 +1510,7 @@ class Weather_Widget:
 
 
 if __name__ == "__main__":
+
     import signal
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     ind = Indicator()

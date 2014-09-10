@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-08-31 14:53+0300\n"
-"PO-Revision-Date: 2014-08-31 14:53+0300\n"
+"POT-Creation-Date: 2014-09-06 21:12+0300\n"
+"PO-Revision-Date: 2014-09-06 21:12+0300\n"
 "Last-Translator: \n"
 "Language-Team: Daniel <hyperion_dani@yahoo.com>\n"
 "Language: Română\n"
@@ -19,186 +19,186 @@ msgstr ""
 "X-Poedit-SearchPath-2: utils\n"
 "X-Poedit-SearchPath-3: services\n"
 
-#: gis-weather.py:189
+#: gis-weather.py:190
 msgid "Config path"
 msgstr "Cale de configurare"
 
-#: gis-weather.py:212 dialogs/city_id_dialog.py:27
+#: gis-weather.py:213 dialogs/city_id_dialog.py:27
 msgid "Error loading config file"
 msgstr "Eroare încărcare fișier de configurare"
 
-#: gis-weather.py:229
+#: gis-weather.py:230
 msgid "Error loading color scheme"
 msgstr "Eroare încărcare schemă de culori"
 
-#: gis-weather.py:241
+#: gis-weather.py:242
 #, fuzzy
 msgid "Error loading preset"
 msgstr "Eroare descărcare actualizări"
 
-#: gis-weather.py:253
+#: gis-weather.py:254
 msgid "Enter full path to script"
 msgstr "Introdu cale completă pentru script"
 
-#: gis-weather.py:254
+#: gis-weather.py:255
 msgid "Exit"
 msgstr "Ieșire"
 
-#: gis-weather.py:371
+#: gis-weather.py:372
 msgid "Check for new version"
 msgstr "Verifică versiune nouă"
 
-#: gis-weather.py:376 gis-weather.py:385
+#: gis-weather.py:377 gis-weather.py:386
 msgid "Unable to check for updates"
 msgstr "Nu am reușit să verific actualizări"
 
-#: gis-weather.py:407
+#: gis-weather.py:408
 msgid "New version available"
 msgstr "Versiune nouă disponibilă"
 
-#: gis-weather.py:414
+#: gis-weather.py:415
 msgid "Current version is relevant"
 msgstr "Versiunea curentă e relevantă"
 
-#: gis-weather.py:430 gis-weather.py:1175
+#: gis-weather.py:431 gis-weather.py:1180
 msgid "Screenshot saved to"
 msgstr "Captură ecran salvată în"
 
-#: gis-weather.py:432
+#: gis-weather.py:433
 msgid "Unable to get the screenshot"
 msgstr "Imposibil de obținut captură de ecran"
 
-#: gis-weather.py:594
+#: gis-weather.py:595
 msgid "Getting weather..."
 msgstr "Obținere vreme"
 
-#: gis-weather.py:597
+#: gis-weather.py:598
 msgid "Error getting weather"
 msgstr "Eroare obținere vreme"
 
-#: gis-weather.py:599
+#: gis-weather.py:600
 msgid "Location not set"
 msgstr "Locația nu este setată"
 
-#: gis-weather.py:655 gis-weather.py:716
+#: gis-weather.py:656 gis-weather.py:718
 msgid "Next update in"
 msgstr "Următoarea actualizare în"
 
-#: gis-weather.py:655 gis-weather.py:716
+#: gis-weather.py:656 gis-weather.py:718
 msgid "min"
 msgstr "min"
 
-#: gis-weather.py:706
+#: gis-weather.py:708
 msgid "Connection error"
 msgstr "Eroare conexiune"
 
-#: gis-weather.py:768 services/accuweather.py:715 services/gismeteo.py:429
+#: gis-weather.py:770 services/accuweather.py:715 services/gismeteo.py:429
 #: services/weather_com.py:274
 msgid "updated on server"
 msgstr "Actualizat pe server"
 
-#: gis-weather.py:769 services/accuweather.py:716 services/gismeteo.py:430
+#: gis-weather.py:771 services/accuweather.py:716 services/gismeteo.py:430
 #: services/weather_com.py:275
 msgid "weather received"
 msgstr "Vreme primită"
 
-#: gis-weather.py:796
+#: gis-weather.py:801
 msgid "E"
 msgstr "E"
 
-#: gis-weather.py:796
+#: gis-weather.py:801
 msgid "S"
 msgstr "S"
 
-#: gis-weather.py:796
+#: gis-weather.py:801
 msgid "W"
 msgstr "V"
 
-#: gis-weather.py:796
+#: gis-weather.py:801
 msgid "N"
 msgstr "N"
 
-#: gis-weather.py:841
+#: gis-weather.py:846
 msgid "humid."
 msgstr "umid."
 
-#: gis-weather.py:847
+#: gis-weather.py:852
 msgid "water"
 msgstr "apă"
 
-#: gis-weather.py:864 gis-weather.py:903
+#: gis-weather.py:869 gis-weather.py:908
 msgid "Morning"
 msgstr "Dimineață"
 
-#: gis-weather.py:864 gis-weather.py:903
+#: gis-weather.py:869 gis-weather.py:908
 msgid "Day"
 msgstr "Prânz"
 
-#: gis-weather.py:864 gis-weather.py:903
+#: gis-weather.py:869 gis-weather.py:908
 msgid "Evening"
 msgstr "Seară"
 
-#: gis-weather.py:864 gis-weather.py:903
+#: gis-weather.py:869 gis-weather.py:908
 msgid "Night"
 msgstr "Noapte"
 
-#: gis-weather.py:867 gis-weather.py:869
+#: gis-weather.py:872 gis-weather.py:874
 msgid "Tomorrow"
 msgstr "Măine"
 
-#: gis-weather.py:905
+#: gis-weather.py:910
 msgid "Today"
 msgstr "Azi"
 
-#: gis-weather.py:1026
+#: gis-weather.py:1031
 msgid "Background image not found"
 msgstr "Imagine de fundal negăsită"
 
-#: gis-weather.py:1083
+#: gis-weather.py:1088
 msgid "downloading"
 msgstr "Se descarcă"
 
-#: gis-weather.py:1086
+#: gis-weather.py:1091
 msgid "Unable to download"
 msgstr "Imposibil de descărcat"
 
-#: gis-weather.py:1108
+#: gis-weather.py:1113
 msgid "not found icon"
 msgstr "pictogramă negăsită"
 
-#: gis-weather.py:1186
+#: gis-weather.py:1191
 msgid "Widget size"
 msgstr "Mărime gadget"
 
-#: gis-weather.py:1187
+#: gis-weather.py:1192
 msgid "width"
 msgstr "lățime"
 
-#: gis-weather.py:1187
+#: gis-weather.py:1192
 msgid "height"
 msgstr "înălțime"
 
-#: gis-weather.py:1187
+#: gis-weather.py:1192
 msgid "including indent"
 msgstr "include aliniat"
 
-#: gis-weather.py:1359
+#: gis-weather.py:1364
 msgid "Removed"
 msgstr "Eliminat"
 
-#: gis-weather.py:1388 dialogs/city_id_dialog.ui:189
+#: gis-weather.py:1393 dialogs/city_id_dialog.ui:189
 msgid "Added"
 msgstr "Adăugat"
 
-#: gis-weather.py:1393 dialogs/city_id_dialog.ui:258
+#: gis-weather.py:1398 dialogs/city_id_dialog.ui:258
 msgid "Invalid location code"
 msgstr "Cod de locație invalid"
 
-#: gis-weather.py:1460
+#: gis-weather.py:1465
 msgid "Your screen does not support alpha"
 msgstr "Ecranul tău nu acceptă alpha"
 
-#: gis-weather.py:1462
+#: gis-weather.py:1467
 msgid "Your screen supports alpha"
 msgstr "Ecranul tău acceptă alpha"
 
