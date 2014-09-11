@@ -23,10 +23,7 @@ def set_procname(newname):
     libc.prctl(15, byref(buff), 0, 0, 0)
 
 def get_config_file():
-    try:
-        INSTANCE_NO = count()
-    except:
-        INSTANCE_NO = 0
+    INSTANCE_NO = count()
     if INSTANCE_NO == 0:
         return 'gw_config.json'
     else:

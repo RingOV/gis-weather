@@ -16,6 +16,7 @@ else:
 
 CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
 CONFIG_PATH_FILE = os.path.join(CONFIG_PATH, instance.get_config_file())
+INSTANCE_NO = instance.count()
 
 work_path = os.path.abspath(os.path.dirname(__file__))
 
@@ -68,7 +69,7 @@ class settings():
         self.list_o = self.ui.get_objects()
         self.dict_o = {}
         self.dict_o = localization.translate_ui(self.list_o, self.dict_o)
-        self.window1.set_title(_('Preferences')+' Gis Weather')
+        self.window1.set_title(_('Preferences')+' Gis Weather #'+str(INSTANCE_NO))
 
         # General
         self.spinbutton_upd_time = self.ui.get_object('spinbutton_upd_time')
@@ -649,7 +650,7 @@ class settings():
         Save_Config()
         localization.set()
         self.dict_o = localization.translate_ui(self.list_o, self.dict_o)
-        self.window1.set_title(_('Preferences')+' Gis Weather')
+        self.window1.set_title(_('Preferences')+' Gis Weather #'+str(INSTANCE_NO))
         self.load_config_into_form()
         drawing_area_set.redraw(False, False, load_config = True)
 

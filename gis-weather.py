@@ -17,8 +17,18 @@ v = '0.7.1'
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from utils import localization
+from utils import localization, instance
 localization.set()
+
+try:
+    instance.set_procname(b'gis-weather')
+    multInstances = True
+except:
+    multInstances = False
+    print(_('Running multiple instances of not supported'))
+
+INSTANCE_NO = instance.count()
+print(INSTANCE_NO)
 
 from gi.repository import Gtk, GObject, Pango, PangoCairo, Gdk, GdkPixbuf, GLib
 
@@ -38,7 +48,7 @@ except:
 
 from dialogs import about_dialog, city_id_dialog, update_dialog, settings_dialog, help_dialog
 from services import data
-from utils import gw_menu, presets, instance
+from utils import gw_menu, presets
 import cairo
 import re
 import time
@@ -55,16 +65,6 @@ if sys.platform.startswith("win"):
     WIN = True
 else:
     WIN = False
-
-try:
-    instance.set_procname(b'gis-weather')
-    multInstances = True
-except:
-    multInstances = False
-    print(_('Running multiple instances of not supported'))
-
-INSTANCE_NO = instance.count()
-print(INSTANCE_NO)
 
 CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
 CONFIG_PATH_FILE = os.path.join(CONFIG_PATH, 'gw_config%s.json'%str(INSTANCE_NO))
