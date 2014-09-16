@@ -22,7 +22,7 @@ localization.set()
 
 try:
     instance.set_procname(b'gis-weather')
-    multInstances = True
+    multInstances = True # FIXME: need it?
 except:
     multInstances = False
     print(_('Running multiple instances of not supported'))
@@ -67,7 +67,7 @@ else:
     WIN = False
 
 CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
-CONFIG_PATH_FILE = os.path.join(CONFIG_PATH, 'gw_config%s.json'%str(INSTANCE_NO))
+CONFIG_PATH_FILE = os.path.join(CONFIG_PATH, instance.get_config_file())
 
 if not os.path.exists(CONFIG_PATH):
     os.makedirs(CONFIG_PATH)
@@ -146,7 +146,7 @@ gw_config_default = {
     'app_indicator_fix_size': False,
     'app_indicator_size': 22,
     'scale': 1,
-    'autostart': False,
+    'instances_count': 1,
     # customizable options
     'preset_number':0,
     'bg_left': 0,
@@ -1028,7 +1028,7 @@ class MyDrawArea(Gtk.DrawingArea):
             h = height
         if not_composited:
             if os.path.exists(os.path.join(CONFIG_PATH, 'main_screenshot.png')):
-                crop_image(x_pos, y_pos, w, h)
+                crop_image(x_pos, y_pos, w+l, h+t)
                 self.draw_scaled_image(cr, 0, 0, os.path.join(CONFIG_PATH, 'screenshot.png'), w+l, h+t)
         if show_bg_png:
             l = l//2
@@ -1256,7 +1256,6 @@ class Weather_Widget:
 
 
     def menu_response(self, widget, event, value=None):
-
         if event == 'load_preset':
             Load_Preset(value)
             self.set_window_properties()
@@ -1463,8 +1462,8 @@ class Weather_Widget:
             x_pos = event.x
             y_pos = event.y
             Save_Config()
-            if not_composited:
-                self.drawing_area.draw_bg(cr, bg_left, bg_top, bg_width, bg_height)
+            # if not_composited:
+            #     self.drawing_area.draw_bg(cr, bg_left, bg_top, bg_width, bg_height)
 
     def enter_leave_event(self, widget, event, param):
         global show_time_receive_local
