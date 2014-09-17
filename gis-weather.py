@@ -16,11 +16,13 @@ v = '0.7.1'
 #
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-from utils import localization, instance
+from utils import instance
 try:
     instance.set_procname(b'gis-weather')
     multInstances = True # FIXME: need it?
+    from utils import localization
 except:
+    from utils import localization
     multInstances = False
     print(_('Running multiple instances of not supported'))
 

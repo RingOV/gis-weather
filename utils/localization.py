@@ -13,9 +13,10 @@ if sys.platform.startswith("win"):
 else:
     WIN = False
 
+CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
+CONFIG_PATH_FILE = os.path.join(CONFIG_PATH, instance.get_config_file())
+
 def set():
-    CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
-    CONFIG_PATH_FILE = os.path.join(CONFIG_PATH, instance.get_config_file())
     try:
         gw_config_loaded=json.load(open(CONFIG_PATH_FILE))
         lang = gw_config_loaded['app_lang']
