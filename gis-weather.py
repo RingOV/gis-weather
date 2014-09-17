@@ -16,10 +16,7 @@ v = '0.7.1'
 #
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 from utils import localization, instance
-localization.set()
-
 try:
     instance.set_procname(b'gis-weather')
     multInstances = True # FIXME: need it?
@@ -27,8 +24,10 @@ except:
     multInstances = False
     print(_('Running multiple instances of not supported'))
 
+localization.set()
+
+
 INSTANCE_NO = instance.count()
-print(INSTANCE_NO)
 
 from gi.repository import Gtk, GObject, Pango, PangoCairo, Gdk, GdkPixbuf, GLib
 

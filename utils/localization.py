@@ -6,6 +6,7 @@ import os
 import json
 import locale
 from gi.repository import Gtk
+from utils import instance
 
 if sys.platform.startswith("win"):
     WIN = True
@@ -14,10 +15,9 @@ else:
 
 def set():
     CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
-    # if sys.platform.startswith("win"):
-    #     CONFIG_PATH = CONFIG_PATH.decode(sys.getfilesystemencoding())
+    CONFIG_PATH_FILE = os.path.join(CONFIG_PATH, instance.get_config_file())
     try:
-        gw_config_loaded=json.load(open(os.path.join(CONFIG_PATH, 'gw_config.json')))
+        gw_config_loaded=json.load(open(CONFIG_PATH_FILE))
         lang = gw_config_loaded['app_lang']
     except:
         lang = 'auto'
