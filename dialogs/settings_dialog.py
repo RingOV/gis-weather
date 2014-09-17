@@ -104,6 +104,7 @@ class settings():
         self.frame_autostart2 = self.ui.get_object('frame_autostart2')
         self.spinbutton_instances_count = self.ui.get_object('spinbutton_instances_count')
         self.spinbutton_instances_count.connect("value-changed", self.save_settings)
+        self.label_instances_count = self.ui.get_object('label_instances_count')
 
         
         self.clear_upd_time = self.ui.get_object('clear_upd_time')
@@ -357,6 +358,10 @@ class settings():
 
             self.switch_add_icon.hide()
             self.label_add_icon.hide()
+
+            self.clear_instances_count.hide()
+            self.label_instances_count.hide()
+            self.spinbutton_instances_count.hide()
 
         self.button_close = self.ui.get_object('button_close')
         self.button_close.connect("clicked", self.close_window)
