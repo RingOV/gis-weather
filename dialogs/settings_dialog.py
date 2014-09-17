@@ -100,6 +100,10 @@ class settings():
         self.liststore8 = self.ui.get_object('liststore8')
         self.button_refresh = self.ui.get_object('button_refresh')
         self.button_refresh.connect("clicked", self.refresh)
+        self.frame_autostart1 = self.ui.get_object('frame_autostart1')
+        self.frame_autostart2 = self.ui.get_object('frame_autostart2')
+        self.spinbutton_instances_count = self.ui.get_object('spinbutton_instances_count')
+        self.spinbutton_instances_count.connect("value-changed", self.save_settings)
 
         
         self.clear_upd_time = self.ui.get_object('clear_upd_time')
@@ -110,6 +114,8 @@ class settings():
         self.clear_check_for_updates.connect("clicked", self.clear_settings)
         self.clear_delay_start_time = self.ui.get_object('clear_delay_start_time')
         self.clear_delay_start_time.connect("clicked", self.clear_settings)
+        self.clear_instances_count = self.ui.get_object('clear_instances_count')
+        self.clear_instances_count.connect("clicked", self.clear_settings)
 
 
         # Units
@@ -361,6 +367,10 @@ class settings():
     def load_config_into_form(self):
         global state_lock
         state_lock = True
+        if INSTANCE_NO == 1:
+            self.frame_autostart2.hide()
+        else:
+            self.frame_autostart1.hide()
         wind_units_list = [_('m/s'), _('km/h'), _('mph')]
         press_units_list = [_('mmHg'), _('inHg'), _('hPa')]
 
@@ -453,6 +463,7 @@ class settings():
         self.load(self.spinbutton_app_indicator_size)
         self.load(self.switch_app_indicator_fix_size)
         self.load(self.entry_weekend)
+        self.load(self.spinbutton_instances_count)
 
         if gw_config_set['show_bg_png'] == True:
             self.frame_not_image.hide()
@@ -568,7 +579,7 @@ class settings():
             if WIN:
                 autorun.add("gis-weather", os.path.join(os.path.split(work_path)[0], 'gis-weather.exe'))
             else:
-                autorun.add("gis-weather", os.path.join(os.path.split(work_path)[0], 'gis-weather.py'), gw_config_set['delay_start_time'])
+                autorun.add("gis-weather", os.path.join(os.path.split(work_path)[0], 'gis-weather.py'), gw_config_set['delay_start_time'], gw_config_set['instances_count'])
         if name == 'indicator_is_appindicator':
             if value:
                 self.frame_status_icon.hide()
@@ -584,6 +595,9 @@ class settings():
             else:
                 self.frame_image.hide()
                 self.frame_not_image.show()
+
+        if name == 'instances_count':
+            autorun.add("gis-weather", os.path.join(os.path.split(work_path)[0], 'gis-weather.py'), gw_config_set['delay_start_time'], gw_config_set['instances_count'])
 
     def clear_settings(self, widget):
         global gw_config_set
@@ -676,9 +690,12 @@ class settings():
             if WIN:
                 autorun.add("gis-weather", os.path.join(os.path.split(work_path)[0], 'gis-weather.exe'))
             else:
-                autorun.add("gis-weather", os.path.join(os.path.split(work_path)[0], 'gis-weather.py'), gw_config_set['delay_start_time'])
+                autorun.add("gis-weather", os.path.join(os.path.split(work_path)[0], 'gis-weather.py'), gw_config_set['delay_start_time'], gw_config_set['instances_count'])
         else:
-            autorun.remove("gis-weather")
+            if WIN:
+                autorun.remove("gis-weather")
+            else:
+                autorun.remove_all("gis-weather",)
 
     def set_desktop(self, widget, event):
         if state_lock:

@@ -47,22 +47,28 @@ else:
         """get the filename of an autostart (.desktop) file"""
         return os.path.join(_xdg_user_autostart, name + ".desktop")
 
-    def add(name, application, delay_start_time):
+    def add(name, application, delay_start_time, number_of_instances = 1):
         """add a new autostart entry"""
-        delay = ''
-        end = ""
-        if delay_start_time != 0:
-            delay = "sh -c 'sleep %s; "%delay_start_time
-            end = "'"
-        desktop_entry = "[Desktop Entry]\n"\
-            "Name=%s\n"\
-            "Exec=%spython3 \"%s\"%s\n"\
-            "Type=Application\n"\
-            "Terminal=false\n"\
-            "Icon=%s\n"\
-            "Comment=%s" % ('Gis Weather', delay, application, end, os.path.join(os.path.dirname(application),'icon.png'), _("Weather widget"))
-        with open(getfilename(name), "w") as f:
-            f.write(desktop_entry)
+        remove_all(name)
+        for i in range(number_of_instances):
+            if i == 0:
+                name1 = name
+            else:
+                name1 = name+str(i+1)
+            delay = ''
+            end = ""
+            if delay_start_time != 0 or i != 0:
+                delay = "sh -c 'sleep %s; "%str(delay_start_time+i)
+                end = "'"
+            desktop_entry = "[Desktop Entry]\n"\
+                "Name=%s\n"\
+                "Exec=%spython3 \"%s\"%s\n"\
+                "Type=Application\n"\
+                "Terminal=false\n"\
+                "Icon=%s\n"\
+                "Comment=%s" % ('Gis Weather', delay, application, end, os.path.join(os.path.dirname(application),'icon.png'), _("Weather widget"))
+            with open(getfilename(name1), "w") as f:
+                f.write(desktop_entry)
 
     def exists(name):
         """check if an autostart entry exists"""
@@ -70,4 +76,10 @@ else:
 
     def remove(name):
         """delete an autostart entry"""
-        os.unlink(getfilename(name))
+        if os.path.exists(getfilename(name)):
+            os.unlink(getfilename(name))
+
+    def remove_all(name):
+        remove(name)
+        for i in range(11):
+            remove(name+str(i))

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-09-06 21:12+0300\n"
-"PO-Revision-Date: 2014-09-06 21:12+0300\n"
+"POT-Creation-Date: 2014-09-17 15:53+0300\n"
+"PO-Revision-Date: 2014-09-17 15:53+0300\n"
 "Last-Translator: \n"
 "Language-Team: Miroslav Fótyi <m.fotyi@seznam.cz>\n"
 "Language: České\n"
@@ -18,194 +18,198 @@ msgstr ""
 "X-Poedit-SearchPath-2: utils\n"
 "X-Poedit-SearchPath-3: services\n"
 
-#: gis-weather.py:190
+#: gis-weather.py:28
+msgid "Running multiple instances of not supported"
+msgstr ""
+
+#: gis-weather.py:201
 msgid "Config path"
 msgstr "Cesta ke konfiguračnímu souboru"
 
-#: gis-weather.py:213 dialogs/city_id_dialog.py:27
+#: gis-weather.py:224 dialogs/city_id_dialog.py:28
 msgid "Error loading config file"
 msgstr "Chyba při načítání souboru konfigurace"
 
-#: gis-weather.py:230
+#: gis-weather.py:247
 msgid "Error loading color scheme"
 msgstr "Chyba při načítání barevného schématu"
 
-#: gis-weather.py:242
+#: gis-weather.py:259
 #, fuzzy
 msgid "Error loading preset"
 msgstr "Chyba při stahování aktualizací"
 
-#: gis-weather.py:254
+#: gis-weather.py:271
 msgid "Enter full path to script"
 msgstr "Zadejte úplnou cestu ke skriptu"
 
-#: gis-weather.py:255
+#: gis-weather.py:272
 msgid "Exit"
 msgstr "Konec"
 
-#: gis-weather.py:372
+#: gis-weather.py:389
 msgid "Check for new version"
 msgstr "Podívejte se na novou verzi"
 
-#: gis-weather.py:377 gis-weather.py:386
+#: gis-weather.py:394 gis-weather.py:403
 msgid "Unable to check for updates"
 msgstr "Nelze zkontrolovat aktualizace"
 
-#: gis-weather.py:408
+#: gis-weather.py:425
 msgid "New version available"
 msgstr "Nová verze"
 
-#: gis-weather.py:415
+#: gis-weather.py:432
 msgid "Current version is relevant"
 msgstr "Aktuální verze příslušných"
 
-#: gis-weather.py:431 gis-weather.py:1180
+#: gis-weather.py:448 gis-weather.py:1197
 msgid "Screenshot saved to"
 msgstr "Screenshot uloženy v"
 
-#: gis-weather.py:433
+#: gis-weather.py:450
 msgid "Unable to get the screenshot"
 msgstr "Nelze získat screenshot"
 
-#: gis-weather.py:595
+#: gis-weather.py:613
 msgid "Getting weather..."
 msgstr "Získejte počasí ..."
 
-#: gis-weather.py:598
+#: gis-weather.py:616
 msgid "Error getting weather"
 msgstr "Nepodařilo se získat počasí"
 
-#: gis-weather.py:600
+#: gis-weather.py:618
 msgid "Location not set"
 msgstr "Místo není nastaveno"
 
-#: gis-weather.py:656 gis-weather.py:718
+#: gis-weather.py:674 gis-weather.py:735
 msgid "Next update in"
 msgstr "Další aktualizace v"
 
-#: gis-weather.py:656 gis-weather.py:718
+#: gis-weather.py:674 gis-weather.py:735
 msgid "min"
 msgstr "min"
 
-#: gis-weather.py:708
+#: gis-weather.py:725
 msgid "Connection error"
 msgstr "Problém s připojením"
 
-#: gis-weather.py:770 services/accuweather.py:715 services/gismeteo.py:429
+#: gis-weather.py:787 services/accuweather.py:715 services/gismeteo.py:429
 #: services/weather_com.py:274
 msgid "updated on server"
 msgstr "Aktualizace na serveru"
 
-#: gis-weather.py:771 services/accuweather.py:716 services/gismeteo.py:430
+#: gis-weather.py:788 services/accuweather.py:716 services/gismeteo.py:430
 #: services/weather_com.py:275
 msgid "weather received"
 msgstr "přijaté počasí"
 
-#: gis-weather.py:801
+#: gis-weather.py:818
 msgid "E"
 msgstr "V"
 
-#: gis-weather.py:801
+#: gis-weather.py:818
 msgid "S"
 msgstr "J"
 
-#: gis-weather.py:801
+#: gis-weather.py:818
 msgid "W"
 msgstr "Z"
 
-#: gis-weather.py:801
+#: gis-weather.py:818
 msgid "N"
 msgstr "S"
 
-#: gis-weather.py:846
+#: gis-weather.py:863
 msgid "humid."
 msgstr "mokrý."
 
-#: gis-weather.py:852
+#: gis-weather.py:869
 msgid "water"
 msgstr "voda"
 
-#: gis-weather.py:869 gis-weather.py:908
+#: gis-weather.py:886 gis-weather.py:925
 msgid "Morning"
 msgstr "Ráno"
 
-#: gis-weather.py:869 gis-weather.py:908
+#: gis-weather.py:886 gis-weather.py:925
 msgid "Day"
 msgstr "Den"
 
-#: gis-weather.py:869 gis-weather.py:908
+#: gis-weather.py:886 gis-weather.py:925
 msgid "Evening"
 msgstr "Večer"
 
-#: gis-weather.py:869 gis-weather.py:908
+#: gis-weather.py:886 gis-weather.py:925
 msgid "Night"
 msgstr "Noc"
 
-#: gis-weather.py:872 gis-weather.py:874
+#: gis-weather.py:889 gis-weather.py:891
 msgid "Tomorrow"
 msgstr "Zítra"
 
-#: gis-weather.py:910
+#: gis-weather.py:927
 msgid "Today"
 msgstr "Dnes"
 
-#: gis-weather.py:1031
+#: gis-weather.py:1048
 msgid "Background image not found"
 msgstr "Obrázek na pozadí nebyl nalezen"
 
-#: gis-weather.py:1088
+#: gis-weather.py:1105
 msgid "downloading"
 msgstr "stahování"
 
-#: gis-weather.py:1091
+#: gis-weather.py:1108
 msgid "Unable to download"
 msgstr "Nelze stáhnout"
 
-#: gis-weather.py:1113
+#: gis-weather.py:1130
 msgid "not found icon"
 msgstr "ikona nebyla naalezena"
 
-#: gis-weather.py:1191
+#: gis-weather.py:1208
 msgid "Widget size"
 msgstr "Widget velikost (rozměr)"
 
-#: gis-weather.py:1192
+#: gis-weather.py:1209
 msgid "width"
 msgstr "šířka"
 
-#: gis-weather.py:1192
+#: gis-weather.py:1209
 msgid "height"
 msgstr "výška"
 
-#: gis-weather.py:1192
+#: gis-weather.py:1209
 msgid "including indent"
 msgstr "včetně odrážky"
 
-#: gis-weather.py:1364
+#: gis-weather.py:1380
 msgid "Removed"
 msgstr "Odstraněno"
 
-#: gis-weather.py:1393 dialogs/city_id_dialog.ui:189
+#: gis-weather.py:1409 dialogs/city_id_dialog.ui:189
 msgid "Added"
 msgstr "Přidáno"
 
-#: gis-weather.py:1398 dialogs/city_id_dialog.ui:258
+#: gis-weather.py:1414 dialogs/city_id_dialog.ui:258
 msgid "Invalid location code"
 msgstr "Špatný lokalitní kód"
 
-#: gis-weather.py:1465
+#: gis-weather.py:1481
 msgid "Your screen does not support alpha"
 msgstr "Vaše obrazovka nepodporuje alfa"
 
-#: gis-weather.py:1467
+#: gis-weather.py:1483
 msgid "Your screen supports alpha"
 msgstr "Vaše obrazovka podporuje alfa"
 
-#: utils/gw_menu.py:53 dialogs/settings_dialog.ui:698
+#: utils/gw_menu.py:53 dialogs/settings_dialog.ui:656
 msgid "Setup..."
 msgstr "Nastavení..."
 
-#: utils/gw_menu.py:89 dialogs/settings_dialog.py:375
+#: utils/gw_menu.py:89 dialogs/settings_dialog.py:383
 msgid "No"
 msgstr "Ne"
 
@@ -213,11 +217,11 @@ msgstr "Ne"
 msgid "Color scheme"
 msgstr "Barevné schéma"
 
-#: utils/gw_menu.py:113 dialogs/settings_dialog.ui:1519
+#: utils/gw_menu.py:113 dialogs/settings_dialog.ui:1669
 msgid "Lock position"
 msgstr "Zámek polohy"
 
-#: utils/gw_menu.py:119 dialogs/settings_dialog.ui:1504
+#: utils/gw_menu.py:119 dialogs/settings_dialog.ui:1654
 msgid "On all desktops"
 msgstr "Na všech plochách"
 
@@ -231,12 +235,12 @@ msgstr "Nelze získat screenshot"
 msgid "Show/Hide widget"
 msgstr "Počasí widget"
 
-#: utils/gw_menu.py:154 dialogs/settings_dialog.ui:999
+#: utils/gw_menu.py:154 dialogs/settings_dialog.ui:913
 msgid "Refresh"
 msgstr "Aktualizovat"
 
-#: utils/gw_menu.py:166 dialogs/city_id_dialog.py:89
-#: dialogs/settings_dialog.ui:576 dialogs/city_id_dialog.ui:42
+#: utils/gw_menu.py:166 dialogs/city_id_dialog.py:90
+#: dialogs/settings_dialog.ui:588 dialogs/city_id_dialog.ui:42
 msgid "Location"
 msgstr "Místo"
 
@@ -245,19 +249,19 @@ msgid "Indicator icons"
 msgstr "Indikátor ikon"
 
 #: utils/gw_menu.py:177 dialogs/about_dialog.py:55
-#: dialogs/settings_dialog.ui:3585 dialogs/settings_dialog.ui:4071
+#: dialogs/settings_dialog.ui:3735 dialogs/settings_dialog.ui:4221
 msgid "Icons"
 msgstr "Ikony"
 
-#: utils/gw_menu.py:182 dialogs/settings_dialog.ui:3490
+#: utils/gw_menu.py:182 dialogs/settings_dialog.ui:3640
 msgid "Background"
 msgstr "Pozadí"
 
-#: utils/gw_menu.py:187 dialogs/settings_dialog.ui:3197
+#: utils/gw_menu.py:187 dialogs/settings_dialog.ui:3347
 msgid "Text"
 msgstr "Text"
 
-#: utils/gw_menu.py:192 dialogs/settings_dialog.ui:1729
+#: utils/gw_menu.py:192 dialogs/settings_dialog.ui:1879
 msgid "Window"
 msgstr "Okno"
 
@@ -265,8 +269,8 @@ msgstr "Okno"
 msgid "Presets"
 msgstr ""
 
-#: utils/gw_menu.py:202 dialogs/settings_dialog.py:74
-#: dialogs/settings_dialog.py:655
+#: utils/gw_menu.py:202 dialogs/settings_dialog.py:72
+#: dialogs/settings_dialog.py:666
 msgid "Preferences"
 msgstr "Preference"
 
@@ -278,7 +282,7 @@ msgstr "Nápověda"
 msgid "About"
 msgstr "O"
 
-#: utils/gw_menu.py:230 dialogs/settings_dialog.ui:531
+#: utils/gw_menu.py:230 dialogs/settings_dialog.ui:543
 #: dialogs/help_dialog.ui:25 dialogs/city_id_dialog.ui:72
 #: dialogs/update_dialog.ui:44
 msgid "Close"
@@ -288,27 +292,27 @@ msgstr "Zavřít"
 msgid "Weather widget"
 msgstr "Počasí widget"
 
-#: dialogs/city_id_dialog.py:54
+#: dialogs/city_id_dialog.py:55
 msgid "Choose your city on"
 msgstr "Vyberte si město na"
 
-#: dialogs/city_id_dialog.py:55
+#: dialogs/city_id_dialog.py:56
 msgid "and copy city code from the reference"
 msgstr "a zkopírujte kód města z odkazu"
 
-#: dialogs/city_id_dialog.py:56
+#: dialogs/city_id_dialog.py:57
 msgid "For example"
 msgstr "Например"
 
-#: dialogs/city_id_dialog.py:57
+#: dialogs/city_id_dialog.py:58
 msgid "City code"
 msgstr "Kód města"
 
-#: dialogs/city_id_dialog.py:118
+#: dialogs/city_id_dialog.py:119
 msgid "Code"
 msgstr "Kód"
 
-#: dialogs/city_id_dialog.py:122
+#: dialogs/city_id_dialog.py:123
 msgid "Place"
 msgstr "Místo"
 
@@ -353,52 +357,52 @@ msgstr "Instalace"
 msgid "Error removing"
 msgstr "Chyba při odstraňování"
 
-#: dialogs/settings_dialog.py:366
+#: dialogs/settings_dialog.py:374
 msgid "m/s"
 msgstr "m/s"
 
-#: dialogs/settings_dialog.py:366
+#: dialogs/settings_dialog.py:374
 msgid "km/h"
 msgstr "km/h"
 
-#: dialogs/settings_dialog.py:366
+#: dialogs/settings_dialog.py:374
 msgid "mph"
 msgstr "mph"
 
-#: dialogs/settings_dialog.py:367
+#: dialogs/settings_dialog.py:375
 msgid "mmHg"
 msgstr "mmHg"
 
-#: dialogs/settings_dialog.py:367
+#: dialogs/settings_dialog.py:375
 msgid "inHg"
 msgstr "inHg"
 
-#: dialogs/settings_dialog.py:367
+#: dialogs/settings_dialog.py:375
 msgid "hPa"
 msgstr "hPa"
 
-#: dialogs/settings_dialog.py:370
+#: dialogs/settings_dialog.py:378
 msgid "Never"
 msgstr "Nikdy"
 
-#: dialogs/settings_dialog.py:371
+#: dialogs/settings_dialog.py:379
 msgid "Only at start"
 msgstr "Pouze na začátku"
 
-#: dialogs/settings_dialog.py:372
+#: dialogs/settings_dialog.py:380
 msgid "Always"
 msgstr "Vždy"
 
-#: dialogs/settings_dialog.py:376
+#: dialogs/settings_dialog.py:384
 msgid "Only background"
 msgstr "Pouze na pozadí"
 
-#: dialogs/settings_dialog.py:377
+#: dialogs/settings_dialog.py:385
 msgid "Yes"
 msgstr "Ano"
 
-#: dialogs/settings_dialog.py:474 dialogs/settings_dialog.py:484
-#: dialogs/settings_dialog.py:494
+#: dialogs/settings_dialog.py:482 dialogs/settings_dialog.py:492
+#: dialogs/settings_dialog.py:502
 msgid "Author"
 msgstr "Autor"
 
@@ -478,249 +482,261 @@ msgstr "Další pokus za 10 sekund"
 msgid "Calm"
 msgstr "Calm"
 
-#: dialogs/settings_dialog.ui:591
+#: dialogs/settings_dialog.ui:603
 msgid "Update (in minutes)"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:606
+#: dialogs/settings_dialog.ui:618
 #, fuzzy
 msgid "Check for updates"
 msgstr "Nelze zkontrolovat aktualizace"
 
-#: dialogs/settings_dialog.ui:633
+#: dialogs/settings_dialog.ui:645
 msgid "Folder with config"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:660
-msgid "Autostart at login"
-msgstr ""
-
-#: dialogs/settings_dialog.ui:675
-#, fuzzy
-msgid "Start delay (in seconds)"
-msgstr "Další pokus za 10 sekund"
-
-#: dialogs/settings_dialog.ui:747
+#: dialogs/settings_dialog.ui:705
 msgid "Open..."
 msgstr ""
 
-#: dialogs/settings_dialog.ui:861 dialogs/help_dialog.ui:109
+#: dialogs/settings_dialog.ui:775 dialogs/help_dialog.ui:109
 #: dialogs/update_dialog.ui:351
 msgid "Want to translate?"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:883
+#: dialogs/settings_dialog.ui:797
 msgid "Language program"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:898 dialogs/city_id_dialog.ui:323
+#: dialogs/settings_dialog.ui:812 dialogs/city_id_dialog.ui:323
 msgid "Language weather"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:913
+#: dialogs/settings_dialog.ui:827
 msgid "Add icon launcher to menu"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:941 dialogs/city_id_dialog.ui:360
+#: dialogs/settings_dialog.ui:855 dialogs/city_id_dialog.ui:360
 #, fuzzy
 msgid "Weather service"
 msgstr "Počasí widget"
 
-#: dialogs/settings_dialog.ui:1022 dialogs/help_dialog.ui:286
+#: dialogs/settings_dialog.ui:936 dialogs/help_dialog.ui:286
 msgid "Translation status"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:1097
+#: dialogs/settings_dialog.ui:990
+msgid "Autostart at login"
+msgstr ""
+
+#: dialogs/settings_dialog.ui:1005
+msgid "Number of instances"
+msgstr ""
+
+#: dialogs/settings_dialog.ui:1053
+#, fuzzy
+msgid "Start delay (in seconds)"
+msgstr "Další pokus za 10 sekund"
+
+#: dialogs/settings_dialog.ui:1104 dialogs/settings_dialog.ui:1159
+msgid "Autostart"
+msgstr ""
+
+#: dialogs/settings_dialog.ui:1142
+msgid "Configured in the first instance"
+msgstr ""
+
+#: dialogs/settings_dialog.ui:1247
 msgid "General"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:1120
+#: dialogs/settings_dialog.ui:1270
 #, fuzzy
 msgid "Wind"
 msgstr "Okno"
 
-#: dialogs/settings_dialog.ui:1135
+#: dialogs/settings_dialog.ui:1285
 msgid "Pressure"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:1184
+#: dialogs/settings_dialog.ui:1334
 msgid "Temperature"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:1237
+#: dialogs/settings_dialog.ui:1387
 msgid "Temperature as feel"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:1327
+#: dialogs/settings_dialog.ui:1477
 msgid "Units"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:1351
+#: dialogs/settings_dialog.ui:1501
 msgid "Left"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:1366 dialogs/settings_dialog.ui:3969
+#: dialogs/settings_dialog.ui:1516 dialogs/settings_dialog.ui:4119
 msgid "Top"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:1381
+#: dialogs/settings_dialog.ui:1531
 msgid "Padding"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:1489
+#: dialogs/settings_dialog.ui:1639
 msgid "Fix BadDrawable error"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:1534
+#: dialogs/settings_dialog.ui:1684
 msgid "Transparency"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:1673
+#: dialogs/settings_dialog.ui:1823
 msgid "Scale"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:1781 dialogs/settings_dialog.ui:1914
-#: dialogs/settings_dialog.ui:2148 dialogs/settings_dialog.ui:2372
-#: dialogs/settings_dialog.ui:3649
+#: dialogs/settings_dialog.ui:1931 dialogs/settings_dialog.ui:2064
+#: dialogs/settings_dialog.ui:2298 dialogs/settings_dialog.ui:2522
+#: dialogs/settings_dialog.ui:3799
 msgid "Show"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:1796 dialogs/settings_dialog.ui:1929
-#: dialogs/settings_dialog.ui:2046 dialogs/settings_dialog.ui:2163
-#: dialogs/settings_dialog.ui:2387
+#: dialogs/settings_dialog.ui:1946 dialogs/settings_dialog.ui:2079
+#: dialogs/settings_dialog.ui:2196 dialogs/settings_dialog.ui:2313
+#: dialogs/settings_dialog.ui:2537
 msgid "Offset from center"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:1874
+#: dialogs/settings_dialog.ui:2024
 #, fuzzy
 msgid "Block Tomorrow"
 msgstr "Zítra"
 
-#: dialogs/settings_dialog.ui:2007
+#: dialogs/settings_dialog.ui:2157
 #, fuzzy
 msgid "Block Today"
 msgstr "Dnes"
 
-#: dialogs/settings_dialog.ui:2094
+#: dialogs/settings_dialog.ui:2244
 msgid "Block Now"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:2239
+#: dialogs/settings_dialog.ui:2389
 msgid "Reduce"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:2254
+#: dialogs/settings_dialog.ui:2404
 msgid "Angle of rotation"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:2332
+#: dialogs/settings_dialog.ui:2482
 msgid "Block Wind"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:2465
+#: dialogs/settings_dialog.ui:2615
 msgid "Block Additional info"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:2523
+#: dialogs/settings_dialog.ui:2673
 msgid "Number of days"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:2538
+#: dialogs/settings_dialog.ui:2688
 msgid "Show time receiving weather"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:2553
+#: dialogs/settings_dialog.ui:2703
 msgid "Show splash screen"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:2568
+#: dialogs/settings_dialog.ui:2718
 msgid "Hide splash screen after attempts (0 - do not hide)"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:2712
+#: dialogs/settings_dialog.ui:2862
 msgid "Show chance of rain"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:2779
+#: dialogs/settings_dialog.ui:2929
 msgid "View"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:2822 dialogs/settings_dialog.ui:3809
+#: dialogs/settings_dialog.ui:2972 dialogs/settings_dialog.ui:3959
 msgid "Font"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:2837
+#: dialogs/settings_dialog.ui:2987
 #, fuzzy
 msgid "Color main"
 msgstr "Barevné schéma"
 
-#: dialogs/settings_dialog.ui:2886
+#: dialogs/settings_dialog.ui:3036
 #, fuzzy
 msgid "Color weekend"
 msgstr "Barevné schéma"
 
-#: dialogs/settings_dialog.ui:2965
+#: dialogs/settings_dialog.ui:3115
 msgid "Color wind"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:2980
+#: dialogs/settings_dialog.ui:3130
 msgid ""
 "High wind\n"
 "(-1 = not highlight)"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:2996 dialogs/settings_dialog.ui:3873
+#: dialogs/settings_dialog.ui:3146 dialogs/settings_dialog.ui:4023
 #, fuzzy
 msgid "Color shadow"
 msgstr "Barevné schéma"
 
-#: dialogs/settings_dialog.ui:3011 dialogs/settings_dialog.ui:3764
+#: dialogs/settings_dialog.ui:3161 dialogs/settings_dialog.ui:3914
 msgid "Shadow"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:3151
+#: dialogs/settings_dialog.ui:3301
 msgid "Weekend"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:3236
+#: dialogs/settings_dialog.ui:3386
 msgid "Use image"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:3296 dialogs/settings_dialog.ui:3530
+#: dialogs/settings_dialog.ui:3446 dialogs/settings_dialog.ui:3680
 msgid "Select"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:3380
+#: dialogs/settings_dialog.ui:3530
 msgid "Radius corners"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:3395 dialogs/settings_dialog.ui:3858
+#: dialogs/settings_dialog.ui:3545 dialogs/settings_dialog.ui:4008
 msgid "Color"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:3610
+#: dialogs/settings_dialog.ui:3760
 msgid "Appearance"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:3634
+#: dialogs/settings_dialog.ui:3784
 msgid "Type (restart required)"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:4001
+#: dialogs/settings_dialog.ui:4151
 #, fuzzy
 msgid "Width"
 msgstr "šířka"
 
-#: dialogs/settings_dialog.ui:4123
+#: dialogs/settings_dialog.ui:4273
 #, fuzzy
 msgid "Fix the size"
 msgstr "Widget velikost (rozměr)"
 
-#: dialogs/settings_dialog.ui:4168
+#: dialogs/settings_dialog.ui:4318
 msgid "Size"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:4244
+#: dialogs/settings_dialog.ui:4394
 #, fuzzy
 msgid "Indicator"
 msgstr "Indikátor ikon"
