@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-09-17 15:53+0300\n"
-"PO-Revision-Date: 2014-09-17 15:53+0300\n"
+"POT-Creation-Date: 2014-09-18 21:45+0300\n"
+"PO-Revision-Date: 2014-09-18 21:45+0300\n"
 "Last-Translator: Jonathan Hooverman <Jonathan.Hooverman@gmail.com>\n"
 "Language-Team: Jonathan Hooverman <Jonathan.Hooverman@gmail.com>\n"
 "Language: Deutsch\n"
@@ -19,189 +19,194 @@ msgstr ""
 "X-Poedit-SearchPath-2: utils\n"
 "X-Poedit-SearchPath-3: services\n"
 
-#: gis-weather.py:28
+#: gis-weather.py:31
 msgid "Running multiple instances of not supported"
 msgstr ""
 
-#: gis-weather.py:201
+#: gis-weather.py:36
+#, fuzzy
+msgid "number of instances"
+msgstr "Anzahl Tage"
+
+#: gis-weather.py:211
 msgid "Config path"
 msgstr "Konfigurationsverzeichnis"
 
-#: gis-weather.py:224 dialogs/city_id_dialog.py:28
+#: gis-weather.py:234 dialogs/city_id_dialog.py:28
 msgid "Error loading config file"
 msgstr "Konfigurationsdatei konnte nicht geladen werden"
 
-#: gis-weather.py:247
+#: gis-weather.py:257
 msgid "Error loading color scheme"
 msgstr "Farbschema konnte nicht geladen werden"
 
-#: gis-weather.py:259
+#: gis-weather.py:269
 msgid "Error loading preset"
 msgstr "Fehler beim Laden der Voreinstellungen"
 
-#: gis-weather.py:271
+#: gis-weather.py:281
 msgid "Enter full path to script"
 msgstr "Vollständigen Pfad zum Skript angeben"
 
-#: gis-weather.py:272
+#: gis-weather.py:282
 msgid "Exit"
 msgstr "Beenden"
 
-#: gis-weather.py:389
+#: gis-weather.py:407
 msgid "Check for new version"
 msgstr "Auf neue Version prüfen"
 
-#: gis-weather.py:394 gis-weather.py:403
+#: gis-weather.py:412 gis-weather.py:421
 msgid "Unable to check for updates"
 msgstr "Auf Aktualisierung konnte nicht geprüft werden"
 
-#: gis-weather.py:425
+#: gis-weather.py:443
 msgid "New version available"
 msgstr "Neue Version verfügbar"
 
-#: gis-weather.py:432
+#: gis-weather.py:450
 msgid "Current version is relevant"
 msgstr "Version ist aktuell"
 
-#: gis-weather.py:448 gis-weather.py:1197
+#: gis-weather.py:466 gis-weather.py:1215
 msgid "Screenshot saved to"
 msgstr "Bildschirmfoto gespeichert in"
 
-#: gis-weather.py:450
+#: gis-weather.py:468
 msgid "Unable to get the screenshot"
 msgstr "Bildschirmfoto konnte nicht erstellt werden"
 
-#: gis-weather.py:613
+#: gis-weather.py:631
 msgid "Getting weather..."
 msgstr "Wetterdaten abfragen"
 
-#: gis-weather.py:616
+#: gis-weather.py:634
 msgid "Error getting weather"
 msgstr "Fehler beim Abfragen der Wetterdaten"
 
-#: gis-weather.py:618
+#: gis-weather.py:636
 msgid "Location not set"
 msgstr "Ort nicht angegeben"
 
-#: gis-weather.py:674 gis-weather.py:735
+#: gis-weather.py:692 gis-weather.py:753
 msgid "Next update in"
 msgstr "Nächste Aktualisierung in"
 
-#: gis-weather.py:674 gis-weather.py:735
+#: gis-weather.py:692 gis-weather.py:753
 msgid "min"
 msgstr "min"
 
-#: gis-weather.py:725
+#: gis-weather.py:743
 msgid "Connection error"
 msgstr "Verbindungsfehler"
 
-#: gis-weather.py:787 services/accuweather.py:715 services/gismeteo.py:429
+#: gis-weather.py:805 services/accuweather.py:715 services/gismeteo.py:429
 #: services/weather_com.py:274
 msgid "updated on server"
 msgstr "Wetterdaten auf Server aktualisiert"
 
-#: gis-weather.py:788 services/accuweather.py:716 services/gismeteo.py:430
+#: gis-weather.py:806 services/accuweather.py:716 services/gismeteo.py:430
 #: services/weather_com.py:275
 msgid "weather received"
 msgstr "Wetterdaten abgerufen"
 
-#: gis-weather.py:818
+#: gis-weather.py:836
 msgid "E"
 msgstr "O"
 
-#: gis-weather.py:818
+#: gis-weather.py:836
 msgid "S"
 msgstr "S"
 
-#: gis-weather.py:818
+#: gis-weather.py:836
 msgid "W"
 msgstr "W"
 
-#: gis-weather.py:818
+#: gis-weather.py:836
 msgid "N"
 msgstr "N"
 
-#: gis-weather.py:863
+#: gis-weather.py:881
 msgid "humid."
 msgstr "Feuchte"
 
-#: gis-weather.py:869
+#: gis-weather.py:887
 msgid "water"
 msgstr "Regen"
 
-#: gis-weather.py:886 gis-weather.py:925
+#: gis-weather.py:904 gis-weather.py:943
 msgid "Morning"
 msgstr "Morgen"
 
-#: gis-weather.py:886 gis-weather.py:925
+#: gis-weather.py:904 gis-weather.py:943
 msgid "Day"
 msgstr "Tag"
 
-#: gis-weather.py:886 gis-weather.py:925
+#: gis-weather.py:904 gis-weather.py:943
 msgid "Evening"
 msgstr "Abend"
 
-#: gis-weather.py:886 gis-weather.py:925
+#: gis-weather.py:904 gis-weather.py:943
 msgid "Night"
 msgstr "Nacht"
 
-#: gis-weather.py:889 gis-weather.py:891
+#: gis-weather.py:907 gis-weather.py:909
 msgid "Tomorrow"
 msgstr "Morgen"
 
-#: gis-weather.py:927
+#: gis-weather.py:945
 msgid "Today"
 msgstr "Heute"
 
-#: gis-weather.py:1048
+#: gis-weather.py:1066
 msgid "Background image not found"
 msgstr "Hintergrundbild nicht gefunden"
 
-#: gis-weather.py:1105
+#: gis-weather.py:1123
 msgid "downloading"
 msgstr "herunterladen"
 
-#: gis-weather.py:1108
+#: gis-weather.py:1126
 msgid "Unable to download"
 msgstr "Herunterladen nicht möglich"
 
-#: gis-weather.py:1130
+#: gis-weather.py:1148
 msgid "not found icon"
 msgstr "Symbol nicht gefunden"
 
-#: gis-weather.py:1208
+#: gis-weather.py:1226
 msgid "Widget size"
 msgstr "Widget-Größe"
 
-#: gis-weather.py:1209
+#: gis-weather.py:1227
 msgid "width"
 msgstr "Breite"
 
-#: gis-weather.py:1209
+#: gis-weather.py:1227
 msgid "height"
 msgstr "Höhe"
 
-#: gis-weather.py:1209
+#: gis-weather.py:1227
 msgid "including indent"
 msgstr "inklusive Zeileneinzug"
 
-#: gis-weather.py:1380
+#: gis-weather.py:1398
 msgid "Removed"
 msgstr "Entfernt"
 
-#: gis-weather.py:1409 dialogs/city_id_dialog.ui:189
+#: gis-weather.py:1427 dialogs/city_id_dialog.ui:189
 msgid "Added"
 msgstr "Hinzugefügt"
 
-#: gis-weather.py:1414 dialogs/city_id_dialog.ui:258
+#: gis-weather.py:1432 dialogs/city_id_dialog.ui:258
 msgid "Invalid location code"
 msgstr "Ungültiger Orts-Code"
 
-#: gis-weather.py:1481
+#: gis-weather.py:1499
 msgid "Your screen does not support alpha"
 msgstr "Ihr Desktop unterstützt keine Alpha-Transparenz"
 
-#: gis-weather.py:1483
+#: gis-weather.py:1501
 msgid "Your screen supports alpha"
 msgstr "Ihr Desktop unterstützt Alpha-Transparenz"
 
@@ -209,7 +214,7 @@ msgstr "Ihr Desktop unterstützt Alpha-Transparenz"
 msgid "Setup..."
 msgstr "Konfiguration..."
 
-#: utils/gw_menu.py:89 dialogs/settings_dialog.py:383
+#: utils/gw_menu.py:89 dialogs/settings_dialog.py:388
 msgid "No"
 msgstr "Nein"
 
@@ -268,7 +273,7 @@ msgid "Presets"
 msgstr "Voreinstellungen"
 
 #: utils/gw_menu.py:202 dialogs/settings_dialog.py:72
-#: dialogs/settings_dialog.py:666
+#: dialogs/settings_dialog.py:678
 msgid "Preferences"
 msgstr "Einstellungen"
 
@@ -286,7 +291,7 @@ msgstr "Über"
 msgid "Close"
 msgstr "Schließen"
 
-#: utils/desktop.py:23 utils/autorun.py:63 dialogs/about_dialog.py:40
+#: utils/desktop.py:23 utils/autorun.py:70 dialogs/about_dialog.py:40
 msgid "Weather widget"
 msgstr "Wetter-Widget"
 
@@ -355,52 +360,52 @@ msgstr "Installation"
 msgid "Error removing"
 msgstr "Fehler beim Entfernen"
 
-#: dialogs/settings_dialog.py:374
+#: dialogs/settings_dialog.py:379
 msgid "m/s"
 msgstr "m/s"
 
-#: dialogs/settings_dialog.py:374
+#: dialogs/settings_dialog.py:379
 msgid "km/h"
 msgstr "km/h"
 
-#: dialogs/settings_dialog.py:374
+#: dialogs/settings_dialog.py:379
 msgid "mph"
 msgstr "mph"
 
-#: dialogs/settings_dialog.py:375
+#: dialogs/settings_dialog.py:380
 msgid "mmHg"
 msgstr "mmHg"
 
-#: dialogs/settings_dialog.py:375
+#: dialogs/settings_dialog.py:380
 msgid "inHg"
 msgstr "inHg"
 
-#: dialogs/settings_dialog.py:375
+#: dialogs/settings_dialog.py:380
 msgid "hPa"
 msgstr "hPa"
 
-#: dialogs/settings_dialog.py:378
+#: dialogs/settings_dialog.py:383
 msgid "Never"
 msgstr "Niemals"
 
-#: dialogs/settings_dialog.py:379
+#: dialogs/settings_dialog.py:384
 msgid "Only at start"
 msgstr "Nur beim Start"
 
-#: dialogs/settings_dialog.py:380
+#: dialogs/settings_dialog.py:385
 msgid "Always"
 msgstr "Immer"
 
-#: dialogs/settings_dialog.py:384
+#: dialogs/settings_dialog.py:389
 msgid "Only background"
 msgstr "Nur im Hintergrund"
 
-#: dialogs/settings_dialog.py:385
+#: dialogs/settings_dialog.py:390
 msgid "Yes"
 msgstr "Ja"
 
-#: dialogs/settings_dialog.py:482 dialogs/settings_dialog.py:492
-#: dialogs/settings_dialog.py:502
+#: dialogs/settings_dialog.py:488 dialogs/settings_dialog.py:498
+#: dialogs/settings_dialog.py:508
 msgid "Author"
 msgstr "Autor"
 
@@ -536,11 +541,11 @@ msgstr "Bei Login starten"
 msgid "Number of instances"
 msgstr "Anzahl Tage"
 
-#: dialogs/settings_dialog.ui:1053
+#: dialogs/settings_dialog.ui:1052
 msgid "Start delay (in seconds)"
 msgstr "Verzögerung (in Sekunden)"
 
-#: dialogs/settings_dialog.ui:1104 dialogs/settings_dialog.ui:1159
+#: dialogs/settings_dialog.ui:1103 dialogs/settings_dialog.ui:1159
 #, fuzzy
 msgid "Autostart"
 msgstr "Bei Login starten"

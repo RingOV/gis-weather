@@ -17,24 +17,26 @@ v = '0.7.1'
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import argparse
-parser = argparse.ArgumentParser(description='Customizable weather widget')
-parser.add_argument('-i', '--instances', nargs=1, metavar='N', default=['0'],
-                    help='number of instances')
-parser.add_argument('-v','--version', action='version', version='Gis Weather '+v)
-
-args = parser.parse_args()
-
 from utils import instance
 try:
     instance.set_procname(b'gis-weather')
-    from utils import localization
+    multInstances = True
 except:
-    from utils import localization
-    print(_('Running multiple instances of not supported'))
-
+    multInstances = False
+    
+from utils import localization
 localization.set()
 
+if not multInstances:
+    print(_('Running multiple instances of not supported'))
+
+import argparse
+parser = argparse.ArgumentParser(description='Customizable weather widget')
+parser.add_argument('-i', '--instances', nargs=1, metavar='N', default=['0'],
+                    help=_('number of instances'))
+parser.add_argument('-v','--version', action='version', version='Gis Weather '+v)
+
+args = parser.parse_args()
 
 INSTANCE_NO = instance.count()
 
