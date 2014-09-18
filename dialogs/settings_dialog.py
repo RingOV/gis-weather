@@ -372,7 +372,7 @@ class settings():
     def load_config_into_form(self):
         global state_lock
         state_lock = True
-        if INSTANCE_NO > 1:
+        if INSTANCE_NO < 2:
             self.frame_autostart2.hide()
         else:
             self.frame_autostart1.hide()
