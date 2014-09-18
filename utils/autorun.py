@@ -49,22 +49,15 @@ else:
 
     def add(name, application, delay_start_time, number_of_instances = 1):
         """add a new autostart entry"""
-        exec_list = []
-        for i in range(number_of_instances):
-            exec_list.append('python3 "%s"'%application)
         if number_of_instances > 1:
-            exec_string = ' & sleep 1; '.join(exec_list)
+            exec_string = 'python3 "'+application+'" -i '+str(number_of_instances)
         else:
-            exec_string = exec_list[0]
+            exec_string = 'python3 "'+application+'"'
         delay = ''
         end = ""
         if delay_start_time != 0:
             delay = "sh -c 'sleep %s; "%delay_start_time
             end = "'"
-        else:
-            if number_of_instances > 1:
-                delay = "sh -c '"
-                end = "'"
         desktop_entry = "[Desktop Entry]\n"\
             "Name=%s\n"\
             "Exec=%s %s %s\n"\

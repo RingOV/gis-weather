@@ -16,6 +16,15 @@ v = '0.7.1'
 #
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import argparse
+parser = argparse.ArgumentParser(description='Customizable weather widget')
+parser.add_argument('-i', '--instances', nargs=1, metavar='N', default=['0'],
+                    help='number of instances')
+parser.add_argument('-v','--version', action='version', version='Gis Weather '+v)
+
+args = parser.parse_args()
+
 from utils import instance
 try:
     instance.set_procname(b'gis-weather')
@@ -365,6 +374,14 @@ weather = {
 # create variables
 for i in weather.keys():
     globals()[i] = weather[i]
+
+if int(args.instances[0]) != 0:
+    instances_count = int(args.instances[0])
+else:
+    instances_count = 0
+
+if INSTANCE_NO < instances_count:
+    subprocess.Popen(['python3', os.path.join(APP_PATH, 'gis-weather.py'), '-i '+str(instances_count)], stdout=subprocess.PIPE)
 
 def get_weather():
     return data.get_weather(service, weather, n, city_id, show_block_tomorrow, show_block_today, show_block_add_info, timer_bool, weather_lang, icons_name)

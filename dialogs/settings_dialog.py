@@ -614,7 +614,7 @@ class settings():
         drawing_area_set.redraw(False, False, load_config = True)
         self.load_config_into_form()
 
-        if name == 'delay_start_time' and self.switch_autostart.get_active():
+        if (name == 'delay_start_time' or 'instances_count') and self.switch_autostart.get_active():
             if WIN:
                 autorun.add("gis-weather", os.path.join(os.path.split(work_path)[0], 'gis-weather.exe'))
             else:
