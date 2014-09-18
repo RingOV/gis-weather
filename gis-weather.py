@@ -19,11 +19,9 @@ v = '0.7.1'
 from utils import instance
 try:
     instance.set_procname(b'gis-weather')
-    multInstances = True # FIXME: need it?
     from utils import localization
 except:
     from utils import localization
-    multInstances = False
     print(_('Running multiple instances of not supported'))
 
 localization.set()

@@ -580,7 +580,7 @@ class settings():
             gw_config_set[name] = value
         Save_Config()
         drawing_area_set.redraw(False, False, load_config = True)
-        if name == 'delay_start_time':
+        if name == 'delay_start_time' and self.switch_autostart.get_active():
             if WIN:
                 autorun.add("gis-weather", os.path.join(os.path.split(work_path)[0], 'gis-weather.exe'))
             else:
@@ -613,6 +613,12 @@ class settings():
         Save_Config()
         drawing_area_set.redraw(False, False, load_config = True)
         self.load_config_into_form()
+
+        if name == 'delay_start_time' and self.switch_autostart.get_active():
+            if WIN:
+                autorun.add("gis-weather", os.path.join(os.path.split(work_path)[0], 'gis-weather.exe'))
+            else:
+                autorun.add("gis-weather", os.path.join(os.path.split(work_path)[0], 'gis-weather.py'), gw_config_set['delay_start_time'], gw_config_set['instances_count'])
 
     def set_font(self, widget):
         if state_lock:
@@ -697,10 +703,7 @@ class settings():
             else:
                 autorun.add("gis-weather", os.path.join(os.path.split(work_path)[0], 'gis-weather.py'), gw_config_set['delay_start_time'], gw_config_set['instances_count'])
         else:
-            if WIN:
-                autorun.remove("gis-weather")
-            else:
-                autorun.remove_all("gis-weather",)
+            autorun.remove("gis-weather")
 
     def set_desktop(self, widget, event):
         if state_lock:

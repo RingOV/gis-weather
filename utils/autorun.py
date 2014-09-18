@@ -49,26 +49,34 @@ else:
 
     def add(name, application, delay_start_time, number_of_instances = 1):
         """add a new autostart entry"""
-        remove_all(name)
+        exec_list = []
         for i in range(number_of_instances):
-            if i == 0:
-                name1 = name
-            else:
-                name1 = name+str(i+1)
-            delay = ''
-            end = ""
-            if delay_start_time != 0 or i != 0:
-                delay = "sh -c 'sleep %s; "%str(delay_start_time+i)
+            exec_list.append('python3 "%s"'%application)
+        if number_of_instances > 1:
+            exec_string = ' & sleep 1; '.join(exec_list)
+        else:
+            exec_string = exec_list[0]
+        delay = ''
+        end = ""
+        if delay_start_time != 0:
+            delay = "sh -c 'sleep %s; "%delay_start_time
+            end = "'"
+        else:
+            if number_of_instances > 1:
+                delay = "sh -c '"
                 end = "'"
-            desktop_entry = "[Desktop Entry]\n"\
-                "Name=%s\n"\
-                "Exec=%spython3 \"%s\"%s\n"\
-                "Type=Application\n"\
-                "Terminal=false\n"\
-                "Icon=%s\n"\
-                "Comment=%s" % ('Gis Weather', delay, application, end, os.path.join(os.path.dirname(application),'icon.png'), _("Weather widget"))
-            with open(getfilename(name1), "w") as f:
-                f.write(desktop_entry)
+        desktop_entry = "[Desktop Entry]\n"\
+            "Name=%s\n"\
+            "Exec=%s %s %s\n"\
+            "Type=Application\n"\
+            "Terminal=false\n"\
+            "Icon=%s\n"\
+            "Comment=%s" % ('Gis Weather', 
+                delay, exec_string, end, 
+                os.path.join(os.path.dirname(application),'icon.png'), 
+                _("Weather widget"))
+        with open(getfilename(name), "w") as f:
+            f.write(desktop_entry)
 
     def exists(name):
         """check if an autostart entry exists"""
@@ -78,8 +86,3 @@ else:
         """delete an autostart entry"""
         if os.path.exists(getfilename(name)):
             os.unlink(getfilename(name))
-
-    def remove_all(name):
-        remove(name)
-        for i in range(11):
-            remove(name+str(i))
