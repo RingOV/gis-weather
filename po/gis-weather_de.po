@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2014-09-18 21:45+0300\n"
-"PO-Revision-Date: 2014-09-18 21:45+0300\n"
+"PO-Revision-Date: 2014-09-19 20:34+0100\n"
 "Last-Translator: Jonathan Hooverman <Jonathan.Hooverman@gmail.com>\n"
 "Language-Team: Jonathan Hooverman <Jonathan.Hooverman@gmail.com>\n"
 "Language: Deutsch\n"
@@ -21,12 +21,11 @@ msgstr ""
 
 #: gis-weather.py:31
 msgid "Running multiple instances of not supported"
-msgstr ""
+msgstr "Parallelbetrieb mehrerer Instanzen wird nicht unterstützt"
 
 #: gis-weather.py:36
-#, fuzzy
 msgid "number of instances"
-msgstr "Anzahl Tage"
+msgstr "Anzahl Instanzen"
 
 #: gis-weather.py:211
 msgid "Config path"
@@ -537,22 +536,20 @@ msgid "Autostart at login"
 msgstr "Bei Login starten"
 
 #: dialogs/settings_dialog.ui:1005
-#, fuzzy
 msgid "Number of instances"
-msgstr "Anzahl Tage"
+msgstr "Anzahl Instanzen"
 
 #: dialogs/settings_dialog.ui:1052
 msgid "Start delay (in seconds)"
 msgstr "Verzögerung (in Sekunden)"
 
 #: dialogs/settings_dialog.ui:1103 dialogs/settings_dialog.ui:1159
-#, fuzzy
 msgid "Autostart"
-msgstr "Bei Login starten"
+msgstr "Autostart"
 
 #: dialogs/settings_dialog.ui:1142
 msgid "Configured in the first instance"
-msgstr ""
+msgstr "In der ersten Instanz konfiguriert"
 
 #: dialogs/settings_dialog.ui:1247
 msgid "General"
