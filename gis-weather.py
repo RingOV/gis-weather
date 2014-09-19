@@ -383,7 +383,7 @@ else:
     instances_count = 0
 
 if INSTANCE_NO < instances_count:
-    subprocess.Popen(['python3', os.path.join(APP_PATH, 'gis-weather.py'), '-i '+str(instances_count)], stdout=subprocess.PIPE)
+    subprocess.Popen(['python3', os.path.join(APP_PATH, 'gis-weather.py'), '-i '+str(instances_count)])
 
 def get_weather():
     return data.get_weather(service, weather, n, city_id, show_block_tomorrow, show_block_today, show_block_add_info, timer_bool, weather_lang, icons_name)
