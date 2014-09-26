@@ -129,7 +129,7 @@ gw_config_default = {
     'high_wind': 10,                   # wind greater or equal to this value is highlighted (-1 do not allocate) 
     'color_high_wind': (0, 0, 0.6, 1), # color
     'icons_name': 'default',           # name folder with icon
-    'fix_BadDrawable': True,           # if BadDrawable error
+    'fix_BadDrawable': False,           # if BadDrawable error
     'color_scheme_number': 0,
     'check_for_updates': 2,            # 0 - no, 1 - only when startup, 2 - always
     'fix_position': False,
@@ -180,7 +180,12 @@ gw_config_default = {
     'text_now_top': 0,
     'height_fix': 0,
     'splash_icon_top': 0,
-    'splash_version_top': 0
+    'splash_version_top': 0,
+    'block_wind_direct_small_left': 0,
+    'block_today_top': 0,
+    'block_tomorrow_top': 0,
+    'block_wind_direct_small_top': 0,
+    'splash_block_top': 0
 }
 gw_config = {}
 for i in gw_config_default.keys():
@@ -625,15 +630,15 @@ class MyDrawArea(Gtk.DrawingArea):
             return
         self.draw_bg(cr, bg_left, bg_top, bg_width, bg_height)
         if show_splash_screen != 1:
-            self.draw_scaled_image(cr, width/2 - 64, splash_icon_top+height/2 - 128, os.path.join(APP_PATH, 'icon.png'), 128, 128)
-            self.draw_text(cr, 'Gis Weather v ' + v, 0, splash_version_top+height/2 - 8, font+' Normal', 14, width, Pango.Alignment.CENTER)
+            self.draw_scaled_image(cr, width/2 - 64, splash_block_top+height/2 - 128, os.path.join(APP_PATH, 'icon.png'), 128, 128)
+            self.draw_text(cr, 'Gis Weather v ' + v, 0, splash_block_top+height/2 - 8, font+' Normal', 14, width, Pango.Alignment.CENTER)
             if state == 0:
-                self.draw_text(cr, _('Getting weather...'), 0, height/2 + 40, font+' Normal', 10, width, Pango.Alignment.CENTER)
+                self.draw_text(cr, _('Getting weather...'), 0, splash_block_top+height/2 + 20, font+' Normal', 10, width, Pango.Alignment.CENTER)
             else:
                 try_no += 1
-                self.draw_text(cr, _('Error getting weather')+' '+ str(try_no), 0, height/2 + 40, font+' Normal', 10, width, Pango.Alignment.CENTER)
+                self.draw_text(cr, _('Error getting weather')+' '+ str(try_no), 0, splash_block_top+height/2 + 20, font+' Normal', 10, width, Pango.Alignment.CENTER)
                 if city_id == 0:
-                    self.draw_text(cr, _('Location not set'), 0, height/2 + 60, font+' Normal', 10, width, Pango.Alignment.CENTER)
+                    self.draw_text(cr, _('Location not set'), 0, splash_block_top+height/2 + 40, font+' Normal', 10, width, Pango.Alignment.CENTER)
 
 
     def redraw(self, timer1 = True, get_weather1 = True, load_config = False):
@@ -825,8 +830,8 @@ class MyDrawArea(Gtk.DrawingArea):
                 font_NS = 8 # font
                 font_wind = 10
                 if wind_direct_small:
-                    left = block_now_left-90#-85
-                    top = y + 55 # top
+                    left = block_now_left-90+block_wind_direct_small_left
+                    top = y + 55 + block_wind_direct_small_top# top
                     r = 16    # radius
                     a = 20     # width and height arrow (a < 2*r)
                     font_NS = 6 # font
@@ -842,14 +847,14 @@ class MyDrawArea(Gtk.DrawingArea):
                         if i % 2 == 0:
                             self.draw_text(cr, NS[i//2], int(x0+r*math.cos(i*0.25*math.pi+angel_rad)), int(y0+r*math.sin(i*0.25*math.pi+angel_rad)), font+' Bold', font_NS, 10, Pango.Alignment.LEFT)
                     if int(wind_speed_now[0].split(';')[wind_units].split()[0]) >= high_wind and high_wind != -1:
-                        self.draw_text(cr, wind_direct_now[0]+', '+wind_speed_now[0].split(';')[wind_units].split()[0]+' '+_(wind_speed_now[0].split(';')[wind_units].split()[-1]), x0-r-10, y0+r+font_wind+4, font+' Normal', font_wind, 2*r+20+font_NS,Pango.Alignment.CENTER, color_high_wind)
+                        self.draw_text(cr, wind_direct_now[0]+', '+wind_speed_now[0].split(';')[wind_units].split()[0]+' '+_(wind_speed_now[0].split(';')[wind_units].split()[-1]), x0-r-15, y0+r+font_wind+4, font+' Normal', font_wind, 2*r+30+font_NS,Pango.Alignment.CENTER, color_high_wind)
                     else:
-                        self.draw_text(cr, wind_direct_now[0]+', '+wind_speed_now[0].split(';')[wind_units].split()[0]+' '+_(wind_speed_now[0].split(';')[wind_units].split()[-1]), x0-r-10, y0+r+font_wind+4, font+' Normal', font_wind, 2*r+20+font_NS,Pango.Alignment.CENTER)
+                        self.draw_text(cr, wind_direct_now[0]+', '+wind_speed_now[0].split(';')[wind_units].split()[0]+' '+_(wind_speed_now[0].split(';')[wind_units].split()[-1]), x0-r-15, y0+r+font_wind+4, font+' Normal', font_wind, 2*r+30+font_NS,Pango.Alignment.CENTER)
                 if icon_wind_now[0] != 'None': 
                     if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'wind.png')):
-                        self.draw_scaled_image(cr, x0-a/2+font_NS/2, y0-a/2+1+font_NS/2, os.path.join(ICONS_PATH, icons_name, 'wind.png'), a, a, icon_wind_now[0]+angel)
+                        self.draw_scaled_image(cr, x0-a/2+font_NS/2, y0-a/2+3+font_NS/2, os.path.join(ICONS_PATH, icons_name, 'wind.png'), a, a, icon_wind_now[0]+angel)
                     else:
-                        self.draw_scaled_image(cr, x0-a/2+font_NS/2, y0-a/2+1+font_NS/2, os.path.join(ICONS_PATH, 'default', 'wind.png'), a, a, icon_wind_now[0]+angel)
+                        self.draw_scaled_image(cr, x0-a/2+font_NS/2, y0-a/2+3+font_NS/2, os.path.join(ICONS_PATH, 'default', 'wind.png'), a, a, icon_wind_now[0]+angel)
             
             if show_block_add_info:    
                 ####-block with additional info-####
@@ -893,7 +898,7 @@ class MyDrawArea(Gtk.DrawingArea):
             if show_block_tomorrow:
                 ####-block tomorrow-####
                 left = block_tomorrow_left
-                top = y + 30
+                top = y + 30 + block_tomorrow_top
                 a = 70
                 b = 53
                 b_width = a+60
@@ -932,7 +937,7 @@ class MyDrawArea(Gtk.DrawingArea):
             if show_block_today:
                 ####-block today-####
                 left = block_today_left
-                top = y + 30
+                top = y + 30 + block_today_top
                 a = 70
                 b = 53
                 b_width = a+60

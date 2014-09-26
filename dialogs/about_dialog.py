@@ -61,7 +61,10 @@ http://www.gnu.org/licenses/gpl.txt''')
         "http://kortoik.deviantart.com/art/Sticker-Weather-Icons-78827487\n",
         "Simple",
         "by LavAna",
-        "http://lavana.deviantart.com/art/Simple-Weather-Icons-23626765\n"
+        "http://lavana.deviantart.com/art/Simple-Weather-Icons-23626765\n",
+        "Sketchy",
+        "by AzureSol",
+        "http://azuresol.deviantart.com/art/Sketchy-Weather-Icons-135079063\n"
         ])
     about.set_translator_credits(translator_credits)
     #about.set_documenters("")
