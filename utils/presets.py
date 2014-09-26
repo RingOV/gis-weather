@@ -128,6 +128,7 @@ list = [
         'splash_block_top': 70,
         'color_text': (0.18, 0.18, 0.18, 1),
         'draw_shadow': False,
+        'icons_name': 'Sketchy'
     },
     ]
 
