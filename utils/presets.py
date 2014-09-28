@@ -130,12 +130,45 @@ list = [
         'draw_shadow': False,
         'icons_name': 'Sketchy'
     },
+    #  NotePaper
+    {   'bg_left': 0,
+        'bg_top': 0,
+        'bg_width': -1,
+        'bg_height': -1,
+        'block_now_left': 20,
+        'icon_now_top': 0,
+        'icon_now_left': 0,
+        'icon_now_size': 0,
+        'block_icons_left': 50,
+        'block_icons_top': 0,
+        'city_name_left': 20,
+        'city_name_top': 0,
+        'day_left': 20,
+        'day_top': 0,
+        't_now_left': 0,
+        't_now_top': 0,
+        't_now_size': 0,
+        't_now_alignment': 'right',
+        'text_now_left': 0,
+        'text_now_top': 0,
+        'height_fix': 0,
+        'n': 4,
+        'show_block_wind_direct': True,
+        'show_block_add_info': True,
+        'show_block_tomorrow': False,
+        'show_block_today': False,
+        'splash_block_top': 0,
+        'margin': 20,
+        'block_wind_direct_left': -150,
+        'block_add_info_left': 90,
+    },
     ]
 
 names = {
     0: 'Default',
     1: 'Small',
-    2: 'Wood'
+    2: 'Wood',
+    3: 'NotePaper'
 }
 
 def save_to_file(CONFIG_PATH):
