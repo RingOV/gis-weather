@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-09-28 17:37+0300\n"
-"PO-Revision-Date: 2014-09-28 17:37+0300\n"
+"POT-Creation-Date: 2014-10-15 19:30+0300\n"
+"PO-Revision-Date: 2014-10-15 19:30+0300\n"
 "Last-Translator: \n"
 "Language-Team: RingOV <ringov.gisweather@gmail.com>\n"
 "Language: Русский\n"
@@ -66,7 +66,7 @@ msgstr "Доступна новая версия"
 msgid "Current version is relevant"
 msgstr "Текущая версия актуальна"
 
-#: gis-weather.py:471 gis-weather.py:1220
+#: gis-weather.py:471 gis-weather.py:1224
 msgid "Screenshot saved to"
 msgstr "Скриншот сохранен в"
 
@@ -74,139 +74,187 @@ msgstr "Скриншот сохранен в"
 msgid "Unable to get the screenshot"
 msgstr "Невозможно получить скриншот"
 
-#: gis-weather.py:636
+#: gis-weather.py:637
 msgid "Getting weather..."
 msgstr "Получаю погоду..."
 
-#: gis-weather.py:639
+#: gis-weather.py:640
 msgid "Error getting weather"
 msgstr "Ошибка получения погоды"
 
-#: gis-weather.py:641
+#: gis-weather.py:642
 msgid "Location not set"
 msgstr "Местоположение не настроено"
 
-#: gis-weather.py:697 gis-weather.py:758
+#: gis-weather.py:698 gis-weather.py:759
 msgid "Next update in"
 msgstr "Следующее обновление через"
 
-#: gis-weather.py:697 gis-weather.py:758
+#: gis-weather.py:698 gis-weather.py:759
 msgid "min"
 msgstr "мин"
 
-#: gis-weather.py:748
+#: gis-weather.py:749
 msgid "Connection error"
 msgstr "Ошибка соединения"
 
-#: gis-weather.py:810 services/accuweather.py:715 services/gismeteo.py:429
-#: services/weather_com.py:274
+#: gis-weather.py:811 services/gismeteo.py:429 services/weather_com.py:274
+#: services/accuweather.py:715
 msgid "updated on server"
 msgstr "обновлено на сервере"
 
-#: gis-weather.py:811 services/accuweather.py:716 services/gismeteo.py:430
-#: services/weather_com.py:275
+#: gis-weather.py:812 services/gismeteo.py:430 services/weather_com.py:275
+#: services/accuweather.py:716
 msgid "weather received"
 msgstr "погода получена"
 
-#: gis-weather.py:841
+#: gis-weather.py:842
 msgid "E"
 msgstr "В"
 
-#: gis-weather.py:841
+#: gis-weather.py:842
 msgid "S"
 msgstr "Ю"
 
-#: gis-weather.py:841
+#: gis-weather.py:842
 msgid "W"
 msgstr "З"
 
-#: gis-weather.py:841
+#: gis-weather.py:842
 msgid "N"
 msgstr "С"
 
-#: gis-weather.py:886
+#: gis-weather.py:887
 msgid "humid."
 msgstr "влажн."
 
-#: gis-weather.py:892
+#: gis-weather.py:893
 msgid "water"
 msgstr "вода"
 
-#: gis-weather.py:909 gis-weather.py:948
+#: gis-weather.py:910 gis-weather.py:949
 msgid "Morning"
 msgstr "Утро"
 
-#: gis-weather.py:909 gis-weather.py:948
+#: gis-weather.py:910 gis-weather.py:949
 msgid "Day"
 msgstr "День"
 
-#: gis-weather.py:909 gis-weather.py:948
+#: gis-weather.py:910 gis-weather.py:949
 msgid "Evening"
 msgstr "Вечер"
 
-#: gis-weather.py:909 gis-weather.py:948
+#: gis-weather.py:910 gis-weather.py:949
 msgid "Night"
 msgstr "Ночь"
 
-#: gis-weather.py:912 gis-weather.py:914
+#: gis-weather.py:913 gis-weather.py:915
 msgid "Tomorrow"
 msgstr "Завтра"
 
-#: gis-weather.py:950
+#: gis-weather.py:951
 msgid "Today"
 msgstr "Сегодня"
 
-#: gis-weather.py:1071
+#: gis-weather.py:1074
 msgid "Background image not found"
 msgstr "Не найдено фоновое изображение"
 
-#: gis-weather.py:1128
+#: gis-weather.py:1131
 msgid "downloading"
 msgstr "скачиваю"
 
-#: gis-weather.py:1131
+#: gis-weather.py:1134
 msgid "Unable to download"
 msgstr "Не удалось скачать"
 
-#: gis-weather.py:1153
+#: gis-weather.py:1156
 msgid "not found icon"
 msgstr "не найдена иконка"
 
-#: gis-weather.py:1231
+#: gis-weather.py:1235
 msgid "Widget size"
 msgstr "Размеры виджета"
 
-#: gis-weather.py:1232
+#: gis-weather.py:1236
 msgid "width"
 msgstr "ширина"
 
-#: gis-weather.py:1232
+#: gis-weather.py:1236
 msgid "height"
 msgstr "высота"
 
-#: gis-weather.py:1232
+#: gis-weather.py:1236
 msgid "including indent"
 msgstr "в т.ч. отступ"
 
-#: gis-weather.py:1403
+#: gis-weather.py:1407
 msgid "Removed"
 msgstr "Удалено"
 
-#: gis-weather.py:1432 dialogs/city_id_dialog.ui:189
+#: gis-weather.py:1436 dialogs/city_id_dialog.ui:189
 msgid "Added"
 msgstr "Добавлено"
 
-#: gis-weather.py:1437 dialogs/city_id_dialog.ui:258
+#: gis-weather.py:1441 dialogs/city_id_dialog.ui:258
 msgid "Invalid location code"
 msgstr "Неверно введен код местоположения"
 
-#: gis-weather.py:1504
+#: gis-weather.py:1508
 msgid "Your screen does not support alpha"
 msgstr "Ваш экран не поддерживает прозрачность"
 
-#: gis-weather.py:1506
+#: gis-weather.py:1510
 msgid "Your screen supports alpha"
 msgstr "Ваш экран поддерживает прозрачность"
+
+#: services/gismeteo.py:237 services/weather_com.py:149
+#: services/accuweather.py:225
+msgid "Failed to get the name of the location"
+msgstr "Не удалось получить название местоположения"
+
+#: services/gismeteo.py:243 services/weather_com.py:156
+#: services/accuweather.py:236
+msgid "Getting weather for"
+msgstr "Получаю погоду на"
+
+#: services/gismeteo.py:243 services/weather_com.py:156
+#: services/accuweather.py:236
+msgid "days"
+msgstr "дней"
+
+#: services/gismeteo.py:244 services/weather_com.py:157
+#: services/accuweather.py:237 services/accuweather.py:297
+#: services/accuweather.py:317 services/accuweather.py:374
+#: services/accuweather.py:436 services/accuweather.py:444
+#: services/accuweather.py:452 services/accuweather.py:460
+#: services/accuweather.py:576 services/accuweather.py:584
+#: services/accuweather.py:592 services/accuweather.py:600
+msgid "Uploading page to a variable"
+msgstr "Загружаю в переменную страницу"
+
+#: services/gismeteo.py:250 services/weather_com.py:163
+#: services/accuweather.py:243 services/accuweather.py:303
+#: services/accuweather.py:323 services/accuweather.py:380
+#: services/accuweather.py:442 services/accuweather.py:450
+#: services/accuweather.py:458 services/accuweather.py:466
+#: services/accuweather.py:582 services/accuweather.py:590
+#: services/accuweather.py:598 services/accuweather.py:606
+msgid "Unable to download page, check the network connection"
+msgstr "Невозможно скачать страницу, проверьте интернет соединение"
+
+#: services/gismeteo.py:252 services/weather_com.py:165
+#: services/accuweather.py:245
+msgid "Next try in 10 seconds"
+msgstr "Следующая попытка через 10 секунд"
+
+#: services/accuweather.py:284
+msgid "Calm"
+msgstr "Штиль"
+
+#: utils/autorun.py:70 utils/desktop.py:23 dialogs/about_dialog.py:40
+msgid "Weather widget"
+msgstr "Погодный виджет"
 
 #: utils/gw_menu.py:53 dialogs/settings_dialog.ui:656
 msgid "Setup..."
@@ -284,51 +332,23 @@ msgid "About"
 msgstr "О программе"
 
 #: utils/gw_menu.py:230 dialogs/settings_dialog.ui:543
-#: dialogs/help_dialog.ui:25 dialogs/city_id_dialog.ui:72
-#: dialogs/update_dialog.ui:44
+#: dialogs/help_dialog.ui:25 dialogs/update_dialog.ui:44
+#: dialogs/city_id_dialog.ui:72
 msgid "Close"
 msgstr "Закрыть"
 
-#: utils/desktop.py:23 utils/autorun.py:70 dialogs/about_dialog.py:40
-msgid "Weather widget"
-msgstr "Погодный виджет"
+#: dialogs/help_dialog.py:13 dialogs/update_dialog.py:44
+msgid "Go to link"
+msgstr "Перейти по ссылке"
 
-#: dialogs/city_id_dialog.py:55
-msgid "Choose your city on"
-msgstr "Выберите свой город на сайте"
-
-#: dialogs/city_id_dialog.py:56
-msgid "and copy city code from the reference"
-msgstr "и скопируйте код города из ссылки"
-
-#: dialogs/city_id_dialog.py:57
-msgid "For example"
-msgstr "Например"
-
-#: dialogs/city_id_dialog.py:58
-msgid "City code"
-msgstr "Код города"
-
-#: dialogs/city_id_dialog.py:119
-msgid "Code"
-msgstr "Код"
-
-#: dialogs/city_id_dialog.py:123
-msgid "Place"
-msgstr "Место"
+#: dialogs/help_dialog.py:16 dialogs/update_dialog.py:47
+#: dialogs/help_dialog.ui:76 dialogs/update_dialog.ui:318
+msgid "Send email"
+msgstr "Отправить письмо"
 
 #: dialogs/update_dialog.py:27 dialogs/update_dialog.ui:561
 msgid "Downloading"
 msgstr "Скачиваю"
-
-#: dialogs/update_dialog.py:44 dialogs/help_dialog.py:13
-msgid "Go to link"
-msgstr "Перейти по ссылке"
-
-#: dialogs/update_dialog.py:47 dialogs/help_dialog.py:16
-#: dialogs/help_dialog.ui:76 dialogs/update_dialog.ui:318
-msgid "Send email"
-msgstr "Отправить письмо"
 
 #: dialogs/update_dialog.py:60
 msgid "Update"
@@ -357,6 +377,42 @@ msgstr "Установка"
 #: dialogs/update_dialog.py:159
 msgid "Error removing"
 msgstr "Ошибка удаления"
+
+#: dialogs/about_dialog.py:23
+msgid ""
+"This program is free software: you can redistribute it and/or modify\n"
+"it under the terms of the GNU General Public License as published by\n"
+"the Free Software Foundation, either version 3 of the License, or\n"
+"(at your option) any later version.\n"
+"\n"
+"This program is distributed in the hope that it will be useful,\n"
+"but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
+"GNU General Public License for more details.\n"
+"\n"
+"You can find the full text of the license under\n"
+"http://www.gnu.org/licenses/gpl.txt"
+msgstr ""
+"Это свободная программа: вы можете распространять и/или\n"
+"модифицировать её согласно условиям Стандартной Общественной\n"
+"Лицензии GNU, опубликованной Фондом Свободного Программного\n"
+"Обеспечения, версии 3 или, по Вашему желанию, любой более поздней версии.\n"
+"\n"
+"Эта программа распространяется в надежде, что она будет полезной, но БЕЗ\n"
+"КАКИХ-ЛИБО ГАРАНТИЙ; даже без подразумеваемых гарантий КОММЕРЧЕСКОЙ\n"
+"ЦЕННОСТИ или ПРИГОДНОСТИ ДЛЯ КОНКРЕТНОЙ ЦЕЛИ. Смотрите Стандартную\n"
+"Общественную Лицензию GNU для получения дополнительной информации.\n"
+"\n"
+"Вы можете найти полный текст лицензии по адресу\n"
+"http://www.gnu.org/licenses/gpl.txt"
+
+#: dialogs/about_dialog.py:46
+msgid "Help and Ideas"
+msgstr "Помощь и идеи"
+
+#: dialogs/about_dialog.py:52
+msgid "Backgrounds"
+msgstr "Фоны"
 
 #: dialogs/settings_dialog.py:379
 msgid "m/s"
@@ -407,85 +463,29 @@ msgstr "Да"
 msgid "Author"
 msgstr "Автор"
 
-#: dialogs/about_dialog.py:23
-msgid ""
-"This program is free software: you can redistribute it and/or modify\n"
-"it under the terms of the GNU General Public License as published by\n"
-"the Free Software Foundation, either version 3 of the License, or\n"
-"(at your option) any later version.\n"
-"\n"
-"This program is distributed in the hope that it will be useful,\n"
-"but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
-"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
-"GNU General Public License for more details.\n"
-"\n"
-"You can find the full text of the license under\n"
-"http://www.gnu.org/licenses/gpl.txt"
-msgstr ""
-"Это свободная программа: вы можете распространять и/или\n"
-"модифицировать её согласно условиям Стандартной Общественной\n"
-"Лицензии GNU, опубликованной Фондом Свободного Программного\n"
-"Обеспечения, версии 3 или, по Вашему желанию, любой более поздней версии.\n"
-"\n"
-"Эта программа распространяется в надежде, что она будет полезной, но БЕЗ\n"
-"КАКИХ-ЛИБО ГАРАНТИЙ; даже без подразумеваемых гарантий КОММЕРЧЕСКОЙ\n"
-"ЦЕННОСТИ или ПРИГОДНОСТИ ДЛЯ КОНКРЕТНОЙ ЦЕЛИ. Смотрите Стандартную\n"
-"Общественную Лицензию GNU для получения дополнительной информации.\n"
-"\n"
-"Вы можете найти полный текст лицензии по адресу\n"
-"http://www.gnu.org/licenses/gpl.txt"
+#: dialogs/city_id_dialog.py:55
+msgid "Choose your city on"
+msgstr "Выберите свой город на сайте"
 
-#: dialogs/about_dialog.py:46
-msgid "Help and Ideas"
-msgstr "Помощь и идеи"
+#: dialogs/city_id_dialog.py:56
+msgid "and copy city code from the reference"
+msgstr "и скопируйте код города из ссылки"
 
-#: dialogs/about_dialog.py:52
-msgid "Backgrounds"
-msgstr "Фоны"
+#: dialogs/city_id_dialog.py:57
+msgid "For example"
+msgstr "Например"
 
-#: services/accuweather.py:225 services/gismeteo.py:237
-#: services/weather_com.py:149
-msgid "Failed to get the name of the location"
-msgstr "Не удалось получить название местоположения"
+#: dialogs/city_id_dialog.py:58
+msgid "City code"
+msgstr "Код города"
 
-#: services/accuweather.py:236 services/gismeteo.py:243
-#: services/weather_com.py:156
-msgid "Getting weather for"
-msgstr "Получаю погоду на"
+#: dialogs/city_id_dialog.py:119
+msgid "Code"
+msgstr "Код"
 
-#: services/accuweather.py:236 services/gismeteo.py:243
-#: services/weather_com.py:156
-msgid "days"
-msgstr "дней"
-
-#: services/accuweather.py:237 services/accuweather.py:297
-#: services/accuweather.py:317 services/accuweather.py:374
-#: services/accuweather.py:436 services/accuweather.py:444
-#: services/accuweather.py:452 services/accuweather.py:460
-#: services/accuweather.py:576 services/accuweather.py:584
-#: services/accuweather.py:592 services/accuweather.py:600
-#: services/gismeteo.py:244 services/weather_com.py:157
-msgid "Uploading page to a variable"
-msgstr "Загружаю в переменную страницу"
-
-#: services/accuweather.py:243 services/accuweather.py:303
-#: services/accuweather.py:323 services/accuweather.py:380
-#: services/accuweather.py:442 services/accuweather.py:450
-#: services/accuweather.py:458 services/accuweather.py:466
-#: services/accuweather.py:582 services/accuweather.py:590
-#: services/accuweather.py:598 services/accuweather.py:606
-#: services/gismeteo.py:250 services/weather_com.py:163
-msgid "Unable to download page, check the network connection"
-msgstr "Невозможно скачать страницу, проверьте интернет соединение"
-
-#: services/accuweather.py:245 services/gismeteo.py:252
-#: services/weather_com.py:165
-msgid "Next try in 10 seconds"
-msgstr "Следующая попытка через 10 секунд"
-
-#: services/accuweather.py:284
-msgid "Calm"
-msgstr "Штиль"
+#: dialogs/city_id_dialog.py:123
+msgid "Place"
+msgstr "Место"
 
 #: dialogs/settings_dialog.ui:603
 msgid "Update (in minutes)"
@@ -768,14 +768,6 @@ msgstr "Исходный код"
 msgid "What's New"
 msgstr "Что нового"
 
-#: dialogs/city_id_dialog.ui:58
-msgid "Add"
-msgstr "Добавить"
-
-#: dialogs/city_id_dialog.ui:86
-msgid "Remove selected"
-msgstr "Удалить выбранное"
-
 #: dialogs/update_dialog.ui:31
 msgid "Update now"
 msgstr "Обновить сейчас"
@@ -803,6 +795,14 @@ msgstr "Обновление успешно завершено"
 #: dialogs/update_dialog.ui:756
 msgid "Update error"
 msgstr "Ошибка обновления"
+
+#: dialogs/city_id_dialog.ui:58
+msgid "Add"
+msgstr "Добавить"
+
+#: dialogs/city_id_dialog.ui:86
+msgid "Remove selected"
+msgstr "Удалить выбранное"
 
 #~ msgid "Color Sa, Su"
 #~ msgstr "Цвет Сб, Вс"

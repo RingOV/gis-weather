@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-09-28 17:37+0300\n"
-"PO-Revision-Date: 2014-09-28 17:37+0300\n"
+"POT-Creation-Date: 2014-10-15 19:30+0300\n"
+"PO-Revision-Date: 2014-10-15 19:30+0300\n"
 "Last-Translator: \n"
 "Language-Team: spyder <ghostdarkhide@gmail.com>\n"
 "Language: Français\n"
@@ -69,7 +69,7 @@ msgstr "Nouvelle version disponible"
 msgid "Current version is relevant"
 msgstr "La version actuelle est concerné"
 
-#: gis-weather.py:471 gis-weather.py:1220
+#: gis-weather.py:471 gis-weather.py:1224
 msgid "Screenshot saved to"
 msgstr "Capture d'écran enregistrée"
 
@@ -77,139 +77,189 @@ msgstr "Capture d'écran enregistrée"
 msgid "Unable to get the screenshot"
 msgstr "Impossible d'obtenir la capture d'écran"
 
-#: gis-weather.py:636
+#: gis-weather.py:637
 msgid "Getting weather..."
 msgstr "Obtenir la météo ..."
 
-#: gis-weather.py:639
+#: gis-weather.py:640
 msgid "Error getting weather"
 msgstr "Erreur de récupération de la météo"
 
-#: gis-weather.py:641
+#: gis-weather.py:642
 msgid "Location not set"
 msgstr "Lieu pas encore défini"
 
-#: gis-weather.py:697 gis-weather.py:758
+#: gis-weather.py:698 gis-weather.py:759
 msgid "Next update in"
 msgstr "Prochaine mise à jour dans"
 
-#: gis-weather.py:697 gis-weather.py:758
+#: gis-weather.py:698 gis-weather.py:759
 msgid "min"
 msgstr "min"
 
-#: gis-weather.py:748
+#: gis-weather.py:749
 msgid "Connection error"
 msgstr "Erreur de connexion"
 
-#: gis-weather.py:810 services/accuweather.py:715 services/gismeteo.py:429
-#: services/weather_com.py:274
+#: gis-weather.py:811 services/gismeteo.py:429 services/weather_com.py:274
+#: services/accuweather.py:715
 msgid "updated on server"
 msgstr "mise à jour sur le serveur"
 
-#: gis-weather.py:811 services/accuweather.py:716 services/gismeteo.py:430
-#: services/weather_com.py:275
+#: gis-weather.py:812 services/gismeteo.py:430 services/weather_com.py:275
+#: services/accuweather.py:716
 msgid "weather received"
 msgstr "Météo reçue"
 
-#: gis-weather.py:841
+#: gis-weather.py:842
 msgid "E"
 msgstr "E"
 
-#: gis-weather.py:841
+#: gis-weather.py:842
 msgid "S"
 msgstr "S"
 
-#: gis-weather.py:841
+#: gis-weather.py:842
 msgid "W"
 msgstr "W"
 
-#: gis-weather.py:841
+#: gis-weather.py:842
 msgid "N"
 msgstr "N"
 
-#: gis-weather.py:886
+#: gis-weather.py:887
 msgid "humid."
 msgstr "humid."
 
-#: gis-weather.py:892
+#: gis-weather.py:893
 msgid "water"
 msgstr "pluie"
 
-#: gis-weather.py:909 gis-weather.py:948
+#: gis-weather.py:910 gis-weather.py:949
 msgid "Morning"
 msgstr "Matin"
 
-#: gis-weather.py:909 gis-weather.py:948
+#: gis-weather.py:910 gis-weather.py:949
 msgid "Day"
 msgstr "Jour"
 
-#: gis-weather.py:909 gis-weather.py:948
+#: gis-weather.py:910 gis-weather.py:949
 msgid "Evening"
 msgstr "Soirée"
 
-#: gis-weather.py:909 gis-weather.py:948
+#: gis-weather.py:910 gis-weather.py:949
 msgid "Night"
 msgstr "Nuit"
 
-#: gis-weather.py:912 gis-weather.py:914
+#: gis-weather.py:913 gis-weather.py:915
 msgid "Tomorrow"
 msgstr "Demain"
 
-#: gis-weather.py:950
+#: gis-weather.py:951
 msgid "Today"
 msgstr "Aujourd'hui"
 
-#: gis-weather.py:1071
+#: gis-weather.py:1074
 msgid "Background image not found"
 msgstr "L'image de fond n'a pas été trouvé"
 
-#: gis-weather.py:1128
+#: gis-weather.py:1131
 msgid "downloading"
 msgstr "téléchargement"
 
-#: gis-weather.py:1131
+#: gis-weather.py:1134
 msgid "Unable to download"
 msgstr "Impossible de télécharger"
 
-#: gis-weather.py:1153
+#: gis-weather.py:1156
 msgid "not found icon"
 msgstr "pas d'icône trouvé"
 
-#: gis-weather.py:1231
+#: gis-weather.py:1235
 msgid "Widget size"
 msgstr "Taille du Widget"
 
-#: gis-weather.py:1232
+#: gis-weather.py:1236
 msgid "width"
 msgstr "largeur"
 
-#: gis-weather.py:1232
+#: gis-weather.py:1236
 msgid "height"
 msgstr "hauteur"
 
-#: gis-weather.py:1232
+#: gis-weather.py:1236
 msgid "including indent"
 msgstr "comprenant le retrait"
 
-#: gis-weather.py:1403
+#: gis-weather.py:1407
 msgid "Removed"
 msgstr "Suppression"
 
-#: gis-weather.py:1432 dialogs/city_id_dialog.ui:189
+#: gis-weather.py:1436 dialogs/city_id_dialog.ui:189
 msgid "Added"
 msgstr "Ajouter"
 
-#: gis-weather.py:1437 dialogs/city_id_dialog.ui:258
+#: gis-weather.py:1441 dialogs/city_id_dialog.ui:258
 msgid "Invalid location code"
 msgstr "Code de localisation invalide"
 
-#: gis-weather.py:1504
+#: gis-weather.py:1508
 msgid "Your screen does not support alpha"
 msgstr "Votre écran ne prend pas en charge alpha"
 
-#: gis-weather.py:1506
+#: gis-weather.py:1510
 msgid "Your screen supports alpha"
 msgstr "Votre écran supporte alpha"
+
+#: services/gismeteo.py:237 services/weather_com.py:149
+#: services/accuweather.py:225
+msgid "Failed to get the name of the location"
+msgstr "Impossible d'obtenir le nom de l'emplacement"
+
+#: services/gismeteo.py:243 services/weather_com.py:156
+#: services/accuweather.py:236
+msgid "Getting weather for"
+msgstr "Obtenir la météo pour"
+
+#: services/gismeteo.py:243 services/weather_com.py:156
+#: services/accuweather.py:236
+msgid "days"
+msgstr "jours"
+
+#: services/gismeteo.py:244 services/weather_com.py:157
+#: services/accuweather.py:237 services/accuweather.py:297
+#: services/accuweather.py:317 services/accuweather.py:374
+#: services/accuweather.py:436 services/accuweather.py:444
+#: services/accuweather.py:452 services/accuweather.py:460
+#: services/accuweather.py:576 services/accuweather.py:584
+#: services/accuweather.py:592 services/accuweather.py:600
+msgid "Uploading page to a variable"
+msgstr "Page de téléchargement à une variable"
+
+#: services/gismeteo.py:250 services/weather_com.py:163
+#: services/accuweather.py:243 services/accuweather.py:303
+#: services/accuweather.py:323 services/accuweather.py:380
+#: services/accuweather.py:442 services/accuweather.py:450
+#: services/accuweather.py:458 services/accuweather.py:466
+#: services/accuweather.py:582 services/accuweather.py:590
+#: services/accuweather.py:598 services/accuweather.py:606
+msgid "Unable to download page, check the network connection"
+msgstr ""
+"Impossible d'acceder à la page de téléchargement, vérifiez la connexion "
+"réseau"
+
+#: services/gismeteo.py:252 services/weather_com.py:165
+#: services/accuweather.py:245
+msgid "Next try in 10 seconds"
+msgstr "Essayer dans 10 secondes"
+
+#: services/accuweather.py:284
+msgid "Calm"
+msgstr ""
+
+#: utils/autorun.py:70 utils/desktop.py:23 dialogs/about_dialog.py:40
+msgid "Weather widget"
+msgstr "Widget Météo"
 
 #: utils/gw_menu.py:53 dialogs/settings_dialog.ui:656
 msgid "Setup..."
@@ -290,51 +340,23 @@ msgid "About"
 msgstr "Sur"
 
 #: utils/gw_menu.py:230 dialogs/settings_dialog.ui:543
-#: dialogs/help_dialog.ui:25 dialogs/city_id_dialog.ui:72
-#: dialogs/update_dialog.ui:44
+#: dialogs/help_dialog.ui:25 dialogs/update_dialog.ui:44
+#: dialogs/city_id_dialog.ui:72
 msgid "Close"
 msgstr "Fermer"
 
-#: utils/desktop.py:23 utils/autorun.py:70 dialogs/about_dialog.py:40
-msgid "Weather widget"
-msgstr "Widget Météo"
+#: dialogs/help_dialog.py:13 dialogs/update_dialog.py:44
+msgid "Go to link"
+msgstr ""
 
-#: dialogs/city_id_dialog.py:55
-msgid "Choose your city on"
-msgstr "Choissir votre ville"
-
-#: dialogs/city_id_dialog.py:56
-msgid "and copy city code from the reference"
-msgstr "et copiez le code de la ville de la référence"
-
-#: dialogs/city_id_dialog.py:57
-msgid "For example"
-msgstr "Par exemple"
-
-#: dialogs/city_id_dialog.py:58
-msgid "City code"
-msgstr "Code ville"
-
-#: dialogs/city_id_dialog.py:119
-msgid "Code"
-msgstr "Code"
-
-#: dialogs/city_id_dialog.py:123
-msgid "Place"
-msgstr "Lieu"
+#: dialogs/help_dialog.py:16 dialogs/update_dialog.py:47
+#: dialogs/help_dialog.ui:76 dialogs/update_dialog.ui:318
+msgid "Send email"
+msgstr "Envoyer un email"
 
 #: dialogs/update_dialog.py:27 dialogs/update_dialog.ui:561
 msgid "Downloading"
 msgstr "Téléchargement"
-
-#: dialogs/update_dialog.py:44 dialogs/help_dialog.py:13
-msgid "Go to link"
-msgstr ""
-
-#: dialogs/update_dialog.py:47 dialogs/help_dialog.py:16
-#: dialogs/help_dialog.ui:76 dialogs/update_dialog.ui:318
-msgid "Send email"
-msgstr "Envoyer un email"
 
 #: dialogs/update_dialog.py:60
 msgid "Update"
@@ -363,6 +385,38 @@ msgstr "Installation"
 #: dialogs/update_dialog.py:159
 msgid "Error removing"
 msgstr "Erreur de suppression"
+
+#: dialogs/about_dialog.py:23
+msgid ""
+"This program is free software: you can redistribute it and/or modify\n"
+"it under the terms of the GNU General Public License as published by\n"
+"the Free Software Foundation, either version 3 of the License, or\n"
+"(at your option) any later version.\n"
+"\n"
+"This program is distributed in the hope that it will be useful,\n"
+"but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
+"GNU General Public License for more details.\n"
+"\n"
+"You can find the full text of the license under\n"
+"http://www.gnu.org/licenses/gpl.txt"
+msgstr ""
+"Ce programme est un logiciel libre: vous pouvez le redistribuer et ou "
+"modifier selon les termes de la Licence Publique Générale GNU telle que "
+"publiée par la Free Software Foundation, soit la version 3 de la Licence.Ce "
+"programme est distribué dans l'espoir qu'il sera utile, mais SANS AUCUNE "
+"GARANTIE; sans même la garantie implicite de COMMERCIALISATION ou "
+"D'ADAPTATION À UN USAGE PARTICULIER. Voir laGNU General Public License pour "
+"plus de détails.Vous pouvez trouver le texte complet de la licence sous  "
+"http://www.gnu.org/licenses/gpl.txt"
+
+#: dialogs/about_dialog.py:46
+msgid "Help and Ideas"
+msgstr "Aide et Idées"
+
+#: dialogs/about_dialog.py:52
+msgid "Backgrounds"
+msgstr "Fonds d'écran"
 
 #: dialogs/settings_dialog.py:379
 msgid "m/s"
@@ -413,83 +467,29 @@ msgstr "Oui"
 msgid "Author"
 msgstr "Auteur"
 
-#: dialogs/about_dialog.py:23
-msgid ""
-"This program is free software: you can redistribute it and/or modify\n"
-"it under the terms of the GNU General Public License as published by\n"
-"the Free Software Foundation, either version 3 of the License, or\n"
-"(at your option) any later version.\n"
-"\n"
-"This program is distributed in the hope that it will be useful,\n"
-"but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
-"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
-"GNU General Public License for more details.\n"
-"\n"
-"You can find the full text of the license under\n"
-"http://www.gnu.org/licenses/gpl.txt"
-msgstr ""
-"Ce programme est un logiciel libre: vous pouvez le redistribuer et ou "
-"modifier selon les termes de la Licence Publique Générale GNU telle que "
-"publiée par la Free Software Foundation, soit la version 3 de la Licence.Ce "
-"programme est distribué dans l'espoir qu'il sera utile, mais SANS AUCUNE "
-"GARANTIE; sans même la garantie implicite de COMMERCIALISATION ou "
-"D'ADAPTATION À UN USAGE PARTICULIER. Voir laGNU General Public License pour "
-"plus de détails.Vous pouvez trouver le texte complet de la licence sous  "
-"http://www.gnu.org/licenses/gpl.txt"
+#: dialogs/city_id_dialog.py:55
+msgid "Choose your city on"
+msgstr "Choissir votre ville"
 
-#: dialogs/about_dialog.py:46
-msgid "Help and Ideas"
-msgstr "Aide et Idées"
+#: dialogs/city_id_dialog.py:56
+msgid "and copy city code from the reference"
+msgstr "et copiez le code de la ville de la référence"
 
-#: dialogs/about_dialog.py:52
-msgid "Backgrounds"
-msgstr "Fonds d'écran"
+#: dialogs/city_id_dialog.py:57
+msgid "For example"
+msgstr "Par exemple"
 
-#: services/accuweather.py:225 services/gismeteo.py:237
-#: services/weather_com.py:149
-msgid "Failed to get the name of the location"
-msgstr "Impossible d'obtenir le nom de l'emplacement"
+#: dialogs/city_id_dialog.py:58
+msgid "City code"
+msgstr "Code ville"
 
-#: services/accuweather.py:236 services/gismeteo.py:243
-#: services/weather_com.py:156
-msgid "Getting weather for"
-msgstr "Obtenir la météo pour"
+#: dialogs/city_id_dialog.py:119
+msgid "Code"
+msgstr "Code"
 
-#: services/accuweather.py:236 services/gismeteo.py:243
-#: services/weather_com.py:156
-msgid "days"
-msgstr "jours"
-
-#: services/accuweather.py:237 services/accuweather.py:297
-#: services/accuweather.py:317 services/accuweather.py:374
-#: services/accuweather.py:436 services/accuweather.py:444
-#: services/accuweather.py:452 services/accuweather.py:460
-#: services/accuweather.py:576 services/accuweather.py:584
-#: services/accuweather.py:592 services/accuweather.py:600
-#: services/gismeteo.py:244 services/weather_com.py:157
-msgid "Uploading page to a variable"
-msgstr "Page de téléchargement à une variable"
-
-#: services/accuweather.py:243 services/accuweather.py:303
-#: services/accuweather.py:323 services/accuweather.py:380
-#: services/accuweather.py:442 services/accuweather.py:450
-#: services/accuweather.py:458 services/accuweather.py:466
-#: services/accuweather.py:582 services/accuweather.py:590
-#: services/accuweather.py:598 services/accuweather.py:606
-#: services/gismeteo.py:250 services/weather_com.py:163
-msgid "Unable to download page, check the network connection"
-msgstr ""
-"Impossible d'acceder à la page de téléchargement, vérifiez la connexion "
-"réseau"
-
-#: services/accuweather.py:245 services/gismeteo.py:252
-#: services/weather_com.py:165
-msgid "Next try in 10 seconds"
-msgstr "Essayer dans 10 secondes"
-
-#: services/accuweather.py:284
-msgid "Calm"
-msgstr ""
+#: dialogs/city_id_dialog.py:123
+msgid "Place"
+msgstr "Lieu"
 
 #: dialogs/settings_dialog.ui:603
 msgid "Update (in minutes)"
@@ -782,14 +782,6 @@ msgstr "Code source"
 msgid "What's New"
 msgstr "Quoi de neuf"
 
-#: dialogs/city_id_dialog.ui:58
-msgid "Add"
-msgstr "Ajouter "
-
-#: dialogs/city_id_dialog.ui:86
-msgid "Remove selected"
-msgstr "Supprimer la sélection"
-
 #: dialogs/update_dialog.ui:31
 msgid "Update now"
 msgstr "Mettre à jour maintenant"
@@ -817,6 +809,14 @@ msgstr "Mettre à jour réussie"
 #: dialogs/update_dialog.ui:756
 msgid "Update error"
 msgstr "Erreur de mise à jour"
+
+#: dialogs/city_id_dialog.ui:58
+msgid "Add"
+msgstr "Ajouter "
+
+#: dialogs/city_id_dialog.ui:86
+msgid "Remove selected"
+msgstr "Supprimer la sélection"
 
 #~ msgid "Color Sa, Su"
 #~ msgstr "Couleur Sa, Su"

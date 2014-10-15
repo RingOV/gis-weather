@@ -615,6 +615,7 @@ class Indicator:
 class MyDrawArea(Gtk.DrawingArea):
     p_layout = None
     p_fdesc = None
+    cr = None
 
     def __init__(self):
         self.timer = GLib.timeout_add(1000, self.redraw)
@@ -1003,22 +1004,26 @@ class MyDrawArea(Gtk.DrawingArea):
             except:
                 pass
 
+    def draw_bg_l_c_r(self, cr, path, l, t, w, h, ext):
+        self.draw_scaled_image(cr, l, t, os.path.join(path, "l.%s"%ext), 60, h)
+        self.draw_scaled_image(cr, l+60, t, os.path.join(path, "c.%s"%ext), w-120, h)
+        self.draw_scaled_image(cr, l+w-60, t, os.path.join(path, "r.%s"%ext), 60, h)        
 
     def draw_bg_png_svg(self, cr, path, l, t, w, h):
+        if os.path.exists(os.path.join(path, "%s.png"%bg_custom)):
+            self.draw_scaled_image(cr, l, t, os.path.join(path, "%s.png"%bg_custom), w, h)
+        if os.path.exists(os.path.join(path, "%s.svg"%bg_custom)):
+            self.draw_scaled_image(cr, l, t, os.path.join(path, "%s.svg"%bg_custom), w, h)
+        if os.path.exists(os.path.join(path, "%s.svgz"%bg_custom)):
+            self.draw_scaled_image(cr, l, t, os.path.join(path, "%s.svgz"%bg_custom), w, h)
         if os.path.exists(os.path.join(path, "l.png")):
-            self.draw_scaled_image(cr, l, t, os.path.join(path, "l.png"), 60, h)
-            self.draw_scaled_image(cr, l+60, t, os.path.join(path, "c.png"), w-120, h)
-            self.draw_scaled_image(cr, l+w-60, t, os.path.join(path, "r.png"), 60, h)
+            self.draw_bg_l_c_r(cr, path, l, t, w, h, "png")
         else:
             if os.path.exists(os.path.join(path, "l.svg")):
-                self.draw_scaled_image(cr, l, t, os.path.join(path, "l.svg"), 60, h)
-                self.draw_scaled_image(cr, l+60, t, os.path.join(path, "c.svg"), w-120, h)
-                self.draw_scaled_image(cr, l+w-60, t, os.path.join(path, "r.svg"), 60, h)
+                self.draw_bg_l_c_r(cr, path, l, t, w, h, "svg")
             else:
                 if os.path.exists(os.path.join(path, "l.svgz")):
-                    self.draw_scaled_image(cr, l, t, os.path.join(path, "l.svgz"), 60, h)
-                    self.draw_scaled_image(cr, l+60, t, os.path.join(path, "c.svgz"), w-120, h)
-                    self.draw_scaled_image(cr, l+w-60, t, os.path.join(path, "r.svgz"), 60, h)
+                    self.draw_bg_l_c_r(cr, path, l, t, w, h, "svgz")
                 else:
                     if os.path.exists(os.path.join(path, "corner.png")):
                         self.draw_scaled_image(cr, l, t, os.path.join(path, "corner.png"), 60, 60)
@@ -1031,18 +1036,16 @@ class MyDrawArea(Gtk.DrawingArea):
                         self.draw_scaled_image(cr, l+w-60, t+h-60, os.path.join(path, "corner.png"), 60, 60, 180)
                         self.draw_scaled_image(cr, l+60, t+h-60, os.path.join(path, "border_top.png"), l+w-120, 60, 180)
 
-
-    # def create_bg(self):
-    #     self.cr_bg = Gdk.cairo_create(self.get_window())
-    #     self.cr_bg.save()
-    #     if fix_BadDrawable:
-    #         self.cr_bg.set_source_rgba(0.5, 0.5, 0.5, 0.01)
-    #     else:
-    #         self.cr_bg.set_source_rgba(1, 1, 1, 0)
-    #     self.cr_bg.set_operator(cairo.OPERATOR_SOURCE)
-    #     self.cr_bg.paint()
-    #     self.cr_bg.restore()
-    #     self.cr_bg.scale(scale, scale)
+    def find_image(self, path):
+        if path[-4] == '.' or path[-5] == '.':
+            return path
+        if os.path.exists(os.path.join(path, "%s.png"%bg_custom)):
+            return os.path.join(path, "%s.png"%bg_custom)
+        if os.path.exists(os.path.join(path, "%s.svg"%bg_custom)):
+            return os.path.join(path, "%s.svg"%bg_custom)
+        if os.path.exists(os.path.join(path, "%s.svgz"%bg_custom)):
+            return os.path.join(path, "%s.svgz"%bg_custom)
+        return False
 
     def draw_bg(self, cr, l, t, w, h):
         if w == -1:
@@ -1057,15 +1060,15 @@ class MyDrawArea(Gtk.DrawingArea):
             l = l//2
             t = t//2
             if os.path.exists(os.path.join(BGS_USER_PATH, bg_custom)):
-                try:
-                    self.draw_scaled_image(cr, l, t, os.path.join(BGS_USER_PATH, bg_custom), w, h)
-                except:
+                if self.find_image(os.path.join(BGS_USER_PATH, bg_custom)):
+                    self.draw_scaled_image(cr, l, t, self.find_image(os.path.join(BGS_USER_PATH, bg_custom)), w, h)
+                else:
                     self.draw_bg_png_svg(cr, os.path.join(BGS_USER_PATH, bg_custom), l, t, w, h)
-            else: 
+            else:
                 if os.path.exists(os.path.join(BGS_PATH, bg_custom)):
-                    try:
-                        self.draw_scaled_image(cr, l, t, os.path.join(BGS_PATH, bg_custom), w, h)
-                    except:
+                    if self.find_image(os.path.join(BGS_PATH, bg_custom)):
+                        self.draw_scaled_image(cr, l, t, self.find_image(os.path.join(BGS_PATH, bg_custom)), w, h)
+                    else:
                         self.draw_bg_png_svg(cr, os.path.join(BGS_PATH, bg_custom), l, t, w, h)
                 else:
                     print (_('Background image not found')+': '+str(bg_custom))
@@ -1186,7 +1189,8 @@ class MyDrawArea(Gtk.DrawingArea):
         else:
             pixbuf = GdkPixbuf.Pixbuf.new_from_file(pix)
         k=1
-        if pixbuf.get_width()>pixbuf.get_height() and os.path.split(pix)[-2][-11:]!='backgrounds' and os.path.basename(pix)!='screenshot.png':
+        # if pixbuf.get_width()>pixbuf.get_height() and os.path.split(pix)[-2][-11:]!='backgrounds' and os.path.basename(pix)!='screenshot.png':
+        if pixbuf.get_width()>pixbuf.get_height() and not re.findall('backgrounds', pix) and os.path.basename(pix)!='screenshot.png':
             k = pixbuf.get_width()/pixbuf.get_height()
         pixbuf = pixbuf.scale_simple(round(w*k),h,GdkPixbuf.InterpType.BILINEAR)
         if k==1:

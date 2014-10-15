@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-09-28 17:37+0300\n"
-"PO-Revision-Date: 2014-09-28 17:37+0300\n"
+"POT-Creation-Date: 2014-10-15 19:30+0300\n"
+"PO-Revision-Date: 2014-10-15 19:30+0300\n"
 "Last-Translator: \n"
 "Language-Team: Miroslav Fótyi <m.fotyi@seznam.cz>\n"
 "Language: České\n"
@@ -67,7 +67,7 @@ msgstr "Nová verze"
 msgid "Current version is relevant"
 msgstr "Aktuální verze příslušných"
 
-#: gis-weather.py:471 gis-weather.py:1220
+#: gis-weather.py:471 gis-weather.py:1224
 msgid "Screenshot saved to"
 msgstr "Screenshot uloženy v"
 
@@ -75,139 +75,187 @@ msgstr "Screenshot uloženy v"
 msgid "Unable to get the screenshot"
 msgstr "Nelze získat screenshot"
 
-#: gis-weather.py:636
+#: gis-weather.py:637
 msgid "Getting weather..."
 msgstr "Získejte počasí ..."
 
-#: gis-weather.py:639
+#: gis-weather.py:640
 msgid "Error getting weather"
 msgstr "Nepodařilo se získat počasí"
 
-#: gis-weather.py:641
+#: gis-weather.py:642
 msgid "Location not set"
 msgstr "Místo není nastaveno"
 
-#: gis-weather.py:697 gis-weather.py:758
+#: gis-weather.py:698 gis-weather.py:759
 msgid "Next update in"
 msgstr "Další aktualizace v"
 
-#: gis-weather.py:697 gis-weather.py:758
+#: gis-weather.py:698 gis-weather.py:759
 msgid "min"
 msgstr "min"
 
-#: gis-weather.py:748
+#: gis-weather.py:749
 msgid "Connection error"
 msgstr "Problém s připojením"
 
-#: gis-weather.py:810 services/accuweather.py:715 services/gismeteo.py:429
-#: services/weather_com.py:274
+#: gis-weather.py:811 services/gismeteo.py:429 services/weather_com.py:274
+#: services/accuweather.py:715
 msgid "updated on server"
 msgstr "Aktualizace na serveru"
 
-#: gis-weather.py:811 services/accuweather.py:716 services/gismeteo.py:430
-#: services/weather_com.py:275
+#: gis-weather.py:812 services/gismeteo.py:430 services/weather_com.py:275
+#: services/accuweather.py:716
 msgid "weather received"
 msgstr "přijaté počasí"
 
-#: gis-weather.py:841
+#: gis-weather.py:842
 msgid "E"
 msgstr "V"
 
-#: gis-weather.py:841
+#: gis-weather.py:842
 msgid "S"
 msgstr "J"
 
-#: gis-weather.py:841
+#: gis-weather.py:842
 msgid "W"
 msgstr "Z"
 
-#: gis-weather.py:841
+#: gis-weather.py:842
 msgid "N"
 msgstr "S"
 
-#: gis-weather.py:886
+#: gis-weather.py:887
 msgid "humid."
 msgstr "mokrý."
 
-#: gis-weather.py:892
+#: gis-weather.py:893
 msgid "water"
 msgstr "voda"
 
-#: gis-weather.py:909 gis-weather.py:948
+#: gis-weather.py:910 gis-weather.py:949
 msgid "Morning"
 msgstr "Ráno"
 
-#: gis-weather.py:909 gis-weather.py:948
+#: gis-weather.py:910 gis-weather.py:949
 msgid "Day"
 msgstr "Den"
 
-#: gis-weather.py:909 gis-weather.py:948
+#: gis-weather.py:910 gis-weather.py:949
 msgid "Evening"
 msgstr "Večer"
 
-#: gis-weather.py:909 gis-weather.py:948
+#: gis-weather.py:910 gis-weather.py:949
 msgid "Night"
 msgstr "Noc"
 
-#: gis-weather.py:912 gis-weather.py:914
+#: gis-weather.py:913 gis-weather.py:915
 msgid "Tomorrow"
 msgstr "Zítra"
 
-#: gis-weather.py:950
+#: gis-weather.py:951
 msgid "Today"
 msgstr "Dnes"
 
-#: gis-weather.py:1071
+#: gis-weather.py:1074
 msgid "Background image not found"
 msgstr "Obrázek na pozadí nebyl nalezen"
 
-#: gis-weather.py:1128
+#: gis-weather.py:1131
 msgid "downloading"
 msgstr "stahování"
 
-#: gis-weather.py:1131
+#: gis-weather.py:1134
 msgid "Unable to download"
 msgstr "Nelze stáhnout"
 
-#: gis-weather.py:1153
+#: gis-weather.py:1156
 msgid "not found icon"
 msgstr "ikona nebyla naalezena"
 
-#: gis-weather.py:1231
+#: gis-weather.py:1235
 msgid "Widget size"
 msgstr "Widget velikost (rozměr)"
 
-#: gis-weather.py:1232
+#: gis-weather.py:1236
 msgid "width"
 msgstr "šířka"
 
-#: gis-weather.py:1232
+#: gis-weather.py:1236
 msgid "height"
 msgstr "výška"
 
-#: gis-weather.py:1232
+#: gis-weather.py:1236
 msgid "including indent"
 msgstr "včetně odrážky"
 
-#: gis-weather.py:1403
+#: gis-weather.py:1407
 msgid "Removed"
 msgstr "Odstraněno"
 
-#: gis-weather.py:1432 dialogs/city_id_dialog.ui:189
+#: gis-weather.py:1436 dialogs/city_id_dialog.ui:189
 msgid "Added"
 msgstr "Přidáno"
 
-#: gis-weather.py:1437 dialogs/city_id_dialog.ui:258
+#: gis-weather.py:1441 dialogs/city_id_dialog.ui:258
 msgid "Invalid location code"
 msgstr "Špatný lokalitní kód"
 
-#: gis-weather.py:1504
+#: gis-weather.py:1508
 msgid "Your screen does not support alpha"
 msgstr "Vaše obrazovka nepodporuje alfa"
 
-#: gis-weather.py:1506
+#: gis-weather.py:1510
 msgid "Your screen supports alpha"
 msgstr "Vaše obrazovka podporuje alfa"
+
+#: services/gismeteo.py:237 services/weather_com.py:149
+#: services/accuweather.py:225
+msgid "Failed to get the name of the location"
+msgstr "Nepodařilo se získat název umístění"
+
+#: services/gismeteo.py:243 services/weather_com.py:156
+#: services/accuweather.py:236
+msgid "Getting weather for"
+msgstr "Získání počasí pro"
+
+#: services/gismeteo.py:243 services/weather_com.py:156
+#: services/accuweather.py:236
+msgid "days"
+msgstr "dny"
+
+#: services/gismeteo.py:244 services/weather_com.py:157
+#: services/accuweather.py:237 services/accuweather.py:297
+#: services/accuweather.py:317 services/accuweather.py:374
+#: services/accuweather.py:436 services/accuweather.py:444
+#: services/accuweather.py:452 services/accuweather.py:460
+#: services/accuweather.py:576 services/accuweather.py:584
+#: services/accuweather.py:592 services/accuweather.py:600
+msgid "Uploading page to a variable"
+msgstr "Nahrávání stránky do proměnné"
+
+#: services/gismeteo.py:250 services/weather_com.py:163
+#: services/accuweather.py:243 services/accuweather.py:303
+#: services/accuweather.py:323 services/accuweather.py:380
+#: services/accuweather.py:442 services/accuweather.py:450
+#: services/accuweather.py:458 services/accuweather.py:466
+#: services/accuweather.py:582 services/accuweather.py:590
+#: services/accuweather.py:598 services/accuweather.py:606
+msgid "Unable to download page, check the network connection"
+msgstr "Nelze stáhnout stránky, zkontrolujte síťové připojení"
+
+#: services/gismeteo.py:252 services/weather_com.py:165
+#: services/accuweather.py:245
+msgid "Next try in 10 seconds"
+msgstr "Další pokus za 10 sekund"
+
+#: services/accuweather.py:284
+msgid "Calm"
+msgstr "Calm"
+
+#: utils/autorun.py:70 utils/desktop.py:23 dialogs/about_dialog.py:40
+msgid "Weather widget"
+msgstr "Počasí widget"
 
 #: utils/gw_menu.py:53 dialogs/settings_dialog.ui:656
 msgid "Setup..."
@@ -287,51 +335,23 @@ msgid "About"
 msgstr "O"
 
 #: utils/gw_menu.py:230 dialogs/settings_dialog.ui:543
-#: dialogs/help_dialog.ui:25 dialogs/city_id_dialog.ui:72
-#: dialogs/update_dialog.ui:44
+#: dialogs/help_dialog.ui:25 dialogs/update_dialog.ui:44
+#: dialogs/city_id_dialog.ui:72
 msgid "Close"
 msgstr "Zavřít"
 
-#: utils/desktop.py:23 utils/autorun.py:70 dialogs/about_dialog.py:40
-msgid "Weather widget"
-msgstr "Počasí widget"
+#: dialogs/help_dialog.py:13 dialogs/update_dialog.py:44
+msgid "Go to link"
+msgstr "Přejít na odkazy"
 
-#: dialogs/city_id_dialog.py:55
-msgid "Choose your city on"
-msgstr "Vyberte si město na"
-
-#: dialogs/city_id_dialog.py:56
-msgid "and copy city code from the reference"
-msgstr "a zkopírujte kód města z odkazu"
-
-#: dialogs/city_id_dialog.py:57
-msgid "For example"
-msgstr "Например"
-
-#: dialogs/city_id_dialog.py:58
-msgid "City code"
-msgstr "Kód města"
-
-#: dialogs/city_id_dialog.py:119
-msgid "Code"
-msgstr "Kód"
-
-#: dialogs/city_id_dialog.py:123
-msgid "Place"
-msgstr "Místo"
+#: dialogs/help_dialog.py:16 dialogs/update_dialog.py:47
+#: dialogs/help_dialog.ui:76 dialogs/update_dialog.ui:318
+msgid "Send email"
+msgstr "Poslat e-mail"
 
 #: dialogs/update_dialog.py:27 dialogs/update_dialog.ui:561
 msgid "Downloading"
 msgstr "Stahování"
-
-#: dialogs/update_dialog.py:44 dialogs/help_dialog.py:13
-msgid "Go to link"
-msgstr "Přejít na odkazy"
-
-#: dialogs/update_dialog.py:47 dialogs/help_dialog.py:16
-#: dialogs/help_dialog.ui:76 dialogs/update_dialog.ui:318
-msgid "Send email"
-msgstr "Poslat e-mail"
 
 #: dialogs/update_dialog.py:60
 msgid "Update"
@@ -360,6 +380,38 @@ msgstr "Instalace"
 #: dialogs/update_dialog.py:159
 msgid "Error removing"
 msgstr "Chyba při odstraňování"
+
+#: dialogs/about_dialog.py:23
+msgid ""
+"This program is free software: you can redistribute it and/or modify\n"
+"it under the terms of the GNU General Public License as published by\n"
+"the Free Software Foundation, either version 3 of the License, or\n"
+"(at your option) any later version.\n"
+"\n"
+"This program is distributed in the hope that it will be useful,\n"
+"but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
+"GNU General Public License for more details.\n"
+"\n"
+"You can find the full text of the license under\n"
+"http://www.gnu.org/licenses/gpl.txt"
+msgstr ""
+"Tento program je svobodný software: můžete jej šířit a nebo modifikovat a to "
+"za podmínek uvedených v licenci GNU General Public License, vydávané Free "
+"Software Foundation, buď ve verzi 3 licence, nebo (podle vašeho uvážení) "
+"kterékoli pozdější verze. Tento program je rozšiřován v naději, že bude "
+"užitečný, ale BEZ JAKÉKOLIV ZÁRUKY; neposkytují se ani odvozené záruky "
+"PRODEJNOSTI NEBO VHODNOSTI PRO URČITÝ ÚČEL. Podívejte se na GNU General "
+"Public License pro další podrobnosti. Můžete si najít plné znění licence v "
+"rámci http://www.gnu.org/licenses/gpl.txt"
+
+#: dialogs/about_dialog.py:46
+msgid "Help and Ideas"
+msgstr "Nápověda a nápady"
+
+#: dialogs/about_dialog.py:52
+msgid "Backgrounds"
+msgstr "Pozadí"
 
 #: dialogs/settings_dialog.py:379
 msgid "m/s"
@@ -410,81 +462,29 @@ msgstr "Ano"
 msgid "Author"
 msgstr "Autor"
 
-#: dialogs/about_dialog.py:23
-msgid ""
-"This program is free software: you can redistribute it and/or modify\n"
-"it under the terms of the GNU General Public License as published by\n"
-"the Free Software Foundation, either version 3 of the License, or\n"
-"(at your option) any later version.\n"
-"\n"
-"This program is distributed in the hope that it will be useful,\n"
-"but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
-"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
-"GNU General Public License for more details.\n"
-"\n"
-"You can find the full text of the license under\n"
-"http://www.gnu.org/licenses/gpl.txt"
-msgstr ""
-"Tento program je svobodný software: můžete jej šířit a nebo modifikovat a to "
-"za podmínek uvedených v licenci GNU General Public License, vydávané Free "
-"Software Foundation, buď ve verzi 3 licence, nebo (podle vašeho uvážení) "
-"kterékoli pozdější verze. Tento program je rozšiřován v naději, že bude "
-"užitečný, ale BEZ JAKÉKOLIV ZÁRUKY; neposkytují se ani odvozené záruky "
-"PRODEJNOSTI NEBO VHODNOSTI PRO URČITÝ ÚČEL. Podívejte se na GNU General "
-"Public License pro další podrobnosti. Můžete si najít plné znění licence v "
-"rámci http://www.gnu.org/licenses/gpl.txt"
+#: dialogs/city_id_dialog.py:55
+msgid "Choose your city on"
+msgstr "Vyberte si město na"
 
-#: dialogs/about_dialog.py:46
-msgid "Help and Ideas"
-msgstr "Nápověda a nápady"
+#: dialogs/city_id_dialog.py:56
+msgid "and copy city code from the reference"
+msgstr "a zkopírujte kód města z odkazu"
 
-#: dialogs/about_dialog.py:52
-msgid "Backgrounds"
-msgstr "Pozadí"
+#: dialogs/city_id_dialog.py:57
+msgid "For example"
+msgstr "Например"
 
-#: services/accuweather.py:225 services/gismeteo.py:237
-#: services/weather_com.py:149
-msgid "Failed to get the name of the location"
-msgstr "Nepodařilo se získat název umístění"
+#: dialogs/city_id_dialog.py:58
+msgid "City code"
+msgstr "Kód města"
 
-#: services/accuweather.py:236 services/gismeteo.py:243
-#: services/weather_com.py:156
-msgid "Getting weather for"
-msgstr "Získání počasí pro"
+#: dialogs/city_id_dialog.py:119
+msgid "Code"
+msgstr "Kód"
 
-#: services/accuweather.py:236 services/gismeteo.py:243
-#: services/weather_com.py:156
-msgid "days"
-msgstr "dny"
-
-#: services/accuweather.py:237 services/accuweather.py:297
-#: services/accuweather.py:317 services/accuweather.py:374
-#: services/accuweather.py:436 services/accuweather.py:444
-#: services/accuweather.py:452 services/accuweather.py:460
-#: services/accuweather.py:576 services/accuweather.py:584
-#: services/accuweather.py:592 services/accuweather.py:600
-#: services/gismeteo.py:244 services/weather_com.py:157
-msgid "Uploading page to a variable"
-msgstr "Nahrávání stránky do proměnné"
-
-#: services/accuweather.py:243 services/accuweather.py:303
-#: services/accuweather.py:323 services/accuweather.py:380
-#: services/accuweather.py:442 services/accuweather.py:450
-#: services/accuweather.py:458 services/accuweather.py:466
-#: services/accuweather.py:582 services/accuweather.py:590
-#: services/accuweather.py:598 services/accuweather.py:606
-#: services/gismeteo.py:250 services/weather_com.py:163
-msgid "Unable to download page, check the network connection"
-msgstr "Nelze stáhnout stránky, zkontrolujte síťové připojení"
-
-#: services/accuweather.py:245 services/gismeteo.py:252
-#: services/weather_com.py:165
-msgid "Next try in 10 seconds"
-msgstr "Další pokus za 10 sekund"
-
-#: services/accuweather.py:284
-msgid "Calm"
-msgstr "Calm"
+#: dialogs/city_id_dialog.py:123
+msgid "Place"
+msgstr "Místo"
 
 #: dialogs/settings_dialog.ui:603
 msgid "Update (in minutes)"
@@ -778,16 +778,6 @@ msgstr ""
 msgid "What's New"
 msgstr ""
 
-#: dialogs/city_id_dialog.ui:58
-#, fuzzy
-msgid "Add"
-msgstr "Přidáno"
-
-#: dialogs/city_id_dialog.ui:86
-#, fuzzy
-msgid "Remove selected"
-msgstr "Odstraněno"
-
 #: dialogs/update_dialog.ui:31
 #, fuzzy
 msgid "Update now"
@@ -817,3 +807,13 @@ msgstr ""
 #, fuzzy
 msgid "Update error"
 msgstr "Aktualizace"
+
+#: dialogs/city_id_dialog.ui:58
+#, fuzzy
+msgid "Add"
+msgstr "Přidáno"
+
+#: dialogs/city_id_dialog.ui:86
+#, fuzzy
+msgid "Remove selected"
+msgstr "Odstraněno"

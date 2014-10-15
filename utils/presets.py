@@ -55,9 +55,9 @@ list = [
 
     #  Small
     {   'bg_left': 0,
-        'bg_top': 45,
+        'bg_top': 38,
         'bg_width': -1,
-        'bg_height': 180,
+        'bg_height': 185,
         'block_now_left': 0,
         'icon_now_top': -70,
         'icon_now_left': 1120,
@@ -74,7 +74,7 @@ list = [
         't_now_alignment': 'left',
         'text_now_left': 1161,
         'text_now_top': 9,
-        'height_fix': -100,
+        'height_fix': -95,
         'n': 3,
         'show_block_wind_direct': False,
         'show_block_add_info': False,
@@ -161,6 +161,8 @@ list = [
         'margin': 20,
         'block_wind_direct_left': -150,
         'block_add_info_left': 90,
+        'bg_custom': 'NotePaper',
+        'wind_direct_small': False
     },
     ]
 
