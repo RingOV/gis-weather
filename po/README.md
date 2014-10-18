@@ -2,15 +2,15 @@
 
 Filename | Language | Translated | Status | Percent | Translator
 | ------------- | ------------- | ------------: | :-----------: | :------------- | :-------------: |
-| gis-weather_cz.po| České | 99 / 182 | ![](https://dl.dropboxusercontent.com/u/99404329/bars/54.png) | 54% | Miroslav Fótyi |
-| gis-weather_de.po| Deutsch | 182 / 182 | ![](https://dl.dropboxusercontent.com/u/99404329/bars/100.png) | 100% | Jonathan Hooverman |
-| gis-weather_es.po| Español | 149 / 182 | ![](https://dl.dropboxusercontent.com/u/99404329/bars/81.png) | 81% | Yasser López de Olmos |
-| gis-weather_fr.po| Français | 158 / 182 | ![](https://dl.dropboxusercontent.com/u/99404329/bars/86.png) | 86% | spyder |
-| gis-weather_it.po| Italiano | 175 / 182 | ![](https://dl.dropboxusercontent.com/u/99404329/bars/96.png) | 96% | Mirko Zappitelli> |
-| gis-weather_pl.po| Polski | 151 / 182 | ![](https://dl.dropboxusercontent.com/u/99404329/bars/82.png) | 82% | Jarosław Harasiuk |
-| gis-weather_ro.po| Română | 158 / 182 | ![](https://dl.dropboxusercontent.com/u/99404329/bars/86.png) | 86% | Daniel |
-| gis-weather_ru.po| Русский | 182 / 182 | ![](https://dl.dropboxusercontent.com/u/99404329/bars/100.png) | 100% | RingOV |
+| gis-weather_cz.po| České | 99 / 183 | ![](https://dl.dropboxusercontent.com/u/99404329/bars/54.png) | 54% | Miroslav Fótyi |
+| gis-weather_de.po| Deutsch | 181 / 183 | ![](https://dl.dropboxusercontent.com/u/99404329/bars/98.png) | 98% | Jonathan Hooverman |
+| gis-weather_es.po| Español | 148 / 183 | ![](https://dl.dropboxusercontent.com/u/99404329/bars/80.png) | 80% | Yasser López de Olmos |
+| gis-weather_fr.po| Français | 157 / 183 | ![](https://dl.dropboxusercontent.com/u/99404329/bars/85.png) | 85% | spyder |
+| gis-weather_it.po| Italiano | 174 / 183 | ![](https://dl.dropboxusercontent.com/u/99404329/bars/95.png) | 95% | Mirko Zappitelli> |
+| gis-weather_pl.po| Polski | 150 / 183 | ![](https://dl.dropboxusercontent.com/u/99404329/bars/81.png) | 81% | Jarosław Harasiuk |
+| gis-weather_ro.po| Română | 157 / 183 | ![](https://dl.dropboxusercontent.com/u/99404329/bars/85.png) | 85% | Daniel |
+| gis-weather_ru.po| Русский | 183 / 183 | ![](https://dl.dropboxusercontent.com/u/99404329/bars/100.png) | 100% | RingOV |
 
 [Want to translate?](https://github.com/RingOV/gis-weather/wiki/Want-to-translate%3F)
 
-_Last update 18.10.2014 14:42_
+_Last update 18.10.2014 17:09_

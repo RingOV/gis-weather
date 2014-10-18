@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-10-15 19:30+0300\n"
-"PO-Revision-Date: 2014-10-15 19:30+0300\n"
+"POT-Creation-Date: 2014-10-18 17:08+0300\n"
+"PO-Revision-Date: 2014-10-18 17:08+0300\n"
 "Last-Translator: \n"
 "Language-Team: Yasser López de Olmos <biolyasser@gmail.com>\n"
 "Language: Español\n"
@@ -195,11 +195,11 @@ msgstr "incluyendo sangría"
 msgid "Removed"
 msgstr "Eliminado"
 
-#: gis-weather.py:1436 dialogs/city_id_dialog.ui:189
+#: gis-weather.py:1436 dialogs/city_id_dialog.ui:376
 msgid "Added"
 msgstr "Añadido"
 
-#: gis-weather.py:1441 dialogs/city_id_dialog.ui:258
+#: gis-weather.py:1441 dialogs/city_id_dialog.ui:308
 msgid "Invalid location code"
 msgstr "Código de ubicación inválido"
 
@@ -259,7 +259,7 @@ msgstr ""
 msgid "Weather widget"
 msgstr "Widget de tiempo meteorológico"
 
-#: utils/gw_menu.py:53 dialogs/settings_dialog.ui:656
+#: utils/gw_menu.py:42 dialogs/settings_dialog.ui:656
 msgid "Setup..."
 msgstr "Configuración..."
 
@@ -324,7 +324,7 @@ msgid "Presets"
 msgstr ""
 
 #: utils/gw_menu.py:202 dialogs/settings_dialog.py:72
-#: dialogs/settings_dialog.py:678
+#: dialogs/settings_dialog.py:680
 msgid "Preferences"
 msgstr "Preferencias"
 
@@ -338,7 +338,6 @@ msgstr "Acerca de"
 
 #: utils/gw_menu.py:230 dialogs/settings_dialog.ui:543
 #: dialogs/help_dialog.ui:25 dialogs/update_dialog.ui:44
-#: dialogs/city_id_dialog.ui:72
 msgid "Close"
 msgstr "Cerrar"
 
@@ -463,7 +462,7 @@ msgid "Yes"
 msgstr "Sí"
 
 #: dialogs/settings_dialog.py:488 dialogs/settings_dialog.py:498
-#: dialogs/settings_dialog.py:508
+#: dialogs/settings_dialog.py:508 dialogs/settings_dialog.py:510
 msgid "Author"
 msgstr "Autor"
 
@@ -483,11 +482,11 @@ msgstr "Por ejemplo"
 msgid "City code"
 msgstr "Código de ciudad"
 
-#: dialogs/city_id_dialog.py:119
+#: dialogs/city_id_dialog.py:120
 msgid "Code"
 msgstr "Código"
 
-#: dialogs/city_id_dialog.py:123
+#: dialogs/city_id_dialog.py:124
 msgid "Place"
 msgstr "Lugar"
 
@@ -516,7 +515,7 @@ msgstr "¿Quieres traducir?"
 msgid "Language program"
 msgstr "Idioma del programa"
 
-#: dialogs/settings_dialog.ui:812 dialogs/city_id_dialog.ui:323
+#: dialogs/settings_dialog.ui:812 dialogs/city_id_dialog.ui:160
 msgid "Language weather"
 msgstr "Idioma del tiempo"
 
@@ -524,7 +523,7 @@ msgstr "Idioma del tiempo"
 msgid "Add icon launcher to menu"
 msgstr "Añadir ícono al lanzador de menú"
 
-#: dialogs/settings_dialog.ui:855 dialogs/city_id_dialog.ui:360
+#: dialogs/settings_dialog.ui:855 dialogs/city_id_dialog.ui:197
 #, fuzzy
 msgid "Weather service"
 msgstr "Widget de tiempo meteorológico"
@@ -815,8 +814,17 @@ msgstr "Error al actualizar"
 msgid "Add"
 msgstr "Añadir"
 
-#: dialogs/city_id_dialog.ui:86
-msgid "Remove selected"
+#: dialogs/city_id_dialog.ui:72
+msgid ""
+"Close & Reload\n"
+"selected"
+msgstr ""
+
+#: dialogs/city_id_dialog.ui:87
+#, fuzzy
+msgid ""
+"Remove\n"
+"selected"
 msgstr "Eliminar seleccionados"
 
 #~ msgid "Color Sa, Su"

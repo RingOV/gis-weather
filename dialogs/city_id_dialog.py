@@ -54,7 +54,7 @@ def load_data(service, label, liststore2, combobox_weather_lang, weather_lang, s
     url, example, code, dict_weather_lang, weather_lang_list = data.get(service)
     text = _("Choose your city on")+" <a href='%s'>%s</a>\n" %(url, url)+\
         _("and copy city code from the reference")+"\n"+\
-        _("For example")+ " <u><span foreground='blue'>%s/</span></u>\n" %example+\
+        _("For example")+ ":\n<u><span foreground='blue'>%s/</span></u>\n" %example+\
         _("City code")+" %s" %code
     label.set_markup(text)
     liststore2.clear()
@@ -88,6 +88,7 @@ def create(window, APP_PATH, weather_lang, service):
     dict_o = {}
     dict_o = localization.translate_ui(list_o, dict_o)
     dialog.set_title(_('Location'))
+    dialog.set_default_size(100, 400)
 
     liststore2 = ui.get_object('liststore2')
     combobox_weather_lang = ui.get_object('combobox_weather_lang')

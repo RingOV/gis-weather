@@ -39,7 +39,14 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, icons
     sub_menu_presets = Gtk.Menu()
 
     # sub_menu_place
+    menu_items = Gtk.MenuItem(_('Setup...'))
+    sub_menu_place.append(menu_items)
+    menu_items.connect("activate", app.menu_response, 'edit_city_id')
+    menu_items.show()
     if len(city_list) > 0:
+        menu_items = Gtk.SeparatorMenuItem()
+        sub_menu_place.append(menu_items)
+        menu_items.show()
         for i in range(len(city_list)):
             menu_items = Gtk.RadioMenuItem(label=city_list[i].split(';')[1])
             if city_list[i].split(';')[0] == str(city_id):
@@ -47,13 +54,6 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, icons
             sub_menu_place.append(menu_items)
             menu_items.connect("activate", app.menu_response, 'reload', city_list[i])
             menu_items.show()
-        menu_items = Gtk.SeparatorMenuItem()
-        sub_menu_place.append(menu_items)
-        menu_items.show()
-    menu_items = Gtk.MenuItem(_('Setup...'))
-    sub_menu_place.append(menu_items)
-    menu_items.connect("activate", app.menu_response, 'edit_city_id')
-    menu_items.show()
 
     # sub_menu_icons
     menu_items = Gtk.RadioMenuItem(label='0. Default')

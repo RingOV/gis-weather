@@ -119,7 +119,7 @@ list = [
         'block_today_left': -220,
         'splash_icon_top': 0,
         'splash_version_top': 0,
-        'bg_custom': 'Wood.png',
+        'bg_custom': 'Wood',
         'margin': 15,
         'block_wind_direct_small_left': 20,
         'block_today_top': 120,
@@ -128,7 +128,8 @@ list = [
         'splash_block_top': 70,
         'color_text': (0.18, 0.18, 0.18, 1),
         'draw_shadow': False,
-        'icons_name': 'Sketchy'
+        'icons_name': 'Sketchy',
+        'show_bg_png': True
     },
     #  NotePaper
     {   'bg_left': 0,
@@ -162,7 +163,8 @@ list = [
         'block_wind_direct_left': -150,
         'block_add_info_left': 90,
         'bg_custom': 'NotePaper',
-        'wind_direct_small': False
+        'wind_direct_small': False,
+        'show_bg_png': True
     },
     ]
 
