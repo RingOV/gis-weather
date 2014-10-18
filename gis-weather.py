@@ -1072,7 +1072,7 @@ class MyDrawArea(Gtk.DrawingArea):
                         self.draw_bg_png_svg(cr, os.path.join(BGS_PATH, bg_custom), l, t, w, h)
                 else:
                     print (_('Background image not found')+': '+str(bg_custom))
-            cr.translate(-l, -t)
+            # cr.translate(-l, -t)
         else:
             cr.set_source_rgba(color_bg[0], color_bg[1], color_bg[2], color_bg[3])
             cr.rectangle(l+r, t+0, w-2*r, h)

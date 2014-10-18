@@ -502,10 +502,12 @@ class settings():
 
         self.liststore4.clear()
         for i in range(len(backgrounds_list_set)):
-            author = ""
+            # author = ""
             if os.path.exists(os.path.join(BGS_PATH_SET, backgrounds_list_set[i], 'author')):
                 f = open(os.path.join(BGS_PATH_SET, backgrounds_list_set[i], 'author'),"r")
                 author = "\n"+"<i>"+_('Author')+": "+f.readline().strip()+"</i>"
+            else:
+                author = "\n"+"<i>"+_('Author')+": "+"Unknown"+"</i>"
             self.liststore4.append(["<b>"+backgrounds_list_set[i]+"</b>"+author])
             if backgrounds_list_set[i] == gw_config_set['bg_custom']: 
                 self.combobox_bg_custom.set_active(i)

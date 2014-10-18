@@ -55,7 +55,7 @@ list = [
 
     #  Small
     {   'bg_left': 0,
-        'bg_top': 38,
+        'bg_top': 80,#38,
         'bg_width': -1,
         'bg_height': 185,
         'block_now_left': 0,
