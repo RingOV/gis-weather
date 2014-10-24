@@ -40,7 +40,8 @@ dict_app_lang = {
 
 for root, dirs, files in os.walk(os.path.join(os.path.split(work_path)[0], 'po')):
     break
-files.remove('README.md')
+if os.path.exists(os.path.join(os.path.split(work_path)[0], 'po', 'README.md')):
+    files.remove('README.md')
 for item in files:
     if item[-2:] == 'po':
         f = open(os.path.join(root, item), 'rb')

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-10-18 17:08+0300\n"
-"PO-Revision-Date: 2014-10-18 17:08+0300\n"
+"POT-Creation-Date: 2014-10-23 16:54+0300\n"
+"PO-Revision-Date: 2014-10-23 16:54+0300\n"
 "Last-Translator: \n"
 "Language-Team: RingOV <ringov.gisweather@gmail.com>\n"
 "Language: Русский\n"
@@ -252,7 +252,7 @@ msgstr "Следующая попытка через 10 секунд"
 msgid "Calm"
 msgstr "Штиль"
 
-#: utils/autorun.py:70 utils/desktop.py:23 dialogs/about_dialog.py:40
+#: utils/autorun.py:70 utils/desktop.py:23 dialogs/about_dialog.py:41
 msgid "Weather widget"
 msgstr "Погодный виджет"
 
@@ -260,7 +260,7 @@ msgstr "Погодный виджет"
 msgid "Setup..."
 msgstr "Настроить..."
 
-#: utils/gw_menu.py:89 dialogs/settings_dialog.py:388
+#: utils/gw_menu.py:89 dialogs/settings_dialog.py:389
 msgid "No"
 msgstr "Нет"
 
@@ -297,7 +297,7 @@ msgstr "Местоположение"
 msgid "Indicator icons"
 msgstr "Иконки индикатора"
 
-#: utils/gw_menu.py:177 dialogs/about_dialog.py:55
+#: utils/gw_menu.py:177 dialogs/about_dialog.py:56
 #: dialogs/settings_dialog.ui:3735 dialogs/settings_dialog.ui:4221
 msgid "Icons"
 msgstr "Иконки"
@@ -318,8 +318,8 @@ msgstr "Окно"
 msgid "Presets"
 msgstr "Предустановки"
 
-#: utils/gw_menu.py:202 dialogs/settings_dialog.py:72
-#: dialogs/settings_dialog.py:680
+#: utils/gw_menu.py:202 dialogs/settings_dialog.py:73
+#: dialogs/settings_dialog.py:681
 msgid "Preferences"
 msgstr "Параметры"
 
@@ -377,7 +377,7 @@ msgstr "Установка"
 msgid "Error removing"
 msgstr "Ошибка удаления"
 
-#: dialogs/about_dialog.py:23
+#: dialogs/about_dialog.py:24
 msgid ""
 "This program is free software: you can redistribute it and/or modify\n"
 "it under the terms of the GNU General Public License as published by\n"
@@ -405,60 +405,60 @@ msgstr ""
 "Вы можете найти полный текст лицензии по адресу\n"
 "http://www.gnu.org/licenses/gpl.txt"
 
-#: dialogs/about_dialog.py:46
+#: dialogs/about_dialog.py:47
 msgid "Help and Ideas"
 msgstr "Помощь и идеи"
 
-#: dialogs/about_dialog.py:52
+#: dialogs/about_dialog.py:53
 msgid "Backgrounds"
 msgstr "Фоны"
 
-#: dialogs/settings_dialog.py:379
+#: dialogs/settings_dialog.py:380
 msgid "m/s"
 msgstr "м/с"
 
-#: dialogs/settings_dialog.py:379
+#: dialogs/settings_dialog.py:380
 msgid "km/h"
 msgstr "км/ч"
 
-#: dialogs/settings_dialog.py:379
+#: dialogs/settings_dialog.py:380
 msgid "mph"
 msgstr "мвч"
 
-#: dialogs/settings_dialog.py:380
+#: dialogs/settings_dialog.py:381
 msgid "mmHg"
 msgstr "мм рт. ст."
 
-#: dialogs/settings_dialog.py:380
+#: dialogs/settings_dialog.py:381
 msgid "inHg"
 msgstr "дюйм рт. ст."
 
-#: dialogs/settings_dialog.py:380
+#: dialogs/settings_dialog.py:381
 msgid "hPa"
 msgstr "гПа"
 
-#: dialogs/settings_dialog.py:383
+#: dialogs/settings_dialog.py:384
 msgid "Never"
 msgstr "Никогда"
 
-#: dialogs/settings_dialog.py:384
+#: dialogs/settings_dialog.py:385
 msgid "Only at start"
 msgstr "Только при старте"
 
-#: dialogs/settings_dialog.py:385
+#: dialogs/settings_dialog.py:386
 msgid "Always"
 msgstr "Всегда"
 
-#: dialogs/settings_dialog.py:389
+#: dialogs/settings_dialog.py:390
 msgid "Only background"
 msgstr "Только фон"
 
-#: dialogs/settings_dialog.py:390
+#: dialogs/settings_dialog.py:391
 msgid "Yes"
 msgstr "Да"
 
-#: dialogs/settings_dialog.py:488 dialogs/settings_dialog.py:498
-#: dialogs/settings_dialog.py:508 dialogs/settings_dialog.py:510
+#: dialogs/settings_dialog.py:489 dialogs/settings_dialog.py:499
+#: dialogs/settings_dialog.py:509 dialogs/settings_dialog.py:511
 msgid "Author"
 msgstr "Автор"
 

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-10-18 17:08+0300\n"
-"PO-Revision-Date: 2014-10-18 17:08+0300\n"
+"POT-Creation-Date: 2014-10-23 16:54+0300\n"
+"PO-Revision-Date: 2014-10-23 16:54+0300\n"
 "Last-Translator: \n"
 "Language-Team: Yasser López de Olmos <biolyasser@gmail.com>\n"
 "Language: Español\n"
@@ -255,7 +255,7 @@ msgstr "Se volverá a intentar en 10 segundos"
 msgid "Calm"
 msgstr ""
 
-#: utils/autorun.py:70 utils/desktop.py:23 dialogs/about_dialog.py:40
+#: utils/autorun.py:70 utils/desktop.py:23 dialogs/about_dialog.py:41
 msgid "Weather widget"
 msgstr "Widget de tiempo meteorológico"
 
@@ -263,7 +263,7 @@ msgstr "Widget de tiempo meteorológico"
 msgid "Setup..."
 msgstr "Configuración..."
 
-#: utils/gw_menu.py:89 dialogs/settings_dialog.py:388
+#: utils/gw_menu.py:89 dialogs/settings_dialog.py:389
 msgid "No"
 msgstr "No"
 
@@ -302,7 +302,7 @@ msgstr "Ubicación"
 msgid "Indicator icons"
 msgstr ""
 
-#: utils/gw_menu.py:177 dialogs/about_dialog.py:55
+#: utils/gw_menu.py:177 dialogs/about_dialog.py:56
 #: dialogs/settings_dialog.ui:3735 dialogs/settings_dialog.ui:4221
 msgid "Icons"
 msgstr "Íconos"
@@ -323,8 +323,8 @@ msgstr "Ventana"
 msgid "Presets"
 msgstr ""
 
-#: utils/gw_menu.py:202 dialogs/settings_dialog.py:72
-#: dialogs/settings_dialog.py:680
+#: utils/gw_menu.py:202 dialogs/settings_dialog.py:73
+#: dialogs/settings_dialog.py:681
 msgid "Preferences"
 msgstr "Preferencias"
 
@@ -382,7 +382,7 @@ msgstr "Instalación"
 msgid "Error removing"
 msgstr "Error eliminando"
 
-#: dialogs/about_dialog.py:23
+#: dialogs/about_dialog.py:24
 msgid ""
 "This program is free software: you can redistribute it and/or modify\n"
 "it under the terms of the GNU General Public License as published by\n"
@@ -409,60 +409,60 @@ msgstr ""
 "Puedes encontrar el texto completo de la licencia en\n"
 "http://www.gnu.org/licenses/gpl.txt"
 
-#: dialogs/about_dialog.py:46
+#: dialogs/about_dialog.py:47
 msgid "Help and Ideas"
 msgstr "Ayuda e ideas"
 
-#: dialogs/about_dialog.py:52
+#: dialogs/about_dialog.py:53
 msgid "Backgrounds"
 msgstr "Fondos"
 
-#: dialogs/settings_dialog.py:379
+#: dialogs/settings_dialog.py:380
 msgid "m/s"
 msgstr "m/s"
 
-#: dialogs/settings_dialog.py:379
+#: dialogs/settings_dialog.py:380
 msgid "km/h"
 msgstr ""
 
-#: dialogs/settings_dialog.py:379
+#: dialogs/settings_dialog.py:380
 msgid "mph"
 msgstr ""
 
-#: dialogs/settings_dialog.py:380
+#: dialogs/settings_dialog.py:381
 msgid "mmHg"
 msgstr "mmHg"
 
-#: dialogs/settings_dialog.py:380
+#: dialogs/settings_dialog.py:381
 msgid "inHg"
 msgstr ""
 
-#: dialogs/settings_dialog.py:380
+#: dialogs/settings_dialog.py:381
 msgid "hPa"
 msgstr ""
 
-#: dialogs/settings_dialog.py:383
+#: dialogs/settings_dialog.py:384
 msgid "Never"
 msgstr "Nunca"
 
-#: dialogs/settings_dialog.py:384
+#: dialogs/settings_dialog.py:385
 msgid "Only at start"
 msgstr "Sólo al iniciar"
 
-#: dialogs/settings_dialog.py:385
+#: dialogs/settings_dialog.py:386
 msgid "Always"
 msgstr "Siempre"
 
-#: dialogs/settings_dialog.py:389
+#: dialogs/settings_dialog.py:390
 msgid "Only background"
 msgstr "Sólo al fondo"
 
-#: dialogs/settings_dialog.py:390
+#: dialogs/settings_dialog.py:391
 msgid "Yes"
 msgstr "Sí"
 
-#: dialogs/settings_dialog.py:488 dialogs/settings_dialog.py:498
-#: dialogs/settings_dialog.py:508 dialogs/settings_dialog.py:510
+#: dialogs/settings_dialog.py:489 dialogs/settings_dialog.py:499
+#: dialogs/settings_dialog.py:509 dialogs/settings_dialog.py:511
 msgid "Author"
 msgstr "Autor"
 

@@ -7,7 +7,8 @@ import re
 def create(v, APP_PATH):
     for root, dirs, files in os.walk(os.path.join(APP_PATH, 'po')):
         break
-    files.remove('README.md')
+    if os.path.exists(os.path.join(APP_PATH, 'po', 'README.md')):
+        files.remove('README.md')
     translator_credits = ''
     for item in files:
         if item[-2:] == 'po':

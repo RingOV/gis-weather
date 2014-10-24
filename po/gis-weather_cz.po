@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-10-18 17:08+0300\n"
-"PO-Revision-Date: 2014-10-18 17:08+0300\n"
+"POT-Creation-Date: 2014-10-23 16:54+0300\n"
+"PO-Revision-Date: 2014-10-23 16:54+0300\n"
 "Last-Translator: \n"
 "Language-Team: Miroslav Fótyi <m.fotyi@seznam.cz>\n"
 "Language: České\n"
@@ -253,7 +253,7 @@ msgstr "Další pokus za 10 sekund"
 msgid "Calm"
 msgstr "Calm"
 
-#: utils/autorun.py:70 utils/desktop.py:23 dialogs/about_dialog.py:40
+#: utils/autorun.py:70 utils/desktop.py:23 dialogs/about_dialog.py:41
 msgid "Weather widget"
 msgstr "Počasí widget"
 
@@ -261,7 +261,7 @@ msgstr "Počasí widget"
 msgid "Setup..."
 msgstr "Nastavení..."
 
-#: utils/gw_menu.py:89 dialogs/settings_dialog.py:388
+#: utils/gw_menu.py:89 dialogs/settings_dialog.py:389
 msgid "No"
 msgstr "Ne"
 
@@ -300,7 +300,7 @@ msgstr "Místo"
 msgid "Indicator icons"
 msgstr "Indikátor ikon"
 
-#: utils/gw_menu.py:177 dialogs/about_dialog.py:55
+#: utils/gw_menu.py:177 dialogs/about_dialog.py:56
 #: dialogs/settings_dialog.ui:3735 dialogs/settings_dialog.ui:4221
 msgid "Icons"
 msgstr "Ikony"
@@ -321,8 +321,8 @@ msgstr "Okno"
 msgid "Presets"
 msgstr ""
 
-#: utils/gw_menu.py:202 dialogs/settings_dialog.py:72
-#: dialogs/settings_dialog.py:680
+#: utils/gw_menu.py:202 dialogs/settings_dialog.py:73
+#: dialogs/settings_dialog.py:681
 msgid "Preferences"
 msgstr "Preference"
 
@@ -380,7 +380,7 @@ msgstr "Instalace"
 msgid "Error removing"
 msgstr "Chyba při odstraňování"
 
-#: dialogs/about_dialog.py:23
+#: dialogs/about_dialog.py:24
 msgid ""
 "This program is free software: you can redistribute it and/or modify\n"
 "it under the terms of the GNU General Public License as published by\n"
@@ -404,60 +404,60 @@ msgstr ""
 "Public License pro další podrobnosti. Můžete si najít plné znění licence v "
 "rámci http://www.gnu.org/licenses/gpl.txt"
 
-#: dialogs/about_dialog.py:46
+#: dialogs/about_dialog.py:47
 msgid "Help and Ideas"
 msgstr "Nápověda a nápady"
 
-#: dialogs/about_dialog.py:52
+#: dialogs/about_dialog.py:53
 msgid "Backgrounds"
 msgstr "Pozadí"
 
-#: dialogs/settings_dialog.py:379
+#: dialogs/settings_dialog.py:380
 msgid "m/s"
 msgstr "m/s"
 
-#: dialogs/settings_dialog.py:379
+#: dialogs/settings_dialog.py:380
 msgid "km/h"
 msgstr "km/h"
 
-#: dialogs/settings_dialog.py:379
+#: dialogs/settings_dialog.py:380
 msgid "mph"
 msgstr "mph"
 
-#: dialogs/settings_dialog.py:380
+#: dialogs/settings_dialog.py:381
 msgid "mmHg"
 msgstr "mmHg"
 
-#: dialogs/settings_dialog.py:380
+#: dialogs/settings_dialog.py:381
 msgid "inHg"
 msgstr "inHg"
 
-#: dialogs/settings_dialog.py:380
+#: dialogs/settings_dialog.py:381
 msgid "hPa"
 msgstr "hPa"
 
-#: dialogs/settings_dialog.py:383
+#: dialogs/settings_dialog.py:384
 msgid "Never"
 msgstr "Nikdy"
 
-#: dialogs/settings_dialog.py:384
+#: dialogs/settings_dialog.py:385
 msgid "Only at start"
 msgstr "Pouze na začátku"
 
-#: dialogs/settings_dialog.py:385
+#: dialogs/settings_dialog.py:386
 msgid "Always"
 msgstr "Vždy"
 
-#: dialogs/settings_dialog.py:389
+#: dialogs/settings_dialog.py:390
 msgid "Only background"
 msgstr "Pouze na pozadí"
 
-#: dialogs/settings_dialog.py:390
+#: dialogs/settings_dialog.py:391
 msgid "Yes"
 msgstr "Ano"
 
-#: dialogs/settings_dialog.py:488 dialogs/settings_dialog.py:498
-#: dialogs/settings_dialog.py:508 dialogs/settings_dialog.py:510
+#: dialogs/settings_dialog.py:489 dialogs/settings_dialog.py:499
+#: dialogs/settings_dialog.py:509 dialogs/settings_dialog.py:511
 msgid "Author"
 msgstr "Autor"
 
