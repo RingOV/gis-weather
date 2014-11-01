@@ -218,7 +218,9 @@ dict_icons = {
     "n.moon.c1.st.png": "47.png",
     "n.moon.c2.st.png": "47.png",
     "n.moon.c3.st.png": "47.png",
-    "n.moon.c4.st.png": "35.png"
+    "n.moon.c4.st.png": "35.png",
+    "d.mist.png": "21.png",
+    "n.mist.png": "22.png"
 }
 
 def convert(icon, icons_name):
