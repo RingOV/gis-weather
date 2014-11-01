@@ -271,6 +271,8 @@ class settings():
         self.spinbutton_r.connect("value-changed", self.save_settings)
         self.frame_image = self.ui.get_object('frame_image')
         self.frame_not_image = self.ui.get_object('frame_not_image')
+        self.combobox_desc_style = self.ui.get_object('combobox_desc_style')
+        self.combobox_desc_style.connect("changed", self.save_settings)
 
         self.combobox_icons_name = self.ui.get_object('combobox_icons_name')
         self.combobox_icons_name.connect("changed", self.set_icon_bg)
@@ -306,6 +308,8 @@ class settings():
         self.clear_bg_custom.connect("clicked", self.clear_settings)
         self.clear_weekend = self.ui.get_object('clear_weekend')
         self.clear_weekend.connect("clicked", self.clear_settings)
+        self.clear_desc_style = self.ui.get_object('clear_desc_style')
+        self.clear_desc_style.connect("clicked", self.clear_settings)
 
 
         # Indicator
@@ -470,6 +474,7 @@ class settings():
         self.load(self.switch_app_indicator_fix_size)
         self.load(self.entry_weekend)
         self.load(self.spinbutton_instances_count)
+        self.load(self.combobox_desc_style)
 
         if gw_config_set['show_bg_png'] == True:
             self.frame_not_image.hide()

@@ -185,7 +185,8 @@ gw_config_default = {
     'block_today_top': 0,
     'block_tomorrow_top': 0,
     'block_wind_direct_small_top': 0,
-    'splash_block_top': 0
+    'splash_block_top': 0,
+    'desc_style': 0 # 0 - Normal, 1 - Italic
 }
 gw_config = {}
 for i in gw_config_default.keys():
@@ -336,6 +337,10 @@ t_scale_dict = {
     1: "°F",
     2: "K"
 }
+desc_list = (
+    " Normal",
+    " Italic"
+)
 
 # weather variables
 weather = {
@@ -998,9 +1003,9 @@ class MyDrawArea(Gtk.DrawingArea):
                         self.draw_text(cr, wind_direct[index]+', '+wind_speed[index].split(';')[wind_units].split()[0]+' '+_(wind_speed[index].split(';')[wind_units].split()[-1]), x, y+50, font+' Normal', 8, 80,Pango.Alignment.LEFT, color_high_wind)
                     else:
                         self.draw_text(cr, wind_direct[index]+', '+wind_speed[index].split(';')[wind_units].split()[0]+' '+_(wind_speed[index].split(';')[wind_units].split()[-1]), x, y+50, font+' Normal', 8, 80,Pango.Alignment.LEFT)
-                    if text: self.draw_text(cr, text[index], x, y+65, font+' Normal', 7, w_block, Pango.Alignment.LEFT)
+                    if text: self.draw_text(cr, text[index], x, y+65, font+desc_list[desc_style], 7, w_block, Pango.Alignment.LEFT)
                 else:
-                    if text: self.draw_text(cr, text[index], x, y+55, font+' Normal', 7, w_block, Pango.Alignment.LEFT)
+                    if text: self.draw_text(cr, text[index], x, y+55, font+desc_list[desc_style], 7, w_block, Pango.Alignment.LEFT)
             except:
                 pass
 
