@@ -17,11 +17,20 @@ v = '0.7.2'
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import sys
+if sys.platform.startswith("win"):
+    WIN = True
+else:
+    WIN = False
+
 from utils import instance
-try:
-    instance.set_procname(b'gis-weather')
-    multInstances = True
-except:
+if not WIN:
+    try:
+        instance.set_procname(b'gis-weather')
+        multInstances = True
+    except:
+        multInstances = False
+else:
     multInstances = False
     
 from utils import localization
@@ -66,15 +75,9 @@ import math
 from urllib.request import urlopen, urlretrieve
 import os
 import json
-import sys
 import subprocess
 import gzip
 import shutil
-
-if sys.platform.startswith("win"):
-    WIN = True
-else:
-    WIN = False
 
 CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
 CONFIG_PATH_FILE = os.path.join(CONFIG_PATH, instance.get_config_file())
