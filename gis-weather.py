@@ -723,8 +723,8 @@ class MyDrawArea(Gtk.DrawingArea):
     
     def expose(self, widget, event):
         global err, on_redraw, get_weather_bool, weather, err_connect, splash, time_receive
-        if err == False:
-            self.clear_draw_area(widget)
+        # if err == False:
+        self.clear_draw_area(widget)
         if first_start:
             self.splash_screen(self.cr)
             return
@@ -751,11 +751,11 @@ class MyDrawArea(Gtk.DrawingArea):
             if splash:
                 self.splash_screen(self.cr, 1)
             else:
-                if err == False:
-                    self.Draw_Weather(self.cr)
-                    self.draw_scaled_image(self.cr, margin + 10, margin + 10, os.path.join(THEMES_PATH, 'error.png'),24,24)
-                    self.draw_text(self.cr, _('Connection error'), margin + 35, margin + 14, font+' Normal', 10, color = color_text_week)
-                    err = True
+                # if err == False:
+                self.Draw_Weather(self.cr)
+                self.draw_scaled_image(self.cr, margin + 10, margin + 10, os.path.join(THEMES_PATH, 'error.png'),24,24)
+                self.draw_text(self.cr, _('Connection error'), margin + 35, margin + 14, font+' Normal', 10, color = color_text_week)
+                err = True
         else:
             if err == True:
                 err = False
