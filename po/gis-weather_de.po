@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2014-11-01 17:58+0300\n"
-"PO-Revision-Date: 2014-11-01 17:58+0300\n"
+"PO-Revision-Date: 2014-11-09 18:31+0100\n"
 "Last-Translator: Jonathan Hooverman <Jonathan.Hooverman@gmail.com>\n"
 "Language-Team: Jonathan Hooverman <Jonathan.Hooverman@gmail.com>\n"
 "Language: Deutsch\n"
@@ -699,9 +699,8 @@ msgid "Weekend"
 msgstr "Wochenende"
 
 #: dialogs/settings_dialog.ui:3365
-#, fuzzy
 msgid "Weather description style"
-msgstr "Wetterdienst"
+msgstr "Text-Schriftart der Wetterbedingungen"
 
 #: dialogs/settings_dialog.ui:3458
 msgid "Use image"
