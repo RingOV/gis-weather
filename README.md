@@ -26,6 +26,7 @@ Recommends:
   - AccuWeather.com
 - Support SVG and widget scale
 - Indicator to panel
+- Presets
 
 
 ### **How to Install**
