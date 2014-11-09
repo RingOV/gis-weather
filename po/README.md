@@ -3,7 +3,7 @@
 Filename | Language | Translated | Status | Percent | Translator
 | ------------- | ------------- | ------------: | :-----------: | :------------- | :-------------: |
 | gis-weather_cz.po| České | 99 / 184 | ![](https://dl.dropboxusercontent.com/u/99404329/bars/53.png) | 53% | Miroslav Fótyi |
-| gis-weather_de.po| Deutsch | 183 / 184 | ![](https://dl.dropboxusercontent.com/u/99404329/bars/99.png) | 99% | Jonathan Hooverman |
+| gis-weather_de.po| Deutsch | 184 / 184 | ![](https://dl.dropboxusercontent.com/u/99404329/bars/100.png) | 100% | Jonathan Hooverman |
 | gis-weather_es.po| Español | 148 / 184 | ![](https://dl.dropboxusercontent.com/u/99404329/bars/80.png) | 80% | Yasser López de Olmos |
 | gis-weather_fr.po| Français | 157 / 184 | ![](https://dl.dropboxusercontent.com/u/99404329/bars/85.png) | 85% | spyder |
 | gis-weather_it.po| Italiano | 182 / 184 | ![](https://dl.dropboxusercontent.com/u/99404329/bars/98.png) | 98% | Mirko Zappitelli |
@@ -13,4 +13,4 @@ Filename | Language | Translated | Status | Percent | Translator
 
 [Want to translate?](https://github.com/RingOV/gis-weather/wiki/Want-to-translate%3F)
 
-_Last update 09.11.2014 14:29 GMT+3_
+_Last update 09.11.2014 20:40 GMT+3_
