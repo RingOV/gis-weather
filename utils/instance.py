@@ -4,6 +4,12 @@ import shlex
 import subprocess
 import re
 
+import sys
+if sys.platform.startswith("win"):
+    WIN = True
+else:
+    WIN = False
+
 def count():
     try:
         cmd_line = 'ps -C gis-weather'
@@ -23,6 +29,8 @@ def set_procname(newname):
     libc.prctl(15, byref(buff), 0, 0, 0)
 
 def get_config_file():
+    if WIN:
+        return 'gw_config.json'
     INSTANCE_NO = count()
     if INSTANCE_NO == 0:
         return 'gw_config.json'
