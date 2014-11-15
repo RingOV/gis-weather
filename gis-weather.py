@@ -246,14 +246,18 @@ def Load_Config():
 
 # first start, config missed
 if not os.path.exists(CONFIG_PATH_FILE):
-    if INSTANCE_NO == 1:
-        if os.path.exists(os.path.join(CONFIG_PATH, 'gw_config.json')):
-            shutil.copy(os.path.join(CONFIG_PATH, 'gw_config.json'), CONFIG_PATH_FILE)
-        else:
-            create_variables()
-            Save_Config()
+    if INSTANCE_NO == 0:
+        create_variables()
+        Save_Config()
     else:
-        shutil.copy(os.path.join(CONFIG_PATH, 'gw_config%s.json'%str(INSTANCE_NO-1)), CONFIG_PATH_FILE)
+        if INSTANCE_NO == 1:
+            if os.path.exists(os.path.join(CONFIG_PATH, 'gw_config.json')):
+                shutil.copy(os.path.join(CONFIG_PATH, 'gw_config.json'), CONFIG_PATH_FILE)
+            else:
+                create_variables()
+                Save_Config()
+        else:
+            shutil.copy(os.path.join(CONFIG_PATH, 'gw_config%s.json'%str(INSTANCE_NO-1)), CONFIG_PATH_FILE)
 # load config
 Load_Config()
 def Load_Color_Scheme(number = 0):

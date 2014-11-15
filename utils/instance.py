@@ -11,6 +11,8 @@ else:
     WIN = False
 
 def count():
+    if WIN:
+        return 0
     try:
         cmd_line = 'ps -C gis-weather'
         args = shlex.split(cmd_line)
