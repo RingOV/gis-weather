@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-11-01 17:58+0300\n"
-"PO-Revision-Date: 2014-11-09 18:31+0100\n"
+"POT-Creation-Date: 2014-11-28 15:32+0300\n"
+"PO-Revision-Date: 2014-11-28 15:32+0300\n"
 "Last-Translator: Jonathan Hooverman <Jonathan.Hooverman@gmail.com>\n"
 "Language-Team: Jonathan Hooverman <Jonathan.Hooverman@gmail.com>\n"
 "Language: Deutsch\n"
@@ -19,193 +19,195 @@ msgstr ""
 "X-Poedit-SearchPath-2: utils\n"
 "X-Poedit-SearchPath-3: services\n"
 
-#: gis-weather.py:31
-msgid "Running multiple instances of not supported"
+#: gis-weather.py:40
+#, fuzzy
+msgid "Running multiple instances is not supported"
 msgstr "Parallelbetrieb mehrerer Instanzen wird nicht unterstützt"
 
-#: gis-weather.py:36
+#: gis-weather.py:45
 msgid "number of instances"
 msgstr "Anzahl Instanzen"
 
-#: gis-weather.py:217
-msgid "Config path"
-msgstr "Konfigurationsverzeichnis"
+#: gis-weather.py:220 dialogs/settings_dialog.ui:665
+msgid "Configuration folder"
+msgstr ""
 
-#: gis-weather.py:240 dialogs/city_id_dialog.py:28
+#: gis-weather.py:243 dialogs/city_id_dialog.py:28
 msgid "Error loading config file"
 msgstr "Konfigurationsdatei konnte nicht geladen werden"
 
-#: gis-weather.py:263
+#: gis-weather.py:270
 msgid "Error loading color scheme"
 msgstr "Farbschema konnte nicht geladen werden"
 
-#: gis-weather.py:275
+#: gis-weather.py:282
 msgid "Error loading preset"
 msgstr "Fehler beim Laden der Voreinstellungen"
 
-#: gis-weather.py:287
+#: gis-weather.py:294
 msgid "Enter full path to script"
 msgstr "Vollständigen Pfad zum Skript angeben"
 
-#: gis-weather.py:288
+#: gis-weather.py:295
 msgid "Exit"
 msgstr "Beenden"
 
-#: gis-weather.py:417
+#: gis-weather.py:424
 msgid "Check for new version"
 msgstr "Auf neue Version prüfen"
 
-#: gis-weather.py:422 gis-weather.py:431
+#: gis-weather.py:429 gis-weather.py:438
 msgid "Unable to check for updates"
 msgstr "Auf Aktualisierung konnte nicht geprüft werden"
 
-#: gis-weather.py:453
+#: gis-weather.py:460
 msgid "New version available"
 msgstr "Neue Version verfügbar"
 
-#: gis-weather.py:460
-msgid "Current version is relevant"
-msgstr "Version ist aktuell"
+#: gis-weather.py:467
+msgid "You are using the latest version"
+msgstr ""
 
-#: gis-weather.py:476 gis-weather.py:1229
+#: gis-weather.py:483 gis-weather.py:1236
 msgid "Screenshot saved to"
 msgstr "Bildschirmfoto gespeichert in"
 
-#: gis-weather.py:478
+#: gis-weather.py:485
 msgid "Unable to get the screenshot"
 msgstr "Bildschirmfoto konnte nicht erstellt werden"
 
-#: gis-weather.py:642
+#: gis-weather.py:649
 msgid "Getting weather..."
 msgstr "Wetterdaten abfragen"
 
-#: gis-weather.py:645
+#: gis-weather.py:652
 msgid "Error getting weather"
 msgstr "Fehler beim Abfragen der Wetterdaten"
 
-#: gis-weather.py:647
+#: gis-weather.py:654
 msgid "Location not set"
 msgstr "Ort nicht angegeben"
 
-#: gis-weather.py:703 gis-weather.py:764
+#: gis-weather.py:710 gis-weather.py:771
 msgid "Next update in"
 msgstr "Nächste Aktualisierung in"
 
-#: gis-weather.py:703 gis-weather.py:764
+#: gis-weather.py:710 gis-weather.py:771
 msgid "min"
 msgstr "min"
 
-#: gis-weather.py:754
+#: gis-weather.py:761
 msgid "Connection error"
 msgstr "Verbindungsfehler"
 
-#: gis-weather.py:816 services/gismeteo.py:431 services/weather_com.py:274
-#: services/accuweather.py:715
-msgid "updated on server"
+#: gis-weather.py:823
+#, fuzzy
+msgid "Updated on server"
 msgstr "Wetterdaten auf Server aktualisiert"
 
-#: gis-weather.py:817 services/gismeteo.py:432 services/weather_com.py:275
-#: services/accuweather.py:716
-msgid "weather received"
+#: gis-weather.py:824
+#, fuzzy
+msgid "Weather received"
 msgstr "Wetterdaten abgerufen"
 
-#: gis-weather.py:847
+#: gis-weather.py:854
 msgid "E"
 msgstr "O"
 
-#: gis-weather.py:847
+#: gis-weather.py:854
 msgid "S"
 msgstr "S"
 
-#: gis-weather.py:847
+#: gis-weather.py:854
 msgid "W"
 msgstr "W"
 
-#: gis-weather.py:847
+#: gis-weather.py:854
 msgid "N"
 msgstr "N"
 
-#: gis-weather.py:892
+#: gis-weather.py:899
 msgid "humid."
 msgstr "Feuchte"
 
-#: gis-weather.py:898
+#: gis-weather.py:905
 msgid "water"
 msgstr "Regen"
 
-#: gis-weather.py:915 gis-weather.py:954
+#: gis-weather.py:922 gis-weather.py:961
 msgid "Morning"
 msgstr "Morgen"
 
-#: gis-weather.py:915 gis-weather.py:954
+#: gis-weather.py:922 gis-weather.py:961
 msgid "Day"
 msgstr "Tag"
 
-#: gis-weather.py:915 gis-weather.py:954
+#: gis-weather.py:922 gis-weather.py:961
 msgid "Evening"
 msgstr "Abend"
 
-#: gis-weather.py:915 gis-weather.py:954
+#: gis-weather.py:922 gis-weather.py:961
 msgid "Night"
 msgstr "Nacht"
 
-#: gis-weather.py:918 gis-weather.py:920
+#: gis-weather.py:925 gis-weather.py:927
 msgid "Tomorrow"
 msgstr "Morgen"
 
-#: gis-weather.py:956
+#: gis-weather.py:963
 msgid "Today"
 msgstr "Heute"
 
-#: gis-weather.py:1079
+#: gis-weather.py:1086
 msgid "Background image not found"
 msgstr "Hintergrundbild nicht gefunden"
 
-#: gis-weather.py:1136
+#: gis-weather.py:1143
 msgid "downloading"
 msgstr "herunterladen"
 
-#: gis-weather.py:1139
+#: gis-weather.py:1146
 msgid "Unable to download"
 msgstr "Herunterladen nicht möglich"
 
-#: gis-weather.py:1161
-msgid "not found icon"
-msgstr "Symbol nicht gefunden"
+#: gis-weather.py:1168
+#, fuzzy
+msgid "Icon not found"
+msgstr "Hintergrundbild nicht gefunden"
 
-#: gis-weather.py:1240
+#: gis-weather.py:1247
 msgid "Widget size"
 msgstr "Widget-Größe"
 
-#: gis-weather.py:1241
+#: gis-weather.py:1248
 msgid "width"
 msgstr "Breite"
 
-#: gis-weather.py:1241
+#: gis-weather.py:1248
 msgid "height"
 msgstr "Höhe"
 
-#: gis-weather.py:1241
+#: gis-weather.py:1248
 msgid "including indent"
 msgstr "inklusive Zeileneinzug"
 
-#: gis-weather.py:1412
+#: gis-weather.py:1419
 msgid "Removed"
 msgstr "Entfernt"
 
-#: gis-weather.py:1441 dialogs/city_id_dialog.ui:376
+#: gis-weather.py:1448 dialogs/city_id_dialog.ui:376
 msgid "Added"
 msgstr "Hinzugefügt"
 
-#: gis-weather.py:1446 dialogs/city_id_dialog.ui:308
+#: gis-weather.py:1453 dialogs/city_id_dialog.ui:308
 msgid "Invalid location code"
 msgstr "Ungültiger Orts-Code"
 
-#: gis-weather.py:1513
+#: gis-weather.py:1520
 msgid "Your screen does not support alpha"
 msgstr "Ihr Desktop unterstützt keine Alpha-Transparenz"
 
-#: gis-weather.py:1515
+#: gis-weather.py:1522
 msgid "Your screen supports alpha"
 msgstr "Ihr Desktop unterstützt Alpha-Transparenz"
 
@@ -224,14 +226,15 @@ msgstr "Abfrage der Wetterdaten für"
 msgid "days"
 msgstr "Tage"
 
-#: services/gismeteo.py:246 services/weather_com.py:157
-#: services/accuweather.py:237 services/accuweather.py:297
-#: services/accuweather.py:317 services/accuweather.py:374
-#: services/accuweather.py:436 services/accuweather.py:444
-#: services/accuweather.py:452 services/accuweather.py:460
-#: services/accuweather.py:576 services/accuweather.py:584
-#: services/accuweather.py:592 services/accuweather.py:600
-msgid "Uploading page to a variable"
+#: services/gismeteo.py:246 services/accuweather.py:237
+#: services/accuweather.py:297 services/accuweather.py:317
+#: services/accuweather.py:374 services/accuweather.py:436
+#: services/accuweather.py:444 services/accuweather.py:452
+#: services/accuweather.py:460 services/accuweather.py:576
+#: services/accuweather.py:584 services/accuweather.py:592
+#: services/accuweather.py:600
+#, fuzzy
+msgid "Downloading page to a variable"
 msgstr "Wetterdaten laden von"
 
 #: services/gismeteo.py:252 services/weather_com.py:163
@@ -250,6 +253,20 @@ msgstr ""
 #: services/accuweather.py:245
 msgid "Next try in 10 seconds"
 msgstr "Nächster Versuch in 10 Sekunden"
+
+#: services/gismeteo.py:431 services/weather_com.py:274
+#: services/accuweather.py:715
+msgid "updated on server"
+msgstr "Wetterdaten auf Server aktualisiert"
+
+#: services/gismeteo.py:432 services/weather_com.py:275
+#: services/accuweather.py:716
+msgid "weather received"
+msgstr "Wetterdaten abgerufen"
+
+#: services/weather_com.py:157
+msgid "Uploading page to a variable"
+msgstr "Wetterdaten laden von"
 
 #: services/accuweather.py:284
 msgid "Calm"
@@ -470,7 +487,8 @@ msgid "Choose your city on"
 msgstr "Wählen Sie Ihren Ort auf"
 
 #: dialogs/city_id_dialog.py:56
-msgid "and copy city code from the reference"
+#, fuzzy
+msgid "and copy the city code below"
 msgstr "und kopieren Sie den Orts-Code von der Referenz"
 
 #: dialogs/city_id_dialog.py:57
@@ -497,10 +515,6 @@ msgstr "Aktualisierung (in Minuten)"
 msgid "Check for updates"
 msgstr "Auf Aktualisierung prüfen"
 
-#: dialogs/settings_dialog.ui:665
-msgid "Folder with config"
-msgstr "Verzeichnis mit Konfigurationsdatei"
-
 #: dialogs/settings_dialog.ui:725
 msgid "Open..."
 msgstr "Öffnen..."
@@ -511,15 +525,17 @@ msgid "Want to translate?"
 msgstr "Möchten Sie übersetzen?"
 
 #: dialogs/settings_dialog.ui:817
-msgid "Language program"
-msgstr "Lokalisierung des Programms"
+msgid "Program language"
+msgstr ""
 
-#: dialogs/settings_dialog.ui:832 dialogs/city_id_dialog.ui:160
-msgid "Language weather"
-msgstr "Lokalisierung der Wetterdaten"
+#: dialogs/settings_dialog.ui:832
+#, fuzzy
+msgid "Weather language"
+msgstr "Wetter-Widget"
 
 #: dialogs/settings_dialog.ui:847
-msgid "Add icon launcher to menu"
+#, fuzzy
+msgid "Add launcher icon to menu"
 msgstr "Programmstarter zum Menü hinzufügen"
 
 #: dialogs/settings_dialog.ui:875 dialogs/city_id_dialog.ui:197
@@ -567,8 +583,8 @@ msgid "Temperature"
 msgstr "Temperatur"
 
 #: dialogs/settings_dialog.ui:1407
-msgid "Temperature as feel"
-msgstr "Gefühlte Temperatur"
+msgid "Real feel"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1497
 msgid "Units"
@@ -643,8 +659,9 @@ msgid "Number of days"
 msgstr "Anzahl Tage"
 
 #: dialogs/settings_dialog.ui:2708
-msgid "Show time receiving weather"
-msgstr "Zeitpunkt der Aktualisierung anzeigen"
+#, fuzzy
+msgid "Show weather retrieval time"
+msgstr "Wetterdaten abgerufen"
 
 #: dialogs/settings_dialog.ui:2723
 msgid "Show splash screen"
@@ -667,8 +684,8 @@ msgid "Font"
 msgstr "Zeichensatz"
 
 #: dialogs/settings_dialog.ui:3007
-msgid "Color main"
-msgstr "Hauptfarbe"
+msgid "Main color"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3056
 msgid "Color weekend"
@@ -679,16 +696,18 @@ msgid "Color wind"
 msgstr "Farbe Wind"
 
 #: dialogs/settings_dialog.ui:3150
+#, fuzzy
 msgid ""
 "High wind\n"
-"(-1 = not highlight)"
+"(-1 = not highlighted)"
 msgstr ""
 "Starker Wind\n"
 "(-1 = nicht hervorheben)"
 
-#: dialogs/settings_dialog.ui:3166 dialogs/settings_dialog.ui:4095
-msgid "Color shadow"
-msgstr "Farbe Schatten"
+#: dialogs/settings_dialog.ui:3166
+#, fuzzy
+msgid "Shadow color"
+msgstr "Schatten"
 
 #: dialogs/settings_dialog.ui:3181 dialogs/settings_dialog.ui:3986
 msgid "Shadow"
@@ -726,6 +745,10 @@ msgstr "Erscheinungsbild"
 msgid "Type (restart required)"
 msgstr "Typ (Neustart erforderlich)"
 
+#: dialogs/settings_dialog.ui:4095
+msgid "Color shadow"
+msgstr "Farbe Schatten"
+
 #: dialogs/settings_dialog.ui:4223
 msgid "Width"
 msgstr "Breite"
@@ -754,8 +777,9 @@ msgstr "Haben Sie Fragen?"
 msgid "Have any suggestions?"
 msgstr "Haben Sie Vorschläge?"
 
-#: dialogs/help_dialog.ui:163 dialogs/update_dialog.ui:408
-msgid "You can support project"
+#: dialogs/help_dialog.ui:163
+#, fuzzy
+msgid "You can support my project"
 msgstr "Sie können dieses Projekt unterstützen"
 
 #: dialogs/help_dialog.ui:174 dialogs/update_dialog.ui:419
@@ -781,6 +805,10 @@ msgstr "Jetzt aktualisieren"
 #: dialogs/update_dialog.ui:187
 msgid "Manual update"
 msgstr "Manuelle Aktualisierung"
+
+#: dialogs/update_dialog.ui:408
+msgid "You can support project"
+msgstr "Sie können dieses Projekt unterstützen"
 
 #: dialogs/update_dialog.ui:469
 msgid "Additional information"
@@ -821,6 +849,34 @@ msgid ""
 msgstr ""
 "Ausgewählte\n"
 "entfernen"
+
+#: dialogs/city_id_dialog.ui:160
+msgid "Language weather"
+msgstr "Lokalisierung der Wetterdaten"
+
+#~ msgid "Config path"
+#~ msgstr "Konfigurationsverzeichnis"
+
+#~ msgid "Current version is relevant"
+#~ msgstr "Version ist aktuell"
+
+#~ msgid "not found icon"
+#~ msgstr "Symbol nicht gefunden"
+
+#~ msgid "Folder with config"
+#~ msgstr "Verzeichnis mit Konfigurationsdatei"
+
+#~ msgid "Language program"
+#~ msgstr "Lokalisierung des Programms"
+
+#~ msgid "Temperature as feel"
+#~ msgstr "Gefühlte Temperatur"
+
+#~ msgid "Show time receiving weather"
+#~ msgstr "Zeitpunkt der Aktualisierung anzeigen"
+
+#~ msgid "Color main"
+#~ msgstr "Hauptfarbe"
 
 #~ msgid "Color Sa, Su"
 #~ msgstr "Color, Sá, Do"

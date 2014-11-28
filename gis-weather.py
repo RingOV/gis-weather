@@ -217,7 +217,7 @@ def create_variables():
     for i in gw_config.keys():
         globals()[i] = gw_config[i]
 
-print (_('Config path')+':\n    '+CONFIG_PATH_FILE)
+print (_('Configuration folder')+':\n    '+CONFIG_PATH_FILE)
 
 def Save_Config():
     for i in gw_config.keys():
