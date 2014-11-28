@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2014-11-28 21:34+0300\n"
-"PO-Revision-Date: 2014-11-28 21:34+0300\n"
-"Last-Translator: Jonathan Hooverman <Jonathan.Hooverman@gmail.com>\n"
+"PO-Revision-Date: 2014-11-28 21:49+0300\n"
+"Last-Translator: \n"
 "Language-Team: Jonathan Hooverman <Jonathan.Hooverman@gmail.com>\n"
 "Language: Deutsch\n"
 "MIME-Version: 1.0\n"
@@ -431,7 +431,7 @@ msgstr "Hintergründe"
 
 #: dialogs/about_dialog.py:72
 msgid "translator-credits"
-msgstr ""
+msgstr "Jonathan Hooverman <Jonathan.Hooverman@gmail.com>"
 
 #: dialogs/settings_dialog.py:384
 msgid "m/s"

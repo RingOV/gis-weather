@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2014-11-28 21:35+0300\n"
-"PO-Revision-Date: 2014-11-28 21:35+0300\n"
+"PO-Revision-Date: 2014-11-28 21:51+0300\n"
 "Last-Translator: \n"
 "Language-Team: Mirko Zappitelli <mirko.zapp@gmail.com>\n"
 "Language: Italiano\n"
@@ -430,7 +430,7 @@ msgstr "Sfondi"
 
 #: dialogs/about_dialog.py:72
 msgid "translator-credits"
-msgstr ""
+msgstr "Mirko Zappitelli <mirko.zapp@gmail.com>"
 
 #: dialogs/settings_dialog.py:384
 msgid "m/s"

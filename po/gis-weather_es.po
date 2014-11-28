@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2014-11-28 21:35+0300\n"
-"PO-Revision-Date: 2014-11-28 21:35+0300\n"
+"PO-Revision-Date: 2014-11-28 21:50+0300\n"
 "Last-Translator: \n"
 "Language-Team: Yasser López de Olmos <biolyasser@gmail.com>\n"
 "Language: Español\n"
@@ -431,7 +431,7 @@ msgstr "Fondos"
 
 #: dialogs/about_dialog.py:72
 msgid "translator-credits"
-msgstr ""
+msgstr "Yasser López de Olmos <biolyasser@gmail.com>"
 
 #: dialogs/settings_dialog.py:384
 msgid "m/s"
