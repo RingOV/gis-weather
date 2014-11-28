@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-11-28 22:32+0300\n"
-"PO-Revision-Date: 2014-11-28 22:32+0300\n"
+"POT-Creation-Date: 2014-11-28 22:45+0300\n"
+"PO-Revision-Date: 2014-11-28 22:45+0300\n"
 "Last-Translator: \n"
 "Language-Team: Daniel <hyperion_dani@yahoo.com>\n"
 "Language: Română\n"
@@ -234,9 +234,9 @@ msgstr "zile"
 #: services/accuweather.py:452 services/accuweather.py:460
 #: services/accuweather.py:576 services/accuweather.py:584
 #: services/accuweather.py:592 services/accuweather.py:600
-#, fuzzy
-msgid "Downloading page to a variable"
-msgstr "Încărcare pagină către o variabilă"
+#: dialogs/update_dialog.py:27 dialogs/update_dialog.ui:561
+msgid "Downloading"
+msgstr "Se descarcă"
 
 #: services/gismeteo.py:252 services/weather_com.py:163
 #: services/accuweather.py:243 services/accuweather.py:303
@@ -362,10 +362,6 @@ msgstr ""
 #: dialogs/help_dialog.ui:76 dialogs/update_dialog.ui:318
 msgid "Send email"
 msgstr "Trimite email"
-
-#: dialogs/update_dialog.py:27 dialogs/update_dialog.ui:561
-msgid "Downloading"
-msgstr "Se descarcă"
 
 #: dialogs/update_dialog.py:60
 msgid "Update"
@@ -862,107 +858,3 @@ msgstr "Elimină cele selectate"
 #: dialogs/city_id_dialog.ui:160
 msgid "Language weather"
 msgstr "Limbă vreme"
-
-#~ msgid "Uploading page to a variable"
-#~ msgstr "Încărcare pagină către o variabilă"
-
-#~ msgid "Config path"
-#~ msgstr "Cale de configurare"
-
-#~ msgid "Current version is relevant"
-#~ msgstr "Versiunea curentă e relevantă"
-
-#~ msgid "not found icon"
-#~ msgstr "pictogramă negăsită"
-
-#~ msgid "Folder with config"
-#~ msgstr "Dosar de configurare"
-
-#~ msgid "Language program"
-#~ msgstr "Limbă program"
-
-#~ msgid "Temperature as feel"
-#~ msgstr "Temperatura cum se resimte"
-
-#~ msgid "Show time receiving weather"
-#~ msgstr "Afișează ora de primire vreme"
-
-#~ msgid "Color main"
-#~ msgstr "Culoare principală"
-
-#~ msgid "Color Sa, Su"
-#~ msgstr "Culoare Sâ, Du"
-
-#~ msgid "Use PNG"
-#~ msgstr "Folosește PNG"
-
-#~ msgid "Color (if not PNG)"
-#~ msgstr "Culoare (fără PNG)"
-
-#, fuzzy
-#~ msgid "ReadMe"
-#~ msgstr "Citește mai mult"
-
-#~ msgid "Translate"
-#~ msgstr "Tradu"
-
-#~ msgid "Hg"
-#~ msgstr "рт.ст."
-
-#~ msgid "mm"
-#~ msgstr "мм"
-
-#~ msgid "in"
-#~ msgstr "дюйм"
-
-#~ msgid "Unable to get changes"
-#~ msgstr "Невозможно получить изменения"
-
-#~ msgid "Installed version"
-#~ msgstr "Установленная версия"
-
-#~ msgid "Sa"
-#~ msgstr "Сб"
-
-#~ msgid "Su"
-#~ msgstr "Вс"
-
-#~ msgid ""
-#~ "Choose your city on <a href='http://www.gismeteo.com'> http://www."
-#~ "gismeteo.com </a>\n"
-#~ "and copy number at the end of reference\n"
-#~ "For example <u><span foreground='blue'>http://www.gismeteo.ru/city/daily/"
-#~ "<b>1234</b>/</span></u>\n"
-#~ "City code<b>1234</b>"
-#~ msgstr ""
-#~ "Выберите свой город на сайте <a href='http://www.gismeteo.com'>http://www."
-#~ "gismeteo.com</a>\n"
-#~ "и скопируете число в конце ссылки\n"
-#~ "Например <u><span foreground='blue'>http://www.gismeteo.ru/city/daily/"
-#~ "<b>1234</b>/</span></u>\n"
-#~ "Код города <b>1234</b>"
-
-#~ msgid "Properties"
-#~ msgstr "Свойства"
-
-#~ msgid "Settings"
-#~ msgstr "Настройки"
-
-#~ msgid ""
-#~ "fafad\n"
-#~ "afdsf\n"
-#~ "afdsfafds\n"
-#~ "fdafads"
-#~ msgstr ""
-#~ "афываыфв\n"
-#~ "афыаыф\n"
-#~ "фывафыва"
-
-#~ msgid "Not correct location code"
-#~ msgstr "Неверно введен код местоположения"
-
-#~ msgid "<b>Text</b>"
-#~ msgstr "<b>Текст</b>"
-
-#~ msgid "<b>Icons</b>"
-#~ msgstr "<b>Иконки</b>"

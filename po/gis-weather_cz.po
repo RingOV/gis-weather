@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-11-28 22:32+0300\n"
-"PO-Revision-Date: 2014-11-28 22:32+0300\n"
+"POT-Creation-Date: 2014-11-28 22:45+0300\n"
+"PO-Revision-Date: 2014-11-28 22:45+0300\n"
 "Last-Translator: \n"
 "Language-Team: Miroslav Fótyi <m.fotyi@seznam.cz>\n"
 "Language: České\n"
@@ -232,9 +232,9 @@ msgstr "dny"
 #: services/accuweather.py:452 services/accuweather.py:460
 #: services/accuweather.py:576 services/accuweather.py:584
 #: services/accuweather.py:592 services/accuweather.py:600
-#, fuzzy
-msgid "Downloading page to a variable"
-msgstr "Nahrávání stránky do proměnné"
+#: dialogs/update_dialog.py:27 dialogs/update_dialog.ui:561
+msgid "Downloading"
+msgstr "Stahování"
 
 #: services/gismeteo.py:252 services/weather_com.py:163
 #: services/accuweather.py:243 services/accuweather.py:303
@@ -359,10 +359,6 @@ msgstr "Přejít na odkazy"
 #: dialogs/help_dialog.ui:76 dialogs/update_dialog.ui:318
 msgid "Send email"
 msgstr "Poslat e-mail"
-
-#: dialogs/update_dialog.py:27 dialogs/update_dialog.ui:561
-msgid "Downloading"
-msgstr "Stahování"
 
 #: dialogs/update_dialog.py:60
 msgid "Update"
@@ -856,19 +852,3 @@ msgstr "Odstraněno"
 #: dialogs/city_id_dialog.ui:160
 msgid "Language weather"
 msgstr ""
-
-#~ msgid "Uploading page to a variable"
-#~ msgstr "Nahrávání stránky do proměnné"
-
-#~ msgid "Config path"
-#~ msgstr "Cesta ke konfiguračnímu souboru"
-
-#~ msgid "Current version is relevant"
-#~ msgstr "Aktuální verze příslušných"
-
-#~ msgid "not found icon"
-#~ msgstr "ikona nebyla naalezena"
-
-#, fuzzy
-#~ msgid "Color main"
-#~ msgstr "Barevné schéma"

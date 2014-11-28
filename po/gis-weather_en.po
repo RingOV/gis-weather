@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-11-28 22:32+0300\n"
-"PO-Revision-Date: 2014-11-28 22:32+0300\n"
+"POT-Creation-Date: 2014-11-28 22:45+0300\n"
+"PO-Revision-Date: 2014-11-28 22:45+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: English\n"
@@ -228,8 +228,9 @@ msgstr "days"
 #: services/accuweather.py:452 services/accuweather.py:460
 #: services/accuweather.py:576 services/accuweather.py:584
 #: services/accuweather.py:592 services/accuweather.py:600
-msgid "Downloading page to a variable"
-msgstr "Downloading page to a variable"
+#: dialogs/update_dialog.py:27 dialogs/update_dialog.ui:561
+msgid "Downloading"
+msgstr "Downloading"
 
 #: services/gismeteo.py:252 services/weather_com.py:163
 #: services/accuweather.py:243 services/accuweather.py:303
@@ -352,10 +353,6 @@ msgstr "Go to link"
 #: dialogs/help_dialog.ui:76 dialogs/update_dialog.ui:318
 msgid "Send email"
 msgstr "Send email"
-
-#: dialogs/update_dialog.py:27 dialogs/update_dialog.ui:561
-msgid "Downloading"
-msgstr "Downloading"
 
 #: dialogs/update_dialog.py:60
 msgid "Update"

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-11-28 22:32+0300\n"
-"PO-Revision-Date: 2014-11-28 22:32+0300\n"
+"POT-Creation-Date: 2014-11-28 22:45+0300\n"
+"PO-Revision-Date: 2014-11-28 22:45+0300\n"
 "Last-Translator: \n"
 "Language-Team: Jonathan Hooverman <Jonathan.Hooverman@gmail.com>\n"
 "Language: Deutsch\n"
@@ -233,9 +233,9 @@ msgstr "Tage"
 #: services/accuweather.py:452 services/accuweather.py:460
 #: services/accuweather.py:576 services/accuweather.py:584
 #: services/accuweather.py:592 services/accuweather.py:600
-#, fuzzy
-msgid "Downloading page to a variable"
-msgstr "Wetterdaten laden von"
+#: dialogs/update_dialog.py:27 dialogs/update_dialog.ui:561
+msgid "Downloading"
+msgstr "Herunterladen"
 
 #: services/gismeteo.py:252 services/weather_com.py:163
 #: services/accuweather.py:243 services/accuweather.py:303
@@ -360,10 +360,6 @@ msgstr "Gehe zu Link"
 #: dialogs/help_dialog.ui:76 dialogs/update_dialog.ui:318
 msgid "Send email"
 msgstr "Email senden"
-
-#: dialogs/update_dialog.py:27 dialogs/update_dialog.ui:561
-msgid "Downloading"
-msgstr "Herunterladen"
 
 #: dialogs/update_dialog.py:60
 msgid "Update"
@@ -853,98 +849,3 @@ msgstr ""
 #: dialogs/city_id_dialog.ui:160
 msgid "Language weather"
 msgstr "Lokalisierung der Wetterdaten"
-
-#~ msgid "Uploading page to a variable"
-#~ msgstr "Wetterdaten laden von"
-
-#~ msgid "Config path"
-#~ msgstr "Konfigurationsverzeichnis"
-
-#~ msgid "Current version is relevant"
-#~ msgstr "Version ist aktuell"
-
-#~ msgid "not found icon"
-#~ msgstr "Symbol nicht gefunden"
-
-#~ msgid "Folder with config"
-#~ msgstr "Verzeichnis mit Konfigurationsdatei"
-
-#~ msgid "Language program"
-#~ msgstr "Lokalisierung des Programms"
-
-#~ msgid "Temperature as feel"
-#~ msgstr "Gefühlte Temperatur"
-
-#~ msgid "Show time receiving weather"
-#~ msgstr "Zeitpunkt der Aktualisierung anzeigen"
-
-#~ msgid "Color main"
-#~ msgstr "Hauptfarbe"
-
-#~ msgid "Color Sa, Su"
-#~ msgstr "Color, Sá, Do"
-
-#~ msgid "Use PNG"
-#~ msgstr "Usar PNG"
-
-#~ msgid "Color (if not PNG)"
-#~ msgstr "Color (si no usa PNG)"
-
-#, fuzzy
-#~ msgid "ReadMe"
-#~ msgstr "Leer más"
-
-#~ msgid "Translate"
-#~ msgstr "Traducir"
-
-#~ msgid "Unable to get changes"
-#~ msgstr "Невозможно получить изменения"
-
-#~ msgid "Installed version"
-#~ msgstr "Установленная версия"
-
-#~ msgid "Sa"
-#~ msgstr "Сб"
-
-#~ msgid "Su"
-#~ msgstr "Вс"
-
-#~ msgid ""
-#~ "Choose your city on <a href='http://www.gismeteo.com'> http://www."
-#~ "gismeteo.com </a>\n"
-#~ "and copy number at the end of reference\n"
-#~ "For example <u><span foreground='blue'>http://www.gismeteo.ru/city/daily/"
-#~ "<b>1234</b>/</span></u>\n"
-#~ "City code<b>1234</b>"
-#~ msgstr ""
-#~ "Выберите свой город на сайте <a href='http://www.gismeteo.com'>http://www."
-#~ "gismeteo.com</a>\n"
-#~ "и скопируете число в конце ссылки\n"
-#~ "Например <u><span foreground='blue'>http://www.gismeteo.ru/city/daily/"
-#~ "<b>1234</b>/</span></u>\n"
-#~ "Код города <b>1234</b>"
-
-#~ msgid "Properties"
-#~ msgstr "Свойства"
-
-#~ msgid "Settings"
-#~ msgstr "Настройки"
-
-#~ msgid ""
-#~ "fafad\n"
-#~ "afdsf\n"
-#~ "afdsfafds\n"
-#~ "fdafads"
-#~ msgstr ""
-#~ "афываыфв\n"
-#~ "афыаыф\n"
-#~ "фывафыва"
-
-#~ msgid "Not correct location code"
-#~ msgstr "Неверно введен код местоположения"
-
-#~ msgid "<b>Text</b>"
-#~ msgstr "<b>Текст</b>"
-
-#~ msgid "<b>Icons</b>"
-#~ msgstr "<b>Иконки</b>"
