@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-11-28 15:56+0300\n"
-"PO-Revision-Date: 2014-11-28 15:56+0300\n"
+"POT-Creation-Date: 2014-11-28 21:34+0300\n"
+"PO-Revision-Date: 2014-11-28 21:34+0300\n"
 "Last-Translator: \n"
 "Language-Team: Miroslav Fótyi <m.fotyi@seznam.cz>\n"
 "Language: České\n"
@@ -265,7 +265,7 @@ msgstr "přijaté počasí"
 msgid "Calm"
 msgstr "Calm"
 
-#: utils/autorun.py:70 utils/desktop.py:23 dialogs/about_dialog.py:41
+#: utils/autorun.py:70 utils/desktop.py:23 dialogs/about_dialog.py:42
 msgid "Weather widget"
 msgstr "Počasí widget"
 
@@ -312,7 +312,7 @@ msgstr "Místo"
 msgid "Indicator icons"
 msgstr "Indikátor ikon"
 
-#: utils/gw_menu.py:177 dialogs/about_dialog.py:56
+#: utils/gw_menu.py:177 dialogs/about_dialog.py:58
 #: dialogs/settings_dialog.ui:3807 dialogs/settings_dialog.ui:4293
 msgid "Icons"
 msgstr "Ikony"
@@ -392,7 +392,7 @@ msgstr "Instalace"
 msgid "Error removing"
 msgstr "Chyba při odstraňování"
 
-#: dialogs/about_dialog.py:24
+#: dialogs/about_dialog.py:25
 msgid ""
 "This program is free software: you can redistribute it and/or modify\n"
 "it under the terms of the GNU General Public License as published by\n"
@@ -416,13 +416,17 @@ msgstr ""
 "Public License pro další podrobnosti. Můžete si najít plné znění licence v "
 "rámci http://www.gnu.org/licenses/gpl.txt"
 
-#: dialogs/about_dialog.py:47
+#: dialogs/about_dialog.py:48
 msgid "Help and Ideas"
 msgstr "Nápověda a nápady"
 
-#: dialogs/about_dialog.py:53
+#: dialogs/about_dialog.py:55
 msgid "Backgrounds"
 msgstr "Pozadí"
+
+#: dialogs/about_dialog.py:72
+msgid "translator-credits"
+msgstr ""
 
 #: dialogs/settings_dialog.py:384
 msgid "m/s"

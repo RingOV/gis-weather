@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-11-28 15:56+0300\n"
-"PO-Revision-Date: 2014-11-28 15:56+0300\n"
+"POT-Creation-Date: 2014-11-28 21:34+0300\n"
+"PO-Revision-Date: 2014-11-28 21:34+0300\n"
 "Last-Translator: Jonathan Hooverman <Jonathan.Hooverman@gmail.com>\n"
 "Language-Team: Jonathan Hooverman <Jonathan.Hooverman@gmail.com>\n"
 "Language: Deutsch\n"
@@ -268,7 +268,7 @@ msgstr "Wetterdaten abgerufen"
 msgid "Calm"
 msgstr "Windstille"
 
-#: utils/autorun.py:70 utils/desktop.py:23 dialogs/about_dialog.py:41
+#: utils/autorun.py:70 utils/desktop.py:23 dialogs/about_dialog.py:42
 msgid "Weather widget"
 msgstr "Wetter-Widget"
 
@@ -313,7 +313,7 @@ msgstr "Ort"
 msgid "Indicator icons"
 msgstr "Anzeige-Symbole"
 
-#: utils/gw_menu.py:177 dialogs/about_dialog.py:56
+#: utils/gw_menu.py:177 dialogs/about_dialog.py:58
 #: dialogs/settings_dialog.ui:3807 dialogs/settings_dialog.ui:4293
 msgid "Icons"
 msgstr "Symbole"
@@ -393,7 +393,7 @@ msgstr "Installation"
 msgid "Error removing"
 msgstr "Fehler beim Entfernen"
 
-#: dialogs/about_dialog.py:24
+#: dialogs/about_dialog.py:25
 msgid ""
 "This program is free software: you can redistribute it and/or modify\n"
 "it under the terms of the GNU General Public License as published by\n"
@@ -421,13 +421,17 @@ msgstr ""
 "You can find the full text of the license under\n"
 "http://www.gnu.org/licenses/gpl.txt"
 
-#: dialogs/about_dialog.py:47
+#: dialogs/about_dialog.py:48
 msgid "Help and Ideas"
 msgstr "Hilfe und Ideen"
 
-#: dialogs/about_dialog.py:53
+#: dialogs/about_dialog.py:55
 msgid "Backgrounds"
 msgstr "Hintergründe"
+
+#: dialogs/about_dialog.py:72
+msgid "translator-credits"
+msgstr ""
 
 #: dialogs/settings_dialog.py:384
 msgid "m/s"

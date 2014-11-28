@@ -5,21 +5,21 @@ import os
 import re
 
 def create(v, APP_PATH):
-    for root, dirs, files in os.walk(os.path.join(APP_PATH, 'po')):
-        break
-    if os.path.exists(os.path.join(APP_PATH, 'po', 'README.md')):
-        files.remove('README.md')
-        files.remove('gis-weather_en.po')
-    translator_credits = ''
-    for item in files:
-        if item[-2:] == 'po':
-            f = open(os.path.join(root, item), 'rb')
-            l = f.read().decode(encoding='UTF-8')
-            language = re.findall('"Language: (.*)"', l)
-            language = language[0][:-2]
-            team = re.findall('"Language-Team: (.*)"', l)
-            team = team[0][:-2]
-            translator_credits = translator_credits + team+' ('+language+')\n'
+    # for root, dirs, files in os.walk(os.path.join(APP_PATH, 'po')):
+    #     break
+    # if os.path.exists(os.path.join(APP_PATH, 'po', 'README.md')):
+    #     files.remove('README.md')
+    #     files.remove('gis-weather_en.po')
+    # translator_credits = ''
+    # for item in files:
+    #     if item[-2:] == 'po':
+    #         f = open(os.path.join(root, item), 'rb')
+    #         l = f.read().decode(encoding='UTF-8')
+    #         language = re.findall('"Language: (.*)"', l)
+    #         language = language[0][:-2]
+    #         team = re.findall('"Language-Team: (.*)"', l)
+    #         team = team[0][:-2]
+    #         translator_credits = translator_credits + team+' ('+language+')\n'
 
 
     license = _('''This program is free software: you can redistribute it and/or modify
@@ -48,7 +48,8 @@ http://www.gnu.org/licenses/gpl.txt''')
         "    "+_('Help and Ideas')+":",
         "Karbunkul",
         "Haron Prime",
-        "Yuriy_Y\n",
+        "Yuriy_Y",
+        "Alain-Olivier Breysse\n",
         "    autostart helper",
         "by Jonas Wagner\n"])
     about.set_artists(["    "+_('Backgrounds')+":",
@@ -68,6 +69,6 @@ http://www.gnu.org/licenses/gpl.txt''')
         "by AzureSol",
         "http://azuresol.deviantart.com/art/Sketchy-Weather-Icons-135079063\n"
         ])
-    about.set_translator_credits(translator_credits)
+    about.set_translator_credits(_("translator-credits"))
     #about.set_documenters("")
     return about

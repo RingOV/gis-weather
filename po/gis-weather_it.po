@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-11-28 15:56+0300\n"
-"PO-Revision-Date: 2014-11-28 15:56+0300\n"
+"POT-Creation-Date: 2014-11-28 21:35+0300\n"
+"PO-Revision-Date: 2014-11-28 21:35+0300\n"
 "Last-Translator: \n"
 "Language-Team: Mirko Zappitelli <mirko.zapp@gmail.com>\n"
 "Language: Italiano\n"
@@ -266,7 +266,7 @@ msgstr "Dati meteo ricevuti"
 msgid "Calm"
 msgstr "Calmo"
 
-#: utils/autorun.py:70 utils/desktop.py:23 dialogs/about_dialog.py:41
+#: utils/autorun.py:70 utils/desktop.py:23 dialogs/about_dialog.py:42
 msgid "Weather widget"
 msgstr "Display del tempo metereologico"
 
@@ -311,7 +311,7 @@ msgstr "Posizione"
 msgid "Indicator icons"
 msgstr "Indicatore icone"
 
-#: utils/gw_menu.py:177 dialogs/about_dialog.py:56
+#: utils/gw_menu.py:177 dialogs/about_dialog.py:58
 #: dialogs/settings_dialog.ui:3807 dialogs/settings_dialog.ui:4293
 msgid "Icons"
 msgstr "Icone"
@@ -391,7 +391,7 @@ msgstr "Installazione"
 msgid "Error removing"
 msgstr "Errore di eliminazione"
 
-#: dialogs/about_dialog.py:24
+#: dialogs/about_dialog.py:25
 #, fuzzy
 msgid ""
 "This program is free software: you can redistribute it and/or modify\n"
@@ -420,13 +420,17 @@ msgstr ""
 "You can find the full text of the license under\n"
 "http://www.gnu.org/licenses/gpl.txt"
 
-#: dialogs/about_dialog.py:47
+#: dialogs/about_dialog.py:48
 msgid "Help and Ideas"
 msgstr "Suggerimenti e idee"
 
-#: dialogs/about_dialog.py:53
+#: dialogs/about_dialog.py:55
 msgid "Backgrounds"
 msgstr "Sfondi"
+
+#: dialogs/about_dialog.py:72
+msgid "translator-credits"
+msgstr ""
 
 #: dialogs/settings_dialog.py:384
 msgid "m/s"
