@@ -9,6 +9,7 @@ def create(v, APP_PATH):
         break
     if os.path.exists(os.path.join(APP_PATH, 'po', 'README.md')):
         files.remove('README.md')
+        files.remove('gis-weather_en.po')
     translator_credits = ''
     for item in files:
         if item[-2:] == 'po':

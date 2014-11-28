@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-11-28 15:32+0300\n"
-"PO-Revision-Date: 2014-11-28 15:32+0300\n"
+"POT-Creation-Date: 2014-11-28 15:56+0300\n"
+"PO-Revision-Date: 2014-11-28 15:56+0300\n"
 "Last-Translator: \n"
 "Language-Team: Yasser López de Olmos <biolyasser@gmail.com>\n"
 "Language: Español\n"
@@ -227,13 +227,13 @@ msgstr "Obteniendo el tiempo para"
 msgid "days"
 msgstr "días"
 
-#: services/gismeteo.py:246 services/accuweather.py:237
-#: services/accuweather.py:297 services/accuweather.py:317
-#: services/accuweather.py:374 services/accuweather.py:436
-#: services/accuweather.py:444 services/accuweather.py:452
-#: services/accuweather.py:460 services/accuweather.py:576
-#: services/accuweather.py:584 services/accuweather.py:592
-#: services/accuweather.py:600
+#: services/gismeteo.py:246 services/weather_com.py:157
+#: services/accuweather.py:237 services/accuweather.py:297
+#: services/accuweather.py:317 services/accuweather.py:374
+#: services/accuweather.py:436 services/accuweather.py:444
+#: services/accuweather.py:452 services/accuweather.py:460
+#: services/accuweather.py:576 services/accuweather.py:584
+#: services/accuweather.py:592 services/accuweather.py:600
 #, fuzzy
 msgid "Downloading page to a variable"
 msgstr "Subiendo página a una variable"
@@ -262,10 +262,6 @@ msgstr "Actualizado en el servidor"
 #: services/accuweather.py:716
 msgid "weather received"
 msgstr "Tiempo recibido"
-
-#: services/weather_com.py:157
-msgid "Uploading page to a variable"
-msgstr "Subiendo página a una variable"
 
 #: services/accuweather.py:284
 msgid "Calm"
@@ -862,6 +858,9 @@ msgstr "Eliminar seleccionados"
 #: dialogs/city_id_dialog.ui:160
 msgid "Language weather"
 msgstr "Idioma del tiempo"
+
+#~ msgid "Uploading page to a variable"
+#~ msgstr "Subiendo página a una variable"
 
 #~ msgid "Config path"
 #~ msgstr "Directorio de configuración"
