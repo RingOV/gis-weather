@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-11-28 21:35+0300\n"
-"PO-Revision-Date: 2014-11-28 21:51+0300\n"
+"POT-Creation-Date: 2014-11-28 22:32+0300\n"
+"PO-Revision-Date: 2014-11-28 22:32+0300\n"
 "Last-Translator: \n"
 "Language-Team: spyder <ghostdarkhide@gmail.com>\n"
 "Language: Français\n"
@@ -585,7 +585,7 @@ msgid "Temperature"
 msgstr "Température"
 
 #: dialogs/settings_dialog.ui:1407
-msgid "Real feel"
+msgid "Wind chill"
 msgstr ""
 
 #: dialogs/settings_dialog.ui:1497

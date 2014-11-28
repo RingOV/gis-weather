@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2014-11-28 21:35+0300\n"
-"PO-Revision-Date: 2014-11-28 21:36+0300\n"
+"POT-Creation-Date: 2014-11-28 22:32+0300\n"
+"PO-Revision-Date: 2014-11-28 22:33+0300\n"
 "Last-Translator: \n"
 "Language-Team: RingOV <ringov.gisweather@gmail.com>\n"
 "Language: Русский\n"
@@ -572,7 +572,7 @@ msgid "Temperature"
 msgstr "Температура"
 
 #: dialogs/settings_dialog.ui:1407
-msgid "Real feel"
+msgid "Wind chill"
 msgstr "Как ощущается"
 
 #: dialogs/settings_dialog.ui:1497
@@ -838,6 +838,9 @@ msgstr ""
 #: dialogs/city_id_dialog.ui:160
 msgid "Language weather"
 msgstr "Язык погоды"
+
+#~ msgid "Real feel"
+#~ msgstr "Как ощущается"
 
 #~ msgid "Uploading page to a variable"
 #~ msgstr "Загружаю в переменную страницу"

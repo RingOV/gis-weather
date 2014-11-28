@@ -1404,7 +1404,7 @@
                     <property name="can_focus">False</property>
                     <property name="vexpand">True</property>
                     <property name="xalign">0</property>
-                    <property name="label" translatable="yes">Real feel</property>
+                    <property name="label" translatable="yes">Wind chill</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
