@@ -160,7 +160,7 @@
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="xalign">1</property>
-                            <property name="label" translatable="yes">You can support project</property>
+                            <property name="label" translatable="yes">You can support my project</property>
                           </object>
                           <packing>
                             <property name="left_attach">0</property>
@@ -299,7 +299,7 @@
                         </child>
                         <child>
                           <object class="GtkLinkButton" id="linkbutton6">
-                            <property name="label" translatable="no">ReadMe</property>
+                            <property name="label">ReadMe</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
@@ -315,7 +315,7 @@
                         </child>
                         <child>
                           <object class="GtkLinkButton" id="linkbutton7">
-                            <property name="label" translatable="no">Wiki</property>
+                            <property name="label">Wiki</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>

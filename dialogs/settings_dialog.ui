@@ -662,7 +662,7 @@
                     <property name="can_focus">False</property>
                     <property name="hexpand">True</property>
                     <property name="xalign">0</property>
-                    <property name="label" translatable="yes">Folder with config</property>
+                    <property name="label" translatable="yes">Configuration folder</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -814,7 +814,7 @@
                     <property name="can_focus">False</property>
                     <property name="hexpand">True</property>
                     <property name="xalign">0</property>
-                    <property name="label" translatable="yes">Language program</property>
+                    <property name="label" translatable="yes">Program language</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -829,7 +829,7 @@
                     <property name="can_focus">False</property>
                     <property name="hexpand">True</property>
                     <property name="xalign">0</property>
-                    <property name="label" translatable="yes">Language weather</property>
+                    <property name="label" translatable="yes">Weather language</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -844,7 +844,7 @@
                     <property name="can_focus">False</property>
                     <property name="hexpand">True</property>
                     <property name="xalign">0</property>
-                    <property name="label" translatable="yes">Add icon launcher to menu</property>
+                    <property name="label" translatable="yes">Add launcher icon to menu</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -1404,7 +1404,7 @@
                     <property name="can_focus">False</property>
                     <property name="vexpand">True</property>
                     <property name="xalign">0</property>
-                    <property name="label" translatable="yes">Temperature as feel</property>
+                    <property name="label" translatable="yes">Real feel</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -2705,7 +2705,7 @@
                                 <property name="can_focus">False</property>
                                 <property name="hexpand">True</property>
                                 <property name="xalign">0</property>
-                                <property name="label" translatable="yes">Show time receiving weather</property>
+                                <property name="label" translatable="yes">Show weather retrieval time</property>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -3004,7 +3004,7 @@
                                 <property name="can_focus">False</property>
                                 <property name="hexpand">True</property>
                                 <property name="xalign">0</property>
-                                <property name="label" translatable="yes">Color main</property>
+                                <property name="label" translatable="yes">Main color</property>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -3148,7 +3148,7 @@
                                 <property name="hexpand">True</property>
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes">High wind
-(-1 = not highlight)</property>
+(-1 = not highlighted)</property>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>
@@ -3163,7 +3163,7 @@
                                 <property name="can_focus">False</property>
                                 <property name="hexpand">True</property>
                                 <property name="xalign">0</property>
-                                <property name="label" translatable="yes">Color shadow</property>
+                                <property name="label" translatable="yes">Shadow color</property>
                               </object>
                               <packing>
                                 <property name="left_attach">0</property>

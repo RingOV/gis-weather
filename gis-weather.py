@@ -37,7 +37,7 @@ from utils import localization
 localization.set()
 
 if not multInstances:
-    print(_('Running multiple instances of not supported'))
+    print(_('Running multiple instances is not supported'))
 
 import argparse
 parser = argparse.ArgumentParser(description='Customizable weather widget')
@@ -464,7 +464,7 @@ def check_updates():
         check_for_updates_local = False
         update_dialog.create(v, new_v, CONFIG_PATH, APP_PATH, update_link, file_name, package)
     else:
-        print ('\033[34m>\033[0m '+_('Current version is relevant'))
+        print ('\033[34m>\033[0m '+_('You are using the latest version'))
         print ('-'*40)
         if check_for_updates == 1 and check_for_updates_local:
             check_for_updates_local = False
@@ -820,8 +820,8 @@ class MyDrawArea(Gtk.DrawingArea):
                     self.draw_text(cr, day[0]+s, day_left+0+block_now_left, day_top+y-15, font+' Bold', 12, width-day_left, Pango.Alignment.CENTER)
             
             if show_time_receive_local:
-                if time_update: self.draw_text(cr, _('updated on server')+' '+time_update[0], x-margin, x+20+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
-                self.draw_text(cr, _('weather received')+' '+time_receive, x-margin, x+10+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
+                if time_update: self.draw_text(cr, _('Updated on server')+' '+time_update[0], x-margin, x+20+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
+                self.draw_text(cr, _('Weather received')+' '+time_receive, x-margin, x+10+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
             if city_name: self.draw_text(cr, city_name[0], city_name_left+x+block_now_left, city_name_top+y, font+' Bold', 14, width - city_name_left, Pango.Alignment.CENTER)
             self.draw_scaled_icon(cr, icon_now_left2+center-40+block_now_left, icon_now_top+y+30, icon_now[0],80+icon_now_size,80+icon_now_size)
             t_index = t_scale*2
@@ -1165,7 +1165,7 @@ class MyDrawArea(Gtk.DrawingArea):
                             if not os.path.exists(pix_path):
                                 pix_path = pix_path[:-3]+'svgz'
                                 if not os.path.exists(pix_path):
-                                    print ('\033[1;31m[!]\033[0m '+_('not found icon')+':\n> '+pix_path)
+                                    print ('\033[1;31m[!]\033[0m '+_('Icon not found')+':\n> '+pix_path)
                                     if os.path.exists(os.path.join(ICONS_PATH, icons_name1, 'weather', 'na.png')):
                                         pix_path = os.path.join(ICONS_PATH, icons_name1, 'weather', 'na.png')
                                     else:

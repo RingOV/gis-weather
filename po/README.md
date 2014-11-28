@@ -13,4 +13,4 @@ Filename | Language | Translated | Status | Percent | Translator
 
 [Want to translate?](https://github.com/RingOV/gis-weather/wiki/Want-to-translate%3F)
 
-_Last update 21.11.2014 22:48 GMT+3_
+_Last update 28.11.2014 15:04 GMT+3_
