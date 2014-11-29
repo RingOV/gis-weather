@@ -479,8 +479,11 @@ def screenshot():
         left, top, width, height = w.get_geometry()
     pb = Gdk.pixbuf_get_from_window(w,left,top,width,height)
     if (pb != None):
-        pb.savev(os.path.join(CONFIG_PATH, "main_screenshot.png"),"png", (), ())
-        print (_("Screenshot saved to")+' '+os.path.join(CONFIG_PATH, "main_screenshot.png"))
+        try:
+            pb.savev(os.path.join(CONFIG_PATH, "main_screenshot.png"),"png", (), ())
+            print (_("Screenshot saved to")+' '+os.path.join(CONFIG_PATH, "main_screenshot.png"))
+        except:
+            print (_("Unable to get the screenshot"))
     else:
         print (_("Unable to get the screenshot"))
 
