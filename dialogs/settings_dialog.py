@@ -35,22 +35,30 @@ weather_lang_list = None
 
 dict_app_lang = {
     'auto': 'Auto',
-    'en': 'English'
+    'en': 'English',
+    'cz': 'České',
+    'de': 'Deutsch',
+    'es': 'Español',
+    'fr': 'Français',
+    'it': 'Italiano',
+    'pl': 'Polski',
+    'ro': 'Română',
+    'ru': 'Русский'
 }
 
-for root, dirs, files in os.walk(os.path.join(os.path.split(work_path)[0], 'po')):
-    break
-if os.path.exists(os.path.join(os.path.split(work_path)[0], 'po', 'README.md')):
-    files.remove('README.md')
-for item in files:
-    if item[-2:] == 'po':
-        f = open(os.path.join(root, item), 'rb')
-        l = f.read().decode(encoding='UTF-8')
-        language = re.findall('"Language: (.*)"', l)
-        dict_app_lang[item.split('_')[-1][:-3]] = language[0][:-2]
+# for root, dirs, files in os.walk(os.path.join(os.path.split(work_path)[0], 'po')):
+#     break
+# if os.path.exists(os.path.join(os.path.split(work_path)[0], 'po', 'README.md')):
+#     files.remove('README.md')
+# for item in files:
+#     if item[-2:] == 'po':
+#         f = open(os.path.join(root, item), 'rb')
+#         l = f.read().decode(encoding='UTF-8')
+#         language = re.findall('"Language: (.*)"', l)
+#         dict_app_lang[item.split('_')[-1][:-3]] = language[0][:-2]
 
 # find all available lang
-available_lang = ['auto', 'en']
+available_lang = ['auto']
 for root, dirs, files in os.walk(os.path.join(os.path.split(work_path)[0], 'i18n')):
     break
 dirs.sort()

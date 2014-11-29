@@ -1,6 +1,6 @@
 *.py[cod]
 po/*.mo
+po/.tx
 __pycache__
 */__pycache__
 dialogs/*.ui~
-.idea

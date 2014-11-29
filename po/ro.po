@@ -1,22 +1,25 @@
+# 
+# Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2014-11-28 22:45+0300\n"
-"PO-Revision-Date: 2014-11-28 22:45+0300\n"
-"Last-Translator: \n"
-"Language-Team: Miroslav Fótyi <m.fotyi@seznam.cz>\n"
-"Language: České\n"
+"PO-Revision-Date: 2014-11-28 20:26+0000\n"
+"Last-Translator: Alexander Koltsov <ringov@mail.ru>\n"
+"Language-Team: Romanian (http://www.transifex.com/projects/p/gis-weather/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 "X-Generator: Poedit 1.5.4\n"
-"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-Basepath: ../\n"
-"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: dialogs\n"
 "X-Poedit-SearchPath-2: utils\n"
 "X-Poedit-SearchPath-3: services\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
 #: gis-weather.py:40
 msgid "Running multiple instances is not supported"
@@ -32,36 +35,35 @@ msgstr ""
 
 #: gis-weather.py:243 dialogs/city_id_dialog.py:28
 msgid "Error loading config file"
-msgstr "Chyba při načítání souboru konfigurace"
+msgstr "Eroare încărcare fișier de configurare"
 
 #: gis-weather.py:270
 msgid "Error loading color scheme"
-msgstr "Chyba při načítání barevného schématu"
+msgstr "Eroare încărcare schemă de culori"
 
 #: gis-weather.py:282
-#, fuzzy
 msgid "Error loading preset"
-msgstr "Chyba při stahování aktualizací"
+msgstr ""
 
 #: gis-weather.py:294
 msgid "Enter full path to script"
-msgstr "Zadejte úplnou cestu ke skriptu"
+msgstr "Introdu cale completă pentru script"
 
 #: gis-weather.py:295
 msgid "Exit"
-msgstr "Konec"
+msgstr "Ieșire"
 
 #: gis-weather.py:424
 msgid "Check for new version"
-msgstr "Podívejte se na novou verzi"
+msgstr "Verifică versiune nouă"
 
 #: gis-weather.py:429 gis-weather.py:438
 msgid "Unable to check for updates"
-msgstr "Nelze zkontrolovat aktualizace"
+msgstr "Nu am reușit să verific actualizări"
 
 #: gis-weather.py:460
 msgid "New version available"
-msgstr "Nová verze"
+msgstr "Versiune nouă disponibilă"
 
 #: gis-weather.py:467
 msgid "You are using the latest version"
@@ -69,27 +71,27 @@ msgstr ""
 
 #: gis-weather.py:483 gis-weather.py:1236
 msgid "Screenshot saved to"
-msgstr "Screenshot uloženy v"
+msgstr "Captură ecran salvată în"
 
 #: gis-weather.py:485
 msgid "Unable to get the screenshot"
-msgstr "Nelze získat screenshot"
+msgstr "Imposibil de obținut captură de ecran"
 
 #: gis-weather.py:649
 msgid "Getting weather..."
-msgstr "Získejte počasí ..."
+msgstr "Obținere vreme"
 
 #: gis-weather.py:652
 msgid "Error getting weather"
-msgstr "Nepodařilo se získat počasí"
+msgstr "Eroare obținere vreme"
 
 #: gis-weather.py:654
 msgid "Location not set"
-msgstr "Místo není nastaveno"
+msgstr "Locația nu este setată"
 
 #: gis-weather.py:710 gis-weather.py:771
 msgid "Next update in"
-msgstr "Další aktualizace v"
+msgstr "Următoarea actualizare în"
 
 #: gis-weather.py:710 gis-weather.py:771
 msgid "min"
@@ -97,133 +99,130 @@ msgstr "min"
 
 #: gis-weather.py:761
 msgid "Connection error"
-msgstr "Problém s připojením"
+msgstr "Eroare conexiune"
 
 #: gis-weather.py:823
-#, fuzzy
 msgid "Updated on server"
-msgstr "Aktualizace na serveru"
+msgstr ""
 
 #: gis-weather.py:824
-#, fuzzy
 msgid "Weather received"
-msgstr "přijaté počasí"
+msgstr ""
 
 #: gis-weather.py:854
 msgid "E"
-msgstr "V"
+msgstr "E"
 
 #: gis-weather.py:854
 msgid "S"
-msgstr "J"
+msgstr "S"
 
 #: gis-weather.py:854
 msgid "W"
-msgstr "Z"
+msgstr "V"
 
 #: gis-weather.py:854
 msgid "N"
-msgstr "S"
+msgstr "N"
 
 #: gis-weather.py:899
 msgid "humid."
-msgstr "mokrý."
+msgstr "umid."
 
 #: gis-weather.py:905
 msgid "water"
-msgstr "voda"
+msgstr "apă"
 
 #: gis-weather.py:922 gis-weather.py:961
 msgid "Morning"
-msgstr "Ráno"
+msgstr "Dimineață"
 
 #: gis-weather.py:922 gis-weather.py:961
 msgid "Day"
-msgstr "Den"
+msgstr "Prânz"
 
 #: gis-weather.py:922 gis-weather.py:961
 msgid "Evening"
-msgstr "Večer"
+msgstr "Seară"
 
 #: gis-weather.py:922 gis-weather.py:961
 msgid "Night"
-msgstr "Noc"
+msgstr "Noapte"
 
 #: gis-weather.py:925 gis-weather.py:927
 msgid "Tomorrow"
-msgstr "Zítra"
+msgstr "Măine"
 
 #: gis-weather.py:963
 msgid "Today"
-msgstr "Dnes"
+msgstr "Azi"
 
 #: gis-weather.py:1086
 msgid "Background image not found"
-msgstr "Obrázek na pozadí nebyl nalezen"
+msgstr "Imagine de fundal negăsită"
 
 #: gis-weather.py:1143
 msgid "downloading"
-msgstr "stahování"
+msgstr "Se descarcă"
 
 #: gis-weather.py:1146
 msgid "Unable to download"
-msgstr "Nelze stáhnout"
+msgstr "Imposibil de descărcat"
 
 #: gis-weather.py:1168
-#, fuzzy
 msgid "Icon not found"
-msgstr "Obrázek na pozadí nebyl nalezen"
+msgstr ""
 
 #: gis-weather.py:1247
 msgid "Widget size"
-msgstr "Widget velikost (rozměr)"
+msgstr "Mărime gadget"
 
 #: gis-weather.py:1248
 msgid "width"
-msgstr "šířka"
+msgstr "lățime"
 
 #: gis-weather.py:1248
 msgid "height"
-msgstr "výška"
+msgstr "înălțime"
 
 #: gis-weather.py:1248
 msgid "including indent"
-msgstr "včetně odrážky"
+msgstr "include aliniat"
 
 #: gis-weather.py:1419
 msgid "Removed"
-msgstr "Odstraněno"
+msgstr "Eliminat"
 
 #: gis-weather.py:1448 dialogs/city_id_dialog.ui:376
 msgid "Added"
-msgstr "Přidáno"
+msgstr "Adăugat"
 
 #: gis-weather.py:1453 dialogs/city_id_dialog.ui:308
 msgid "Invalid location code"
-msgstr "Špatný lokalitní kód"
+msgstr "Cod de locație invalid"
 
 #: gis-weather.py:1520
 msgid "Your screen does not support alpha"
-msgstr "Vaše obrazovka nepodporuje alfa"
+msgstr "Ecranul tău nu acceptă alpha"
 
 #: gis-weather.py:1522
 msgid "Your screen supports alpha"
-msgstr "Vaše obrazovka podporuje alfa"
+msgstr "Ecranul tău acceptă alpha"
 
 #: services/gismeteo.py:239 services/weather_com.py:149
 #: services/accuweather.py:225
 msgid "Failed to get the name of the location"
-msgstr "Nepodařilo se získat název umístění"
+msgstr "Imposibil de obținut numele locației"
 
 #: services/gismeteo.py:245 services/weather_com.py:156
 #: services/accuweather.py:236
 msgid "Getting weather for"
-msgstr "Získání počasí pro"
+msgstr "Obținere vreme pentru"
 
 #: services/gismeteo.py:245 services/weather_com.py:156
 #: services/accuweather.py:236
 msgid "days"
-msgstr "dny"
+msgstr "zile"
 
 #: services/gismeteo.py:246 services/weather_com.py:157
 #: services/accuweather.py:237 services/accuweather.py:297
@@ -234,7 +233,7 @@ msgstr "dny"
 #: services/accuweather.py:592 services/accuweather.py:600
 #: dialogs/update_dialog.py:27 dialogs/update_dialog.ui:561
 msgid "Downloading"
-msgstr "Stahování"
+msgstr "Se descarcă"
 
 #: services/gismeteo.py:252 services/weather_com.py:163
 #: services/accuweather.py:243 services/accuweather.py:303
@@ -244,82 +243,80 @@ msgstr "Stahování"
 #: services/accuweather.py:582 services/accuweather.py:590
 #: services/accuweather.py:598 services/accuweather.py:606
 msgid "Unable to download page, check the network connection"
-msgstr "Nelze stáhnout stránky, zkontrolujte síťové připojení"
+msgstr "Imposibil de descărcat pagina, vezi conexiune Internet"
 
 #: services/gismeteo.py:254 services/weather_com.py:165
 #: services/accuweather.py:245
 msgid "Next try in 10 seconds"
-msgstr "Další pokus za 10 sekund"
+msgstr "Următoarea încercare în 10 secunde"
 
 #: services/gismeteo.py:431 services/weather_com.py:274
 #: services/accuweather.py:715
 msgid "updated on server"
-msgstr "Aktualizace na serveru"
+msgstr "Actualizat pe server"
 
 #: services/gismeteo.py:432 services/weather_com.py:275
 #: services/accuweather.py:716
 msgid "weather received"
-msgstr "přijaté počasí"
+msgstr "Vreme primită"
 
 #: services/accuweather.py:284
 msgid "Calm"
-msgstr "Calm"
+msgstr ""
 
 #: utils/autorun.py:70 utils/desktop.py:23 dialogs/about_dialog.py:42
 msgid "Weather widget"
-msgstr "Počasí widget"
+msgstr "Gadget meteo"
 
 #: utils/gw_menu.py:42 dialogs/settings_dialog.ui:676
 msgid "Setup..."
-msgstr "Nastavení..."
+msgstr "Configurare ..."
 
 #: utils/gw_menu.py:89 dialogs/settings_dialog.py:393
 msgid "No"
-msgstr "Ne"
+msgstr "Nu"
 
 #: utils/gw_menu.py:105
 msgid "Color scheme"
-msgstr "Barevné schéma"
+msgstr "Schemă de culoare"
 
 #: utils/gw_menu.py:113 dialogs/settings_dialog.ui:1689
 msgid "Lock position"
-msgstr "Zámek polohy"
+msgstr "Fixează poziția"
 
 #: utils/gw_menu.py:119 dialogs/settings_dialog.ui:1674
 msgid "On all desktops"
-msgstr "Na všech plochách"
+msgstr "Pe toate spațiile de lucru"
 
 #: utils/gw_menu.py:129
-#, fuzzy
 msgid "Save screenshot"
-msgstr "Nelze získat screenshot"
+msgstr ""
 
 #: utils/gw_menu.py:145
-#, fuzzy
 msgid "Show/Hide widget"
-msgstr "Počasí widget"
+msgstr ""
 
 #: utils/gw_menu.py:154 dialogs/settings_dialog.ui:933
 msgid "Refresh"
-msgstr "Aktualizovat"
+msgstr "Reîmprospătează"
 
 #: utils/gw_menu.py:166 dialogs/city_id_dialog.py:90
 #: dialogs/settings_dialog.ui:608 dialogs/city_id_dialog.ui:42
 msgid "Location"
-msgstr "Místo"
+msgstr "Locație"
 
 #: utils/gw_menu.py:172
 msgid "Indicator icons"
-msgstr "Indikátor ikon"
+msgstr ""
 
 #: utils/gw_menu.py:177 dialogs/about_dialog.py:58
 #: dialogs/settings_dialog.ui:3807 dialogs/settings_dialog.ui:4293
 msgid "Icons"
-msgstr "Ikony"
+msgstr "Pictograme"
 
 #: utils/gw_menu.py:182 dialogs/settings_dialog.ui:3712
 msgid "Background"
-msgstr "Pozadí"
+msgstr "Fundal"
 
 #: utils/gw_menu.py:187 dialogs/settings_dialog.ui:3419
 msgid "Text"
@@ -327,7 +324,7 @@ msgstr "Text"
 
 #: utils/gw_menu.py:192 dialogs/settings_dialog.ui:1899
 msgid "Window"
-msgstr "Okno"
+msgstr "Fereastră"
 
 #: utils/gw_menu.py:197
 msgid "Presets"
@@ -336,57 +333,57 @@ msgstr ""
 #: utils/gw_menu.py:202 dialogs/settings_dialog.py:73
 #: dialogs/settings_dialog.py:686
 msgid "Preferences"
-msgstr "Preference"
+msgstr "Preferințe"
 
 #: utils/gw_menu.py:210 dialogs/help_dialog.py:28
 msgid "Help"
-msgstr "Nápověda"
+msgstr "Ajutor"
 
 #: utils/gw_menu.py:218
 msgid "About"
-msgstr "O"
+msgstr "Despre"
 
 #: utils/gw_menu.py:230 dialogs/settings_dialog.ui:563
 #: dialogs/help_dialog.ui:25 dialogs/update_dialog.ui:44
 msgid "Close"
-msgstr "Zavřít"
+msgstr "Închide"
 
 #: dialogs/help_dialog.py:13 dialogs/update_dialog.py:44
 msgid "Go to link"
-msgstr "Přejít na odkazy"
+msgstr ""
 
 #: dialogs/help_dialog.py:16 dialogs/update_dialog.py:47
 #: dialogs/help_dialog.ui:76 dialogs/update_dialog.ui:318
 msgid "Send email"
-msgstr "Poslat e-mail"
+msgstr "Trimite email"
 
 #: dialogs/update_dialog.py:60
 msgid "Update"
-msgstr "Aktualizace"
+msgstr "Actualizare"
 
 #: dialogs/update_dialog.py:88
 msgid "Current version"
-msgstr "Současná verze"
+msgstr "Versiune curentă"
 
 #: dialogs/update_dialog.py:89
 msgid "Available new version"
-msgstr "K dispozici je nová verze"
+msgstr "O nouă versiune disponibilă"
 
 #: dialogs/update_dialog.py:112
 msgid "Error downloading updates"
-msgstr "Chyba při stahování aktualizací"
+msgstr "Eroare descărcare actualizări"
 
 #: dialogs/update_dialog.py:147
 msgid "Error installing updates"
-msgstr "Chyba při instalaci aktualizace"
+msgstr "Eroare instalare actualizări"
 
 #: dialogs/update_dialog.py:151 dialogs/update_dialog.ui:575
 msgid "Installation"
-msgstr "Instalace"
+msgstr "Instalare"
 
 #: dialogs/update_dialog.py:159
 msgid "Error removing"
-msgstr "Chyba při odstraňování"
+msgstr "Eroare eliminare"
 
 #: dialogs/about_dialog.py:25
 msgid ""
@@ -402,27 +399,19 @@ msgid ""
 "\n"
 "You can find the full text of the license under\n"
 "http://www.gnu.org/licenses/gpl.txt"
-msgstr ""
-"Tento program je svobodný software: můžete jej šířit a nebo modifikovat a to "
-"za podmínek uvedených v licenci GNU General Public License, vydávané Free "
-"Software Foundation, buď ve verzi 3 licence, nebo (podle vašeho uvážení) "
-"kterékoli pozdější verze. Tento program je rozšiřován v naději, že bude "
-"užitečný, ale BEZ JAKÉKOLIV ZÁRUKY; neposkytují se ani odvozené záruky "
-"PRODEJNOSTI NEBO VHODNOSTI PRO URČITÝ ÚČEL. Podívejte se na GNU General "
-"Public License pro další podrobnosti. Můžete si najít plné znění licence v "
-"rámci http://www.gnu.org/licenses/gpl.txt"
+msgstr "Acest program este gratuit: îl poți redistribui și/sau modifica\nsub termenii licenței GNU Licență Generală Publică așa cum a fost\npublicată de către Free Software Foundation, fie versiunea 3 a Licenței, sau\n(la latitudinea ta) orice versiune ulterioară.\n\nAcest program este distribuit cu speranța că va fi folositor,\ndar FĂRĂ ORICE GARANȚIE; nici cea implicată de\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\nCitește GNU General Public License pentru mai multe detalii.\nPoți găsi textul complet al licenței la\nhttp://www.gnu.org/licenses/gpl.txt"
 
 #: dialogs/about_dialog.py:48
 msgid "Help and Ideas"
-msgstr "Nápověda a nápady"
+msgstr "Ajutor și idei"
 
 #: dialogs/about_dialog.py:55
 msgid "Backgrounds"
-msgstr "Pozadí"
+msgstr "Fundaluri"
 
 #: dialogs/about_dialog.py:72
 msgid "translator-credits"
-msgstr "Miroslav Fótyi <m.fotyi@seznam.cz>"
+msgstr "Daniel <hyperion_dani@yahoo.com>"
 
 #: dialogs/settings_dialog.py:384
 msgid "m/s"
@@ -450,23 +439,23 @@ msgstr "hPa"
 
 #: dialogs/settings_dialog.py:388
 msgid "Never"
-msgstr "Nikdy"
+msgstr "Niciodată"
 
 #: dialogs/settings_dialog.py:389
 msgid "Only at start"
-msgstr "Pouze na začátku"
+msgstr "Numai la pornire"
 
 #: dialogs/settings_dialog.py:390
 msgid "Always"
-msgstr "Vždy"
+msgstr "Întotdeauna"
 
 #: dialogs/settings_dialog.py:394
 msgid "Only background"
-msgstr "Pouze na pozadí"
+msgstr "Numai fundal"
 
 #: dialogs/settings_dialog.py:395
 msgid "Yes"
-msgstr "Ano"
+msgstr "Da"
 
 #: dialogs/settings_dialog.py:494 dialogs/settings_dialog.py:504
 #: dialogs/settings_dialog.py:514 dialogs/settings_dialog.py:516
@@ -475,64 +464,60 @@ msgstr "Autor"
 
 #: dialogs/city_id_dialog.py:55
 msgid "Choose your city on"
-msgstr "Vyberte si město na"
+msgstr "Alege orașul tău pe"
 
 #: dialogs/city_id_dialog.py:56
-#, fuzzy
 msgid "and copy the city code below"
-msgstr "a zkopírujte kód města z odkazu"
+msgstr ""
 
 #: dialogs/city_id_dialog.py:57
 msgid "For example"
-msgstr "Например"
+msgstr "De exemplu"
 
 #: dialogs/city_id_dialog.py:58
 msgid "City code"
-msgstr "Kód města"
+msgstr "Cod oraș"
 
 #: dialogs/city_id_dialog.py:120
 msgid "Code"
-msgstr "Kód"
+msgstr "Cod"
 
 #: dialogs/city_id_dialog.py:124
 msgid "Place"
-msgstr "Místo"
+msgstr "Loc"
 
 #: dialogs/settings_dialog.ui:623
 msgid "Update (in minutes)"
-msgstr ""
+msgstr "Actualizare (în minute)"
 
 #: dialogs/settings_dialog.ui:638
-#, fuzzy
 msgid "Check for updates"
-msgstr "Nelze zkontrolovat aktualizace"
+msgstr "Verifică actualizări"
 
 #: dialogs/settings_dialog.ui:725
 msgid "Open..."
-msgstr ""
+msgstr "Deschide..."
 
 #: dialogs/settings_dialog.ui:795 dialogs/help_dialog.ui:109
 #: dialogs/update_dialog.ui:351
 msgid "Want to translate?"
-msgstr ""
+msgstr "Vrei să traduci?"
 
 #: dialogs/settings_dialog.ui:817
 msgid "Program language"
 msgstr ""
 
 #: dialogs/settings_dialog.ui:832
-#, fuzzy
 msgid "Weather language"
-msgstr "Počasí widget"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:847
 msgid "Add launcher icon to menu"
 msgstr ""
 
 #: dialogs/settings_dialog.ui:875 dialogs/city_id_dialog.ui:197
-#, fuzzy
 msgid "Weather service"
-msgstr "Počasí widget"
+msgstr "Serviciu meteo"
 
 #: dialogs/settings_dialog.ui:956 dialogs/help_dialog.ui:286
 msgid "Translation status"
@@ -540,16 +525,15 @@ msgstr ""
 
 #: dialogs/settings_dialog.ui:1010
 msgid "Autostart at login"
-msgstr ""
+msgstr "Pornire automată la logare"
 
 #: dialogs/settings_dialog.ui:1025
 msgid "Number of instances"
 msgstr ""
 
 #: dialogs/settings_dialog.ui:1072
-#, fuzzy
 msgid "Start delay (in seconds)"
-msgstr "Další pokus za 10 sekund"
+msgstr "Pornește cu întârziere (în secunde)"
 
 #: dialogs/settings_dialog.ui:1123 dialogs/settings_dialog.ui:1179
 msgid "Autostart"
@@ -561,20 +545,19 @@ msgstr ""
 
 #: dialogs/settings_dialog.ui:1267
 msgid "General"
-msgstr ""
+msgstr "General"
 
 #: dialogs/settings_dialog.ui:1290
-#, fuzzy
 msgid "Wind"
-msgstr "Okno"
+msgstr "Vânt"
 
 #: dialogs/settings_dialog.ui:1305
 msgid "Pressure"
-msgstr ""
+msgstr "Presiune"
 
 #: dialogs/settings_dialog.ui:1354
 msgid "Temperature"
-msgstr ""
+msgstr "Temperatură"
 
 #: dialogs/settings_dialog.ui:1407
 msgid "Wind chill"
@@ -582,27 +565,27 @@ msgstr ""
 
 #: dialogs/settings_dialog.ui:1497
 msgid "Units"
-msgstr ""
+msgstr "Unități"
 
 #: dialogs/settings_dialog.ui:1521
 msgid "Left"
-msgstr ""
+msgstr "Stânga"
 
 #: dialogs/settings_dialog.ui:1536 dialogs/settings_dialog.ui:4191
 msgid "Top"
-msgstr ""
+msgstr "Sus"
 
 #: dialogs/settings_dialog.ui:1551
 msgid "Padding"
-msgstr ""
+msgstr "Umplere"
 
 #: dialogs/settings_dialog.ui:1659
 msgid "Fix BadDrawable error"
-msgstr ""
+msgstr "Corecție eroare BadDrawable"
 
 #: dialogs/settings_dialog.ui:1704
 msgid "Transparency"
-msgstr ""
+msgstr "Transparență"
 
 #: dialogs/settings_dialog.ui:1843
 msgid "Scale"
@@ -612,85 +595,81 @@ msgstr ""
 #: dialogs/settings_dialog.ui:2318 dialogs/settings_dialog.ui:2542
 #: dialogs/settings_dialog.ui:3871
 msgid "Show"
-msgstr ""
+msgstr "Arată"
 
 #: dialogs/settings_dialog.ui:1966 dialogs/settings_dialog.ui:2099
 #: dialogs/settings_dialog.ui:2216 dialogs/settings_dialog.ui:2333
 #: dialogs/settings_dialog.ui:2557
 msgid "Offset from center"
-msgstr ""
+msgstr "Decalare de la centru"
 
 #: dialogs/settings_dialog.ui:2044
-#, fuzzy
 msgid "Block Tomorrow"
-msgstr "Zítra"
+msgstr "Bloc Măine"
 
 #: dialogs/settings_dialog.ui:2177
-#, fuzzy
 msgid "Block Today"
-msgstr "Dnes"
+msgstr "Bloc Azi"
 
 #: dialogs/settings_dialog.ui:2264
 msgid "Block Now"
-msgstr ""
+msgstr "Bloc Acum"
 
 #: dialogs/settings_dialog.ui:2409
 msgid "Reduce"
-msgstr ""
+msgstr "Reducere"
 
 #: dialogs/settings_dialog.ui:2424
 msgid "Angle of rotation"
-msgstr ""
+msgstr "Unghi de rotație"
 
 #: dialogs/settings_dialog.ui:2502
 msgid "Block Wind"
-msgstr ""
+msgstr "Bloc Vânt"
 
 #: dialogs/settings_dialog.ui:2635
 msgid "Block Additional info"
-msgstr ""
+msgstr "Bloc Informație suplimentară"
 
 #: dialogs/settings_dialog.ui:2693
 msgid "Number of days"
-msgstr ""
+msgstr "Număr de zile"
 
 #: dialogs/settings_dialog.ui:2708
-#, fuzzy
 msgid "Show weather retrieval time"
-msgstr "přijaté počasí"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2723
 msgid "Show splash screen"
-msgstr ""
+msgstr "Afișează ecran de început"
 
 #: dialogs/settings_dialog.ui:2738
 msgid "Hide splash screen after attempts (0 - do not hide)"
-msgstr ""
+msgstr "Ascunde ecran de început, după încercări (0 - nu ascunde)"
 
 #: dialogs/settings_dialog.ui:2882
 msgid "Show chance of rain"
-msgstr ""
+msgstr "Afișează șanse de ploaie"
 
 #: dialogs/settings_dialog.ui:2949
 msgid "View"
-msgstr ""
+msgstr "Vizualizare"
 
 #: dialogs/settings_dialog.ui:2992 dialogs/settings_dialog.ui:4031
 msgid "Font"
-msgstr ""
+msgstr "Font"
 
 #: dialogs/settings_dialog.ui:3007
 msgid "Main color"
 msgstr ""
 
 #: dialogs/settings_dialog.ui:3056
-#, fuzzy
 msgid "Color weekend"
-msgstr "Barevné schéma"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3135
 msgid "Color wind"
-msgstr ""
+msgstr "Culoare Vânt"
 
 #: dialogs/settings_dialog.ui:3150
 msgid ""
@@ -704,16 +683,15 @@ msgstr ""
 
 #: dialogs/settings_dialog.ui:3181 dialogs/settings_dialog.ui:3986
 msgid "Shadow"
-msgstr ""
+msgstr "Umbră"
 
 #: dialogs/settings_dialog.ui:3321
 msgid "Weekend"
 msgstr ""
 
 #: dialogs/settings_dialog.ui:3365
-#, fuzzy
 msgid "Weather description style"
-msgstr "Počasí widget"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3458
 msgid "Use image"
@@ -721,7 +699,7 @@ msgstr ""
 
 #: dialogs/settings_dialog.ui:3518 dialogs/settings_dialog.ui:3752
 msgid "Select"
-msgstr ""
+msgstr "Selectează"
 
 #: dialogs/settings_dialog.ui:3602
 msgid "Radius corners"
@@ -733,108 +711,99 @@ msgstr ""
 
 #: dialogs/settings_dialog.ui:3832
 msgid "Appearance"
-msgstr ""
+msgstr "Aspect"
 
 #: dialogs/settings_dialog.ui:3856
 msgid "Type (restart required)"
 msgstr ""
 
 #: dialogs/settings_dialog.ui:4095
-#, fuzzy
 msgid "Color shadow"
-msgstr "Barevné schéma"
+msgstr "Culoare umbră"
 
 #: dialogs/settings_dialog.ui:4223
-#, fuzzy
 msgid "Width"
-msgstr "šířka"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:4345
-#, fuzzy
 msgid "Fix the size"
-msgstr "Widget velikost (rozměr)"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:4390
 msgid "Size"
 msgstr ""
 
 #: dialogs/settings_dialog.ui:4466
-#, fuzzy
 msgid "Indicator"
-msgstr "Indikátor ikon"
+msgstr ""
 
 #: dialogs/help_dialog.ui:92 dialogs/update_dialog.ui:334
 msgid "Found a bug?"
-msgstr ""
+msgstr "Ai găsit o eroare?"
 
 #: dialogs/help_dialog.ui:126 dialogs/update_dialog.ui:369
 msgid "Have any questions?"
-msgstr ""
+msgstr "Ai întrebări"
 
 #: dialogs/help_dialog.ui:143 dialogs/update_dialog.ui:387
 msgid "Have any suggestions?"
-msgstr ""
+msgstr "Ai sugestii?"
 
 #: dialogs/help_dialog.ui:163
-#, fuzzy
 msgid "You can support my project"
-msgstr "Vaše obrazovka podporuje alfa"
+msgstr ""
 
 #: dialogs/help_dialog.ui:174 dialogs/update_dialog.ui:419
 msgid "Read more"
-msgstr ""
+msgstr "Citește mai mult"
 
 #: dialogs/help_dialog.ui:238 dialogs/update_dialog.ui:155
 msgid "Changelog"
-msgstr ""
+msgstr "Modificări"
 
 #: dialogs/help_dialog.ui:254 dialogs/update_dialog.ui:171
 msgid "Source Code"
-msgstr ""
+msgstr "Cod sursă"
 
 #: dialogs/help_dialog.ui:270 dialogs/update_dialog.ui:203
 msgid "What's New"
-msgstr ""
+msgstr "Ce e nou"
 
 #: dialogs/update_dialog.ui:31
-#, fuzzy
 msgid "Update now"
-msgstr "Aktualizace"
+msgstr "Actualizează acum"
 
 #: dialogs/update_dialog.ui:187
 msgid "Manual update"
-msgstr ""
+msgstr "Actualizare manuală"
 
 #: dialogs/update_dialog.ui:408
-#, fuzzy
 msgid "You can support project"
-msgstr "Vaše obrazovka podporuje alfa"
+msgstr "Poți sprijini acest proiect"
 
 #: dialogs/update_dialog.ui:469
 msgid "Additional information"
-msgstr ""
+msgstr "Informații suplimentare"
 
 #: dialogs/update_dialog.ui:589
 msgid "Cleaning temporary files"
-msgstr ""
+msgstr "Curăță fișiere temporare"
 
 #: dialogs/update_dialog.ui:672
 msgid "Restart"
-msgstr ""
+msgstr "Restart"
 
 #: dialogs/update_dialog.ui:701
 msgid "Update successful"
-msgstr ""
+msgstr "Actualizare cu succes"
 
 #: dialogs/update_dialog.ui:756
-#, fuzzy
 msgid "Update error"
-msgstr "Aktualizace"
+msgstr "Eroare Actualizare"
 
 #: dialogs/city_id_dialog.ui:58
-#, fuzzy
 msgid "Add"
-msgstr "Přidáno"
+msgstr "Adaugă"
 
 #: dialogs/city_id_dialog.ui:72
 msgid ""
@@ -843,12 +812,11 @@ msgid ""
 msgstr ""
 
 #: dialogs/city_id_dialog.ui:87
-#, fuzzy
 msgid ""
 "Remove\n"
 "selected"
-msgstr "Odstraněno"
+msgstr ""
 
 #: dialogs/city_id_dialog.ui:160
 msgid "Language weather"
-msgstr ""
+msgstr "Limbă vreme"
