@@ -743,7 +743,6 @@
                     <property name="halign">end</property>
                     <property name="valign">center</property>
                     <property name="image">image2</property>
-                    <property name="always_show_image">True</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -760,7 +759,6 @@
                     <property name="halign">end</property>
                     <property name="valign">center</property>
                     <property name="image">image4</property>
-                    <property name="always_show_image">True</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -1054,7 +1052,6 @@
                                 <property name="halign">end</property>
                                 <property name="valign">center</property>
                                 <property name="image">image55</property>
-                                <property name="always_show_image">True</property>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -1100,7 +1097,6 @@
                                 <property name="halign">end</property>
                                 <property name="valign">center</property>
                                 <property name="image">image7</property>
-                                <property name="always_show_image">True</property>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -1319,7 +1315,6 @@
                     <property name="halign">end</property>
                     <property name="valign">center</property>
                     <property name="image">image44</property>
-                    <property name="always_show_image">True</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -1336,7 +1331,6 @@
                     <property name="halign">end</property>
                     <property name="valign">center</property>
                     <property name="image">image45</property>
-                    <property name="always_show_image">True</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -1389,7 +1383,6 @@
                     <property name="halign">end</property>
                     <property name="valign">center</property>
                     <property name="image">image6</property>
-                    <property name="always_show_image">True</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -1434,7 +1427,6 @@
                     <property name="halign">end</property>
                     <property name="valign">center</property>
                     <property name="image">image3</property>
-                    <property name="always_show_image">True</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -1607,7 +1599,6 @@
                     <property name="halign">end</property>
                     <property name="valign">center</property>
                     <property name="image">image8</property>
-                    <property name="always_show_image">True</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -1624,7 +1615,6 @@
                     <property name="halign">end</property>
                     <property name="valign">center</property>
                     <property name="image">image9</property>
-                    <property name="always_show_image">True</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -1641,7 +1631,6 @@
                     <property name="halign">end</property>
                     <property name="valign">center</property>
                     <property name="image">image10</property>
-                    <property name="always_show_image">True</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -1774,7 +1763,6 @@
                     <property name="halign">end</property>
                     <property name="valign">center</property>
                     <property name="image">image5</property>
-                    <property name="always_show_image">True</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -1791,7 +1779,6 @@
                     <property name="halign">end</property>
                     <property name="valign">center</property>
                     <property name="image">image13</property>
-                    <property name="always_show_image">True</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -1808,7 +1795,6 @@
                     <property name="halign">end</property>
                     <property name="valign">center</property>
                     <property name="image">image12</property>
-                    <property name="always_show_image">True</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -1825,7 +1811,6 @@
                     <property name="halign">end</property>
                     <property name="valign">center</property>
                     <property name="image">image11</property>
-                    <property name="always_show_image">True</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -1857,7 +1842,6 @@
                     <property name="max_length">4</property>
                     <property name="width_chars">4</property>
                     <property name="text">0,01</property>
-                    <property name="input_purpose">alpha</property>
                     <property name="adjustment">adjustment18</property>
                     <property name="digits">2</property>
                   </object>
@@ -1876,7 +1860,6 @@
                     <property name="halign">end</property>
                     <property name="valign">center</property>
                     <property name="image">image43</property>
-                    <property name="always_show_image">True</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -2007,7 +1990,6 @@
                                         <property name="halign">end</property>
                                         <property name="valign">center</property>
                                         <property name="image">image16</property>
-                                        <property name="always_show_image">True</property>
                                       </object>
                                       <packing>
                                         <property name="left_attach">2</property>
@@ -2024,7 +2006,6 @@
                                         <property name="halign">end</property>
                                         <property name="valign">center</property>
                                         <property name="image">image17</property>
-                                        <property name="always_show_image">True</property>
                                       </object>
                                       <packing>
                                         <property name="left_attach">2</property>
@@ -2140,7 +2121,6 @@
                                         <property name="halign">end</property>
                                         <property name="valign">center</property>
                                         <property name="image">image14</property>
-                                        <property name="always_show_image">True</property>
                                       </object>
                                       <packing>
                                         <property name="left_attach">2</property>
@@ -2157,7 +2137,6 @@
                                         <property name="halign">end</property>
                                         <property name="valign">center</property>
                                         <property name="image">image15</property>
-                                        <property name="always_show_image">True</property>
                                       </object>
                                       <packing>
                                         <property name="left_attach">2</property>
@@ -2244,7 +2223,6 @@
                                         <property name="halign">end</property>
                                         <property name="valign">center</property>
                                         <property name="image">image41</property>
-                                        <property name="always_show_image">True</property>
                                       </object>
                                       <packing>
                                         <property name="left_attach">2</property>
@@ -2374,7 +2352,6 @@
                                         <property name="halign">end</property>
                                         <property name="valign">center</property>
                                         <property name="image">image20</property>
-                                        <property name="always_show_image">True</property>
                                       </object>
                                       <packing>
                                         <property name="left_attach">2</property>
@@ -2391,7 +2368,6 @@
                                         <property name="halign">end</property>
                                         <property name="valign">center</property>
                                         <property name="image">image21</property>
-                                        <property name="always_show_image">True</property>
                                       </object>
                                       <packing>
                                         <property name="left_attach">2</property>
@@ -2465,7 +2441,6 @@
                                         <property name="halign">end</property>
                                         <property name="valign">center</property>
                                         <property name="image">image22</property>
-                                        <property name="always_show_image">True</property>
                                       </object>
                                       <packing>
                                         <property name="left_attach">2</property>
@@ -2482,7 +2457,6 @@
                                         <property name="halign">end</property>
                                         <property name="valign">center</property>
                                         <property name="image">image23</property>
-                                        <property name="always_show_image">True</property>
                                       </object>
                                       <packing>
                                         <property name="left_attach">2</property>
@@ -2598,7 +2572,6 @@
                                         <property name="halign">end</property>
                                         <property name="valign">center</property>
                                         <property name="image">image18</property>
-                                        <property name="always_show_image">True</property>
                                       </object>
                                       <packing>
                                         <property name="left_attach">2</property>
@@ -2615,7 +2588,6 @@
                                         <property name="halign">end</property>
                                         <property name="valign">center</property>
                                         <property name="image">image19</property>
-                                        <property name="always_show_image">True</property>
                                       </object>
                                       <packing>
                                         <property name="left_attach">2</property>
@@ -2780,7 +2752,6 @@
                                 <property name="halign">end</property>
                                 <property name="valign">center</property>
                                 <property name="image">image24</property>
-                                <property name="always_show_image">True</property>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -2797,7 +2768,6 @@
                                 <property name="halign">end</property>
                                 <property name="valign">center</property>
                                 <property name="image">image25</property>
-                                <property name="always_show_image">True</property>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -2814,7 +2784,6 @@
                                 <property name="halign">end</property>
                                 <property name="valign">center</property>
                                 <property name="image">image26</property>
-                                <property name="always_show_image">True</property>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -2831,7 +2800,6 @@
                                 <property name="halign">end</property>
                                 <property name="valign">center</property>
                                 <property name="image">image27</property>
-                                <property name="always_show_image">True</property>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -2909,7 +2877,6 @@
                                 <property name="halign">end</property>
                                 <property name="valign">center</property>
                                 <property name="image">image39</property>
-                                <property name="always_show_image">True</property>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -3021,7 +2988,6 @@
                                 <property name="halign">end</property>
                                 <property name="valign">center</property>
                                 <property name="image">image28</property>
-                                <property name="always_show_image">True</property>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -3038,7 +3004,6 @@
                                 <property name="halign">end</property>
                                 <property name="valign">center</property>
                                 <property name="image">image29</property>
-                                <property name="always_show_image">True</property>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -3070,7 +3035,6 @@
                                 <property name="halign">end</property>
                                 <property name="valign">center</property>
                                 <property name="image">image30</property>
-                                <property name="always_show_image">True</property>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -3210,7 +3174,6 @@
                                 <property name="halign">end</property>
                                 <property name="valign">center</property>
                                 <property name="image">image38</property>
-                                <property name="always_show_image">True</property>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -3227,7 +3190,6 @@
                                 <property name="halign">end</property>
                                 <property name="valign">center</property>
                                 <property name="image">image37</property>
-                                <property name="always_show_image">True</property>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -3244,7 +3206,6 @@
                                 <property name="halign">end</property>
                                 <property name="valign">center</property>
                                 <property name="image">image36</property>
-                                <property name="always_show_image">True</property>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -3261,7 +3222,6 @@
                                 <property name="halign">end</property>
                                 <property name="valign">center</property>
                                 <property name="image">image31</property>
-                                <property name="always_show_image">True</property>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -3335,7 +3295,6 @@
                                 <property name="halign">end</property>
                                 <property name="valign">center</property>
                                 <property name="image">image54</property>
-                                <property name="always_show_image">True</property>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -3379,7 +3338,6 @@
                                 <property name="halign">end</property>
                                 <property name="valign">center</property>
                                 <property name="image">image56</property>
-                                <property name="always_show_image">True</property>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -3485,7 +3443,6 @@
                                 <property name="halign">end</property>
                                 <property name="valign">center</property>
                                 <property name="image">image32</property>
-                                <property name="always_show_image">True</property>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -3532,7 +3489,6 @@
                                             <property name="halign">end</property>
                                             <property name="valign">center</property>
                                             <property name="image">image33</property>
-                                            <property name="always_show_image">True</property>
                                           </object>
                                           <packing>
                                             <property name="left_attach">2</property>
@@ -3660,7 +3616,6 @@
                                             <property name="halign">end</property>
                                             <property name="valign">center</property>
                                             <property name="image">image35</property>
-                                            <property name="always_show_image">True</property>
                                           </object>
                                           <packing>
                                             <property name="left_attach">2</property>
@@ -3677,7 +3632,6 @@
                                             <property name="halign">end</property>
                                             <property name="valign">center</property>
                                             <property name="image">image34</property>
-                                            <property name="always_show_image">True</property>
                                           </object>
                                           <packing>
                                             <property name="left_attach">2</property>
@@ -3787,7 +3741,6 @@
                                 <property name="halign">end</property>
                                 <property name="valign">center</property>
                                 <property name="image">image40</property>
-                                <property name="always_show_image">True</property>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -3885,7 +3838,6 @@
                     <property name="halign">end</property>
                     <property name="valign">center</property>
                     <property name="image">image52</property>
-                    <property name="always_show_image">True</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -4013,7 +3965,6 @@
                                 <property name="halign">end</property>
                                 <property name="valign">center</property>
                                 <property name="image">image48</property>
-                                <property name="always_show_image">True</property>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -4062,7 +4013,6 @@
                                 <property name="halign">end</property>
                                 <property name="valign">center</property>
                                 <property name="image">image49</property>
-                                <property name="always_show_image">True</property>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -4139,7 +4089,6 @@
                                 <property name="halign">end</property>
                                 <property name="valign">center</property>
                                 <property name="image">image50</property>
-                                <property name="always_show_image">True</property>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -4156,7 +4105,6 @@
                                 <property name="halign">end</property>
                                 <property name="valign">center</property>
                                 <property name="image">image51</property>
-                                <property name="always_show_image">True</property>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -4205,7 +4153,6 @@
                                 <property name="halign">end</property>
                                 <property name="valign">center</property>
                                 <property name="image">image42</property>
-                                <property name="always_show_image">True</property>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -4254,7 +4201,6 @@
                                 <property name="halign">end</property>
                                 <property name="valign">center</property>
                                 <property name="image">image46</property>
-                                <property name="always_show_image">True</property>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -4307,7 +4253,6 @@
                     <property name="halign">end</property>
                     <property name="valign">center</property>
                     <property name="image">image47</property>
-                    <property name="always_show_image">True</property>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -4372,7 +4317,6 @@
                                 <property name="halign">end</property>
                                 <property name="valign">center</property>
                                 <property name="image">image53</property>
-                                <property name="always_show_image">True</property>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
@@ -4421,7 +4365,6 @@
                                 <property name="halign">end</property>
                                 <property name="valign">center</property>
                                 <property name="image">image57</property>
-                                <property name="always_show_image">True</property>
                               </object>
                               <packing>
                                 <property name="left_attach">2</property>
