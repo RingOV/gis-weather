@@ -36,7 +36,7 @@ weather_lang_list = None
 dict_app_lang = {
     'auto': 'Auto',
     'en': 'English',
-    'cz': 'České',
+    'cs': 'České',
     'de': 'Deutsch',
     'es': 'Español',
     'fr': 'Français',

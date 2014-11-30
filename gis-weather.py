@@ -483,14 +483,17 @@ def screenshot():
             pb.savev(os.path.join(CONFIG_PATH, "main_screenshot.png"),"png", (), ())
             print (_("Screenshot saved to")+' '+os.path.join(CONFIG_PATH, "main_screenshot.png"))
         except:
-            print (_("Unable to get the screenshot"))
+            print (">> Pixbuf.savev Error")
     else:
         print (_("Unable to get the screenshot"))
 
 def crop_image(left, top, width, height):
     surface = cairo.ImageSurface.create_from_png(os.path.join(CONFIG_PATH, "main_screenshot.png"))
     pb = Gdk.pixbuf_get_from_surface(surface, left, top, int(width*scale), int(height*scale))
-    pb.savev(os.path.join(CONFIG_PATH, "screenshot.png"),"png", (), ())
+    try:
+        pb.savev(os.path.join(CONFIG_PATH, "screenshot.png"),"png", (), ())
+    except:
+        print (">> Pixbuf.savev Error")
 
 class Indicator:
     if indicator_is_appindicator and HAS_INDICATOR: # AppIndicator3
@@ -532,8 +535,11 @@ class Indicator:
                 pixbuf = GdkPixbuf.Pixbuf.new_from_file(icon)
             if size:
                 pixbuf = pixbuf.scale_simple(size,size,GdkPixbuf.InterpType.BILINEAR)
-            pixbuf.savev(os.path.join(CONFIG_PATH, "cur_icon.png"),"png", (), ())
-            self.indicator.set_icon(os.path.join(CONFIG_PATH, "cur_icon.png"))
+            try:
+                pixbuf.savev(os.path.join(CONFIG_PATH, "cur_icon.png"),"png", (), ())
+                self.indicator.set_icon(os.path.join(CONFIG_PATH, "cur_icon.png"))
+            except:
+                print (">> Pixbuf.savev Error")
 
         def set_menu(self, menu):
             self.indicator.set_menu(menu)

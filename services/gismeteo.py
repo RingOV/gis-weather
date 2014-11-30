@@ -361,7 +361,12 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
 
     if show_block_tomorrow:
         #### weather tomorrow ####
-        w_tomorrow = w_all_list[1]
+        try:
+            w_tomorrow = w_all_list[1]
+        except:
+            if timer_bool:
+                print ('\033[1;31m[!]\033[0m '+_('Next try in 10 seconds'))
+            return False
         
         # temperature
         t_tomorrow = t[4:8]

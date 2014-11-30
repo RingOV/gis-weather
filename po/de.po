@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2014-11-28 22:45+0300\n"
-"PO-Revision-Date: 2014-11-29 13:27+0000\n"
+"PO-Revision-Date: 2014-11-29 16:24+0000\n"
 "Last-Translator: Jonathan Hooverman <Jonathan.Hooverman@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/gis-weather/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -32,7 +32,7 @@ msgstr "Anzahl Instanzen"
 
 #: gis-weather.py:220 dialogs/settings_dialog.ui:665
 msgid "Configuration folder"
-msgstr ""
+msgstr "Programmordner"
 
 #: gis-weather.py:243 dialogs/city_id_dialog.py:28
 msgid "Error loading config file"
@@ -68,7 +68,7 @@ msgstr "Neue Version verfügbar"
 
 #: gis-weather.py:467
 msgid "You are using the latest version"
-msgstr ""
+msgstr "Sie nutzen die aktuellste Version"
 
 #: gis-weather.py:483 gis-weather.py:1236
 msgid "Screenshot saved to"
@@ -104,11 +104,11 @@ msgstr "Verbindungsfehler"
 
 #: gis-weather.py:823
 msgid "Updated on server"
-msgstr ""
+msgstr "Wetterdaten auf Server aktualisiert"
 
 #: gis-weather.py:824
 msgid "Weather received"
-msgstr ""
+msgstr "Wetterdaten erhalten"
 
 #: gis-weather.py:854
 msgid "E"
@@ -469,7 +469,7 @@ msgstr "Wählen Sie Ihren Ort auf"
 
 #: dialogs/city_id_dialog.py:56
 msgid "and copy the city code below"
-msgstr ""
+msgstr "und kopieren Sie den Orts-Code von der Referenz"
 
 #: dialogs/city_id_dialog.py:57
 msgid "For example"
@@ -506,11 +506,11 @@ msgstr "Möchten Sie übersetzen?"
 
 #: dialogs/settings_dialog.ui:817
 msgid "Program language"
-msgstr ""
+msgstr "Programmlokalisierung"
 
 #: dialogs/settings_dialog.ui:832
 msgid "Weather language"
-msgstr ""
+msgstr "Wetterlokalisierung"
 
 #: dialogs/settings_dialog.ui:847
 msgid "Add launcher icon to menu"
@@ -562,7 +562,7 @@ msgstr "Temperatur"
 
 #: dialogs/settings_dialog.ui:1407
 msgid "Wind chill"
-msgstr ""
+msgstr "Windkälte"
 
 #: dialogs/settings_dialog.ui:1497
 msgid "Units"
@@ -638,7 +638,7 @@ msgstr "Anzahl Tage"
 
 #: dialogs/settings_dialog.ui:2708
 msgid "Show weather retrieval time"
-msgstr ""
+msgstr "Abfragezeit der Wetterdaten anzeigen"
 
 #: dialogs/settings_dialog.ui:2723
 msgid "Show splash screen"
