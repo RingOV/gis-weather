@@ -43,7 +43,8 @@ dict_app_lang = {
     'it': 'Italiano',
     'pl': 'Polski',
     'ro': 'Română',
-    'ru': 'Русский'
+    'ru': 'Русский',
+    'nl_NL': 'Nederlands'
 }
 
 # for root, dirs, files in os.walk(os.path.join(os.path.split(work_path)[0], 'po')):
