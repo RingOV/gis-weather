@@ -168,7 +168,9 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
     w_now = re.findall('data-location-presentation-name=.*<ul class="wx-conditions">', source, re.DOTALL)
     
     # city
-    city_name = re.findall('data-location-presentation-name="(.*)"', w_now[0])
+    city_name = re.findall('data-ng-bind-template="(.*)"', source)
+    for item in city_name:
+        print(item) 
 
     # temperature
     t = re.findall('"temperature-fahrenheit">(.*)</span', w_now[0])

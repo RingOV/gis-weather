@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2014-11-28 22:45+0300\n"
-"PO-Revision-Date: 2014-12-02 20:20+0000\n"
-"Last-Translator: Chris Taklis <ctaklis@gmail.com>\n"
+"PO-Revision-Date: 2014-12-03 09:32+0000\n"
+"Last-Translator: spyros nm <pipis.nm@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/gis-weather/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -416,7 +416,7 @@ msgstr "Φόντο"
 
 #: dialogs/about_dialog.py:72
 msgid "translator-credits"
-msgstr "μεταφραστής-εύσημα"
+msgstr "μεταφραστής-εύσημα\n\nAnastasiadis Stavros <anastasiadis.st00@gmail.com>, 2014\nChris Taklis (kailor) <ctaklis@gmail.com>, 2014\nNaoum Spyros <pipis.nm@gmail.com>, 2014\nGeorge Ioakeimidis (GeoMint) <geomint@mail.com>, 2014"
 
 #: dialogs/settings_dialog.py:384
 msgid "m/s"
