@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2014-11-28 22:45+0300\n"
-"PO-Revision-Date: 2014-11-28 20:11+0000\n"
-"Last-Translator: Alexander Koltsov <ringov@mail.ru>\n"
+"PO-Revision-Date: 2014-12-03 20:37+0000\n"
+"Last-Translator: yahoe.001\n"
 "Language-Team: French (http://www.transifex.com/projects/p/gis-weather/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -357,7 +357,7 @@ msgstr "Aller vers le lien"
 #: dialogs/help_dialog.py:16 dialogs/update_dialog.py:47
 #: dialogs/help_dialog.ui:76 dialogs/update_dialog.ui:318
 msgid "Send email"
-msgstr "Envoyer un courriel"
+msgstr "Envoyez-moi un courriel"
 
 #: dialogs/update_dialog.py:60
 msgid "Update"
@@ -401,11 +401,11 @@ msgid ""
 "\n"
 "You can find the full text of the license under\n"
 "http://www.gnu.org/licenses/gpl.txt"
-msgstr "Ce programme est un logiciel libre: vous pouvez le redistribuer et/ou\nle modifier selon les termes de la Licence Publique Générale GNU\npubliée par la « Free Software Foundation », soit la version 3 de la\nlicence, ou (selon votre choix) toute version ultérieure.\n\nCe programme est distribué dans l'espoir qu'il sera utile, mais SANS\nAUCUNE GARANTIE ; sans même la garantie implicite de\nCOMMERCIALISATION ou D'ADÉQUATION À UN USAGE\nPARTICULIER. Voir la Licence Publique Générale GNU pour plus de\ndétails.\n\nVous pouvez trouver le texte intégral de la licence sur\nhttp://www.gnu.org/licenses/gpl.txt"
+msgstr "Ce programme est un logiciel libre : vous pouvez le redistribuer et/ou\nle modifier selon les termes de la Licence Publique Générale GNU\npubliée par la « Free Software Foundation », soit la version 3 de la\nlicence, ou (selon votre choix) toute version ultérieure.\n\nCe programme est distribué dans l'espoir qu'il sera utile, mais SANS\nAUCUNE GARANTIE ; sans même la garantie implicite de\nCOMMERCIALISATION ou D'ADÉQUATION À UN USAGE\nPARTICULIER. Voir la Licence Publique Générale GNU pour plus de\ndétails.\n\nVous pouvez trouver le texte intégral de la licence sur\nhttp://www.gnu.org/licenses/gpl.txt"
 
 #: dialogs/about_dialog.py:48
 msgid "Help and Ideas"
-msgstr "Aide et idées"
+msgstr "Aide et idées "
 
 #: dialogs/about_dialog.py:55
 msgid "Backgrounds"
@@ -413,7 +413,7 @@ msgstr "Arrière-plans"
 
 #: dialogs/about_dialog.py:72
 msgid "translator-credits"
-msgstr "spyder <ghostdarkhide@gmail.com>"
+msgstr "spyder <ghostdarkhide@gmail.com>\nhttps://www.transifex.com/accounts/profile/yahoe.001/"
 
 #: dialogs/settings_dialog.py:384
 msgid "m/s"
@@ -474,7 +474,7 @@ msgstr "et copiez le code de ville ci-dessous"
 
 #: dialogs/city_id_dialog.py:57
 msgid "For example"
-msgstr "Par exemple"
+msgstr "Par exemple "
 
 #: dialogs/city_id_dialog.py:58
 msgid "City code"
@@ -527,7 +527,7 @@ msgstr "État de la traduction"
 
 #: dialogs/settings_dialog.ui:1010
 msgid "Autostart at login"
-msgstr "Demarrage automatique à la connexion"
+msgstr "Démarrage automatique à la connexion"
 
 #: dialogs/settings_dialog.ui:1025
 msgid "Number of instances"
@@ -563,7 +563,7 @@ msgstr "Température"
 
 #: dialogs/settings_dialog.ui:1407
 msgid "Wind chill"
-msgstr ""
+msgstr "Refr. éolien"
 
 #: dialogs/settings_dialog.ui:1497
 msgid "Units"
