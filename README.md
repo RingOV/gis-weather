@@ -22,7 +22,6 @@ Recommends:
 - Highlighting the high wind
 - Support weather services:
   - Gismeteo.com
-  - Weather.com
   - AccuWeather.com
 - Support SVG and widget scale
 - Indicator to panel
