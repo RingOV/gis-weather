@@ -47,23 +47,20 @@ dict_app_lang = {
     'nl_NL': 'Nederlands'
 }
 
-# for root, dirs, files in os.walk(os.path.join(os.path.split(work_path)[0], 'po')):
-#     break
-# if os.path.exists(os.path.join(os.path.split(work_path)[0], 'po', 'README.md')):
-#     files.remove('README.md')
-# for item in files:
-#     if item[-2:] == 'po':
-#         f = open(os.path.join(root, item), 'rb')
-#         l = f.read().decode(encoding='UTF-8')
-#         language = re.findall('"Language: (.*)"', l)
-#         dict_app_lang[item.split('_')[-1][:-3]] = language[0][:-2]
-
 # find all available lang
-available_lang = ['auto']
+available_lang = ['auto', 'en']
 for root, dirs, files in os.walk(os.path.join(os.path.split(work_path)[0], 'i18n')):
     break
 dirs.sort()
 available_lang.extend(dirs)
+
+for i in range(len(available_lang)):
+    if available_lang[i] not in dict_app_lang.keys():
+        f = open(os.path.join(os.path.split(work_path)[0], 'po', available_lang[i]+'.po'), 'rb')
+        l = f.read().decode(encoding='UTF-8')
+        f.close()
+        language = re.findall('"Language-Team: (.*) \(', l)
+        dict_app_lang[available_lang[i]] = language[0]
 
 def Save_Config():
     json.dump(gw_config_set, open(CONFIG_PATH_FILE, "w"), sort_keys=True, indent=4, separators=(', ', ': '))
