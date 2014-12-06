@@ -403,6 +403,9 @@ if INSTANCE_NO < instances_count:
     subprocess.Popen(['python3', os.path.join(APP_PATH, 'gis-weather.py'), '-i '+str(instances_count)])
 
 def get_weather():
+    global service
+    if service>len(data.services_list)-1:
+        service = len(data.services_list)-1
     return data.get_weather(service, weather, n, city_id, show_block_tomorrow, show_block_today, show_block_add_info, timer_bool, weather_lang, icons_name)
 
 def check_updates():
@@ -1140,7 +1143,6 @@ class MyDrawArea(Gtk.DrawingArea):
         cr.restore()
 
     def draw_scaled_icon(self, cr, x, y, pix, w, h, indicator_icon_name=False):
-        print('x=',x,',y=',y,',pix=',pix,',w=',w, ',h=',h)
         icons_name1 = icons_name    
         if indicator_icon_name:
             global pix_path
@@ -1309,6 +1311,7 @@ class Weather_Widget:
 
 
     def menu_response(self, widget, event, value=None):
+        global service
         if event == 'load_preset':
             Load_Preset(value)
             self.set_window_properties()
@@ -1390,7 +1393,7 @@ class Weather_Widget:
                 if not widget.get_active():
                     return
 
-            global city_id, service
+            global city_id
             Load_Config()
             if value[1] != 0:
                 service = value[0]
