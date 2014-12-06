@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2014-11-28 22:45+0300\n"
-"PO-Revision-Date: 2014-12-01 10:43+0000\n"
+"PO-Revision-Date: 2014-12-05 19:32+0000\n"
 "Last-Translator: Heimen Stoffels <motionshot@vivaldi.net>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/gis-weather/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr ""
 
 #: gis-weather.py:40
 msgid "Running multiple instances is not supported"
-msgstr "Meerderde instanties openen wordt niet ondersteund"
+msgstr "Meerdere draaiende instanties worden niet ondersteund"
 
 #: gis-weather.py:45
 msgid "number of instances"
@@ -400,7 +400,7 @@ msgid ""
 "\n"
 "You can find the full text of the license under\n"
 "http://www.gnu.org/licenses/gpl.txt"
-msgstr ""
+msgstr "Dit programma is vrij software: u kunt het herverspreiden en/of aanpassen onder de voorwaarden van de GNU General Public License (GPL), zoals verstrekt door de Free Software Foundation. Dit kan onder versie 3 van de licentie of, indien u dit wilt, een nieuwere versie.\n\nDit programma wordt verspreidt in de hoop dat het nuttig is, maar ZONDER GARANTIE; zelfs zonder de gewekte garantie van MERCHANDEERBAARHEID of PASSEND BIJ EEN SPECIFIEK GEBRUIK. Zie de GNU General Public License voor meer details.\n\nU kunt de volledige tekst van de licentie vinden op\nhttp://www.gnu.org/licenses/gpl.txt"
 
 #: dialogs/about_dialog.py:48
 msgid "Help and Ideas"

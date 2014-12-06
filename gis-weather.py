@@ -1140,6 +1140,7 @@ class MyDrawArea(Gtk.DrawingArea):
         cr.restore()
 
     def draw_scaled_icon(self, cr, x, y, pix, w, h, indicator_icon_name=False):
+        print('x=',x,',y=',y,',pix=',pix,',w=',w, ',h=',h)
         icons_name1 = icons_name    
         if indicator_icon_name:
             global pix_path
@@ -1151,12 +1152,16 @@ class MyDrawArea(Gtk.DrawingArea):
                 try:
                     print ('\033[34m>\033[0m '+_('downloading')+' '+os.path.split(pix)[1]+' ('+pix+')')
                     urlretrieve(pix, pix_path)
+                    print ('OK')
                 except:
                     print (_('Unable to download')+' '+pix)
                 if not os.path.exists(pix_path):
                     pix_path = os.path.join(THEMES_PATH, 'na.png')
                 if not indicator_icon_name:
-                    self.draw_scaled_image(x, y, pix_path, w, h)
+                    try:
+                        self.draw_scaled_image(x, y, pix_path, w, h)
+                    except:
+                        pass
                 return
         else:
             pix = pix.split(';')[1]
@@ -1385,10 +1390,11 @@ class Weather_Widget:
                 if not widget.get_active():
                     return
 
-            global city_id
+            global city_id, service
             Load_Config()
-            if value != 0:
-                city_id = value.split(';')[0]
+            if value[1] != 0:
+                service = value[0]
+                city_id = value[1].split(';')[0]
                 Save_Config()
             self.drawing_area.redraw(False)
         if event == 'edit_city_id':
@@ -1497,12 +1503,11 @@ class Weather_Widget:
 
     def create_menu(self, for_indicator=False):
         global icons_list, backgrounds_list
-        try:
-            a = gw_config[data.get_city_list(service)]
-        except:
-            gw_config[data.get_city_list(service)] = []
-        self.menu, icons_list, backgrounds_list = gw_menu.create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, 
-                icons_name, show_bg_png, color_bg, bg_custom, color_scheme, color_scheme_number, gw_config[data.get_city_list(service)], city_id, fix_position, sticky, indicator_icons_name, for_indicator, preset_number)
+        # try:
+        #     a = gw_config[data.get_city_list(service)]
+        # except:
+        #     gw_config[data.get_city_list(service)] = []
+        self.menu, icons_list, backgrounds_list = gw_menu.create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color_scheme, gw_config, for_indicator)
 
     def configure_event(self, widget, event):
         global x_pos, y_pos

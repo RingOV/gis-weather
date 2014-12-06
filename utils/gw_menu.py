@@ -3,9 +3,20 @@
 from gi.repository import Gtk
 import os
 from utils import presets
+from services import data
 
-def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, icons_name, show_bg_png, 
-    color_bg, bg_custom, color_scheme, color_scheme_number, city_list, city_id, fix_position, sticky, indicator_icons_name, for_indicator, preset_number):
+def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color_scheme, gw_config, for_indicator):
+    icons_name = gw_config['icons_name']
+    show_bg_png = gw_config['show_bg_png']
+    color_bg = gw_config['color_bg']
+    bg_custom = gw_config['bg_custom']
+    color_scheme_number = gw_config['color_scheme_number']
+    city_id = gw_config['city_id']
+    fix_position = gw_config['fix_position']
+    sticky = gw_config['sticky']
+    indicator_icons_name = gw_config['indicator_icons_name']
+    preset_number = gw_config['preset_number']
+
     menu = None
     # from script folder (dirs - icons, files - backdrounds)
     for root, dirs, files in os.walk(ICONS_PATH):
@@ -43,17 +54,29 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, icons
     sub_menu_place.append(menu_items)
     menu_items.connect("activate", app.menu_response, 'edit_city_id')
     menu_items.show()
-    if len(city_list) > 0:
-        menu_items = Gtk.SeparatorMenuItem()
-        sub_menu_place.append(menu_items)
-        menu_items.show()
-        for i in range(len(city_list)):
-            menu_items = Gtk.RadioMenuItem(label=city_list[i].split(';')[1])
-            if city_list[i].split(';')[0] == str(city_id):
-                menu_items.set_active(True)
+
+    for i in range(len(data.services_list)):
+        try:
+            city_list = gw_config[data.get_city_list(i)]
+        except:
+            city_list = []
+        if len(city_list) != 0:
+            menu_items = Gtk.SeparatorMenuItem()
             sub_menu_place.append(menu_items)
-            menu_items.connect("activate", app.menu_response, 'reload', city_list[i])
             menu_items.show()
+
+            menu_items = Gtk.MenuItem(label=data.services_list[i])
+            sub_menu_place.append(menu_items)
+            menu_items.show()
+            menu_items.set_sensitive(False)
+
+            for j in range(len(city_list)):
+                menu_items = Gtk.RadioMenuItem(label=city_list[j].split(';')[1])
+                if city_list[j].split(';')[0] == str(gw_config['city_id']) and gw_config['service'] == i:
+                    menu_items.set_active(True)
+                sub_menu_place.append(menu_items)
+                menu_items.connect("activate", app.menu_response, 'reload', [i, city_list[j]])
+                menu_items.show()
 
     # sub_menu_icons
     menu_items = Gtk.RadioMenuItem(label='0. Default')
