@@ -56,11 +56,14 @@ available_lang.extend(dirs)
 
 for i in range(len(available_lang)):
     if available_lang[i] not in dict_app_lang.keys():
-        f = open(os.path.join(os.path.split(work_path)[0], 'po', available_lang[i]+'.po'), 'rb')
-        l = f.read().decode(encoding='UTF-8')
-        f.close()
-        language = re.findall('"Language-Team: (.*) \(', l)
-        dict_app_lang[available_lang[i]] = language[0]
+        try:
+            f = open(os.path.join(os.path.split(work_path)[0], 'po', available_lang[i]+'.po'), 'rb')
+            l = f.read().decode(encoding='UTF-8')
+            f.close()
+            language = re.findall('"Language-Team: (.*) \(', l)
+            dict_app_lang[available_lang[i]] = language[0]
+        except:
+            pass
 
 def Save_Config():
     json.dump(gw_config_set, open(CONFIG_PATH_FILE, "w"), sort_keys=True, indent=4, separators=(', ', ': '))
