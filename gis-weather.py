@@ -406,6 +406,7 @@ def get_weather():
     global service
     if service>len(data.services_list)-1:
         service = len(data.services_list)-1
+    Save_Config()
     return data.get_weather(service, weather, n, city_id, show_block_tomorrow, show_block_today, show_block_add_info, timer_bool, weather_lang, icons_name)
 
 def check_updates():
@@ -1395,10 +1396,13 @@ class Weather_Widget:
 
             global city_id
             Load_Config()
-            if value[1] != 0:
-                service = value[0]
-                city_id = value[1].split(';')[0]
-                Save_Config()
+            try:
+                if value[1] != 0:
+                    service = value[0]
+                    city_id = value[1].split(';')[0]
+                    Save_Config()
+            except:
+                pass
             self.drawing_area.redraw(False)
         if event == 'edit_city_id':
             if self.show_edit_dialog():
