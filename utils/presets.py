@@ -166,13 +166,62 @@ list = [
         'wind_direct_small': False,
         'show_bg_png': True
     },
+        #  Default
+    {   'n': 7,                            # Display days
+        'color_text': (0, 0, 0, 1), #RGBa  # color text
+        'color_text_week': (0.5, 0, 0, 1), # color weekend
+        'color_shadow': (1, 1, 1, 0.7),    # color shadow
+        'draw_shadow': True,               # draw shadow
+        'show_block_wind_direct': True,    # block wind direct
+        'block_wind_direct_left': -170,    # position
+        'wind_direct_small': False,        # small block wind direct
+        'show_block_add_info': True,       # block with additional information
+        'block_add_info_left': 70,         # position
+        'show_block_tomorrow': True,       # block with the weather for tomorrow
+        'block_tomorrow_left': 180,        # position
+        'show_block_today': True,          # block with the weather for today
+        'block_today_left': -310,          # position
+        'bg_custom': 'Winter',            # this picture
+        'margin': 50,                      # inside padding
+        'block_now_left': 0,
+        # customizable options
+        'preset_number':0,
+        'bg_left': 0,
+        'bg_top': 0,
+        'bg_width': -1,
+        'bg_height': -1,
+        'icon_now_top': 0,
+        'icon_now_left': 0,
+        'icon_now_size': 0,
+        'block_icons_left': 0,
+        'block_icons_top': 0,
+        'city_name_left': 0,
+        'city_name_top': 0,
+        'day_left': 0,
+        'day_top': 0,
+        't_now_left': 0,
+        't_now_top': 0,
+        't_now_size': 0,
+        't_now_alignment': 'right',
+        'text_now_left': 0,
+        'text_now_top': 0,
+        'height_fix': 0,
+        'splash_icon_top': 0,
+        'splash_version_top': 0,
+        'block_wind_direct_small_left': 0,
+        'block_today_top': 0,
+        'block_tomorrow_top': 0,
+        'block_wind_direct_small_top': 0,
+        'splash_block_top': 0
+    }
     ]
 
 names = {
     0: 'Default',
     1: 'Small',
     2: 'Wood',
-    3: 'NotePaper'
+    3: 'NotePaper',
+    4: 'Winter'
 }
 
 def save_to_file(CONFIG_PATH):
