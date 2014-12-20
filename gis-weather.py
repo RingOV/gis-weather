@@ -70,10 +70,10 @@ from services import data
 from utils import gw_menu, presets
 import cairo
 import re
+import os
 import time
 import math
 from urllib.request import urlopen, urlretrieve
-import os
 import json
 import subprocess
 import gzip
