@@ -44,7 +44,8 @@ dict_app_lang = {
     'pl': 'Polski',
     'ro': 'Română',
     'ru': 'Русский',
-    'nl_NL': 'Nederlands'
+    'nl_NL': 'Nederlands',
+    'uk': 'Українська'
 }
 
 # find all available lang

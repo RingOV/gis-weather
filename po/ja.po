@@ -1,11 +1,12 @@
 # 
 # Translators:
+# Tsurugi Takeshi <hippointhewild@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2014-11-28 22:45+0300\n"
-"PO-Revision-Date: 2014-11-28 18:08+0000\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2014-12-23 13:42+0000\n"
+"Last-Translator: Tsurugi Takeshi <hippointhewild@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/gis-weather/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,67 +24,67 @@ msgstr ""
 
 #: gis-weather.py:40
 msgid "Running multiple instances is not supported"
-msgstr ""
+msgstr "複数のインスタンスの稼働はサポートされていません"
 
 #: gis-weather.py:45
 msgid "number of instances"
-msgstr ""
+msgstr "インスタンスの数"
 
 #: gis-weather.py:220 dialogs/settings_dialog.ui:665
 msgid "Configuration folder"
-msgstr ""
+msgstr "設定フォルダ"
 
 #: gis-weather.py:243 dialogs/city_id_dialog.py:28
 msgid "Error loading config file"
-msgstr ""
+msgstr "設定ファイルの読み込みエラー"
 
 #: gis-weather.py:270
 msgid "Error loading color scheme"
-msgstr ""
+msgstr "カラースキームの読み込みエラー"
 
 #: gis-weather.py:282
 msgid "Error loading preset"
-msgstr ""
+msgstr "プリセットの読み込みエラー"
 
 #: gis-weather.py:294
 msgid "Enter full path to script"
-msgstr ""
+msgstr "スクリプトへのフルパスを入力"
 
 #: gis-weather.py:295
 msgid "Exit"
-msgstr ""
+msgstr "終了"
 
 #: gis-weather.py:424
 msgid "Check for new version"
-msgstr ""
+msgstr "新しいバージョンをチェック"
 
 #: gis-weather.py:429 gis-weather.py:438
 msgid "Unable to check for updates"
-msgstr ""
+msgstr "アップデートをチェックすることができません"
 
 #: gis-weather.py:460
 msgid "New version available"
-msgstr ""
+msgstr "新しいバージョンが利用できます"
 
 #: gis-weather.py:467
 msgid "You are using the latest version"
-msgstr ""
+msgstr "最新のバージョンを使用中です"
 
 #: gis-weather.py:483 gis-weather.py:1236
 msgid "Screenshot saved to"
-msgstr ""
+msgstr "スクリーンショットを保存しました"
 
 #: gis-weather.py:485
 msgid "Unable to get the screenshot"
-msgstr ""
+msgstr "スクリーンショットを取得することができません"
 
 #: gis-weather.py:649
 msgid "Getting weather..."
-msgstr ""
+msgstr "天候を取得中..."
 
 #: gis-weather.py:652
 msgid "Error getting weather"
-msgstr ""
+msgstr "天候の取得エラー"
 
 #: gis-weather.py:654
 msgid "Location not set"
