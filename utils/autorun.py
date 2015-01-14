@@ -42,6 +42,8 @@ else:
     _xdg_config_home = os.environ.get("XDG_CONFIG_HOME", "~/.config")
     _xdg_user_autostart = os.path.join(os.path.expanduser(_xdg_config_home),
             "autostart")
+    if not os.path.exists(_xdg_user_autostart):
+        os.mkdir(_xdg_user_autostart)
 
     def getfilename(name):
         """get the filename of an autostart (.desktop) file"""
@@ -70,6 +72,7 @@ else:
                 _("Weather widget"))
         with open(getfilename(name), "w") as f:
             f.write(desktop_entry)
+            f.close()
 
     def exists(name):
         """check if an autostart entry exists"""

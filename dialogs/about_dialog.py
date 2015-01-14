@@ -5,23 +5,6 @@ import os
 import re
 
 def create(v, APP_PATH):
-    # for root, dirs, files in os.walk(os.path.join(APP_PATH, 'po')):
-    #     break
-    # if os.path.exists(os.path.join(APP_PATH, 'po', 'README.md')):
-    #     files.remove('README.md')
-    #     files.remove('gis-weather_en.po')
-    # translator_credits = ''
-    # for item in files:
-    #     if item[-2:] == 'po':
-    #         f = open(os.path.join(root, item), 'rb')
-    #         l = f.read().decode(encoding='UTF-8')
-    #         language = re.findall('"Language: (.*)"', l)
-    #         language = language[0][:-2]
-    #         team = re.findall('"Language-Team: (.*)"', l)
-    #         team = team[0][:-2]
-    #         translator_credits = translator_credits + team+' ('+language+')\n'
-
-
     license = _('''This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
@@ -38,7 +21,7 @@ http://www.gnu.org/licenses/gpl.txt''')
     about.set_icon_from_file(os.path.join(APP_PATH, "icon.png"))
     about.set_program_name("Gis Weather")
     about.set_version(v)
-    about.set_copyright("Copyright © 2013 - 2014 Alexander Koltsov")
+    about.set_copyright("Copyright © 2013 - 2015 Alexander Koltsov")
     about.set_comments(_('Weather widget'))
     about.set_website("http://sourceforge.net/projects/gis-weather/")
     about.set_logo(GdkPixbuf.Pixbuf.new_from_file_at_size(os.path.join(APP_PATH, "icon.png"), 128, 128))
