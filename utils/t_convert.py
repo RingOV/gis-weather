@@ -8,8 +8,6 @@ def F_to_C(t_F):
 
 def C_to_F(t_C):
     t_F = str(round(int(t_C)*1.8+32))
-    if t_F[0] not in ('+', '-', '0'):
-        t_F = "+"+t_F
     return t_F
 
 def F_to_K(t_F):

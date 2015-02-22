@@ -1,18 +1,17 @@
 # 
 # Translators:
-# Tsurugi Takeshi <hippointhewild@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2014-11-28 22:45+0300\n"
-"PO-Revision-Date: 2015-01-26 14:19+0000\n"
-"Last-Translator: Tsurugi Takeshi <hippointhewild@gmail.com>\n"
-"Language-Team: Japanese (http://www.transifex.com/projects/p/gis-weather/language/ja/)\n"
+"PO-Revision-Date: 2014-11-28 18:08+0000\n"
+"Last-Translator: \n"
+"Language-Team: Hungarian (http://www.transifex.com/projects/p/gis-weather/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: hu\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
@@ -24,206 +23,206 @@ msgstr ""
 
 #: gis-weather.py:40
 msgid "Running multiple instances is not supported"
-msgstr "複数のインスタンスの稼働はサポートされていません"
+msgstr ""
 
 #: gis-weather.py:45
 msgid "number of instances"
-msgstr "インスタンスの数"
+msgstr ""
 
 #: gis-weather.py:220 dialogs/settings_dialog.ui:665
 msgid "Configuration folder"
-msgstr "設定フォルダ"
+msgstr ""
 
 #: gis-weather.py:243 dialogs/city_id_dialog.py:28
 msgid "Error loading config file"
-msgstr "設定ファイルの読み込みエラー"
+msgstr ""
 
 #: gis-weather.py:270
 msgid "Error loading color scheme"
-msgstr "カラースキームの読み込みエラー"
+msgstr ""
 
 #: gis-weather.py:282
 msgid "Error loading preset"
-msgstr "プリセットの読み込みエラー"
+msgstr ""
 
 #: gis-weather.py:294
 msgid "Enter full path to script"
-msgstr "スクリプトへのフルパスを入力"
+msgstr ""
 
 #: gis-weather.py:295
 msgid "Exit"
-msgstr "終了"
+msgstr ""
 
 #: gis-weather.py:424
 msgid "Check for new version"
-msgstr "新しいバージョンをチェック"
+msgstr ""
 
 #: gis-weather.py:429 gis-weather.py:438
 msgid "Unable to check for updates"
-msgstr "アップデートをチェックすることができません"
+msgstr ""
 
 #: gis-weather.py:460
 msgid "New version available"
-msgstr "新しいバージョンが利用できます"
+msgstr ""
 
 #: gis-weather.py:467
 msgid "You are using the latest version"
-msgstr "最新のバージョンを使用中です"
+msgstr ""
 
 #: gis-weather.py:483 gis-weather.py:1236
 msgid "Screenshot saved to"
-msgstr "スクリーンショットを保存しました"
+msgstr ""
 
 #: gis-weather.py:485
 msgid "Unable to get the screenshot"
-msgstr "スクリーンショットを取得することができません"
+msgstr ""
 
 #: gis-weather.py:649
 msgid "Getting weather..."
-msgstr "天候を取得中..."
+msgstr ""
 
 #: gis-weather.py:652
 msgid "Error getting weather"
-msgstr "天候の取得エラー"
+msgstr ""
 
 #: gis-weather.py:654
 msgid "Location not set"
-msgstr "位置情報が設定されていません"
+msgstr ""
 
 #: gis-weather.py:710 gis-weather.py:771
 msgid "Next update in"
-msgstr "次の更新"
+msgstr ""
 
 #: gis-weather.py:710 gis-weather.py:771
 msgid "min"
-msgstr "分"
+msgstr ""
 
 #: gis-weather.py:761
 msgid "Connection error"
-msgstr "接続エラー"
+msgstr ""
 
 #: gis-weather.py:823
 msgid "Updated on server"
-msgstr "サーバー上での更新"
+msgstr ""
 
 #: gis-weather.py:824
 msgid "Weather received"
-msgstr "天候の受信"
+msgstr ""
 
 #: gis-weather.py:854
 msgid "E"
-msgstr "東"
+msgstr ""
 
 #: gis-weather.py:854
 msgid "S"
-msgstr "南"
+msgstr ""
 
 #: gis-weather.py:854
 msgid "W"
-msgstr "西"
+msgstr ""
 
 #: gis-weather.py:854
 msgid "N"
-msgstr "北"
+msgstr ""
 
 #: gis-weather.py:899
 msgid "humid."
-msgstr "湿度"
+msgstr ""
 
 #: gis-weather.py:905
 msgid "water"
-msgstr "水温"
+msgstr ""
 
 #: gis-weather.py:922 gis-weather.py:961
 msgid "Morning"
-msgstr "午前"
+msgstr ""
 
 #: gis-weather.py:922 gis-weather.py:961
 msgid "Day"
-msgstr "午後"
+msgstr ""
 
 #: gis-weather.py:922 gis-weather.py:961
 msgid "Evening"
-msgstr "夕方"
+msgstr ""
 
 #: gis-weather.py:922 gis-weather.py:961
 msgid "Night"
-msgstr "夜"
+msgstr ""
 
 #: gis-weather.py:925 gis-weather.py:927
 msgid "Tomorrow"
-msgstr "明日"
+msgstr ""
 
 #: gis-weather.py:963
 msgid "Today"
-msgstr "本日"
+msgstr ""
 
 #: gis-weather.py:1086
 msgid "Background image not found"
-msgstr "背景画像が見つかりません"
+msgstr ""
 
 #: gis-weather.py:1143
 msgid "downloading"
-msgstr "ダウンロード中"
+msgstr ""
 
 #: gis-weather.py:1146
 msgid "Unable to download"
-msgstr "ダウンロードできません"
+msgstr ""
 
 #: gis-weather.py:1168
 msgid "Icon not found"
-msgstr "アイコンが見つかりません"
+msgstr ""
 
 #: gis-weather.py:1247
 msgid "Widget size"
-msgstr "ウィジェット サイズ"
+msgstr ""
 
 #: gis-weather.py:1248
 msgid "width"
-msgstr "幅"
+msgstr ""
 
 #: gis-weather.py:1248
 msgid "height"
-msgstr "高さ"
+msgstr ""
 
 #: gis-weather.py:1248
 msgid "including indent"
-msgstr "インデントを含む"
+msgstr ""
 
 #: gis-weather.py:1419
 msgid "Removed"
-msgstr "削除された"
+msgstr ""
 
 #: gis-weather.py:1448 dialogs/city_id_dialog.ui:376
 msgid "Added"
-msgstr "追加された"
+msgstr ""
 
 #: gis-weather.py:1453 dialogs/city_id_dialog.ui:308
 msgid "Invalid location code"
-msgstr "不正な位置情報コード"
+msgstr ""
 
 #: gis-weather.py:1520
 msgid "Your screen does not support alpha"
-msgstr "スクリーンがアルファをサポートしていません"
+msgstr ""
 
 #: gis-weather.py:1522
 msgid "Your screen supports alpha"
-msgstr "スクリーンはアルファをサポートしています"
+msgstr ""
 
 #: services/gismeteo.py:239 services/weather_com.py:149
 #: services/accuweather.py:225
 msgid "Failed to get the name of the location"
-msgstr "位置情報名の取得に失敗しました"
+msgstr ""
 
 #: services/gismeteo.py:245 services/weather_com.py:156
 #: services/accuweather.py:236
 msgid "Getting weather for"
-msgstr "天候を取得中"
+msgstr ""
 
 #: services/gismeteo.py:245 services/weather_com.py:156
 #: services/accuweather.py:236
 msgid "days"
-msgstr "日中"
+msgstr ""
 
 #: services/gismeteo.py:246 services/weather_com.py:157
 #: services/accuweather.py:237 services/accuweather.py:297
@@ -234,7 +233,7 @@ msgstr "日中"
 #: services/accuweather.py:592 services/accuweather.py:600
 #: dialogs/update_dialog.py:27 dialogs/update_dialog.ui:561
 msgid "Downloading"
-msgstr "ダウンロード中"
+msgstr ""
 
 #: services/gismeteo.py:252 services/weather_com.py:163
 #: services/accuweather.py:243 services/accuweather.py:303
@@ -244,147 +243,147 @@ msgstr "ダウンロード中"
 #: services/accuweather.py:582 services/accuweather.py:590
 #: services/accuweather.py:598 services/accuweather.py:606
 msgid "Unable to download page, check the network connection"
-msgstr "ダウンロードのページが利用できません、ネットワーク接続をチェックしてください"
+msgstr ""
 
 #: services/gismeteo.py:254 services/weather_com.py:165
 #: services/accuweather.py:245
 msgid "Next try in 10 seconds"
-msgstr "10秒以内に次をトライします"
+msgstr ""
 
 #: services/gismeteo.py:431 services/weather_com.py:274
 #: services/accuweather.py:715
 msgid "updated on server"
-msgstr "サーバ上での更新"
+msgstr ""
 
 #: services/gismeteo.py:432 services/weather_com.py:275
 #: services/accuweather.py:716
 msgid "weather received"
-msgstr "天候の受信"
+msgstr ""
 
 #: services/accuweather.py:284
 msgid "Calm"
-msgstr "穏やか"
+msgstr ""
 
 #: utils/autorun.py:70 utils/desktop.py:23 dialogs/about_dialog.py:42
 msgid "Weather widget"
-msgstr "天候ウィジェット"
+msgstr ""
 
 #: utils/gw_menu.py:42 dialogs/settings_dialog.ui:676
 msgid "Setup..."
-msgstr "設定中"
+msgstr ""
 
 #: utils/gw_menu.py:89 dialogs/settings_dialog.py:393
 msgid "No"
-msgstr "いいえ"
+msgstr ""
 
 #: utils/gw_menu.py:105
 msgid "Color scheme"
-msgstr "カラースキーム"
+msgstr ""
 
 #: utils/gw_menu.py:113 dialogs/settings_dialog.ui:1689
 msgid "Lock position"
-msgstr "表示位置を固定"
+msgstr ""
 
 #: utils/gw_menu.py:119 dialogs/settings_dialog.ui:1674
 msgid "On all desktops"
-msgstr "全てのデスクトップ上"
+msgstr ""
 
 #: utils/gw_menu.py:129
 msgid "Save screenshot"
-msgstr "スクリーンショットを保存"
+msgstr ""
 
 #: utils/gw_menu.py:145
 msgid "Show/Hide widget"
-msgstr "ウィジェットの表示/非表示"
+msgstr ""
 
 #: utils/gw_menu.py:154 dialogs/settings_dialog.ui:933
 msgid "Refresh"
-msgstr "リフレッシュ"
+msgstr ""
 
 #: utils/gw_menu.py:166 dialogs/city_id_dialog.py:90
 #: dialogs/settings_dialog.ui:608 dialogs/city_id_dialog.ui:42
 msgid "Location"
-msgstr "位置"
+msgstr ""
 
 #: utils/gw_menu.py:172
 msgid "Indicator icons"
-msgstr "指標用アイコン"
+msgstr ""
 
 #: utils/gw_menu.py:177 dialogs/about_dialog.py:58
 #: dialogs/settings_dialog.ui:3807 dialogs/settings_dialog.ui:4293
 msgid "Icons"
-msgstr "アイコン"
+msgstr ""
 
 #: utils/gw_menu.py:182 dialogs/settings_dialog.ui:3712
 msgid "Background"
-msgstr "バックグラウンド"
+msgstr ""
 
 #: utils/gw_menu.py:187 dialogs/settings_dialog.ui:3419
 msgid "Text"
-msgstr "テキスト"
+msgstr ""
 
 #: utils/gw_menu.py:192 dialogs/settings_dialog.ui:1899
 msgid "Window"
-msgstr "ウィンドウ"
+msgstr ""
 
 #: utils/gw_menu.py:197
 msgid "Presets"
-msgstr "プリセット"
+msgstr ""
 
 #: utils/gw_menu.py:202 dialogs/settings_dialog.py:73
 #: dialogs/settings_dialog.py:686
 msgid "Preferences"
-msgstr "設定"
+msgstr ""
 
 #: utils/gw_menu.py:210 dialogs/help_dialog.py:28
 msgid "Help"
-msgstr "ヘルプ"
+msgstr ""
 
 #: utils/gw_menu.py:218
 msgid "About"
-msgstr "このソフトについて"
+msgstr ""
 
 #: utils/gw_menu.py:230 dialogs/settings_dialog.ui:563
 #: dialogs/help_dialog.ui:25 dialogs/update_dialog.ui:44
 msgid "Close"
-msgstr "閉じる"
+msgstr ""
 
 #: dialogs/help_dialog.py:13 dialogs/update_dialog.py:44
 msgid "Go to link"
-msgstr "リンク先へ進む"
+msgstr ""
 
 #: dialogs/help_dialog.py:16 dialogs/update_dialog.py:47
 #: dialogs/help_dialog.ui:76 dialogs/update_dialog.ui:318
 msgid "Send email"
-msgstr "メールの送信"
+msgstr ""
 
 #: dialogs/update_dialog.py:60
 msgid "Update"
-msgstr "アップデート"
+msgstr ""
 
 #: dialogs/update_dialog.py:88
 msgid "Current version"
-msgstr "現在のバージョン"
+msgstr ""
 
 #: dialogs/update_dialog.py:89
 msgid "Available new version"
-msgstr "新しいバージョンが利用可能です"
+msgstr ""
 
 #: dialogs/update_dialog.py:112
 msgid "Error downloading updates"
-msgstr "アップデートのダウンロードエラー"
+msgstr ""
 
 #: dialogs/update_dialog.py:147
 msgid "Error installing updates"
-msgstr "アップデートのインストールエラー"
+msgstr ""
 
 #: dialogs/update_dialog.py:151 dialogs/update_dialog.ui:575
 msgid "Installation"
-msgstr "インスタレーション"
+msgstr ""
 
 #: dialogs/update_dialog.py:159
 msgid "Error removing"
-msgstr "削除エラー"
+msgstr ""
 
 #: dialogs/about_dialog.py:25
 msgid ""
@@ -400,423 +399,423 @@ msgid ""
 "\n"
 "You can find the full text of the license under\n"
 "http://www.gnu.org/licenses/gpl.txt"
-msgstr "このプログラムはフリーソフトウェアです。あなたはFree Software Foundationによって公開されているGNU General Public Licenseの元で(ライセンスのバージョン3もしくは、それ以降のバージョンを自由に選んで)、このプログラムを再配布、あるいは変更することができます。\n\nこのプログラムは役に立つことを希望して配布していますが、いかなる保証もありませんし、暗示的にも市販性、特定目的との適合性の保証もありません。詳細に関しては、GNU General Public Licenseを参照してください。\n\nあなたは、以下でこのライセンスの完全なテキストを見つけることができます。\nhttp://www.gnu.org/licenses/gpl.txt"
+msgstr ""
 
 #: dialogs/about_dialog.py:48
 msgid "Help and Ideas"
-msgstr "支援者及び考案者"
+msgstr ""
 
 #: dialogs/about_dialog.py:55
 msgid "Backgrounds"
-msgstr "バックグラウンド"
+msgstr ""
 
 #: dialogs/about_dialog.py:72
 msgid "translator-credits"
-msgstr "翻訳者のクレジット"
+msgstr ""
 
 #: dialogs/settings_dialog.py:384
 msgid "m/s"
-msgstr "m/s"
+msgstr ""
 
 #: dialogs/settings_dialog.py:384
 msgid "km/h"
-msgstr "km/h"
+msgstr ""
 
 #: dialogs/settings_dialog.py:384
 msgid "mph"
-msgstr "mph"
+msgstr ""
 
 #: dialogs/settings_dialog.py:385
 msgid "mmHg"
-msgstr "mmHg"
+msgstr ""
 
 #: dialogs/settings_dialog.py:385
 msgid "inHg"
-msgstr "inHg"
+msgstr ""
 
 #: dialogs/settings_dialog.py:385
 msgid "hPa"
-msgstr "hPa"
+msgstr ""
 
 #: dialogs/settings_dialog.py:388
 msgid "Never"
-msgstr "絶対にしない"
+msgstr ""
 
 #: dialogs/settings_dialog.py:389
 msgid "Only at start"
-msgstr "開始時だけ"
+msgstr ""
 
 #: dialogs/settings_dialog.py:390
 msgid "Always"
-msgstr "常に"
+msgstr ""
 
 #: dialogs/settings_dialog.py:394
 msgid "Only background"
-msgstr "背景だけ"
+msgstr ""
 
 #: dialogs/settings_dialog.py:395
 msgid "Yes"
-msgstr "Yes"
+msgstr ""
 
 #: dialogs/settings_dialog.py:494 dialogs/settings_dialog.py:504
 #: dialogs/settings_dialog.py:514 dialogs/settings_dialog.py:516
 msgid "Author"
-msgstr "作者"
+msgstr ""
 
 #: dialogs/city_id_dialog.py:55
 msgid "Choose your city on"
-msgstr "都市を選択してください："
+msgstr ""
 
 #: dialogs/city_id_dialog.py:56
 msgid "and copy the city code below"
-msgstr "次に、都市のコードを以下にコピーしてください"
+msgstr ""
 
 #: dialogs/city_id_dialog.py:57
 msgid "For example"
-msgstr "例"
+msgstr ""
 
 #: dialogs/city_id_dialog.py:58
 msgid "City code"
-msgstr "都市コード"
+msgstr ""
 
 #: dialogs/city_id_dialog.py:120
 msgid "Code"
-msgstr "コード"
+msgstr ""
 
 #: dialogs/city_id_dialog.py:124
 msgid "Place"
-msgstr "都市名"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:623
 msgid "Update (in minutes)"
-msgstr "アップデート(分単位)"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:638
 msgid "Check for updates"
-msgstr "アップデートのチェック"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:725
 msgid "Open..."
-msgstr "開く"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:795 dialogs/help_dialog.ui:109
 #: dialogs/update_dialog.ui:351
 msgid "Want to translate?"
-msgstr "翻訳したいですか？"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:817
 msgid "Program language"
-msgstr "使用する言語"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:832
 msgid "Weather language"
-msgstr "天気用語"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:847
 msgid "Add launcher icon to menu"
-msgstr "メニューに起動アイコンを追加します"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:875 dialogs/city_id_dialog.ui:197
 msgid "Weather service"
-msgstr "天候提供"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:956 dialogs/help_dialog.ui:286
 msgid "Translation status"
-msgstr "翻訳状況"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1010
 msgid "Autostart at login"
-msgstr "ログイン時に自動的に起動"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1025
 msgid "Number of instances"
-msgstr "インスタンスの数"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1072
 msgid "Start delay (in seconds)"
-msgstr "スタートの遅延時間(秒単位)"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1123 dialogs/settings_dialog.ui:1179
 msgid "Autostart"
-msgstr "自動起動"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1162
 msgid "Configured in the first instance"
-msgstr "最初のインスタンスでの設定"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1267
 msgid "General"
-msgstr "全般"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1290
 msgid "Wind"
-msgstr "風速"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1305
 msgid "Pressure"
-msgstr "気圧"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1354
 msgid "Temperature"
-msgstr "気温"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1407
 msgid "Wind chill"
-msgstr "体感温度"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1497
 msgid "Units"
-msgstr "単位"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1521
 msgid "Left"
-msgstr "左端"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1536 dialogs/settings_dialog.ui:4191
 msgid "Top"
-msgstr "上端"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1551
 msgid "Padding"
-msgstr "パディング"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1659
 msgid "Fix BadDrawable error"
-msgstr "BadDrawableエラーを修正"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1704
 msgid "Transparency"
-msgstr "透明度"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1843
 msgid "Scale"
-msgstr "拡大/縮小"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1951 dialogs/settings_dialog.ui:2084
 #: dialogs/settings_dialog.ui:2318 dialogs/settings_dialog.ui:2542
 #: dialogs/settings_dialog.ui:3871
 msgid "Show"
-msgstr "表示"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1966 dialogs/settings_dialog.ui:2099
 #: dialogs/settings_dialog.ui:2216 dialogs/settings_dialog.ui:2333
 #: dialogs/settings_dialog.ui:2557
 msgid "Offset from center"
-msgstr "中心からのオフセット量"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2044
 msgid "Block Tomorrow"
-msgstr "明日の予報の表示"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2177
 msgid "Block Today"
-msgstr "今日の予報の表示"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2264
 msgid "Block Now"
-msgstr "現在の表示"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2409
 msgid "Reduce"
-msgstr "小さく表示"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2424
 msgid "Angle of rotation"
-msgstr "回転角"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2502
 msgid "Block Wind"
-msgstr "風の表示"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2635
 msgid "Block Additional info"
-msgstr "追加情報の表示"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2693
 msgid "Number of days"
-msgstr "表示日の数"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2708
 msgid "Show weather retrieval time"
-msgstr "予報の取得時刻を表示"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2723
 msgid "Show splash screen"
-msgstr "スプラッシュスクリーンを表示"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2738
 msgid "Hide splash screen after attempts (0 - do not hide)"
-msgstr "スプラッシュスクリーンを非表示にするまでの試行回数（0 - 非表示にしない）"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2882
 msgid "Show chance of rain"
-msgstr "降水確率を表示"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2949
 msgid "View"
-msgstr "表示"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2992 dialogs/settings_dialog.ui:4031
 msgid "Font"
-msgstr "フォント"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3007
 msgid "Main color"
-msgstr "平日の色"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3056
 msgid "Color weekend"
-msgstr "週末の色"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3135
 msgid "Color wind"
-msgstr "風の色"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3150
 msgid ""
 "High wind\n"
 "(-1 = not highlighted)"
-msgstr "非常に強い風\n(-1は強調表示されない)"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3166
 msgid "Shadow color"
-msgstr "影の色"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3181 dialogs/settings_dialog.ui:3986
 msgid "Shadow"
-msgstr "影をつける"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3321
 msgid "Weekend"
-msgstr "週末"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3365
 msgid "Weather description style"
-msgstr "予報の表示形式"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3458
 msgid "Use image"
-msgstr "画像を使用"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3518 dialogs/settings_dialog.ui:3752
 msgid "Select"
-msgstr "選択"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3602
 msgid "Radius corners"
-msgstr "角を丸める"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3617 dialogs/settings_dialog.ui:4080
 msgid "Color"
-msgstr "色"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3832
 msgid "Appearance"
-msgstr "外観"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3856
 msgid "Type (restart required)"
-msgstr "アイコンの形式(再起動が必要)"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:4095
 msgid "Color shadow"
-msgstr "影の色"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:4223
 msgid "Width"
-msgstr "幅"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:4345
 msgid "Fix the size"
-msgstr "サイズを固定"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:4390
 msgid "Size"
-msgstr "サイズ"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:4466
 msgid "Indicator"
-msgstr "表示関連"
+msgstr ""
 
 #: dialogs/help_dialog.ui:92 dialogs/update_dialog.ui:334
 msgid "Found a bug?"
-msgstr "バグを見つけましたか？"
+msgstr ""
 
 #: dialogs/help_dialog.ui:126 dialogs/update_dialog.ui:369
 msgid "Have any questions?"
-msgstr "何か質問がありますか？"
+msgstr ""
 
 #: dialogs/help_dialog.ui:143 dialogs/update_dialog.ui:387
 msgid "Have any suggestions?"
-msgstr "何らかの提案がありますか？"
+msgstr ""
 
 #: dialogs/help_dialog.ui:163
 msgid "You can support my project"
-msgstr "このプロジェクトをサポートできますか？"
+msgstr ""
 
 #: dialogs/help_dialog.ui:174 dialogs/update_dialog.ui:419
 msgid "Read more"
-msgstr "続きを読む"
+msgstr ""
 
 #: dialogs/help_dialog.ui:238 dialogs/update_dialog.ui:155
 msgid "Changelog"
-msgstr "更新履歴"
+msgstr ""
 
 #: dialogs/help_dialog.ui:254 dialogs/update_dialog.ui:171
 msgid "Source Code"
-msgstr "ソースコード"
+msgstr ""
 
 #: dialogs/help_dialog.ui:270 dialogs/update_dialog.ui:203
 msgid "What's New"
-msgstr "最新情報"
+msgstr ""
 
 #: dialogs/update_dialog.ui:31
 msgid "Update now"
-msgstr "直ちにアップデートします"
+msgstr ""
 
 #: dialogs/update_dialog.ui:187
 msgid "Manual update"
-msgstr "手動でアップデートします"
+msgstr ""
 
 #: dialogs/update_dialog.ui:408
 msgid "You can support project"
-msgstr "このプロジェクトをサポートすることができます"
+msgstr ""
 
 #: dialogs/update_dialog.ui:469
 msgid "Additional information"
-msgstr "追加情報"
+msgstr ""
 
 #: dialogs/update_dialog.ui:589
 msgid "Cleaning temporary files"
-msgstr "一時ファイルを削除しています"
+msgstr ""
 
 #: dialogs/update_dialog.ui:672
 msgid "Restart"
-msgstr "再起動"
+msgstr ""
 
 #: dialogs/update_dialog.ui:701
 msgid "Update successful"
-msgstr "更新しました"
+msgstr ""
 
 #: dialogs/update_dialog.ui:756
 msgid "Update error"
-msgstr "アップデート エラー"
+msgstr ""
 
 #: dialogs/city_id_dialog.ui:58
 msgid "Add"
-msgstr "追加"
+msgstr ""
 
 #: dialogs/city_id_dialog.ui:72
 msgid ""
 "Close & Reload\n"
 "selected"
-msgstr "終了&再起動\n選択されました"
+msgstr ""
 
 #: dialogs/city_id_dialog.ui:87
 msgid ""
 "Remove\n"
 "selected"
-msgstr "削除\n選択されました"
+msgstr ""
 
 #: dialogs/city_id_dialog.ui:160
 msgid "Language weather"
