@@ -16,7 +16,7 @@ def fix_digits(date):
         return date
 
 def main(date, date_separator, swap_d_and_m):
-    if date_separator == 'Default' and swap_d_and_m == False:
+    if date_separator == 'default' and swap_d_and_m == False:
         return date
 
     old_separator = find_separator(date[0])
@@ -28,7 +28,7 @@ def main(date, date_separator, swap_d_and_m):
         for i in range(len(date)):
             date[i] = fix_digits(date[i].split(old_separator)[-1])+old_separator+fix_digits(date[i].split(old_separator)[0])
 
-    if date_separator != 'Default':
+    if date_separator != 'default':
         for i in range(len(date)):
             date[i] = fix_digits(date[i].split(old_separator)[0])+date_separator+fix_digits(date[i].split(old_separator)[-1])
     
