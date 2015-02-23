@@ -67,7 +67,7 @@ except:
 
 from dialogs import about_dialog, city_id_dialog, update_dialog, settings_dialog, help_dialog
 from services import data
-from utils import gw_menu, presets
+from utils import gw_menu, presets, date_convert
 import cairo
 import re
 import os
@@ -160,6 +160,8 @@ gw_config_default = {
     'app_indicator_size': 22,
     'scale': 1,
     'instances_count': 1,
+    'date_separator': 'default',
+    'swap_d_and_m': False,
     # customizable options
     'preset_number':0,
     'bg_left': 0,
@@ -739,7 +741,7 @@ class MyDrawArea(Gtk.DrawingArea):
     
     
     def expose(self, widget, event):
-        global err, on_redraw, get_weather_bool, weather, err_connect, splash, time_receive
+        global err, on_redraw, get_weather_bool, weather, err_connect, splash, time_receive, date
         # if err == False:
         self.clear_draw_area(widget)
         if first_start:
@@ -754,6 +756,7 @@ class MyDrawArea(Gtk.DrawingArea):
                 weather = weather1
                 for i in weather.keys():
                     globals()[i] = weather[i]
+                date = date_convert.main(date, date_separator, swap_d_and_m)
             else:
                 err_connect = True
             get_weather_bool = False

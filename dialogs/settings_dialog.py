@@ -48,6 +48,20 @@ dict_app_lang = {
     'uk': 'Українська'
 }
 
+date_separators = {
+    'default': 'Default',
+    '.': '31.01',
+    '-': '31-01',
+    '/': '31/01'
+}
+
+date_separators_list = (
+    'default',
+    '.',
+    '-',
+    '/'
+)
+
 # find all available lang
 available_lang = ['auto', 'en']
 for root, dirs, files in os.walk(os.path.join(os.path.split(work_path)[0], 'i18n')):
@@ -142,6 +156,11 @@ class settings():
         self.combobox_press_units = self.ui.get_object('combobox_press_units')
         self.combobox_press_units.connect("changed", self.save_settings)
         self.liststore10 = self.ui.get_object('liststore10')
+        self.combobox_date_separator = self.ui.get_object('combobox_date_separator')
+        self.combobox_date_separator.connect("changed", self.set_date_separator)
+        self.liststore15 = self.ui.get_object('liststore15')
+        self.switch_swap_d_and_m = self.ui.get_object('switch_swap_d_and_m')
+        self.switch_swap_d_and_m.connect("notify::active", self.save_settings)
 
         self.clear_t_scale = self.ui.get_object('clear_t_scale')
         self.clear_t_scale.connect("clicked", self.clear_settings)
@@ -431,6 +450,13 @@ class settings():
             self.liststore8.append([services_list[i]])
         self.combobox_service.set_active(service_set)
 
+        self.liststore15.clear()
+        for i in range(len(date_separators_list)):
+            self.liststore15.append([date_separators[date_separators_list[i]]])
+            if gw_config_set['date_separator'] == date_separators_list[i]:
+                self.combobox_date_separator.set_active(i)
+
+
         self.load(self.combobox_wind_units)
         self.load(self.combobox_press_units)
         self.load(self.spinbutton_upd_time)
@@ -485,6 +511,7 @@ class settings():
         self.load(self.entry_weekend)
         self.load(self.spinbutton_instances_count)
         self.load(self.combobox_desc_style)
+        self.load(self.switch_swap_d_and_m)
 
         if gw_config_set['show_bg_png'] == True:
             self.frame_not_image.hide()
@@ -622,6 +649,9 @@ class settings():
         if name == 'instances_count':
             autorun.add("gis-weather", os.path.join(os.path.split(work_path)[0], 'gis-weather.py'), gw_config_set['delay_start_time'], gw_config_set['instances_count'])
 
+        if name == 'swap_d_and_m':
+            drawing_area_set.redraw(False, True, load_config = True)
+
     def clear_settings(self, widget):
         global gw_config_set
         w_name = Gtk.Buildable.get_name(widget)
@@ -671,6 +701,15 @@ class settings():
             gw_config_set[name] = icons_list_set[i]
         Save_Config()
         drawing_area_set.redraw(False, False, load_config = True)
+
+    def set_date_separator(self, widget):
+        if state_lock:
+            return
+        global gw_config_set
+        i = widget.get_active()
+        gw_config_set['date_separator'] = date_separators_list[i]
+        Save_Config()
+        drawing_area_set.redraw(False, True, load_config = True)
 
     def set_weather_lang(self, widget):
         if state_lock:
