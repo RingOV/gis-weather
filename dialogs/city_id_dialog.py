@@ -30,7 +30,7 @@ def Load_Config():
 def set_service(widget, label, liststore2, combobox_weather_lang, weather_lang, store):
     global gw_config
     Load_Config()
-    i = widget.get_active()
+    i = data.services_list[widget.get_active()]
     load_data(i, label, liststore2, combobox_weather_lang, weather_lang, store)
     gw_config['service'] = i
     gw_config['weather_lang'] = weather_lang_list[combobox_weather_lang.get_active()]
@@ -98,7 +98,7 @@ def create(window, APP_PATH, weather_lang, service):
     label = ui.get_object('label1')
     for i in range(len(services_list)):
         liststore3.append([services_list[i]])
-    combobox_service.set_active(service)
+    combobox_service.set_active(data.get_index(service))
     store = ui.get_object('liststore1')
 
     load_data(service, label, liststore2, combobox_weather_lang, weather_lang, store)

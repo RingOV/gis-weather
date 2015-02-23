@@ -57,7 +57,7 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color
 
     for i in range(len(data.services_list)):
         try:
-            city_list = gw_config[data.get_city_list(i)]
+            city_list = gw_config[data.get_city_list(data.services_list[i])]
         except:
             city_list = []
         if len(city_list) != 0:
@@ -72,10 +72,10 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color
 
             for j in range(len(city_list)):
                 menu_items = Gtk.RadioMenuItem(label=city_list[j].split(';')[1])
-                if city_list[j].split(';')[0] == str(gw_config['city_id']) and gw_config['service'] == i:
+                if city_list[j].split(';')[0] == str(gw_config['city_id']) and gw_config['service'] == data.services_list[i]:
                     menu_items.set_active(True)
                 sub_menu_place.append(menu_items)
-                menu_items.connect("activate", app.menu_response, 'reload', [i, city_list[j]])
+                menu_items.connect("activate", app.menu_response, 'reload', [data.services_list[i], city_list[j]])
                 menu_items.show()
 
     # sub_menu_icons

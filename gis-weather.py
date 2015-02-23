@@ -141,7 +141,7 @@ gw_config_default = {
     'delay_start_time': 0,
     'block_now_left': 0,
     't_scale': 0,                      # 0 - °C, 1 - °F, 2 - K
-    'service': 0,
+    'service': 'Gismeteo',
     'max_days': 12,
     'show_chance_of_rain': False,
     'wind_units': 0,
@@ -405,9 +405,10 @@ if INSTANCE_NO < instances_count:
     subprocess.Popen(['python3', os.path.join(APP_PATH, 'gis-weather.py'), '-i '+str(instances_count)])
 
 def get_weather():
-    global service
-    if service>len(data.services_list)-1:
-        service = len(data.services_list)-1
+    global service, weather_lang
+    if service not in data.services_list:
+        service = data.services_list[0]
+        weather_lang = data.get(service)[-1][0]
     Save_Config()
     return data.get_weather(service, weather, n, city_id, show_block_tomorrow, show_block_today, show_block_add_info, timer_bool, weather_lang, icons_name)
 

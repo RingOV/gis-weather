@@ -448,7 +448,7 @@ class settings():
         self.liststore8.clear()
         for i in range(len(services_list)):
             self.liststore8.append([services_list[i]])
-        self.combobox_service.set_active(service_set)
+        self.combobox_service.set_active(data.get_index(service_set))
 
         self.liststore15.clear()
         for i in range(len(date_separators_list)):
@@ -775,16 +775,16 @@ class settings():
             return
         global gw_config_set
         i = widget.get_active()
-        gw_config_set['service'] = i
+        gw_config_set['service'] = data.services_list[i]
         try:
-            city_list = gw_config_set[data.get_city_list(i)]
+            city_list = gw_config_set[data.get_city_list(gw_config_set['service'])]
         except:
             city_list = []
         if city_list:
             gw_config_set['city_id'] = city_list[0].split(';')[0]
         else:
             gw_config_set['city_id'] = 0
-        gw_config_set['max_days'] = data.get_max_days(i)
+        gw_config_set['max_days'] = data.get_max_days(gw_config_set['service'])
         if gw_config_set['n'] > gw_config_set['max_days']:
             gw_config_set['n'] = gw_config_set['max_days']
         self.spinbutton_n.set_value(gw_config_set['n'])
