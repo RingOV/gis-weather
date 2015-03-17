@@ -4,3 +4,4 @@ po/.tx
 __pycache__
 */__pycache__
 dialogs/*.ui~
+.idea

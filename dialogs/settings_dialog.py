@@ -45,7 +45,8 @@ dict_app_lang = {
     'ro': 'Română',
     'ru': 'Русский',
     'nl_NL': 'Nederlands',
-    'uk': 'Українська'
+    'uk': 'Українська',
+    'lt': 'Lietuviškai'
 }
 
 date_separators = {

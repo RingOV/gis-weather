@@ -1,19 +1,17 @@
 # 
 # Translators:
-# Heimen Stoffels <vistausss@outlook.com>, 2014
-# Heimen Stoffels <vistausss@outlook.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2015-02-23 13:47+0300\n"
-"PO-Revision-Date: 2015-02-24 12:45+0000\n"
-"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
-"Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/gis-weather/language/nl_NL/)\n"
+"PO-Revision-Date: 2015-03-12 15:41+0000\n"
+"Last-Translator: Karolis Ryselis\n"
+"Language-Team: Lithuanian (http://www.transifex.com/projects/p/gis-weather/language/lt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl_NL\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: lt\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
@@ -25,75 +23,75 @@ msgstr ""
 
 #: gis-weather.py:40
 msgid "Running multiple instances is not supported"
-msgstr "Meerdere draaiende instanties worden niet ondersteund"
+msgstr "Keleto egzempliorių paleidimas nėra palaikomas"
 
 #: gis-weather.py:45
 msgid "number of instances"
-msgstr "aantal instanties"
+msgstr "egzempliorių kiekis"
 
 #: gis-weather.py:222 dialogs/settings_dialog.ui:671
 msgid "Configuration folder"
-msgstr "Configuratiemap"
+msgstr "Konfigūracijos aplankas"
 
 #: gis-weather.py:245 dialogs/city_id_dialog.py:28
 msgid "Error loading config file"
-msgstr "Fout bij laden van configuratiebestand"
+msgstr "Nepavyko įkelti konfigūracijos failo"
 
 #: gis-weather.py:272
 msgid "Error loading color scheme"
-msgstr "Fout bij laden van kleurenschema"
+msgstr "Nepavyko įkelti spalvų schemos"
 
 #: gis-weather.py:284
 msgid "Error loading preset"
-msgstr "Fout bij laden van voorinstelling"
+msgstr "Nepavyko įkelti šablono"
 
 #: gis-weather.py:296
 msgid "Enter full path to script"
-msgstr "Voer volledig pad naar script in"
+msgstr "Įveskite pilną kelią iki scenarijaus"
 
 #: gis-weather.py:297
 msgid "Exit"
-msgstr "Afsluiten"
+msgstr "Uždaroma"
 
 #: gis-weather.py:430
 msgid "Check for new version"
-msgstr "Controleren op nieuwe versie"
+msgstr "Tikrinti, ar yra nauja versija"
 
 #: gis-weather.py:435 gis-weather.py:444
 msgid "Unable to check for updates"
-msgstr "Niet in staat te controleren op updates"
+msgstr "Nepavyko patikrinti, ar yra atnaujinimų"
 
 #: gis-weather.py:466
 msgid "New version available"
-msgstr "Nieuwe versie beschikbaar"
+msgstr "Prieinama nauja versija"
 
 #: gis-weather.py:473
 msgid "You are using the latest version"
-msgstr "U gebruikt de nieuwste versie"
+msgstr "Naudojate naujausią versiją"
 
 #: gis-weather.py:490 gis-weather.py:1256
 msgid "Screenshot saved to"
-msgstr "Schermafbeelding opgeslagen in"
+msgstr "Ekrano nuotrauka išsaugota į"
 
 #: gis-weather.py:494
 msgid "Unable to get the screenshot"
-msgstr "Niet in staat om schermafbeelding te verkrijgen"
+msgstr "Nepavyko gauti ekrano nuotraukos"
 
 #: gis-weather.py:664
 msgid "Getting weather..."
-msgstr "Bezig met verkrijgen van weer..."
+msgstr "Gaunama orų informacija..."
 
 #: gis-weather.py:667
 msgid "Error getting weather"
-msgstr "Fout bij verkrijgen van weer"
+msgstr "Nepavyko gauti orų informacijos"
 
 #: gis-weather.py:669
 msgid "Location not set"
-msgstr "Geen locatie ingesteld"
+msgstr "Neparinkta vietovė"
 
 #: gis-weather.py:725 gis-weather.py:787
 msgid "Next update in"
-msgstr "Volgende bijwerking over"
+msgstr "Kitas atnaujinimas po"
 
 #: gis-weather.py:725 gis-weather.py:787
 msgid "min"
@@ -101,127 +99,127 @@ msgstr "min"
 
 #: gis-weather.py:777
 msgid "Connection error"
-msgstr "Verbindingsfout"
+msgstr "Ryšio klaida"
 
 #: gis-weather.py:839
 msgid "Updated on server"
-msgstr "Bijgewerkt op server"
+msgstr "Atnaujinta serveryje"
 
 #: gis-weather.py:840
 msgid "Weather received"
-msgstr "Weer opgehaald"
+msgstr "Orų informacija gauta"
 
 #: gis-weather.py:870
 msgid "E"
-msgstr "O"
+msgstr "R"
 
 #: gis-weather.py:870
 msgid "S"
-msgstr "Z"
+msgstr "P"
 
 #: gis-weather.py:870
 msgid "W"
-msgstr "W"
+msgstr "V"
 
 #: gis-weather.py:870
 msgid "N"
-msgstr "N"
+msgstr "Š"
 
 #: gis-weather.py:915
 msgid "humid."
-msgstr "vochtig."
+msgstr "drėgn."
 
 #: gis-weather.py:921
 msgid "water"
-msgstr "water"
+msgstr "vanduo"
 
 #: gis-weather.py:938 gis-weather.py:977
 msgid "Morning"
-msgstr "Ochtend"
+msgstr "Rytas"
 
 #: gis-weather.py:938 gis-weather.py:977
 msgid "Day"
-msgstr "Dag"
+msgstr "Diena"
 
 #: gis-weather.py:938 gis-weather.py:977
 msgid "Evening"
-msgstr "Avond"
+msgstr "Vakaras"
 
 #: gis-weather.py:938 gis-weather.py:977
 msgid "Night"
-msgstr "Nacht"
+msgstr "Naktis"
 
 #: gis-weather.py:941 gis-weather.py:943
 msgid "Tomorrow"
-msgstr "Morgen"
+msgstr "Rytoj"
 
 #: gis-weather.py:979
 msgid "Today"
-msgstr "Vandaag"
+msgstr "Šiandien"
 
 #: gis-weather.py:1102
 msgid "Background image not found"
-msgstr "Achtergrondafbeelding niet gevonden"
+msgstr "Fono paveikslėlis nerastas"
 
 #: gis-weather.py:1159
 msgid "downloading"
-msgstr "bezig met downloaden"
+msgstr "atsiunčiama"
 
 #: gis-weather.py:1163
 msgid "Unable to download"
-msgstr "Niet in staat om te downloaden"
+msgstr "Nepavyko atsiųsti"
 
 #: gis-weather.py:1188
 msgid "Icon not found"
-msgstr "Pictogram niet gevonden"
+msgstr "Piktograma nerasta"
 
 #: gis-weather.py:1267
 msgid "Widget size"
-msgstr "Widgetgrootte"
+msgstr "Valdiklio dydis"
 
 #: gis-weather.py:1268
 msgid "width"
-msgstr "breedte"
+msgstr "plotis"
 
 #: gis-weather.py:1268
 msgid "height"
-msgstr "hoogte"
+msgstr "aukštis"
 
 #: gis-weather.py:1268
 msgid "including indent"
-msgstr "inclusief inspringing"
+msgstr "įskaitant įtrauką"
 
 #: gis-weather.py:1444
 msgid "Removed"
-msgstr "Verwijderd"
+msgstr "Pašalinta"
 
 #: gis-weather.py:1473 dialogs/city_id_dialog.ui:376
 msgid "Added"
-msgstr "Toegevoegd"
+msgstr "Pridėta"
 
 #: gis-weather.py:1478 dialogs/city_id_dialog.ui:308
 msgid "Invalid location code"
-msgstr "Ongeldige locatiecode"
+msgstr "Neteisingas vietovės kodas"
 
 #: gis-weather.py:1544
 msgid "Your screen does not support alpha"
-msgstr "Uw scherm ondersteunt geen alpha"
+msgstr "Jūsų ekranas nepalaiko alpha"
 
 #: gis-weather.py:1546
 msgid "Your screen supports alpha"
-msgstr "Uw scherm ondersteunt alpha"
+msgstr "Jūsų ekranas palaiko alpha"
 
 #: services/gismeteo.py:247 services/accuweather.py:225
 msgid "Failed to get the name of the location"
-msgstr "Mislukt om de locatienaam te verkrijgen"
+msgstr "Nepavyko gauti vietovės pavadinimo"
 
 #: services/gismeteo.py:253 services/accuweather.py:236
 msgid "Getting weather for"
-msgstr "Bezig met verkrijgen van weer voor"
+msgstr "Gaunama orų informacija"
 
 #: services/gismeteo.py:253 services/accuweather.py:236
 msgid "days"
-msgstr "dagen"
+msgstr "dienoms"
 
 #: services/gismeteo.py:254 services/accuweather.py:237
 #: services/accuweather.py:297 services/accuweather.py:317
@@ -232,7 +230,7 @@ msgstr "dagen"
 #: services/accuweather.py:600 dialogs/update_dialog.py:27
 #: dialogs/update_dialog.ui:561
 msgid "Downloading"
-msgstr "Bezig met downloaden"
+msgstr "Atsiunčiama"
 
 #: services/gismeteo.py:260 services/accuweather.py:243
 #: services/accuweather.py:303 services/accuweather.py:323
@@ -242,145 +240,145 @@ msgstr "Bezig met downloaden"
 #: services/accuweather.py:590 services/accuweather.py:598
 #: services/accuweather.py:606
 msgid "Unable to download page, check the network connection"
-msgstr "Niet in staat om pagina te downloaden, controleer uw netwerkverbinding"
+msgstr "Nepavyko atsiųsti puslapio, patikrinkite interneto ryšį"
 
 #: services/gismeteo.py:262 services/gismeteo.py:376
 #: services/accuweather.py:245
 msgid "Next try in 10 seconds"
-msgstr "Volgende poging over 10 seconden"
+msgstr "Kitas bandymas po 10 sekundžių"
 
 #: services/gismeteo.py:444 services/accuweather.py:715
 msgid "updated on server"
-msgstr "bijgewerkt op server"
+msgstr "atnaujinta serveryje"
 
 #: services/gismeteo.py:445 services/accuweather.py:716
 msgid "weather received"
-msgstr "weer opgehaald"
+msgstr "orų informacija gauta"
 
 #: services/accuweather.py:284
 msgid "Calm"
-msgstr "Rustig"
+msgstr "Ramu"
 
 #: utils/autorun.py:72 utils/desktop.py:23 dialogs/about_dialog.py:25
 msgid "Weather widget"
-msgstr "Weerwidget"
+msgstr "Orų valdiklis"
 
 #: utils/gw_menu.py:53 dialogs/settings_dialog.ui:682
 msgid "Setup..."
-msgstr "Instellen..."
+msgstr "Sąranka..."
 
 #: utils/gw_menu.py:112 dialogs/settings_dialog.py:422
 msgid "No"
-msgstr "Nee"
+msgstr "Ne"
 
 #: utils/gw_menu.py:128
 msgid "Color scheme"
-msgstr "Kleurenschema"
+msgstr "Spalvų schema"
 
 #: utils/gw_menu.py:136 dialogs/settings_dialog.ui:1754
 msgid "Lock position"
-msgstr "Oriëntatie vergrendelen"
+msgstr "Užfiksuoti padėtį"
 
 #: utils/gw_menu.py:142 dialogs/settings_dialog.ui:1739
 msgid "On all desktops"
-msgstr "Op alle bureaubladen"
+msgstr "Ant visų darbalaukių"
 
 #: utils/gw_menu.py:152
 msgid "Save screenshot"
-msgstr "Schermafbeelding opslaan"
+msgstr "Išsaugoti ekrano nuotrauką"
 
 #: utils/gw_menu.py:168
 msgid "Show/Hide widget"
-msgstr "Widget weergeven/verbergen"
+msgstr "Rodyti/slėpti valdiklį"
 
 #: utils/gw_menu.py:177 dialogs/settings_dialog.ui:937
 msgid "Refresh"
-msgstr "Verversen"
+msgstr "Atnaujinti"
 
 #: utils/gw_menu.py:189 dialogs/city_id_dialog.py:90
 #: dialogs/settings_dialog.ui:614 dialogs/city_id_dialog.ui:42
 msgid "Location"
-msgstr "Locatie"
+msgstr "Vietovė"
 
 #: utils/gw_menu.py:195
 msgid "Indicator icons"
-msgstr "Indicator-pictogrammen"
+msgstr "Indikatoriaus piktogramos"
 
 #: utils/gw_menu.py:200 dialogs/about_dialog.py:41
 #: dialogs/settings_dialog.ui:3836 dialogs/settings_dialog.ui:4315
 msgid "Icons"
-msgstr "Pictogrammen"
+msgstr "Piktogramos"
 
 #: utils/gw_menu.py:205 dialogs/settings_dialog.ui:3742
 msgid "Background"
-msgstr "Achtergrond"
+msgstr "Fonas"
 
 #: utils/gw_menu.py:210 dialogs/settings_dialog.ui:3453
 msgid "Text"
-msgstr "Tekst"
+msgstr "Tekstas"
 
 #: utils/gw_menu.py:215 dialogs/settings_dialog.ui:1958
 msgid "Window"
-msgstr "Venster"
+msgstr "Langas"
 
 #: utils/gw_menu.py:220
 msgid "Presets"
-msgstr "Voorinstellingen"
+msgstr "Šablonai"
 
 #: utils/gw_menu.py:225 dialogs/settings_dialog.py:97
 #: dialogs/settings_dialog.py:735
 msgid "Preferences"
-msgstr "Instellingen"
+msgstr "Nustatymai"
 
 #: utils/gw_menu.py:233 dialogs/help_dialog.py:28
 msgid "Help"
-msgstr "Hulp"
+msgstr "Pagalba"
 
 #: utils/gw_menu.py:241
 msgid "About"
-msgstr "Over"
+msgstr "Apie"
 
 #: utils/gw_menu.py:253 dialogs/settings_dialog.ui:569
 #: dialogs/help_dialog.ui:25 dialogs/update_dialog.ui:44
 msgid "Close"
-msgstr "Sluiten"
+msgstr "Uždaryti"
 
 #: dialogs/help_dialog.py:13 dialogs/update_dialog.py:44
 msgid "Go to link"
-msgstr "Ga naar link"
+msgstr "Eiti į saitą"
 
 #: dialogs/help_dialog.py:16 dialogs/update_dialog.py:47
 #: dialogs/help_dialog.ui:76 dialogs/update_dialog.ui:318
 msgid "Send email"
-msgstr "E-mail versturen"
+msgstr "Siųsti elektroninį laišką"
 
 #: dialogs/update_dialog.py:60
 msgid "Update"
-msgstr "Bijwerken"
+msgstr "Naujinti"
 
 #: dialogs/update_dialog.py:88
 msgid "Current version"
-msgstr "Huidige versie"
+msgstr "Dabartinė versija"
 
 #: dialogs/update_dialog.py:89
 msgid "Available new version"
-msgstr "Beschikbare nieuwe versie"
+msgstr "Prieinama nauja versija"
 
 #: dialogs/update_dialog.py:112
 msgid "Error downloading updates"
-msgstr "Fout bij downloaden van updates"
+msgstr "Klaida atsisiunčiant atnaujinimus"
 
 #: dialogs/update_dialog.py:147
 msgid "Error installing updates"
-msgstr "Fout bij installeren van updates"
+msgstr "Klaida diegiant atnaujinimus"
 
 #: dialogs/update_dialog.py:151 dialogs/update_dialog.ui:575
 msgid "Installation"
-msgstr "Installatie"
+msgstr "Diegimas"
 
 #: dialogs/update_dialog.py:159
 msgid "Error removing"
-msgstr "Fout bij verwijderen"
+msgstr "Klaida šalinant"
 
 #: dialogs/about_dialog.py:8
 msgid ""
@@ -396,19 +394,19 @@ msgid ""
 "\n"
 "You can find the full text of the license under\n"
 "http://www.gnu.org/licenses/gpl.txt"
-msgstr "Dit programma is vrij software: u kunt het herverspreiden en/of aanpassen onder de voorwaarden van de GNU General Public License (GPL), zoals verstrekt door de Free Software Foundation. Dit kan onder versie 3 van de licentie of, indien u dit wilt, een nieuwere versie.\n\nDit programma wordt verspreidt in de hoop dat het nuttig is, maar ZONDER GARANTIE; zelfs zonder de gewekte garantie van MERCHANDEERBAARHEID of PASSEND BIJ EEN SPECIFIEK GEBRUIK. Zie de GNU General Public License voor meer details.\n\nU kunt de volledige tekst van de licentie vinden op\nhttp://www.gnu.org/licenses/gpl.txt"
+msgstr "Ši programa yra nemokama: galite platinti ir/ar keisti\nją pagal GNU Bendrosios Viešosios Licenzijos sąlygas, kaip skelbia\nLaisvosios programinės įrangos fondas, tiek taikant 3-ąją licenzijos\nversiją, tiek (pasirinktinai) bet kurią naujesnę versiją.\nŠi programa platinama tikintis, kad ji bus naudinga, tačiau BE JOKIOS\nGARANTIJOS; netgi be numatomos PERKAMUMO ar ATITIKIMO KONKREČIAI\nPASKIRČIAI garantijos. Daugiau informacijos GNU Bendrojoje Viešojoje\nLicenzijoje.\n\nVisas licenzijos tekstas patalpintas\nhttp://www.gnu.org/licenses/gpl.txt"
 
 #: dialogs/about_dialog.py:31
 msgid "Help and Ideas"
-msgstr "Hulp en ideeën"
+msgstr "Pagalba ir idėjos"
 
 #: dialogs/about_dialog.py:38
 msgid "Backgrounds"
-msgstr "Achtergronden"
+msgstr "Fonai"
 
 #: dialogs/about_dialog.py:55
 msgid "translator-credits"
-msgstr "Heimen Stoffels <motionshot@vivaldi.net>"
+msgstr "Karolis Ryselis <djryse@gmail.com>"
 
 #: dialogs/settings_dialog.py:413
 msgid "m/s"
@@ -416,7 +414,7 @@ msgstr "m/s"
 
 #: dialogs/settings_dialog.py:413
 msgid "km/h"
-msgstr "km/u"
+msgstr "km/h"
 
 #: dialogs/settings_dialog.py:413
 msgid "mph"
@@ -424,11 +422,11 @@ msgstr "mph"
 
 #: dialogs/settings_dialog.py:414
 msgid "mmHg"
-msgstr "mmHg"
+msgstr "mm gyv. stulp."
 
 #: dialogs/settings_dialog.py:414
 msgid "inHg"
-msgstr "inHg"
+msgstr "col. gyv. stulp."
 
 #: dialogs/settings_dialog.py:414
 msgid "hPa"
@@ -436,392 +434,392 @@ msgstr "hPa"
 
 #: dialogs/settings_dialog.py:417
 msgid "Never"
-msgstr "Nooit"
+msgstr "Niekada"
 
 #: dialogs/settings_dialog.py:418
 msgid "Only at start"
-msgstr "Alleen bij opstarten"
+msgstr "Tik paleidžiant"
 
 #: dialogs/settings_dialog.py:419
 msgid "Always"
-msgstr "Altijd"
+msgstr "Visada"
 
 #: dialogs/settings_dialog.py:423
 msgid "Only background"
-msgstr "Alleen achtergrond"
+msgstr "Tik fone"
 
 #: dialogs/settings_dialog.py:424
 msgid "Yes"
-msgstr "Ja"
+msgstr "Taip"
 
 #: dialogs/settings_dialog.py:531 dialogs/settings_dialog.py:541
 #: dialogs/settings_dialog.py:551 dialogs/settings_dialog.py:553
 msgid "Author"
-msgstr "Auteur"
+msgstr "Autorius"
 
 #: dialogs/city_id_dialog.py:55
 msgid "Choose your city on"
-msgstr "Kies uw stad op"
+msgstr "Pasirinkite savo miestą"
 
 #: dialogs/city_id_dialog.py:56
 msgid "and copy the city code below"
-msgstr "en kopieer de onderstaande stadscode"
+msgstr "ir nukopijuokite miesto kodą žemiau"
 
 #: dialogs/city_id_dialog.py:57
 msgid "For example"
-msgstr "Bijvoorbeeld"
+msgstr "Pavyzdžiui"
 
 #: dialogs/city_id_dialog.py:58
 msgid "City code"
-msgstr "Stadscode"
+msgstr "Miesto kodas"
 
 #: dialogs/city_id_dialog.py:120
 msgid "Code"
-msgstr "Code"
+msgstr "Kodas"
 
 #: dialogs/city_id_dialog.py:124
 msgid "Place"
-msgstr "Plaats"
+msgstr "Vieta"
 
 #: dialogs/settings_dialog.ui:629
 msgid "Update (in minutes)"
-msgstr "Bijwerken (in minuten)"
+msgstr "Atnaujinti po (minutėmis)"
 
 #: dialogs/settings_dialog.ui:644
 msgid "Check for updates"
-msgstr "Controleren op updates"
+msgstr "Tikrinti, ar yra atnaujinimų"
 
 #: dialogs/settings_dialog.ui:731
 msgid "Open..."
-msgstr "Openen..."
+msgstr "Atidaryti..."
 
 #: dialogs/settings_dialog.ui:799 dialogs/help_dialog.ui:109
 #: dialogs/update_dialog.ui:351
 msgid "Want to translate?"
-msgstr "Meehelpen met vertalen?"
+msgstr "Norite versti?"
 
 #: dialogs/settings_dialog.ui:821
 msgid "Program language"
-msgstr "Applicatietaal"
+msgstr "Programos kalba"
 
 #: dialogs/settings_dialog.ui:836
 msgid "Weather language"
-msgstr "Weertaal"
+msgstr "Orų kalba"
 
 #: dialogs/settings_dialog.ui:851
 msgid "Add launcher icon to menu"
-msgstr "Starterpictogram toevoegen aan menu"
+msgstr "Pridėti paleidyklės piktogramą į meniu"
 
 #: dialogs/settings_dialog.ui:879 dialogs/city_id_dialog.ui:197
 msgid "Weather service"
-msgstr "Weerdienst"
+msgstr "Orų tarnyba"
 
 #: dialogs/settings_dialog.ui:960 dialogs/help_dialog.ui:286
 msgid "Translation status"
-msgstr "Vertalingssstatus"
+msgstr "Vertimų būsena"
 
 #: dialogs/settings_dialog.ui:1014
 msgid "Autostart at login"
-msgstr "Automatisch opstarten na inloggen"
+msgstr "Automatiškai paleisti prisijungiant"
 
 #: dialogs/settings_dialog.ui:1029
 msgid "Number of instances"
-msgstr "Aantal instanties"
+msgstr "Egzempliorių kiekis"
 
 #: dialogs/settings_dialog.ui:1075
 msgid "Start delay (in seconds)"
-msgstr "Opstartvertraging (in seconden)"
+msgstr "Paleidimo vėlinimas (sekundėmis)"
 
 #: dialogs/settings_dialog.ui:1125 dialogs/settings_dialog.ui:1181
 msgid "Autostart"
-msgstr "Automatisch opstarten"
+msgstr "Paleisti automatiškai"
 
 #: dialogs/settings_dialog.ui:1164
 msgid "Configured in the first instance"
-msgstr "Ingesteld in de eerste instantie"
+msgstr "Nurodoma pirmame egzemplioriuje"
 
 #: dialogs/settings_dialog.ui:1269
 msgid "General"
-msgstr "Algemeen"
+msgstr "Bendri"
 
 #: dialogs/settings_dialog.ui:1292
 msgid "Wind"
-msgstr "Wind"
+msgstr "Vėjas"
 
 #: dialogs/settings_dialog.ui:1307
 msgid "Pressure"
-msgstr "Luchtdruk"
+msgstr "Slėgis"
 
 #: dialogs/settings_dialog.ui:1354
 msgid "Temperature"
-msgstr "Temperatuur"
+msgstr "Temperatūra"
 
 #: dialogs/settings_dialog.ui:1406
 msgid "Wind chill"
-msgstr "Windkoude"
+msgstr "Jaučiama temperatūra"
 
 #: dialogs/settings_dialog.ui:1492
 msgid "Date separator format"
-msgstr "Opmaak van datumscheiding"
+msgstr "Datos skyriklio formatas"
 
 #: dialogs/settings_dialog.ui:1507
 msgid "Swap the day and month"
-msgstr "Draai de datum en maand om"
+msgstr "Sukeisti dieną ir mėnesį"
 
 #: dialogs/settings_dialog.ui:1565
 msgid "Units"
-msgstr "Eenheden"
+msgstr "Vienetai"
 
 #: dialogs/settings_dialog.ui:1589
 msgid "Left"
-msgstr "Links"
+msgstr "Kairėje"
 
 #: dialogs/settings_dialog.ui:1604 dialogs/settings_dialog.ui:4215
 msgid "Top"
-msgstr "Bovenaan"
+msgstr "Viršuje"
 
 #: dialogs/settings_dialog.ui:1619
 msgid "Padding"
-msgstr "Vulling"
+msgstr "Postūmis"
 
 #: dialogs/settings_dialog.ui:1724
 msgid "Fix BadDrawable error"
-msgstr "BadDrawable-fout oplossen"
+msgstr "Pataisymas klaidai BadDrawable"
 
 #: dialogs/settings_dialog.ui:1769
 msgid "Transparency"
-msgstr "Doorzichtigheid"
+msgstr "Permatomumas"
 
 #: dialogs/settings_dialog.ui:1904
 msgid "Scale"
-msgstr "Schalen"
+msgstr "Mastelis"
 
 #: dialogs/settings_dialog.ui:2010 dialogs/settings_dialog.ui:2141
 #: dialogs/settings_dialog.ui:2372 dialogs/settings_dialog.ui:2592
 #: dialogs/settings_dialog.ui:3900
 msgid "Show"
-msgstr "Weergeven"
+msgstr "Rodyti"
 
 #: dialogs/settings_dialog.ui:2025 dialogs/settings_dialog.ui:2156
 #: dialogs/settings_dialog.ui:2271 dialogs/settings_dialog.ui:2387
 #: dialogs/settings_dialog.ui:2607
 msgid "Offset from center"
-msgstr "Compenseren vanuit midden"
+msgstr "Atitraukimas nuo centro"
 
 #: dialogs/settings_dialog.ui:2101
 msgid "Block Tomorrow"
-msgstr "Morgen blokkeren"
+msgstr "Blokas „Šiandien“"
 
 #: dialogs/settings_dialog.ui:2232
 msgid "Block Today"
-msgstr "Vandaag blokkeren"
+msgstr "Blokas „Rytoj“"
 
 #: dialogs/settings_dialog.ui:2318
 msgid "Block Now"
-msgstr "Nu blokkeren"
+msgstr "Blokas „Dabar“"
 
 #: dialogs/settings_dialog.ui:2461
 msgid "Reduce"
-msgstr "Verminderen"
+msgstr "Sumažinti"
 
 #: dialogs/settings_dialog.ui:2476
 msgid "Angle of rotation"
-msgstr "Hoek van draaiing"
+msgstr "Posūkio kampas"
 
 #: dialogs/settings_dialog.ui:2552
 msgid "Block Wind"
-msgstr "Wind blokkeren"
+msgstr "Blokas „Vėjas“"
 
 #: dialogs/settings_dialog.ui:2683
 msgid "Block Additional info"
-msgstr "Extra informatie blokkeren"
+msgstr "Blokas „Papildoma informacija“"
 
 #: dialogs/settings_dialog.ui:2741
 msgid "Number of days"
-msgstr "Aantal dagen"
+msgstr "Dienų skaičius"
 
 #: dialogs/settings_dialog.ui:2756
 msgid "Show weather retrieval time"
-msgstr "Weerophaaltijd weergeven"
+msgstr "Rodyti orų gavimo laiką"
 
 #: dialogs/settings_dialog.ui:2771
 msgid "Show splash screen"
-msgstr "Opstartscherm weergeven"
+msgstr "Rodyti ekrano užsklandą"
 
 #: dialogs/settings_dialog.ui:2786
 msgid "Hide splash screen after attempts (0 - do not hide)"
-msgstr "Opstartscherm verbergen na pogingen (0 - niet verbergen)"
+msgstr "Slėpti ekrano užsklandą po bandymų (0 - neslėpti)"
 
 #: dialogs/settings_dialog.ui:2926
 msgid "Show chance of rain"
-msgstr "Kans op regen weergeven"
+msgstr "Rodyti lietaus tikimybę"
 
 #: dialogs/settings_dialog.ui:2992
 msgid "View"
-msgstr "Weergave"
+msgstr "Rodymas"
 
 #: dialogs/settings_dialog.ui:3035 dialogs/settings_dialog.ui:4058
 msgid "Font"
-msgstr "Lettertype"
+msgstr "Šriftas"
 
 #: dialogs/settings_dialog.ui:3050
 msgid "Main color"
-msgstr "Hoofdkleur"
+msgstr "Pagrindinė spalva"
 
 #: dialogs/settings_dialog.ui:3097
 msgid "Color weekend"
-msgstr "Weekendkleur"
+msgstr "Savaitgalių spalva"
 
 #: dialogs/settings_dialog.ui:3175
 msgid "Color wind"
-msgstr "Windkleur"
+msgstr "Vėjo spalva"
 
 #: dialogs/settings_dialog.ui:3190
 msgid ""
 "High wind\n"
 "(-1 = not highlighted)"
-msgstr "Hoge wind\n(-1 = niet gemarkeerd)"
+msgstr "Didelis vėjas\n(-1 = neparyškinta)"
 
 #: dialogs/settings_dialog.ui:3206
 msgid "Shadow color"
-msgstr "Schaduwkleur"
+msgstr "Šešėlių spalva"
 
 #: dialogs/settings_dialog.ui:3221 dialogs/settings_dialog.ui:4014
 msgid "Shadow"
-msgstr "Schaduw"
+msgstr "Šešėliai"
 
 #: dialogs/settings_dialog.ui:3357
 msgid "Weekend"
-msgstr "Weekend"
+msgstr "Savaitgalis"
 
 #: dialogs/settings_dialog.ui:3400
 msgid "Weather description style"
-msgstr "Stijl van weersomschrijving"
+msgstr "Orų aprašymo stilius"
 
 #: dialogs/settings_dialog.ui:3492
 msgid "Use image"
-msgstr "Afbeelding gebruiken"
+msgstr "Naudoti paveikslėlį"
 
 #: dialogs/settings_dialog.ui:3551 dialogs/settings_dialog.ui:3782
 msgid "Select"
-msgstr "Selecteren"
+msgstr "Pasirinkti"
 
 #: dialogs/settings_dialog.ui:3634
 msgid "Radius corners"
-msgstr "Straalhoeken"
+msgstr "Kampų spindulys"
 
 #: dialogs/settings_dialog.ui:3649 dialogs/settings_dialog.ui:4106
 msgid "Color"
-msgstr "Kler"
+msgstr "Spalva"
 
 #: dialogs/settings_dialog.ui:3861
 msgid "Appearance"
-msgstr "Uiterlijk"
+msgstr "Išvaizda"
 
 #: dialogs/settings_dialog.ui:3885
 msgid "Type (restart required)"
-msgstr "Type (herstart vereist)"
+msgstr "Tipas (reikia paleisti iš naujo)"
 
 #: dialogs/settings_dialog.ui:4121
 msgid "Color shadow"
-msgstr "Schaduwkleur"
+msgstr "Šešėlių spalva"
 
 #: dialogs/settings_dialog.ui:4246
 msgid "Width"
-msgstr "Breedte"
+msgstr "Plotis"
 
 #: dialogs/settings_dialog.ui:4366
 msgid "Fix the size"
-msgstr "Grootte vastzetten"
+msgstr "Pataisyti dydį"
 
 #: dialogs/settings_dialog.ui:4410
 msgid "Size"
-msgstr "Grootte"
+msgstr "Dydis"
 
 #: dialogs/settings_dialog.ui:4485
 msgid "Indicator"
-msgstr "Indicator"
+msgstr "Indikatorius"
 
 #: dialogs/help_dialog.ui:92 dialogs/update_dialog.ui:334
 msgid "Found a bug?"
-msgstr "Bug gevonden?"
+msgstr "Radote klaidą?"
 
 #: dialogs/help_dialog.ui:126 dialogs/update_dialog.ui:369
 msgid "Have any questions?"
-msgstr "Heeft u vragen?"
+msgstr "Turite klausimų?"
 
 #: dialogs/help_dialog.ui:143 dialogs/update_dialog.ui:387
 msgid "Have any suggestions?"
-msgstr "Heeft u suggesties?"
+msgstr "Turite pasiūlymų?"
 
 #: dialogs/help_dialog.ui:163
 msgid "You can support my project"
-msgstr "U kunt mijn projact ondersteunen"
+msgstr "Galite prisidėti prie mano projekto"
 
 #: dialogs/help_dialog.ui:174 dialogs/update_dialog.ui:419
 msgid "Read more"
-msgstr "Meer lezen"
+msgstr "Skaityti daugiau"
 
 #: dialogs/help_dialog.ui:238 dialogs/update_dialog.ui:155
 msgid "Changelog"
-msgstr "Wijzigingslog"
+msgstr "Pasikeitimų žurnalas"
 
 #: dialogs/help_dialog.ui:254 dialogs/update_dialog.ui:171
 msgid "Source Code"
-msgstr "Broncode"
+msgstr "Išeities kodas"
 
 #: dialogs/help_dialog.ui:270 dialogs/update_dialog.ui:203
 msgid "What's New"
-msgstr "Wat is er nieuw?"
+msgstr "Kas naujo"
 
 #: dialogs/update_dialog.ui:31
 msgid "Update now"
-msgstr "Nu bijwerken"
+msgstr "Naujinti dabar"
 
 #: dialogs/update_dialog.ui:187
 msgid "Manual update"
-msgstr "Handmatig bijwerken"
+msgstr "Rankinis atnaujinimas"
 
 #: dialogs/update_dialog.ui:408
 msgid "You can support project"
-msgstr "U kunt het project ondersteunen"
+msgstr "Galite prisidėti prie projekto"
 
 #: dialogs/update_dialog.ui:469
 msgid "Additional information"
-msgstr "Extra informatie"
+msgstr "Papildoma informacija"
 
 #: dialogs/update_dialog.ui:589
 msgid "Cleaning temporary files"
-msgstr "Bezig met wissen van tijdelijke bestanden"
+msgstr "Valomi laikini failai"
 
 #: dialogs/update_dialog.ui:672
 msgid "Restart"
-msgstr "Herstarten"
+msgstr "Paleisti iš naujo"
 
 #: dialogs/update_dialog.ui:701
 msgid "Update successful"
-msgstr "Succesvol bijgewerkt"
+msgstr "Naujinimas sėkmingas"
 
 #: dialogs/update_dialog.ui:756
 msgid "Update error"
-msgstr "Bijwerkfout"
+msgstr "Naujinimo klaida"
 
 #: dialogs/city_id_dialog.ui:58
 msgid "Add"
-msgstr "Toevoegen"
+msgstr "Pridėti"
 
 #: dialogs/city_id_dialog.ui:72
 msgid ""
 "Close & Reload\n"
 "selected"
-msgstr "Sluiten en herladen\ngeselecteerd"
+msgstr "Uždaryti ir įkelti iš naujo\npasirinktą"
 
 #: dialogs/city_id_dialog.ui:87
 msgid ""
 "Remove\n"
 "selected"
-msgstr "Verwijderen\ngeselecteerd"
+msgstr "Pašalinti\npasirinktą"
 
 #: dialogs/city_id_dialog.ui:160
 msgid "Language weather"
-msgstr "Weertaal"
+msgstr "Orų kalba"
