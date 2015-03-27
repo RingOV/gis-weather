@@ -701,6 +701,9 @@ class MyDrawArea(Gtk.DrawingArea):
     def expose_indicator(self):
         global err, on_redraw, get_weather_bool, weather, err_connect
         if get_weather_bool:
+            if city_id == 0:
+                if app.show_edit_dialog():
+                    Save_Config()
             weather1 = get_weather()
             if weather1:
                 time_receive = time.strftime('%H:%M', time.localtime())
@@ -750,6 +753,9 @@ class MyDrawArea(Gtk.DrawingArea):
             self.splash_screen(self.cr)
             return
         if get_weather_bool:
+            if city_id == 0:
+                if app.show_edit_dialog():
+                    Save_Config()
             weather1 = get_weather()
             if weather1:
                 time_receive = time.strftime('%H:%M', time.localtime())
@@ -1560,10 +1566,6 @@ class Weather_Widget:
         if WIN:
             x = self.window_main.get_size()
             self.window_main.resize(int(width*scale), int(height*scale-(x[1]-height*scale)))
-        # self.window_main.resize(int(width*scale), int(height*scale))
-        if city_id == 0:
-            if self.show_edit_dialog():
-                Save_Config()
         Gtk.main()
 
 
