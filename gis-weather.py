@@ -703,6 +703,7 @@ class MyDrawArea(Gtk.DrawingArea):
         if get_weather_bool:
             weather1 = get_weather()
             if weather1:
+                time_receive = time.strftime('%H:%M', time.localtime())
                 err_connect = False
                 splash = False
                 weather = weather1
@@ -838,7 +839,7 @@ class MyDrawArea(Gtk.DrawingArea):
             
             if show_time_receive_local:
                 if time_update: self.draw_text(cr, _('Updated on server')+' '+time_update[0], x-margin, x+20+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
-                self.draw_text(cr, _('Weather received')+' '+time_receive, x-margin, x+10+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
+                if time_receive: self.draw_text(cr, _('Weather received')+' '+time_receive, x-margin, x+10+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
             if city_name: self.draw_text(cr, city_name[0], city_name_left+x+block_now_left, city_name_top+y, font+' Bold', 14, width - city_name_left, Pango.Alignment.CENTER)
             self.draw_scaled_icon(cr, icon_now_left2+center-40+block_now_left, icon_now_top+y+30, icon_now[0],80+icon_now_size,80+icon_now_size)
             t_index = t_scale*2
