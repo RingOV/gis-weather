@@ -2,7 +2,7 @@
 #
 #  gis_weather.py
 v = '0.7.5'
-#  Copyright (C) 2013-2014 Alexander Koltsov <ringov@mail.ru>
+#  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -410,7 +410,13 @@ def get_weather():
         service = data.services_list[0]
         weather_lang = data.get(service)[-1][0]
     Save_Config()
-    return data.get_weather(service, weather, n, city_id, show_block_tomorrow, show_block_today, show_block_add_info, timer_bool, weather_lang, icons_name)
+    if city_id == 0:
+        if app.show_edit_dialog():
+            Save_Config()
+    if city_id == 0:
+        return False
+    else:
+        return data.get_weather(service, weather, n, city_id, show_block_tomorrow, show_block_today, show_block_add_info, timer_bool, weather_lang, icons_name)
 
 def check_updates():
     package = 'gz'
@@ -701,9 +707,6 @@ class MyDrawArea(Gtk.DrawingArea):
     def expose_indicator(self):
         global err, on_redraw, get_weather_bool, weather, err_connect
         if get_weather_bool:
-            if city_id == 0:
-                if app.show_edit_dialog():
-                    Save_Config()
             weather1 = get_weather()
             if weather1:
                 time_receive = time.strftime('%H:%M', time.localtime())
@@ -753,9 +756,6 @@ class MyDrawArea(Gtk.DrawingArea):
             self.splash_screen(self.cr)
             return
         if get_weather_bool:
-            if city_id == 0:
-                if app.show_edit_dialog():
-                    Save_Config()
             weather1 = get_weather()
             if weather1:
                 time_receive = time.strftime('%H:%M', time.localtime())
@@ -1504,7 +1504,6 @@ class Weather_Widget:
             else:
                 city_id = 0
         Save_Config()
-
         dialog.hide()
         return True
 
