@@ -409,7 +409,7 @@ def get_weather():
     if service not in data.services_list:
         service = data.services_list[0]
         weather_lang = data.get(service)[-1][0]
-    Save_Config()
+        Save_Config()
     if city_id == 0:
         if app.show_edit_dialog():
             Save_Config()
@@ -1497,7 +1497,7 @@ class Weather_Widget:
         except:
             sel_index = None
         if sel_index:
-            city_id = city_list[int(sel_index[0])].split(';')[0]
+            city_id = city_list[int(sel_index.to_string())].split(';')[0]
         else:
             if len(city_list) != 0:
                 city_id = city_list[0].split(';')[0]

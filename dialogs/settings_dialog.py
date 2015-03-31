@@ -745,10 +745,10 @@ class settings():
         w_name = Gtk.Buildable.get_name(widget)
         w_name = w_name.split('_')
         name = '_'.join(w_name[1:])
-        alpha = (widget.get_alpha()*100)/65535.0
+        alpha = (widget.get_alpha()*100)/65535
         alpha = alpha/100.0
         color = widget.get_color()
-        gw_config_set[name] = (color.red_float, color.green_float, color.blue_float, alpha)
+        gw_config_set[name] = (color.red/65535, color.green/65535, color.blue/65535, alpha)
         Save_Config()
         drawing_area_set.redraw(False, False, load_config = True)
 
