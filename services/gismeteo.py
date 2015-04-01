@@ -282,7 +282,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
     wind_direct_now[0] = wind_direct_now[1]
 
     # icon
-    icon_now = re.findall('url\((.*?new\/.+)\)', w_now[0])
+    icon_now = re.findall('url\((.*?icons\/.+)\)', w_now[0])
     icon_now[0] = convert(icon_now[0], icons_name)
     
     # wind icon
@@ -342,7 +342,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
         t_day[i] = t_day[i]+'°;'+t_day_feel[i]+'°;'+C_to_F(t_day[i])+'°;'+C_to_F(t_day_feel[i])+'°;'+C_to_K(t_day[i])+';'+C_to_K(t_day_feel[i])
     
     # weather icon day
-    icons_list = re.findall('src=\"(.*?new\/.*?)\"', w_all)
+    icons_list = re.findall('src=\"(.*?icons\/.*?)\"', w_all)
     icon = icons_list[2::4]
     for i in range(len(icon)):
         icon[i] = convert(icon[i], icons_name)
@@ -385,7 +385,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
         del t_tomorrow[0]
         t_tomorrow.append(a)
         # weather icon
-        icon_tomorrow = re.findall('src=\"(.*?new\/.*?)\"', w_tomorrow)
+        icon_tomorrow = re.findall('src=\"(.*?icons\/.*?)\"', w_tomorrow)
         for i in range(len(icon_tomorrow)):
             icon_tomorrow[i] = convert(icon_tomorrow[i], icons_name)
         a = icon_tomorrow[0]
@@ -418,7 +418,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
         del t_today[0]
         t_today.append(a)
         # weather icon
-        icon_today = re.findall('src=\"(.*?new\/.*?)\"', w_today)
+        icon_today = re.findall('src=\"(.*?icons\/.*?)\"', w_today)
         for i in range(len(icon_today)):
             icon_today[i] = convert(icon_today[i], icons_name)
         a = icon_today[0]
