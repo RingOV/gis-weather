@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from urllib.request import urlopen
+from utils.opener import urlopen
 from utils.t_convert import C_to_F, C_to_K
 import re
 import time
@@ -240,7 +240,7 @@ def convert(icon, icons_name):
 
 def get_city_name(c_id, weather_lang):
     try:
-        source = urlopen('http://www.gismeteo.%s/city/weekly/'%weather_lang + str(c_id), timeout=10).read()
+        source = urlopen('http://www.gismeteo.%s/city/weekly/'%weather_lang + str(c_id))
         source = source.decode(encoding='UTF-8')
         c_name = re.findall('type[A-Z].*\">(.*)<', source)
     except:
@@ -253,7 +253,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
     print ('\033[34m>\033[0m '+_('Getting weather for')+' '+str(n)+' '+_('days'))
     print ('\033[34m>\033[0m '+_('Downloading')+' '+'http://www.gismeteo.%s/city/weekly/'%weather_lang + str(city_id))
     try:
-        source = urlopen('http://www.gismeteo.%s/city/weekly/'%weather_lang + str(city_id), timeout=10).read()
+        source = urlopen('http://www.gismeteo.%s/city/weekly/'%weather_lang + str(city_id))
         source = source.decode(encoding='UTF-8')
         print ('\033[1;32mOK\033[0m')
     except:

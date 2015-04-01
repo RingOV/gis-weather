@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from urllib.request import urlopen
+from utils.opener import urlopen
 from utils.t_convert import C_to_F, C_to_K, F_to_C
 import re
 import time
@@ -218,7 +218,7 @@ def get_city_name(c_id, weather_lang):
         else:
             city_number = c_id.split(',')[-1].strip()
             c_id = c_id.split(',')[0].strip()
-        source = urlopen('http://www.accuweather.com/%s/%s/weather-forecast/%s'%(weather_lang, c_id, city_number), timeout=10).read()
+        source = urlopen('http://www.accuweather.com/%s/%s/weather-forecast/%s'%(weather_lang, c_id, city_number))
         source = source.decode(encoding='UTF-8')
         c_name = re.findall('"current-city"><h1>(.*),', source)
     except:
@@ -236,7 +236,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
     print ('\033[34m>\033[0m '+_('Getting weather for')+' '+str(n)+' '+_('days'))
     print ('\033[34m>\033[0m '+_('Downloading')+' '+'http://www.accuweather.com/%s/%s/current-weather/%s'%(weather_lang, city_id, city_number))
     try:
-        source = urlopen('http://www.accuweather.com/%s/%s/current-weather/%s'%(weather_lang, city_id, city_number), timeout=10).read()
+        source = urlopen('http://www.accuweather.com/%s/%s/current-weather/%s'%(weather_lang, city_id, city_number))
         source = source.decode(encoding='UTF-8')
         print ('\033[1;32mOK\033[0m')
     except:
@@ -296,7 +296,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
     if show_block_add_info:
         print ('\033[34m>\033[0m '+_('Downloading')+' '+'http://www.accuweather.com/en/%s/current-weather/%s'%(city_id, city_number))
         try:
-            source = urlopen('http://www.accuweather.com/en/%s/current-weather/%s'%(city_id, city_number), timeout=10).read()
+            source = urlopen('http://www.accuweather.com/en/%s/current-weather/%s'%(city_id, city_number))
             source = source.decode(encoding='UTF-8')
             print ('\033[1;32mOK\033[0m')
         except:
@@ -316,7 +316,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
     #### weather to several days ####
     print ('\033[34m>\033[0m '+_('Downloading')+' '+'http://www.accuweather.com/%s/%s/month/%s?view=table'%(weather_lang, city_id, city_number))
     try:
-        source = urlopen('http://www.accuweather.com/%s/%s/month/%s?view=table'%(weather_lang, city_id, city_number), timeout=10).read()
+        source = urlopen('http://www.accuweather.com/%s/%s/month/%s?view=table'%(weather_lang, city_id, city_number))
         source = source.decode(encoding='UTF-8')
         print ('\033[1;32mOK\033[0m')
     except:
@@ -373,7 +373,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
             next_month[0] = next_month[0]+'&view=table'
             print ('\033[34m>\033[0m '+_('Downloading')+' '+next_month[0])
             try:
-                source = urlopen(next_month[0], timeout=10).read()
+                source = urlopen(next_month[0])
                 source = source.decode(encoding='UTF-8')
                 print ('\033[1;32mOK\033[0m')
             except:
@@ -435,7 +435,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
         #### weather tomorrow ####
         print ('\033[34m>\033[0m '+_('Downloading')+' '+'http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=2'%(city_id, city_number))
         try:
-            w_night = urlopen('http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=2'%(city_id, city_number), timeout=10).read()
+            w_night = urlopen('http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=2'%(city_id, city_number))
             w_night = w_night.decode(encoding='UTF-8')
             print ('\033[1;32mOK\033[0m')
         except:
@@ -443,7 +443,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
 
         print ('\033[34m>\033[0m '+_('Downloading')+' '+'http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=2'%(city_id, city_number))
         try:
-            w_morning = urlopen('http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=2'%(city_id, city_number), timeout=10).read()
+            w_morning = urlopen('http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=2'%(city_id, city_number))
             w_morning = w_morning.decode(encoding='UTF-8')
             print ('\033[1;32mOK\033[0m')
         except:
@@ -451,7 +451,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
 
         print ('\033[34m>\033[0m '+_('Downloading')+' '+'http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=2'%(city_id, city_number))
         try:
-            w_day = urlopen('http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=2'%(city_id, city_number), timeout=10).read()
+            w_day = urlopen('http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=2'%(city_id, city_number))
             w_day = w_day.decode(encoding='UTF-8')
             print ('\033[1;32mOK\033[0m')
         except:
@@ -459,7 +459,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
 
         print ('\033[34m>\033[0m '+_('Downloading')+' '+'http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=2'%(city_id, city_number))
         try:
-            w_evening = urlopen('http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=2'%(city_id, city_number), timeout=10).read()
+            w_evening = urlopen('http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=2'%(city_id, city_number))
             w_evening = w_evening.decode(encoding='UTF-8')
             print ('\033[1;32mOK\033[0m')
         except:
@@ -575,7 +575,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
         #### weather today ####
         print ('\033[34m>\033[0m '+_('Downloading')+' '+'http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=1'%(city_id, city_number))
         try:
-            w_night = urlopen('http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=1'%(city_id, city_number), timeout=10).read()
+            w_night = urlopen('http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=1'%(city_id, city_number))
             w_night = w_night.decode(encoding='UTF-8')
             print ('\033[1;32mOK\033[0m')
         except:
@@ -583,7 +583,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
 
         print ('\033[34m>\033[0m '+_('Downloading')+' '+'http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=1'%(city_id, city_number))
         try:
-            w_morning = urlopen('http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=1'%(city_id, city_number), timeout=10).read()
+            w_morning = urlopen('http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=1'%(city_id, city_number))
             w_morning = w_morning.decode(encoding='UTF-8')
             print ('\033[1;32mOK\033[0m')
         except:
@@ -591,7 +591,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
 
         print ('\033[34m>\033[0m '+_('Downloading')+' '+'http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=1'%(city_id, city_number))
         try:
-            w_day = urlopen('http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=1'%(city_id, city_number), timeout=10).read()
+            w_day = urlopen('http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=1'%(city_id, city_number))
             w_day = w_day.decode(encoding='UTF-8')
             print ('\033[1;32mOK\033[0m')
         except:
@@ -599,7 +599,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
 
         print ('\033[34m>\033[0m '+_('Downloading')+' '+'http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=1'%(city_id, city_number))
         try:
-            w_evening = urlopen('http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=1'%(city_id, city_number), timeout=10).read()
+            w_evening = urlopen('http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=1'%(city_id, city_number))
             w_evening = w_evening.decode(encoding='UTF-8')
             print ('\033[1;32mOK\033[0m')
         except:
