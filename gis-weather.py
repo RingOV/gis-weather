@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 #  gis_weather.py
-v = '0.7.6.1'
+v = '0.7.6.2'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -67,7 +67,7 @@ except:
 
 from dialogs import about_dialog, city_id_dialog, update_dialog, settings_dialog, help_dialog
 from services import data
-from utils import gw_menu, presets, date_convert
+from utils import gw_menu, presets, date_convert, diff_versions
 import cairo
 import re
 import os
@@ -458,17 +458,19 @@ def check_updates():
             update_link = 'http://sourceforge.net/projects/gis-weather/files/gis-weather/%s/%s/download'%(new_ver1[0], temp_links[i])
             file_name = temp_links[i]
     if update_link == '':
-        new_ver = [0, 0, 0]
+        new_ver = [0, 0, 0, 0]
 
-    while len(new_ver)<3:
-        new_ver.append('0')
-    cur_ver = v.split('.')
-    while len(cur_ver)<3:
-        cur_ver.append('0')
+    # while len(new_ver)<3:
+    #     new_ver.append('0')
+    # cur_ver = v.split('.')
+    # while len(cur_ver)<3:
+    #     cur_ver.append('0')
 
     new_v = None
-    if int(new_ver[0])*10000+int(new_ver[1])*100+int(new_ver[2])>int(cur_ver[0])*10000+int(cur_ver[1])*100+int(cur_ver[2]):
+    if diff_versions.diff(v.split('.'), new_ver):
         new_v = new_ver1[0]
+    # if int(new_ver[0])*10000+int(new_ver[1])*100+int(new_ver[2])>int(cur_ver[0])*10000+int(cur_ver[1])*100+int(cur_ver[2]):
+    #     new_v = new_ver1[0]
     if new_v:
         print ('\033[34m>>>\033[0m '+_('New version available')+' '+str(new_v))
         print ('\033[34m>>>\033[0m '+str(update_link))
