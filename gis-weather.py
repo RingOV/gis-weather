@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 #  gis_weather.py
-v = '0.7.6.2'
+v = '0.7.6.3'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -16,6 +16,8 @@ v = '0.7.6.2'
 #
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+print('Gis Weather '+v)
 
 import sys
 if sys.platform.startswith("win"):
@@ -68,12 +70,13 @@ except:
 from dialogs import about_dialog, city_id_dialog, update_dialog, settings_dialog, help_dialog
 from services import data
 from utils import gw_menu, presets, date_convert, diff_versions
+from utils.opener import urlopen
 import cairo
 import re
 import os
 import time
 import math
-from urllib.request import urlopen, urlretrieve
+from urllib.request import urlretrieve
 import json
 import subprocess
 import gzip
@@ -82,16 +85,15 @@ import shutil
 CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
 CONFIG_PATH_FILE = os.path.join(CONFIG_PATH, instance.get_config_file())
 
-if not os.path.exists(CONFIG_PATH):
-    os.makedirs(CONFIG_PATH)
-if not os.path.exists(os.path.join(CONFIG_PATH, 'color_schemes')):
-    os.makedirs(os.path.join(CONFIG_PATH, 'color_schemes'))
-if not os.path.exists(os.path.join(CONFIG_PATH, 'icons')):
-    os.makedirs(os.path.join(CONFIG_PATH, 'icons'))
-if not os.path.exists(os.path.join(CONFIG_PATH, 'backgrounds')):
-    os.makedirs(os.path.join(CONFIG_PATH, 'backgrounds'))
-if not os.path.exists(os.path.join(CONFIG_PATH, 'presets')):
-    os.makedirs(os.path.join(CONFIG_PATH, 'presets'))
+def make_dirs(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
+
+make_dirs(CONFIG_PATH)
+make_dirs(os.path.join(CONFIG_PATH, 'color_schemes'))
+make_dirs(os.path.join(CONFIG_PATH, 'icons'))
+make_dirs(os.path.join(CONFIG_PATH, 'backgrounds'))
+make_dirs(os.path.join(CONFIG_PATH, 'presets'))
 
 presets.save_to_file(CONFIG_PATH)
 
@@ -289,8 +291,6 @@ def Load_Preset(number = 0):
 
 # path to gis-weather.py
 APP_PATH = os.path.abspath(os.path.dirname(sys.argv[0]))
-# if WIN:
-#     APP_PATH = APP_PATH.decode(sys.getfilesystemencoding())
 
 if APP_PATH == '' or APP_PATH.startswith('.'):
     print (_('Enter full path to script'))
@@ -303,8 +303,7 @@ BGS_PATH = os.path.join(THEMES_PATH, 'backgrounds')
 ICONS_USER_PATH = os.path.join(CONFIG_PATH, 'icons')
 BGS_USER_PATH = os.path.join(CONFIG_PATH, 'backgrounds')
 
-if not os.path.exists(os.path.join(ICONS_USER_PATH, 'default', 'weather')):
-    os.makedirs(os.path.join(ICONS_USER_PATH, 'default', 'weather'))
+make_dirs(os.path.join(ICONS_USER_PATH, 'default', 'weather'))
 
 if indicator_is_appindicator == 'None':
     if HAS_INDICATOR:
@@ -436,7 +435,7 @@ def check_updates():
 
     print ('\033[34m>\033[0m '+_('Check for new version')+' '+'(%s)' % package)
     try:
-        source = urlopen('http://sourceforge.net/projects/gis-weather/files/gis-weather/', timeout=10).read()
+        source = urlopen('http://sourceforge.net/projects/gis-weather/files/gis-weather/')
         source = source.decode(encoding='UTF-8')
     except:
         print ('\033[1;31m[!]\033[0m '+_('Unable to check for updates'))
@@ -445,7 +444,7 @@ def check_updates():
     new_ver1 = re.findall('<a href="/projects/gis-weather/files/gis-weather/(.+)/"', source)
     new_ver = new_ver1[0].split('.')
     try:
-        temp = urlopen('http://sourceforge.net/projects/gis-weather/files/gis-weather/%s/'%new_ver1[0], timeout=10).read()
+        temp = urlopen('http://sourceforge.net/projects/gis-weather/files/gis-weather/%s/'%new_ver1[0])
         temp = temp.decode(encoding='UTF-8')
     except:
         print ('\033[1;31m[!]\033[0m '+_('Unable to check for updates'))
@@ -459,18 +458,9 @@ def check_updates():
             file_name = temp_links[i]
     if update_link == '':
         new_ver = [0, 0, 0, 0]
-
-    # while len(new_ver)<3:
-    #     new_ver.append('0')
-    # cur_ver = v.split('.')
-    # while len(cur_ver)<3:
-    #     cur_ver.append('0')
-
     new_v = None
     if diff_versions.diff(v.split('.'), new_ver):
         new_v = new_ver1[0]
-    # if int(new_ver[0])*10000+int(new_ver[1])*100+int(new_ver[2])>int(cur_ver[0])*10000+int(cur_ver[1])*100+int(cur_ver[2]):
-    #     new_v = new_ver1[0]
     if new_v:
         print ('\033[34m>>>\033[0m '+_('New version available')+' '+str(new_v))
         print ('\033[34m>>>\033[0m '+str(update_link))
@@ -583,7 +573,6 @@ class Indicator:
                 self.indicator.set_visible(False)
                 self.indicator_label.set_visible(False)
                 self.hiden = True
-            # self.set_label('+20°')
             
         def set_label(self, text):
             self.draw_text_to_png(self.indicator.get_size(), text)
