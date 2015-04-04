@@ -124,8 +124,9 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color
         menu_items.show()
 
     # sub_menu_color_text
+    color_scheme_names = (_('Black'),_('White'),_('Gray'))
     for i in range(len(color_scheme)):
-        menu_items = Gtk.RadioMenuItem(label=_('Color scheme')+' #' + str(i))
+        menu_items = Gtk.RadioMenuItem(label=color_scheme_names[i])
         if i == color_scheme_number:
             menu_items.set_active(True)
         sub_menu_color_text.append(menu_items)
