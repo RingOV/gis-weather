@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+from utils import weather_vars
 from utils.opener import urlopen
 from utils.t_convert import C_to_F, C_to_K, F_to_C
 import re
@@ -59,45 +60,12 @@ data = [
 ]
 
 max_days = 14
+
 # weather variables
-city_name = []
-t_now = []
-wind_speed_now = []
-wind_direct_now = []
-icon_now = []
-icon_wind_now = []
-time_update = []
-text_now = []
-press_now = []
-hum_now = []
-t_water_now = []
-
-t_night = []
-t_night_feel = []
-day = []
-date = []
-t_day = []
-t_day_feel = []
-icon = []
-icon_wind = []
-wind_speed = []
-wind_direct = []
-text = []
-
-t_tomorrow = []
-t_tomorrow_feel = []
-icon_tomorrow = []
-wind_speed_tom = []
-wind_direct_tom = []
-
-t_today = []
-t_today_feel = []
-icon_today = []
-wind_speed_tod = []
-wind_direct_tod = []
-chance_of_rain = []
-t_today_low=[]
-t_tomorrow_low=[]
+w = weather_vars.weather
+# create variables
+for i in w.keys():
+    globals()[i] = w[i]
 
 dict_icons = {
     "01-h.png": "32.png",

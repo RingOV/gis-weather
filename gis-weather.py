@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 #  gis_weather.py
-v = '0.7.6.4'
+v = '0.7.6.5'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -69,7 +69,7 @@ except:
 
 from dialogs import about_dialog, city_id_dialog, update_dialog, settings_dialog, help_dialog
 from services import data
-from utils import gw_menu, presets, date_convert, diff_versions
+from utils import gw_menu, presets, date_convert, diff_versions, weather_vars
 from utils.opener import urlopen
 import cairo
 import re
@@ -351,46 +351,7 @@ desc_list = (
 )
 
 # weather variables
-weather = {
-    'city_name': [],
-    't_now': [],
-    'wind_speed_now': [],
-    'wind_direct_now': [],
-    'icon_now': [],
-    'icon_wind_now': [],
-    'time_update': [],
-    'text_now': [],
-    'press_now': [],
-    'hum_now': [],
-    't_water_now': [],
-
-    't_night': [],
-    't_night_feel': [],
-    'day': [],
-    'date': [],
-    't_day': [],
-    't_day_feel': [],
-    'icon': [],
-    'icon_wind': [],
-    'wind_speed': [],
-    'wind_direct': [],
-    'text': [],
-
-    't_tomorrow': [],
-    't_tomorrow_feel': [],
-    'icon_tomorrow': [],
-    'wind_speed_tom': [],
-    'wind_direct_tom': [],
-
-    't_today': [],
-    't_today_feel': [],
-    'icon_today': [],
-    'wind_speed_tod': [],
-    'wind_direct_tod': [],
-    'chance_of_rain': [],
-    't_today_low': [],
-    't_tomorrow_low': []
-}
+weather = weather_vars.weather
 # create variables
 for i in weather.keys():
     globals()[i] = weather[i]
