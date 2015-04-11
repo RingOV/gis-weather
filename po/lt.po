@@ -3,9 +3,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2015-02-23 13:47+0300\n"
-"PO-Revision-Date: 2015-03-12 15:41+0000\n"
-"Last-Translator: Karolis Ryselis\n"
+"POT-Creation-Date: 2015-04-04 15:49+0300\n"
+"PO-Revision-Date: 2015-04-05 11:48+0000\n"
+"Last-Translator: Alexander Koltsov <ringov@mail.ru>\n"
 "Language-Team: Lithuanian (http://www.transifex.com/projects/p/gis-weather/language/lt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,27 +21,27 @@ msgstr ""
 "X-Poedit-SearchPath-3: services\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: gis-weather.py:40
+#: gis-weather.py:42
 msgid "Running multiple instances is not supported"
 msgstr "Keleto egzempliorių paleidimas nėra palaikomas"
 
-#: gis-weather.py:45
+#: gis-weather.py:47
 msgid "number of instances"
 msgstr "egzempliorių kiekis"
 
-#: gis-weather.py:222 dialogs/settings_dialog.ui:671
+#: gis-weather.py:224 dialogs/settings_dialog.ui:671
 msgid "Configuration folder"
 msgstr "Konfigūracijos aplankas"
 
-#: gis-weather.py:245 dialogs/city_id_dialog.py:28
+#: gis-weather.py:247 dialogs/city_id_dialog.py:28
 msgid "Error loading config file"
 msgstr "Nepavyko įkelti konfigūracijos failo"
 
-#: gis-weather.py:272
+#: gis-weather.py:274
 msgid "Error loading color scheme"
 msgstr "Nepavyko įkelti spalvų schemos"
 
-#: gis-weather.py:284
+#: gis-weather.py:286
 msgid "Error loading preset"
 msgstr "Nepavyko įkelti šablono"
 
@@ -53,159 +53,159 @@ msgstr "Įveskite pilną kelią iki scenarijaus"
 msgid "Exit"
 msgstr "Uždaroma"
 
-#: gis-weather.py:430
+#: gis-weather.py:436
 msgid "Check for new version"
 msgstr "Tikrinti, ar yra nauja versija"
 
-#: gis-weather.py:435 gis-weather.py:444
+#: gis-weather.py:441 gis-weather.py:450
 msgid "Unable to check for updates"
 msgstr "Nepavyko patikrinti, ar yra atnaujinimų"
 
-#: gis-weather.py:466
+#: gis-weather.py:465
 msgid "New version available"
 msgstr "Prieinama nauja versija"
 
-#: gis-weather.py:473
+#: gis-weather.py:472
 msgid "You are using the latest version"
 msgstr "Naudojate naujausią versiją"
 
-#: gis-weather.py:490 gis-weather.py:1256
+#: gis-weather.py:489 gis-weather.py:1255
 msgid "Screenshot saved to"
 msgstr "Ekrano nuotrauka išsaugota į"
 
-#: gis-weather.py:494
+#: gis-weather.py:493
 msgid "Unable to get the screenshot"
 msgstr "Nepavyko gauti ekrano nuotraukos"
 
-#: gis-weather.py:664
+#: gis-weather.py:662
 msgid "Getting weather..."
 msgstr "Gaunama orų informacija..."
 
-#: gis-weather.py:667
+#: gis-weather.py:665
 msgid "Error getting weather"
 msgstr "Nepavyko gauti orų informacijos"
 
-#: gis-weather.py:669
+#: gis-weather.py:667
 msgid "Location not set"
 msgstr "Neparinkta vietovė"
 
-#: gis-weather.py:725 gis-weather.py:787
+#: gis-weather.py:724 gis-weather.py:786
 msgid "Next update in"
 msgstr "Kitas atnaujinimas po"
 
-#: gis-weather.py:725 gis-weather.py:787
+#: gis-weather.py:724 gis-weather.py:786
 msgid "min"
 msgstr "min"
 
-#: gis-weather.py:777
+#: gis-weather.py:776
 msgid "Connection error"
 msgstr "Ryšio klaida"
 
-#: gis-weather.py:839
+#: gis-weather.py:838
 msgid "Updated on server"
 msgstr "Atnaujinta serveryje"
 
-#: gis-weather.py:840
+#: gis-weather.py:839
 msgid "Weather received"
 msgstr "Orų informacija gauta"
 
-#: gis-weather.py:870
+#: gis-weather.py:869
 msgid "E"
 msgstr "R"
 
-#: gis-weather.py:870
+#: gis-weather.py:869
 msgid "S"
 msgstr "P"
 
-#: gis-weather.py:870
+#: gis-weather.py:869
 msgid "W"
 msgstr "V"
 
-#: gis-weather.py:870
+#: gis-weather.py:869
 msgid "N"
 msgstr "Š"
 
-#: gis-weather.py:915
+#: gis-weather.py:914
 msgid "humid."
 msgstr "drėgn."
 
-#: gis-weather.py:921
+#: gis-weather.py:920
 msgid "water"
 msgstr "vanduo"
 
-#: gis-weather.py:938 gis-weather.py:977
+#: gis-weather.py:937 gis-weather.py:976
 msgid "Morning"
 msgstr "Rytas"
 
-#: gis-weather.py:938 gis-weather.py:977
+#: gis-weather.py:937 gis-weather.py:976
 msgid "Day"
 msgstr "Diena"
 
-#: gis-weather.py:938 gis-weather.py:977
+#: gis-weather.py:937 gis-weather.py:976
 msgid "Evening"
 msgstr "Vakaras"
 
-#: gis-weather.py:938 gis-weather.py:977
+#: gis-weather.py:937 gis-weather.py:976
 msgid "Night"
 msgstr "Naktis"
 
-#: gis-weather.py:941 gis-weather.py:943
+#: gis-weather.py:940 gis-weather.py:942
 msgid "Tomorrow"
 msgstr "Rytoj"
 
-#: gis-weather.py:979
+#: gis-weather.py:978
 msgid "Today"
 msgstr "Šiandien"
 
-#: gis-weather.py:1102
+#: gis-weather.py:1101
 msgid "Background image not found"
 msgstr "Fono paveikslėlis nerastas"
 
-#: gis-weather.py:1159
+#: gis-weather.py:1158
 msgid "downloading"
 msgstr "atsiunčiama"
 
-#: gis-weather.py:1163
+#: gis-weather.py:1162
 msgid "Unable to download"
 msgstr "Nepavyko atsiųsti"
 
-#: gis-weather.py:1188
+#: gis-weather.py:1187
 msgid "Icon not found"
 msgstr "Piktograma nerasta"
 
-#: gis-weather.py:1267
+#: gis-weather.py:1266
 msgid "Widget size"
 msgstr "Valdiklio dydis"
 
-#: gis-weather.py:1268
+#: gis-weather.py:1267
 msgid "width"
 msgstr "plotis"
 
-#: gis-weather.py:1268
+#: gis-weather.py:1267
 msgid "height"
 msgstr "aukštis"
 
-#: gis-weather.py:1268
+#: gis-weather.py:1267
 msgid "including indent"
 msgstr "įskaitant įtrauką"
 
-#: gis-weather.py:1444
+#: gis-weather.py:1443
 msgid "Removed"
 msgstr "Pašalinta"
 
-#: gis-weather.py:1473 dialogs/city_id_dialog.ui:376
+#: gis-weather.py:1472 dialogs/city_id_dialog.ui:376
 msgid "Added"
 msgstr "Pridėta"
 
-#: gis-weather.py:1478 dialogs/city_id_dialog.ui:308
+#: gis-weather.py:1477 dialogs/city_id_dialog.ui:308
 msgid "Invalid location code"
 msgstr "Neteisingas vietovės kodas"
 
-#: gis-weather.py:1544
+#: gis-weather.py:1542
 msgid "Your screen does not support alpha"
 msgstr "Jūsų ekranas nepalaiko alpha"
 
-#: gis-weather.py:1546
+#: gis-weather.py:1544
 msgid "Your screen supports alpha"
 msgstr "Jūsų ekranas palaiko alpha"
 
@@ -255,6 +255,10 @@ msgstr "atnaujinta serveryje"
 msgid "weather received"
 msgstr "orų informacija gauta"
 
+#: services/accuweather.py:12
+msgid "If wrong city code read"
+msgstr ""
+
 #: services/accuweather.py:284
 msgid "Calm"
 msgstr "Ramu"
@@ -267,78 +271,86 @@ msgstr "Orų valdiklis"
 msgid "Setup..."
 msgstr "Sąranka..."
 
-#: utils/gw_menu.py:112 dialogs/settings_dialog.py:422
+#: utils/gw_menu.py:112 dialogs/settings_dialog.py:423
 msgid "No"
 msgstr "Ne"
 
-#: utils/gw_menu.py:128
-msgid "Color scheme"
-msgstr "Spalvų schema"
+#: utils/gw_menu.py:127
+msgid "Black"
+msgstr ""
 
-#: utils/gw_menu.py:136 dialogs/settings_dialog.ui:1754
+#: utils/gw_menu.py:127
+msgid "White"
+msgstr ""
+
+#: utils/gw_menu.py:127
+msgid "Gray"
+msgstr ""
+
+#: utils/gw_menu.py:137 dialogs/settings_dialog.ui:1754
 msgid "Lock position"
 msgstr "Užfiksuoti padėtį"
 
-#: utils/gw_menu.py:142 dialogs/settings_dialog.ui:1739
+#: utils/gw_menu.py:143 dialogs/settings_dialog.ui:1739
 msgid "On all desktops"
 msgstr "Ant visų darbalaukių"
 
-#: utils/gw_menu.py:152
+#: utils/gw_menu.py:153
 msgid "Save screenshot"
 msgstr "Išsaugoti ekrano nuotrauką"
 
-#: utils/gw_menu.py:168
+#: utils/gw_menu.py:169
 msgid "Show/Hide widget"
 msgstr "Rodyti/slėpti valdiklį"
 
-#: utils/gw_menu.py:177 dialogs/settings_dialog.ui:937
+#: utils/gw_menu.py:178 dialogs/settings_dialog.ui:937
 msgid "Refresh"
 msgstr "Atnaujinti"
 
-#: utils/gw_menu.py:189 dialogs/city_id_dialog.py:90
+#: utils/gw_menu.py:190 dialogs/city_id_dialog.py:90
 #: dialogs/settings_dialog.ui:614 dialogs/city_id_dialog.ui:42
 msgid "Location"
 msgstr "Vietovė"
 
-#: utils/gw_menu.py:195
+#: utils/gw_menu.py:196
 msgid "Indicator icons"
 msgstr "Indikatoriaus piktogramos"
 
-#: utils/gw_menu.py:200 dialogs/about_dialog.py:41
+#: utils/gw_menu.py:201 dialogs/about_dialog.py:41
 #: dialogs/settings_dialog.ui:3836 dialogs/settings_dialog.ui:4315
 msgid "Icons"
 msgstr "Piktogramos"
 
-#: utils/gw_menu.py:205 dialogs/settings_dialog.ui:3742
+#: utils/gw_menu.py:206 dialogs/settings_dialog.ui:3742
 msgid "Background"
 msgstr "Fonas"
 
-#: utils/gw_menu.py:210 dialogs/settings_dialog.ui:3453
+#: utils/gw_menu.py:211 dialogs/settings_dialog.ui:3453
 msgid "Text"
 msgstr "Tekstas"
 
-#: utils/gw_menu.py:215 dialogs/settings_dialog.ui:1958
+#: utils/gw_menu.py:216 dialogs/settings_dialog.ui:1958
 msgid "Window"
 msgstr "Langas"
 
-#: utils/gw_menu.py:220
+#: utils/gw_menu.py:221
 msgid "Presets"
 msgstr "Šablonai"
 
-#: utils/gw_menu.py:225 dialogs/settings_dialog.py:97
-#: dialogs/settings_dialog.py:735
+#: utils/gw_menu.py:226 dialogs/settings_dialog.py:98
+#: dialogs/settings_dialog.py:736
 msgid "Preferences"
 msgstr "Nustatymai"
 
-#: utils/gw_menu.py:233 dialogs/help_dialog.py:28
+#: utils/gw_menu.py:234 dialogs/help_dialog.py:28
 msgid "Help"
 msgstr "Pagalba"
 
-#: utils/gw_menu.py:241
+#: utils/gw_menu.py:242
 msgid "About"
 msgstr "Apie"
 
-#: utils/gw_menu.py:253 dialogs/settings_dialog.ui:569
+#: utils/gw_menu.py:254 dialogs/settings_dialog.ui:569
 #: dialogs/help_dialog.ui:25 dialogs/update_dialog.ui:44
 msgid "Close"
 msgstr "Uždaryti"
@@ -408,52 +420,52 @@ msgstr "Fonai"
 msgid "translator-credits"
 msgstr "Karolis Ryselis <djryse@gmail.com>"
 
-#: dialogs/settings_dialog.py:413
+#: dialogs/settings_dialog.py:414
 msgid "m/s"
 msgstr "m/s"
 
-#: dialogs/settings_dialog.py:413
+#: dialogs/settings_dialog.py:414
 msgid "km/h"
 msgstr "km/h"
 
-#: dialogs/settings_dialog.py:413
+#: dialogs/settings_dialog.py:414
 msgid "mph"
 msgstr "mph"
 
-#: dialogs/settings_dialog.py:414
+#: dialogs/settings_dialog.py:415
 msgid "mmHg"
 msgstr "mm gyv. stulp."
 
-#: dialogs/settings_dialog.py:414
+#: dialogs/settings_dialog.py:415
 msgid "inHg"
 msgstr "col. gyv. stulp."
 
-#: dialogs/settings_dialog.py:414
+#: dialogs/settings_dialog.py:415
 msgid "hPa"
 msgstr "hPa"
 
-#: dialogs/settings_dialog.py:417
+#: dialogs/settings_dialog.py:418
 msgid "Never"
 msgstr "Niekada"
 
-#: dialogs/settings_dialog.py:418
+#: dialogs/settings_dialog.py:419
 msgid "Only at start"
 msgstr "Tik paleidžiant"
 
-#: dialogs/settings_dialog.py:419
+#: dialogs/settings_dialog.py:420
 msgid "Always"
 msgstr "Visada"
 
-#: dialogs/settings_dialog.py:423
+#: dialogs/settings_dialog.py:424
 msgid "Only background"
 msgstr "Tik fone"
 
-#: dialogs/settings_dialog.py:424
+#: dialogs/settings_dialog.py:425
 msgid "Yes"
 msgstr "Taip"
 
-#: dialogs/settings_dialog.py:531 dialogs/settings_dialog.py:541
-#: dialogs/settings_dialog.py:551 dialogs/settings_dialog.py:553
+#: dialogs/settings_dialog.py:532 dialogs/settings_dialog.py:542
+#: dialogs/settings_dialog.py:552 dialogs/settings_dialog.py:554
 msgid "Author"
 msgstr "Autorius"
 
@@ -823,3 +835,6 @@ msgstr "Pašalinti\npasirinktą"
 #: dialogs/city_id_dialog.ui:160
 msgid "Language weather"
 msgstr "Orų kalba"
+
+#~ msgid "Color scheme"
+#~ msgstr "Color scheme"

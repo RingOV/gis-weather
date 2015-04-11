@@ -36,6 +36,7 @@ weather = {
     'icon_today': [],
     'wind_speed_tod': [],
     'wind_direct_tod': [],
+    
     'chance_of_rain': [],
     't_today_low': [],
     't_tomorrow_low': []
