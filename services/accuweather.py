@@ -10,7 +10,7 @@ import os
 data = [
     "http://www.accuweather.com", # url
     "http://www.accuweather.com/vi/<b>za/sun-city/306096</b>/weather-forecast/306096", # example
-    "<b>za/sun-city/306096</b>\n"+_("If wrong city code read")+" <a href='https://github.com/RingOV/gis-weather/wiki/How-to:-AccuWeather-city-code'>How to: AccuWeather city code</a>", #code
+    "<b>za/sun-city/306096</b>\n"+_("If the city code is wrong, please read")+" <a href='https://github.com/RingOV/gis-weather/wiki/How-to:-AccuWeather-city-code'>How to: AccuWeather city code</a>", #code
     { 
     'en': 'English',
     'es': 'Español',

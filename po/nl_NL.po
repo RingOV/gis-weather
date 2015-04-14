@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2015-04-04 15:49+0300\n"
-"PO-Revision-Date: 2015-04-11 07:07+0000\n"
-"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
+"PO-Revision-Date: 2015-04-14 17:43+0000\n"
+"Last-Translator: Alexander Koltsov <ringov@mail.ru>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/gis-weather/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -259,7 +259,7 @@ msgstr "weer opgehaald"
 
 #: services/accuweather.py:12
 msgid "If wrong city code read"
-msgstr "Meerderde instanties openen wordt niet ondersteund"
+msgstr ""
 
 #: services/accuweather.py:284
 msgid "Calm"
