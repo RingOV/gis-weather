@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2015-04-04 15:49+0300\n"
-"PO-Revision-Date: 2015-04-14 17:45+0000\n"
+"POT-Creation-Date: 2015-04-15 00:01+0300\n"
+"PO-Revision-Date: 2015-04-16 08:36+0000\n"
 "Last-Translator: Alexander Koltsov <ringov@mail.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/gis-weather/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -54,213 +54,213 @@ msgstr "Вводите полный путь к скрипту"
 msgid "Exit"
 msgstr "Выход"
 
-#: gis-weather.py:436
+#: gis-weather.py:397
 msgid "Check for new version"
 msgstr "Проверяю наличие новой версии"
 
-#: gis-weather.py:441 gis-weather.py:450
+#: gis-weather.py:402 gis-weather.py:411
 msgid "Unable to check for updates"
 msgstr "Невозможно проверить обновления"
 
-#: gis-weather.py:465
+#: gis-weather.py:426
 msgid "New version available"
 msgstr "Доступна новая версия"
 
-#: gis-weather.py:472
+#: gis-weather.py:433
 msgid "You are using the latest version"
 msgstr "Вы используете самую последнюю версию"
 
-#: gis-weather.py:489 gis-weather.py:1255
+#: gis-weather.py:450 gis-weather.py:1216
 msgid "Screenshot saved to"
 msgstr "Скриншот сохранен в"
 
-#: gis-weather.py:493
+#: gis-weather.py:454
 msgid "Unable to get the screenshot"
 msgstr "Невозможно получить скриншот"
 
-#: gis-weather.py:662
+#: gis-weather.py:623
 msgid "Getting weather..."
 msgstr "Получаю погоду..."
 
-#: gis-weather.py:665
+#: gis-weather.py:626
 msgid "Error getting weather"
 msgstr "Ошибка получения погоды"
 
-#: gis-weather.py:667
+#: gis-weather.py:628
 msgid "Location not set"
 msgstr "Местоположение не настроено"
 
-#: gis-weather.py:724 gis-weather.py:786
+#: gis-weather.py:685 gis-weather.py:747
 msgid "Next update in"
 msgstr "Следующее обновление через"
 
-#: gis-weather.py:724 gis-weather.py:786
+#: gis-weather.py:685 gis-weather.py:747
 msgid "min"
 msgstr "мин"
 
-#: gis-weather.py:776
+#: gis-weather.py:737
 msgid "Connection error"
 msgstr "Ошибка соединения"
 
-#: gis-weather.py:838
+#: gis-weather.py:799
 msgid "Updated on server"
 msgstr "Обновлено на сервере"
 
-#: gis-weather.py:839
+#: gis-weather.py:800
 msgid "Weather received"
 msgstr "Погода получена"
 
-#: gis-weather.py:869
+#: gis-weather.py:830
 msgid "E"
 msgstr "В"
 
-#: gis-weather.py:869
+#: gis-weather.py:830
 msgid "S"
 msgstr "Ю"
 
-#: gis-weather.py:869
+#: gis-weather.py:830
 msgid "W"
 msgstr "З"
 
-#: gis-weather.py:869
+#: gis-weather.py:830
 msgid "N"
 msgstr "С"
 
-#: gis-weather.py:914
+#: gis-weather.py:875
 msgid "humid."
 msgstr "влажн."
 
-#: gis-weather.py:920
+#: gis-weather.py:881
 msgid "water"
 msgstr "вода"
 
-#: gis-weather.py:937 gis-weather.py:976
+#: gis-weather.py:898 gis-weather.py:937
 msgid "Morning"
 msgstr "Утро"
 
-#: gis-weather.py:937 gis-weather.py:976
+#: gis-weather.py:898 gis-weather.py:937
 msgid "Day"
 msgstr "День"
 
-#: gis-weather.py:937 gis-weather.py:976
+#: gis-weather.py:898 gis-weather.py:937
 msgid "Evening"
 msgstr "Вечер"
 
-#: gis-weather.py:937 gis-weather.py:976
+#: gis-weather.py:898 gis-weather.py:937
 msgid "Night"
 msgstr "Ночь"
 
-#: gis-weather.py:940 gis-weather.py:942
+#: gis-weather.py:901 gis-weather.py:903
 msgid "Tomorrow"
 msgstr "Завтра"
 
-#: gis-weather.py:978
+#: gis-weather.py:939
 msgid "Today"
 msgstr "Сегодня"
 
-#: gis-weather.py:1101
+#: gis-weather.py:1062
 msgid "Background image not found"
 msgstr "Не найдено фоновое изображение"
 
-#: gis-weather.py:1158
+#: gis-weather.py:1119
 msgid "downloading"
 msgstr "скачиваю"
 
-#: gis-weather.py:1162
+#: gis-weather.py:1123
 msgid "Unable to download"
 msgstr "Не удалось скачать"
 
-#: gis-weather.py:1187
+#: gis-weather.py:1148
 msgid "Icon not found"
 msgstr "Не найдена иконка"
 
-#: gis-weather.py:1266
+#: gis-weather.py:1227
 msgid "Widget size"
 msgstr "Размеры виджета"
 
-#: gis-weather.py:1267
+#: gis-weather.py:1228
 msgid "width"
 msgstr "ширина"
 
-#: gis-weather.py:1267
+#: gis-weather.py:1228
 msgid "height"
 msgstr "высота"
 
-#: gis-weather.py:1267
+#: gis-weather.py:1228
 msgid "including indent"
 msgstr "в т.ч. отступ"
 
-#: gis-weather.py:1443
+#: gis-weather.py:1404
 msgid "Removed"
 msgstr "Удалено"
 
-#: gis-weather.py:1472 dialogs/city_id_dialog.ui:376
+#: gis-weather.py:1433 dialogs/city_id_dialog.ui:376
 msgid "Added"
 msgstr "Добавлено"
 
-#: gis-weather.py:1477 dialogs/city_id_dialog.ui:308
+#: gis-weather.py:1438 dialogs/city_id_dialog.ui:308
 msgid "Invalid location code"
 msgstr "Неверно введен код местоположения"
 
-#: gis-weather.py:1542
+#: gis-weather.py:1503
 msgid "Your screen does not support alpha"
 msgstr "Ваш экран не поддерживает прозрачность"
 
-#: gis-weather.py:1544
+#: gis-weather.py:1505
 msgid "Your screen supports alpha"
 msgstr "Ваш экран поддерживает прозрачность"
 
-#: services/gismeteo.py:247 services/accuweather.py:225
+#: services/gismeteo.py:215 services/accuweather.py:193
 msgid "Failed to get the name of the location"
 msgstr "Не удалось получить название местоположения"
 
-#: services/gismeteo.py:253 services/accuweather.py:236
+#: services/gismeteo.py:221 services/accuweather.py:204
 msgid "Getting weather for"
 msgstr "Получаю погоду на"
 
-#: services/gismeteo.py:253 services/accuweather.py:236
+#: services/gismeteo.py:221 services/accuweather.py:204
 msgid "days"
 msgstr "дней"
 
-#: services/gismeteo.py:254 services/accuweather.py:237
-#: services/accuweather.py:297 services/accuweather.py:317
-#: services/accuweather.py:374 services/accuweather.py:436
-#: services/accuweather.py:444 services/accuweather.py:452
-#: services/accuweather.py:460 services/accuweather.py:576
-#: services/accuweather.py:584 services/accuweather.py:592
-#: services/accuweather.py:600 dialogs/update_dialog.py:27
+#: services/gismeteo.py:222 services/accuweather.py:205
+#: services/accuweather.py:265 services/accuweather.py:285
+#: services/accuweather.py:342 services/accuweather.py:404
+#: services/accuweather.py:412 services/accuweather.py:420
+#: services/accuweather.py:428 services/accuweather.py:544
+#: services/accuweather.py:552 services/accuweather.py:560
+#: services/accuweather.py:568 dialogs/update_dialog.py:27
 #: dialogs/update_dialog.ui:561
 msgid "Downloading"
 msgstr "Скачиваю"
 
-#: services/gismeteo.py:260 services/accuweather.py:243
-#: services/accuweather.py:303 services/accuweather.py:323
-#: services/accuweather.py:380 services/accuweather.py:442
-#: services/accuweather.py:450 services/accuweather.py:458
-#: services/accuweather.py:466 services/accuweather.py:582
-#: services/accuweather.py:590 services/accuweather.py:598
-#: services/accuweather.py:606
+#: services/gismeteo.py:228 services/accuweather.py:211
+#: services/accuweather.py:271 services/accuweather.py:291
+#: services/accuweather.py:348 services/accuweather.py:410
+#: services/accuweather.py:418 services/accuweather.py:426
+#: services/accuweather.py:434 services/accuweather.py:550
+#: services/accuweather.py:558 services/accuweather.py:566
+#: services/accuweather.py:574
 msgid "Unable to download page, check the network connection"
 msgstr "Невозможно скачать страницу, проверьте интернет соединение"
 
-#: services/gismeteo.py:262 services/gismeteo.py:376
-#: services/accuweather.py:245
+#: services/gismeteo.py:230 services/gismeteo.py:344
+#: services/accuweather.py:213
 msgid "Next try in 10 seconds"
 msgstr "Следующая попытка через 10 секунд"
 
-#: services/gismeteo.py:444 services/accuweather.py:715
+#: services/gismeteo.py:412 services/accuweather.py:683
 msgid "updated on server"
 msgstr "обновлено на сервере"
 
-#: services/gismeteo.py:445 services/accuweather.py:716
+#: services/gismeteo.py:413 services/accuweather.py:684
 msgid "weather received"
 msgstr "погода получена"
 
-#: services/accuweather.py:12
-msgid "If wrong city code read"
+#: services/accuweather.py:13
+msgid "If the city code is wrong, please read"
 msgstr "Если неправильный код города, то прочтите"
 
-#: services/accuweather.py:284
+#: services/accuweather.py:252
 msgid "Calm"
 msgstr "Штиль"
 
@@ -719,7 +719,7 @@ msgstr "Выбрать"
 
 #: dialogs/settings_dialog.ui:3634
 msgid "Radius corners"
-msgstr "Радиус углов"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3649 dialogs/settings_dialog.ui:4106
 msgid "Color"
@@ -836,6 +836,9 @@ msgstr "Удалить\nвыбранное"
 #: dialogs/city_id_dialog.ui:160
 msgid "Language weather"
 msgstr "Язык погоды"
+
+#~ msgid "If wrong city code read"
+#~ msgstr "If wrong city code read"
 
 #~ msgid "Color scheme"
 #~ msgstr "Color scheme"
