@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2015-04-15 00:01+0300\n"
-"PO-Revision-Date: 2015-04-16 08:36+0000\n"
+"POT-Creation-Date: 2015-04-15 22:01+0300\n"
+"PO-Revision-Date: 2015-04-16 17:48+0000\n"
 "Last-Translator: Alexander Koltsov <ringov@mail.ru>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/gis-weather/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -18,8 +18,8 @@ msgstr ""
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: dialogs\n"
-"X-Poedit-SearchPath-2: utils\n"
-"X-Poedit-SearchPath-3: services\n"
+"X-Poedit-SearchPath-2: services\n"
+"X-Poedit-SearchPath-3: utils\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: gis-weather.py:42
@@ -718,7 +718,7 @@ msgid "Select"
 msgstr "選択"
 
 #: dialogs/settings_dialog.ui:3634
-msgid "Radius corners"
+msgid "Corner radius"
 msgstr ""
 
 #: dialogs/settings_dialog.ui:3649 dialogs/settings_dialog.ui:4106
@@ -836,9 +836,3 @@ msgstr "削除\n選択されました"
 #: dialogs/city_id_dialog.ui:160
 msgid "Language weather"
 msgstr ""
-
-#~ msgid "If wrong city code read"
-#~ msgstr "If wrong city code read"
-
-#~ msgid "Color scheme"
-#~ msgstr "Color scheme"
