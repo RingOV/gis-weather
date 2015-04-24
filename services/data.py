@@ -2,12 +2,12 @@
 
 import os
 
-from services import gismeteo, accuweather#, openweathermap
+from services import gismeteo, accuweather, openweathermap
 
 services_list = [
     'Gismeteo',
     'AccuWeather',
-#    'OpenWeatherMap'
+    'OpenWeatherMap'
     ]
 
 def get_index(service):

@@ -15,3 +15,8 @@ def F_to_K(t_F):
 
 def C_to_K(t_C):
     return str(int(t_C)+273)
+
+def add_plus(t):
+    if t[0] not in ('+', '-', '0'):
+        t = "+"+t
+    return t
