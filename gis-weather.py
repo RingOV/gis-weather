@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 #  gis_weather.py
-v = '0.7.6.11'
+v = '0.7.6.12'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -1128,7 +1128,7 @@ class MyDrawArea(Gtk.DrawingArea):
                     pix_path = os.path.join(THEMES_PATH, 'na.png')
                 if not indicator_icon_name:
                     try:
-                        self.draw_scaled_image(x, y, pix_path, w, h)
+                        self.draw_scaled_image(cr, x, y, pix_path, w, h)
                     except:
                         pass
                 return

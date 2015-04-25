@@ -277,9 +277,13 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
         for i in range(len(icon_today)):
             if icon_today[i] != '':
                 icon_today[i] = convert(icon_today[i], icons_name)
+            else:
+                icon_today[i] = 'na.png;na.png'
         for i in range(len(icon_tomorrow)):
             if icon_tomorrow[i] != '':
                 icon_tomorrow[i] = convert(icon_tomorrow[i], icons_name)
+            else:
+                icon_tomorrow[i] = 'na.png;na.png'
         for i in range(len(wind_speed_tod)):
             if wind_speed_tod[i] != '':
                 wind_speed_tod[i] = wind_speed_tod[i]+' m/s;'+str(round(int(wind_speed_tod[i])*3.6))+' km/h;'+str(round(int(wind_speed_tod[i])*2.237))+' mph'
