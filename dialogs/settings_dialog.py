@@ -32,6 +32,7 @@ ICONS_PATH_SET = None
 service_set = None
 dict_weather_lang = None
 weather_lang_list = None
+loading = False
 
 dict_app_lang = {
     'auto': 'Auto',
@@ -715,11 +716,12 @@ class settings():
     def set_weather_lang(self, widget):
         if state_lock:
             return
-        global gw_config_set
-        i = widget.get_active()
-        gw_config_set['weather_lang'] = weather_lang_list[i]
-        Save_Config()
-        #drawing_area_set.redraw(False, True, load_config = True)
+        if not loading:
+            global gw_config_set
+            i = widget.get_active()
+            gw_config_set['weather_lang'] = weather_lang_list[i]
+            gw_config_set[gw_config_set['service']+'_weather_lang'] = weather_lang_list[i]
+            Save_Config()
 
     def set_app_lang(self, widget):
         if state_lock:
@@ -774,7 +776,8 @@ class settings():
     def set_service(self, widget):
         if state_lock:
             return
-        global gw_config_set
+        global gw_config_set, loading
+        loading = True
         i = widget.get_active()
         gw_config_set['service'] = data.services_list[i]
         try:
@@ -791,9 +794,10 @@ class settings():
         self.spinbutton_n.set_value(gw_config_set['n'])
         self.spinbutton_n.set_range(3, gw_config_set['max_days'])
         Save_Config()
-        self.load_available_service_lang(i)
+        self.load_available_service_lang(gw_config_set['service'])
+        loading = False
 
-    def load_available_service_lang(self, i):
+    def load_available_service_lang(self, service):
         global dict_weather_lang, weather_lang_list
         url, example, code, dict_weather_lang, weather_lang_list = data.get(gw_config_set['service'])
         self.liststore6.clear()
@@ -803,8 +807,9 @@ class settings():
             except:
                 if weather_lang_list[i] != '':
                     self.liststore6.append([weather_lang_list[i]])
-            if weather_lang_list[i] == gw_config_set['weather_lang']:
-                self.combobox_weather_lang.set_active(i)
+            if service+'_weather_lang' in gw_config_set.keys():
+                if weather_lang_list[i] == gw_config_set[service+'_weather_lang']:
+                    self.combobox_weather_lang.set_active(i)
             if self.combobox_weather_lang.get_active() == -1:
                 self.combobox_weather_lang.set_active(0)
 
