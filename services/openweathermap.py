@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from utils import weather_vars, wind_direct_convert
-from utils.opener import urlopen, urlopener
+from utils.opener import urlopener
 from utils.t_convert import C_to_F, C_to_K, add_plus
 import re
 import time
@@ -73,15 +73,14 @@ def convert(icon, icons_name):
     return icon+';'+icon_converted
 
 def get_city_name(c_id, weather_lang):
-    try:
-
-        source = urlopen('http://api.openweathermap.org/data/2.5/weather?id=%s&lang=%s&APPID=%s'%(str(c_id), weather_lang, APPID))
-        source = json.loads(source.decode(encoding='UTF-8'))
+    source = urlopener('http://api.openweathermap.org/data/2.5/weather?id=%s&lang=%s'%(str(c_id), weather_lang), 2)
+    if source:
+        source = json.loads(source)
         c_name = source['name']
-    except:
+        return c_name
+    else:
         print ('\033[1;31m[!]\033[0m '+_('Failed to get the name of the location'))
         return 'None'
-    return c_name
 
 def get_time(source):
     return source['dt_txt'].split()[1][:-3]
@@ -97,16 +96,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
     URL_SEVERAL_DAYS = 'http://api.openweathermap.org/data/2.5/forecast/daily?id=%s&lang=%s&units=metric&cnt=%s'%(str(city_id), weather_lang, n+1)
     URL_TODAY_TOMORROW = 'http://api.openweathermap.org/data/2.5/forecast?id=%s&lang=%s&units=metric'%(str(city_id), weather_lang)
     print ('\033[34m>\033[0m '+_('Getting weather for')+' '+str(n)+' '+_('days'))
-    # print ('\033[34m>\033[0m '+_('Downloading')+' '+URL_CURRENT)
-    # try:
-    #     source = urlopen('http://api.openweathermap.org/data/2.5/weather?id=%s&lang=%s&units=metric&APPID=%s'%(str(city_id), weather_lang, APPID))
-    #     source = json.loads(source.decode(encoding='UTF-8'))
-    #     
-    # except:
-    #     print ('\033[1;31m[!]\033[0m '+_('Unable to download page, check the network connection'))
-    #     if timer_bool:
-    #         print ('\033[1;31m[!]\033[0m '+_('Next try in 10 seconds'))
-    #     return False
+
     source = urlopener(URL_CURRENT, 5)
     if not source:
         if timer_bool:
@@ -116,7 +106,6 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
 
 
     #### current weather ####
-    
     # city
     city_name = [source['name']]
 
@@ -157,25 +146,8 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
     
     # humidity now
     hum_now = [str(source['main']['humidity'])]
-    
-    # water temperature now
-    # try:
-    #     t_water_now = t_now[1]+';'+str(int(C_to_F(t_now[1])))+';'+C_to_K(t_now[1])
-    # except:
-    #     pass
-    
+
     #### weather to several days ####
-    # all days
-    # print ('\033[34m>\033[0m '+_('Downloading')+' '+URL_SEVERAL_DAYS)
-    # try:
-    #     source = urlopen('http://api.openweathermap.org/data/2.5/forecast/daily?id=%s&lang=%s&units=metric&cnt=%s&APPID=%s'%(str(city_id), weather_lang, n+1, APPID))
-    #     source = json.loads(source.decode(encoding='UTF-8'))
-    #     print ('\033[1;32mOK\033[0m')
-    # except:
-    #     print ('\033[1;31m[!]\033[0m '+_('Unable to download page, check the network connection'))
-    #     if timer_bool:
-    #         print ('\033[1;31m[!]\033[0m '+_('Next try in 10 seconds'))
-    #     return False
     source = urlopener(URL_SEVERAL_DAYS, 5)
     if not source:
         if timer_bool:
@@ -225,16 +197,6 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
             wind_speed[i] = wind_speed[i]+' m/s;'+str(round(int(wind_speed[i])*3.6))+' km/h;'+str(round(int(wind_speed[i])*2.237))+' mph'
     
     if show_block_tomorrow or show_block_today:
-        # print ('\033[34m>\033[0m '+_('Downloading')+' '+)
-        # try:
-        #     source = urlopen('http://api.openweathermap.org/data/2.5/forecast?id=%s&lang=%s&units=metric&APPID=%s'%(str(city_id), weather_lang, APPID))
-        #     source = json.loads(source.decode(encoding='UTF-8'))
-        #     print ('\033[1;32mOK\033[0m')
-        # except:
-        #     print ('\033[1;31m[!]\033[0m '+_('Unable to download page, check the network connection'))
-        #     if timer_bool:
-        #         print ('\033[1;31m[!]\033[0m '+_('Next try in 10 seconds'))
-        #     return False
         source = urlopener(URL_TODAY_TOMORROW, 5)
         if not source:
             if timer_bool:

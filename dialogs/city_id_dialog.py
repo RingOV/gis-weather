@@ -16,6 +16,7 @@ code = None
 dict_weather_lang = None
 weather_lang_list = None
 gw_config = None
+loading = False
 
 def Save_Config():
     json.dump(gw_config, open(CONFIG_PATH_FILE, "w"), sort_keys=True, indent=4, separators=(', ', ': '))
@@ -44,13 +45,16 @@ def set_service(widget, label, liststore2, combobox_weather_lang, weather_lang, 
     Save_Config()
 
 def set_weather_lang(widget):
-    global gw_config
-    i = widget.get_active()
-    gw_config['weather_lang'] = weather_lang_list[i]
-    Save_Config()
+    if not loading:
+        global gw_config
+        i = widget.get_active()
+        gw_config['weather_lang'] = weather_lang_list[i]
+        gw_config[gw_config['service']+'_weather_lang'] = weather_lang_list[i]
+        Save_Config()
 
 def load_data(service, label, liststore2, combobox_weather_lang, weather_lang, store):
-    global url, example, code, dict_weather_lang, weather_lang_list, gw_config
+    global url, example, code, dict_weather_lang, weather_lang_list, gw_config, loading
+    loading = True
     url, example, code, dict_weather_lang, weather_lang_list = data.get(service)
     text = _("Choose your city on")+" <a href='%s'>%s</a>\n" %(url, url)+\
         _("and copy the city code below")+"\n"+\
@@ -64,10 +68,11 @@ def load_data(service, label, liststore2, combobox_weather_lang, weather_lang, s
         except:
             if weather_lang_list[i] != '':
                 liststore2.append([weather_lang_list[i]])
-        if weather_lang_list[i] == weather_lang:
-            combobox_weather_lang.set_active(i)
-        if combobox_weather_lang.get_active() == -1:
-            combobox_weather_lang.set_active(0)
+        if service+'_weather_lang' in gw_config.keys():
+            if weather_lang_list[i] == gw_config[service+'_weather_lang']:
+                combobox_weather_lang.set_active(i)
+    if combobox_weather_lang.get_active() == -1:
+        combobox_weather_lang.set_active(0)
     Load_Config()
     try:
         city_list = gw_config[data.get_city_list(service)]
@@ -76,6 +81,7 @@ def load_data(service, label, liststore2, combobox_weather_lang, weather_lang, s
     store.clear()
     for item in city_list:
         store.append([item.split(';')[0], item.split(';')[1]])
+    loading = False
 
 def create(window, APP_PATH, weather_lang, service):
     Load_Config()

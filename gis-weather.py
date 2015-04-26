@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 #  gis_weather.py
-v = '0.7.7.1'
+v = '0.7.7.2'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -1360,12 +1360,16 @@ class Weather_Widget:
                 if not widget.get_active():
                     return
 
-            global city_id
+            global city_id, weather_lang
             Load_Config()
             try:
                 if value[1] != 0:
                     service = value[0]
                     city_id = value[1].split(';')[0]
+                    if service+'_weather_lang' in gw_config.keys():
+                        weather_lang = gw_config[service+'_weather_lang']
+                    else:
+                        weather_lang = value[2]
                     Save_Config()
             except:
                 pass

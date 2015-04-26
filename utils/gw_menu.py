@@ -75,7 +75,7 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color
                 if city_list[j].split(';')[0] == str(gw_config['city_id']) and gw_config['service'] == data.services_list[i]:
                     menu_items.set_active(True)
                 sub_menu_place.append(menu_items)
-                menu_items.connect("activate", app.menu_response, 'reload', [data.services_list[i], city_list[j]])
+                menu_items.connect("activate", app.menu_response, 'reload', [data.services_list[i], city_list[j], data.get(data.services_list[i])[4][0]])
                 menu_items.show()
 
     # sub_menu_icons
