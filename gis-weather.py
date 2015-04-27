@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 #  gis_weather.py
-v = '0.7.7.3'
+v = '0.7.7.5'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -1038,7 +1038,7 @@ class MyDrawArea(Gtk.DrawingArea):
             return os.path.join(path, "%s.svgz"%bg_custom)
         return False
 
-    def draw_bg(self, cr, l, t, w, h):
+    def draw_bg(self, cr, l, t, w, h, ignore_scale = False):
         if w == -1:
             w = width
         if h == -1:
@@ -1050,20 +1050,28 @@ class MyDrawArea(Gtk.DrawingArea):
         if show_bg_png:
             l = l//2
             t = t//2
-            if os.path.exists(os.path.join(BGS_USER_PATH, bg_custom)):
-                if self.find_image(os.path.join(BGS_USER_PATH, bg_custom)):
-                    self.draw_scaled_image(cr, l, t, self.find_image(os.path.join(BGS_USER_PATH, bg_custom)), w, h)
-                else:
-                    self.draw_bg_png_svg(cr, os.path.join(BGS_USER_PATH, bg_custom), l, t, w, h)
-            else:
-                if os.path.exists(os.path.join(BGS_PATH, bg_custom)):
-                    if self.find_image(os.path.join(BGS_PATH, bg_custom)):
-                        self.draw_scaled_image(cr, l, t, self.find_image(os.path.join(BGS_PATH, bg_custom)), w, h)
+            if scale == 1 or ignore_scale: 
+                if os.path.exists(os.path.join(BGS_USER_PATH, bg_custom)):
+                    if self.find_image(os.path.join(BGS_USER_PATH, bg_custom)):
+                        self.draw_scaled_image(cr, l, t, self.find_image(os.path.join(BGS_USER_PATH, bg_custom)), w, h)
                     else:
-                        self.draw_bg_png_svg(cr, os.path.join(BGS_PATH, bg_custom), l, t, w, h)
+                        self.draw_bg_png_svg(cr, os.path.join(BGS_USER_PATH, bg_custom), l, t, w, h)
                 else:
-                    print (_('Background image not found')+': '+str(bg_custom))
-            # cr.translate(-l, -t)
+                    if os.path.exists(os.path.join(BGS_PATH, bg_custom)):
+                        if self.find_image(os.path.join(BGS_PATH, bg_custom)):
+                            self.draw_scaled_image(cr, l, t, self.find_image(os.path.join(BGS_PATH, bg_custom)), w, h)
+                        else:
+                            self.draw_bg_png_svg(cr, os.path.join(BGS_PATH, bg_custom), l, t, w, h)
+                    else:
+                        print (_('Background image not found')+': '+str(bg_custom))
+                if ignore_scale:
+                    return
+                # cr.translate(-l, -t)
+            if scale != 1:
+                if not os.path.exists(os.path.join(CONFIG_PATH, 'bgs_for_scale', str(bg_custom)+'_'+str(preset_number)+'_'+str(n)+'.png')):
+                    self.save_widget_bg()
+                if os.path.exists(os.path.join(CONFIG_PATH, 'bgs_for_scale', str(bg_custom)+'_'+str(preset_number)+'_'+str(n)+'.png')):
+                    self.draw_scaled_image(cr, l, t, os.path.join(CONFIG_PATH, 'bgs_for_scale', str(bg_custom)+'_'+str(preset_number)+'_'+str(n)+'.png'), w, h)
         else:
             cr.set_source_rgba(color_bg[0], color_bg[1], color_bg[2], color_bg[3])
             cr.rectangle(l+r, t+0, w-2*r, h)
@@ -1184,8 +1192,7 @@ class MyDrawArea(Gtk.DrawingArea):
         else:
             pixbuf = GdkPixbuf.Pixbuf.new_from_file(pix)
         k=1
-        # if pixbuf.get_width()>pixbuf.get_height() and os.path.split(pix)[-2][-11:]!='backgrounds' and os.path.basename(pix)!='screenshot.png':
-        if pixbuf.get_width()>pixbuf.get_height() and not re.findall('backgrounds', pix) and os.path.basename(pix)!='screenshot.png':
+        if pixbuf.get_width()>pixbuf.get_height() and not re.findall('backgrounds', pix) and os.path.basename(pix)!='screenshot.png' and not re.findall('bgs_for_scale', pix):
             k = pixbuf.get_width()/pixbuf.get_height()
         pixbuf = pixbuf.scale_simple(round(w*k),h,GdkPixbuf.InterpType.BILINEAR)
         if k==1:
@@ -1209,6 +1216,16 @@ class MyDrawArea(Gtk.DrawingArea):
         cr.scale(w/svg.props.width, h/svg.props.height)
         svg.render_cairo(cr)
         cr.restore()
+
+
+    def save_widget_bg(self):
+        bg_w = width if bg_width == -1 else bg_width
+        bg_h = height if bg_height == -1 else bg_height
+        surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, bg_w, bg_h)
+        ctx = cairo.Context(surface)
+        self.draw_bg(ctx, 0, 0, bg_width, bg_height, ignore_scale = True)
+        make_dirs(os.path.join(CONFIG_PATH, 'bgs_for_scale'))
+        surface.write_to_png(os.path.join(CONFIG_PATH, 'bgs_for_scale', str(bg_custom)+'_'+str(preset_number)+'_'+str(n)+'.png'))
 
 
     def save_widget_screenshot(self):
