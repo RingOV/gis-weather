@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 #  gis_weather.py
-v = '0.7.7.6'
+v = '0.7.7.8'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -164,6 +164,9 @@ gw_config_default = {
     'instances_count': 1,
     'date_separator': 'default',
     'swap_d_and_m': False,
+    'save_cur_temp': False,
+    'save_cur_temp_add_scale': False,
+    'show_indicator_text': True,
     # customizable options
     'preset_number':0,
     'bg_left': 0,
@@ -536,8 +539,12 @@ class Indicator:
                 self.hiden = True
             
         def set_label(self, text):
-            self.draw_text_to_png(self.indicator.get_size(), text)
-            self.indicator_label.set_from_file(os.path.join(CONFIG_PATH, "text.png"))
+            if show_indicator_text:
+                self.indicator_label.set_visible(True)
+                self.draw_text_to_png(self.indicator.get_size(), text)
+                self.indicator_label.set_from_file(os.path.join(CONFIG_PATH, "text.png"))
+            else:
+                self.indicator_label.set_visible(False)
 
         def set_icon(self, icon):
             if icon[-4:] == 'svgz':
@@ -804,10 +811,16 @@ class MyDrawArea(Gtk.DrawingArea):
             if t_feel:
                 t_index += 1
             if t_now:
-                if t_now_alignment == 'right':
-                    self.draw_text(cr, t_now[0].split(';')[t_index], t_now_left2+center-100+block_now_left, t_now_top+y+30, font+' Normal', 18+t_now_size, 60, Pango.Alignment.RIGHT)
-                elif t_now_alignment == 'left':
-                    self.draw_text(cr, t_now[0].split(';')[t_index], t_now_left2+center-100+block_now_left, t_now_top+y+30, font+' Normal', 18+t_now_size, 60, Pango.Alignment.LEFT)
+                if t_now_alignment == 'right': pango_align = Pango.Alignment.RIGHT
+                else: pango_align = Pango.Alignment.LEFT
+                self.draw_text(cr, t_now[0].split(';')[t_index], t_now_left2+center-100+block_now_left, t_now_top+y+30, font+' Normal', 18+t_now_size, 60, pango_align)
+                if save_cur_temp:
+                    t_now_post = ''
+                    if save_cur_temp_add_scale:
+                        t_now_post = t_scale_dict[t_scale][-1]
+                    cur_temp_file = open(os.path.join(CONFIG_PATH, 'cur_temp'), 'w')
+                    cur_temp_file.write(t_now[0].split(';')[t_index]+t_now_post)
+                    cur_temp_file.close()
             if text_now: self.draw_text(cr, text_now[0], text_now_left2+center-70+block_now_left, text_now_top+y+106, font+' Normal', 10, 140, Pango.Alignment.CENTER)
             
             if show_block_wind_direct:

@@ -371,6 +371,8 @@ class settings():
         self.spinbutton_app_indicator_size.connect("value-changed", self.save_settings)
         self.switch_app_indicator_fix_size = self.ui.get_object('switch_app_indicator_fix_size')
         self.switch_app_indicator_fix_size.connect("notify::active", self.save_settings)
+        self.switch_show_indicator_text = self.ui.get_object('switch_show_indicator_text')
+        self.switch_show_indicator_text.connect("notify::active", self.save_settings)
 
         self.clear_show_indicator = self.ui.get_object('clear_show_indicator')
         self.clear_show_indicator.connect("clicked", self.clear_settings)
@@ -514,6 +516,7 @@ class settings():
         self.load(self.spinbutton_instances_count)
         self.load(self.combobox_desc_style)
         self.load(self.switch_swap_d_and_m)
+        self.load(self.switch_show_indicator_text)
 
         if gw_config_set['show_bg_png'] == True:
             self.frame_not_image.hide()
