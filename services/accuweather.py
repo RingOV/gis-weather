@@ -41,7 +41,7 @@ data = [
     'tr': 'TÜRKÇE',
     'he': 'עברית',
     'sl': 'Slovenski',
-    'uk': 'Українське',
+    'uk': 'Українська',
     'id': 'Bahasa Indonesia',
     'bg': 'български',
     'et': 'Eesti keeles',

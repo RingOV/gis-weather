@@ -14,7 +14,7 @@ data = [
     { 
         'com': 'English',
         'ru': 'Русский',
-        'ua/ua': 'Український',
+        'ua/ua': 'Українська',
         'lv': 'Latvijas',
         'lt': 'Lietuviškai',
         'md/ro': 'Română'
