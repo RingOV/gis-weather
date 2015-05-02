@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 #  gis_weather.py
-v = '0.7.7.8'
+v = '0.7.7.9'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -163,10 +163,12 @@ gw_config_default = {
     'scale': 1,
     'instances_count': 1,
     'date_separator': 'default',
+    'show_indicator_text': True,
     'swap_d_and_m': False,
     'save_cur_temp': False,
     'save_cur_temp_add_scale': False,
-    'show_indicator_text': True,
+    'save_cur_icon': False,
+    'save_cur_data_path': '',
     # customizable options
     'preset_number':0,
     'bg_left': 0,
@@ -464,6 +466,26 @@ def crop_image(left, top, width, height):
     except:
         print (">> Pixbuf.savev Error")
 
+def extract_svgz(icon, path):
+    inF = gzip.open(icon, 'rb')
+    outF = open(path, 'wb')
+    outF.write(inF.read())
+    inF.close()
+    outF.close()
+
+def get_pixbuf(icon):
+    if icon[-4:] == 'svgz':
+        inF = gzip.open(icon, 'r')
+        loader = GdkPixbuf.PixbufLoader()
+        loader.write(inF.read())
+        loader.close()
+        inF.close()
+        pixbuf = loader.get_pixbuf()
+    else:
+        pixbuf = GdkPixbuf.Pixbuf.new_from_file(icon)
+    return pixbuf
+
+
 class Indicator:
     if indicator_is_appindicator and HAS_INDICATOR: # AppIndicator3
         def __init__(self):
@@ -483,30 +505,32 @@ class Indicator:
                 self.set_icon_fixed(icon, app_indicator_size)
             else:
                 if icon[-4:] == 'svgz':
-                    inF = gzip.open(icon, 'rb')
-                    outF = open(os.path.join(CONFIG_PATH, 'cur_icon.svg'), 'wb')
-                    outF.write(inF.read())
-                    inF.close()
-                    outF.close()
-                    self.indicator.set_icon(os.path.join(CONFIG_PATH, 'cur_icon.svg'))
+                    # inF = gzip.open(icon, 'rb')
+                    # outF = open(os.path.join(CONFIG_PATH, 'tmp_cur_icon.svg'), 'wb')
+                    # outF.write(inF.read())
+                    # inF.close()
+                    # outF.close()
+                    extract_svgz(icon,os.path.join(CONFIG_PATH, 'tmp_cur_icon.svg'))
+                    self.indicator.set_icon(os.path.join(CONFIG_PATH, 'tmp_cur_icon.svg'))
                 else:
                     self.indicator.set_icon(icon)
 
         def set_icon_fixed(self, icon, size=None):
-            if icon[-4:] == 'svgz':
-                inF = gzip.open(icon, 'r')
-                loader = GdkPixbuf.PixbufLoader()
-                loader.write(inF.read())
-                loader.close()
-                inF.close()
-                pixbuf = loader.get_pixbuf()
-            else:
-                pixbuf = GdkPixbuf.Pixbuf.new_from_file(icon)
+            # if icon[-4:] == 'svgz':
+            #     inF = gzip.open(icon, 'r')
+            #     loader = GdkPixbuf.PixbufLoader()
+            #     loader.write(inF.read())
+            #     loader.close()
+            #     inF.close()
+            #     pixbuf = loader.get_pixbuf()
+            # else:
+            #     pixbuf = GdkPixbuf.Pixbuf.new_from_file(icon)
+            pixbuf = get_pixbuf(icon)
             if size:
                 pixbuf = pixbuf.scale_simple(size,size,GdkPixbuf.InterpType.BILINEAR)
             try:
-                pixbuf.savev(os.path.join(CONFIG_PATH, "cur_icon.png"),"png", (), ())
-                self.indicator.set_icon(os.path.join(CONFIG_PATH, "cur_icon.png"))
+                pixbuf.savev(os.path.join(CONFIG_PATH, "tmp_cur_icon.png"),"png", (), ())
+                self.indicator.set_icon(os.path.join(CONFIG_PATH, "tmp_cur_icon.png"))
             except:
                 print (">> Pixbuf.savev Error")
 
@@ -548,12 +572,13 @@ class Indicator:
 
         def set_icon(self, icon):
             if icon[-4:] == 'svgz':
-                inF = gzip.open(icon, 'rb')
-                outF = open(os.path.join(CONFIG_PATH, 'cur_icon.svg'), 'wb')
-                outF.write(inF.read())
-                inF.close()
-                outF.close()
-                self.indicator.set_from_file(os.path.join(CONFIG_PATH, 'cur_icon.svg'))
+                # inF = gzip.open(icon, 'rb')
+                # outF = open(os.path.join(CONFIG_PATH, 'tmp_cur_icon.svg'), 'wb')
+                # outF.write(inF.read())
+                # inF.close()
+                # outF.close()
+                extract_svgz(icon,os.path.join(CONFIG_PATH, 'tmp_cur_icon.svg'))
+                self.indicator.set_from_file(os.path.join(CONFIG_PATH, 'tmp_cur_icon.svg'))
             else:
                 self.indicator.set_from_file(icon)
 
@@ -757,6 +782,14 @@ class MyDrawArea(Gtk.DrawingArea):
 
     
     def Draw_Weather(self, cr):
+        if save_cur_icon:
+            path_to_save = CONFIG_PATH
+            if os.path.exists(save_cur_data_path):
+                path_to_save = save_cur_data_path
+            self.draw_scaled_icon(cr, 0, 0, weather['icon_now'][0],1,1, indicator_icons_name)
+            pixbuf = get_pixbuf(pix_path)
+            pixbuf.savev(os.path.join(path_to_save, "cur_icon.png"),"png", (), ())
+
         if show_indicator:
             self.draw_scaled_icon(cr, 0, 0, weather['icon_now'][0],1,1, indicator_icons_name)
             ind.set_icon(pix_path)
@@ -818,7 +851,10 @@ class MyDrawArea(Gtk.DrawingArea):
                     t_now_post = ''
                     if save_cur_temp_add_scale:
                         t_now_post = t_scale_dict[t_scale][-1]
-                    cur_temp_file = open(os.path.join(CONFIG_PATH, 'cur_temp'), 'w')
+                    path_to_save = CONFIG_PATH
+                    if os.path.exists(save_cur_data_path):
+                        path_to_save = save_cur_data_path
+                    cur_temp_file = open(os.path.join(path_to_save, 'cur_temp'), 'w')
                     cur_temp_file.write(t_now[0].split(';')[t_index]+t_now_post)
                     cur_temp_file.close()
             if text_now: self.draw_text(cr, text_now[0], text_now_left2+center-70+block_now_left, text_now_top+y+106, font+' Normal', 10, 140, Pango.Alignment.CENTER)

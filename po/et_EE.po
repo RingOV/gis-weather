@@ -1,0 +1,838 @@
+# 
+# Translators:
+# Viktor <viktor.peebu@gmail.com>, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: Gis Weather\n"
+"POT-Creation-Date: 2015-04-15 22:01+0300\n"
+"PO-Revision-Date: 2015-05-02 10:33+0000\n"
+"Last-Translator: Viktor <viktor.peebu@gmail.com>\n"
+"Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/gis-weather/language/et_EE/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: et_EE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: dialogs\n"
+"X-Poedit-SearchPath-2: services\n"
+"X-Poedit-SearchPath-3: utils\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: gis-weather.py:42
+msgid "Running multiple instances is not supported"
+msgstr "Mitme protsessi käivitamine ei ole toetatud"
+
+#: gis-weather.py:47
+msgid "number of instances"
+msgstr "juhtumite number"
+
+#: gis-weather.py:224 dialogs/settings_dialog.ui:671
+msgid "Configuration folder"
+msgstr "Kausta seadistamine"
+
+#: gis-weather.py:247 dialogs/city_id_dialog.py:28
+msgid "Error loading config file"
+msgstr "Viga seadete faili laadimisel"
+
+#: gis-weather.py:274
+msgid "Error loading color scheme"
+msgstr "Viga värviskeemi laadimisel"
+
+#: gis-weather.py:286
+msgid "Error loading preset"
+msgstr "Viga algse laadimisel"
+
+#: gis-weather.py:296
+msgid "Enter full path to script"
+msgstr "Sisesta scripti asukoht"
+
+#: gis-weather.py:297
+msgid "Exit"
+msgstr "Välju"
+
+#: gis-weather.py:397
+msgid "Check for new version"
+msgstr "Kontrolli  uut versiooni"
+
+#: gis-weather.py:402 gis-weather.py:411
+msgid "Unable to check for updates"
+msgstr "Uuenduste kontrollimine ei ole võimalik"
+
+#: gis-weather.py:426
+msgid "New version available"
+msgstr "Uus versioon on saadaval"
+
+#: gis-weather.py:433
+msgid "You are using the latest version"
+msgstr "Kasutate viimast versiooni"
+
+#: gis-weather.py:450 gis-weather.py:1216
+msgid "Screenshot saved to"
+msgstr "Ekraanitõmmis salvestati asukohta"
+
+#: gis-weather.py:454
+msgid "Unable to get the screenshot"
+msgstr "Ekraanitõmmist ei õnnestunud luua"
+
+#: gis-weather.py:623
+msgid "Getting weather..."
+msgstr "Ilmainfo saabumine..."
+
+#: gis-weather.py:626
+msgid "Error getting weather"
+msgstr "Ilmainfo saamine ebaõnnestus"
+
+#: gis-weather.py:628
+msgid "Location not set"
+msgstr "Asukoht pole seatud"
+
+#: gis-weather.py:685 gis-weather.py:747
+msgid "Next update in"
+msgstr "Järgmine uuendus"
+
+#: gis-weather.py:685 gis-weather.py:747
+msgid "min"
+msgstr "min"
+
+#: gis-weather.py:737
+msgid "Connection error"
+msgstr "Ühenduse viga"
+
+#: gis-weather.py:799
+msgid "Updated on server"
+msgstr "Serverist uuendatud"
+
+#: gis-weather.py:800
+msgid "Weather received"
+msgstr "Ilmainfo saabunud"
+
+#: gis-weather.py:830
+msgid "E"
+msgstr "E"
+
+#: gis-weather.py:830
+msgid "S"
+msgstr "S"
+
+#: gis-weather.py:830
+msgid "W"
+msgstr "W"
+
+#: gis-weather.py:830
+msgid "N"
+msgstr "N"
+
+#: gis-weather.py:875
+msgid "humid."
+msgstr "niiskus."
+
+#: gis-weather.py:881
+msgid "water"
+msgstr "vesi"
+
+#: gis-weather.py:898 gis-weather.py:937
+msgid "Morning"
+msgstr "Hommik"
+
+#: gis-weather.py:898 gis-weather.py:937
+msgid "Day"
+msgstr "Päev"
+
+#: gis-weather.py:898 gis-weather.py:937
+msgid "Evening"
+msgstr "Õhtu"
+
+#: gis-weather.py:898 gis-weather.py:937
+msgid "Night"
+msgstr "Öö"
+
+#: gis-weather.py:901 gis-weather.py:903
+msgid "Tomorrow"
+msgstr "Homme"
+
+#: gis-weather.py:939
+msgid "Today"
+msgstr "Täna"
+
+#: gis-weather.py:1062
+msgid "Background image not found"
+msgstr "Taustapilti ei leitud"
+
+#: gis-weather.py:1119
+msgid "downloading"
+msgstr "allalaadimine"
+
+#: gis-weather.py:1123
+msgid "Unable to download"
+msgstr "Allalaadimine pole võimalik"
+
+#: gis-weather.py:1148
+msgid "Icon not found"
+msgstr "Ikooni ei leitud"
+
+#: gis-weather.py:1227
+msgid "Widget size"
+msgstr "Vidina suurus"
+
+#: gis-weather.py:1228
+msgid "width"
+msgstr "laius"
+
+#: gis-weather.py:1228
+msgid "height"
+msgstr "kõrgus"
+
+#: gis-weather.py:1228
+msgid "including indent"
+msgstr "kaasasolev taane"
+
+#: gis-weather.py:1404
+msgid "Removed"
+msgstr "Eemaldatud"
+
+#: gis-weather.py:1433 dialogs/city_id_dialog.ui:376
+msgid "Added"
+msgstr "Lisatud"
+
+#: gis-weather.py:1438 dialogs/city_id_dialog.ui:308
+msgid "Invalid location code"
+msgstr "Vigane asukohakood"
+
+#: gis-weather.py:1503
+msgid "Your screen does not support alpha"
+msgstr "Teie ekraan ei toeta alfat"
+
+#: gis-weather.py:1505
+msgid "Your screen supports alpha"
+msgstr "Teie ekraan toetab alfat"
+
+#: services/gismeteo.py:215 services/accuweather.py:193
+msgid "Failed to get the name of the location"
+msgstr "Asukohanime saamine ebaõnnestus"
+
+#: services/gismeteo.py:221 services/accuweather.py:204
+msgid "Getting weather for"
+msgstr "Ilmainfo saabumine"
+
+#: services/gismeteo.py:221 services/accuweather.py:204
+msgid "days"
+msgstr "päevi"
+
+#: services/gismeteo.py:222 services/accuweather.py:205
+#: services/accuweather.py:265 services/accuweather.py:285
+#: services/accuweather.py:342 services/accuweather.py:404
+#: services/accuweather.py:412 services/accuweather.py:420
+#: services/accuweather.py:428 services/accuweather.py:544
+#: services/accuweather.py:552 services/accuweather.py:560
+#: services/accuweather.py:568 dialogs/update_dialog.py:27
+#: dialogs/update_dialog.ui:561
+msgid "Downloading"
+msgstr "Allalaadimine"
+
+#: services/gismeteo.py:228 services/accuweather.py:211
+#: services/accuweather.py:271 services/accuweather.py:291
+#: services/accuweather.py:348 services/accuweather.py:410
+#: services/accuweather.py:418 services/accuweather.py:426
+#: services/accuweather.py:434 services/accuweather.py:550
+#: services/accuweather.py:558 services/accuweather.py:566
+#: services/accuweather.py:574
+msgid "Unable to download page, check the network connection"
+msgstr "Lehekülje allalaadmine ebaõnnestus, kontrolli ühendust"
+
+#: services/gismeteo.py:230 services/gismeteo.py:344
+#: services/accuweather.py:213
+msgid "Next try in 10 seconds"
+msgstr "Järgmine katse 10 sekundi pärast"
+
+#: services/gismeteo.py:412 services/accuweather.py:683
+msgid "updated on server"
+msgstr "serverist uuendatud"
+
+#: services/gismeteo.py:413 services/accuweather.py:684
+msgid "weather received"
+msgstr "ilmainfo saabunud"
+
+#: services/accuweather.py:13
+msgid "If the city code is wrong, please read"
+msgstr "Kui linna kood on vale, palun loe"
+
+#: services/accuweather.py:252
+msgid "Calm"
+msgstr "Vaikne"
+
+#: utils/autorun.py:72 utils/desktop.py:23 dialogs/about_dialog.py:25
+msgid "Weather widget"
+msgstr "Ilmavidin"
+
+#: utils/gw_menu.py:53 dialogs/settings_dialog.ui:682
+msgid "Setup..."
+msgstr "Sättimine..."
+
+#: utils/gw_menu.py:112 dialogs/settings_dialog.py:423
+msgid "No"
+msgstr "Ei"
+
+#: utils/gw_menu.py:127
+msgid "Black"
+msgstr "Must"
+
+#: utils/gw_menu.py:127
+msgid "White"
+msgstr "Valge"
+
+#: utils/gw_menu.py:127
+msgid "Gray"
+msgstr "Hall"
+
+#: utils/gw_menu.py:137 dialogs/settings_dialog.ui:1754
+msgid "Lock position"
+msgstr "Lukusta positsioon"
+
+#: utils/gw_menu.py:143 dialogs/settings_dialog.ui:1739
+msgid "On all desktops"
+msgstr "Kõigil töölaudadel"
+
+#: utils/gw_menu.py:153
+msgid "Save screenshot"
+msgstr "Salvesta ekraanitõmmis"
+
+#: utils/gw_menu.py:169
+msgid "Show/Hide widget"
+msgstr "Näita/Peida vidin"
+
+#: utils/gw_menu.py:178 dialogs/settings_dialog.ui:937
+msgid "Refresh"
+msgstr "Värskenda"
+
+#: utils/gw_menu.py:190 dialogs/city_id_dialog.py:90
+#: dialogs/settings_dialog.ui:614 dialogs/city_id_dialog.ui:42
+msgid "Location"
+msgstr "Asukoht"
+
+#: utils/gw_menu.py:196
+msgid "Indicator icons"
+msgstr "Indikaatori ikoonid"
+
+#: utils/gw_menu.py:201 dialogs/about_dialog.py:41
+#: dialogs/settings_dialog.ui:3836 dialogs/settings_dialog.ui:4315
+msgid "Icons"
+msgstr "Ikoonid"
+
+#: utils/gw_menu.py:206 dialogs/settings_dialog.ui:3742
+msgid "Background"
+msgstr "Taustapilt"
+
+#: utils/gw_menu.py:211 dialogs/settings_dialog.ui:3453
+msgid "Text"
+msgstr "Tekst"
+
+#: utils/gw_menu.py:216 dialogs/settings_dialog.ui:1958
+msgid "Window"
+msgstr "Aken"
+
+#: utils/gw_menu.py:221
+msgid "Presets"
+msgstr "Algsed"
+
+#: utils/gw_menu.py:226 dialogs/settings_dialog.py:98
+#: dialogs/settings_dialog.py:736
+msgid "Preferences"
+msgstr "Eelistused"
+
+#: utils/gw_menu.py:234 dialogs/help_dialog.py:28
+msgid "Help"
+msgstr "Abi"
+
+#: utils/gw_menu.py:242
+msgid "About"
+msgstr "Programmist"
+
+#: utils/gw_menu.py:254 dialogs/settings_dialog.ui:569
+#: dialogs/help_dialog.ui:25 dialogs/update_dialog.ui:44
+msgid "Close"
+msgstr "Sulge"
+
+#: dialogs/help_dialog.py:13 dialogs/update_dialog.py:44
+msgid "Go to link"
+msgstr "Mine lingile"
+
+#: dialogs/help_dialog.py:16 dialogs/update_dialog.py:47
+#: dialogs/help_dialog.ui:76 dialogs/update_dialog.ui:318
+msgid "Send email"
+msgstr "Saada e-kiri"
+
+#: dialogs/update_dialog.py:60
+msgid "Update"
+msgstr "Uuenda"
+
+#: dialogs/update_dialog.py:88
+msgid "Current version"
+msgstr "Praegune versioon"
+
+#: dialogs/update_dialog.py:89
+msgid "Available new version"
+msgstr "Uus versioon on saadaval"
+
+#: dialogs/update_dialog.py:112
+msgid "Error downloading updates"
+msgstr "Viga uuenduste allalaadimisel"
+
+#: dialogs/update_dialog.py:147
+msgid "Error installing updates"
+msgstr "Viga uuenduste installimisel"
+
+#: dialogs/update_dialog.py:151 dialogs/update_dialog.ui:575
+msgid "Installation"
+msgstr "Installimine"
+
+#: dialogs/update_dialog.py:159
+msgid "Error removing"
+msgstr "Viga eemaldamisel"
+
+#: dialogs/about_dialog.py:8
+msgid ""
+"This program is free software: you can redistribute it and/or modify\n"
+"it under the terms of the GNU General Public License as published by\n"
+"the Free Software Foundation, either version 3 of the License, or\n"
+"(at your option) any later version.\n"
+"\n"
+"This program is distributed in the hope that it will be useful,\n"
+"but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
+"GNU General Public License for more details.\n"
+"\n"
+"You can find the full text of the license under\n"
+"http://www.gnu.org/licenses/gpl.txt"
+msgstr "See programm on tasuta tarkvara: seda võib levitad ja/või muuta\nvastavalt GNU General Public License terminite"
+
+#: dialogs/about_dialog.py:31
+msgid "Help and Ideas"
+msgstr "Abi ja ideed"
+
+#: dialogs/about_dialog.py:38
+msgid "Backgrounds"
+msgstr "Taustad"
+
+#: dialogs/about_dialog.py:55
+msgid "translator-credits"
+msgstr "tõlkija vikisun"
+
+#: dialogs/settings_dialog.py:414
+msgid "m/s"
+msgstr "m/s"
+
+#: dialogs/settings_dialog.py:414
+msgid "km/h"
+msgstr "km/h"
+
+#: dialogs/settings_dialog.py:414
+msgid "mph"
+msgstr "mph"
+
+#: dialogs/settings_dialog.py:415
+msgid "mmHg"
+msgstr "mmHg"
+
+#: dialogs/settings_dialog.py:415
+msgid "inHg"
+msgstr "inHg"
+
+#: dialogs/settings_dialog.py:415
+msgid "hPa"
+msgstr "hPa"
+
+#: dialogs/settings_dialog.py:418
+msgid "Never"
+msgstr "Iial"
+
+#: dialogs/settings_dialog.py:419
+msgid "Only at start"
+msgstr "Ainult käivitudes"
+
+#: dialogs/settings_dialog.py:420
+msgid "Always"
+msgstr "Alati"
+
+#: dialogs/settings_dialog.py:424
+msgid "Only background"
+msgstr "Ainult taust"
+
+#: dialogs/settings_dialog.py:425
+msgid "Yes"
+msgstr "Jah"
+
+#: dialogs/settings_dialog.py:532 dialogs/settings_dialog.py:542
+#: dialogs/settings_dialog.py:552 dialogs/settings_dialog.py:554
+msgid "Author"
+msgstr "Autor"
+
+#: dialogs/city_id_dialog.py:55
+msgid "Choose your city on"
+msgstr "Valige oma linn"
+
+#: dialogs/city_id_dialog.py:56
+msgid "and copy the city code below"
+msgstr "ja kopeerige linnakood alla"
+
+#: dialogs/city_id_dialog.py:57
+msgid "For example"
+msgstr "Näiteks"
+
+#: dialogs/city_id_dialog.py:58
+msgid "City code"
+msgstr "Linnakood"
+
+#: dialogs/city_id_dialog.py:120
+msgid "Code"
+msgstr "Kood"
+
+#: dialogs/city_id_dialog.py:124
+msgid "Place"
+msgstr "Asukoht"
+
+#: dialogs/settings_dialog.ui:629
+msgid "Update (in minutes)"
+msgstr "Uuendamine (minutites)"
+
+#: dialogs/settings_dialog.ui:644
+msgid "Check for updates"
+msgstr "Uuenduste kontrollimine"
+
+#: dialogs/settings_dialog.ui:731
+msgid "Open..."
+msgstr "Ava..."
+
+#: dialogs/settings_dialog.ui:799 dialogs/help_dialog.ui:109
+#: dialogs/update_dialog.ui:351
+msgid "Want to translate?"
+msgstr "Soovite tõlkida?"
+
+#: dialogs/settings_dialog.ui:821
+msgid "Program language"
+msgstr "Programmi keel"
+
+#: dialogs/settings_dialog.ui:836
+msgid "Weather language"
+msgstr "Weather keel"
+
+#: dialogs/settings_dialog.ui:851
+msgid "Add launcher icon to menu"
+msgstr "Lisa käivitusikoon menüüsse"
+
+#: dialogs/settings_dialog.ui:879 dialogs/city_id_dialog.ui:197
+msgid "Weather service"
+msgstr "Weather teenindus"
+
+#: dialogs/settings_dialog.ui:960 dialogs/help_dialog.ui:286
+msgid "Translation status"
+msgstr "Tõlke staatus"
+
+#: dialogs/settings_dialog.ui:1014
+msgid "Autostart at login"
+msgstr "Autokäivitus sisse logimisel"
+
+#: dialogs/settings_dialog.ui:1029
+msgid "Number of instances"
+msgstr "Võimaluste number"
+
+#: dialogs/settings_dialog.ui:1075
+msgid "Start delay (in seconds)"
+msgstr "Käivituse viivitus (sekundites)"
+
+#: dialogs/settings_dialog.ui:1125 dialogs/settings_dialog.ui:1181
+msgid "Autostart"
+msgstr "Autokäivitus"
+
+#: dialogs/settings_dialog.ui:1164
+msgid "Configured in the first instance"
+msgstr "Seadistamine esimesel võimalusel"
+
+#: dialogs/settings_dialog.ui:1269
+msgid "General"
+msgstr "Üldine"
+
+#: dialogs/settings_dialog.ui:1292
+msgid "Wind"
+msgstr "Tuul"
+
+#: dialogs/settings_dialog.ui:1307
+msgid "Pressure"
+msgstr "Rõhk"
+
+#: dialogs/settings_dialog.ui:1354
+msgid "Temperature"
+msgstr "Temperatuur"
+
+#: dialogs/settings_dialog.ui:1406
+msgid "Wind chill"
+msgstr "Jahe tuul"
+
+#: dialogs/settings_dialog.ui:1492
+msgid "Date separator format"
+msgstr "Kuupäeva eraldusformaat"
+
+#: dialogs/settings_dialog.ui:1507
+msgid "Swap the day and month"
+msgstr "Vaheta päev ja kuu"
+
+#: dialogs/settings_dialog.ui:1565
+msgid "Units"
+msgstr "Ühikud"
+
+#: dialogs/settings_dialog.ui:1589
+msgid "Left"
+msgstr "Vasak"
+
+#: dialogs/settings_dialog.ui:1604 dialogs/settings_dialog.ui:4215
+msgid "Top"
+msgstr "Ülemine"
+
+#: dialogs/settings_dialog.ui:1619
+msgid "Padding"
+msgstr "Padding"
+
+#: dialogs/settings_dialog.ui:1724
+msgid "Fix BadDrawable error"
+msgstr "Paranda Halva joonestuse vead"
+
+#: dialogs/settings_dialog.ui:1769
+msgid "Transparency"
+msgstr "Läbipaistvus"
+
+#: dialogs/settings_dialog.ui:1904
+msgid "Scale"
+msgstr "Skaala"
+
+#: dialogs/settings_dialog.ui:2010 dialogs/settings_dialog.ui:2141
+#: dialogs/settings_dialog.ui:2372 dialogs/settings_dialog.ui:2592
+#: dialogs/settings_dialog.ui:3900
+msgid "Show"
+msgstr "Näta"
+
+#: dialogs/settings_dialog.ui:2025 dialogs/settings_dialog.ui:2156
+#: dialogs/settings_dialog.ui:2271 dialogs/settings_dialog.ui:2387
+#: dialogs/settings_dialog.ui:2607
+msgid "Offset from center"
+msgstr "Keskmest"
+
+#: dialogs/settings_dialog.ui:2101
+msgid "Block Tomorrow"
+msgstr "Blokeeri Homme"
+
+#: dialogs/settings_dialog.ui:2232
+msgid "Block Today"
+msgstr "Blokeeri Täna"
+
+#: dialogs/settings_dialog.ui:2318
+msgid "Block Now"
+msgstr "Blokeeri Hetkel"
+
+#: dialogs/settings_dialog.ui:2461
+msgid "Reduce"
+msgstr "Vähenda"
+
+#: dialogs/settings_dialog.ui:2476
+msgid "Angle of rotation"
+msgstr "Pöördenurk"
+
+#: dialogs/settings_dialog.ui:2552
+msgid "Block Wind"
+msgstr "Blokeeri Tuul"
+
+#: dialogs/settings_dialog.ui:2683
+msgid "Block Additional info"
+msgstr "Blokeeri Lisainfo"
+
+#: dialogs/settings_dialog.ui:2741
+msgid "Number of days"
+msgstr "Päevade numbrid"
+
+#: dialogs/settings_dialog.ui:2756
+msgid "Show weather retrieval time"
+msgstr "Näita ilmainfo saabumise aega"
+
+#: dialogs/settings_dialog.ui:2771
+msgid "Show splash screen"
+msgstr "Näita hüpikekraani"
+
+#: dialogs/settings_dialog.ui:2786
+msgid "Hide splash screen after attempts (0 - do not hide)"
+msgstr "Peida hüpikekraan peale katseid (0 - ära peida) "
+
+#: dialogs/settings_dialog.ui:2926
+msgid "Show chance of rain"
+msgstr "Näita vihma võimalust"
+
+#: dialogs/settings_dialog.ui:2992
+msgid "View"
+msgstr "Vaade"
+
+#: dialogs/settings_dialog.ui:3035 dialogs/settings_dialog.ui:4058
+msgid "Font"
+msgstr "Font"
+
+#: dialogs/settings_dialog.ui:3050
+msgid "Main color"
+msgstr "Peamine värv"
+
+#: dialogs/settings_dialog.ui:3097
+msgid "Color weekend"
+msgstr "Nädalavahetuse värv"
+
+#: dialogs/settings_dialog.ui:3175
+msgid "Color wind"
+msgstr "Tuule värvus"
+
+#: dialogs/settings_dialog.ui:3190
+msgid ""
+"High wind\n"
+"(-1 = not highlighted)"
+msgstr "Tugev tuul\n(-1=ei tooda esile)"
+
+#: dialogs/settings_dialog.ui:3206
+msgid "Shadow color"
+msgstr "Varju värv"
+
+#: dialogs/settings_dialog.ui:3221 dialogs/settings_dialog.ui:4014
+msgid "Shadow"
+msgstr "Vari"
+
+#: dialogs/settings_dialog.ui:3357
+msgid "Weekend"
+msgstr "Nädalavahetus"
+
+#: dialogs/settings_dialog.ui:3400
+msgid "Weather description style"
+msgstr "Weather kirjelduse stiil"
+
+#: dialogs/settings_dialog.ui:3492
+msgid "Use image"
+msgstr "Kasuta pilti"
+
+#: dialogs/settings_dialog.ui:3551 dialogs/settings_dialog.ui:3782
+msgid "Select"
+msgstr "Vali"
+
+#: dialogs/settings_dialog.ui:3634
+msgid "Corner radius"
+msgstr "Nurga raadius"
+
+#: dialogs/settings_dialog.ui:3649 dialogs/settings_dialog.ui:4106
+msgid "Color"
+msgstr "Värv"
+
+#: dialogs/settings_dialog.ui:3861
+msgid "Appearance"
+msgstr "Välimus"
+
+#: dialogs/settings_dialog.ui:3885
+msgid "Type (restart required)"
+msgstr "Tüüp (vajab taaskäivitust)"
+
+#: dialogs/settings_dialog.ui:4121
+msgid "Color shadow"
+msgstr "Värvi vari"
+
+#: dialogs/settings_dialog.ui:4246
+msgid "Width"
+msgstr "Laius"
+
+#: dialogs/settings_dialog.ui:4366
+msgid "Fix the size"
+msgstr "Fikseeritud suurus"
+
+#: dialogs/settings_dialog.ui:4410
+msgid "Size"
+msgstr "Suurus"
+
+#: dialogs/settings_dialog.ui:4485
+msgid "Indicator"
+msgstr "Indikaator"
+
+#: dialogs/help_dialog.ui:92 dialogs/update_dialog.ui:334
+msgid "Found a bug?"
+msgstr "Leidsite vea?"
+
+#: dialogs/help_dialog.ui:126 dialogs/update_dialog.ui:369
+msgid "Have any questions?"
+msgstr "On küsimusi?"
+
+#: dialogs/help_dialog.ui:143 dialogs/update_dialog.ui:387
+msgid "Have any suggestions?"
+msgstr "On ettepanekuid?"
+
+#: dialogs/help_dialog.ui:163
+msgid "You can support my project"
+msgstr "Saate toetada minu projekti"
+
+#: dialogs/help_dialog.ui:174 dialogs/update_dialog.ui:419
+msgid "Read more"
+msgstr "Loe rohkem"
+
+#: dialogs/help_dialog.ui:238 dialogs/update_dialog.ui:155
+msgid "Changelog"
+msgstr "Muutuste logi"
+
+#: dialogs/help_dialog.ui:254 dialogs/update_dialog.ui:171
+msgid "Source Code"
+msgstr "Põhikood"
+
+#: dialogs/help_dialog.ui:270 dialogs/update_dialog.ui:203
+msgid "What's New"
+msgstr "Mis on uut"
+
+#: dialogs/update_dialog.ui:31
+msgid "Update now"
+msgstr "Uuenda kohe"
+
+#: dialogs/update_dialog.ui:187
+msgid "Manual update"
+msgstr "Manuaalne uuendamine"
+
+#: dialogs/update_dialog.ui:408
+msgid "You can support project"
+msgstr "Saate toetada projekti"
+
+#: dialogs/update_dialog.ui:469
+msgid "Additional information"
+msgstr "Lisainformatsioon"
+
+#: dialogs/update_dialog.ui:589
+msgid "Cleaning temporary files"
+msgstr "Ajutiste failide kustutamine"
+
+#: dialogs/update_dialog.ui:672
+msgid "Restart"
+msgstr "Taaskäivita"
+
+#: dialogs/update_dialog.ui:701
+msgid "Update successful"
+msgstr "Uuendamine lõppes eduakalt"
+
+#: dialogs/update_dialog.ui:756
+msgid "Update error"
+msgstr "Viga uuendamisel"
+
+#: dialogs/city_id_dialog.ui:58
+msgid "Add"
+msgstr "Lisa"
+
+#: dialogs/city_id_dialog.ui:72
+msgid ""
+"Close & Reload\n"
+"selected"
+msgstr "Sulge & Lae uuesti\nvalitud"
+
+#: dialogs/city_id_dialog.ui:87
+msgid ""
+"Remove\n"
+"selected"
+msgstr "Eemalda\nvalitud"
+
+#: dialogs/city_id_dialog.ui:160
+msgid "Language weather"
+msgstr "Ilma keel"
