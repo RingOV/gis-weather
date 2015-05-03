@@ -1,11 +1,12 @@
 # 
 # Translators:
+# Herman Thorze <thorze@yandex.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2015-04-15 22:01+0300\n"
-"PO-Revision-Date: 2015-04-16 17:48+0000\n"
-"Last-Translator: Alexander Koltsov <ringov@mail.ru>\n"
+"PO-Revision-Date: 2015-05-03 00:27+0000\n"
+"Last-Translator: Herman Thorze <thorze@yandex.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/gis-weather/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,19 +32,19 @@ msgstr ""
 
 #: gis-weather.py:224 dialogs/settings_dialog.ui:671
 msgid "Configuration folder"
-msgstr ""
+msgstr "Beállítások mappa "
 
 #: gis-weather.py:247 dialogs/city_id_dialog.py:28
 msgid "Error loading config file"
-msgstr ""
+msgstr "Hiba a konfigurációs fájlok betöltésénél"
 
 #: gis-weather.py:274
 msgid "Error loading color scheme"
-msgstr ""
+msgstr "Hiba a színséma betöltésénél "
 
 #: gis-weather.py:286
 msgid "Error loading preset"
-msgstr ""
+msgstr "Hiba a beállítások betöltésénél"
 
 #: gis-weather.py:296
 msgid "Enter full path to script"
@@ -51,11 +52,11 @@ msgstr ""
 
 #: gis-weather.py:297
 msgid "Exit"
-msgstr ""
+msgstr "Befejezés"
 
 #: gis-weather.py:397
 msgid "Check for new version"
-msgstr ""
+msgstr "Új verzió ellenörzés"
 
 #: gis-weather.py:402 gis-weather.py:411
 msgid "Unable to check for updates"
@@ -63,143 +64,143 @@ msgstr ""
 
 #: gis-weather.py:426
 msgid "New version available"
-msgstr ""
+msgstr "Új verzió érhető el"
 
 #: gis-weather.py:433
 msgid "You are using the latest version"
-msgstr ""
+msgstr "A legfrissebb verziót használod"
 
 #: gis-weather.py:450 gis-weather.py:1216
 msgid "Screenshot saved to"
-msgstr ""
+msgstr "Képernyő fotó mentve"
 
 #: gis-weather.py:454
 msgid "Unable to get the screenshot"
-msgstr ""
+msgstr "Képernyőfotó nem készíthető"
 
 #: gis-weather.py:623
 msgid "Getting weather..."
-msgstr ""
+msgstr "Időjárási adatok lekérdezése..."
 
 #: gis-weather.py:626
 msgid "Error getting weather"
-msgstr ""
+msgstr "Hiba az időjárási adatok lekérdezésénél..."
 
 #: gis-weather.py:628
 msgid "Location not set"
-msgstr ""
+msgstr "Hely nincs megadva"
 
 #: gis-weather.py:685 gis-weather.py:747
 msgid "Next update in"
-msgstr ""
+msgstr "Következő frissítés "
 
 #: gis-weather.py:685 gis-weather.py:747
 msgid "min"
-msgstr ""
+msgstr "perc"
 
 #: gis-weather.py:737
 msgid "Connection error"
-msgstr ""
+msgstr "Csatlakozási hiba"
 
 #: gis-weather.py:799
 msgid "Updated on server"
-msgstr ""
+msgstr "Időjárási adatok frissítése a szerveren"
 
 #: gis-weather.py:800
 msgid "Weather received"
-msgstr ""
+msgstr "Időjárási adatok frissítve"
 
 #: gis-weather.py:830
 msgid "E"
-msgstr ""
+msgstr "K"
 
 #: gis-weather.py:830
 msgid "S"
-msgstr ""
+msgstr "D"
 
 #: gis-weather.py:830
 msgid "W"
-msgstr ""
+msgstr "Ny"
 
 #: gis-weather.py:830
 msgid "N"
-msgstr ""
+msgstr "É"
 
 #: gis-weather.py:875
 msgid "humid."
-msgstr ""
+msgstr "Pára."
 
 #: gis-weather.py:881
 msgid "water"
-msgstr ""
+msgstr "Eső"
 
 #: gis-weather.py:898 gis-weather.py:937
 msgid "Morning"
-msgstr ""
+msgstr "Reggel"
 
 #: gis-weather.py:898 gis-weather.py:937
 msgid "Day"
-msgstr ""
+msgstr "Nappal"
 
 #: gis-weather.py:898 gis-weather.py:937
 msgid "Evening"
-msgstr ""
+msgstr "Este"
 
 #: gis-weather.py:898 gis-weather.py:937
 msgid "Night"
-msgstr ""
+msgstr "Éjjel"
 
 #: gis-weather.py:901 gis-weather.py:903
 msgid "Tomorrow"
-msgstr ""
+msgstr "Holnap"
 
 #: gis-weather.py:939
 msgid "Today"
-msgstr ""
+msgstr "Ma"
 
 #: gis-weather.py:1062
 msgid "Background image not found"
-msgstr ""
+msgstr "Háttérkép nem található"
 
 #: gis-weather.py:1119
 msgid "downloading"
-msgstr ""
+msgstr "Letöltés"
 
 #: gis-weather.py:1123
 msgid "Unable to download"
-msgstr ""
+msgstr "Érvénytelen letöltés"
 
 #: gis-weather.py:1148
 msgid "Icon not found"
-msgstr ""
+msgstr "Ikon nem található"
 
 #: gis-weather.py:1227
 msgid "Widget size"
-msgstr ""
+msgstr "Kisalkalmazás mérete"
 
 #: gis-weather.py:1228
 msgid "width"
-msgstr ""
+msgstr "szélesség"
 
 #: gis-weather.py:1228
 msgid "height"
-msgstr ""
+msgstr "magasság"
 
 #: gis-weather.py:1228
 msgid "including indent"
-msgstr ""
+msgstr "sorbehúzással"
 
 #: gis-weather.py:1404
 msgid "Removed"
-msgstr ""
+msgstr "Törölve"
 
 #: gis-weather.py:1433 dialogs/city_id_dialog.ui:376
 msgid "Added"
-msgstr ""
+msgstr "Hozzáadva"
 
 #: gis-weather.py:1438 dialogs/city_id_dialog.ui:308
 msgid "Invalid location code"
-msgstr ""
+msgstr "Érvénytelen helyzet kód"
 
 #: gis-weather.py:1503
 msgid "Your screen does not support alpha"
@@ -211,15 +212,15 @@ msgstr ""
 
 #: services/gismeteo.py:215 services/accuweather.py:193
 msgid "Failed to get the name of the location"
-msgstr ""
+msgstr "A hely nem található"
 
 #: services/gismeteo.py:221 services/accuweather.py:204
 msgid "Getting weather for"
-msgstr ""
+msgstr "Időjárási adatok lekérdezése..."
 
 #: services/gismeteo.py:221 services/accuweather.py:204
 msgid "days"
-msgstr ""
+msgstr "Napok"
 
 #: services/gismeteo.py:222 services/accuweather.py:205
 #: services/accuweather.py:265 services/accuweather.py:285
@@ -230,7 +231,7 @@ msgstr ""
 #: services/accuweather.py:568 dialogs/update_dialog.py:27
 #: dialogs/update_dialog.ui:561
 msgid "Downloading"
-msgstr ""
+msgstr "Letöltés"
 
 #: services/gismeteo.py:228 services/accuweather.py:211
 #: services/accuweather.py:271 services/accuweather.py:291
@@ -249,7 +250,7 @@ msgstr ""
 
 #: services/gismeteo.py:412 services/accuweather.py:683
 msgid "updated on server"
-msgstr ""
+msgstr "Időjárási adatok frissítve a szerveren"
 
 #: services/gismeteo.py:413 services/accuweather.py:684
 msgid "weather received"
@@ -261,15 +262,15 @@ msgstr ""
 
 #: services/accuweather.py:252
 msgid "Calm"
-msgstr ""
+msgstr "Szélcsend"
 
 #: utils/autorun.py:72 utils/desktop.py:23 dialogs/about_dialog.py:25
 msgid "Weather widget"
-msgstr ""
+msgstr "Szélcsend"
 
 #: utils/gw_menu.py:53 dialogs/settings_dialog.ui:682
 msgid "Setup..."
-msgstr ""
+msgstr "Beállítások..."
 
 #: utils/gw_menu.py:112 dialogs/settings_dialog.py:423
 msgid "No"
@@ -406,7 +407,7 @@ msgid ""
 "\n"
 "You can find the full text of the license under\n"
 "http://www.gnu.org/licenses/gpl.txt"
-msgstr ""
+msgstr "Ez a program szabad szoftver: szabadon terjeszthető és / vagy módosítható\nez alatt a GNU General Public License által közzétett\nA Free Software Foundation, vagy 3-as verzióját a licenc, vagy\n(tetszőleges) későbbi változata szerint.\n\nEz a program abban a reményben készült , hogy hasznos lesz,\nde GARANCIA NÉLKÜL; anélkül, hogy azt sem állítjuk,\nKÖZREADÁSRA vagy ADOTT CÉLRA. lásd a\nGNU General Public License-et további részletekért.\n\nItt található a teljes szöveg az engedély alapján  http://www.gnu.org/licenses/gpl.txt"
 
 #: dialogs/about_dialog.py:31
 msgid "Help and Ideas"

@@ -29,6 +29,8 @@ w = weather_vars.weather
 for i in w.keys():
     globals()[i] = w[i]
 
+CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
+
 dict_icons = {
     "d.sun.png": "32.png",
 
@@ -340,6 +342,9 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
         try:
             w_tomorrow = w_all_list[1]
         except:
+            f = open(os.path.join(CONFIG_PATH, 'error.html'), 'w')
+            f.write(source)
+            f.close()
             if timer_bool:
                 print ('\033[1;31m[!]\033[0m '+_('Next try in 10 seconds'))
             return False
