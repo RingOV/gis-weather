@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from utils import weather_vars
-from utils.opener import urlopen
+from utils.opener import urlopener
 from utils.t_convert import C_to_F, C_to_K
 import re
 import time
@@ -206,12 +206,11 @@ def convert(icon, icons_name):
         icon_converted = dict_icons[os.path.split(icon)[1]]
     except:
         icon_converted = os.path.split(icon)[1]
-    return icon+';'+icon_converted
+    return 'http://'+icon+';'+icon_converted
 
 def get_city_name(c_id, weather_lang):
     try:
-        source = urlopen('http://www.gismeteo.%s/city/weekly/'%weather_lang + str(c_id))
-        source = source.decode(encoding='UTF-8')
+        source = urlopener('http://www.gismeteo.%s/city/weekly/'%weather_lang + str(c_id))
         c_name = re.findall('type[A-Z].*\">(.*)<', source)
     except:
         print ('\033[1;31m[!]\033[0m '+_('Failed to get the name of the location'))
@@ -220,14 +219,11 @@ def get_city_name(c_id, weather_lang):
 
 def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show_block_add_info, timer_bool, weather_lang, icons_name):
     global city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod
+    URL_ALL = 'http://www.gismeteo.%s/city/weekly/'%weather_lang + str(city_id)
     print ('\033[34m>\033[0m '+_('Getting weather for')+' '+str(n)+' '+_('days'))
-    print ('\033[34m>\033[0m '+_('Downloading')+' '+'http://www.gismeteo.%s/city/weekly/'%weather_lang + str(city_id))
-    try:
-        source = urlopen('http://www.gismeteo.%s/city/weekly/'%weather_lang + str(city_id))
-        source = source.decode(encoding='UTF-8')
-        print ('\033[1;32mOK\033[0m')
-    except:
-        print ('\033[1;31m[!]\033[0m '+_('Unable to download page, check the network connection'))
+
+    source = urlopener(URL_ALL, 5)
+    if not source:
         if timer_bool:
             print ('\033[1;31m[!]\033[0m '+_('Next try in 10 seconds'))
         return False
@@ -252,7 +248,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
     wind_direct_now[0] = wind_direct_now[1]
 
     # icon
-    icon_now = re.findall('url\((.*?\/icons\/.+)\)', w_now[0])
+    icon_now = re.findall('url\(.*?//(.*?/icons/.*?)\)', w_now[0])
     icon_now[0] = convert(icon_now[0], icons_name)
     
     # wind icon
@@ -312,7 +308,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
         t_day[i] = t_day[i]+'°;'+t_day_feel[i]+'°;'+C_to_F(t_day[i])+'°;'+C_to_F(t_day_feel[i])+'°;'+C_to_K(t_day[i])+';'+C_to_K(t_day_feel[i])
     
     # weather icon day
-    icons_list = re.findall('src=\"(.*?\/icons\/.*?)\"', w_all)
+    icons_list = re.findall('src=\".*?//(.*?/icons/.*?)\"', w_all)
     icon = icons_list[2::4]
     for i in range(len(icon)):
         icon[i] = convert(icon[i], icons_name)
@@ -358,7 +354,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
         del t_tomorrow[0]
         t_tomorrow.append(a)
         # weather icon
-        icon_tomorrow = re.findall('src=\"(.*?\/icons\/.*?)\"', w_tomorrow)
+        icon_tomorrow = re.findall('src=\".*?//(.*?/icons/.*?)\"', w_tomorrow)
         for i in range(len(icon_tomorrow)):
             icon_tomorrow[i] = convert(icon_tomorrow[i], icons_name)
         a = icon_tomorrow[0]
@@ -391,7 +387,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
         del t_today[0]
         t_today.append(a)
         # weather icon
-        icon_today = re.findall('src=\"(.*?\/icons\/.*?)\"', w_today)
+        icon_today = re.findall('src=\".*?//(.*?/icons/.*?)\"', w_today)
         for i in range(len(icon_today)):
             icon_today[i] = convert(icon_today[i], icons_name)
         a = icon_today[0]
