@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from utils import weather_vars, gw_vars
-from utils.opener import urlopen
+from utils.opener import urlopener
 from utils.t_convert import C_to_F, C_to_K, F_to_C
 import re
 import time
@@ -195,26 +195,30 @@ def get_city_name(city_id):
         return 'None'
     return c_name[0]
 
-def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show_block_add_info, timer_bool, weather_lang, icons_name):
-    global city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain, t_today_low, t_tomorrow_low
+def get_weather():
+    global w, city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain, t_today_low, t_tomorrow_low
+    n = gw_vars.get('n')
+    city_id = gw_vars.get('city_id')
+    show_block_tomorrow = gw_vars.get('show_block_tomorrow')
+    show_block_today = gw_vars.get('show_block_today')
+    show_block_add_info = gw_vars.get('show_block_add_info')
+    weather_lang = gw_vars.get('weather_lang')
+    icons_name = gw_vars.get('icons_name')
     if city_id.split(',')[0]==city_id.split(',')[-1]:
         city_number = city_id.split('/')[-1]
     else:
         city_number = city_id.split(',')[-1].strip()
         city_id = city_id.split(',')[0].strip()
+    URL_CURRENT = 'http://www.accuweather.com/%s/%s/current-weather/%s'%(weather_lang, city_id, city_number)
+    URL_ADD_INFO = 'http://www.accuweather.com/en/%s/current-weather/%s'%(city_id, city_number)
+    URL_SEVERAL_DAYS = 'http://www.accuweather.com/%s/%s/month/%s?view=table'%(weather_lang, city_id, city_number)
+
     print ('\033[34m>\033[0m '+_('Getting weather for')+' '+str(n)+' '+_('days'))
-    print ('\033[34m>\033[0m '+_('Downloading')+' '+'http://www.accuweather.com/%s/%s/current-weather/%s'%(weather_lang, city_id, city_number))
-    try:
-        source = urlopen('http://www.accuweather.com/%s/%s/current-weather/%s'%(weather_lang, city_id, city_number))
-        source = source.decode(encoding='UTF-8')
-        print ('\033[1;32mOK\033[0m')
-    except:
-        print ('\033[1;31m[!]\033[0m '+_('Unable to download page, check the network connection'))
-        if timer_bool:
-            print ('\033[1;31m[!]\033[0m '+_('Next try in 10 seconds'))
+
+    source = urlopener(URL_CURRENT, 5)
+    if not source:
         return False
     #### current weather ####
-    
     # city
     city_name = re.findall('"current-city"><h1>(.*),', source)
 
@@ -263,14 +267,10 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
     text_now[0]=text_now[0].split('<')[0]
 
     if show_block_add_info:
-        print ('\033[34m>\033[0m '+_('Downloading')+' '+'http://www.accuweather.com/en/%s/current-weather/%s'%(city_id, city_number))
-        try:
-            source = urlopen('http://www.accuweather.com/en/%s/current-weather/%s'%(city_id, city_number))
-            source = source.decode(encoding='UTF-8')
-            print ('\033[1;32mOK\033[0m')
-        except:
-            print ('\033[1;31m[!]\033[0m '+_('Unable to download page, check the network connection'))
-        
+        source = urlopener(URL_ADD_INFO, 5)
+        if not source:
+            return False
+
         # pressure now
         press_now = re.findall('Pressure.*>(\d+)', source)
         try:
@@ -281,16 +281,11 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
         hum_now = re.findall('Humidity.*>(\d+)', source)
         if not hum_now:
             hum_now=['n/a']
-    
-    #### weather to several days ####
-    print ('\033[34m>\033[0m '+_('Downloading')+' '+'http://www.accuweather.com/%s/%s/month/%s?view=table'%(weather_lang, city_id, city_number))
-    try:
-        source = urlopen('http://www.accuweather.com/%s/%s/month/%s?view=table'%(weather_lang, city_id, city_number))
-        source = source.decode(encoding='UTF-8')
-        print ('\033[1;32mOK\033[0m')
-    except:
-        print ('\033[1;31m[!]\033[0m '+_('Unable to download page, check the network connection'))
 
+    #### weather to several days ####
+    source = urlopener(URL_SEVERAL_DAYS, 5)
+    if not source:
+        return False
 
     # all days
     w_all = re.findall('<tr class="lo calendar.*</table>', source, re.DOTALL)
@@ -340,14 +335,9 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
         try:
             next_month = re.findall('href="(.*)&amp;view=table".*next-month"', source)
             next_month[0] = next_month[0]+'&view=table'
-            print ('\033[34m>\033[0m '+_('Downloading')+' '+next_month[0])
-            try:
-                source = urlopen(next_month[0])
-                source = source.decode(encoding='UTF-8')
-                print ('\033[1;32mOK\033[0m')
-            except:
-                print ('\033[1;31m[!]\033[0m '+_('Unable to download page, check the network connection'))
-
+            source = urlopener(next_month[0], 5)
+            if not source:
+                return False
 
             # all days
             w_all = re.findall('<tr class="lo calendar.*</table>', source, re.DOTALL)
@@ -402,38 +392,21 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
 
     if show_block_tomorrow:
         #### weather tomorrow ####
-        print ('\033[34m>\033[0m '+_('Downloading')+' '+'http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=2'%(city_id, city_number))
-        try:
-            w_night = urlopen('http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=2'%(city_id, city_number))
-            w_night = w_night.decode(encoding='UTF-8')
-            print ('\033[1;32mOK\033[0m')
-        except:
-            print ('\033[1;31m[!]\033[0m '+_('Unable to download page, check the network connection'))
+        w_night = urlopener('http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=2'%(city_id, city_number), 5)
+        if not w_night:
+            return False
 
-        print ('\033[34m>\033[0m '+_('Downloading')+' '+'http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=2'%(city_id, city_number))
-        try:
-            w_morning = urlopen('http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=2'%(city_id, city_number))
-            w_morning = w_morning.decode(encoding='UTF-8')
-            print ('\033[1;32mOK\033[0m')
-        except:
-            print ('\033[1;31m[!]\033[0m '+_('Unable to download page, check the network connection'))
+        w_morning = urlopener('http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=2'%(city_id, city_number))
+        if not w_morning:
+            return False
 
-        print ('\033[34m>\033[0m '+_('Downloading')+' '+'http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=2'%(city_id, city_number))
-        try:
-            w_day = urlopen('http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=2'%(city_id, city_number))
-            w_day = w_day.decode(encoding='UTF-8')
-            print ('\033[1;32mOK\033[0m')
-        except:
-            print ('\033[1;31m[!]\033[0m '+_('Unable to download page, check the network connection'))
-
-        print ('\033[34m>\033[0m '+_('Downloading')+' '+'http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=2'%(city_id, city_number))
-        try:
-            w_evening = urlopen('http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=2'%(city_id, city_number))
-            w_evening = w_evening.decode(encoding='UTF-8')
-            print ('\033[1;32mOK\033[0m')
-        except:
-            print ('\033[1;31m\033[1;31m[!]\033[0m\033[0m '+_('Unable to download page, check the network connection'))
-
+        w_day = urlopener('http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=2'%(city_id, city_number))
+        if not w_day:
+            return False
+        
+        w_evening = urlopener('http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=2'%(city_id, city_number))
+        if not w_evening:
+            return False
         
         t_tomorrow=[]
 
@@ -542,38 +515,21 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
         
     if show_block_today:
         #### weather today ####
-        print ('\033[34m>\033[0m '+_('Downloading')+' '+'http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=1'%(city_id, city_number))
-        try:
-            w_night = urlopen('http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=1'%(city_id, city_number))
-            w_night = w_night.decode(encoding='UTF-8')
-            print ('\033[1;32mOK\033[0m')
-        except:
-            print ('\033[1;31m[!]\033[0m '+_('Unable to download page, check the network connection'))
+        w_night = urlopener('http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=1'%(city_id, city_number), 5)
+        if not w_night:
+            return False
 
-        print ('\033[34m>\033[0m '+_('Downloading')+' '+'http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=1'%(city_id, city_number))
-        try:
-            w_morning = urlopen('http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=1'%(city_id, city_number))
-            w_morning = w_morning.decode(encoding='UTF-8')
-            print ('\033[1;32mOK\033[0m')
-        except:
-            print ('\033[1;31m[!]\033[0m '+_('Unable to download page, check the network connection'))
+        w_morning = urlopener('http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=1'%(city_id, city_number))
+        if not w_morning:
+            return False
 
-        print ('\033[34m>\033[0m '+_('Downloading')+' '+'http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=1'%(city_id, city_number))
-        try:
-            w_day = urlopen('http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=1'%(city_id, city_number))
-            w_day = w_day.decode(encoding='UTF-8')
-            print ('\033[1;32mOK\033[0m')
-        except:
-            print ('\033[1;31m[!]\033[0m '+_('Unable to download page, check the network connection'))
-
-        print ('\033[34m>\033[0m '+_('Downloading')+' '+'http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=1'%(city_id, city_number))
-        try:
-            w_evening = urlopen('http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=1'%(city_id, city_number))
-            w_evening = w_evening.decode(encoding='UTF-8')
-            print ('\033[1;32mOK\033[0m')
-        except:
-            print ('\033[1;31m\033[1;31m[!]\033[0m\033[0m '+_('Unable to download page, check the network connection'))
-
+        w_day = urlopener('http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=1'%(city_id, city_number))
+        if not w_day:
+            return False
+        
+        w_evening = urlopener('http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=1'%(city_id, city_number))
+        if not w_evening:
+            return False
         
         t_today=[]
 
@@ -685,6 +641,6 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
     print ('\033[34m>\033[0m '+_('weather received')+' '+time.strftime('%H:%M', time.localtime()))
 
     # write variables
-    for i in weather.keys():
-        weather[i] = globals()[i]
-    return weather
+    for i in w.keys():
+        w[i] = globals()[i]
+    return w

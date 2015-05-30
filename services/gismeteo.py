@@ -219,15 +219,21 @@ def get_city_name(city_id):
         return 'None'
     return c_name[0]
 
-def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show_block_add_info, timer_bool, weather_lang, icons_name):
-    global city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod
+def get_weather():
+    global w, city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain, t_today_low, t_tomorrow_low
+    n = gw_vars.get('n')
+    city_id = gw_vars.get('city_id')
+    show_block_tomorrow = gw_vars.get('show_block_tomorrow')
+    show_block_today = gw_vars.get('show_block_today')
+    show_block_add_info = gw_vars.get('show_block_add_info')
+    weather_lang = gw_vars.get('weather_lang')
+    icons_name = gw_vars.get('icons_name')
+
     URL_ALL = 'http://www.gismeteo.%s/city/weekly/'%weather_lang + str(city_id)
     print ('\033[34m>\033[0m '+_('Getting weather for')+' '+str(n)+' '+_('days'))
 
     source = urlopener(URL_ALL, 5)
     if not source:
-        if timer_bool:
-            print ('\033[1;31m[!]\033[0m '+_('Next try in 10 seconds'))
         return False
     #### current weather ####
     w_now = re.findall("type[A-Z].*wrap f_link", source, re.DOTALL)
@@ -416,7 +422,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
     print ('\033[34m>\033[0m '+_('weather received')+' '+time.strftime('%H:%M', time.localtime()))
 
     # write variables
-    for i in weather.keys():
-        weather[i] = globals()[i]
-    return weather
+    for i in w.keys():
+        w[i] = globals()[i]
+    return w
     

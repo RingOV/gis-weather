@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 #  gis_weather.py
-v = '0.7.7.12'
+v = '0.7.7.13'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -381,7 +381,7 @@ def get_weather():
     if city_id == 0:
         return False
     else:
-        return data.get_weather(service, weather, n, city_id, show_block_tomorrow, show_block_today, show_block_add_info, timer_bool, weather_lang, icons_name)
+        return data.get_weather(service)
 
 def check_updates():
     package = 'gz'
@@ -750,6 +750,8 @@ class MyDrawArea(Gtk.DrawingArea):
                     globals()[i] = weather[i]
                 date = date_convert.main(date, date_separator, swap_d_and_m)
             else:
+                if timer_bool:
+                    print ('\033[1;31m[!]\033[0m '+_('Next try in 10 seconds'))
                 err_connect = True
             get_weather_bool = False
             if not timer_bool:
@@ -1455,7 +1457,7 @@ class Weather_Widget:
     def show_edit_dialog(self):
         global city_id, gw_config
         Load_Config()
-        dialog, entrybox, treeview, bar_err, bar_ok, bar_label, combobox_weather_lang, weather_lang_list, combobox_service = city_id_dialog.create(self.window_main, APP_PATH, weather_lang, service);
+        dialog, entrybox, treeview, bar_err, bar_ok, bar_label, combobox_weather_lang, weather_lang_list, combobox_service = city_id_dialog.create(self.window_main, APP_PATH, service);
         dialog.show_all()
         response = dialog.run()
 
@@ -1490,7 +1492,7 @@ class Weather_Widget:
             if response == Gtk.ResponseType.OK:
                 try:
                     city_id = entrybox.get_text()
-                    c_name = data.get_city_name(service, city_id, weather_lang)
+                    c_name = data.get_city_name(service, city_id)
                     if c_name == 'None':
                         if len(city_list) != 0:
                             city_id = city_list[0].split(';')[0]

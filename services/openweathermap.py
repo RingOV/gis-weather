@@ -91,8 +91,15 @@ def get_day(source):
 
 APPID = 'dde83a2bee572cb5467f58af45a7987a'
 
-def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show_block_add_info, timer_bool, weather_lang, icons_name):
+def get_weather():
     global city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain
+    n = gw_vars.get('n')
+    city_id = gw_vars.get('city_id')
+    show_block_tomorrow = gw_vars.get('show_block_tomorrow')
+    show_block_today = gw_vars.get('show_block_today')
+    show_block_add_info = gw_vars.get('show_block_add_info')
+    weather_lang = gw_vars.get('weather_lang')
+    icons_name = gw_vars.get('icons_name')
     URL_CURRENT = 'http://api.openweathermap.org/data/2.5/weather?id=%s&lang=%s&units=metric'%(str(city_id), weather_lang)
     URL_SEVERAL_DAYS = 'http://api.openweathermap.org/data/2.5/forecast/daily?id=%s&lang=%s&units=metric&cnt=%s'%(str(city_id), weather_lang, n+1)
     URL_TODAY_TOMORROW = 'http://api.openweathermap.org/data/2.5/forecast?id=%s&lang=%s&units=metric'%(str(city_id), weather_lang)
@@ -100,8 +107,6 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
 
     source = urlopener(URL_CURRENT, 5)
     if not source:
-        if timer_bool:
-            print ('\033[1;31m[!]\033[0m '+_('Next try in 10 seconds'))
         return False
     source = json.loads(source)
 
@@ -151,8 +156,6 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
     #### weather to several days ####
     source = urlopener(URL_SEVERAL_DAYS, 5)
     if not source:
-        if timer_bool:
-            print ('\033[1;31m[!]\033[0m '+_('Next try in 10 seconds'))
         return False
     source = json.loads(source)
     
@@ -200,8 +203,6 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
     if show_block_tomorrow or show_block_today:
         source = urlopener(URL_TODAY_TOMORROW, 5)
         if not source:
-            if timer_bool:
-                print ('\033[1;31m[!]\033[0m '+_('Next try in 10 seconds'))
             return False
         source = json.loads(source)
 
@@ -297,7 +298,7 @@ def get_weather(weather, n, city_id, show_block_tomorrow, show_block_today, show
     print ('\033[34m>\033[0m '+_('weather received')+' '+time.strftime('%H:%M', time.localtime()))
 
     # write variables
-    for i in weather.keys():
-        weather[i] = globals()[i]
-    return weather
+    for i in w.keys():
+        w[i] = globals()[i]
+    return w
     

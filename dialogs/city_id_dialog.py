@@ -83,7 +83,7 @@ def load_data(service, label, liststore2, combobox_weather_lang, weather_lang, s
         store.append([item.split(';')[0], item.split(';')[1]])
     loading = False
 
-def create(window, APP_PATH, weather_lang, service):
+def create(window, APP_PATH, service):
     Load_Config()
     ui = Gtk.Builder()
     ui.add_from_file(os.path.join(APP_PATH, "dialogs","city_id_dialog.ui"))
@@ -107,9 +107,9 @@ def create(window, APP_PATH, weather_lang, service):
     combobox_service.set_active(data.get_index(service))
     store = ui.get_object('liststore1')
 
-    load_data(service, label, liststore2, combobox_weather_lang, weather_lang, store)
+    load_data(service, label, liststore2, combobox_weather_lang, gw_config['weather_lang'], store)
 
-    combobox_service.connect("changed", set_service, label, liststore2, combobox_weather_lang, weather_lang, store)
+    combobox_service.connect("changed", set_service, label, liststore2, combobox_weather_lang, gw_config['weather_lang'], store)
     
     entrybox = ui.get_object('entrybox')
     bar_ok = ui.get_object('bar_ok')
