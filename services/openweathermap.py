@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from utils import weather_vars, wind_direct_convert
+from utils import weather_vars, wind_direct_convert, gw_vars
 from utils.opener import urlopener
 from utils.t_convert import C_to_F, C_to_K, add_plus
 import re
@@ -72,8 +72,9 @@ def convert(icon, icons_name):
         icon_converted = os.path.split(icon)[1]
     return icon+';'+icon_converted
 
-def get_city_name(c_id, weather_lang):
-    source = urlopener('http://api.openweathermap.org/data/2.5/weather?id=%s&lang=%s'%(str(c_id), weather_lang), 2)
+def get_city_name(city_id):
+    weather_lang = gw_vars.get('weather_lang')
+    source = urlopener('http://api.openweathermap.org/data/2.5/weather?id=%s&lang=%s'%(str(city_id), weather_lang), 2)
     if source:
         source = json.loads(source)
         c_name = source['name']

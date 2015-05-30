@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 
-from utils import weather_vars
+from utils import weather_vars, gw_vars
 from utils.opener import urlopener
 from utils.t_convert import C_to_F, C_to_K
 import re
 import time
 import os
+
 
 data = [
     "http://www.gismeteo.com", # url
@@ -208,9 +209,10 @@ def convert(icon, icons_name):
         icon_converted = os.path.split(icon)[1]
     return 'http://'+icon+';'+icon_converted
 
-def get_city_name(c_id, weather_lang):
+def get_city_name(city_id):
+    weather_lang = gw_vars.get('weather_lang')
     try:
-        source = urlopener('http://www.gismeteo.%s/city/weekly/'%weather_lang + str(c_id))
+        source = urlopener('http://www.gismeteo.%s/city/weekly/'%weather_lang + str(city_id))
         c_name = re.findall('type[A-Z].*\">(.*)<', source)
     except:
         print ('\033[1;31m[!]\033[0m '+_('Failed to get the name of the location'))

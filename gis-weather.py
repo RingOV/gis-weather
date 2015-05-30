@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 #  gis_weather.py
-v = '0.7.7.11'
+v = '0.7.7.12'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -222,7 +222,14 @@ color_scheme = [
     }
     ]
 
-def create_variables():
+def Save_Color_Scheme(number = 0):
+    json.dump(color_scheme[number], open(os.path.join(CONFIG_PATH, 'color_schemes', 'color_sheme_%s.json' %number), "w"), sort_keys=True, indent=4, separators=(', ', ': '))
+
+for i in range(len(color_scheme)):
+    if not os.path.exists(os.path.join(CONFIG_PATH, 'color_schemes', 'color_sheme_%s.json' %i)):
+        Save_Color_Scheme(i)
+
+def Create_Variables():
     for i in gw_config.keys():
         globals()[i] = gw_config[i]
 
@@ -236,13 +243,6 @@ def Save_Config():
             pass
     json.dump(gw_config, open(CONFIG_PATH_FILE, "w"), sort_keys=True, indent=4, separators=(', ', ': '))
 
-def Save_Color_Scheme(number = 0):
-    json.dump(color_scheme[number], open(os.path.join(CONFIG_PATH, 'color_schemes', 'color_sheme_%s.json' %number), "w"), sort_keys=True, indent=4, separators=(', ', ': '))
-
-for i in range(len(color_scheme)):
-    if not os.path.exists(os.path.join(CONFIG_PATH, 'color_schemes', 'color_sheme_%s.json' %i)):
-        Save_Color_Scheme(i)
-
 def Load_Config():
     try:
         gw_config_loaded=json.load(open(CONFIG_PATH_FILE))
@@ -251,19 +251,19 @@ def Load_Config():
     except:
         print ('\033[1;31m[!]\033[0m '+_('Error loading config file'))
 
-    create_variables()
+    Create_Variables()
 
 # first start, config missed
 if not os.path.exists(CONFIG_PATH_FILE):
     if INSTANCE_NO == 0:
-        create_variables()
+        Create_Variables()
         Save_Config()
     else:
         if INSTANCE_NO == 1:
             if os.path.exists(os.path.join(CONFIG_PATH, 'gw_config.json')):
                 shutil.copy(os.path.join(CONFIG_PATH, 'gw_config.json'), CONFIG_PATH_FILE)
             else:
-                create_variables()
+                Create_Variables()
                 Save_Config()
         else:
             shutil.copy(os.path.join(CONFIG_PATH, 'gw_config%s.json'%str(INSTANCE_NO-1)), CONFIG_PATH_FILE)
@@ -278,7 +278,7 @@ def Load_Color_Scheme(number = 0):
     except:
         print ('\033[1;31m[!]\033[0m '+_('Error loading color scheme')+' # '+str(number))
 
-    create_variables()
+    Create_Variables()
     
 
 def Load_Preset(number = 0):
@@ -290,7 +290,7 @@ def Load_Preset(number = 0):
     except:
         print ('\033[1;31m[!]\033[0m '+_('Error loading preset')+' # '+str(number))
 
-    create_variables()
+    Create_Variables()
 
 # ------------------------------------------------------------------------------
 

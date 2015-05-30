@@ -33,11 +33,11 @@ def get_city_list(service):
 
 def get_city_name(service, city_id, weather_lang):
     if service == 'Gismeteo':
-        return  gismeteo.get_city_name(city_id, weather_lang)
+        return  gismeteo.get_city_name(city_id)
     if service == 'AccuWeather':
-        return  accuweather.get_city_name(city_id, weather_lang)
+        return  accuweather.get_city_name(city_id)
     if service == 'OpenWeatherMap':
-        return  openweathermap.get_city_name(city_id, weather_lang)
+        return  openweathermap.get_city_name(city_id)
 
 def get_max_days(service):
     if service == 'Gismeteo':

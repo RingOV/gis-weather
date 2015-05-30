@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from utils import weather_vars
+from utils import weather_vars, gw_vars
 from utils.opener import urlopen
 from utils.t_convert import C_to_F, C_to_K, F_to_C
 import re
@@ -179,14 +179,15 @@ def convert(icon, icons_name):
         icon_converted = os.path.split(icon)[1]
     return icon+';'+icon_converted
 
-def get_city_name(c_id, weather_lang):
+def get_city_name(city_id):
+    weather_lang = gw_vars.get('weather_lang')
     try:
-        if c_id.split(',')[0]==c_id.split(',')[-1]:
-            city_number = c_id.split('/')[-1]
+        if city_id.split(',')[0]==city_id.split(',')[-1]:
+            city_number = city_id.split('/')[-1]
         else:
-            city_number = c_id.split(',')[-1].strip()
-            c_id = c_id.split(',')[0].strip()
-        source = urlopen('http://www.accuweather.com/%s/%s/weather-forecast/%s'%(weather_lang, c_id, city_number))
+            city_number = city_id.split(',')[-1].strip()
+            city_id = city_id.split(',')[0].strip()
+        source = urlopen('http://www.accuweather.com/%s/%s/weather-forecast/%s'%(weather_lang, city_id, city_number))
         source = source.decode(encoding='UTF-8')
         c_name = re.findall('"current-city"><h1>(.*),', source)
     except:
