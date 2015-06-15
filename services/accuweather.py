@@ -2,7 +2,7 @@
 
 from utils import weather_vars, gw_vars
 from utils.opener import urlopener
-from utils.t_convert import C_to_F, C_to_K, F_to_C
+from utils.convert import C_to_F, C_to_K, F_to_C, convert_from_kmh
 import re
 import time
 import os
@@ -235,7 +235,7 @@ def get_weather():
     # wind
     wind_speed_now = re.findall("var s = '(\d*)", source)
     if wind_speed_now:
-        wind_speed_now[0] = str(round(int(wind_speed_now[0])*0.278))+' m/s;'+wind_speed_now[0]+' km/h;'+str(round(int(wind_speed_now[0])*0.621))+' mph'
+        wind_speed_now[0] = convert_from_kmh(wind_speed_now[0])
     wind_direct_now = re.findall("var d = '(.*)'", source)
 
     # icon

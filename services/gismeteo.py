@@ -2,7 +2,7 @@
 
 from utils import weather_vars, gw_vars
 from utils.opener import urlopener
-from utils.t_convert import C_to_F, C_to_K
+from utils.convert import C_to_F, C_to_K, convert_from_ms
 import re
 import time
 import os
@@ -251,7 +251,7 @@ def get_weather():
     # wind
     wind_speed_now = re.findall('m_wind ms.*>(\d+)<', w_now[0])
     if wind_speed_now:
-        wind_speed_now[0] = wind_speed_now[0]+' m/s;'+str(round(int(wind_speed_now[0])*3.6))+' km/h;'+str(round(int(wind_speed_now[0])*2.237))+' mph'
+        wind_speed_now[0] = convert_from_ms(wind_speed_now[0])
     wind_direct_now = re.findall('>(.+)</dt', w_now[0])
     wind_direct_now[0] = wind_direct_now[1]
 
@@ -330,7 +330,7 @@ def get_weather():
     wind_speed = wind_speed_list[2::4]
     if wind_speed:
         for i in range(len(wind_speed)):
-            wind_speed[i] = wind_speed[i]+' m/s;'+str(round(int(wind_speed[i])*3.6))+' km/h;'+str(round(int(wind_speed[i])*2.237))+' mph'
+            wind_speed[i] = convert_from_ms(wind_speed[i])
     wind_direct_list = re.findall('>(.+)</dt', w_all)
     wind_direct = wind_direct_list[2::4]
     for i in range(len(wind_direct)):
@@ -372,7 +372,7 @@ def get_weather():
         wind_speed_tom = re.findall('m_wind ms.>(\d+)', w_tomorrow)
         if wind_speed_tom:
             for i in range(len(wind_speed_tom)):
-                wind_speed_tom[i] = wind_speed_tom[i]+' m/s;'+str(round(int(wind_speed_tom[i])*3.6))+' km/h;'+str(round(int(wind_speed_tom[i])*2.237))+' mph'
+                wind_speed_tom[i] = convert_from_ms(wind_speed_tom[i])
         a = wind_speed_tom[0]
         del wind_speed_tom[0]
         wind_speed_tom.append(a)
@@ -405,7 +405,7 @@ def get_weather():
         wind_speed_tod = re.findall('m_wind ms.>(\d+)', w_today)
         if wind_speed_tod:
             for i in range(len(wind_speed_tod)):
-                wind_speed_tod[i] = wind_speed_tod[i]+' m/s;'+str(round(int(wind_speed_tod[i])*3.6))+' km/h;'+str(round(int(wind_speed_tod[i])*2.237))+' mph'
+                wind_speed_tod[i] = convert_from_ms(wind_speed_tod[i])
         a = wind_speed_tod[0]
         del wind_speed_tod[0]
         wind_speed_tod.append(a)

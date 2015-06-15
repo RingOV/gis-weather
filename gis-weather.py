@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 #  gis_weather.py
-v = '0.7.7.13'
+v = '0.7.7.14'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -505,26 +505,12 @@ class Indicator:
                 self.set_icon_fixed(icon, app_indicator_size)
             else:
                 if icon[-4:] == 'svgz':
-                    # inF = gzip.open(icon, 'rb')
-                    # outF = open(os.path.join(CONFIG_PATH, 'tmp_cur_icon.svg'), 'wb')
-                    # outF.write(inF.read())
-                    # inF.close()
-                    # outF.close()
                     extract_svgz(icon,os.path.join(CONFIG_PATH, 'tmp_cur_icon.svg'))
                     self.indicator.set_icon(os.path.join(CONFIG_PATH, 'tmp_cur_icon.svg'))
                 else:
                     self.indicator.set_icon(icon)
 
         def set_icon_fixed(self, icon, size=None):
-            # if icon[-4:] == 'svgz':
-            #     inF = gzip.open(icon, 'r')
-            #     loader = GdkPixbuf.PixbufLoader()
-            #     loader.write(inF.read())
-            #     loader.close()
-            #     inF.close()
-            #     pixbuf = loader.get_pixbuf()
-            # else:
-            #     pixbuf = GdkPixbuf.Pixbuf.new_from_file(icon)
             pixbuf = get_pixbuf(icon)
             if size:
                 pixbuf = pixbuf.scale_simple(size,size,GdkPixbuf.InterpType.BILINEAR)
@@ -572,11 +558,6 @@ class Indicator:
 
         def set_icon(self, icon):
             if icon[-4:] == 'svgz':
-                # inF = gzip.open(icon, 'rb')
-                # outF = open(os.path.join(CONFIG_PATH, 'tmp_cur_icon.svg'), 'wb')
-                # outF.write(inF.read())
-                # inF.close()
-                # outF.close()
                 extract_svgz(icon,os.path.join(CONFIG_PATH, 'tmp_cur_icon.svg'))
                 self.indicator.set_from_file(os.path.join(CONFIG_PATH, 'tmp_cur_icon.svg'))
             else:
@@ -734,7 +715,6 @@ class MyDrawArea(Gtk.DrawingArea):
     
     def expose(self, widget, event):
         global err, on_redraw, get_weather_bool, weather, err_connect, splash, time_receive, date
-        # if err == False:
         self.clear_draw_area(widget)
         if first_start:
             self.splash_screen(self.cr)
@@ -765,7 +745,6 @@ class MyDrawArea(Gtk.DrawingArea):
             if splash:
                 self.splash_screen(self.cr, 1)
             else:
-                # if err == False:
                 self.Draw_Weather(self.cr)
                 self.draw_scaled_image(self.cr, margin + 10, margin + 10, os.path.join(THEMES_PATH, 'error.png'),24,24)
                 self.draw_text(self.cr, _('Connection error'), margin + 35, margin + 14, font+' Normal', 10, color = color_text_week)
@@ -887,9 +866,9 @@ class MyDrawArea(Gtk.DrawingArea):
                         if i % 2 == 0:
                             self.draw_text(cr, NS[i//2], int(x0+r*math.cos(i*0.25*math.pi+angel_rad)), int(y0+r*math.sin(i*0.25*math.pi+angel_rad)), font+' Bold', font_NS, 10, Pango.Alignment.LEFT)
                     if int(wind_speed_now[0].split(';')[wind_units].split()[0]) >= high_wind and high_wind != -1:
-                        self.draw_text(cr, wind_direct_now[0]+', '+wind_speed_now[0].split(';')[wind_units].split()[0]+' '+_(wind_speed_now[0].split(';')[wind_units].split()[-1]), x0-r-15, y0+r+font_wind+4, font+' Normal', font_wind, 2*r+30+font_NS,Pango.Alignment.CENTER, color_high_wind)
+                        self.draw_text(cr, wind_direct_now[0]+', '+wind_speed_now[0].split(';')[wind_units].split()[0]+' '+wind_speed_now[0].split(';')[wind_units].split()[-1], x0-r-15, y0+r+font_wind+4, font+' Normal', font_wind, 2*r+30+font_NS,Pango.Alignment.CENTER, color_high_wind)
                     else:
-                        self.draw_text(cr, wind_direct_now[0]+', '+wind_speed_now[0].split(';')[wind_units].split()[0]+' '+_(wind_speed_now[0].split(';')[wind_units].split()[-1]), x0-r-15, y0+r+font_wind+4, font+' Normal', font_wind, 2*r+30+font_NS,Pango.Alignment.CENTER)
+                        self.draw_text(cr, wind_direct_now[0]+', '+wind_speed_now[0].split(';')[wind_units].split()[0]+' '+wind_speed_now[0].split(';')[wind_units].split()[-1], x0-r-15, y0+r+font_wind+4, font+' Normal', font_wind, 2*r+30+font_NS,Pango.Alignment.CENTER)
                 if icon_wind_now[0] != 'None': 
                     if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'wind.png')):
                         self.draw_scaled_image(cr, x0-a/2+font_NS/2, y0-a/2+3+font_NS/2, os.path.join(ICONS_PATH, icons_name, 'wind.png'), a, a, icon_wind_now[0]+angel)
@@ -913,9 +892,9 @@ class MyDrawArea(Gtk.DrawingArea):
                         self.draw_scaled_image(cr, x0, y0, os.path.join(ICONS_PATH, 'default', 'wind_small.png'), 16, 16, icon_wind_now[0]+angel)
                 if (wind_direct_now and wind_speed_now):
                     if int(wind_speed_now[0].split(';')[wind_units].split()[0]) >= high_wind and high_wind != -1:
-                        self.draw_text(cr, wind_speed_now[0].split(';')[wind_units].split()[0]+"<span size='x-small'> %s</span>  <span size='small'>%s</span>"%(_(wind_speed_now[0].split(';')[wind_units].split()[-1]), wind_direct_now[0]), x0+20, y0-1, font+' Normal', 12, 100,Pango.Alignment.LEFT, color_high_wind)
+                        self.draw_text(cr, wind_speed_now[0].split(';')[wind_units].split()[0]+"<span size='x-small'> %s</span>  <span size='small'>%s</span>"%(wind_speed_now[0].split(';')[wind_units].split()[-1], wind_direct_now[0]), x0+20, y0-1, font+' Normal', 12, 100,Pango.Alignment.LEFT, color_high_wind)
                     else:
-                        self.draw_text(cr, wind_speed_now[0].split(';')[wind_units].split()[0]+"<span size='x-small'> %s</span>  <span size='small'>%s</span>"%(_(wind_speed_now[0].split(';')[wind_units].split()[-1]), wind_direct_now[0]), x0+20, y0-1, font+' Normal', 12, 100,Pango.Alignment.LEFT)
+                        self.draw_text(cr, wind_speed_now[0].split(';')[wind_units].split()[0]+"<span size='x-small'> %s</span>  <span size='small'>%s</span>"%(wind_speed_now[0].split(';')[wind_units].split()[-1], wind_direct_now[0]), x0+20, y0-1, font+' Normal', 12, 100,Pango.Alignment.LEFT)
                 if press_now:
                     self.draw_text(cr, press_now[0].split(';')[press_units].split()[0]+"<span size='x-small'> %s</span>"%_(press_now[0].split(';')[press_units].split()[-1]), x0+20, y0+line_height-1, font+' Normal', 12, 150,Pango.Alignment.LEFT)
                     if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'press.png')):
@@ -967,9 +946,9 @@ class MyDrawArea(Gtk.DrawingArea):
                     if (wind_direct_tom and wind_speed_tom):
                         try:
                             if int(wind_speed_tom[i].split(';')[wind_units].split()[0]) >= high_wind and high_wind != -1:
-                                self.draw_text(cr, wind_direct_tom[i]+', '+wind_speed_tom[i].split(';')[wind_units].split()[0]+' '+_(wind_speed_tom[i].split(';')[wind_units].split()[-1]), x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 64,Pango.Alignment.LEFT, color_high_wind)
+                                self.draw_text(cr, wind_direct_tom[i]+', '+wind_speed_tom[i].split(';')[wind_units].split()[0]+' '+wind_speed_tom[i].split(';')[wind_units].split()[-1], x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 64,Pango.Alignment.LEFT, color_high_wind)
                             else:
-                                self.draw_text(cr, wind_direct_tom[i]+', '+wind_speed_tom[i].split(';')[wind_units].split()[0]+' '+_(wind_speed_tom[i].split(';')[wind_units].split()[-1]), x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 64,Pango.Alignment.LEFT)
+                                self.draw_text(cr, wind_direct_tom[i]+', '+wind_speed_tom[i].split(';')[wind_units].split()[0]+' '+wind_speed_tom[i].split(';')[wind_units].split()[-1], x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 64,Pango.Alignment.LEFT)
                         except:
                             pass
 
@@ -1003,9 +982,9 @@ class MyDrawArea(Gtk.DrawingArea):
                     if (wind_direct_tod and wind_speed_tod):
                         try:
                             if int(wind_speed_tod[i].split(';')[wind_units].split()[0]) >= high_wind and high_wind != -1:
-                                self.draw_text(cr, wind_direct_tod[i]+', '+wind_speed_tod[i].split(';')[wind_units].split()[0]+' '+_(wind_speed_tod[i].split(';')[wind_units].split()[-1]), x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 64,Pango.Alignment.LEFT, color_high_wind)
+                                self.draw_text(cr, wind_direct_tod[i]+', '+wind_speed_tod[i].split(';')[wind_units].split()[0]+' '+wind_speed_tod[i].split(';')[wind_units].split()[-1], x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 64,Pango.Alignment.LEFT, color_high_wind)
                             else:
-                                self.draw_text(cr, wind_direct_tod[i]+', '+wind_speed_tod[i].split(';')[wind_units].split()[0]+' '+_(wind_speed_tod[i].split(';')[wind_units].split()[-1]), x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 64,Pango.Alignment.LEFT)
+                                self.draw_text(cr, wind_direct_tod[i]+', '+wind_speed_tod[i].split(';')[wind_units].split()[0]+' '+wind_speed_tod[i].split(';')[wind_units].split()[-1], x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 64,Pango.Alignment.LEFT)
                         except:
                             pass
 
@@ -1037,9 +1016,9 @@ class MyDrawArea(Gtk.DrawingArea):
 
                 if (wind_direct and wind_speed): 
                     if int(wind_speed[index].split(';')[wind_units].split()[0]) >= high_wind and high_wind != -1:
-                        self.draw_text(cr, wind_direct[index]+', '+wind_speed[index].split(';')[wind_units].split()[0]+' '+_(wind_speed[index].split(';')[wind_units].split()[-1]), x, y+50, font+' Normal', 8, 80,Pango.Alignment.LEFT, color_high_wind)
+                        self.draw_text(cr, wind_direct[index]+', '+wind_speed[index].split(';')[wind_units].split()[0]+' '+wind_speed[index].split(';')[wind_units].split()[-1], x, y+50, font+' Normal', 8, 80,Pango.Alignment.LEFT, color_high_wind)
                     else:
-                        self.draw_text(cr, wind_direct[index]+', '+wind_speed[index].split(';')[wind_units].split()[0]+' '+_(wind_speed[index].split(';')[wind_units].split()[-1]), x, y+50, font+' Normal', 8, 80,Pango.Alignment.LEFT)
+                        self.draw_text(cr, wind_direct[index]+', '+wind_speed[index].split(';')[wind_units].split()[0]+' '+wind_speed[index].split(';')[wind_units].split()[-1], x, y+50, font+' Normal', 8, 80,Pango.Alignment.LEFT)
                     if text: self.draw_text(cr, text[index], x, y+65, font+desc_list[desc_style], 7, w_block, Pango.Alignment.LEFT)
                 else:
                     if text: self.draw_text(cr, text[index], x, y+55, font+desc_list[desc_style], 7, w_block, Pango.Alignment.LEFT)

@@ -2,7 +2,7 @@
 
 from utils import weather_vars, wind_direct_convert, gw_vars
 from utils.opener import urlopener
-from utils.t_convert import C_to_F, C_to_K, add_plus
+from utils.convert import C_to_F, C_to_K, add_plus, convert_from_ms
 import re
 import time
 import os
@@ -122,7 +122,7 @@ def get_weather():
     # wind
     wind_speed_now = [str(round(source['wind']['speed']))]
     if wind_speed_now:
-        wind_speed_now[0] = wind_speed_now[0]+' m/s;'+str(round(int(wind_speed_now[0])*3.6))+' km/h;'+str(round(int(wind_speed_now[0])*2.237))+' mph'
+        wind_speed_now[0] = convert_from_ms(wind_speed_now[0])
     wind_direct_now = [wind_direct_convert.convert(source['wind']['deg'])]
     a=''
     for i in range(len(wind_direct_now[0])):
@@ -198,7 +198,7 @@ def get_weather():
 
     if wind_speed:
         for i in range(len(wind_speed)):
-            wind_speed[i] = wind_speed[i]+' m/s;'+str(round(int(wind_speed[i])*3.6))+' km/h;'+str(round(int(wind_speed[i])*2.237))+' mph'
+            wind_speed[i] = convert_from_ms(wind_speed[i])
     
     if show_block_tomorrow or show_block_today:
         source = urlopener(URL_TODAY_TOMORROW, 5)
@@ -276,12 +276,12 @@ def get_weather():
                 icon_tomorrow[i] = 'na.png;na.png'
         for i in range(len(wind_speed_tod)):
             if wind_speed_tod[i] != '':
-                wind_speed_tod[i] = wind_speed_tod[i]+' m/s;'+str(round(int(wind_speed_tod[i])*3.6))+' km/h;'+str(round(int(wind_speed_tod[i])*2.237))+' mph'
+                wind_speed_tod[i] = convert_from_ms(wind_speed_tod[i])
             else:
                 wind_speed_tod[i] = ';;'
         for i in range(len(wind_speed_tom)):
             if wind_speed_tom[i] != '':
-                wind_speed_tom[i] = wind_speed_tom[i]+' m/s;'+str(round(int(wind_speed_tom[i])*3.6))+' km/h;'+str(round(int(wind_speed_tom[i])*2.237))+' mph'
+                wind_speed_tom[i] = convert_from_ms(wind_speed_tom[i])
         for j in range(len(wind_direct_tod)):
             a=''
             for i in range(len(wind_direct_tod[j])):
