@@ -5,9 +5,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2015-04-15 22:01+0300\n"
-"PO-Revision-Date: 2015-04-16 17:48+0000\n"
-"Last-Translator: Alexander Koltsov <ringov@mail.ru>\n"
+"POT-Creation-Date: 2015-06-15 20:19+0300\n"
+"PO-Revision-Date: 2015-06-15 17:45+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/gis-weather/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,245 +25,236 @@ msgstr ""
 
 #: gis-weather.py:42
 msgid "Running multiple instances is not supported"
-msgstr "Meerdere draaiende instanties worden niet ondersteund"
+msgstr "Het openen van meerdere instanties wordt niet ondersteund"
 
 #: gis-weather.py:47
 msgid "number of instances"
 msgstr "aantal instanties"
 
-#: gis-weather.py:224 dialogs/settings_dialog.ui:671
+#: gis-weather.py:236 dialogs/settings_dialog.ui:671
 msgid "Configuration folder"
 msgstr "Configuratiemap"
 
-#: gis-weather.py:247 dialogs/city_id_dialog.py:28
+#: gis-weather.py:252 dialogs/city_id_dialog.py:29
 msgid "Error loading config file"
-msgstr "Fout bij laden van configuratiebestand"
+msgstr "Er is een fout opgetreden bij het laden van het configuratiebestand"
 
-#: gis-weather.py:274
+#: gis-weather.py:279
 msgid "Error loading color scheme"
-msgstr "Fout bij laden van kleurenschema"
+msgstr "Er is een fout opgetreden bij het laden van het kleurenschema"
 
-#: gis-weather.py:286
+#: gis-weather.py:291
 msgid "Error loading preset"
-msgstr "Fout bij laden van voorinstelling"
+msgstr "Er is een fout opgetreden bij het laden van de voorinstelling"
 
-#: gis-weather.py:296
+#: gis-weather.py:301
 msgid "Enter full path to script"
-msgstr "Voer volledig pad naar script in"
+msgstr "Voer het volledige pad naar het script in"
 
-#: gis-weather.py:297
+#: gis-weather.py:302
 msgid "Exit"
 msgstr "Afsluiten"
 
-#: gis-weather.py:397
+#: gis-weather.py:402
 msgid "Check for new version"
 msgstr "Controleren op nieuwe versie"
 
-#: gis-weather.py:402 gis-weather.py:411
+#: gis-weather.py:407 gis-weather.py:416
 msgid "Unable to check for updates"
-msgstr "Niet in staat te controleren op updates"
+msgstr "Het is niet mogelijk om te controleren op updates"
 
-#: gis-weather.py:426
+#: gis-weather.py:431
 msgid "New version available"
-msgstr "Nieuwe versie beschikbaar"
+msgstr "Er is een nieuwe versie beschikbaar"
 
-#: gis-weather.py:433
+#: gis-weather.py:438
 msgid "You are using the latest version"
 msgstr "U gebruikt de nieuwste versie"
 
-#: gis-weather.py:450 gis-weather.py:1216
+#: gis-weather.py:455 gis-weather.py:1266
 msgid "Screenshot saved to"
-msgstr "Schermafbeelding opgeslagen in"
+msgstr "De schermafbeelding is opgeslagen in"
 
-#: gis-weather.py:454
+#: gis-weather.py:459
 msgid "Unable to get the screenshot"
-msgstr "Niet in staat om schermafbeelding te verkrijgen"
+msgstr "Het is niet mogelijk om de schermafbeelding te verkrijgen"
 
-#: gis-weather.py:623
+#: gis-weather.py:636
 msgid "Getting weather..."
-msgstr "Bezig met verkrijgen van weer..."
+msgstr "Bezig met het verkrijgen van het weer..."
 
-#: gis-weather.py:626
+#: gis-weather.py:639
 msgid "Error getting weather"
-msgstr "Fout bij verkrijgen van weer"
+msgstr "Er is een fout opgetreden bij het verkrijgen van het weer"
 
-#: gis-weather.py:628
+#: gis-weather.py:641
 msgid "Location not set"
-msgstr "Geen locatie ingesteld"
+msgstr "Er is geen locatie ingesteld"
 
-#: gis-weather.py:685 gis-weather.py:747
+#: gis-weather.py:698 gis-weather.py:760
 msgid "Next update in"
-msgstr "Volgende bijwerking over"
+msgstr "De volgende bijwerking is over"
 
-#: gis-weather.py:685 gis-weather.py:747
+#: gis-weather.py:698 gis-weather.py:760
 msgid "min"
 msgstr "min"
 
-#: gis-weather.py:737
+#: gis-weather.py:734 services/gismeteo.py:353
+msgid "Next try in 10 seconds"
+msgstr "De volgende poging is over 10 seconden"
+
+#: gis-weather.py:750
 msgid "Connection error"
 msgstr "Verbindingsfout"
 
-#: gis-weather.py:799
+#: gis-weather.py:820
 msgid "Updated on server"
-msgstr "Bijgewerkt op server"
+msgstr "Bijgewerkt op de server"
 
-#: gis-weather.py:800
+#: gis-weather.py:821
 msgid "Weather received"
-msgstr "Weer opgehaald"
+msgstr "Het weer is opgehaald"
 
-#: gis-weather.py:830
+#: gis-weather.py:860
 msgid "E"
 msgstr "O"
 
-#: gis-weather.py:830
+#: gis-weather.py:860
 msgid "S"
 msgstr "Z"
 
-#: gis-weather.py:830
+#: gis-weather.py:860
 msgid "W"
 msgstr "W"
 
-#: gis-weather.py:830
+#: gis-weather.py:860
 msgid "N"
 msgstr "N"
 
-#: gis-weather.py:875
+#: gis-weather.py:905
 msgid "humid."
 msgstr "vochtig."
 
-#: gis-weather.py:881
+#: gis-weather.py:911
 msgid "water"
 msgstr "water"
 
-#: gis-weather.py:898 gis-weather.py:937
+#: gis-weather.py:928 gis-weather.py:967
 msgid "Morning"
 msgstr "Ochtend"
 
-#: gis-weather.py:898 gis-weather.py:937
+#: gis-weather.py:928 gis-weather.py:967
 msgid "Day"
 msgstr "Dag"
 
-#: gis-weather.py:898 gis-weather.py:937
+#: gis-weather.py:928 gis-weather.py:967
 msgid "Evening"
 msgstr "Avond"
 
-#: gis-weather.py:898 gis-weather.py:937
+#: gis-weather.py:928 gis-weather.py:967
 msgid "Night"
 msgstr "Nacht"
 
-#: gis-weather.py:901 gis-weather.py:903
+#: gis-weather.py:931 gis-weather.py:933
 msgid "Tomorrow"
 msgstr "Morgen"
 
-#: gis-weather.py:939
+#: gis-weather.py:969
 msgid "Today"
 msgstr "Vandaag"
 
-#: gis-weather.py:1062
+#: gis-weather.py:1096
 msgid "Background image not found"
-msgstr "Achtergrondafbeelding niet gevonden"
+msgstr "De achtergrondafbeelding kon niet worden gevonden"
 
-#: gis-weather.py:1119
+#: gis-weather.py:1160
 msgid "downloading"
 msgstr "bezig met downloaden"
 
-#: gis-weather.py:1123
+#: gis-weather.py:1164
 msgid "Unable to download"
-msgstr "Niet in staat om te downloaden"
+msgstr "Het downloaden is mislukt"
 
-#: gis-weather.py:1148
+#: gis-weather.py:1189
 msgid "Icon not found"
-msgstr "Pictogram niet gevonden"
+msgstr "Het pictogram kon niet worden gevonden"
 
-#: gis-weather.py:1227
+#: gis-weather.py:1277
 msgid "Widget size"
 msgstr "Widgetgrootte"
 
-#: gis-weather.py:1228
+#: gis-weather.py:1278
 msgid "width"
 msgstr "breedte"
 
-#: gis-weather.py:1228
+#: gis-weather.py:1278
 msgid "height"
 msgstr "hoogte"
 
-#: gis-weather.py:1228
+#: gis-weather.py:1278
 msgid "including indent"
 msgstr "inclusief inspringing"
 
-#: gis-weather.py:1404
+#: gis-weather.py:1458
 msgid "Removed"
 msgstr "Verwijderd"
 
-#: gis-weather.py:1433 dialogs/city_id_dialog.ui:376
+#: gis-weather.py:1487 dialogs/city_id_dialog.ui:376
 msgid "Added"
 msgstr "Toegevoegd"
 
-#: gis-weather.py:1438 dialogs/city_id_dialog.ui:308
+#: gis-weather.py:1492 dialogs/city_id_dialog.ui:308
 msgid "Invalid location code"
 msgstr "Ongeldige locatiecode"
 
-#: gis-weather.py:1503
+#: gis-weather.py:1557
 msgid "Your screen does not support alpha"
 msgstr "Uw scherm ondersteunt geen alpha"
 
-#: gis-weather.py:1505
+#: gis-weather.py:1559
 msgid "Your screen supports alpha"
 msgstr "Uw scherm ondersteunt alpha"
 
-#: services/gismeteo.py:215 services/accuweather.py:193
+#: services/gismeteo.py:218 services/openweathermap.py:83
+#: services/accuweather.py:194
 msgid "Failed to get the name of the location"
-msgstr "Mislukt om de locatienaam te verkrijgen"
+msgstr "Het is niet gelukt om de locatienaam te verkrijgen"
 
-#: services/gismeteo.py:221 services/accuweather.py:204
+#: services/gismeteo.py:233 services/openweathermap.py:106
+#: services/accuweather.py:216
 msgid "Getting weather for"
-msgstr "Bezig met verkrijgen van weer voor"
+msgstr "Bezig met het verkrijgen van het weer voor"
 
-#: services/gismeteo.py:221 services/accuweather.py:204
+#: services/gismeteo.py:233 services/openweathermap.py:106
+#: services/accuweather.py:216
 msgid "days"
 msgstr "dagen"
 
-#: services/gismeteo.py:222 services/accuweather.py:205
-#: services/accuweather.py:265 services/accuweather.py:285
-#: services/accuweather.py:342 services/accuweather.py:404
-#: services/accuweather.py:412 services/accuweather.py:420
-#: services/accuweather.py:428 services/accuweather.py:544
-#: services/accuweather.py:552 services/accuweather.py:560
-#: services/accuweather.py:568 dialogs/update_dialog.py:27
-#: dialogs/update_dialog.ui:561
-msgid "Downloading"
-msgstr "Bezig met downloaden"
-
-#: services/gismeteo.py:228 services/accuweather.py:211
-#: services/accuweather.py:271 services/accuweather.py:291
-#: services/accuweather.py:348 services/accuweather.py:410
-#: services/accuweather.py:418 services/accuweather.py:426
-#: services/accuweather.py:434 services/accuweather.py:550
-#: services/accuweather.py:558 services/accuweather.py:566
-#: services/accuweather.py:574
-msgid "Unable to download page, check the network connection"
-msgstr "Niet in staat om pagina te downloaden, controleer uw netwerkverbinding"
-
-#: services/gismeteo.py:230 services/gismeteo.py:344
-#: services/accuweather.py:213
-msgid "Next try in 10 seconds"
-msgstr "Volgende poging over 10 seconden"
-
-#: services/gismeteo.py:412 services/accuweather.py:683
+#: services/gismeteo.py:421 services/openweathermap.py:297
+#: services/accuweather.py:640
 msgid "updated on server"
 msgstr "bijgewerkt op server"
 
-#: services/gismeteo.py:413 services/accuweather.py:684
+#: services/gismeteo.py:422 services/openweathermap.py:298
+#: services/accuweather.py:641
 msgid "weather received"
-msgstr "weer opgehaald"
+msgstr "het weer is opgehaald"
 
 #: services/accuweather.py:13
 msgid "If the city code is wrong, please read"
-msgstr ""
+msgstr "Als de stadscode foutief is, lees dan"
 
-#: services/accuweather.py:252
+#: services/accuweather.py:257
 msgid "Calm"
 msgstr "Rustig"
+
+#: utils/opener.py:17 dialogs/update_dialog.py:27 dialogs/update_dialog.ui:561
+msgid "Downloading"
+msgstr "Bezig met downloaden"
+
+#: utils/opener.py:25
+msgid "Unable to download page, check the network connection"
+msgstr "Het downloaden van de pagina is mislukt; controleer uw netwerkverbinding"
 
 #: utils/autorun.py:72 utils/desktop.py:23 dialogs/about_dialog.py:25
 msgid "Weather widget"
@@ -273,7 +264,7 @@ msgstr "Weerwidget"
 msgid "Setup..."
 msgstr "Instellen..."
 
-#: utils/gw_menu.py:112 dialogs/settings_dialog.py:423
+#: utils/gw_menu.py:112 dialogs/settings_dialog.py:426
 msgid "No"
 msgstr "Nee"
 
@@ -291,7 +282,7 @@ msgstr "Grijs"
 
 #: utils/gw_menu.py:137 dialogs/settings_dialog.ui:1754
 msgid "Lock position"
-msgstr "Oriëntatie vergrendelen"
+msgstr "Positie vergrendelen"
 
 #: utils/gw_menu.py:143 dialogs/settings_dialog.ui:1739
 msgid "On all desktops"
@@ -309,7 +300,7 @@ msgstr "Widget weergeven/verbergen"
 msgid "Refresh"
 msgstr "Verversen"
 
-#: utils/gw_menu.py:190 dialogs/city_id_dialog.py:90
+#: utils/gw_menu.py:190 dialogs/city_id_dialog.py:96
 #: dialogs/settings_dialog.ui:614 dialogs/city_id_dialog.ui:42
 msgid "Location"
 msgstr "Locatie"
@@ -319,7 +310,7 @@ msgid "Indicator icons"
 msgstr "Indicator-pictogrammen"
 
 #: utils/gw_menu.py:201 dialogs/about_dialog.py:41
-#: dialogs/settings_dialog.ui:3836 dialogs/settings_dialog.ui:4315
+#: dialogs/settings_dialog.ui:3836 dialogs/settings_dialog.ui:4347
 msgid "Icons"
 msgstr "Pictogrammen"
 
@@ -339,10 +330,10 @@ msgstr "Venster"
 msgid "Presets"
 msgstr "Voorinstellingen"
 
-#: utils/gw_menu.py:226 dialogs/settings_dialog.py:98
-#: dialogs/settings_dialog.py:736
+#: utils/gw_menu.py:226 dialogs/settings_dialog.py:99
+#: dialogs/settings_dialog.py:741
 msgid "Preferences"
-msgstr "Instellingen"
+msgstr "Voorkeuren"
 
 #: utils/gw_menu.py:234 dialogs/help_dialog.py:28
 msgid "Help"
@@ -357,9 +348,25 @@ msgstr "Over"
 msgid "Close"
 msgstr "Sluiten"
 
+#: utils/convert.py:27 utils/convert.py:49 dialogs/settings_dialog.py:417
+msgid "km/h"
+msgstr "km/u"
+
+#: utils/convert.py:30 utils/convert.py:43 dialogs/settings_dialog.py:417
+msgid "mph"
+msgstr "mph"
+
+#: utils/convert.py:33 utils/convert.py:46
+msgid "Bft"
+msgstr "Bft"
+
+#: utils/convert.py:36 utils/convert.py:40 dialogs/settings_dialog.py:417
+msgid "m/s"
+msgstr "m/s"
+
 #: dialogs/help_dialog.py:13 dialogs/update_dialog.py:44
 msgid "Go to link"
-msgstr "Ga naar link"
+msgstr "Ga naar de link"
 
 #: dialogs/help_dialog.py:16 dialogs/update_dialog.py:47
 #: dialogs/help_dialog.ui:76 dialogs/update_dialog.ui:318
@@ -376,15 +383,15 @@ msgstr "Huidige versie"
 
 #: dialogs/update_dialog.py:89
 msgid "Available new version"
-msgstr "Beschikbare nieuwe versie"
+msgstr "Er is een nieuwe versie beschikbaar"
 
 #: dialogs/update_dialog.py:112
 msgid "Error downloading updates"
-msgstr "Fout bij downloaden van updates"
+msgstr "Er is een fout opgetreden bij het downloaden van de updates"
 
 #: dialogs/update_dialog.py:147
 msgid "Error installing updates"
-msgstr "Fout bij installeren van updates"
+msgstr "Er is een fout opgetreden bij het installeren van de updates"
 
 #: dialogs/update_dialog.py:151 dialogs/update_dialog.ui:575
 msgid "Installation"
@@ -392,7 +399,7 @@ msgstr "Installatie"
 
 #: dialogs/update_dialog.py:159
 msgid "Error removing"
-msgstr "Fout bij verwijderen"
+msgstr "Er is een fout opgetreden bij het verwijderen"
 
 #: dialogs/about_dialog.py:8
 msgid ""
@@ -420,78 +427,70 @@ msgstr "Achtergronden"
 
 #: dialogs/about_dialog.py:55
 msgid "translator-credits"
-msgstr "Heimen Stoffels <motionshot@vivaldi.net>"
+msgstr "Heimen Stoffels <vistausss@outlook.com>"
 
-#: dialogs/settings_dialog.py:414
-msgid "m/s"
-msgstr "m/s"
+#: dialogs/settings_dialog.py:417
+msgid "Beaufort scale"
+msgstr "Beaufort-schaal"
 
-#: dialogs/settings_dialog.py:414
-msgid "km/h"
-msgstr "km/u"
-
-#: dialogs/settings_dialog.py:414
-msgid "mph"
-msgstr "mph"
-
-#: dialogs/settings_dialog.py:415
+#: dialogs/settings_dialog.py:418
 msgid "mmHg"
 msgstr "mmHg"
 
-#: dialogs/settings_dialog.py:415
+#: dialogs/settings_dialog.py:418
 msgid "inHg"
 msgstr "inHg"
 
-#: dialogs/settings_dialog.py:415
+#: dialogs/settings_dialog.py:418
 msgid "hPa"
 msgstr "hPa"
 
-#: dialogs/settings_dialog.py:418
+#: dialogs/settings_dialog.py:421
 msgid "Never"
 msgstr "Nooit"
 
-#: dialogs/settings_dialog.py:419
+#: dialogs/settings_dialog.py:422
 msgid "Only at start"
-msgstr "Alleen bij opstarten"
+msgstr "Alleen bij het opstarten"
 
-#: dialogs/settings_dialog.py:420
+#: dialogs/settings_dialog.py:423
 msgid "Always"
 msgstr "Altijd"
 
-#: dialogs/settings_dialog.py:424
+#: dialogs/settings_dialog.py:427
 msgid "Only background"
-msgstr "Alleen achtergrond"
+msgstr "Alleen op de achtergrond"
 
-#: dialogs/settings_dialog.py:425
+#: dialogs/settings_dialog.py:428
 msgid "Yes"
 msgstr "Ja"
 
-#: dialogs/settings_dialog.py:532 dialogs/settings_dialog.py:542
-#: dialogs/settings_dialog.py:552 dialogs/settings_dialog.py:554
+#: dialogs/settings_dialog.py:536 dialogs/settings_dialog.py:546
+#: dialogs/settings_dialog.py:556 dialogs/settings_dialog.py:558
 msgid "Author"
 msgstr "Auteur"
 
-#: dialogs/city_id_dialog.py:55
+#: dialogs/city_id_dialog.py:59
 msgid "Choose your city on"
 msgstr "Kies uw stad op"
 
-#: dialogs/city_id_dialog.py:56
+#: dialogs/city_id_dialog.py:60
 msgid "and copy the city code below"
 msgstr "en kopieer de onderstaande stadscode"
 
-#: dialogs/city_id_dialog.py:57
+#: dialogs/city_id_dialog.py:61
 msgid "For example"
 msgstr "Bijvoorbeeld"
 
-#: dialogs/city_id_dialog.py:58
+#: dialogs/city_id_dialog.py:62
 msgid "City code"
 msgstr "Stadscode"
 
-#: dialogs/city_id_dialog.py:120
+#: dialogs/city_id_dialog.py:126
 msgid "Code"
 msgstr "Code"
 
-#: dialogs/city_id_dialog.py:124
+#: dialogs/city_id_dialog.py:130
 msgid "Place"
 msgstr "Plaats"
 
@@ -510,7 +509,7 @@ msgstr "Openen..."
 #: dialogs/settings_dialog.ui:799 dialogs/help_dialog.ui:109
 #: dialogs/update_dialog.ui:351
 msgid "Want to translate?"
-msgstr "Meehelpen met vertalen?"
+msgstr "Wilt u meehelpen met vertalen?"
 
 #: dialogs/settings_dialog.ui:821
 msgid "Program language"
@@ -522,7 +521,7 @@ msgstr "Weertaal"
 
 #: dialogs/settings_dialog.ui:851
 msgid "Add launcher icon to menu"
-msgstr "Starterpictogram toevoegen aan menu"
+msgstr "Starterpictogram toevoegen aan het menu"
 
 #: dialogs/settings_dialog.ui:879 dialogs/city_id_dialog.ui:197
 msgid "Weather service"
@@ -530,11 +529,11 @@ msgstr "Weerdienst"
 
 #: dialogs/settings_dialog.ui:960 dialogs/help_dialog.ui:286
 msgid "Translation status"
-msgstr "Vertalingssstatus"
+msgstr "Vertalingsstatus"
 
 #: dialogs/settings_dialog.ui:1014
 msgid "Autostart at login"
-msgstr "Automatisch opstarten na inloggen"
+msgstr "Automatisch opstarten bij het inloggen"
 
 #: dialogs/settings_dialog.ui:1029
 msgid "Number of instances"
@@ -578,7 +577,7 @@ msgstr "Opmaak van datumscheiding"
 
 #: dialogs/settings_dialog.ui:1507
 msgid "Swap the day and month"
-msgstr "Draai de datum en maand om"
+msgstr "De datum en maand omdraaien"
 
 #: dialogs/settings_dialog.ui:1565
 msgid "Units"
@@ -588,7 +587,7 @@ msgstr "Eenheden"
 msgid "Left"
 msgstr "Links"
 
-#: dialogs/settings_dialog.ui:1604 dialogs/settings_dialog.ui:4215
+#: dialogs/settings_dialog.ui:1604 dialogs/settings_dialog.ui:4029
 msgid "Top"
 msgstr "Bovenaan"
 
@@ -618,7 +617,7 @@ msgstr "Weergeven"
 #: dialogs/settings_dialog.ui:2271 dialogs/settings_dialog.ui:2387
 #: dialogs/settings_dialog.ui:2607
 msgid "Offset from center"
-msgstr "Compenseren vanuit midden"
+msgstr "Compenseren vanuit het midden"
 
 #: dialogs/settings_dialog.ui:2101
 msgid "Block Tomorrow"
@@ -672,7 +671,7 @@ msgstr "Kans op regen weergeven"
 msgid "View"
 msgstr "Weergave"
 
-#: dialogs/settings_dialog.ui:3035 dialogs/settings_dialog.ui:4058
+#: dialogs/settings_dialog.ui:3035 dialogs/settings_dialog.ui:4279
 msgid "Font"
 msgstr "Lettertype"
 
@@ -698,7 +697,7 @@ msgstr "Hoge wind\n(-1 = niet gemarkeerd)"
 msgid "Shadow color"
 msgstr "Schaduwkleur"
 
-#: dialogs/settings_dialog.ui:3221 dialogs/settings_dialog.ui:4014
+#: dialogs/settings_dialog.ui:3221 dialogs/settings_dialog.ui:4059
 msgid "Shadow"
 msgstr "Schaduw"
 
@@ -720,11 +719,11 @@ msgstr "Selecteren"
 
 #: dialogs/settings_dialog.ui:3634
 msgid "Corner radius"
-msgstr ""
+msgstr "Hoekradius"
 
-#: dialogs/settings_dialog.ui:3649 dialogs/settings_dialog.ui:4106
+#: dialogs/settings_dialog.ui:3649 dialogs/settings_dialog.ui:4074
 msgid "Color"
-msgstr "Kler"
+msgstr "Kleur"
 
 #: dialogs/settings_dialog.ui:3861
 msgid "Appearance"
@@ -734,29 +733,33 @@ msgstr "Uiterlijk"
 msgid "Type (restart required)"
 msgstr "Type (herstart vereist)"
 
-#: dialogs/settings_dialog.ui:4121
-msgid "Color shadow"
-msgstr "Schaduwkleur"
-
-#: dialogs/settings_dialog.ui:4246
+#: dialogs/settings_dialog.ui:4014
 msgid "Width"
 msgstr "Breedte"
 
-#: dialogs/settings_dialog.ui:4366
+#: dialogs/settings_dialog.ui:4044
+msgid "Color shadow"
+msgstr "Schaduwkleur"
+
+#: dialogs/settings_dialog.ui:4294
+msgid "Show text"
+msgstr "Tekst weergeven"
+
+#: dialogs/settings_dialog.ui:4398
 msgid "Fix the size"
 msgstr "Grootte vastzetten"
 
-#: dialogs/settings_dialog.ui:4410
+#: dialogs/settings_dialog.ui:4442
 msgid "Size"
 msgstr "Grootte"
 
-#: dialogs/settings_dialog.ui:4485
+#: dialogs/settings_dialog.ui:4517
 msgid "Indicator"
 msgstr "Indicator"
 
 #: dialogs/help_dialog.ui:92 dialogs/update_dialog.ui:334
 msgid "Found a bug?"
-msgstr "Bug gevonden?"
+msgstr "Heeft u een bug gevonden?"
 
 #: dialogs/help_dialog.ui:126 dialogs/update_dialog.ui:369
 msgid "Have any questions?"
@@ -804,7 +807,7 @@ msgstr "Extra informatie"
 
 #: dialogs/update_dialog.ui:589
 msgid "Cleaning temporary files"
-msgstr "Bezig met wissen van tijdelijke bestanden"
+msgstr "Bezig met het wissen van de tijdelijke bestanden"
 
 #: dialogs/update_dialog.ui:672
 msgid "Restart"

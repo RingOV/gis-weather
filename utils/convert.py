@@ -30,10 +30,13 @@ def ms_to_mph(ms):
     return str(round(int(ms)*2.237))+' '+_('mph')
 
 def ms_to_Bft(ms):
-    return str(round((int(ms)/0.836)**(2/3)))+' '+_('Bft')
+    return str(round((int(ms)/0.836)**(2/3)))+' '+_('bft')
+
+def ms_to_kts(ms):
+    return str(round(int(ms)*1.944))+' '+_('kts')
 
 def convert_from_ms(ms):
-    return ';'.join([ms+' '+_('m/s'), ms_to_kmh(ms), ms_to_mph(ms), ms_to_Bft(ms)])
+    return ';'.join([ms+' '+_('m/s'), ms_to_kmh(ms), ms_to_mph(ms), ms_to_Bft(ms), ms_to_kts(ms)])
 
 
 def kmh_to_ms(kmh):
@@ -43,7 +46,10 @@ def kmh_to_mph(kmh):
     return str(round(int(kmh)*0.621))+' '+_('mph')
 
 def kmh_to_Bft(kmh):
-    return str(round((int(kmh)*0.278/0.836)**(2/3)))+' '+_('Bft')
+    return str(round((int(kmh)*0.278/0.836)**(2/3)))+' '+_('bft')
+
+def kmh_to_kts(kmh):
+    return str(round(int(kmh)*0.54))+' '+_('kts')
 
 def convert_from_kmh(kmh):
-    return ';'.join([kmh_to_ms(kmh), kmh+' '+_('km/h'), kmh_to_mph(kmh), kmh_to_Bft(kmh)])
+    return ';'.join([kmh_to_ms(kmh), kmh+' '+_('km/h'), kmh_to_mph(kmh), kmh_to_Bft(kmh), kmh_to_kts(kmh)])

@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2015-04-15 22:01+0300\n"
-"PO-Revision-Date: 2015-04-16 17:48+0000\n"
+"POT-Creation-Date: 2015-06-15 20:19+0300\n"
+"PO-Revision-Date: 2015-06-15 17:24+0000\n"
 "Last-Translator: Alexander Koltsov <ringov@mail.ru>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/gis-weather/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -34,229 +34,212 @@ msgstr "Δεν υποστηρίζεται το τρέξιμο πολλαπλών
 msgid "number of instances"
 msgstr "αριθμός παρουσιών"
 
-#: gis-weather.py:224 dialogs/settings_dialog.ui:671
+#: gis-weather.py:236 dialogs/settings_dialog.ui:671
 msgid "Configuration folder"
 msgstr "Φάκελος ρύθμισης"
 
-#: gis-weather.py:247 dialogs/city_id_dialog.py:28
+#: gis-weather.py:252 dialogs/city_id_dialog.py:29
 msgid "Error loading config file"
 msgstr "Σφάλμα κατά την φόρτωση του αρχείου διαμόρφωσης"
 
-#: gis-weather.py:274
+#: gis-weather.py:279
 msgid "Error loading color scheme"
 msgstr "Σφάλμα κατά την φόρτωση του συνδιασμού χρωμάτων"
 
-#: gis-weather.py:286
+#: gis-weather.py:291
 msgid "Error loading preset"
 msgstr "Σφάλμα κατά τη φόρτωση των ρυθμίσεων"
 
-#: gis-weather.py:296
+#: gis-weather.py:301
 msgid "Enter full path to script"
 msgstr "Δώστε την πλήρη διαδρομή για το script "
 
-#: gis-weather.py:297
+#: gis-weather.py:302
 msgid "Exit"
 msgstr "Έξοδος"
 
-#: gis-weather.py:397
+#: gis-weather.py:402
 msgid "Check for new version"
 msgstr "Ελέγξτε για νέα έκδοση"
 
-#: gis-weather.py:402 gis-weather.py:411
+#: gis-weather.py:407 gis-weather.py:416
 msgid "Unable to check for updates"
 msgstr "Αδυναμία ελέγχου των ενημερώσεων"
 
-#: gis-weather.py:426
+#: gis-weather.py:431
 msgid "New version available"
 msgstr "Νέα έκδοση διαθέσιμη"
 
-#: gis-weather.py:433
+#: gis-weather.py:438
 msgid "You are using the latest version"
 msgstr "Χρησιμοποιείται την τελευταία έκδοση"
 
-#: gis-weather.py:450 gis-weather.py:1216
+#: gis-weather.py:455 gis-weather.py:1266
 msgid "Screenshot saved to"
 msgstr "Το στιγμιότυπο οθόνης αποθηκεύτηκε στο"
 
-#: gis-weather.py:454
+#: gis-weather.py:459
 msgid "Unable to get the screenshot"
 msgstr "Αδυναμία απόκτησης του στιγμιοτύπου οθόνης"
 
-#: gis-weather.py:623
+#: gis-weather.py:636
 msgid "Getting weather..."
 msgstr "Λήψη καιρού..."
 
-#: gis-weather.py:626
+#: gis-weather.py:639
 msgid "Error getting weather"
 msgstr "Σφάλμα λήψης καιρού"
 
-#: gis-weather.py:628
+#: gis-weather.py:641
 msgid "Location not set"
 msgstr "Δεν ορίστηκε περιοχή"
 
-#: gis-weather.py:685 gis-weather.py:747
+#: gis-weather.py:698 gis-weather.py:760
 msgid "Next update in"
 msgstr "Επόμενη ενημέρωση σε"
 
-#: gis-weather.py:685 gis-weather.py:747
+#: gis-weather.py:698 gis-weather.py:760
 msgid "min"
 msgstr "λεπ"
 
-#: gis-weather.py:737
-msgid "Connection error"
-msgstr "Σφάλμα σύνδεσης"
-
-#: gis-weather.py:799
-msgid "Updated on server"
-msgstr "Ενημερώθηκε στον εξυπηρετητή"
-
-#: gis-weather.py:800
-msgid "Weather received"
-msgstr "Ο καιρός λήφθηκε"
-
-#: gis-weather.py:830
-msgid "E"
-msgstr "Α"
-
-#: gis-weather.py:830
-msgid "S"
-msgstr "Ν"
-
-#: gis-weather.py:830
-msgid "W"
-msgstr "Δ"
-
-#: gis-weather.py:830
-msgid "N"
-msgstr "Β"
-
-#: gis-weather.py:875
-msgid "humid."
-msgstr "Υγρ."
-
-#: gis-weather.py:881
-msgid "water"
-msgstr "Νερό"
-
-#: gis-weather.py:898 gis-weather.py:937
-msgid "Morning"
-msgstr "Πρωί"
-
-#: gis-weather.py:898 gis-weather.py:937
-msgid "Day"
-msgstr "Μεσημέρι"
-
-#: gis-weather.py:898 gis-weather.py:937
-msgid "Evening"
-msgstr "Απόγευμα"
-
-#: gis-weather.py:898 gis-weather.py:937
-msgid "Night"
-msgstr "Βράδυ"
-
-#: gis-weather.py:901 gis-weather.py:903
-msgid "Tomorrow"
-msgstr "Αύριο"
-
-#: gis-weather.py:939
-msgid "Today"
-msgstr "Σήμερα"
-
-#: gis-weather.py:1062
-msgid "Background image not found"
-msgstr "Δέν βρέθηκε το φόντο"
-
-#: gis-weather.py:1119
-msgid "downloading"
-msgstr "μεταφορτώνει"
-
-#: gis-weather.py:1123
-msgid "Unable to download"
-msgstr "Αδυναμία μεταφόρτωσης"
-
-#: gis-weather.py:1148
-msgid "Icon not found"
-msgstr "Εικονίδιο δεν βρέθηκε"
-
-#: gis-weather.py:1227
-msgid "Widget size"
-msgstr "Μέγεθος γραφικού στοιχείου"
-
-#: gis-weather.py:1228
-msgid "width"
-msgstr "Πλάτος"
-
-#: gis-weather.py:1228
-msgid "height"
-msgstr "Ύψος"
-
-#: gis-weather.py:1228
-msgid "including indent"
-msgstr "συμπεριλαμβανομένης της περίπτωσης"
-
-#: gis-weather.py:1404
-msgid "Removed"
-msgstr "Αφαιρέθηκε"
-
-#: gis-weather.py:1433 dialogs/city_id_dialog.ui:376
-msgid "Added"
-msgstr "Προστέθηκε"
-
-#: gis-weather.py:1438 dialogs/city_id_dialog.ui:308
-msgid "Invalid location code"
-msgstr "Άκυρος κωδικός περιοχής"
-
-#: gis-weather.py:1503
-msgid "Your screen does not support alpha"
-msgstr "Η οθόνη σας δεν υποστηρίζει Άλφα"
-
-#: gis-weather.py:1505
-msgid "Your screen supports alpha"
-msgstr "Η οθόνη σας υποστηρίζει Άλφα"
-
-#: services/gismeteo.py:215 services/accuweather.py:193
-msgid "Failed to get the name of the location"
-msgstr "Απέτυχε να πάρει το όνομα της τοποθεσίας"
-
-#: services/gismeteo.py:221 services/accuweather.py:204
-msgid "Getting weather for"
-msgstr "Πάρτε καιρό για"
-
-#: services/gismeteo.py:221 services/accuweather.py:204
-msgid "days"
-msgstr "ημέρες"
-
-#: services/gismeteo.py:222 services/accuweather.py:205
-#: services/accuweather.py:265 services/accuweather.py:285
-#: services/accuweather.py:342 services/accuweather.py:404
-#: services/accuweather.py:412 services/accuweather.py:420
-#: services/accuweather.py:428 services/accuweather.py:544
-#: services/accuweather.py:552 services/accuweather.py:560
-#: services/accuweather.py:568 dialogs/update_dialog.py:27
-#: dialogs/update_dialog.ui:561
-msgid "Downloading"
-msgstr "Μεταφορτώνει"
-
-#: services/gismeteo.py:228 services/accuweather.py:211
-#: services/accuweather.py:271 services/accuweather.py:291
-#: services/accuweather.py:348 services/accuweather.py:410
-#: services/accuweather.py:418 services/accuweather.py:426
-#: services/accuweather.py:434 services/accuweather.py:550
-#: services/accuweather.py:558 services/accuweather.py:566
-#: services/accuweather.py:574
-msgid "Unable to download page, check the network connection"
-msgstr "Αδυναμία μεταφόρτωσης της σελίδας, ελένξτε την σύνδεση δικτύου"
-
-#: services/gismeteo.py:230 services/gismeteo.py:344
-#: services/accuweather.py:213
+#: gis-weather.py:734 services/gismeteo.py:353
 msgid "Next try in 10 seconds"
 msgstr "Επόμενη προσπάθεια σε 10 δευτερόλεπτα"
 
-#: services/gismeteo.py:412 services/accuweather.py:683
+#: gis-weather.py:750
+msgid "Connection error"
+msgstr "Σφάλμα σύνδεσης"
+
+#: gis-weather.py:820
+msgid "Updated on server"
+msgstr "Ενημερώθηκε στον εξυπηρετητή"
+
+#: gis-weather.py:821
+msgid "Weather received"
+msgstr "Ο καιρός λήφθηκε"
+
+#: gis-weather.py:860
+msgid "E"
+msgstr "Α"
+
+#: gis-weather.py:860
+msgid "S"
+msgstr "Ν"
+
+#: gis-weather.py:860
+msgid "W"
+msgstr "Δ"
+
+#: gis-weather.py:860
+msgid "N"
+msgstr "Β"
+
+#: gis-weather.py:905
+msgid "humid."
+msgstr "Υγρ."
+
+#: gis-weather.py:911
+msgid "water"
+msgstr "Νερό"
+
+#: gis-weather.py:928 gis-weather.py:967
+msgid "Morning"
+msgstr "Πρωί"
+
+#: gis-weather.py:928 gis-weather.py:967
+msgid "Day"
+msgstr "Μεσημέρι"
+
+#: gis-weather.py:928 gis-weather.py:967
+msgid "Evening"
+msgstr "Απόγευμα"
+
+#: gis-weather.py:928 gis-weather.py:967
+msgid "Night"
+msgstr "Βράδυ"
+
+#: gis-weather.py:931 gis-weather.py:933
+msgid "Tomorrow"
+msgstr "Αύριο"
+
+#: gis-weather.py:969
+msgid "Today"
+msgstr "Σήμερα"
+
+#: gis-weather.py:1096
+msgid "Background image not found"
+msgstr "Δέν βρέθηκε το φόντο"
+
+#: gis-weather.py:1160
+msgid "downloading"
+msgstr "μεταφορτώνει"
+
+#: gis-weather.py:1164
+msgid "Unable to download"
+msgstr "Αδυναμία μεταφόρτωσης"
+
+#: gis-weather.py:1189
+msgid "Icon not found"
+msgstr "Εικονίδιο δεν βρέθηκε"
+
+#: gis-weather.py:1277
+msgid "Widget size"
+msgstr "Μέγεθος γραφικού στοιχείου"
+
+#: gis-weather.py:1278
+msgid "width"
+msgstr "Πλάτος"
+
+#: gis-weather.py:1278
+msgid "height"
+msgstr "Ύψος"
+
+#: gis-weather.py:1278
+msgid "including indent"
+msgstr "συμπεριλαμβανομένης της περίπτωσης"
+
+#: gis-weather.py:1458
+msgid "Removed"
+msgstr "Αφαιρέθηκε"
+
+#: gis-weather.py:1487 dialogs/city_id_dialog.ui:376
+msgid "Added"
+msgstr "Προστέθηκε"
+
+#: gis-weather.py:1492 dialogs/city_id_dialog.ui:308
+msgid "Invalid location code"
+msgstr "Άκυρος κωδικός περιοχής"
+
+#: gis-weather.py:1557
+msgid "Your screen does not support alpha"
+msgstr "Η οθόνη σας δεν υποστηρίζει Άλφα"
+
+#: gis-weather.py:1559
+msgid "Your screen supports alpha"
+msgstr "Η οθόνη σας υποστηρίζει Άλφα"
+
+#: services/gismeteo.py:218 services/openweathermap.py:83
+#: services/accuweather.py:194
+msgid "Failed to get the name of the location"
+msgstr "Απέτυχε να πάρει το όνομα της τοποθεσίας"
+
+#: services/gismeteo.py:233 services/openweathermap.py:106
+#: services/accuweather.py:216
+msgid "Getting weather for"
+msgstr "Πάρτε καιρό για"
+
+#: services/gismeteo.py:233 services/openweathermap.py:106
+#: services/accuweather.py:216
+msgid "days"
+msgstr "ημέρες"
+
+#: services/gismeteo.py:421 services/openweathermap.py:297
+#: services/accuweather.py:640
 msgid "updated on server"
 msgstr "ενημερώθηκε στον εξυπηρετητή"
 
-#: services/gismeteo.py:413 services/accuweather.py:684
+#: services/gismeteo.py:422 services/openweathermap.py:298
+#: services/accuweather.py:641
 msgid "weather received"
 msgstr "ο καιρός λήφθηκε"
 
@@ -264,9 +247,17 @@ msgstr "ο καιρός λήφθηκε"
 msgid "If the city code is wrong, please read"
 msgstr ""
 
-#: services/accuweather.py:252
+#: services/accuweather.py:257
 msgid "Calm"
 msgstr "Ήρεμος"
+
+#: utils/opener.py:17 dialogs/update_dialog.py:27 dialogs/update_dialog.ui:561
+msgid "Downloading"
+msgstr "Μεταφορτώνει"
+
+#: utils/opener.py:25
+msgid "Unable to download page, check the network connection"
+msgstr "Αδυναμία μεταφόρτωσης της σελίδας, ελένξτε την σύνδεση δικτύου"
 
 #: utils/autorun.py:72 utils/desktop.py:23 dialogs/about_dialog.py:25
 msgid "Weather widget"
@@ -276,7 +267,7 @@ msgstr "Γραφικό στοιχείο καιρού"
 msgid "Setup..."
 msgstr "Ρύθμιση..."
 
-#: utils/gw_menu.py:112 dialogs/settings_dialog.py:423
+#: utils/gw_menu.py:112 dialogs/settings_dialog.py:426
 msgid "No"
 msgstr "Όχι"
 
@@ -312,7 +303,7 @@ msgstr "Εμφάνιση/Απόκρυψη γραφικού στοιχείου"
 msgid "Refresh"
 msgstr "Ανανεώση"
 
-#: utils/gw_menu.py:190 dialogs/city_id_dialog.py:90
+#: utils/gw_menu.py:190 dialogs/city_id_dialog.py:96
 #: dialogs/settings_dialog.ui:614 dialogs/city_id_dialog.ui:42
 msgid "Location"
 msgstr "Τοποθεσία"
@@ -322,7 +313,7 @@ msgid "Indicator icons"
 msgstr "Ενδεικτικά εικονίδια"
 
 #: utils/gw_menu.py:201 dialogs/about_dialog.py:41
-#: dialogs/settings_dialog.ui:3836 dialogs/settings_dialog.ui:4315
+#: dialogs/settings_dialog.ui:3836 dialogs/settings_dialog.ui:4347
 msgid "Icons"
 msgstr "Εικονίδια"
 
@@ -342,8 +333,8 @@ msgstr "Παράθυρο"
 msgid "Presets"
 msgstr "Προεπιλογές"
 
-#: utils/gw_menu.py:226 dialogs/settings_dialog.py:98
-#: dialogs/settings_dialog.py:736
+#: utils/gw_menu.py:226 dialogs/settings_dialog.py:99
+#: dialogs/settings_dialog.py:741
 msgid "Preferences"
 msgstr "Προτιμήσεις"
 
@@ -359,6 +350,22 @@ msgstr "Σχετικά με"
 #: dialogs/help_dialog.ui:25 dialogs/update_dialog.ui:44
 msgid "Close"
 msgstr "Κλείσιμο"
+
+#: utils/convert.py:27 utils/convert.py:49 dialogs/settings_dialog.py:417
+msgid "km/h"
+msgstr "χλμ/ω"
+
+#: utils/convert.py:30 utils/convert.py:43 dialogs/settings_dialog.py:417
+msgid "mph"
+msgstr "mph"
+
+#: utils/convert.py:33 utils/convert.py:46
+msgid "Bft"
+msgstr ""
+
+#: utils/convert.py:36 utils/convert.py:40 dialogs/settings_dialog.py:417
+msgid "m/s"
+msgstr "μ/δ"
 
 #: dialogs/help_dialog.py:13 dialogs/update_dialog.py:44
 msgid "Go to link"
@@ -425,76 +432,68 @@ msgstr "Φόντο"
 msgid "translator-credits"
 msgstr "μεταφραστής-εύσημα\n\nAnastasiadis Stavros <anastasiadis.st00@gmail.com>, 2014\nChris Taklis (kailor) <ctaklis@gmail.com>, 2014\nNaoum Spyros <pipis.nm@gmail.com>, 2014\nGeorge Ioakeimidis (GeoMint) <geomint@mail.com>, 2014"
 
-#: dialogs/settings_dialog.py:414
-msgid "m/s"
-msgstr "μ/δ"
+#: dialogs/settings_dialog.py:417
+msgid "Beaufort scale"
+msgstr ""
 
-#: dialogs/settings_dialog.py:414
-msgid "km/h"
-msgstr "χλμ/ω"
-
-#: dialogs/settings_dialog.py:414
-msgid "mph"
-msgstr "mph"
-
-#: dialogs/settings_dialog.py:415
+#: dialogs/settings_dialog.py:418
 msgid "mmHg"
 msgstr "mmHg"
 
-#: dialogs/settings_dialog.py:415
+#: dialogs/settings_dialog.py:418
 msgid "inHg"
 msgstr "inHg"
 
-#: dialogs/settings_dialog.py:415
+#: dialogs/settings_dialog.py:418
 msgid "hPa"
 msgstr "hPa"
 
-#: dialogs/settings_dialog.py:418
+#: dialogs/settings_dialog.py:421
 msgid "Never"
 msgstr "Ποτέ"
 
-#: dialogs/settings_dialog.py:419
+#: dialogs/settings_dialog.py:422
 msgid "Only at start"
 msgstr "Μόνο στην αρχή"
 
-#: dialogs/settings_dialog.py:420
+#: dialogs/settings_dialog.py:423
 msgid "Always"
 msgstr "Πάντα"
 
-#: dialogs/settings_dialog.py:424
+#: dialogs/settings_dialog.py:427
 msgid "Only background"
 msgstr "Μόνο στο παρασκήνιο"
 
-#: dialogs/settings_dialog.py:425
+#: dialogs/settings_dialog.py:428
 msgid "Yes"
 msgstr "Ναι"
 
-#: dialogs/settings_dialog.py:532 dialogs/settings_dialog.py:542
-#: dialogs/settings_dialog.py:552 dialogs/settings_dialog.py:554
+#: dialogs/settings_dialog.py:536 dialogs/settings_dialog.py:546
+#: dialogs/settings_dialog.py:556 dialogs/settings_dialog.py:558
 msgid "Author"
 msgstr "Εκδότης"
 
-#: dialogs/city_id_dialog.py:55
+#: dialogs/city_id_dialog.py:59
 msgid "Choose your city on"
 msgstr "Επέλεξε την πόλη σου"
 
-#: dialogs/city_id_dialog.py:56
+#: dialogs/city_id_dialog.py:60
 msgid "and copy the city code below"
 msgstr "και αντέγραψε τον κώδικα της πόλης παρακάτω"
 
-#: dialogs/city_id_dialog.py:57
+#: dialogs/city_id_dialog.py:61
 msgid "For example"
 msgstr "Για παράδειγμα"
 
-#: dialogs/city_id_dialog.py:58
+#: dialogs/city_id_dialog.py:62
 msgid "City code"
 msgstr "Κώδικας πόλης"
 
-#: dialogs/city_id_dialog.py:120
+#: dialogs/city_id_dialog.py:126
 msgid "Code"
 msgstr "Κώδικας"
 
-#: dialogs/city_id_dialog.py:124
+#: dialogs/city_id_dialog.py:130
 msgid "Place"
 msgstr "Τοποθεσία"
 
@@ -591,7 +590,7 @@ msgstr "Μονάδες"
 msgid "Left"
 msgstr "Αριστερά"
 
-#: dialogs/settings_dialog.ui:1604 dialogs/settings_dialog.ui:4215
+#: dialogs/settings_dialog.ui:1604 dialogs/settings_dialog.ui:4029
 msgid "Top"
 msgstr "Πάνω"
 
@@ -675,7 +674,7 @@ msgstr "Δείξε πιθανότητα βροχής"
 msgid "View"
 msgstr "Δείξε"
 
-#: dialogs/settings_dialog.ui:3035 dialogs/settings_dialog.ui:4058
+#: dialogs/settings_dialog.ui:3035 dialogs/settings_dialog.ui:4279
 msgid "Font"
 msgstr "Γραμματοσειρά"
 
@@ -701,7 +700,7 @@ msgstr "Δυνατός Άνεμος \n(-1 = χωρίς επισήμανση)"
 msgid "Shadow color"
 msgstr "Σκίαση χρώματος"
 
-#: dialogs/settings_dialog.ui:3221 dialogs/settings_dialog.ui:4014
+#: dialogs/settings_dialog.ui:3221 dialogs/settings_dialog.ui:4059
 msgid "Shadow"
 msgstr "Σκίαση"
 
@@ -725,7 +724,7 @@ msgstr "Επιλογή"
 msgid "Corner radius"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:3649 dialogs/settings_dialog.ui:4106
+#: dialogs/settings_dialog.ui:3649 dialogs/settings_dialog.ui:4074
 msgid "Color"
 msgstr "Χρώμα"
 
@@ -737,23 +736,27 @@ msgstr "Εμφάνιση"
 msgid "Type (restart required)"
 msgstr "Τύπος (χρειάζεται επανεκίνηση)"
 
-#: dialogs/settings_dialog.ui:4121
-msgid "Color shadow"
-msgstr "Σκιά χρώματος"
-
-#: dialogs/settings_dialog.ui:4246
+#: dialogs/settings_dialog.ui:4014
 msgid "Width"
 msgstr "Πλάτος"
 
-#: dialogs/settings_dialog.ui:4366
+#: dialogs/settings_dialog.ui:4044
+msgid "Color shadow"
+msgstr "Σκιά χρώματος"
+
+#: dialogs/settings_dialog.ui:4294
+msgid "Show text"
+msgstr ""
+
+#: dialogs/settings_dialog.ui:4398
 msgid "Fix the size"
 msgstr "Επιδιόρθωση μεγέθους"
 
-#: dialogs/settings_dialog.ui:4410
+#: dialogs/settings_dialog.ui:4442
 msgid "Size"
 msgstr "Μέγεθος"
 
-#: dialogs/settings_dialog.ui:4485
+#: dialogs/settings_dialog.ui:4517
 msgid "Indicator"
 msgstr "Δείκτης"
 

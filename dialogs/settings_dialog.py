@@ -414,7 +414,7 @@ class settings():
             self.frame_autostart2.hide()
         else:
             self.frame_autostart1.hide()
-        wind_units_list = [_('m/s'), _('km/h'), _('mph'), _('Beaufort scale')]
+        wind_units_list = [_('m/s'), _('km/h'), _('mph'), _('Beaufort scale'), _('Knots')]
         press_units_list = [_('mmHg'), _('inHg'), _('hPa')]
 
         self.liststore1.clear()

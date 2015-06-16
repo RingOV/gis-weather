@@ -4,9 +4,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2015-04-15 22:01+0300\n"
-"PO-Revision-Date: 2015-04-25 23:11+0000\n"
-"Last-Translator: Victor Butko <victor.butko@gmail.com>\n"
+"POT-Creation-Date: 2015-06-15 20:19+0300\n"
+"PO-Revision-Date: 2015-06-15 17:24+0000\n"
+"Last-Translator: Alexander Koltsov <ringov@mail.ru>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/gis-weather/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,229 +30,212 @@ msgstr "Запуск декількох примірників не підтри
 msgid "number of instances"
 msgstr "кількість примірників"
 
-#: gis-weather.py:224 dialogs/settings_dialog.ui:671
+#: gis-weather.py:236 dialogs/settings_dialog.ui:671
 msgid "Configuration folder"
 msgstr "Тека конфігурації"
 
-#: gis-weather.py:247 dialogs/city_id_dialog.py:28
+#: gis-weather.py:252 dialogs/city_id_dialog.py:29
 msgid "Error loading config file"
 msgstr "Помилка завантаження файла конфігурації"
 
-#: gis-weather.py:274
+#: gis-weather.py:279
 msgid "Error loading color scheme"
 msgstr "Помилка завантаження колірної схеми"
 
-#: gis-weather.py:286
+#: gis-weather.py:291
 msgid "Error loading preset"
 msgstr "Помилка завантаження передустановок"
 
-#: gis-weather.py:296
+#: gis-weather.py:301
 msgid "Enter full path to script"
 msgstr "Введіть повний шлях до скріпту"
 
-#: gis-weather.py:297
+#: gis-weather.py:302
 msgid "Exit"
 msgstr "Вихід"
 
-#: gis-weather.py:397
+#: gis-weather.py:402
 msgid "Check for new version"
 msgstr "Перевірити нову версію"
 
-#: gis-weather.py:402 gis-weather.py:411
+#: gis-weather.py:407 gis-weather.py:416
 msgid "Unable to check for updates"
 msgstr "Неможливо перевірити оновлення"
 
-#: gis-weather.py:426
+#: gis-weather.py:431
 msgid "New version available"
 msgstr "Нова версія доступна"
 
-#: gis-weather.py:433
+#: gis-weather.py:438
 msgid "You are using the latest version"
 msgstr "Ви користуєтеся останньою версією"
 
-#: gis-weather.py:450 gis-weather.py:1216
+#: gis-weather.py:455 gis-weather.py:1266
 msgid "Screenshot saved to"
 msgstr "Скріншот збережений до"
 
-#: gis-weather.py:454
+#: gis-weather.py:459
 msgid "Unable to get the screenshot"
 msgstr "Неможливо отримати скріншот"
 
-#: gis-weather.py:623
+#: gis-weather.py:636
 msgid "Getting weather..."
 msgstr "Отримую погоду..."
 
-#: gis-weather.py:626
+#: gis-weather.py:639
 msgid "Error getting weather"
 msgstr "Помилка отримання погоди"
 
-#: gis-weather.py:628
+#: gis-weather.py:641
 msgid "Location not set"
 msgstr "Місце знаходження не визначено"
 
-#: gis-weather.py:685 gis-weather.py:747
+#: gis-weather.py:698 gis-weather.py:760
 msgid "Next update in"
 msgstr "Наступне оновлення через"
 
-#: gis-weather.py:685 gis-weather.py:747
+#: gis-weather.py:698 gis-weather.py:760
 msgid "min"
 msgstr "мін"
 
-#: gis-weather.py:737
-msgid "Connection error"
-msgstr "Помилка з’єднання"
-
-#: gis-weather.py:799
-msgid "Updated on server"
-msgstr "Оновлення на сервері"
-
-#: gis-weather.py:800
-msgid "Weather received"
-msgstr "Погода отримана"
-
-#: gis-weather.py:830
-msgid "E"
-msgstr "С"
-
-#: gis-weather.py:830
-msgid "S"
-msgstr "Пд"
-
-#: gis-weather.py:830
-msgid "W"
-msgstr "З"
-
-#: gis-weather.py:830
-msgid "N"
-msgstr "Пн"
-
-#: gis-weather.py:875
-msgid "humid."
-msgstr "вололг."
-
-#: gis-weather.py:881
-msgid "water"
-msgstr "вода"
-
-#: gis-weather.py:898 gis-weather.py:937
-msgid "Morning"
-msgstr "Ранок"
-
-#: gis-weather.py:898 gis-weather.py:937
-msgid "Day"
-msgstr "День"
-
-#: gis-weather.py:898 gis-weather.py:937
-msgid "Evening"
-msgstr "Вечір"
-
-#: gis-weather.py:898 gis-weather.py:937
-msgid "Night"
-msgstr "Ніч"
-
-#: gis-weather.py:901 gis-weather.py:903
-msgid "Tomorrow"
-msgstr "Завтра"
-
-#: gis-weather.py:939
-msgid "Today"
-msgstr "Сьогодні"
-
-#: gis-weather.py:1062
-msgid "Background image not found"
-msgstr "Фонове зображення не знайдено"
-
-#: gis-weather.py:1119
-msgid "downloading"
-msgstr "завантаження"
-
-#: gis-weather.py:1123
-msgid "Unable to download"
-msgstr "Неможливо завантажити"
-
-#: gis-weather.py:1148
-msgid "Icon not found"
-msgstr "Іконка не знайдена"
-
-#: gis-weather.py:1227
-msgid "Widget size"
-msgstr "Розмір віджету"
-
-#: gis-weather.py:1228
-msgid "width"
-msgstr "ширина"
-
-#: gis-weather.py:1228
-msgid "height"
-msgstr "висота"
-
-#: gis-weather.py:1228
-msgid "including indent"
-msgstr "враховуючи відступ"
-
-#: gis-weather.py:1404
-msgid "Removed"
-msgstr "Видалено"
-
-#: gis-weather.py:1433 dialogs/city_id_dialog.ui:376
-msgid "Added"
-msgstr "Додано"
-
-#: gis-weather.py:1438 dialogs/city_id_dialog.ui:308
-msgid "Invalid location code"
-msgstr "Невірний код місця знаходження "
-
-#: gis-weather.py:1503
-msgid "Your screen does not support alpha"
-msgstr "Ваш екран не підтримує прозорість"
-
-#: gis-weather.py:1505
-msgid "Your screen supports alpha"
-msgstr "Ваш екран підтримує прозорість"
-
-#: services/gismeteo.py:215 services/accuweather.py:193
-msgid "Failed to get the name of the location"
-msgstr "Не вдалось отримати назву місця знаходження"
-
-#: services/gismeteo.py:221 services/accuweather.py:204
-msgid "Getting weather for"
-msgstr "Отримую погоду на"
-
-#: services/gismeteo.py:221 services/accuweather.py:204
-msgid "days"
-msgstr "днів"
-
-#: services/gismeteo.py:222 services/accuweather.py:205
-#: services/accuweather.py:265 services/accuweather.py:285
-#: services/accuweather.py:342 services/accuweather.py:404
-#: services/accuweather.py:412 services/accuweather.py:420
-#: services/accuweather.py:428 services/accuweather.py:544
-#: services/accuweather.py:552 services/accuweather.py:560
-#: services/accuweather.py:568 dialogs/update_dialog.py:27
-#: dialogs/update_dialog.ui:561
-msgid "Downloading"
-msgstr "Завантаження"
-
-#: services/gismeteo.py:228 services/accuweather.py:211
-#: services/accuweather.py:271 services/accuweather.py:291
-#: services/accuweather.py:348 services/accuweather.py:410
-#: services/accuweather.py:418 services/accuweather.py:426
-#: services/accuweather.py:434 services/accuweather.py:550
-#: services/accuweather.py:558 services/accuweather.py:566
-#: services/accuweather.py:574
-msgid "Unable to download page, check the network connection"
-msgstr "Неможливо завантажити сторінку, перевірте мережеве з'єднання"
-
-#: services/gismeteo.py:230 services/gismeteo.py:344
-#: services/accuweather.py:213
+#: gis-weather.py:734 services/gismeteo.py:353
 msgid "Next try in 10 seconds"
 msgstr "Наступна спроба через 10 секунд"
 
-#: services/gismeteo.py:412 services/accuweather.py:683
+#: gis-weather.py:750
+msgid "Connection error"
+msgstr "Помилка з’єднання"
+
+#: gis-weather.py:820
+msgid "Updated on server"
+msgstr "Оновлення на сервері"
+
+#: gis-weather.py:821
+msgid "Weather received"
+msgstr "Погода отримана"
+
+#: gis-weather.py:860
+msgid "E"
+msgstr "С"
+
+#: gis-weather.py:860
+msgid "S"
+msgstr "Пд"
+
+#: gis-weather.py:860
+msgid "W"
+msgstr "З"
+
+#: gis-weather.py:860
+msgid "N"
+msgstr "Пн"
+
+#: gis-weather.py:905
+msgid "humid."
+msgstr "вололг."
+
+#: gis-weather.py:911
+msgid "water"
+msgstr "вода"
+
+#: gis-weather.py:928 gis-weather.py:967
+msgid "Morning"
+msgstr "Ранок"
+
+#: gis-weather.py:928 gis-weather.py:967
+msgid "Day"
+msgstr "День"
+
+#: gis-weather.py:928 gis-weather.py:967
+msgid "Evening"
+msgstr "Вечір"
+
+#: gis-weather.py:928 gis-weather.py:967
+msgid "Night"
+msgstr "Ніч"
+
+#: gis-weather.py:931 gis-weather.py:933
+msgid "Tomorrow"
+msgstr "Завтра"
+
+#: gis-weather.py:969
+msgid "Today"
+msgstr "Сьогодні"
+
+#: gis-weather.py:1096
+msgid "Background image not found"
+msgstr "Фонове зображення не знайдено"
+
+#: gis-weather.py:1160
+msgid "downloading"
+msgstr "завантаження"
+
+#: gis-weather.py:1164
+msgid "Unable to download"
+msgstr "Неможливо завантажити"
+
+#: gis-weather.py:1189
+msgid "Icon not found"
+msgstr "Іконка не знайдена"
+
+#: gis-weather.py:1277
+msgid "Widget size"
+msgstr "Розмір віджету"
+
+#: gis-weather.py:1278
+msgid "width"
+msgstr "ширина"
+
+#: gis-weather.py:1278
+msgid "height"
+msgstr "висота"
+
+#: gis-weather.py:1278
+msgid "including indent"
+msgstr "враховуючи відступ"
+
+#: gis-weather.py:1458
+msgid "Removed"
+msgstr "Видалено"
+
+#: gis-weather.py:1487 dialogs/city_id_dialog.ui:376
+msgid "Added"
+msgstr "Додано"
+
+#: gis-weather.py:1492 dialogs/city_id_dialog.ui:308
+msgid "Invalid location code"
+msgstr "Невірний код місця знаходження "
+
+#: gis-weather.py:1557
+msgid "Your screen does not support alpha"
+msgstr "Ваш екран не підтримує прозорість"
+
+#: gis-weather.py:1559
+msgid "Your screen supports alpha"
+msgstr "Ваш екран підтримує прозорість"
+
+#: services/gismeteo.py:218 services/openweathermap.py:83
+#: services/accuweather.py:194
+msgid "Failed to get the name of the location"
+msgstr "Не вдалось отримати назву місця знаходження"
+
+#: services/gismeteo.py:233 services/openweathermap.py:106
+#: services/accuweather.py:216
+msgid "Getting weather for"
+msgstr "Отримую погоду на"
+
+#: services/gismeteo.py:233 services/openweathermap.py:106
+#: services/accuweather.py:216
+msgid "days"
+msgstr "днів"
+
+#: services/gismeteo.py:421 services/openweathermap.py:297
+#: services/accuweather.py:640
 msgid "updated on server"
 msgstr "оновлено на сервері"
 
-#: services/gismeteo.py:413 services/accuweather.py:684
+#: services/gismeteo.py:422 services/openweathermap.py:298
+#: services/accuweather.py:641
 msgid "weather received"
 msgstr "погода отримана"
 
@@ -260,9 +243,17 @@ msgstr "погода отримана"
 msgid "If the city code is wrong, please read"
 msgstr "Якщо код міста неправильний, будь ласка прочитайте"
 
-#: services/accuweather.py:252
+#: services/accuweather.py:257
 msgid "Calm"
 msgstr "Безвітря"
+
+#: utils/opener.py:17 dialogs/update_dialog.py:27 dialogs/update_dialog.ui:561
+msgid "Downloading"
+msgstr "Завантаження"
+
+#: utils/opener.py:25
+msgid "Unable to download page, check the network connection"
+msgstr "Неможливо завантажити сторінку, перевірте мережеве з'єднання"
 
 #: utils/autorun.py:72 utils/desktop.py:23 dialogs/about_dialog.py:25
 msgid "Weather widget"
@@ -272,7 +263,7 @@ msgstr "Погодний віджет"
 msgid "Setup..."
 msgstr "Встановлення..."
 
-#: utils/gw_menu.py:112 dialogs/settings_dialog.py:423
+#: utils/gw_menu.py:112 dialogs/settings_dialog.py:426
 msgid "No"
 msgstr "Ні"
 
@@ -308,7 +299,7 @@ msgstr "Показати/Приховати віджет"
 msgid "Refresh"
 msgstr "Оновити"
 
-#: utils/gw_menu.py:190 dialogs/city_id_dialog.py:90
+#: utils/gw_menu.py:190 dialogs/city_id_dialog.py:96
 #: dialogs/settings_dialog.ui:614 dialogs/city_id_dialog.ui:42
 msgid "Location"
 msgstr "Місце знаходження"
@@ -318,7 +309,7 @@ msgid "Indicator icons"
 msgstr "Іконки індикатора"
 
 #: utils/gw_menu.py:201 dialogs/about_dialog.py:41
-#: dialogs/settings_dialog.ui:3836 dialogs/settings_dialog.ui:4315
+#: dialogs/settings_dialog.ui:3836 dialogs/settings_dialog.ui:4347
 msgid "Icons"
 msgstr "Іконки"
 
@@ -338,8 +329,8 @@ msgstr "Вікно"
 msgid "Presets"
 msgstr "Передустановки"
 
-#: utils/gw_menu.py:226 dialogs/settings_dialog.py:98
-#: dialogs/settings_dialog.py:736
+#: utils/gw_menu.py:226 dialogs/settings_dialog.py:99
+#: dialogs/settings_dialog.py:741
 msgid "Preferences"
 msgstr "Параметри"
 
@@ -355,6 +346,22 @@ msgstr "Про програму"
 #: dialogs/help_dialog.ui:25 dialogs/update_dialog.ui:44
 msgid "Close"
 msgstr "Закрити"
+
+#: utils/convert.py:27 utils/convert.py:49 dialogs/settings_dialog.py:417
+msgid "km/h"
+msgstr "км/г"
+
+#: utils/convert.py:30 utils/convert.py:43 dialogs/settings_dialog.py:417
+msgid "mph"
+msgstr "мзг"
+
+#: utils/convert.py:33 utils/convert.py:46
+msgid "Bft"
+msgstr ""
+
+#: utils/convert.py:36 utils/convert.py:40 dialogs/settings_dialog.py:417
+msgid "m/s"
+msgstr "м/с"
 
 #: dialogs/help_dialog.py:13 dialogs/update_dialog.py:44
 msgid "Go to link"
@@ -421,76 +428,68 @@ msgstr "Фони"
 msgid "translator-credits"
 msgstr "Victor Butko <victor.butko@gmail.com>"
 
-#: dialogs/settings_dialog.py:414
-msgid "m/s"
-msgstr "м/с"
+#: dialogs/settings_dialog.py:417
+msgid "Beaufort scale"
+msgstr ""
 
-#: dialogs/settings_dialog.py:414
-msgid "km/h"
-msgstr "км/г"
-
-#: dialogs/settings_dialog.py:414
-msgid "mph"
-msgstr "мзг"
-
-#: dialogs/settings_dialog.py:415
+#: dialogs/settings_dialog.py:418
 msgid "mmHg"
 msgstr "мм рт.ст."
 
-#: dialogs/settings_dialog.py:415
+#: dialogs/settings_dialog.py:418
 msgid "inHg"
 msgstr "дюйм рт.ст."
 
-#: dialogs/settings_dialog.py:415
+#: dialogs/settings_dialog.py:418
 msgid "hPa"
 msgstr "гПа"
 
-#: dialogs/settings_dialog.py:418
+#: dialogs/settings_dialog.py:421
 msgid "Never"
 msgstr "Ніколи"
 
-#: dialogs/settings_dialog.py:419
+#: dialogs/settings_dialog.py:422
 msgid "Only at start"
 msgstr "Тільки при запуску"
 
-#: dialogs/settings_dialog.py:420
+#: dialogs/settings_dialog.py:423
 msgid "Always"
 msgstr "Завжди"
 
-#: dialogs/settings_dialog.py:424
+#: dialogs/settings_dialog.py:427
 msgid "Only background"
 msgstr "Тільки фон"
 
-#: dialogs/settings_dialog.py:425
+#: dialogs/settings_dialog.py:428
 msgid "Yes"
 msgstr "Так"
 
-#: dialogs/settings_dialog.py:532 dialogs/settings_dialog.py:542
-#: dialogs/settings_dialog.py:552 dialogs/settings_dialog.py:554
+#: dialogs/settings_dialog.py:536 dialogs/settings_dialog.py:546
+#: dialogs/settings_dialog.py:556 dialogs/settings_dialog.py:558
 msgid "Author"
 msgstr "Автор"
 
-#: dialogs/city_id_dialog.py:55
+#: dialogs/city_id_dialog.py:59
 msgid "Choose your city on"
 msgstr "Виберіть ваше місто на сайті"
 
-#: dialogs/city_id_dialog.py:56
+#: dialogs/city_id_dialog.py:60
 msgid "and copy the city code below"
 msgstr "та скопіюйте код міста нижче"
 
-#: dialogs/city_id_dialog.py:57
+#: dialogs/city_id_dialog.py:61
 msgid "For example"
 msgstr "Наприклад"
 
-#: dialogs/city_id_dialog.py:58
+#: dialogs/city_id_dialog.py:62
 msgid "City code"
 msgstr "Код міста"
 
-#: dialogs/city_id_dialog.py:120
+#: dialogs/city_id_dialog.py:126
 msgid "Code"
 msgstr "Код"
 
-#: dialogs/city_id_dialog.py:124
+#: dialogs/city_id_dialog.py:130
 msgid "Place"
 msgstr "Місце"
 
@@ -587,7 +586,7 @@ msgstr "Одиниці виміру"
 msgid "Left"
 msgstr "Зліва"
 
-#: dialogs/settings_dialog.ui:1604 dialogs/settings_dialog.ui:4215
+#: dialogs/settings_dialog.ui:1604 dialogs/settings_dialog.ui:4029
 msgid "Top"
 msgstr "Зверху"
 
@@ -671,7 +670,7 @@ msgstr "Показувати вірогідність дощу"
 msgid "View"
 msgstr "Вид"
 
-#: dialogs/settings_dialog.ui:3035 dialogs/settings_dialog.ui:4058
+#: dialogs/settings_dialog.ui:3035 dialogs/settings_dialog.ui:4279
 msgid "Font"
 msgstr "Шрифт"
 
@@ -697,7 +696,7 @@ msgstr "Сильний вітер\n(-1 = не виділяти)"
 msgid "Shadow color"
 msgstr "Колір тіні"
 
-#: dialogs/settings_dialog.ui:3221 dialogs/settings_dialog.ui:4014
+#: dialogs/settings_dialog.ui:3221 dialogs/settings_dialog.ui:4059
 msgid "Shadow"
 msgstr "Тінь"
 
@@ -721,7 +720,7 @@ msgstr "Вибрати"
 msgid "Corner radius"
 msgstr "Радіус кутів"
 
-#: dialogs/settings_dialog.ui:3649 dialogs/settings_dialog.ui:4106
+#: dialogs/settings_dialog.ui:3649 dialogs/settings_dialog.ui:4074
 msgid "Color"
 msgstr "Колір"
 
@@ -733,23 +732,27 @@ msgstr "Вигляд"
 msgid "Type (restart required)"
 msgstr "Тип (потрібен перезапуск)"
 
-#: dialogs/settings_dialog.ui:4121
-msgid "Color shadow"
-msgstr "Колір тіні"
-
-#: dialogs/settings_dialog.ui:4246
+#: dialogs/settings_dialog.ui:4014
 msgid "Width"
 msgstr "Ширина"
 
-#: dialogs/settings_dialog.ui:4366
+#: dialogs/settings_dialog.ui:4044
+msgid "Color shadow"
+msgstr "Колір тіні"
+
+#: dialogs/settings_dialog.ui:4294
+msgid "Show text"
+msgstr ""
+
+#: dialogs/settings_dialog.ui:4398
 msgid "Fix the size"
 msgstr "Зафіксувати розмір"
 
-#: dialogs/settings_dialog.ui:4410
+#: dialogs/settings_dialog.ui:4442
 msgid "Size"
 msgstr "Розмір"
 
-#: dialogs/settings_dialog.ui:4485
+#: dialogs/settings_dialog.ui:4517
 msgid "Indicator"
 msgstr "Індикатор"
 
