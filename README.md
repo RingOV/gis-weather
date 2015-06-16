@@ -23,6 +23,7 @@ Recommends:
 - Support weather services:
   - Gismeteo.com
   - AccuWeather.com
+  - OpenWeatherMap.org
 - Support SVG and widget scale
 - Indicator to panel
 - Presets

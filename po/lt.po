@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2015-06-15 20:19+0300\n"
-"PO-Revision-Date: 2015-06-15 17:24+0000\n"
+"POT-Creation-Date: 2015-06-16 22:53+0300\n"
+"PO-Revision-Date: 2015-06-16 19:58+0000\n"
 "Last-Translator: Alexander Koltsov <ringov@mail.ru>\n"
 "Language-Team: Lithuanian (http://www.transifex.com/projects/p/gis-weather/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -346,19 +346,23 @@ msgstr "Apie"
 msgid "Close"
 msgstr "Uždaryti"
 
-#: utils/convert.py:27 utils/convert.py:49 dialogs/settings_dialog.py:417
+#: utils/convert.py:27 utils/convert.py:55 dialogs/settings_dialog.py:417
 msgid "km/h"
 msgstr "km/h"
 
-#: utils/convert.py:30 utils/convert.py:43 dialogs/settings_dialog.py:417
+#: utils/convert.py:30 utils/convert.py:46 dialogs/settings_dialog.py:417
 msgid "mph"
 msgstr "mph"
 
-#: utils/convert.py:33 utils/convert.py:46
-msgid "Bft"
+#: utils/convert.py:33 utils/convert.py:49
+msgid "bft"
 msgstr ""
 
-#: utils/convert.py:36 utils/convert.py:40 dialogs/settings_dialog.py:417
+#: utils/convert.py:36 utils/convert.py:52
+msgid "kts"
+msgstr ""
+
+#: utils/convert.py:39 utils/convert.py:43 dialogs/settings_dialog.py:417
 msgid "m/s"
 msgstr "m/s"
 
@@ -429,6 +433,10 @@ msgstr "Karolis Ryselis <djryse@gmail.com>"
 
 #: dialogs/settings_dialog.py:417
 msgid "Beaufort scale"
+msgstr ""
+
+#: dialogs/settings_dialog.py:417
+msgid "Knots"
 msgstr ""
 
 #: dialogs/settings_dialog.py:418
