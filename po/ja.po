@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2015-06-16 22:53+0300\n"
-"PO-Revision-Date: 2015-06-16 19:58+0000\n"
-"Last-Translator: Alexander Koltsov <ringov@mail.ru>\n"
+"PO-Revision-Date: 2015-06-21 14:44+0000\n"
+"Last-Translator: Tsurugi Takeshi <hippointhewild@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/gis-weather/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -297,7 +297,7 @@ msgstr "ウィジェットの表示/非表示"
 
 #: utils/gw_menu.py:178 dialogs/settings_dialog.ui:937
 msgid "Refresh"
-msgstr "リフレッシュ"
+msgstr "更新"
 
 #: utils/gw_menu.py:190 dialogs/city_id_dialog.py:96
 #: dialogs/settings_dialog.ui:614 dialogs/city_id_dialog.ui:42
@@ -357,11 +357,11 @@ msgstr "mph"
 
 #: utils/convert.py:33 utils/convert.py:49
 msgid "bft"
-msgstr ""
+msgstr "bft"
 
 #: utils/convert.py:36 utils/convert.py:52
 msgid "kts"
-msgstr ""
+msgstr "kts"
 
 #: utils/convert.py:39 utils/convert.py:43 dialogs/settings_dialog.py:417
 msgid "m/s"
@@ -418,7 +418,7 @@ msgid ""
 "\n"
 "You can find the full text of the license under\n"
 "http://www.gnu.org/licenses/gpl.txt"
-msgstr "このプログラムはフリーソフトウェアです。あなたはFree Software Foundationによって公開されているGNU General Public Licenseの元で(ライセンスのバージョン3もしくは、それ以降のバージョンを自由に選んで)、このプログラムを再配布、あるいは変更することができます。\n\nこのプログラムは役に立つことを希望して配布していますが、いかなる保証もありませんし、暗示的にも市販性、特定目的との適合性の保証もありません。詳細に関しては、GNU General Public Licenseを参照してください。\n\nあなたは、以下でこのライセンスの完全なテキストを見つけることができます。\nhttp://www.gnu.org/licenses/gpl.txt"
+msgstr "このプログラムはフリーソフトウェアです。\nあなたはFree Software Foundationによって公開されているGNU General Public Licenseの元で(ライセンスのバージョン3もしくは、それ以降のバージョンを自由に選んで)、\nこのプログラムを再配布、あるいは変更することができます。\n\nこのプログラムは役に立つことを希望して配布していますが、\nいかなる保証もありませんし、暗示的にも市販性、特定目的との適合性の保証もありません。\n詳細に関しては、GNU General Public Licenseを参照してください。\n\nあなたは、以下でこのライセンスの完全なテキストを見つけることができます。\nhttp://www.gnu.org/licenses/gpl.txt"
 
 #: dialogs/about_dialog.py:31
 msgid "Help and Ideas"
@@ -434,11 +434,11 @@ msgstr "翻訳者のクレジット"
 
 #: dialogs/settings_dialog.py:417
 msgid "Beaufort scale"
-msgstr ""
+msgstr "Beaufort階級"
 
 #: dialogs/settings_dialog.py:417
 msgid "Knots"
-msgstr ""
+msgstr "Knots"
 
 #: dialogs/settings_dialog.py:418
 msgid "mmHg"
@@ -750,7 +750,7 @@ msgstr "影の色"
 
 #: dialogs/settings_dialog.ui:4294
 msgid "Show text"
-msgstr ""
+msgstr "テキストを表示"
 
 #: dialogs/settings_dialog.ui:4398
 msgid "Fix the size"

@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2015-06-16 22:53+0300\n"
-"PO-Revision-Date: 2015-06-16 19:58+0000\n"
-"Last-Translator: Alexander Koltsov <ringov@mail.ru>\n"
+"PO-Revision-Date: 2015-06-18 14:19+0000\n"
+"Last-Translator: Krzysztof Kokot <kokot300@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/gis-weather/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -208,7 +208,7 @@ msgstr "Błędny kod lokalizacji"
 
 #: gis-weather.py:1557
 msgid "Your screen does not support alpha"
-msgstr "Ekran nie obsługuje kanał alfa"
+msgstr "Ekran nie obsługuje kanału alfa"
 
 #: gis-weather.py:1559
 msgid "Your screen supports alpha"
@@ -357,11 +357,11 @@ msgstr "mph"
 
 #: utils/convert.py:33 utils/convert.py:49
 msgid "bft"
-msgstr ""
+msgstr "B"
 
 #: utils/convert.py:36 utils/convert.py:52
 msgid "kts"
-msgstr ""
+msgstr "w."
 
 #: utils/convert.py:39 utils/convert.py:43 dialogs/settings_dialog.py:417
 msgid "m/s"
@@ -369,7 +369,7 @@ msgstr "m/s"
 
 #: dialogs/help_dialog.py:13 dialogs/update_dialog.py:44
 msgid "Go to link"
-msgstr "Idź za linkiem"
+msgstr "Idź do linku"
 
 #: dialogs/help_dialog.py:16 dialogs/update_dialog.py:47
 #: dialogs/help_dialog.ui:76 dialogs/update_dialog.ui:318
@@ -382,11 +382,11 @@ msgstr "Aktualizacja"
 
 #: dialogs/update_dialog.py:88
 msgid "Current version"
-msgstr "Wersja"
+msgstr "Aktualna wersja"
 
 #: dialogs/update_dialog.py:89
 msgid "Available new version"
-msgstr "Możliwa nowa wersja"
+msgstr "Dostępna nowa wersja"
 
 #: dialogs/update_dialog.py:112
 msgid "Error downloading updates"
@@ -418,7 +418,7 @@ msgid ""
 "\n"
 "You can find the full text of the license under\n"
 "http://www.gnu.org/licenses/gpl.txt"
-msgstr "Ten program jest wolnym oprogramowanie: można go rozprowadzać i/ lub modyfikować\nna prawach licencji GNU General Public License opublikowanej przez\nFree Software Foundation, w wersji 3, lub poźniejszej.\n\nProgram jest rozpowszechniany w przekonaniu, że może być użyteczny,\nale BEZ ŻADNEJ GWARANCJI; nawet bez zwyczajnych gwarancji HANDLOWEJ lub ZASTOSOWANIA DE CELÓW PRYWATNYCH. Zobacz\nwięcej szczegółów w GNU General Public License.\n\nCały tekst licencji można znaleść na:\nhttp://www.gnu.org/licenses/gpl.txt"
+msgstr "Ten program jest wolnym oprogramowaniem: można go rozprowadzać i/ lub modyfikować\nna prawach licencji GNU General Public License opublikowanej przez\nFree Software Foundation, w wersji 3, lub poźniejszej.\n\nProgram jest rozpowszechniany w przekonaniu, że może być użyteczny,\nale BEZ ŻADNEJ GWARANCJI; nawet bez zwyczajnych gwarancji HANDLOWEJ lub ZASTOSOWANIA DE CELÓW PRYWATNYCH. Zobacz\nwięcej szczegółów w GNU General Public License.\n\nCały tekst licencji można znaleść na:\nhttp://www.gnu.org/licenses/gpl.txt"
 
 #: dialogs/about_dialog.py:31
 msgid "Help and Ideas"
@@ -434,11 +434,11 @@ msgstr "Jarosław Harasiuk <jarek@strony-www.net>\nKrzysztof Kokot <kokot300@gma
 
 #: dialogs/settings_dialog.py:417
 msgid "Beaufort scale"
-msgstr ""
+msgstr "Skala Beauforta"
 
 #: dialogs/settings_dialog.py:417
 msgid "Knots"
-msgstr ""
+msgstr "Węzły"
 
 #: dialogs/settings_dialog.py:418
 msgid "mmHg"
@@ -584,7 +584,7 @@ msgstr "Oddzielanie daty"
 
 #: dialogs/settings_dialog.ui:1507
 msgid "Swap the day and month"
-msgstr ""
+msgstr "Zamień miejscami dzień z miesiącem"
 
 #: dialogs/settings_dialog.ui:1565
 msgid "Units"
@@ -750,7 +750,7 @@ msgstr "Kolor cienia"
 
 #: dialogs/settings_dialog.ui:4294
 msgid "Show text"
-msgstr ""
+msgstr "Pokaż tekst"
 
 #: dialogs/settings_dialog.ui:4398
 msgid "Fix the size"

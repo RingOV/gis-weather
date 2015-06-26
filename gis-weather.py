@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 #  gis_weather.py
-v = '0.7.8'
+v = '0.7.8.1'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -870,10 +870,7 @@ class MyDrawArea(Gtk.DrawingArea):
                     else:
                         self.draw_text(cr, wind_direct_now[0]+', '+wind_speed_now[0].split(';')[wind_units].split()[0]+' '+wind_speed_now[0].split(';')[wind_units].split()[-1], x0-r-15, y0+r+font_wind+4, font+' Normal', font_wind, 2*r+30+font_NS,Pango.Alignment.CENTER)
                 if icon_wind_now[0] != 'None': 
-                    if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'wind.png')):
-                        self.draw_scaled_image(cr, x0-a/2+font_NS/2, y0-a/2+3+font_NS/2, os.path.join(ICONS_PATH, icons_name, 'wind.png'), a, a, icon_wind_now[0]+angel)
-                    else:
-                        self.draw_scaled_image(cr, x0-a/2+font_NS/2, y0-a/2+3+font_NS/2, os.path.join(ICONS_PATH, 'default', 'wind.png'), a, a, icon_wind_now[0]+angel)
+                    self.draw_scaled_image(cr, x0-a/2+font_NS/2, y0-a/2+3+font_NS/2, self.find_icon('wind'), a, a, icon_wind_now[0]+angel)            
             
             if show_block_add_info:    
                 ####-block with additional info-####
@@ -886,10 +883,7 @@ class MyDrawArea(Gtk.DrawingArea):
                 y0 = top
                 
                 if icon_wind_now[0] != 'None': 
-                    if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'wind_small.png')):
-                        self.draw_scaled_image(cr, x0, y0, os.path.join(ICONS_PATH, icons_name, 'wind_small.png'), 16, 16, icon_wind_now[0]+angel)
-                    else:
-                        self.draw_scaled_image(cr, x0, y0, os.path.join(ICONS_PATH, 'default', 'wind_small.png'), 16, 16, icon_wind_now[0]+angel)
+                    self.draw_scaled_image(cr, x0, y0, self.find_icon('wind_small'), 16, 16, icon_wind_now[0]+angel)
                 if (wind_direct_now and wind_speed_now):
                     if int(wind_speed_now[0].split(';')[wind_units].split()[0]) >= high_wind and high_wind != -1:
                         self.draw_text(cr, wind_speed_now[0].split(';')[wind_units].split()[0]+"<span size='x-small'> %s</span>  <span size='small'>%s</span>"%(wind_speed_now[0].split(';')[wind_units].split()[-1], wind_direct_now[0]), x0+20, y0-1, font+' Normal', 12, 100,Pango.Alignment.LEFT, color_high_wind)
@@ -897,23 +891,14 @@ class MyDrawArea(Gtk.DrawingArea):
                         self.draw_text(cr, wind_speed_now[0].split(';')[wind_units].split()[0]+"<span size='x-small'> %s</span>  <span size='small'>%s</span>"%(wind_speed_now[0].split(';')[wind_units].split()[-1], wind_direct_now[0]), x0+20, y0-1, font+' Normal', 12, 100,Pango.Alignment.LEFT)
                 if press_now:
                     self.draw_text(cr, press_now[0].split(';')[press_units].split()[0]+"<span size='x-small'> %s</span>"%_(press_now[0].split(';')[press_units].split()[-1]), x0+20, y0+line_height-1, font+' Normal', 12, 150,Pango.Alignment.LEFT)
-                    if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'press.png')):
-                        self.draw_scaled_image(cr, x0, y0+line_height, os.path.join(ICONS_PATH, icons_name, 'press.png'), 16, 16)
-                    else:
-                        self.draw_scaled_image(cr, x0, y0+line_height, os.path.join(ICONS_PATH, 'default', 'press.png'), 16, 16)
+                    self.draw_scaled_image(cr, x0, y0+line_height, self.find_icon('press'), 16, 16)
                 if hum_now:
                     self.draw_text(cr, hum_now[0]+"<span size='x-small'> % "+_('humid.')+"</span>", x0+20, y0+line_height*2-1, font+' Normal', 12, 100,Pango.Alignment.LEFT)
-                    if os.path.exists(os.path.join(ICONS_PATH, icons_name, 'hum.png')):
-                        self.draw_scaled_image(cr, x0, y0+line_height*2, os.path.join(ICONS_PATH, icons_name, 'hum.png'), 16, 16)
-                    else:
-                        self.draw_scaled_image(cr, x0, y0+line_height*2, os.path.join(ICONS_PATH, 'default', 'hum.png'), 16, 16)
+                    self.draw_scaled_image(cr, x0, y0+line_height*2, self.find_icon('hum'), 16, 16)
                 if t_water_now:
                     self.draw_text(cr, t_water_now.split(';')[t_scale]+"<span size='x-small'> %s %s</span>"%(t_scale_dict[t_scale], _("water")), x0+20, y0+line_height*3-1, font+' Normal', 12, 100,Pango.Alignment.LEFT)
-                    if os.path.exists(os.path.join(ICONS_PATH, icons_name, 't_water.png')):
-                        self.draw_scaled_image(cr, x0, y0+line_height*3, os.path.join(ICONS_PATH, icons_name, 't_water.png'), 16, 16)
-                    else:
-                        self.draw_scaled_image(cr, x0, y0+line_height*3, os.path.join(ICONS_PATH, 'default', 't_water.png'), 16, 16)
-            
+                    self.draw_scaled_image(cr, x0, y0+line_height*3, self.find_icon('t_water'), 16, 16)
+           
             if show_block_tomorrow:
                 ####-block tomorrow-####
                 left = block_tomorrow_left
@@ -987,7 +972,13 @@ class MyDrawArea(Gtk.DrawingArea):
                                 self.draw_text(cr, wind_direct_tod[i]+', '+wind_speed_tod[i].split(';')[wind_units].split()[0]+' '+wind_speed_tod[i].split(';')[wind_units].split()[-1], x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 64,Pango.Alignment.LEFT)
                         except:
                             pass
-
+    def find_icon(self, icon):
+        for ext in ('png', 'svgz', 'svg'):
+            if os.path.exists(os.path.join(ICONS_USER_PATH, icons_name, '.'.join([icon, ext]))):
+                return os.path.join(ICONS_USER_PATH, icons_name, '.'.join([icon, ext]))
+            if os.path.exists(os.path.join(ICONS_PATH, icons_name, '.'.join([icon, ext]))):
+                return os.path.join(ICONS_PATH, icons_name, '.'.join([icon, ext]))
+        return os.path.join(ICONS_PATH, 'default', '.'.join([icon, 'png']))
 
     def draw_weather_icon(self, cr, index, x, y):
         if day != []:
