@@ -16,6 +16,8 @@ else:
 
 CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
 CONFIG_PATH_FILE = os.path.join(CONFIG_PATH, instance.get_config_file())
+ICONS_USER_PATH = os.path.join(CONFIG_PATH, 'icons')
+BGS_USER_PATH = os.path.join(CONFIG_PATH, 'backgrounds')
 INSTANCE_NO = instance.count()
 
 work_path = os.path.abspath(os.path.dirname(__file__))
@@ -531,9 +533,16 @@ class settings():
         self.liststore3.clear()
         for i in range(len(icons_list_set)):
             author = ""
+            path = ""
             if os.path.exists(os.path.join(ICONS_PATH_SET, icons_list_set[i], 'author')):
-                f = open(os.path.join(ICONS_PATH_SET, icons_list_set[i], 'author'),"r")
+                path = os.path.join(ICONS_PATH_SET, icons_list_set[i], 'author')
+            if os.path.exists(os.path.join(ICONS_USER_PATH, icons_list_set[i], 'author')):
+                path = os.path.join(ICONS_USER_PATH, icons_list_set[i], 'author')
+            if path != "":
+                f = open(path,"r")
                 author = "\n"+"<i>"+_('Author')+": "+f.readline().strip()+"</i>"
+            else:
+                author = "\n"+"<i>"+_('Author')+": "+"Unknown"+"</i>"
             self.liststore3.append(["<b>"+icons_list_set[i]+"</b>"+author])
             if icons_list_set[i] == gw_config_set['icons_name']: 
                 self.combobox_icons_name.set_active(i)
@@ -541,18 +550,30 @@ class settings():
         self.liststore13.clear()
         for i in range(len(icons_list_set)):
             author = ""
+            path = ""
             if os.path.exists(os.path.join(ICONS_PATH_SET, icons_list_set[i], 'author')):
-                f = open(os.path.join(ICONS_PATH_SET, icons_list_set[i], 'author'),"r")
+                path = os.path.join(ICONS_PATH_SET, icons_list_set[i], 'author')
+            if os.path.exists(os.path.join(ICONS_USER_PATH, icons_list_set[i], 'author')):
+                path = os.path.join(ICONS_USER_PATH, icons_list_set[i], 'author')
+            if path != "":
+                f = open(path,"r")
                 author = "\n"+"<i>"+_('Author')+": "+f.readline().strip()+"</i>"
+            else:
+                author = "\n"+"<i>"+_('Author')+": "+"Unknown"+"</i>"
             self.liststore13.append(["<b>"+icons_list_set[i]+"</b>"+author])
             if icons_list_set[i] == gw_config_set['indicator_icons_name']: 
                 self.combobox_indicator_icons_name.set_active(i)
 
         self.liststore4.clear()
         for i in range(len(backgrounds_list_set)):
-            # author = ""
+            author = ""
+            path = ""
             if os.path.exists(os.path.join(BGS_PATH_SET, backgrounds_list_set[i], 'author')):
-                f = open(os.path.join(BGS_PATH_SET, backgrounds_list_set[i], 'author'),"r")
+                path = os.path.join(BGS_PATH_SET, backgrounds_list_set[i], 'author')
+            if os.path.exists(os.path.join(BGS_USER_PATH, backgrounds_list_set[i], 'author')):
+                path = os.path.join(BGS_USER_PATH, backgrounds_list_set[i], 'author')
+            if path != "":
+                f = open(path,"r")
                 author = "\n"+"<i>"+_('Author')+": "+f.readline().strip()+"</i>"
             else:
                 author = "\n"+"<i>"+_('Author')+": "+"Unknown"+"</i>"

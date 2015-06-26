@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 #  gis_weather.py
-v = '0.7.8.1'
+v = '0.7.8.2'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -1189,6 +1189,8 @@ class MyDrawArea(Gtk.DrawingArea):
             self.draw_scaled_image(cr, x, y, pix_path, w, h)
 
     def draw_scaled_image(self, cr, x, y, pix, w, h, ang = 0):
+        if not os.path.exists(pix):
+            return
         if pix.split('.')[-1] == 'svg' or pix.split('.')[-1] == 'svgz' and HAS_RSVG:
             self.draw_scaled_image_svg(cr, x, y, pix, w, h, ang)
         else:
