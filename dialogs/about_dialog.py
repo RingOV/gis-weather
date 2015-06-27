@@ -38,6 +38,8 @@ http://www.gnu.org/licenses/gpl.txt''')
     about.set_artists(["    "+_('Backgrounds')+":",
         "LightEasyShadow, LightWhiteShadow, DarkEasyShadow, DarkWithFlare",
         "by wfedin\n",
+        "Grey",
+        "by DeadMetaler\n",
         "    "+_('Icons')+":",
         "colorful, flat_colorful, light, flat_white, dark, flat_black",
         "by ~MerlinTheRed",
