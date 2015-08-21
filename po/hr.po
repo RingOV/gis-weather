@@ -1,12 +1,13 @@
 # 
 # Translators:
+# gogo <trebelnik2@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2015-06-16 22:53+0300\n"
-"PO-Revision-Date: 2015-06-16 19:58+0000\n"
-"Last-Translator: Alexander Koltsov <ringov@mail.ru>\n"
-"Language-Team: Croatian (http://www.transifex.com/projects/p/gis-weather/language/hr/)\n"
+"PO-Revision-Date: 2015-08-01 18:33+0000\n"
+"Last-Translator: gogo <trebelnik2@gmail.com>\n"
+"Language-Team: Croatian (http://www.transifex.com/gis-weather-team/gis-weather/language/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -51,7 +52,7 @@ msgstr ""
 
 #: gis-weather.py:302
 msgid "Exit"
-msgstr ""
+msgstr "Izlaz"
 
 #: gis-weather.py:402
 msgid "Check for new version"
@@ -79,7 +80,7 @@ msgstr ""
 
 #: gis-weather.py:636
 msgid "Getting weather..."
-msgstr ""
+msgstr "Pribavljanje vremena..."
 
 #: gis-weather.py:639
 msgid "Error getting weather"
@@ -95,7 +96,7 @@ msgstr ""
 
 #: gis-weather.py:698 gis-weather.py:760
 msgid "min"
-msgstr ""
+msgstr "min"
 
 #: gis-weather.py:734 services/gismeteo.py:353
 msgid "Next try in 10 seconds"
@@ -111,23 +112,23 @@ msgstr ""
 
 #: gis-weather.py:821
 msgid "Weather received"
-msgstr ""
+msgstr "Vrijeme primljeno"
 
 #: gis-weather.py:860
 msgid "E"
-msgstr ""
+msgstr "I"
 
 #: gis-weather.py:860
 msgid "S"
-msgstr ""
+msgstr "J"
 
 #: gis-weather.py:860
 msgid "W"
-msgstr ""
+msgstr "Z"
 
 #: gis-weather.py:860
 msgid "N"
-msgstr ""
+msgstr "S"
 
 #: gis-weather.py:905
 msgid "humid."
@@ -143,23 +144,23 @@ msgstr ""
 
 #: gis-weather.py:928 gis-weather.py:967
 msgid "Day"
-msgstr ""
+msgstr "Dan"
 
 #: gis-weather.py:928 gis-weather.py:967
 msgid "Evening"
-msgstr ""
+msgstr "Jutro"
 
 #: gis-weather.py:928 gis-weather.py:967
 msgid "Night"
-msgstr ""
+msgstr "Noć"
 
 #: gis-weather.py:931 gis-weather.py:933
 msgid "Tomorrow"
-msgstr ""
+msgstr "Sutra"
 
 #: gis-weather.py:969
 msgid "Today"
-msgstr ""
+msgstr "Danas"
 
 #: gis-weather.py:1096
 msgid "Background image not found"
@@ -167,7 +168,7 @@ msgstr ""
 
 #: gis-weather.py:1160
 msgid "downloading"
-msgstr ""
+msgstr "preuzimanje"
 
 #: gis-weather.py:1164
 msgid "Unable to download"
@@ -175,19 +176,19 @@ msgstr ""
 
 #: gis-weather.py:1189
 msgid "Icon not found"
-msgstr ""
+msgstr "Ikona nije pronađena"
 
 #: gis-weather.py:1277
 msgid "Widget size"
-msgstr ""
+msgstr "Veličina widgeta"
 
 #: gis-weather.py:1278
 msgid "width"
-msgstr ""
+msgstr "širina"
 
 #: gis-weather.py:1278
 msgid "height"
-msgstr ""
+msgstr "visina"
 
 #: gis-weather.py:1278
 msgid "including indent"
@@ -195,11 +196,11 @@ msgstr ""
 
 #: gis-weather.py:1458
 msgid "Removed"
-msgstr ""
+msgstr "Uklonjeno"
 
 #: gis-weather.py:1487 dialogs/city_id_dialog.ui:376
 msgid "Added"
-msgstr ""
+msgstr "Dodano"
 
 #: gis-weather.py:1492 dialogs/city_id_dialog.ui:308
 msgid "Invalid location code"
@@ -226,7 +227,7 @@ msgstr ""
 #: services/gismeteo.py:233 services/openweathermap.py:106
 #: services/accuweather.py:216
 msgid "days"
-msgstr ""
+msgstr "dana"
 
 #: services/gismeteo.py:421 services/openweathermap.py:297
 #: services/accuweather.py:640
@@ -236,7 +237,7 @@ msgstr ""
 #: services/gismeteo.py:422 services/openweathermap.py:298
 #: services/accuweather.py:641
 msgid "weather received"
-msgstr ""
+msgstr "vrijeme primljeno"
 
 #: services/accuweather.py:13
 msgid "If the city code is wrong, please read"
@@ -244,11 +245,11 @@ msgstr ""
 
 #: services/accuweather.py:257
 msgid "Calm"
-msgstr ""
+msgstr "Bez vjetra"
 
 #: utils/opener.py:17 dialogs/update_dialog.py:27 dialogs/update_dialog.ui:561
 msgid "Downloading"
-msgstr ""
+msgstr "Preuzimanje"
 
 #: utils/opener.py:25
 msgid "Unable to download page, check the network connection"
@@ -256,11 +257,11 @@ msgstr ""
 
 #: utils/autorun.py:72 utils/desktop.py:23 dialogs/about_dialog.py:25
 msgid "Weather widget"
-msgstr ""
+msgstr "Widget vremena"
 
 #: utils/gw_menu.py:53 dialogs/settings_dialog.ui:682
 msgid "Setup..."
-msgstr ""
+msgstr "Postavke..."
 
 #: utils/gw_menu.py:112 dialogs/settings_dialog.py:426
 msgid "No"
@@ -268,91 +269,91 @@ msgstr ""
 
 #: utils/gw_menu.py:127
 msgid "Black"
-msgstr ""
+msgstr "Crno"
 
 #: utils/gw_menu.py:127
 msgid "White"
-msgstr ""
+msgstr "Bijelo"
 
 #: utils/gw_menu.py:127
 msgid "Gray"
-msgstr ""
+msgstr "Sivo"
 
 #: utils/gw_menu.py:137 dialogs/settings_dialog.ui:1754
 msgid "Lock position"
-msgstr ""
+msgstr "Zaključaj položaj"
 
 #: utils/gw_menu.py:143 dialogs/settings_dialog.ui:1739
 msgid "On all desktops"
-msgstr ""
+msgstr "Na svim radnim površinama"
 
 #: utils/gw_menu.py:153
 msgid "Save screenshot"
-msgstr ""
+msgstr "Spremi snimku zaslona"
 
 #: utils/gw_menu.py:169
 msgid "Show/Hide widget"
-msgstr ""
+msgstr "Prikaži/Sakrij widget"
 
 #: utils/gw_menu.py:178 dialogs/settings_dialog.ui:937
 msgid "Refresh"
-msgstr ""
+msgstr "Osvježi"
 
 #: utils/gw_menu.py:190 dialogs/city_id_dialog.py:96
 #: dialogs/settings_dialog.ui:614 dialogs/city_id_dialog.ui:42
 msgid "Location"
-msgstr ""
+msgstr "Lokacija"
 
 #: utils/gw_menu.py:196
 msgid "Indicator icons"
-msgstr ""
+msgstr "Ikone indikatora"
 
 #: utils/gw_menu.py:201 dialogs/about_dialog.py:41
 #: dialogs/settings_dialog.ui:3836 dialogs/settings_dialog.ui:4347
 msgid "Icons"
-msgstr ""
+msgstr "Ikone"
 
 #: utils/gw_menu.py:206 dialogs/settings_dialog.ui:3742
 msgid "Background"
-msgstr ""
+msgstr "Pozadina"
 
 #: utils/gw_menu.py:211 dialogs/settings_dialog.ui:3453
 msgid "Text"
-msgstr ""
+msgstr "Tekst"
 
 #: utils/gw_menu.py:216 dialogs/settings_dialog.ui:1958
 msgid "Window"
-msgstr ""
+msgstr "Prozor"
 
 #: utils/gw_menu.py:221
 msgid "Presets"
-msgstr ""
+msgstr "Predlošci"
 
 #: utils/gw_menu.py:226 dialogs/settings_dialog.py:99
 #: dialogs/settings_dialog.py:741
 msgid "Preferences"
-msgstr ""
+msgstr "Osobitosti"
 
 #: utils/gw_menu.py:234 dialogs/help_dialog.py:28
 msgid "Help"
-msgstr ""
+msgstr "Pomoć"
 
 #: utils/gw_menu.py:242
 msgid "About"
-msgstr ""
+msgstr "O programu"
 
 #: utils/gw_menu.py:254 dialogs/settings_dialog.ui:569
 #: dialogs/help_dialog.ui:25 dialogs/update_dialog.ui:44
 msgid "Close"
-msgstr ""
+msgstr "Zatvori"
 
 #: utils/convert.py:27 utils/convert.py:55 dialogs/settings_dialog.py:417
 msgid "km/h"
-msgstr ""
+msgstr "km/h"
 
 #: utils/convert.py:30 utils/convert.py:46 dialogs/settings_dialog.py:417
 msgid "mph"
-msgstr ""
+msgstr "mph"
 
 #: utils/convert.py:33 utils/convert.py:49
 msgid "bft"
@@ -364,44 +365,44 @@ msgstr ""
 
 #: utils/convert.py:39 utils/convert.py:43 dialogs/settings_dialog.py:417
 msgid "m/s"
-msgstr ""
+msgstr "m/s"
 
 #: dialogs/help_dialog.py:13 dialogs/update_dialog.py:44
 msgid "Go to link"
-msgstr ""
+msgstr "Idi na poveznicu"
 
 #: dialogs/help_dialog.py:16 dialogs/update_dialog.py:47
 #: dialogs/help_dialog.ui:76 dialogs/update_dialog.ui:318
 msgid "Send email"
-msgstr ""
+msgstr "Pošalji e-poštu"
 
 #: dialogs/update_dialog.py:60
 msgid "Update"
-msgstr ""
+msgstr "Ažuriraj"
 
 #: dialogs/update_dialog.py:88
 msgid "Current version"
-msgstr ""
+msgstr "Trenutna inačica"
 
 #: dialogs/update_dialog.py:89
 msgid "Available new version"
-msgstr ""
+msgstr "Dostupna nova inačica"
 
 #: dialogs/update_dialog.py:112
 msgid "Error downloading updates"
-msgstr ""
+msgstr "Greška preuzimanja ažuriranja"
 
 #: dialogs/update_dialog.py:147
 msgid "Error installing updates"
-msgstr ""
+msgstr "Greška instalacije ažuriranja"
 
 #: dialogs/update_dialog.py:151 dialogs/update_dialog.ui:575
 msgid "Installation"
-msgstr ""
+msgstr "Instalacija"
 
 #: dialogs/update_dialog.py:159
 msgid "Error removing"
-msgstr ""
+msgstr "Greška uklanjanja"
 
 #: dialogs/about_dialog.py:8
 msgid ""
@@ -437,7 +438,7 @@ msgstr ""
 
 #: dialogs/settings_dialog.py:417
 msgid "Knots"
-msgstr ""
+msgstr "čvorova"
 
 #: dialogs/settings_dialog.py:418
 msgid "mmHg"
@@ -486,7 +487,7 @@ msgstr ""
 
 #: dialogs/city_id_dialog.py:61
 msgid "For example"
-msgstr ""
+msgstr "Na primjer"
 
 #: dialogs/city_id_dialog.py:62
 msgid "City code"
@@ -498,60 +499,60 @@ msgstr ""
 
 #: dialogs/city_id_dialog.py:130
 msgid "Place"
-msgstr ""
+msgstr "Mjesto"
 
 #: dialogs/settings_dialog.ui:629
 msgid "Update (in minutes)"
-msgstr ""
+msgstr "Ažuriraj (u minutama)"
 
 #: dialogs/settings_dialog.ui:644
 msgid "Check for updates"
-msgstr ""
+msgstr "Provjeri ažuriranja"
 
 #: dialogs/settings_dialog.ui:731
 msgid "Open..."
-msgstr ""
+msgstr "Otvori..."
 
 #: dialogs/settings_dialog.ui:799 dialogs/help_dialog.ui:109
 #: dialogs/update_dialog.ui:351
 msgid "Want to translate?"
-msgstr ""
+msgstr "Želite li prevesti?"
 
 #: dialogs/settings_dialog.ui:821
 msgid "Program language"
-msgstr ""
+msgstr "Jezik programa"
 
 #: dialogs/settings_dialog.ui:836
 msgid "Weather language"
-msgstr ""
+msgstr "Jezik vremena"
 
 #: dialogs/settings_dialog.ui:851
 msgid "Add launcher icon to menu"
-msgstr ""
+msgstr "Dodaj ikonu pokretača u izbornik"
 
 #: dialogs/settings_dialog.ui:879 dialogs/city_id_dialog.ui:197
 msgid "Weather service"
-msgstr ""
+msgstr "Usluge vremena"
 
 #: dialogs/settings_dialog.ui:960 dialogs/help_dialog.ui:286
 msgid "Translation status"
-msgstr ""
+msgstr "Stanje prijevoda"
 
 #: dialogs/settings_dialog.ui:1014
 msgid "Autostart at login"
-msgstr ""
+msgstr "Automatski pokreni pri prijavi"
 
 #: dialogs/settings_dialog.ui:1029
 msgid "Number of instances"
-msgstr ""
+msgstr "Broj primjeraka"
 
 #: dialogs/settings_dialog.ui:1075
 msgid "Start delay (in seconds)"
-msgstr ""
+msgstr "Odgoda pokretanja (u sekundama)"
 
 #: dialogs/settings_dialog.ui:1125 dialogs/settings_dialog.ui:1181
 msgid "Autostart"
-msgstr ""
+msgstr "Automatsko pokretanje"
 
 #: dialogs/settings_dialog.ui:1164
 msgid "Configured in the first instance"
@@ -559,23 +560,23 @@ msgstr ""
 
 #: dialogs/settings_dialog.ui:1269
 msgid "General"
-msgstr ""
+msgstr "Općenito"
 
 #: dialogs/settings_dialog.ui:1292
 msgid "Wind"
-msgstr ""
+msgstr "Vjetar"
 
 #: dialogs/settings_dialog.ui:1307
 msgid "Pressure"
-msgstr ""
+msgstr "Tlak"
 
 #: dialogs/settings_dialog.ui:1354
 msgid "Temperature"
-msgstr ""
+msgstr "Temperatura"
 
 #: dialogs/settings_dialog.ui:1406
 msgid "Wind chill"
-msgstr ""
+msgstr "Brzina vjetra"
 
 #: dialogs/settings_dialog.ui:1492
 msgid "Date separator format"
@@ -587,7 +588,7 @@ msgstr ""
 
 #: dialogs/settings_dialog.ui:1565
 msgid "Units"
-msgstr ""
+msgstr "Mjerne jedinice"
 
 #: dialogs/settings_dialog.ui:1589
 msgid "Left"
@@ -607,7 +608,7 @@ msgstr ""
 
 #: dialogs/settings_dialog.ui:1769
 msgid "Transparency"
-msgstr ""
+msgstr "Prozirnost"
 
 #: dialogs/settings_dialog.ui:1904
 msgid "Scale"
@@ -617,7 +618,7 @@ msgstr ""
 #: dialogs/settings_dialog.ui:2372 dialogs/settings_dialog.ui:2592
 #: dialogs/settings_dialog.ui:3900
 msgid "Show"
-msgstr ""
+msgstr "Prikaži"
 
 #: dialogs/settings_dialog.ui:2025 dialogs/settings_dialog.ui:2156
 #: dialogs/settings_dialog.ui:2271 dialogs/settings_dialog.ui:2387
@@ -627,15 +628,15 @@ msgstr ""
 
 #: dialogs/settings_dialog.ui:2101
 msgid "Block Tomorrow"
-msgstr ""
+msgstr "Blokiraj sutra"
 
 #: dialogs/settings_dialog.ui:2232
 msgid "Block Today"
-msgstr ""
+msgstr "Blokiraj danas"
 
 #: dialogs/settings_dialog.ui:2318
 msgid "Block Now"
-msgstr ""
+msgstr "Blokiraj odmah"
 
 #: dialogs/settings_dialog.ui:2461
 msgid "Reduce"
@@ -647,7 +648,7 @@ msgstr ""
 
 #: dialogs/settings_dialog.ui:2552
 msgid "Block Wind"
-msgstr ""
+msgstr "Blokiraj vjetar"
 
 #: dialogs/settings_dialog.ui:2683
 msgid "Block Additional info"
@@ -683,15 +684,15 @@ msgstr ""
 
 #: dialogs/settings_dialog.ui:3050
 msgid "Main color"
-msgstr ""
+msgstr "Glavna boja"
 
 #: dialogs/settings_dialog.ui:3097
 msgid "Color weekend"
-msgstr ""
+msgstr "Boja vikenda"
 
 #: dialogs/settings_dialog.ui:3175
 msgid "Color wind"
-msgstr ""
+msgstr "Boja vjetra"
 
 #: dialogs/settings_dialog.ui:3190
 msgid ""
@@ -701,148 +702,148 @@ msgstr ""
 
 #: dialogs/settings_dialog.ui:3206
 msgid "Shadow color"
-msgstr ""
+msgstr "Boja sjenke"
 
 #: dialogs/settings_dialog.ui:3221 dialogs/settings_dialog.ui:4059
 msgid "Shadow"
-msgstr ""
+msgstr "Sjenka"
 
 #: dialogs/settings_dialog.ui:3357
 msgid "Weekend"
-msgstr ""
+msgstr "Vikend"
 
 #: dialogs/settings_dialog.ui:3400
 msgid "Weather description style"
-msgstr ""
+msgstr "Izgled opisa vremena"
 
 #: dialogs/settings_dialog.ui:3492
 msgid "Use image"
-msgstr ""
+msgstr "Koristi sliku"
 
 #: dialogs/settings_dialog.ui:3551 dialogs/settings_dialog.ui:3782
 msgid "Select"
-msgstr ""
+msgstr "ODaberi"
 
 #: dialogs/settings_dialog.ui:3634
 msgid "Corner radius"
-msgstr ""
+msgstr "Polumjer kuta"
 
 #: dialogs/settings_dialog.ui:3649 dialogs/settings_dialog.ui:4074
 msgid "Color"
-msgstr ""
+msgstr "Boja"
 
 #: dialogs/settings_dialog.ui:3861
 msgid "Appearance"
-msgstr ""
+msgstr "Izgled"
 
 #: dialogs/settings_dialog.ui:3885
 msgid "Type (restart required)"
-msgstr ""
+msgstr "Vrsta (ponovno pokretanje potrebno)"
 
 #: dialogs/settings_dialog.ui:4014
 msgid "Width"
-msgstr ""
+msgstr "Širina"
 
 #: dialogs/settings_dialog.ui:4044
 msgid "Color shadow"
-msgstr ""
+msgstr "Sjenka boje"
 
 #: dialogs/settings_dialog.ui:4294
 msgid "Show text"
-msgstr ""
+msgstr "Prikaži tekst"
 
 #: dialogs/settings_dialog.ui:4398
 msgid "Fix the size"
-msgstr ""
+msgstr "Popravi veličinu"
 
 #: dialogs/settings_dialog.ui:4442
 msgid "Size"
-msgstr ""
+msgstr "Veličina"
 
 #: dialogs/settings_dialog.ui:4517
 msgid "Indicator"
-msgstr ""
+msgstr "Indikator"
 
 #: dialogs/help_dialog.ui:92 dialogs/update_dialog.ui:334
 msgid "Found a bug?"
-msgstr ""
+msgstr "Pronašli ste grešku?"
 
 #: dialogs/help_dialog.ui:126 dialogs/update_dialog.ui:369
 msgid "Have any questions?"
-msgstr ""
+msgstr "Imate li bilo kakvih pitanja?"
 
 #: dialogs/help_dialog.ui:143 dialogs/update_dialog.ui:387
 msgid "Have any suggestions?"
-msgstr ""
+msgstr "Imate li bilo kakvih prijedloga?"
 
 #: dialogs/help_dialog.ui:163
 msgid "You can support my project"
-msgstr ""
+msgstr "Možete podržati moj projekt"
 
 #: dialogs/help_dialog.ui:174 dialogs/update_dialog.ui:419
 msgid "Read more"
-msgstr ""
+msgstr "Pročitajte više"
 
 #: dialogs/help_dialog.ui:238 dialogs/update_dialog.ui:155
 msgid "Changelog"
-msgstr ""
+msgstr "Zapis promjena"
 
 #: dialogs/help_dialog.ui:254 dialogs/update_dialog.ui:171
 msgid "Source Code"
-msgstr ""
+msgstr "Izvorni kôd"
 
 #: dialogs/help_dialog.ui:270 dialogs/update_dialog.ui:203
 msgid "What's New"
-msgstr ""
+msgstr "Što je novo"
 
 #: dialogs/update_dialog.ui:31
 msgid "Update now"
-msgstr ""
+msgstr "Ažuriraj odmah"
 
 #: dialogs/update_dialog.ui:187
 msgid "Manual update"
-msgstr ""
+msgstr "Ručno ažuriranje"
 
 #: dialogs/update_dialog.ui:408
 msgid "You can support project"
-msgstr ""
+msgstr "Možete podržati projekt"
 
 #: dialogs/update_dialog.ui:469
 msgid "Additional information"
-msgstr ""
+msgstr "Dodatne informacije"
 
 #: dialogs/update_dialog.ui:589
 msgid "Cleaning temporary files"
-msgstr ""
+msgstr "Brisanje privremenih datoteka"
 
 #: dialogs/update_dialog.ui:672
 msgid "Restart"
-msgstr ""
+msgstr "Ponovno okreni"
 
 #: dialogs/update_dialog.ui:701
 msgid "Update successful"
-msgstr ""
+msgstr "Uspješno ažurirano"
 
 #: dialogs/update_dialog.ui:756
 msgid "Update error"
-msgstr ""
+msgstr "Greška ažuriranja"
 
 #: dialogs/city_id_dialog.ui:58
 msgid "Add"
-msgstr ""
+msgstr "Dodaj"
 
 #: dialogs/city_id_dialog.ui:72
 msgid ""
 "Close & Reload\n"
 "selected"
-msgstr ""
+msgstr "Zatvori i ponvno\nučitaj odabrano"
 
 #: dialogs/city_id_dialog.ui:87
 msgid ""
 "Remove\n"
 "selected"
-msgstr ""
+msgstr "Ukloni\nodabrano"
 
 #: dialogs/city_id_dialog.ui:160
 msgid "Language weather"
-msgstr ""
+msgstr "Jezik vremena"
