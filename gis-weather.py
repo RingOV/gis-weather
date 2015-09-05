@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 #  gis_weather.py
-v = '0.7.8.7'
+v = '0.7.8.8'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -771,6 +771,17 @@ class MyDrawArea(Gtk.DrawingArea):
             pixbuf = get_pixbuf(pix_path)
             pixbuf.savev(os.path.join(path_to_save, "cur_icon.png"),"png", (), ())
 
+        if save_cur_temp:
+            t_now_post = ''
+            if save_cur_temp_add_scale:
+                t_now_post = t_scale_dict[t_scale][-1]
+            path_to_save = CONFIG_PATH
+            if os.path.exists(save_cur_data_path):
+                path_to_save = save_cur_data_path
+            cur_temp_file = open(os.path.join(path_to_save, 'cur_temp'), 'w')
+            cur_temp_file.write(t_now[0].split(';')[t_index]+t_now_post)
+            cur_temp_file.close()
+
         if show_indicator:
             self.draw_scaled_icon(cr, 0, 0, weather['icon_now'][0],1,1, indicator_icons_name)
             ind.set_icon(pix_path)
@@ -828,16 +839,6 @@ class MyDrawArea(Gtk.DrawingArea):
                 if t_now_alignment == 'right': pango_align = Pango.Alignment.RIGHT
                 else: pango_align = Pango.Alignment.LEFT
                 self.draw_text(cr, t_now[0].split(';')[t_index], t_now_left2+center-100+block_now_left, t_now_top+y+30, font+' Normal', 18+t_now_size, 60, pango_align)
-                if save_cur_temp:
-                    t_now_post = ''
-                    if save_cur_temp_add_scale:
-                        t_now_post = t_scale_dict[t_scale][-1]
-                    path_to_save = CONFIG_PATH
-                    if os.path.exists(save_cur_data_path):
-                        path_to_save = save_cur_data_path
-                    cur_temp_file = open(os.path.join(path_to_save, 'cur_temp'), 'w')
-                    cur_temp_file.write(t_now[0].split(';')[t_index]+t_now_post)
-                    cur_temp_file.close()
             if text_now: self.draw_text(cr, text_now[0], text_now_left2+center-70+block_now_left, text_now_top+y+106, font+' Normal', 10, 140, Pango.Alignment.CENTER)
             
             if show_block_wind_direct:
