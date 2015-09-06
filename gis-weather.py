@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 #  gis_weather.py
-v = '0.7.8.8'
+v = '0.7.8.10'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -771,6 +771,10 @@ class MyDrawArea(Gtk.DrawingArea):
             pixbuf = get_pixbuf(pix_path)
             pixbuf.savev(os.path.join(path_to_save, "cur_icon.png"),"png", (), ())
 
+        t_index = t_scale*2
+        if t_feel:
+            t_index += 1
+
         if save_cur_temp:
             t_now_post = ''
             if save_cur_temp_add_scale:
@@ -781,13 +785,11 @@ class MyDrawArea(Gtk.DrawingArea):
             cur_temp_file = open(os.path.join(path_to_save, 'cur_temp'), 'w')
             cur_temp_file.write(t_now[0].split(';')[t_index]+t_now_post)
             cur_temp_file.close()
+            print(os.path.join(path_to_save, 'cur_temp')+' saved (%s)'%t_now[0].split(';')[t_index]+t_now_post)
 
         if show_indicator:
             self.draw_scaled_icon(cr, 0, 0, weather['icon_now'][0],1,1, indicator_icons_name)
             ind.set_icon(pix_path)
-            t_index = t_scale*2
-            if t_feel:
-                t_index += 1
             if weather['t_now']:
                 ind.set_label(weather['t_now'][0].split(';')[t_index])
         if show_indicator == 1:
