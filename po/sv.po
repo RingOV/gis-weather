@@ -5,9 +5,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2015-06-16 22:53+0300\n"
-"PO-Revision-Date: 2015-06-16 19:58+0000\n"
-"Last-Translator: Alexander Koltsov <ringov@mail.ru>\n"
-"Language-Team: Swedish (http://www.transifex.com/projects/p/gis-weather/language/sv/)\n"
+"PO-Revision-Date: 2015-09-18 07:58+0000\n"
+"Last-Translator: Kristian <kristianm24@gmail.com>\n"
+"Language-Team: Swedish (http://www.transifex.com/gis-weather-team/gis-weather/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -136,7 +136,7 @@ msgstr "fukt."
 
 #: gis-weather.py:911
 msgid "water"
-msgstr "vatten"
+msgstr "väta"
 
 #: gis-weather.py:928 gis-weather.py:967
 msgid "Morning"
@@ -241,7 +241,7 @@ msgstr "väder mottaget"
 
 #: services/accuweather.py:13
 msgid "If the city code is wrong, please read"
-msgstr ""
+msgstr "Om stadskoden är fel, vänligen läs"
 
 #: services/accuweather.py:257
 msgid "Calm"
@@ -269,15 +269,15 @@ msgstr "Ingen"
 
 #: utils/gw_menu.py:127
 msgid "Black"
-msgstr ""
+msgstr "Svart"
 
 #: utils/gw_menu.py:127
 msgid "White"
-msgstr ""
+msgstr "Vit"
 
 #: utils/gw_menu.py:127
 msgid "Gray"
-msgstr ""
+msgstr "Grå"
 
 #: utils/gw_menu.py:137 dialogs/settings_dialog.ui:1754
 msgid "Lock position"
@@ -349,23 +349,23 @@ msgstr "Stäng"
 
 #: utils/convert.py:27 utils/convert.py:55 dialogs/settings_dialog.py:417
 msgid "km/h"
-msgstr ""
+msgstr "km/h"
 
 #: utils/convert.py:30 utils/convert.py:46 dialogs/settings_dialog.py:417
 msgid "mph"
-msgstr ""
+msgstr "mph"
 
 #: utils/convert.py:33 utils/convert.py:49
 msgid "bft"
-msgstr ""
+msgstr "bft"
 
 #: utils/convert.py:36 utils/convert.py:52
 msgid "kts"
-msgstr ""
+msgstr "knop"
 
 #: utils/convert.py:39 utils/convert.py:43 dialogs/settings_dialog.py:417
 msgid "m/s"
-msgstr ""
+msgstr "m/s"
 
 #: dialogs/help_dialog.py:13 dialogs/update_dialog.py:44
 msgid "Go to link"
@@ -430,27 +430,27 @@ msgstr "Bakgrunder"
 
 #: dialogs/about_dialog.py:55
 msgid "translator-credits"
-msgstr ""
+msgstr "översättnings-krediter"
 
 #: dialogs/settings_dialog.py:417
 msgid "Beaufort scale"
-msgstr ""
+msgstr " Beaufort skala"
 
 #: dialogs/settings_dialog.py:417
 msgid "Knots"
-msgstr ""
+msgstr "Knop"
 
 #: dialogs/settings_dialog.py:418
 msgid "mmHg"
-msgstr ""
+msgstr "mmHg"
 
 #: dialogs/settings_dialog.py:418
 msgid "inHg"
-msgstr ""
+msgstr "tumHg"
 
 #: dialogs/settings_dialog.py:418
 msgid "hPa"
-msgstr ""
+msgstr "hPa"
 
 #: dialogs/settings_dialog.py:421
 msgid "Never"
@@ -726,7 +726,7 @@ msgstr "Välj"
 
 #: dialogs/settings_dialog.ui:3634
 msgid "Corner radius"
-msgstr ""
+msgstr "Hörnradie"
 
 #: dialogs/settings_dialog.ui:3649 dialogs/settings_dialog.ui:4074
 msgid "Color"
@@ -750,7 +750,7 @@ msgstr "Färg på skugga"
 
 #: dialogs/settings_dialog.ui:4294
 msgid "Show text"
-msgstr ""
+msgstr "Visa text"
 
 #: dialogs/settings_dialog.ui:4398
 msgid "Fix the size"
