@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 #  gis_weather.py
-v = '0.7.8.11'
+v = '0.7.8.12'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -659,15 +659,15 @@ class MyDrawArea(Gtk.DrawingArea):
             return
         self.draw_bg(cr, bg_left, bg_top, bg_width, bg_height)
         if show_splash_screen != 1:
-            self.draw_scaled_image(cr, width/2 - 64, splash_block_top+height/2 - 128, os.path.join(APP_PATH, 'icon.png'), 128, 128)
-            self.draw_text(cr, 'Gis Weather v ' + v, 0, splash_block_top+height/2 - 8, font+' Normal', 14, width, Pango.Alignment.CENTER)
+            self.draw_scaled_image(cr, width/2 - 64, splash_icon_top+splash_block_top+height/2 - 128, os.path.join(APP_PATH, 'icon.png'), 128, 128)
+            self.draw_text(cr, 'Gis Weather v ' + v, 0, splash_version_top+splash_block_top+height/2 - 8, font+' Normal', 14, width, Pango.Alignment.CENTER)
             if state == 0:
-                self.draw_text(cr, _('Getting weather...'), 0, splash_block_top+height/2 + 20, font+' Normal', 10, width, Pango.Alignment.CENTER)
+                self.draw_text(cr, _('Getting weather...'), 0, splash_version_top+splash_block_top+height/2 + 20, font+' Normal', 10, width, Pango.Alignment.CENTER)
             else:
                 try_no += 1
-                self.draw_text(cr, _('Error getting weather')+' '+ str(try_no), 0, splash_block_top+height/2 + 20, font+' Normal', 10, width, Pango.Alignment.CENTER)
+                self.draw_text(cr, _('Error getting weather')+' '+ str(try_no), 0, splash_version_top+splash_block_top+height/2 + 20, font+' Normal', 10, width, Pango.Alignment.CENTER)
                 if city_id == 0:
-                    self.draw_text(cr, _('Location not set'), 0, splash_block_top+height/2 + 40, font+' Normal', 10, width, Pango.Alignment.CENTER)
+                    self.draw_text(cr, _('Location not set'), 0, splash_version_top+splash_block_top+height/2 + 40, font+' Normal', 10, width, Pango.Alignment.CENTER)
 
 
     def redraw(self, timer1 = True, get_weather1 = True, load_config = False):
