@@ -123,20 +123,26 @@ def get_weather():
     wind_speed_now = [str(round(source['wind']['speed']))]
     if wind_speed_now:
         wind_speed_now[0] = convert_from_ms(wind_speed_now[0])
-    wind_direct_now = [wind_direct_convert.convert(source['wind']['deg'])]
-    a=''
-    for i in range(len(wind_direct_now[0])):
-        a=a+_(wind_direct_now[0][i])
-    wind_direct_now[0]=a
+    try:
+        wind_direct_now = [wind_direct_convert.convert(source['wind']['deg'])]
+        a=''
+        for i in range(len(wind_direct_now[0])):
+            a=a+_(wind_direct_now[0][i])
+        wind_direct_now[0]=a
+    except:
+        wind_direct_now = []
 
     # icon
     icon_now = ['http://openweathermap.org/img/w/'+source['weather'][0]['icon']+'.png']
     icon_now[0] = convert(icon_now[0], icons_name)
     
     # wind icon
-    icon_wind_now = [round(source['wind']['deg'])+90]
-    if icon_wind_now[0] == '0':
-        icon_wind_now[0] = 'None'
+    try: 
+        icon_wind_now = [round(source['wind']['deg'])+90]
+        if icon_wind_now[0] == '0':
+            icon_wind_now[0] = 'None'
+    except:
+        icon_wind_now = ['None']
 
     # update time
     dt = datetime.fromtimestamp(source['dt'])
