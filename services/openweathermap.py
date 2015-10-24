@@ -72,9 +72,11 @@ def convert(icon, icons_name):
         icon_converted = os.path.split(icon)[1]
     return icon+';'+icon_converted
 
+APPID = 'dde83a2bee572cb5467f58af45a7987a'
+
 def get_city_name(city_id):
     weather_lang = gw_vars.get('weather_lang')
-    source = urlopener('http://api.openweathermap.org/data/2.5/weather?id=%s&lang=%s'%(str(city_id), weather_lang), 2)
+    source = urlopener('http://api.openweathermap.org/data/2.5/weather?id=%s&lang=%s&appid=%s'%(str(city_id), weather_lang, APPID), 2)
     if source:
         source = json.loads(source)
         c_name = source['name']
@@ -89,8 +91,6 @@ def get_time(source):
 def get_day(source):
     return int(source['dt_txt'].split()[0].split('-')[-1])
 
-APPID = 'dde83a2bee572cb5467f58af45a7987a'
-
 def get_weather():
     global city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain
     n = gw_vars.get('n')
@@ -100,9 +100,9 @@ def get_weather():
     show_block_add_info = gw_vars.get('show_block_add_info')
     weather_lang = gw_vars.get('weather_lang')
     icons_name = gw_vars.get('icons_name')
-    URL_CURRENT = 'http://api.openweathermap.org/data/2.5/weather?id=%s&lang=%s&units=metric'%(str(city_id), weather_lang)
-    URL_SEVERAL_DAYS = 'http://api.openweathermap.org/data/2.5/forecast/daily?id=%s&lang=%s&units=metric&cnt=%s'%(str(city_id), weather_lang, n+1)
-    URL_TODAY_TOMORROW = 'http://api.openweathermap.org/data/2.5/forecast?id=%s&lang=%s&units=metric'%(str(city_id), weather_lang)
+    URL_CURRENT = 'http://api.openweathermap.org/data/2.5/weather?id=%s&lang=%s&units=metric&appid=%s'%(str(city_id), weather_lang, APPID)
+    URL_SEVERAL_DAYS = 'http://api.openweathermap.org/data/2.5/forecast/daily?id=%s&lang=%s&units=metric&cnt=%s&appid=%s'%(str(city_id), weather_lang, n+1, APPID)
+    URL_TODAY_TOMORROW = 'http://api.openweathermap.org/data/2.5/forecast?id=%s&lang=%s&units=metric&appid=%s'%(str(city_id), weather_lang, APPID)
     print ('\033[34m>\033[0m '+_('Getting weather for')+' '+str(n)+' '+_('days'))
 
     source = urlopener(URL_CURRENT, 5)
