@@ -232,10 +232,10 @@ def get_weather():
     t_now[0] = t_now[0]+'°;'+t_now[0]+'°;'+C_to_F(t_now[0])+'°;'+C_to_F(t_now[0])+'°;'+C_to_K(t_now[0])+';'+C_to_K(t_now[0])
 
     # wind
-    wind_speed_now = re.findall("var s = '(\d*)", source)
+    wind_speed_now = re.findall("<div style=\".+\">(\d*).*</div>", source)
     if wind_speed_now:
         wind_speed_now[0] = convert_from_kmh(wind_speed_now[0])
-    wind_direct_now = re.findall("var d = '(.*)'", source)
+    wind_direct_now = re.findall("arrow-lg-(.*)\.png", source)
 
     # icon
     icon_now = re.findall('<div class="forecast">\s*<div class="icon (.*)"></div>', source)
