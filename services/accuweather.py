@@ -60,6 +60,7 @@ data = [
 ]
 
 max_days = 14
+need_appid = False
 
 # weather variables
 w = weather_vars.weather

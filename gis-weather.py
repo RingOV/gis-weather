@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 #  gis_weather.py
-v = '0.7.8.22'
+v = '0.7.8.24'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -101,6 +101,7 @@ presets.save_to_file(CONFIG_PATH)
 gw_config_default = {
     'angel': 0,                        # angle of clockwise rotation in degrees 
     'city_id': 0,                      # location code
+    'appid': '',                       # api key
     'upd_time': 30,                    # Update by (in minutes) 
     'n': 7,                            # Display days
     'x_pos': 60,                       # left position
@@ -1484,12 +1485,14 @@ class Weather_Widget:
                 if not widget.get_active():
                     return
 
-            global city_id, weather_lang
+            global city_id, weather_lang, appid
             Load_Config()
             try:
                 if value[1] != 0:
                     service = value[0]
                     city_id = value[1].split(';')[0]
+                    if data.get_need_appid(service):
+                        appid = gw_config[data.get_appid(service)]
                     if service+'_weather_lang' in gw_config.keys():
                         weather_lang = gw_config[service+'_weather_lang']
                     else:
@@ -1511,10 +1514,10 @@ class Weather_Widget:
 
 
     def show_edit_dialog(self):
-        global city_id, gw_config
+        global city_id, gw_config, appid
         Load_Config()
-        dialog, entrybox, treeview, bar_err, bar_ok, bar_label, combobox_weather_lang, weather_lang_list, combobox_service = city_id_dialog.create(self.window_main, APP_PATH, service);
-        dialog.show_all()
+        dialog, entrybox, treeview, bar_err, bar_ok, bar_label, combobox_weather_lang, weather_lang_list, combobox_service, grid_appid, entrybox_appid = city_id_dialog.create(self.window_main, APP_PATH, service);
+        # dialog.show_all()
         response = dialog.run()
 
         while response == Gtk.ResponseType.ACCEPT or response == Gtk.ResponseType.OK:
@@ -1524,6 +1527,10 @@ class Weather_Widget:
                 city_list = gw_config[data.get_city_list(service)]
             except:
                 city_list = []
+            try:
+                appid = gw_config[data.get_appid(service)]
+            except:
+                appid = ''
             if response == Gtk.ResponseType.ACCEPT:
                 try:
                     selection = treeview.get_selection()
@@ -1547,6 +1554,10 @@ class Weather_Widget:
                     pass
             if response == Gtk.ResponseType.OK:
                 try:
+                    if data.get_need_appid(service) and entrybox_appid.get_text() != '':
+                        appid = entrybox_appid.get_text()
+                        gw_config[data.get_appid(service)] = appid
+                        Save_Config()
                     city_id = entrybox.get_text()
                     c_name = data.get_city_name(service, city_id)
                     if c_name == 'None':
@@ -1586,6 +1597,9 @@ class Weather_Widget:
                 city_id = city_list[0].split(';')[0]
             else:
                 city_id = 0
+        if data.get_need_appid(service) and entrybox_appid.get_text() != '':
+            appid = entrybox_appid.get_text()
+            gw_config[data.get_appid(service)] = appid
         Save_Config()
         dialog.hide()
         return True

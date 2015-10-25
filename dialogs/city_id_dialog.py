@@ -17,9 +17,13 @@ dict_weather_lang = None
 weather_lang_list = None
 gw_config = None
 loading = False
+grid_appid = None
+entrybox_appid = None
+
 
 def Save_Config():
     json.dump(gw_config, open(CONFIG_PATH_FILE, "w"), sort_keys=True, indent=4, separators=(', ', ': '))
+
 
 def Load_Config():
     global gw_config
@@ -27,6 +31,7 @@ def Load_Config():
         gw_config = json.load(open(CONFIG_PATH_FILE))
     except:
         print ('[!] '+_('Error loading config file'))
+
 
 def set_service(widget, label, liststore2, combobox_weather_lang, weather_lang, store):
     global gw_config
@@ -42,7 +47,13 @@ def set_service(widget, label, liststore2, combobox_weather_lang, weather_lang, 
     gw_config['max_days'] = data.get_max_days(i)
     if gw_config['n'] > gw_config['max_days']:
         gw_config['n'] = gw_config['max_days']
+    if data.get_need_appid(i):
+        grid_appid.show()
+    else:
+        grid_appid.hide()
+
     Save_Config()
+
 
 def set_weather_lang(widget):
     if not loading:
@@ -51,6 +62,7 @@ def set_weather_lang(widget):
         gw_config['weather_lang'] = weather_lang_list[i]
         gw_config[gw_config['service']+'_weather_lang'] = weather_lang_list[i]
         Save_Config()
+
 
 def load_data(service, label, liststore2, combobox_weather_lang, weather_lang, store):
     global url, example, code, dict_weather_lang, weather_lang_list, gw_config, loading
@@ -81,9 +93,17 @@ def load_data(service, label, liststore2, combobox_weather_lang, weather_lang, s
     store.clear()
     for item in city_list:
         store.append([item.split(';')[0], item.split(';')[1]])
+    if data.get_need_appid(service):
+        grid_appid.show()
+        try: entrybox_appid.set_text(gw_config[data.get_appid(service)])
+        except: entrybox_appid.set_text('')
+    else:
+        grid_appid.hide()
     loading = False
 
+
 def create(window, APP_PATH, service):
+    global grid_appid, entrybox_appid
     Load_Config()
     ui = Gtk.Builder()
     ui.add_from_file(os.path.join(APP_PATH, "dialogs","city_id_dialog.ui"))
@@ -106,6 +126,8 @@ def create(window, APP_PATH, service):
         liststore3.append([services_list[i]])
     combobox_service.set_active(data.get_index(service))
     store = ui.get_object('liststore1')
+    grid_appid = ui.get_object('grid_appid')
+    entrybox_appid = ui.get_object('entrybox_appid')
 
     load_data(service, label, liststore2, combobox_weather_lang, gw_config['weather_lang'], store)
 
@@ -115,11 +137,13 @@ def create(window, APP_PATH, service):
     bar_ok = ui.get_object('bar_ok')
     bar_err = ui.get_object('bar_err')
     bar_label = ui.get_object('bar_label')
+    
 
     treeView = ui.get_object('treeView')
     create_columns(treeView)
 
-    return dialog, entrybox, treeView, bar_err, bar_ok, bar_label, combobox_weather_lang, weather_lang_list, combobox_service
+    return dialog, entrybox, treeView, bar_err, bar_ok, bar_label, combobox_weather_lang, weather_lang_list, combobox_service, grid_appid, entrybox_appid
+
 
 def create_columns(treeView):
     rendererText = Gtk.CellRendererText()

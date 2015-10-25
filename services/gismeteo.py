@@ -23,6 +23,7 @@ data = [
     ('com', 'ru', 'ua/ua', 'lv', 'lt', 'md/ro') # weather_lang_list
 ]
 max_days = 12
+need_appid = False
 
 # weather variables
 w = weather_vars.weather
@@ -252,8 +253,11 @@ def get_weather():
     wind_speed_now = re.findall('m_wind ms.*>(\d+)<', w_now[0])
     if wind_speed_now:
         wind_speed_now[0] = convert_from_ms(wind_speed_now[0])
-    wind_direct_now = re.findall('>(.+)</dt', w_now[0])
-    wind_direct_now[0] = wind_direct_now[1]
+    try:
+        wind_direct_now = re.findall('>(.+)</dt', w_now[0])
+        wind_direct_now[0] = wind_direct_now[1]
+    except:
+        wind_direct_now = []
 
     # icon
     icon_now = re.findall('url\(.*?//(.*?/icons/.*?)\)', w_now[0])

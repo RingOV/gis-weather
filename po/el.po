@@ -1,7 +1,7 @@
 # 
 # Translators:
 # Anastasiadis Stavros <anastasiadis.st00@gmail.com>, 2014
-# Chris Taklis <ctaklis@gmail.com>, 2014
+# Chris Taklis <ctaklis@gmail.com>, 2014-2015
 # Chris Taklis <ctaklis@gmail.com>, 2014
 # George Ioakeimidis <geomint@mail.com>, 2014
 # spyros nm <pipis.nm@gmail.com>, 2014
@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2015-06-16 22:53+0300\n"
-"PO-Revision-Date: 2015-06-16 19:58+0000\n"
-"Last-Translator: Alexander Koltsov <ringov@mail.ru>\n"
-"Language-Team: Greek (http://www.transifex.com/projects/p/gis-weather/language/el/)\n"
+"PO-Revision-Date: 2015-10-25 10:38+0000\n"
+"Last-Translator: Chris Taklis <ctaklis@gmail.com>\n"
+"Language-Team: Greek (http://www.transifex.com/gis-weather-team/gis-weather/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -245,7 +245,7 @@ msgstr "ο καιρός λήφθηκε"
 
 #: services/accuweather.py:13
 msgid "If the city code is wrong, please read"
-msgstr ""
+msgstr "Έαν ο κωδικός πόλης είναι λάθος, παρακαλούμε διαβάστε"
 
 #: services/accuweather.py:257
 msgid "Calm"
@@ -273,15 +273,15 @@ msgstr "Όχι"
 
 #: utils/gw_menu.py:127
 msgid "Black"
-msgstr ""
+msgstr "Μαύρο"
 
 #: utils/gw_menu.py:127
 msgid "White"
-msgstr ""
+msgstr "Άσπρο"
 
 #: utils/gw_menu.py:127
 msgid "Gray"
-msgstr ""
+msgstr "Γκρι"
 
 #: utils/gw_menu.py:137 dialogs/settings_dialog.ui:1754
 msgid "Lock position"
@@ -361,11 +361,11 @@ msgstr "mph"
 
 #: utils/convert.py:33 utils/convert.py:49
 msgid "bft"
-msgstr ""
+msgstr "bft"
 
 #: utils/convert.py:36 utils/convert.py:52
 msgid "kts"
-msgstr ""
+msgstr "kts"
 
 #: utils/convert.py:39 utils/convert.py:43 dialogs/settings_dialog.py:417
 msgid "m/s"
@@ -438,11 +438,11 @@ msgstr "μεταφραστής-εύσημα\n\nAnastasiadis Stavros <anastasiadi
 
 #: dialogs/settings_dialog.py:417
 msgid "Beaufort scale"
-msgstr ""
+msgstr "Μποφόρ"
 
 #: dialogs/settings_dialog.py:417
 msgid "Knots"
-msgstr ""
+msgstr "Κόμβοι"
 
 #: dialogs/settings_dialog.py:418
 msgid "mmHg"
@@ -584,11 +584,11 @@ msgstr "Ψύξη ανέμου"
 
 #: dialogs/settings_dialog.ui:1492
 msgid "Date separator format"
-msgstr ""
+msgstr "Διαχωριστικό μορφής ημερομηνίας"
 
 #: dialogs/settings_dialog.ui:1507
 msgid "Swap the day and month"
-msgstr ""
+msgstr "Ανταλλάξτε την ημέρα και το μήνα"
 
 #: dialogs/settings_dialog.ui:1565
 msgid "Units"
@@ -730,7 +730,7 @@ msgstr "Επιλογή"
 
 #: dialogs/settings_dialog.ui:3634
 msgid "Corner radius"
-msgstr ""
+msgstr "Ακτίνα της γωνίας"
 
 #: dialogs/settings_dialog.ui:3649 dialogs/settings_dialog.ui:4074
 msgid "Color"
@@ -754,7 +754,7 @@ msgstr "Σκιά χρώματος"
 
 #: dialogs/settings_dialog.ui:4294
 msgid "Show text"
-msgstr ""
+msgstr "Εμφάνισε κείμενο"
 
 #: dialogs/settings_dialog.ui:4398
 msgid "Fix the size"

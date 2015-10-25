@@ -12,7 +12,7 @@ from datetime import datetime
 data = [
     "http://openweathermap.org/find?q=", # url
     "http://openweathermap.org/city/<b>1234</b>", # example
-    "<b>1234</b>", #code
+    "<b>1234</b>   <a href='http://openweathermap.org/appid#get'>%s API key (APPID)</a>"%_('How to get'), #code
     { 
         'en': 'English',
         'ru': 'Russian',
@@ -37,6 +37,7 @@ data = [
     ('en', 'ru', 'it', 'es', 'uk', 'de', 'pt', 'ro', 'pl', 'fi', 'nl', 'fr', 'bg', 'sv', 'zh_tw', 'zh', 'tr', 'hr', 'ca') # weather_lang_list
 ]
 max_days = 15
+need_appid = True
 
 # weather variables
 w = weather_vars.weather
@@ -72,10 +73,11 @@ def convert(icon, icons_name):
         icon_converted = os.path.split(icon)[1]
     return icon+';'+icon_converted
 
-APPID = 'dde83a2bee572cb5467f58af45a7987a'
+# APPID = 'dde83a2bee572cb5467f58af45a7987a'
 
 def get_city_name(city_id):
     weather_lang = gw_vars.get('weather_lang')
+    APPID = gw_vars.get('appid')
     source = urlopener('http://api.openweathermap.org/data/2.5/weather?id=%s&lang=%s&appid=%s'%(str(city_id), weather_lang, APPID), 2)
     if source:
         source = json.loads(source)
@@ -93,6 +95,8 @@ def get_day(source):
 
 def get_weather():
     global city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain
+    APPID = gw_vars.get('appid')
+    print(gw_vars.get('appid'))
     n = gw_vars.get('n')
     city_id = gw_vars.get('city_id')
     show_block_tomorrow = gw_vars.get('show_block_tomorrow')
