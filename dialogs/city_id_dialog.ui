@@ -394,7 +394,7 @@ selected</property>
                   <object class="GtkEntry" id="entrybox">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="halign">start</property>
+                    <property name="halign">end</property>
                     <property name="valign">start</property>
                     <property name="hexpand">True</property>
                   </object>
@@ -446,10 +446,10 @@ selected</property>
                         <property name="can_focus">False</property>
                         <property name="halign">end</property>
                         <property name="xalign">1</property>
-                        <property name="label">APPID</property>
+                        <property name="label">API key</property>
                       </object>
                       <packing>
-                        <property name="left_attach">1</property>
+                        <property name="left_attach">0</property>
                         <property name="top_attach">0</property>
                         <property name="width">1</property>
                         <property name="height">1</property>
@@ -465,7 +465,7 @@ selected</property>
                         <property name="uri">http://openweathermap.org/appid</property>
                       </object>
                       <packing>
-                        <property name="left_attach">0</property>
+                        <property name="left_attach">1</property>
                         <property name="top_attach">0</property>
                         <property name="width">1</property>
                         <property name="height">1</property>
