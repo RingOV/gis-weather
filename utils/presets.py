@@ -138,7 +138,7 @@ list = [
         'margin': 50,                      # inside padding
     },
 
-    #  Compact
+    #  Compact day
     {   'bg_left': 0,
         'bg_top': 0,
         'bg_height': 145,
@@ -172,6 +172,41 @@ list = [
         'custom_text1_attr': {'text':'Now', 'x':40, 'y':3, 'font_weight':' Bold', 'font_size':9, 'align':'left', 'show':True},
         'block_h_offset': -5,
     },
+
+    #  Compact date
+    {   'bg_left': 0,
+        'bg_top': 0,
+        'bg_height': 145,
+        'block_now_left': -125,
+        'block_icons_left': 49,
+        'block_icons_top': 30,
+        'day_top': -75,
+        'height_fix': -180,
+        'width_fix': 20,
+        'n': 3,
+        'show_block_wind_direct': False,
+        'show_block_add_info': False,
+        'show_block_tomorrow': False,
+        'show_block_today': False,
+        'splash_icon_top': 68,
+        'splash_version_top': -10,
+        'splash_block_top': 0,
+        'margin': 20,
+        'day_icon_attr': {'x':22, 'y':16, 'size':36},
+        'day_date_fmt': '{date}',
+        'day_date_attr': {'x':0, 'y':-2, 'font_weight':' Bold', 'font_size':9, 'align':'center', 'show':True},
+        't_fmt': '{t_night}/{t_day}',
+        't_attr': {'x':0, 'y':55, 'font_weight':' Normal', 'font_size':10, 'align':'center', 'show':True},
+        'wind_fmt': '{wind_direct}, {wind_speed}',
+        'wind_attr': {'x':0, 'y':50, 'font_weight':' Normal', 'font_size':8, 'align':'left', 'show':False},
+        'text_attr': {'x':0, 'y':55, 'font_size':7, 'align':'left', 'show':False},
+        'city_name_attr': {'x':164, 'y':-18, 'font_weight':' Normal', 'font_size':11, 'align':'left', 'show':True},
+        'text_now_attr': {'x':1161, 'y':9, 'font_weight':' Normal', 'font_size':10, 'align':'center', 'show':False},
+        't_now_attr': {'x':1230, 'y':60, 'font_weight':' Normal', 'font_size':10, 'align':'right', 'show':True},
+        'icon_now_attr': {'x':1200, 'y':21, 'size':36, 'show':True},
+        'custom_text1_attr': {'text':'Now', 'x':40, 'y':3, 'font_weight':' Bold', 'font_size':9, 'align':'left', 'show':True},
+        'block_h_offset': -5,
+    },
     ]
 
 names = {
@@ -180,7 +215,8 @@ names = {
     2: 'Wood',
     3: 'NotePaper',
     4: 'Winter',
-    5: 'Compact'
+    5: 'Compact day',
+    6: 'Compact date'
 }
 
 def save_to_file(CONFIG_PATH):
