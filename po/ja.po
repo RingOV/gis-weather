@@ -4,10 +4,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2015-06-16 22:53+0300\n"
-"PO-Revision-Date: 2015-07-04 05:44+0000\n"
-"Last-Translator: Tsurugi Takeshi <hippointhewild@gmail.com>\n"
-"Language-Team: Japanese (http://www.transifex.com/projects/p/gis-weather/language/ja/)\n"
+"POT-Creation-Date: 2015-10-25 19:42+0300\n"
+"PO-Revision-Date: 2015-10-25 16:46+0000\n"
+"Last-Translator: Alexander Koltsov <ringov@mail.ru>\n"
+"Language-Team: Japanese (http://www.transifex.com/gis-weather-team/gis-weather/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -30,222 +30,213 @@ msgstr "複数のインスタンスの稼働はサポートされていません
 msgid "number of instances"
 msgstr "インスタンスの数"
 
-#: gis-weather.py:236 dialogs/settings_dialog.ui:671
+#: gis-weather.py:258 dialogs/settings_dialog.ui:671
 msgid "Configuration folder"
 msgstr "設定フォルダ"
 
-#: gis-weather.py:252 dialogs/city_id_dialog.py:29
+#: gis-weather.py:274 dialogs/city_id_dialog.py:33
 msgid "Error loading config file"
 msgstr "設定ファイルの読み込みエラー"
 
-#: gis-weather.py:279
+#: gis-weather.py:301
 msgid "Error loading color scheme"
 msgstr "カラースキームの読み込みエラー"
 
-#: gis-weather.py:291
+#: gis-weather.py:316
 msgid "Error loading preset"
 msgstr "プリセットの読み込みエラー"
 
-#: gis-weather.py:301
+#: gis-weather.py:326
 msgid "Enter full path to script"
 msgstr "スクリプトへのフルパスを入力"
 
-#: gis-weather.py:302
+#: gis-weather.py:327
 msgid "Exit"
 msgstr "終了"
 
-#: gis-weather.py:402
+#: gis-weather.py:432
 msgid "Check for new version"
 msgstr "新しいバージョンをチェック"
 
-#: gis-weather.py:407 gis-weather.py:416
+#: gis-weather.py:437 gis-weather.py:446
 msgid "Unable to check for updates"
 msgstr "アップデートをチェックすることができません"
 
-#: gis-weather.py:431
+#: gis-weather.py:461
 msgid "New version available"
 msgstr "新しいバージョンが利用できます"
 
-#: gis-weather.py:438
+#: gis-weather.py:468
 msgid "You are using the latest version"
 msgstr "最新のバージョンを使用中です"
 
-#: gis-weather.py:455 gis-weather.py:1266
+#: gis-weather.py:485 gis-weather.py:1343
 msgid "Screenshot saved to"
 msgstr "スクリーンショットを保存しました"
 
-#: gis-weather.py:459
+#: gis-weather.py:489
 msgid "Unable to get the screenshot"
 msgstr "スクリーンショットを取得することができません"
 
-#: gis-weather.py:636
+#: gis-weather.py:666
 msgid "Getting weather..."
 msgstr "天候を取得中..."
 
-#: gis-weather.py:639
+#: gis-weather.py:669
 msgid "Error getting weather"
 msgstr "天候の取得エラー"
 
-#: gis-weather.py:641
+#: gis-weather.py:671
 msgid "Location not set"
 msgstr "位置情報が設定されていません"
 
-#: gis-weather.py:698 gis-weather.py:760
+#: gis-weather.py:728 gis-weather.py:790
 msgid "Next update in"
 msgstr "次の更新"
 
-#: gis-weather.py:698 gis-weather.py:760
+#: gis-weather.py:728 gis-weather.py:790
 msgid "min"
 msgstr "分"
 
-#: gis-weather.py:734 services/gismeteo.py:353
+#: gis-weather.py:764 services/gismeteo.py:357
 msgid "Next try in 10 seconds"
 msgstr "10秒以内に次をトライします"
 
-#: gis-weather.py:750
+#: gis-weather.py:780
 msgid "Connection error"
 msgstr "接続エラー"
 
-#: gis-weather.py:820
+#: gis-weather.py:863
 msgid "Updated on server"
 msgstr "サーバー上での更新"
 
-#: gis-weather.py:821
+#: gis-weather.py:864
 msgid "Weather received"
 msgstr "天候の受信"
 
-#: gis-weather.py:860
+#: gis-weather.py:901
 msgid "E"
 msgstr "東"
 
-#: gis-weather.py:860
+#: gis-weather.py:901
 msgid "S"
 msgstr "南"
 
-#: gis-weather.py:860
+#: gis-weather.py:901
 msgid "W"
 msgstr "西"
 
-#: gis-weather.py:860
+#: gis-weather.py:901
 msgid "N"
 msgstr "北"
 
-#: gis-weather.py:905
+#: gis-weather.py:937
 msgid "humid."
 msgstr "湿度"
 
-#: gis-weather.py:911
+#: gis-weather.py:940
 msgid "water"
 msgstr "水温"
 
-#: gis-weather.py:928 gis-weather.py:967
+#: gis-weather.py:954 gis-weather.py:993
 msgid "Morning"
 msgstr "午前"
 
-#: gis-weather.py:928 gis-weather.py:967
+#: gis-weather.py:954 gis-weather.py:993
 msgid "Day"
 msgstr "午後"
 
-#: gis-weather.py:928 gis-weather.py:967
+#: gis-weather.py:954 gis-weather.py:993
 msgid "Evening"
 msgstr "夕方"
 
-#: gis-weather.py:928 gis-weather.py:967
+#: gis-weather.py:954 gis-weather.py:993
 msgid "Night"
 msgstr "夜"
 
-#: gis-weather.py:931 gis-weather.py:933
+#: gis-weather.py:957 gis-weather.py:959
 msgid "Tomorrow"
 msgstr "明日"
 
-#: gis-weather.py:969
+#: gis-weather.py:995
 msgid "Today"
 msgstr "本日"
 
-#: gis-weather.py:1096
+#: gis-weather.py:1171
 msgid "Background image not found"
 msgstr "背景画像が見つかりません"
 
-#: gis-weather.py:1160
+#: gis-weather.py:1235
 msgid "downloading"
 msgstr "ダウンロード中"
 
-#: gis-weather.py:1164
+#: gis-weather.py:1239
 msgid "Unable to download"
 msgstr "ダウンロードできません"
 
-#: gis-weather.py:1189
+#: gis-weather.py:1264
 msgid "Icon not found"
 msgstr "アイコンが見つかりません"
 
-#: gis-weather.py:1277
+#: gis-weather.py:1354
 msgid "Widget size"
 msgstr "ウィジェット サイズ"
 
-#: gis-weather.py:1278
+#: gis-weather.py:1355
 msgid "width"
 msgstr "幅"
 
-#: gis-weather.py:1278
+#: gis-weather.py:1355
 msgid "height"
 msgstr "高さ"
 
-#: gis-weather.py:1278
+#: gis-weather.py:1355
 msgid "including indent"
 msgstr "インデントを含む"
 
-#: gis-weather.py:1458
+#: gis-weather.py:1542
 msgid "Removed"
 msgstr "削除された"
 
-#: gis-weather.py:1487 dialogs/city_id_dialog.ui:376
+#: gis-weather.py:1575 dialogs/city_id_dialog.ui:361
 msgid "Added"
 msgstr "追加された"
 
-#: gis-weather.py:1492 dialogs/city_id_dialog.ui:308
+#: gis-weather.py:1580 dialogs/city_id_dialog.ui:293
 msgid "Invalid location code"
 msgstr "不正な位置情報コード"
 
-#: gis-weather.py:1557
+#: gis-weather.py:1648
 msgid "Your screen does not support alpha"
 msgstr "スクリーンがアルファをサポートしていません"
 
-#: gis-weather.py:1559
+#: gis-weather.py:1650
 msgid "Your screen supports alpha"
 msgstr "スクリーンはアルファをサポートしています"
 
-#: services/gismeteo.py:218 services/openweathermap.py:83
-#: services/accuweather.py:194
-msgid "Failed to get the name of the location"
-msgstr "位置情報名の取得に失敗しました"
+#: utils/autorun.py:72 utils/desktop.py:23 dialogs/about_dialog.py:25
+msgid "Weather widget"
+msgstr "天候ウィジェット"
 
-#: services/gismeteo.py:233 services/openweathermap.py:106
-#: services/accuweather.py:216
-msgid "Getting weather for"
-msgstr "天候を取得中"
+#: utils/convert.py:27 utils/convert.py:55 dialogs/settings_dialog.py:419
+msgid "km/h"
+msgstr "km/h"
 
-#: services/gismeteo.py:233 services/openweathermap.py:106
-#: services/accuweather.py:216
-msgid "days"
-msgstr "日中"
+#: utils/convert.py:30 utils/convert.py:46 dialogs/settings_dialog.py:419
+msgid "mph"
+msgstr "mph"
 
-#: services/gismeteo.py:421 services/openweathermap.py:297
-#: services/accuweather.py:640
-msgid "updated on server"
-msgstr "サーバ上での更新"
+#: utils/convert.py:33 utils/convert.py:49
+msgid "bft"
+msgstr "bft"
 
-#: services/gismeteo.py:422 services/openweathermap.py:298
-#: services/accuweather.py:641
-msgid "weather received"
-msgstr "天候の受信"
+#: utils/convert.py:36 utils/convert.py:52
+msgid "kts"
+msgstr "kts"
 
-#: services/accuweather.py:13
-msgid "If the city code is wrong, please read"
-msgstr "都市コードが間違っている場合にお読みください"
-
-#: services/accuweather.py:257
-msgid "Calm"
-msgstr "穏やか"
+#: utils/convert.py:39 utils/convert.py:43 dialogs/settings_dialog.py:419
+msgid "m/s"
+msgstr "m/s"
 
 #: utils/opener.py:17 dialogs/update_dialog.py:27 dialogs/update_dialog.ui:561
 msgid "Downloading"
@@ -255,15 +246,11 @@ msgstr "ダウンロード中"
 msgid "Unable to download page, check the network connection"
 msgstr "ダウンロードのページが利用できません、ネットワーク接続をチェックしてください"
 
-#: utils/autorun.py:72 utils/desktop.py:23 dialogs/about_dialog.py:25
-msgid "Weather widget"
-msgstr "天候ウィジェット"
-
 #: utils/gw_menu.py:53 dialogs/settings_dialog.ui:682
 msgid "Setup..."
 msgstr "設定中"
 
-#: utils/gw_menu.py:112 dialogs/settings_dialog.py:426
+#: utils/gw_menu.py:112 dialogs/settings_dialog.py:428
 msgid "No"
 msgstr "いいえ"
 
@@ -299,7 +286,7 @@ msgstr "ウィジェットの表示/非表示"
 msgid "Refresh"
 msgstr "更新"
 
-#: utils/gw_menu.py:190 dialogs/city_id_dialog.py:96
+#: utils/gw_menu.py:190 dialogs/city_id_dialog.py:116
 #: dialogs/settings_dialog.ui:614 dialogs/city_id_dialog.ui:42
 msgid "Location"
 msgstr "位置"
@@ -308,7 +295,7 @@ msgstr "位置"
 msgid "Indicator icons"
 msgstr "指標用アイコン"
 
-#: utils/gw_menu.py:201 dialogs/about_dialog.py:41
+#: utils/gw_menu.py:201 dialogs/about_dialog.py:43
 #: dialogs/settings_dialog.ui:3836 dialogs/settings_dialog.ui:4347
 msgid "Icons"
 msgstr "アイコン"
@@ -329,8 +316,8 @@ msgstr "ウィンドウ"
 msgid "Presets"
 msgstr "プリセット"
 
-#: utils/gw_menu.py:226 dialogs/settings_dialog.py:99
-#: dialogs/settings_dialog.py:741
+#: utils/gw_menu.py:226 dialogs/settings_dialog.py:101
+#: dialogs/settings_dialog.py:762
 msgid "Preferences"
 msgstr "設定"
 
@@ -343,38 +330,153 @@ msgid "About"
 msgstr "このソフトについて"
 
 #: utils/gw_menu.py:254 dialogs/settings_dialog.ui:569
-#: dialogs/help_dialog.ui:25 dialogs/update_dialog.ui:44
+#: dialogs/update_dialog.ui:44 dialogs/help_dialog.ui:25
 msgid "Close"
 msgstr "閉じる"
 
-#: utils/convert.py:27 utils/convert.py:55 dialogs/settings_dialog.py:417
-msgid "km/h"
-msgstr "km/h"
+#: services/accuweather.py:13
+msgid "If the city code is wrong, please read"
+msgstr "都市コードが間違っている場合にお読みください"
 
-#: utils/convert.py:30 utils/convert.py:46 dialogs/settings_dialog.py:417
-msgid "mph"
-msgstr "mph"
+#: services/accuweather.py:194 services/openweathermap.py:87
+#: services/gismeteo.py:219
+msgid "Failed to get the name of the location"
+msgstr "位置情報名の取得に失敗しました"
 
-#: utils/convert.py:33 utils/convert.py:49
-msgid "bft"
-msgstr "bft"
+#: services/accuweather.py:216 services/openweathermap.py:113
+#: services/gismeteo.py:234
+msgid "Getting weather for"
+msgstr "天候を取得中"
 
-#: utils/convert.py:36 utils/convert.py:52
-msgid "kts"
-msgstr "kts"
+#: services/accuweather.py:216 services/openweathermap.py:113
+#: services/gismeteo.py:234
+msgid "days"
+msgstr "日中"
 
-#: utils/convert.py:39 utils/convert.py:43 dialogs/settings_dialog.py:417
-msgid "m/s"
-msgstr "m/s"
+#: services/accuweather.py:257
+msgid "Calm"
+msgstr "穏やか"
+
+#: services/accuweather.py:642 services/openweathermap.py:310
+#: services/gismeteo.py:425
+msgid "updated on server"
+msgstr "サーバ上での更新"
+
+#: services/accuweather.py:643 services/openweathermap.py:311
+#: services/gismeteo.py:426
+msgid "weather received"
+msgstr "天候の受信"
+
+#: services/openweathermap.py:15
+msgid "How to get"
+msgstr ""
+
+#: dialogs/city_id_dialog.py:71
+msgid "Choose your city on"
+msgstr "都市を選択してください："
+
+#: dialogs/city_id_dialog.py:72
+msgid "and copy the city code below"
+msgstr "次に、都市のコードを以下にコピーしてください"
+
+#: dialogs/city_id_dialog.py:73
+msgid "For example"
+msgstr "例"
+
+#: dialogs/city_id_dialog.py:74 dialogs/city_id_dialog.ui:414
+msgid "City code"
+msgstr "都市コード"
+
+#: dialogs/city_id_dialog.py:150
+msgid "Code"
+msgstr "コード"
+
+#: dialogs/city_id_dialog.py:154
+msgid "Place"
+msgstr "都市名"
 
 #: dialogs/help_dialog.py:13 dialogs/update_dialog.py:44
 msgid "Go to link"
 msgstr "リンク先へ進む"
 
 #: dialogs/help_dialog.py:16 dialogs/update_dialog.py:47
-#: dialogs/help_dialog.ui:76 dialogs/update_dialog.ui:318
+#: dialogs/update_dialog.ui:318 dialogs/help_dialog.ui:76
 msgid "Send email"
 msgstr "メールの送信"
+
+#: dialogs/settings_dialog.py:419
+msgid "Beaufort scale"
+msgstr "Beaufort階級"
+
+#: dialogs/settings_dialog.py:419
+msgid "Knots"
+msgstr "Knots"
+
+#: dialogs/settings_dialog.py:420
+msgid "mmHg"
+msgstr "mmHg"
+
+#: dialogs/settings_dialog.py:420
+msgid "inHg"
+msgstr "inHg"
+
+#: dialogs/settings_dialog.py:420
+msgid "hPa"
+msgstr "hPa"
+
+#: dialogs/settings_dialog.py:423
+msgid "Never"
+msgstr "絶対にしない"
+
+#: dialogs/settings_dialog.py:424
+msgid "Only at start"
+msgstr "開始時だけ"
+
+#: dialogs/settings_dialog.py:425
+msgid "Always"
+msgstr "常に"
+
+#: dialogs/settings_dialog.py:429
+msgid "Only background"
+msgstr "背景だけ"
+
+#: dialogs/settings_dialog.py:430
+msgid "Yes"
+msgstr "Yes"
+
+#: dialogs/settings_dialog.py:543 dialogs/settings_dialog.py:545
+#: dialogs/settings_dialog.py:560 dialogs/settings_dialog.py:562
+#: dialogs/settings_dialog.py:577 dialogs/settings_dialog.py:579
+msgid "Author"
+msgstr "作者"
+
+#: dialogs/about_dialog.py:8
+msgid ""
+"This program is free software: you can redistribute it and/or modify\n"
+"it under the terms of the GNU General Public License as published by\n"
+"the Free Software Foundation, either version 3 of the License, or\n"
+"(at your option) any later version.\n"
+"\n"
+"This program is distributed in the hope that it will be useful,\n"
+"but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
+"GNU General Public License for more details.\n"
+"\n"
+"You can find the full text of the license under\n"
+"http://www.gnu.org/licenses/gpl.txt"
+msgstr "このプログラムはフリーソフトウェアです。\nあなたはFree Software Foundationによって公開されているGNU General Public Licenseの元で\n(ライセンスのバージョン3もしくは、それ以降のバージョンを自由に選んで)、\nこのプログラムを再配布、あるいは変更することができます。\n\nこのプログラムは役に立つことを希望して配布していますが、\nいかなる保証もありませんし、暗示的にも市販性、特定目的との適合性の保証もありません。\n詳細に関しては、GNU General Public Licenseを参照してください。\n\nあなたは、以下でこのライセンスの完全なテキストを見つけることができます。\nhttp://www.gnu.org/licenses/gpl.txt"
+
+#: dialogs/about_dialog.py:31
+msgid "Help and Ideas"
+msgstr "支援者及び考案者"
+
+#: dialogs/about_dialog.py:38
+msgid "Backgrounds"
+msgstr "バックグラウンド"
+
+#: dialogs/about_dialog.py:57
+msgid "translator-credits"
+msgstr "HIPPO"
 
 #: dialogs/update_dialog.py:60
 msgid "Update"
@@ -404,103 +506,6 @@ msgstr "インスタレーション"
 msgid "Error removing"
 msgstr "削除エラー"
 
-#: dialogs/about_dialog.py:8
-msgid ""
-"This program is free software: you can redistribute it and/or modify\n"
-"it under the terms of the GNU General Public License as published by\n"
-"the Free Software Foundation, either version 3 of the License, or\n"
-"(at your option) any later version.\n"
-"\n"
-"This program is distributed in the hope that it will be useful,\n"
-"but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
-"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
-"GNU General Public License for more details.\n"
-"\n"
-"You can find the full text of the license under\n"
-"http://www.gnu.org/licenses/gpl.txt"
-msgstr "このプログラムはフリーソフトウェアです。\nあなたはFree Software Foundationによって公開されているGNU General Public Licenseの元で\n(ライセンスのバージョン3もしくは、それ以降のバージョンを自由に選んで)、\nこのプログラムを再配布、あるいは変更することができます。\n\nこのプログラムは役に立つことを希望して配布していますが、\nいかなる保証もありませんし、暗示的にも市販性、特定目的との適合性の保証もありません。\n詳細に関しては、GNU General Public Licenseを参照してください。\n\nあなたは、以下でこのライセンスの完全なテキストを見つけることができます。\nhttp://www.gnu.org/licenses/gpl.txt"
-
-#: dialogs/about_dialog.py:31
-msgid "Help and Ideas"
-msgstr "支援者及び考案者"
-
-#: dialogs/about_dialog.py:38
-msgid "Backgrounds"
-msgstr "バックグラウンド"
-
-#: dialogs/about_dialog.py:55
-msgid "translator-credits"
-msgstr "HIPPO"
-
-#: dialogs/settings_dialog.py:417
-msgid "Beaufort scale"
-msgstr "Beaufort階級"
-
-#: dialogs/settings_dialog.py:417
-msgid "Knots"
-msgstr "Knots"
-
-#: dialogs/settings_dialog.py:418
-msgid "mmHg"
-msgstr "mmHg"
-
-#: dialogs/settings_dialog.py:418
-msgid "inHg"
-msgstr "inHg"
-
-#: dialogs/settings_dialog.py:418
-msgid "hPa"
-msgstr "hPa"
-
-#: dialogs/settings_dialog.py:421
-msgid "Never"
-msgstr "絶対にしない"
-
-#: dialogs/settings_dialog.py:422
-msgid "Only at start"
-msgstr "開始時だけ"
-
-#: dialogs/settings_dialog.py:423
-msgid "Always"
-msgstr "常に"
-
-#: dialogs/settings_dialog.py:427
-msgid "Only background"
-msgstr "背景だけ"
-
-#: dialogs/settings_dialog.py:428
-msgid "Yes"
-msgstr "Yes"
-
-#: dialogs/settings_dialog.py:536 dialogs/settings_dialog.py:546
-#: dialogs/settings_dialog.py:556 dialogs/settings_dialog.py:558
-msgid "Author"
-msgstr "作者"
-
-#: dialogs/city_id_dialog.py:59
-msgid "Choose your city on"
-msgstr "都市を選択してください："
-
-#: dialogs/city_id_dialog.py:60
-msgid "and copy the city code below"
-msgstr "次に、都市のコードを以下にコピーしてください"
-
-#: dialogs/city_id_dialog.py:61
-msgid "For example"
-msgstr "例"
-
-#: dialogs/city_id_dialog.py:62
-msgid "City code"
-msgstr "都市コード"
-
-#: dialogs/city_id_dialog.py:126
-msgid "Code"
-msgstr "コード"
-
-#: dialogs/city_id_dialog.py:130
-msgid "Place"
-msgstr "都市名"
-
 #: dialogs/settings_dialog.ui:629
 msgid "Update (in minutes)"
 msgstr "アップデート(分単位)"
@@ -513,8 +518,8 @@ msgstr "アップデートのチェック"
 msgid "Open..."
 msgstr "開く"
 
-#: dialogs/settings_dialog.ui:799 dialogs/help_dialog.ui:109
-#: dialogs/update_dialog.ui:351
+#: dialogs/settings_dialog.ui:799 dialogs/update_dialog.ui:351
+#: dialogs/help_dialog.ui:109
 msgid "Want to translate?"
 msgstr "翻訳したいですか？"
 
@@ -530,7 +535,7 @@ msgstr "天気用語"
 msgid "Add launcher icon to menu"
 msgstr "メニューに起動アイコンを追加します"
 
-#: dialogs/settings_dialog.ui:879 dialogs/city_id_dialog.ui:197
+#: dialogs/settings_dialog.ui:879 dialogs/city_id_dialog.ui:182
 msgid "Weather service"
 msgstr "天候提供"
 
@@ -764,49 +769,45 @@ msgstr "サイズ"
 msgid "Indicator"
 msgstr "表示関連"
 
-#: dialogs/help_dialog.ui:92 dialogs/update_dialog.ui:334
-msgid "Found a bug?"
-msgstr "バグを見つけましたか？"
-
-#: dialogs/help_dialog.ui:126 dialogs/update_dialog.ui:369
-msgid "Have any questions?"
-msgstr "何か質問がありますか？"
-
-#: dialogs/help_dialog.ui:143 dialogs/update_dialog.ui:387
-msgid "Have any suggestions?"
-msgstr "何らかの提案がありますか？"
-
-#: dialogs/help_dialog.ui:163
-msgid "You can support my project"
-msgstr "このプロジェクトをサポートできますか？"
-
-#: dialogs/help_dialog.ui:174 dialogs/update_dialog.ui:419
-msgid "Read more"
-msgstr "続きを読む"
-
-#: dialogs/help_dialog.ui:238 dialogs/update_dialog.ui:155
-msgid "Changelog"
-msgstr "更新履歴"
-
-#: dialogs/help_dialog.ui:254 dialogs/update_dialog.ui:171
-msgid "Source Code"
-msgstr "ソースコード"
-
-#: dialogs/help_dialog.ui:270 dialogs/update_dialog.ui:203
-msgid "What's New"
-msgstr "最新情報"
-
 #: dialogs/update_dialog.ui:31
 msgid "Update now"
 msgstr "直ちにアップデートします"
+
+#: dialogs/update_dialog.ui:155 dialogs/help_dialog.ui:238
+msgid "Changelog"
+msgstr "更新履歴"
+
+#: dialogs/update_dialog.ui:171 dialogs/help_dialog.ui:254
+msgid "Source Code"
+msgstr "ソースコード"
 
 #: dialogs/update_dialog.ui:187
 msgid "Manual update"
 msgstr "手動でアップデートします"
 
+#: dialogs/update_dialog.ui:203 dialogs/help_dialog.ui:270
+msgid "What's New"
+msgstr "最新情報"
+
+#: dialogs/update_dialog.ui:334 dialogs/help_dialog.ui:92
+msgid "Found a bug?"
+msgstr "バグを見つけましたか？"
+
+#: dialogs/update_dialog.ui:369 dialogs/help_dialog.ui:126
+msgid "Have any questions?"
+msgstr "何か質問がありますか？"
+
+#: dialogs/update_dialog.ui:387 dialogs/help_dialog.ui:143
+msgid "Have any suggestions?"
+msgstr "何らかの提案がありますか？"
+
 #: dialogs/update_dialog.ui:408
 msgid "You can support project"
 msgstr "このプロジェクトをサポートすることができます"
+
+#: dialogs/update_dialog.ui:419 dialogs/help_dialog.ui:174
+msgid "Read more"
+msgstr "続きを読む"
 
 #: dialogs/update_dialog.ui:469
 msgid "Additional information"
@@ -828,6 +829,10 @@ msgstr "更新しました"
 msgid "Update error"
 msgstr "アップデート エラー"
 
+#: dialogs/help_dialog.ui:163
+msgid "You can support my project"
+msgstr "このプロジェクトをサポートできますか？"
+
 #: dialogs/city_id_dialog.ui:58
 msgid "Add"
 msgstr "追加"
@@ -844,6 +849,6 @@ msgid ""
 "selected"
 msgstr "削除\n選択されました"
 
-#: dialogs/city_id_dialog.ui:160
+#: dialogs/city_id_dialog.ui:145
 msgid "Language weather"
 msgstr "天候用言語"
