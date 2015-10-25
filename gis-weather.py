@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 #  gis_weather.py
-v = '0.7.8.28'
+v = '0.7.8.30'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -405,7 +405,7 @@ def get_weather():
         service = data.services_list[0]
         weather_lang = data.get(service)[-1][0]
         Save_Config()
-    if city_id == 0:
+    if city_id == 0 or (not appid and data.get_need_appid(service)):
         if app.show_edit_dialog():
             Save_Config()
     if city_id == 0:
