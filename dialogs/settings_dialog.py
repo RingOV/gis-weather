@@ -244,6 +244,7 @@ class settings():
         self.liststore2 = self.ui.get_object('liststore2')
         self.spinbutton_block_now_left = self.ui.get_object('spinbutton_block_now_left')
         self.spinbutton_block_now_left.connect("value-changed", self.save_settings)
+        self.adjustment_n_max = self.ui.get_object('adjustment_n_max')
 
 
         self.clear_show_block_today = self.ui.get_object('clear_show_block_today')
@@ -519,6 +520,8 @@ class settings():
         self.load(self.combobox_desc_style)
         self.load(self.switch_swap_d_and_m)
         self.load(self.switch_show_indicator_text)
+
+        self.adjustment_n_max.set_upper(gw_config_set['max_days'])
 
         if gw_config_set['show_bg_png'] == True:
             self.frame_not_image.hide()

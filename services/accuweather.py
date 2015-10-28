@@ -2,7 +2,7 @@
 
 from utils import weather_vars, gw_vars
 from utils.opener import urlopener
-from utils.convert import C_to_F, C_to_K, F_to_C, convert_from_kmh
+from utils.convert import C_to_F, C_to_K, F_to_C, convert_from_kmh, convert_from_C
 import re
 import time
 import os
@@ -228,9 +228,9 @@ def get_weather():
     t_now = re.findall('<span class="temp">(.?\d+)<', source)
     if not celsius:
         t_now[0] = F_to_C(t_now[0])
-    if t_now[0][0] not in ('+', '-', '0'):
-            t_now[0] = '+'+t_now[0]
-    t_now[0] = t_now[0]+'°;'+t_now[0]+'°;'+C_to_F(t_now[0])+'°;'+C_to_F(t_now[0])+'°;'+C_to_K(t_now[0])+';'+C_to_K(t_now[0])
+    # if t_now[0][0] not in ('+', '-', '0'):
+    #         t_now[0] = '+'+t_now[0]
+    t_now[0] = convert_from_C(t_now[0])
 
     # wind
     wind_speed_now = re.findall("<div style=\".+\">(\d*).*</div>", source)
@@ -295,20 +295,20 @@ def get_weather():
     # day temperature
     t_day = re.findall('<td style="font-weight:bold;">(.*)&#176;', w_all[0])
     for i in range(len(t_day)):
-        if t_day[i][0] not in ('+', '-', '0'):
-            t_day[i] = '+' + t_day[i]
+        # if t_day[i][0] not in ('+', '-', '0'):
+        #     t_day[i] = '+' + t_day[i]
         if not celsius:
             t_day[i] = F_to_C(t_day[i])
-        t_day[i] = t_day[i]+'°;'+t_day[i]+'°;'+C_to_F(t_day[i])+'°;'+C_to_F(t_day[i])+'°;'+C_to_K(t_day[i])+';'+C_to_K(t_day[i]) 
+        t_day[i] = convert_from_C(t_day[i])
 
     # night temperature
     t_night = re.findall('<td style="font-weight:bold;">.*\s*<td>(.*)&#176;', w_all[0])
     for i in range(len(t_night)):
-        if t_night[i][0] not in ('+', '-', '0'):
-            t_night[i] = '+' + t_night[i]
+        # if t_night[i][0] not in ('+', '-', '0'):
+        #     t_night[i] = '+' + t_night[i]
         if not celsius:
             t_night[i] = F_to_C(t_night[i])
-        t_night[i] = t_night[i]+'°;'+t_night[i]+'°;'+C_to_F(t_night[i])+'°;'+C_to_F(t_night[i])+'°;'+C_to_K(t_night[i])+';'+C_to_K(t_night[i])
+        t_night[i] = convert_from_C(t_night[i])
 
 
     # day of week, date

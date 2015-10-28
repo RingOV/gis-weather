@@ -2,12 +2,13 @@
 
 import os
 
-from services import gismeteo, accuweather, openweathermap
+from services import gismeteo, accuweather, openweathermap, yr
 
 services_list = [
     'Gismeteo',
     'AccuWeather',
-    'OpenWeatherMap'
+    'OpenWeatherMap',
+    'Yr'
     ]
 
 def get_index(service):
@@ -22,6 +23,8 @@ def get(service):
         return accuweather.data
     if service == 'OpenWeatherMap':
         return openweathermap.data
+    if service == 'Yr':
+        return yr.data
 
 def get_city_list(service):
     if service == 'Gismeteo':
@@ -30,6 +33,8 @@ def get_city_list(service):
         return 'city_list_accuweather'
     if service == 'OpenWeatherMap':
         return 'city_list_openweathermap'
+    if service == 'Yr':
+        return 'city_list_yr'
 
 def get_appid(service):
     if service == 'OpenWeatherMap':
@@ -43,6 +48,8 @@ def get_city_name(service, city_id):
         return  accuweather.get_city_name(city_id)
     if service == 'OpenWeatherMap':
         return  openweathermap.get_city_name(city_id)
+    if service == 'Yr':
+        return yr.get_city_name(city_id)
 
 def get_max_days(service):
     if service == 'Gismeteo':
@@ -51,6 +58,8 @@ def get_max_days(service):
         return accuweather.max_days
     if service == 'OpenWeatherMap':
         return openweathermap.max_days
+    if service == 'Yr':
+        return yr.max_days
 
 def get_need_appid(service):
     if service == 'Gismeteo':
@@ -59,6 +68,8 @@ def get_need_appid(service):
         return accuweather.need_appid
     if service == 'OpenWeatherMap':
         return openweathermap.need_appid
+    if service == 'Yr':
+        return yr.need_appid
 
 def get_weather(service):
     if service == 'Gismeteo':
@@ -67,3 +78,5 @@ def get_weather(service):
         return accuweather.get_weather()
     if service == 'OpenWeatherMap':
         return openweathermap.get_weather()
+    if service == 'Yr':
+        return yr.get_weather()

@@ -2,7 +2,7 @@
 
 from utils import weather_vars, gw_vars
 from utils.opener import urlopener
-from utils.convert import C_to_F, C_to_K, convert_from_ms
+from utils.convert import C_to_F, C_to_K, convert_from_ms, convert_from_mmHg, convert_from_C
 import re
 import time
 import os
@@ -12,7 +12,7 @@ data = [
     "http://www.gismeteo.com", # url
     "http://www.gismeteo.com/city/daily/<b>1234</b>", # example
     "<b>1234</b>", #code
-    { 
+    {
         'com': 'English',
         'ru': 'Русский',
         'ua/ua': 'Українська',
@@ -247,7 +247,7 @@ def get_weather():
     for i in range(len(t_now)):
         if t_now[i][0] == '&':
             t_now[i] = '-' + t_now[i][7:]
-    t_now[0] = t_now[0]+'°;'+t_now[0]+'°;'+C_to_F(t_now[0])+'°;'+C_to_F(t_now[0])+'°;'+C_to_K(t_now[0])+';'+C_to_K(t_now[0])
+    t_now[0] = convert_from_C(t_now[0])
 
     # wind
     wind_speed_now = re.findall('m_wind ms.*>(\d+)<', w_now[0])
@@ -279,7 +279,7 @@ def get_weather():
     # pressure now
     press_now = re.findall('m_press torr\'>(\d+)<', w_now[0])
     if press_now:
-        press_now[0] = press_now[0]+' mmHg;'+str(round(int(press_now[0])/25.4))+' inHg;'+str(round(int(press_now[0])*1.333))+' hPa'
+        press_now[0] = convert_from_mmHg(press_now[0])
     
     # humidity now
     hum_now = re.findall('wicon hum".*>(\d+)<span class="unit"', w_now[0])
@@ -307,7 +307,7 @@ def get_weather():
     t_night = t[::4]
     t_night_feel = t_feel[::4]
     for i in range(len(t_night)):
-        t_night[i] = t_night[i]+'°;'+t_night_feel[i]+'°;'+C_to_F(t_night[i])+'°;'+C_to_F(t_night_feel[i])+'°;'+C_to_K(t_night[i])+';'+C_to_K(t_night_feel[i])
+        t_night[i] = convert_from_C(t_night[i], t_night_feel[i])
     
     # day of week, date
     day = re.findall('weekday.>(.*?)<', source)
@@ -317,7 +317,7 @@ def get_weather():
     t_day = t[2::4]
     t_day_feel = t_feel[2::4]
     for i in range(len(t_day)):
-        t_day[i] = t_day[i]+'°;'+t_day_feel[i]+'°;'+C_to_F(t_day[i])+'°;'+C_to_F(t_day_feel[i])+'°;'+C_to_K(t_day[i])+';'+C_to_K(t_day_feel[i])
+        t_day[i] = convert_from_C(t_day[i], t_day_feel[i])
     
     # weather icon day
     icons_list = re.findall('src=\".*?//(.*?/icons/.*?)\"', w_all)

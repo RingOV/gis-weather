@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 #  gis_weather.py
-v = '0.7.9'
+v = '0.7.9.1'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -834,7 +834,7 @@ class MyDrawArea(Gtk.DrawingArea):
         
 
     def draw_weather_icon_now(self, cr, x, y):
-        if day != []:
+        if date != []:
             #global t_now_left, text_now_left
             center = x+width/2
 
@@ -858,6 +858,8 @@ class MyDrawArea(Gtk.DrawingArea):
                     self.draw_text(cr, day[0]+s, day_left+0+block_now_left, day_top+y-15, font+' Bold', 12, width-day_left, Pango.Alignment.CENTER, color_text_week)
                 else:
                     self.draw_text(cr, day[0]+s, day_left+0+block_now_left, day_top+y-15, font+' Bold', 12, width-day_left, Pango.Alignment.CENTER)
+            else:
+                self.draw_text(cr, date[0], day_left+0+block_now_left, day_top+y-15, font+' Bold', 12, width-day_left, Pango.Alignment.CENTER)
             
             if show_time_receive_local:
                 if time_update: self.draw_text(cr, _('Updated on server')+' '+time_update[0], x-margin, x+20+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
@@ -1022,15 +1024,15 @@ class MyDrawArea(Gtk.DrawingArea):
         return os.path.join(ICONS_PATH, 'default', '.'.join([icon, 'png']))
 
     def draw_weather_icon(self, cr, index, x, y):
-        if day != []:
-            _day = day[index]
-            _date = date[index]
-            weekend1 = []
-
-            for item in weekend.split(','):
-                weekend1.append(item.strip())
-            _weekend_color = color_text_week if _day in weekend1 else color_text
+        if date != []:
+            if day:
+                _day = day[index]
+                weekend1 = []
+                for item in weekend.split(','):
+                    weekend1.append(item.strip())
+                _weekend_color = color_text_week if _day in weekend1 else color_text
             
+            _date = date[index]
             t_index = t_scale*2
             if t_feel:
                 t_index += 1
@@ -1048,7 +1050,12 @@ class MyDrawArea(Gtk.DrawingArea):
 
             self.draw_scaled_icon(cr, x+day_icon_attr['x'], y+day_icon_attr['y'], icon[index], 
                     day_icon_attr['size'], day_icon_attr['size'])
-            if day_date_attr['show']: self.draw_text(cr, day_date_fmt.format(day=_day, date=_date), 
+            if day:
+                s = day_date_fmt.format(day=_day, date=_date)
+            else:
+                s = _date
+                _weekend_color = color_text
+            if day_date_attr['show']: self.draw_text(cr, s, 
                     x+day_date_attr['x'], y+day_date_attr['y'], font+day_date_attr['font_weight'], 
                     day_date_attr['font_size'], w_block, Pango_dict[day_date_attr['align']], _weekend_color)
             if t_attr['show']: self.draw_text(cr, t_fmt.format(t_day=_t_day, t_night=_t_night), x+t_attr['x'], y+t_attr['y'],
@@ -1485,12 +1492,13 @@ class Weather_Widget:
                 if not widget.get_active():
                     return
 
-            global city_id, weather_lang, appid
+            global city_id, weather_lang, appid, max_days
             Load_Config()
             try:
                 if value[1] != 0:
                     service = value[0]
                     city_id = value[1].split(';')[0]
+                    max_days = data.get_max_days(service)
                     if data.get_need_appid(service):
                         appid = gw_config[data.get_appid(service)]
                     if service+'_weather_lang' in gw_config.keys():
