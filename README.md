@@ -24,6 +24,7 @@ Recommends:
   - Gismeteo.com
   - AccuWeather.com
   - OpenWeatherMap.org
+  - Yr.no
 - Support SVG and widget scale
 - Indicator to panel
 - Presets
@@ -35,7 +36,8 @@ Recommends:
   - rpm
   - exe
 - AUR
-  - [https://aur.archlinux.org/packages/gis-weather/](https://aur.archlinux.org/packages/gis-weather/)
+  - Stable [https://aur.archlinux.org/packages/gis-weather/](https://aur.archlinux.org/packages/gis-weather/)
+  - Testing [https://aur.archlinux.org/packages/gis-weather-git/](https://aur.archlinux.org/packages/gis-weather-git/)
 - For Debian based distro you can use Noobslab ppa:
   - `sudo add-apt-repository ppa:noobslab/apps`
   - `sudo apt-get update`
@@ -70,7 +72,7 @@ AUR - [https://aur.archlinux.org/packages/gis-weather/](https://aur.archlinux.or
 NoobsLAB - [http://www.noobslab.com/2014/05/gis-weather-widget-for-linux-desktop.html](http://www.noobslab.com/2014/05/gis-weather-widget-for-linux-desktop.html)
 
 
-# Donations:
+### Donations:
 
 If you like the software, don't forget to donate to further development of it!
 
