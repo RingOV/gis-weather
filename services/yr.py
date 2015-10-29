@@ -26,24 +26,17 @@ for i in w.keys():
     globals()[i] = w[i]
 
 dict_icons = {
-    "01d.png": "32.png",
-    "02d.png": "34.png",
-    "03d.png": "30.png",
-    "04d.png": "26.png",
-    "09d.png": "12.png",
-    "10d.png": "39.png",
-    "11d.png": "37.png",
-    "13d.png": "15.png",
-    "50d.png": "20.png",
-    "01n.png": "31.png",
-    "02n.png": "33.png",
-    "03n.png": "29.png",
-    "04n.png": "27.png",
-    "09n.png": "12.png",
-    "10n.png": "45.png",
-    "11n.png": "47.png",
-    "13n.png": "15.png",
-    "50n.png": "20.png"
+    "01d": "32.png",
+    "02d": "30.png",
+    "03d": "28.png",
+    "04": "26.png",
+    "01n": "31.png",
+    "02n": "29.png",
+    "03n": "27.png",
+    "46": "09.png",
+    "09": "12.png",
+    "40n": "45.png",
+    "40d": "39.png"
 }
 
 
@@ -51,7 +44,10 @@ def convert(icon, icons_name):
     try:
         icon_converted = dict_icons[os.path.split(icon)[1]]
     except:
-        icon_converted = os.path.split(icon)[1]
+        try:
+            icon_converted = dict_icons[os.path.split(icon)[1].split('.')[0]]
+        except:
+            icon_converted = os.path.split(icon)[1]
     return 'http://symbol.yr.no/grafikk/sym/b38/'+icon+'.png;'+icon_converted
 
 
