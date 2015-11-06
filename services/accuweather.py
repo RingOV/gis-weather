@@ -2,7 +2,7 @@
 
 from utils import weather_vars, gw_vars
 from utils.opener import urlopener
-from utils.convert import C_to_F, C_to_K, F_to_C, convert_from_kmh, convert_from_C
+from utils.convert import C_to_F, C_to_K, F_to_C, convert_from_kmh, convert_from_C, convert_from_inHg, convert_from_hPa
 import re
 import time
 import os
@@ -274,10 +274,15 @@ def get_weather():
             return False
 
         # pressure now
-        press_now = re.findall('Pressure.*>(\d+)', source)
-        try:
-            press_now[0] = str(round(int(press_now[0])*0.75))+' mmHg;'+str(round(int(press_now[0])*0.0295))+' inHg;'+press_now[0]+' hPa'
-        except:
+        press = re.findall('Pressure.*>(.+?)<', source)
+        if press:
+            press_now = [press[0].split()[0]]
+            press_scale = press[0].split()[1]
+            if press_scale == 'mb':
+                press_now[0] = convert_from_hPa(press_now[0])
+            if press_scale == 'in':
+                press_now[0] = convert_from_inHg(press_now[0])
+        else:
             press_now = ['n/a mmHg;n/a inHg;n/a hPa']
         # humidity now
         hum_now = re.findall('Humidity.*>(\d+)', source)
