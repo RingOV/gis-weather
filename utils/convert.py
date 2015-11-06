@@ -90,4 +90,4 @@ def convert_from_hPa(hPa):
     return str(round(float(hPa)*0.75))+' mmHg;'+str(round(float(hPa)*0.0295))+' inHg;'+str(round(float(hPa)))+' hPa'
 
 def convert_from_inHg(inHg):
-    return str(round(float(inHg)*25.4))+' mmHg;'+str(round(float(inHg)))+' inHg;'+str(round(float(inHg)*33.86))+' hPa'
+    return str(round(float(inHg)*25.4))+' mmHg;'+str(inHg)+' inHg;'+str(round(float(inHg)*33.86))+' hPa'
