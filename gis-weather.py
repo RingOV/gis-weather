@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 #  gis_weather.py
-v = '0.7.9.7'
+v = '0.7.9.8'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -1385,8 +1385,11 @@ class Weather_Widget:
         self.window_main.connect("screen-changed", self.screen_changed)
         self.window_main.set_role('')
         self.window_main.set_app_paintable(True)
-        if os.environ.get('DESKTOP_SESSION') == "ubuntu":
+        s = os.environ.get('DESKTOP_SESSION')
+        if s == "ubuntu":
             self.window_main.set_type_hint(Gdk.WindowTypeHint.DOCK)
+        elif s == "mate":
+            pass
         else:
             self.window_main.set_type_hint(Gdk.WindowTypeHint.UTILITY)
         self.window_main.set_keep_above(False)
