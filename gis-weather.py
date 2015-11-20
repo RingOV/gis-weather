@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 #  gis_weather.py
-v = '0.7.9.6'
+v = '0.7.9.7'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -913,19 +913,19 @@ class MyDrawArea(Gtk.DrawingArea):
                     else:
                         self.draw_text(cr, wind_direct_now[0]+', '+wind_speed_now[0].split(';')[wind_units].split()[0]+' '+wind_speed_now[0].split(';')[wind_units].split()[-1], x0-r-15, y0+r+font_wind+4, font+' Normal', font_wind, 2*r+30+font_NS,Pango.Alignment.CENTER)
                 if icon_wind_now[0] != 'None': 
-                    self.draw_scaled_image(cr, x0-a/2+font_NS/2, y0-a/2+3+font_NS/2, self.find_icon('wind'), a, a, icon_wind_now[0]+angel)            
-            
-            if show_block_add_info:    
+                    self.draw_scaled_image(cr, x0-a/2+font_NS/2, y0-a/2+3+font_NS/2, self.find_icon('wind'), a, a, icon_wind_now[0]+angel)
+
+            if show_block_add_info:
                 ####-block with additional info-####
                 left = block_add_info_left
                 top = y + 30 # top
                 line_height = 25  # spacing between rows
                 #########################
-                
+
                 x0 = center + left
                 y0 = top
-                
-                if icon_wind_now[0] != 'None': 
+
+                if icon_wind_now[0] != 'None':
                     self.draw_scaled_image(cr, x0, y0, self.find_icon('wind_small'), 16, 16, icon_wind_now[0]+angel)
                 if (wind_direct_now and wind_speed_now):
                     if int(wind_speed_now[0].split(';')[wind_units].split()[0]) >= high_wind and high_wind != -1:
@@ -953,7 +953,10 @@ class MyDrawArea(Gtk.DrawingArea):
 
                 x0 = center + left
                 y0 = top
-                c = ( _('Morning'), _('Day'), _('Evening'), _('Night'))
+                if not time_of_day_list:
+                    c = (_('Morning'), _('Day'), _('Evening'), _('Night'))
+                else:
+                    c = time_of_day_list
 
                 if icon_tomorrow and icon_tomorrow[1] == 'None' and icon_tomorrow[3] == 'None':
                     self.draw_text(cr, _('Tomorrow'), x0-40, y0-13, font+' Bold', 8, a+60,Pango.Alignment.CENTER)
@@ -992,7 +995,10 @@ class MyDrawArea(Gtk.DrawingArea):
                 
                 x0 = center + left
                 y0 = top
-                c = (_('Morning'), _('Day'), _('Evening'), _('Night'))
+                if not time_of_day_list:
+                    c = (_('Morning'), _('Day'), _('Evening'), _('Night'))
+                else:
+                    c = time_of_day_list
 
                 self.draw_text(cr, _('Today'), x0, y0-13, font+' Bold', 8, a+60,Pango.Alignment.CENTER)
                 for i in range(0, 4):

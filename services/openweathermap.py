@@ -2,18 +2,17 @@
 
 from utils import weather_vars, wind_direct_convert, gw_vars
 from utils.opener import urlopener
-from utils.convert import C_to_F, C_to_K, add_plus, convert_from_ms
-import re
+from utils.convert import C_to_F, C_to_K, add_plus, convert_from_ms, convert_from_C, convert_from_hPa
 import time
 import os
 import json
 from datetime import datetime
 
 data = [
-    "http://openweathermap.org/find?q=", # url
-    "http://openweathermap.org/city/<b>1234</b>", # example
-    "<b>1234</b>   <a href='http://openweathermap.org/appid#get'>%s API key (APPID)</a>"%_('How to get'), #code
-    { 
+    "http://openweathermap.org/find?q=",  # url
+    "http://openweathermap.org/city/<b>1234</b>",  # example
+    "<b>1234</b>   <a href='http://openweathermap.org/appid#get'>%s API key (APPID)</a>"%_('How to get'),  # code
+    {
         'en': 'English',
         'ru': 'Russian',
         'it': 'Italian',
@@ -33,8 +32,8 @@ data = [
         'tr': 'Turkish',
         'hr': 'Croatian',
         'ca': 'Catalan'
-    }, # dict_weather_lang
-    ('en', 'ru', 'it', 'es', 'uk', 'de', 'pt', 'ro', 'pl', 'fi', 'nl', 'fr', 'bg', 'sv', 'zh_tw', 'zh', 'tr', 'hr', 'ca') # weather_lang_list
+    },  # dict_weather_lang
+    ('en', 'ru', 'it', 'es', 'uk', 'de', 'pt', 'ro', 'pl', 'fi', 'nl', 'fr', 'bg', 'sv', 'zh_tw', 'zh', 'tr', 'hr', 'ca')  # weather_lang_list
 ]
 max_days = 15
 need_appid = True
@@ -66,6 +65,7 @@ dict_icons = {
     "50n.png": "20.png"
 }
 
+
 def convert(icon, icons_name):
     try:
         icon_converted = dict_icons[os.path.split(icon)[1]]
@@ -74,6 +74,7 @@ def convert(icon, icons_name):
     return icon+';'+icon_converted
 
 # APPID = 'dde83a2bee572cb5467f58af45a7987a'
+
 
 def get_city_name(city_id):
     weather_lang = gw_vars.get('weather_lang')
@@ -89,11 +90,14 @@ def get_city_name(city_id):
             print('\033[1;31m[!]\033[0m Empty API key. Please enter API key')
         return 'None'
 
+
 def get_time(source):
     return source['dt_txt'].split()[1][:-3]
 
+
 def get_day(source):
     return int(source['dt_txt'].split()[0].split('-')[-1])
+
 
 def get_weather():
     global city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain
@@ -117,14 +121,13 @@ def get_weather():
         return False
     source = json.loads(source)
 
-
     #### current weather ####
     # city
     city_name = [source['name']]
 
     # temperature
     t_now = [add_plus(str(round(source['main']['temp'])))]
-    t_now[0] = t_now[0]+'°;'+t_now[0]+'°;'+C_to_F(t_now[0])+'°;'+C_to_F(t_now[0])+'°;'+C_to_K(t_now[0])+';'+C_to_K(t_now[0])
+    t_now[0] = convert_from_C(t_now[0])
 
     # wind
     wind_speed_now = [str(round(source['wind']['speed']))]
@@ -132,19 +135,19 @@ def get_weather():
         wind_speed_now[0] = convert_from_ms(wind_speed_now[0])
     try:
         wind_direct_now = [wind_direct_convert.convert(source['wind']['deg'])]
-        a=''
+        a = ''
         for i in range(len(wind_direct_now[0])):
-            a=a+_(wind_direct_now[0][i])
-        wind_direct_now[0]=a
+            a = a + _(wind_direct_now[0][i])
+        wind_direct_now[0] = a
     except:
         wind_direct_now = []
 
     # icon
     icon_now = ['http://openweathermap.org/img/w/'+source['weather'][0]['icon']+'.png']
     icon_now[0] = convert(icon_now[0], icons_name)
-    
+
     # wind icon
-    try: 
+    try:
         icon_wind_now = [round(source['wind']['deg'])+90]
         if icon_wind_now[0] == '0':
             icon_wind_now[0] = 'None'
@@ -154,15 +157,15 @@ def get_weather():
     # update time
     dt = datetime.fromtimestamp(source['dt'])
     time_update = [dt.strftime('%H:%M')]
-    
+
     # weather text now
     text_now = [source['weather'][0]['description']]
-    
+
     # pressure now
     press_now = [str(round(source['main']['pressure']))]
     if press_now:
-        press_now[0] = str(round(int(press_now[0])*0.75))+' mmHg;'+str(round(int(press_now[0])*0.0295))+' inHg;'+press_now[0]+' hPa'
-    
+        press_now[0] = convert_from_hPa(press_now[0])
+
     # humidity now
     hum_now = [str(source['main']['humidity'])]
 
@@ -171,7 +174,7 @@ def get_weather():
     if not source:
         return False
     source = json.loads(source)
-    
+
     t_day = []
     t_night = []
     day = []
@@ -195,16 +198,16 @@ def get_weather():
         chance_of_rain.append(str(data['rain']) if 'rain' in data.keys() else '')
 
     for j in range(len(wind_direct)):
-        a=''
+        a = ''
         for i in range(len(wind_direct[j])):
-            a=a+_(wind_direct[j][i])
-        wind_direct[j]=a
+            a = a + _(wind_direct[j][i])
+        wind_direct[j] = a
 
     for i in range(len(t_day)):
-        t_day[i] = t_day[i]+'°;'+t_day[i]+'°;'+C_to_F(t_day[i])+'°;'+C_to_F(t_day[i])+'°;'+C_to_K(t_day[i])+';'+C_to_K(t_day[i])
+        t_day[i] = convert_from_C(t_day[i])
 
     for i in range(len(t_night)):
-        t_night[i] = t_night[i]+'°;'+t_night[i]+'°;'+C_to_F(t_night[i])+'°;'+C_to_F(t_night[i])+'°;'+C_to_K(t_night[i])+';'+C_to_K(t_night[i])
+        t_night[i] = convert_from_C(t_night[i])
 
     for i in range(len(icon)):
         icon[i] = convert(icon[i], icons_name)
@@ -212,13 +215,12 @@ def get_weather():
     if wind_speed:
         for i in range(len(wind_speed)):
             wind_speed[i] = convert_from_ms(wind_speed[i])
-    
+
     if show_block_tomorrow or show_block_today:
         source = urlopener(URL_TODAY_TOMORROW, 5)
         if not source:
             return False
         source = json.loads(source)
-
 
         t_tomorrow = ['', '', '', '']
         t_today = ['', '', '', '']

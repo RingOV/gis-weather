@@ -11,7 +11,7 @@ data = [
     "http://www.accuweather.com", # url
     "http://www.accuweather.com/en/<b>us/new-york-ny/10017</b>/weather-forecast/<b>349727</b>", # example
     "<b>us/new-york-ny/10017,349727</b>\n"+_("If the city code is wrong, please read")+" <a href='https://github.com/RingOV/gis-weather/wiki/How-to:-AccuWeather-city-code'>How to: AccuWeather city code</a>", #code
-    { 
+    {
     'en': 'English',
     'es': 'Español',
     'fr': 'Français',
@@ -169,7 +169,7 @@ def wind_degree(s):
         'S': 270,
         'SSW': 293,
         'SW': 315,
-        'WSW': 338        
+        'WSW': 338
     }
     return wind_dict[s]
 
@@ -245,7 +245,7 @@ def get_weather():
         icon_now[0]='0'+icon_now[0]
     icon_now[0] = 'http://vortex.accuweather.com/adc2010/images/icons-numbered/'+icon_now[0]+'.png'
     icon_now[0] = convert(icon_now[0], icons_name)
-    
+
     # wind icon
     icon_wind_now = ['']
     try:
@@ -263,7 +263,6 @@ def get_weather():
     except:
         wind_direct_now = []
 
-    
     # weather text now
     text_now = re.findall('<div class="info"> <span class="cond">(.*)<', source)
     text_now[0]=text_now[0].split('<')[0]
@@ -323,7 +322,7 @@ def get_weather():
         int(date[0][:4])
         for i in range(len(date)):
             date[i]=date[i][5:]
-    except:    
+    except:
         for i in range(len(date)):
             date[i]=date[i][:-5]
 
@@ -376,7 +375,7 @@ def get_weather():
                 int(date2[0][:4])
                 for i in range(len(date2)):
                     date2[i]=date2[i][5:]
-            except:    
+            except:
                 for i in range(len(date2)):
                     date2[i]=date2[i][:-5]
             day.extend(day2)
@@ -410,11 +409,11 @@ def get_weather():
         w_day = urlopener('http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=2'%(city_id, city_number))
         if not w_day:
             return False
-        
+
         w_evening = urlopener('http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=2'%(city_id, city_number))
         if not w_evening:
             return False
-        
+
         t_tomorrow=[]
 
         t = re.findall('<span class="temp">(.?\d+)<', w_morning)
@@ -449,8 +448,7 @@ def get_weather():
         t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
         t_tomorrow.append(t[0])
 
-
-        t_tomorrow_low=[]
+        t_tomorrow_low = []
 
         t = re.findall('<span class="lo">Lo (.?\d+)<', w_morning)
         if t[0][0] not in ('+', '-', '0'):
@@ -484,8 +482,7 @@ def get_weather():
         t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
         t_tomorrow_low.append(t[0])
 
-        
-        icon_tomorrow=[]
+        icon_tomorrow = []
 
         i = re.findall('<div class="forecast">\s*<div class="icon (.*)"></div>', w_morning)
         i[0] = i[0][2:-2]
@@ -519,7 +516,6 @@ def get_weather():
         i[0] = convert(i[0], icons_name)
         icon_tomorrow.append(i[0])
 
-        
     if show_block_today:
         #### weather today ####
         w_night = urlopener('http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=1'%(city_id, city_number), 5)
@@ -533,12 +529,12 @@ def get_weather():
         w_day = urlopener('http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=1'%(city_id, city_number))
         if not w_day:
             return False
-        
+
         w_evening = urlopener('http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=1'%(city_id, city_number))
         if not w_evening:
             return False
-        
-        t_today=[]
+
+        t_today = []
 
         t = re.findall('<span class="temp">(.?\d+)<', w_morning)
         if t[0][0] not in ('+', '-', '0'):
@@ -572,8 +568,7 @@ def get_weather():
         t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
         t_today.append(t[0])
 
-
-        t_today_low=[]
+        t_today_low = []
 
         t = re.findall('<span class="lo">Lo (.?\d+)<', w_morning)
         if t[0][0] not in ('+', '-', '0'):
@@ -607,8 +602,7 @@ def get_weather():
         t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
         t_today_low.append(t[0])
 
-        
-        icon_today=[]
+        icon_today = []
 
         i = re.findall('<div class="forecast">\s*<div class="icon (.*)"></div>', w_morning)
         i[0] = i[0][2:-2]
@@ -642,7 +636,6 @@ def get_weather():
         i[0] = convert(i[0], icons_name)
         icon_today.append(i[0])
 
-    
     if time_update:
         print ('\033[34m>\033[0m '+_('updated on server')+' '+time_update[0]) 
     print ('\033[34m>\033[0m '+_('weather received')+' '+time.strftime('%H:%M', time.localtime()))

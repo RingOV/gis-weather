@@ -31,13 +31,13 @@ def add_plus(t):
 def convert_from_C(C, C_feel=None):
     if not C_feel:
         C_feel = C
-    return add_plus(C)+'°;'+add_plus(C_feel)+'°;'+C_to_F(C)+'°;'+C_to_F(C_feel)+'°;'+C_to_K(C)+';'+C_to_K(C_feel)
+    return add_plus(str(round(float(C))))+'°;'+add_plus(C_feel)+'°;'+C_to_F(C)+'°;'+C_to_F(C_feel)+'°;'+C_to_K(C)+';'+C_to_K(C_feel)
 
 
 def convert_from_F(F, F_feel=None):
     if not F_feel:
         F_feel = F
-    return add_plus(F_to_C(F))+'°;'+add_plus(F_to_C(F_feel))+'°;'+F_C+'°;'+F_C_feel+'°;'+F_to_K(F)+';'+F_to_K(F_feel)
+    return add_plus(F_to_C(F))+'°;'+add_plus(F_to_C(F_feel))+'°;'+str(round(float(F_C)))+'°;'+F_C_feel+'°;'+F_to_K(F)+';'+F_to_K(F_feel)
 
 
 # wind convert
@@ -88,6 +88,7 @@ def convert_from_mmHg(mmHg):
 
 def convert_from_hPa(hPa):
     return str(round(float(hPa)*0.75))+' mmHg;'+str(round(float(hPa)*0.0295))+' inHg;'+str(round(float(hPa)))+' hPa'
+
 
 def convert_from_inHg(inHg):
     return str(round(float(inHg)*25.4))+' mmHg;'+str(inHg)+' inHg;'+str(round(float(inHg)*33.86))+' hPa'

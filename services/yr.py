@@ -29,14 +29,17 @@ dict_icons = {
     "01d": "32.png",
     "02d": "30.png",
     "03d": "28.png",
+    "05d": "39.png",
     "04": "26.png",
     "01n": "31.png",
     "02n": "29.png",
     "03n": "27.png",
+    "05n": "45.png",
     "46": "09.png",
-    "09": "12.png",
     "40n": "45.png",
-    "40d": "39.png"
+    "40d": "39.png",
+    "09": "11.png",
+    "10": "12.png"
 }
 
 
@@ -47,7 +50,7 @@ def convert(icon, icons_name):
         try:
             icon_converted = dict_icons[os.path.split(icon)[1].split('.')[0]]
         except:
-            icon_converted = os.path.split(icon)[1]
+            icon_converted = os.path.split(icon)[1]+'.png'
     return 'http://symbol.yr.no/grafikk/sym/b38/'+icon+'.png;'+icon_converted
 
 
@@ -62,7 +65,7 @@ def get_city_name(city_id):
 
 
 def get_weather():
-    global city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain
+    global time_of_day_list, city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain
     n = gw_vars.get('n')
     city_id = gw_vars.get('city_id')
     icons_name = gw_vars.get('icons_name')
@@ -73,7 +76,10 @@ def get_weather():
     if not source:
         return False
 
-    #### current weather ####
+    latitude = re.findall('<location.*latitude="(.+?)"', source)
+    longitude = re.findall('<location.*longitude="(.+?)"', source)
+    URL_CURRENT = "http://api.yr.no/weatherapi/locationforecast/1.9/?lat=%s;lon=%s" %(latitude[0], longitude[0])
+
     # city
     city_name = re.findall('<name>(.+?)</name>', source)
 
@@ -97,23 +103,8 @@ def get_weather():
         icons[i] = convert(icons[i], icons_name)
     icon_now = [icons[0]]
 
-    # wind icon
-    icon_wind_now = re.findall('<windDirection.*deg="(.+?)"', source)
-    if icon_wind_now[0] == '0':
-        icon_wind_now[0] = 'None'
-    else:
-        icon_wind_now[0] = round(float(icon_wind_now[0]))+90
-
-    # update time
-    time_update = re.findall('<lastupdate>.*T(.+?)</lastupdate>', source)
-
     # weather text now
     text_now = re.findall('<symbol.*name="(.+?)"', source)
-
-    # pressure now
-    press_now = re.findall('<pressure unit="hPa" value="(.+?)"', source)
-    if press_now:
-        press_now[0] = convert_from_hPa(press_now[0])
 
     #### weather to several days ####
     # all days
@@ -142,8 +133,61 @@ def get_weather():
             wind_direct.append(wind_direct_now[i])
             pass
 
-    if time_update:
-        print('\033[34m>\033[0m '+_('updated on server')+' '+time_update[0])
+    #### today tomorrow weather ####
+    t_today = ['', '', '', '']
+    t_tomorrow = []
+    icon_today = ['', '', '', '']
+    icon_tomorrow = []
+    wind_speed_tod = ['', '', '', '']
+    wind_speed_tom = []
+    wind_direct_tod = ['', '', '', '']
+    wind_direct_tom = []
+    time_of_day_list = ( _('Night'), _('Morning'), _('Day'), _('Evening'))
+    a1 = ['0', '1', '2', '3']
+    a2 = ['0', '1', '2', '3']
+    for i in range(len(all_periods)):
+        if all_periods[i] in a1:
+            t_today[int(all_periods[i])] = temp[i]
+            icon_today[int(all_periods[i])] = icons[i]
+            wind_speed_tod[int(all_periods[i])] = wind_speed_now[i]
+            wind_direct_tod[int(all_periods[i])] = wind_direct_now[i]
+            if all_periods[i] == '3':
+                a1 = []
+        else:
+            if all_periods[i] in a2:
+                t_tomorrow.append(temp[i])
+                icon_tomorrow.append(icons[i])
+                wind_speed_tom.append(wind_speed_now[i])
+                wind_direct_tom.append(wind_direct_now[i])
+                if all_periods[i] == '3':
+                    break
+
+    #### current weather ####
+    source = urlopener(URL_CURRENT, 5)
+    if not source:
+        return False
+
+    # pressure now
+    press_now = re.findall('<pressure.*value="(.+?)"', source)
+    if press_now:
+        press_now[0] = convert_from_hPa(press_now[0])
+
+    hum_now = re.findall('<humidity value="(.+?)"', source)
+    hum_now[0] = str(round(float(hum_now[0])))
+
+    t_now = re.findall('<temperature.*unit="celsius" value="(.+?)"', source)
+    t_now[0] = convert_from_C(t_now[0])
+
+    wind_speed_now = re.findall('<windSpeed.*mps="(.+?)"', source)
+    wind_speed_now[0] = convert_from_ms(wind_speed_now[0])
+    wind_direct_now = re.findall('<windDirection.*name="(.+?)"', source)
+
+    icon_wind_now = re.findall('<windDirection.*deg="(.+?)"', source)
+    if icon_wind_now[0] == '0':
+        icon_wind_now[0] = 'None'
+    else:
+        icon_wind_now[0] = round(float(icon_wind_now[0]))+90
+
     print ('\033[34m>\033[0m '+_('weather received')+' '+time.strftime('%H:%M', time.localtime()))
 
     # write variables

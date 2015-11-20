@@ -9,9 +9,9 @@ import os
 
 
 data = [
-    "http://www.gismeteo.com", # url
-    "http://www.gismeteo.com/city/daily/<b>1234</b>", # example
-    "<b>1234</b>", #code
+    "http://www.gismeteo.com",  # url
+    "http://www.gismeteo.com/city/daily/<b>1234</b>",  # example
+    "<b>1234</b>",  # code
     {
         'com': 'English',
         'ru': 'Русский',
@@ -19,8 +19,8 @@ data = [
         'lv': 'Latvijas',
         'lt': 'Lietuviškai',
         'md/ro': 'Română'
-    }, # dict_weather_lang
-    ('com', 'ru', 'ua/ua', 'lv', 'lt', 'md/ro') # weather_lang_list
+    },  # dict_weather_lang
+    ('com', 'ru', 'ua/ua', 'lv', 'lt', 'md/ro')  # weather_lang_list
 ]
 max_days = 12
 need_appid = False
@@ -182,7 +182,7 @@ dict_icons = {
     "n.moon.c4.s2.st.png": "35.png",
     "n.moon.c4.s3.st.png": "35.png",
     "n.moon.c4.s4.st.png": "35.png",
-    
+
     "d.sun.c1.st.png": "38.png",
     "d.sun.c2.st.png": "38.png",
     "d.sun.c3.st.png": "38.png",
@@ -203,12 +203,14 @@ dict_icons = {
     "n.mist.r4.png": "21.png"
 }
 
+
 def convert(icon, icons_name):
     try:
         icon_converted = dict_icons[os.path.split(icon)[1]]
     except:
         icon_converted = os.path.split(icon)[1]
     return 'http://'+icon+';'+icon_converted
+
 
 def get_city_name(city_id):
     weather_lang = gw_vars.get('weather_lang')
@@ -220,8 +222,9 @@ def get_city_name(city_id):
         return 'None'
     return c_name[0]
 
+
 def get_weather():
-    global w, city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain, t_today_low, t_tomorrow_low
+    global time_of_day_list, w, city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain, t_today_low, t_tomorrow_low
     n = gw_vars.get('n')
     city_id = gw_vars.get('city_id')
     show_block_tomorrow = gw_vars.get('show_block_tomorrow')
@@ -238,7 +241,7 @@ def get_weather():
         return False
     #### current weather ####
     w_now = re.findall("type[A-Z].*wrap f_link", source, re.DOTALL)
-    
+
     # city
     city_name = re.findall('type[A-Z].*\">(.*)<', w_now[0])
 
@@ -262,7 +265,7 @@ def get_weather():
     # icon
     icon_now = re.findall('url\(.*?//(.*?/icons/.*?)\)', w_now[0])
     icon_now[0] = convert(icon_now[0], icons_name)
-    
+
     # wind icon
     icon_wind_now = re.findall('wind(\d)', w_now[0])
     if icon_wind_now[0] == '0':
@@ -272,24 +275,24 @@ def get_weather():
 
     # update time
     time_update = re.findall('data-hr.* (\d?\d:\d\d)\s*</span>', source, re.DOTALL)
-    
+
     # weather text now
     text_now = re.findall('title=\"(.*?)\"', w_now[0])
-    
+
     # pressure now
     press_now = re.findall('m_press torr\'>(\d+)<', w_now[0])
     if press_now:
         press_now[0] = convert_from_mmHg(press_now[0])
-    
+
     # humidity now
     hum_now = re.findall('wicon hum".*>(\d+)<span class="unit"', w_now[0])
-    
+
     # water temperature now
     try:
         t_water_now = t_now[1]+';'+str(int(C_to_F(t_now[1])))+';'+C_to_K(t_now[1])
     except:
         pass
-    
+
     #### weather to several days ####
     # all days
     w_all_list = re.findall('tbwdaily1.*?rframe wblock wdata', source, re.DOTALL)
@@ -308,7 +311,7 @@ def get_weather():
     t_night_feel = t_feel[::4]
     for i in range(len(t_night)):
         t_night[i] = convert_from_C(t_night[i], t_night_feel[i])
-    
+
     # day of week, date
     day = re.findall('weekday.>(.*?)<', source)
     date = re.findall('s_date.>(.*?)<', source)
@@ -318,17 +321,17 @@ def get_weather():
     t_day_feel = t_feel[2::4]
     for i in range(len(t_day)):
         t_day[i] = convert_from_C(t_day[i], t_day_feel[i])
-    
+
     # weather icon day
     icons_list = re.findall('src=\".*?//(.*?/icons/.*?)\"', w_all)
     icon = icons_list[2::4]
     for i in range(len(icon)):
         icon[i] = convert(icon[i], icons_name)
-    
+
     # wind icon
     icon_wind_list = re.findall('wind(\d)', w_all)
     icon_wind = icon_wind_list[2::4]
-    
+
     # wind
     wind_speed_list = re.findall('m_wind ms.>(\d+)', w_all)
     wind_speed = wind_speed_list[2::4]
@@ -345,6 +348,8 @@ def get_weather():
     text_list = re.findall('cltext.>(.*?)<', w_all)
     text = text_list[2::4]
 
+    time_of_day_list = ( _('Night'), _('Morning'), _('Day'), _('Evening'))
+
     if show_block_tomorrow:
         #### weather tomorrow ####
         try:
@@ -356,37 +361,25 @@ def get_weather():
             if timer_bool:
                 print ('\033[1;31m[!]\033[0m '+_('Next try in 10 seconds'))
             return False
-        
+
         # temperature
         t_tomorrow = t[4:8]
         t_tomorrow_feel = t_feel[4:8]
         for i in range(len(t_tomorrow)):
-            t_tomorrow[i] = t_tomorrow[i]+'°;'+t_tomorrow_feel[i]+'°;'+C_to_F(t_tomorrow[i])+'°;'+C_to_F(t_tomorrow_feel[i])+'°;'+C_to_K(t_tomorrow[i])+';'+C_to_K(t_tomorrow_feel[i])
-        a = t_tomorrow[0]
-        del t_tomorrow[0]
-        t_tomorrow.append(a)
+            t_tomorrow[i] = convert_from_C(t_tomorrow[i], t_tomorrow_feel[i])
         # weather icon
         icon_tomorrow = re.findall('src=\".*?//(.*?/icons/.*?)\"', w_tomorrow)
         for i in range(len(icon_tomorrow)):
             icon_tomorrow[i] = convert(icon_tomorrow[i], icons_name)
-        a = icon_tomorrow[0]
-        del icon_tomorrow[0]
-        icon_tomorrow.append(a)
         # wind
         wind_speed_tom = re.findall('m_wind ms.>(\d+)', w_tomorrow)
         if wind_speed_tom:
             for i in range(len(wind_speed_tom)):
                 wind_speed_tom[i] = convert_from_ms(wind_speed_tom[i])
-        a = wind_speed_tom[0]
-        del wind_speed_tom[0]
-        wind_speed_tom.append(a)
         wind_direct_tom = re.findall('>(.+)</dt', w_tomorrow)
         for i in range(len(wind_direct_tom)):
             wind_direct_tom[i] = wind_direct_tom[i].split('>')[-1]
-        a = wind_direct_tom[0]
-        del wind_direct_tom[0]
-        wind_direct_tom.append(a)
-        
+
     if show_block_today:
         #### weather today ####
         w_today = w_all_list[0]
@@ -394,33 +387,21 @@ def get_weather():
         t_today = t[0:4]
         t_today_feel = t_feel[0:4]
         for i in range(len(t_today)):
-            t_today[i] = t_today[i]+'°;'+t_today_feel[i]+'°;'+C_to_F(t_today[i])+'°;'+C_to_F(t_today_feel[i])+'°;'+C_to_K(t_today[i])+';'+C_to_K(t_today_feel[i])
-        a = t_today[0]
-        del t_today[0]
-        t_today.append(a)
+            t_today[i] = convert_from_C(t_today[i], t_today_feel[i])
         # weather icon
         icon_today = re.findall('src=\".*?//(.*?/icons/.*?)\"', w_today)
         for i in range(len(icon_today)):
             icon_today[i] = convert(icon_today[i], icons_name)
-        a = icon_today[0]
-        del icon_today[0]
-        icon_today.append(a)
         # wind
         wind_speed_tod = re.findall('m_wind ms.>(\d+)', w_today)
         if wind_speed_tod:
             for i in range(len(wind_speed_tod)):
                 wind_speed_tod[i] = convert_from_ms(wind_speed_tod[i])
-        a = wind_speed_tod[0]
-        del wind_speed_tod[0]
-        wind_speed_tod.append(a)
         wind_direct_tod = re.findall('>(.+)</dt', w_today)
         for i in range(len(wind_direct_tod)):
             wind_direct_tod[i] = wind_direct_tod[i].split('>')[-1]
-        a = wind_direct_tod[0]
-        del wind_direct_tod[0]
-        wind_direct_tod.append(a)
     ########
-    
+
     if time_update:
         print ('\033[34m>\033[0m '+_('updated on server')+' '+time_update[0]) 
     print ('\033[34m>\033[0m '+_('weather received')+' '+time.strftime('%H:%M', time.localtime()))
@@ -429,4 +410,3 @@ def get_weather():
     for i in w.keys():
         w[i] = globals()[i]
     return w
-    
