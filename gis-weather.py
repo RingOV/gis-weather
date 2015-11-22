@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 #  gis_weather.py
-v = '0.7.9.8'
+v = '0.7.9.9'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -99,10 +99,10 @@ presets.save_to_file(CONFIG_PATH)
 
 # Default values
 gw_config_default = {
-    'angel': 0,                        # angle of clockwise rotation in degrees 
+    'angel': 0,                        # angle of clockwise rotation in degrees
     'city_id': 0,                      # location code
     'appid': '',                       # api key
-    'upd_time': 30,                    # Update by (in minutes) 
+    'upd_time': 30,                    # Update by (in minutes)
     'n': 7,                            # Display days
     'x_pos': 60,                       # left position
     'y_pos': 60,                       # top position
@@ -115,7 +115,7 @@ gw_config_default = {
     'color_shadow': (1, 1, 1, 0.7),    # color shadow
     'draw_shadow': True,               # draw shadow
     'opacity': 1,                      # opacity window
-    'show_time_receive': True,         # time of receipt of weather 
+    'show_time_receive': True,         # time of receipt of weather
     'show_block_wind_direct': True,    # block wind direct
     'block_wind_direct_left': -170,    # position
     'wind_direct_small': False,        # small block wind direct
@@ -132,7 +132,7 @@ gw_config_default = {
     'show_bg_png': True,               # picture in background
     'bg_custom': 'Light50',            # this picture
     'margin': 20,                      # inside padding
-    'high_wind': 10,                   # wind greater or equal to this value is highlighted (-1 do not allocate) 
+    'high_wind': 10,                   # wind greater or equal to this value is highlighted (-1 do not allocate)
     'color_high_wind': (0, 0, 0.6, 1), # color
     'icons_name': 'default',           # name folder with icon
     'fix_BadDrawable': False,           # if BadDrawable error
@@ -171,7 +171,7 @@ gw_config_default = {
     'save_cur_icon': False,
     'save_cur_data_path': '',
     # customizable options
-    'preset_number':0,
+    'preset_number': 0,
     'bg_left': 0,
     'bg_top': 0,
     'bg_width': -1,
@@ -200,16 +200,16 @@ gw_config_default = {
     'block_tomorrow_top': 0,
     'block_wind_direct_small_top': 0,
     'splash_block_top': 0,
-    'desc_style': 0, # 0 - Normal, 1 - Italic
+    'desc_style': 0,  # 0 - Normal, 1 - Italic
     # day icon customization
-    'day_icon_attr': {'x':30, 'y':16, 'size':36, 'show':True},
+    'day_icon_attr': {'x': 30, 'y': 16, 'size': 36, 'show': True},
     'day_date_fmt': '{day}, {date}',
-    'day_date_attr': {'x':0, 'y':-2, 'font_weight':' Bold', 'font_size':9, 'align':'left', 'show':True},
+    'day_date_attr': {'x': 0, 'y': -2, 'font_weight': ' Bold', 'font_size': 9, 'align': 'left', 'show': True},
     't_fmt': '{t_day}\n{t_night}',
-    't_attr': {'x':0, 'y':15, 'font_weight':' Normal', 'font_size':10, 'align':'left', 'show':True},
+    't_attr': {'x': 0, 'y': 15, 'font_weight': ' Normal', 'font_size': 10, 'align': 'left', 'show': True},
     'wind_fmt': '{wind_direct}, {wind_speed}',
-    'wind_attr': {'x':0, 'y':50, 'font_weight':' Normal', 'font_size':8, 'align':'left', 'show':True},
-    'text_attr': {'x':0, 'y':55, 'font_size':7, 'align':'left', 'show':True},
+    'wind_attr': {'x': 0, 'y': 50, 'font_weight': ' Normal', 'font_size': 8, 'align': 'left', 'show': True},
+    'text_attr': {'x': 0, 'y': 55, 'font_size': 7, 'align': 'left', 'show': True},
     # now icon customization
     'city_name_attr': {'x':0, 'y':0, 'font_weight':' Bold', 'font_size':14, 'align':'center', 'show':True},
     'text_now_attr': {'x':0, 'y':0, 'font_weight':' Normal', 'font_size':10, 'align':'center', 'show':True},
@@ -828,10 +828,10 @@ class MyDrawArea(Gtk.DrawingArea):
         self.draw_bg(cr, bg_left, bg_top, bg_width, bg_height)
         self.cr.fill()
         self.draw_weather_icon_now(cr, 0, 20 + margin)
-        
+
         for i in range(1, n+1):
-            self.draw_weather_icon(cr, i, block_icons_left + margin + block_margin + (i-1)*w_block + (i-1)*block_h_offset, block_icons_top + height-h_block-10 - margin)
-        
+            self.draw_weather_icon(cr, i, -8+block_icons_left + margin + block_margin + (i-1)*w_block + (i-1)*block_h_offset, block_icons_top + height-h_block-10 - margin)
+
 
     def draw_weather_icon_now(self, cr, x, y):
         if date != []:
@@ -992,7 +992,7 @@ class MyDrawArea(Gtk.DrawingArea):
                 b = 53
                 b_width = a+60
                 ###############################
-                
+
                 x0 = center + left
                 y0 = top
                 if not time_of_day_list:
@@ -1009,9 +1009,9 @@ class MyDrawArea(Gtk.DrawingArea):
                         self.draw_text(cr, t_today[i].split(';')[t_index], x0+a*((j+1)//2), y0+11+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
                     if t_today_low:
                         self.draw_text(cr, t_today_low[i].split(';')[t_index], x0+a*((j+1)//2)+2, y0+22+b*(i//2), font+' Normal', 7, 50,Pango.Alignment.LEFT)
-                    try:
+                    if icon_today[i]:
                         self.draw_scaled_icon(cr, x0+32+a*((j+1)//2), y0+b*(i//2), icon_today[i], 28, 28)
-                    except:
+                    else:
                         self.draw_scaled_icon(cr, x0+32+a*((j+1)//2), y0+b*(i//2), 'na.png;na.png', 28, 28)
                     if (wind_direct_tod and wind_speed_tod):
                         try:
@@ -1021,6 +1021,7 @@ class MyDrawArea(Gtk.DrawingArea):
                                 self.draw_text(cr, wind_direct_tod[i]+', '+wind_speed_tod[i].split(';')[wind_units].split()[0]+' '+wind_speed_tod[i].split(';')[wind_units].split()[-1], x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 64,Pango.Alignment.LEFT)
                         except:
                             pass
+
     def find_icon(self, icon):
         for ext in ('png', 'svgz', 'svg'):
             if os.path.exists(os.path.join(ICONS_USER_PATH, icons_name, '.'.join([icon, ext]))):
@@ -1053,8 +1054,7 @@ class MyDrawArea(Gtk.DrawingArea):
                 _wind_speed = wind_speed[index].split(';')[wind_units].split()[0]+' '+wind_speed[index].split(';')[wind_units].split()[-1]
             _text = text[index]
 
-
-            self.draw_scaled_icon(cr, x+day_icon_attr['x'], y+day_icon_attr['y'], icon[index], 
+            self.draw_scaled_icon(cr, x+day_icon_attr['x'], y+day_icon_attr['y'], icon[index],
                     day_icon_attr['size'], day_icon_attr['size'])
             if day:
                 s = day_date_fmt.format(day=_day, date=_date)
@@ -1077,46 +1077,10 @@ class MyDrawArea(Gtk.DrawingArea):
             if text_attr['show']: self.draw_text(cr, text[index], x+text_attr['x'], y+text_attr['y']+v_offset, font+desc_list[desc_style],
                     text_attr['font_size'], w_block, Pango_dict[text_attr['align']])
 
-
-            # try:
-            #     a = 30
-            #     self.draw_scaled_icon(cr, x+a, y+16, icon[index], 36, 36)
-            #     s=''
-            #     if date:
-            #         s=', '+date[index]
-            #     if day:
-            #         s = '{day}, {date}'.format(day=day[index], date=date[index])
-            #         weekend1 = []
-            #         for item in weekend.split(','):
-            #             weekend1.append(item.strip())
-            #         if day[index] in weekend1:
-            #             self.draw_text(cr, s, x, y-2, font+' Bold', 9, w_block,Pango.Alignment.LEFT, color_text_week)
-            #         else:
-            #             self.draw_text(cr, s, x, y-2, font+' Bold', 9, w_block,Pango.Alignment.LEFT)
-            #     cr.set_source_rgba(color_text[0], color_text[1], color_text[2], color_text[3])
-            #     t_index = t_scale*2
-            #     if t_feel:
-            #         t_index += 1
-            #     self.draw_text(cr, t_day[index].split(';')[t_index], x, y+15, font+' Normal', 10, w_block-45,Pango.Alignment.LEFT)
-            #     self.draw_text(cr, t_night[index].split(';')[t_index], x, y+30, font+' Normal', 8, w_block-45,Pango.Alignment.LEFT)
-            #     if chance_of_rain and show_chance_of_rain:
-            #         self.draw_text(cr, chance_of_rain[index], x+30, y+9, font+' Normal', 7, 36,Pango.Alignment.CENTER)
-
-            #     if (wind_direct and wind_speed): 
-            #         if int(wind_speed[index].split(';')[wind_units].split()[0]) >= high_wind and high_wind != -1:
-            #             self.draw_text(cr, wind_direct[index]+', '+wind_speed[index].split(';')[wind_units].split()[0]+' '+wind_speed[index].split(';')[wind_units].split()[-1], x, y+50, font+' Normal', 8, 80,Pango.Alignment.LEFT, color_high_wind)
-            #         else:
-            #             self.draw_text(cr, wind_direct[index]+', '+wind_speed[index].split(';')[wind_units].split()[0]+' '+wind_speed[index].split(';')[wind_units].split()[-1], x, y+50, font+' Normal', 8, 80,Pango.Alignment.LEFT)
-            #         if text: self.draw_text(cr, text[index], x, y+65, font+desc_list[desc_style], 7, w_block, Pango.Alignment.LEFT)
-            #     else:
-            #         if text: self.draw_text(cr, text[index], x, y+55, font+desc_list[desc_style], 7, w_block, Pango.Alignment.LEFT)
-            # except:
-            #     pass
-
     def draw_bg_l_c_r(self, cr, path, l, t, w, h, ext):
         self.draw_scaled_image(cr, l, t, os.path.join(path, "l.%s"%ext), 60, h)
         self.draw_scaled_image(cr, l+60, t, os.path.join(path, "c.%s"%ext), w-120, h)
-        self.draw_scaled_image(cr, l+w-60, t, os.path.join(path, "r.%s"%ext), 60, h)        
+        self.draw_scaled_image(cr, l+w-60, t, os.path.join(path, "r.%s"%ext), 60, h)
 
     def draw_bg_png_svg(self, cr, path, l, t, w, h):
         if os.path.exists(os.path.join(path, "%s.png"%bg_custom)):
@@ -1236,7 +1200,7 @@ class MyDrawArea(Gtk.DrawingArea):
         cr.restore()
 
     def draw_scaled_icon(self, cr, x, y, pix, w, h, indicator_icon_name=False):
-        icons_name1 = icons_name    
+        icons_name1 = icons_name
         if indicator_icon_name:
             global pix_path
             icons_name1 = indicator_icon_name
@@ -1245,11 +1209,11 @@ class MyDrawArea(Gtk.DrawingArea):
             pix_path = os.path.join(ICONS_USER_PATH, 'default', 'weather', os.path.split(pix)[1])
             if not os.path.exists(pix_path):
                 try:
-                    print ('\033[34m>\033[0m '+_('downloading')+' '+os.path.split(pix)[1]+' ('+pix+')')
+                    print ('\033[34m>\033[0m '+_('downloading')+' '+os.path.split(pix)[1])
                     urlretrieve(pix, pix_path)
                     print ('OK')
                 except:
-                    print (_('Unable to download')+' '+pix)
+                    print (_('Unable to download')+'\n'+pix)
                 if not os.path.exists(pix_path):
                     pix_path = os.path.join(THEMES_PATH, 'na.png')
                 if not indicator_icon_name:
@@ -1261,8 +1225,7 @@ class MyDrawArea(Gtk.DrawingArea):
         else:
             pix = pix.split(';')[1]
             pix_path = os.path.join(ICONS_PATH, icons_name1, 'weather', pix)
-            
-            
+
             if not os.path.exists(pix_path):
                 pix_path = pix_path[:-3]+'svg'
                 if not os.path.exists(pix_path):

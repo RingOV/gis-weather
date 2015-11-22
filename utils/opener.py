@@ -24,4 +24,3 @@ def urlopener(url, tries=1):
             print(str(i+1))
     print ('\033[1;31m[!]\033[0m '+_('Unable to download page, check the network connection'))
     return None
-

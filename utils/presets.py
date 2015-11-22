@@ -64,7 +64,7 @@ list = [
         'bg_top': 80,#38,
         'bg_width': -1,
         'bg_height': 185,
-        'block_icons_left': 199,
+        'block_icons_left': 205,
         'block_icons_top': -1,
         'day_top': -75,
         'height_fix': -95,
