@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 #  gis_weather.py
-v = '0.7.9.9'
+v = '0.7.9.10'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -289,6 +289,10 @@ if not os.path.exists(CONFIG_PATH_FILE):
                 Save_Config()
         else:
             shutil.copy(os.path.join(CONFIG_PATH, 'gw_config%s.json'%str(INSTANCE_NO-1)), CONFIG_PATH_FILE)
+            g_load = json.load(open(CONFIG_PATH_FILE))
+            g_load['x_pos'] = g_load['x_pos'] - 20
+            g_load['y_pos'] = g_load['y_pos'] + 20
+            json.dump(g_load, open(CONFIG_PATH_FILE, "w"), sort_keys=True, indent=4, separators=(', ', ': '))
 # load config
 Load_Config()
 def Load_Color_Scheme(number = 0):
@@ -1383,6 +1387,8 @@ class Weather_Widget:
 
     def menu_response(self, widget, event, value=None):
         global service
+        if event == 'start_new_instance':
+            subprocess.Popen(['python3', os.path.join(APP_PATH, 'gis-weather.py')])
         if event == 'load_preset':
             Load_Preset(value)
             self.set_window_properties()

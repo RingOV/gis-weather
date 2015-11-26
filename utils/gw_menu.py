@@ -183,6 +183,14 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color
     menu_items.connect("activate", app.menu_response, 'reload', 0)
     menu_items.show()
 
+    menu_items = Gtk.ImageMenuItem(_('Start new instance'))
+    image = Gtk.Image()
+    image.set_from_stock(Gtk.STOCK_ADD, Gtk.IconSize.MENU)
+    menu_items.set_image(image)
+    menu.append(menu_items)
+    menu_items.connect("activate", app.menu_response, 'start_new_instance', 0)
+    menu_items.show()
+
     menu_items = Gtk.SeparatorMenuItem()
     menu.append(menu_items)
     menu_items.show()
