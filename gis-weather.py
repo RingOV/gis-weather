@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 #  gis_weather.py
-v = '0.7.9.10'
+v = '0.7.9.11'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -1388,7 +1388,8 @@ class Weather_Widget:
     def menu_response(self, widget, event, value=None):
         global service
         if event == 'start_new_instance':
-            subprocess.Popen(['python3', os.path.join(APP_PATH, 'gis-weather.py')])
+            if multInstances:
+                subprocess.Popen(['python3', os.path.join(APP_PATH, 'gis-weather.py')])
         if event == 'load_preset':
             Load_Preset(value)
             self.set_window_properties()

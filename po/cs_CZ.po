@@ -1,18 +1,17 @@
 # 
 # Translators:
-# Herman Thorze <thorze@yandex.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2015-11-26 19:53+0300\n"
 "PO-Revision-Date: 2015-11-26 16:59+0000\n"
 "Last-Translator: Alexander Koltsov <ringov@mail.ru>\n"
-"Language-Team: Hungarian (http://www.transifex.com/gis-weather-team/gis-weather/language/hu/)\n"
+"Language-Team: Czech (Czech Republic) (http://www.transifex.com/gis-weather-team/gis-weather/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hu\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: cs_CZ\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Poedit 1.6.10\n"
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
@@ -36,398 +35,398 @@ msgid ""
 "\n"
 "You can find the full text of the license under\n"
 "http://www.gnu.org/licenses/gpl.txt"
-msgstr "Ez a program szabad szoftver: szabadon terjeszthető és / vagy módosítható\nez alatt a GNU General Public License által közzétett\nA Free Software Foundation, vagy 3-as verzióját a licenc, vagy\n(tetszőleges) későbbi változata szerint.\n\nEz a program abban a reményben készült , hogy hasznos lesz,\nde GARANCIA NÉLKÜL; anélkül, hogy azt sem állítjuk,\nKÖZREADÁSRA vagy ADOTT CÉLRA. lásd a\nGNU General Public License-et további részletekért.\n\nItt található a teljes szöveg az engedély alapján  http://www.gnu.org/licenses/gpl.txt"
+msgstr ""
 
 #: dialogs/about_dialog.py:25 utils/autorun.py:72 utils/desktop.py:23
 msgid "Weather widget"
-msgstr "Időjárás kisalkalmazás "
+msgstr ""
 
 #: dialogs/about_dialog.py:31
 msgid "Help and Ideas"
-msgstr "Segítség és ötletek"
+msgstr ""
 
 #: dialogs/about_dialog.py:38
 msgid "Backgrounds"
-msgstr "Háttér"
+msgstr ""
 
 #: dialogs/about_dialog.py:43 utils/gw_menu.py:209
 #: dialogs/settings_dialog.ui:3836 dialogs/settings_dialog.ui:4347
 msgid "Icons"
-msgstr "Ikonok"
+msgstr ""
 
 #: dialogs/about_dialog.py:57
 msgid "translator-credits"
-msgstr "thorze@yandex.com"
+msgstr ""
 
 #: dialogs/city_id_dialog.py:33 gis-weather.py:274
 msgid "Error loading config file"
-msgstr "Hiba a konfigurációs fájlok betöltésénél"
+msgstr ""
 
 #: dialogs/city_id_dialog.py:71
 msgid "Choose your city on"
-msgstr "Válassz várost"
+msgstr ""
 
 #: dialogs/city_id_dialog.py:72
 msgid "and copy the city code below"
-msgstr "és másold be a kódját"
+msgstr ""
 
 #: dialogs/city_id_dialog.py:73
 msgid "For example"
-msgstr "Például"
+msgstr ""
 
 #: dialogs/city_id_dialog.py:74 dialogs/city_id_dialog.ui:414
 msgid "City code"
-msgstr "A város kódja"
+msgstr ""
 
 #: dialogs/city_id_dialog.py:116 utils/gw_menu.py:198
 #: dialogs/city_id_dialog.ui:42 dialogs/settings_dialog.ui:614
 msgid "Location"
-msgstr "Helyzet"
+msgstr ""
 
 #: dialogs/city_id_dialog.py:150
 msgid "Code"
-msgstr "Kód"
+msgstr ""
 
 #: dialogs/city_id_dialog.py:154
 msgid "Place"
-msgstr "Hely"
+msgstr ""
 
 #: dialogs/help_dialog.py:13 dialogs/update_dialog.py:44
 msgid "Go to link"
-msgstr "Ugrás a címre"
+msgstr ""
 
 #: dialogs/help_dialog.py:16 dialogs/update_dialog.py:47
 #: dialogs/help_dialog.ui:76 dialogs/update_dialog.ui:318
 msgid "Send email"
-msgstr "eMail küldés"
+msgstr ""
 
 #: dialogs/help_dialog.py:28 utils/gw_menu.py:242
 msgid "Help"
-msgstr "Segítség"
+msgstr ""
 
 #: dialogs/settings_dialog.py:101 dialogs/settings_dialog.py:765
 #: utils/gw_menu.py:234
 msgid "Preferences"
-msgstr "Beállítások"
+msgstr ""
 
 #: dialogs/settings_dialog.py:420 utils/convert.py:61 utils/convert.py:65
 msgid "m/s"
-msgstr "m/s"
+msgstr ""
 
 #: dialogs/settings_dialog.py:420 utils/convert.py:45 utils/convert.py:81
 msgid "km/h"
-msgstr "km/ó"
+msgstr ""
 
 #: dialogs/settings_dialog.py:420 utils/convert.py:49 utils/convert.py:69
 msgid "mph"
-msgstr "mérföld"
+msgstr ""
 
 #: dialogs/settings_dialog.py:420
 msgid "Beaufort scale"
-msgstr "Beaufort-skála"
+msgstr ""
 
 #: dialogs/settings_dialog.py:420
 msgid "Knots"
-msgstr "Csomó"
+msgstr ""
 
 #: dialogs/settings_dialog.py:421
 msgid "mmHg"
-msgstr "Hgmm"
+msgstr ""
 
 #: dialogs/settings_dialog.py:421
 msgid "inHg"
-msgstr "inHg"
+msgstr ""
 
 #: dialogs/settings_dialog.py:421
 msgid "hPa"
-msgstr "Légnyomás"
+msgstr ""
 
 #: dialogs/settings_dialog.py:424
 msgid "Never"
-msgstr "Soha"
+msgstr ""
 
 #: dialogs/settings_dialog.py:425
 msgid "Only at start"
-msgstr "Csak indításkor"
+msgstr ""
 
 #: dialogs/settings_dialog.py:426
 msgid "Always"
-msgstr "Mindig"
+msgstr ""
 
 #: dialogs/settings_dialog.py:429 utils/gw_menu.py:112
 msgid "No"
-msgstr "Nem"
+msgstr ""
 
 #: dialogs/settings_dialog.py:430
 msgid "Only background"
-msgstr "Csak háttér"
+msgstr ""
 
 #: dialogs/settings_dialog.py:431
 msgid "Yes"
-msgstr "Igen"
+msgstr ""
 
 #: dialogs/settings_dialog.py:546 dialogs/settings_dialog.py:548
 #: dialogs/settings_dialog.py:563 dialogs/settings_dialog.py:565
 #: dialogs/settings_dialog.py:580 dialogs/settings_dialog.py:582
 msgid "Author"
-msgstr "Szerző"
+msgstr ""
 
 #: dialogs/update_dialog.py:27 utils/opener.py:17 dialogs/update_dialog.ui:561
 msgid "Downloading"
-msgstr "Letöltés"
+msgstr ""
 
 #: dialogs/update_dialog.py:60
 msgid "Update"
-msgstr "Frissítés"
+msgstr ""
 
 #: dialogs/update_dialog.py:88
 msgid "Current version"
-msgstr "Aktuális verzió"
+msgstr ""
 
 #: dialogs/update_dialog.py:89
 msgid "Available new version"
-msgstr "Új verzió elérhető"
+msgstr ""
 
 #: dialogs/update_dialog.py:112
 msgid "Error downloading updates"
-msgstr "Hiba a frissítés letöltésekor"
+msgstr ""
 
 #: dialogs/update_dialog.py:147
 msgid "Error installing updates"
-msgstr "Hiba a frissítés telepítésekor"
+msgstr ""
 
 #: dialogs/update_dialog.py:151 dialogs/update_dialog.ui:575
 msgid "Installation"
-msgstr "Telepítés"
+msgstr ""
 
 #: dialogs/update_dialog.py:159
 msgid "Error removing"
-msgstr "Hiba az eltávolításkor"
+msgstr ""
 
 #: gis-weather.py:42
 msgid "Running multiple instances is not supported"
-msgstr "Több példány futtatása nem támogatott"
+msgstr ""
 
 #: gis-weather.py:47
 msgid "number of instances"
-msgstr "Példányok száma"
+msgstr ""
 
 #: gis-weather.py:258 dialogs/settings_dialog.ui:671
 msgid "Configuration folder"
-msgstr "Beállítások mappa "
+msgstr ""
 
 #: gis-weather.py:305
 msgid "Error loading color scheme"
-msgstr "Hiba a színséma betöltésénél "
+msgstr ""
 
 #: gis-weather.py:320
 msgid "Error loading preset"
-msgstr "Hiba a beállítások betöltésénél"
+msgstr ""
 
 #: gis-weather.py:330
 msgid "Enter full path to script"
-msgstr "Teljes útvonal megadása a szkripthez"
+msgstr ""
 
 #: gis-weather.py:331
 msgid "Exit"
-msgstr "Befejezés"
+msgstr ""
 
 #: gis-weather.py:436
 msgid "Check for new version"
-msgstr "Új verzió ellenörzés"
+msgstr ""
 
 #: gis-weather.py:441 gis-weather.py:450
 msgid "Unable to check for updates"
-msgstr "Frissítés ellenőrzése érvénytelen"
+msgstr ""
 
 #: gis-weather.py:465
 msgid "New version available"
-msgstr "Új verzió érhető el"
+msgstr ""
 
 #: gis-weather.py:472
 msgid "You are using the latest version"
-msgstr "A legfrissebb verziót használod"
+msgstr ""
 
 #: gis-weather.py:489 gis-weather.py:1323
 msgid "Screenshot saved to"
-msgstr "Képernyő fotó mentve"
+msgstr ""
 
 #: gis-weather.py:493
 msgid "Unable to get the screenshot"
-msgstr "Képernyőfotó nem készíthető"
+msgstr ""
 
 #: gis-weather.py:670
 msgid "Getting weather..."
-msgstr "Időjárási adatok lekérdezése..."
+msgstr ""
 
 #: gis-weather.py:673
 msgid "Error getting weather"
-msgstr "Hiba az időjárási adatok lekérdezésénél..."
+msgstr ""
 
 #: gis-weather.py:675
 msgid "Location not set"
-msgstr "Hely nincs megadva"
+msgstr ""
 
 #: gis-weather.py:732 gis-weather.py:794
 msgid "Next update in"
-msgstr "Következő frissítés "
+msgstr ""
 
 #: gis-weather.py:732 gis-weather.py:794
 msgid "min"
-msgstr "perc"
+msgstr ""
 
 #: gis-weather.py:768 services/gismeteo.py:362
 msgid "Next try in 10 seconds"
-msgstr "Következő próbálkozás 10 mp múlva"
+msgstr ""
 
 #: gis-weather.py:784
 msgid "Connection error"
-msgstr "Csatlakozási hiba"
+msgstr ""
 
 #: gis-weather.py:869
 msgid "Updated on server"
-msgstr "Időjárási adatok frissítése a szerveren"
+msgstr ""
 
 #: gis-weather.py:870
 msgid "Weather received"
-msgstr "Időjárási adatok frissítve"
+msgstr ""
 
 #: gis-weather.py:907
 msgid "E"
-msgstr "K"
+msgstr ""
 
 #: gis-weather.py:907
 msgid "S"
-msgstr "D"
+msgstr ""
 
 #: gis-weather.py:907
 msgid "W"
-msgstr "Ny"
+msgstr ""
 
 #: gis-weather.py:907
 msgid "N"
-msgstr "É"
+msgstr ""
 
 #: gis-weather.py:943
 msgid "humid."
-msgstr "Pára."
+msgstr ""
 
 #: gis-weather.py:946
 msgid "water"
-msgstr "Eső"
+msgstr ""
 
 #: gis-weather.py:961 gis-weather.py:1003 services/gismeteo.py:351
 #: services/yr.py:145
 msgid "Morning"
-msgstr "Reggel"
+msgstr ""
 
 #: gis-weather.py:961 gis-weather.py:1003 services/gismeteo.py:351
 #: services/yr.py:145
 msgid "Day"
-msgstr "Nappal"
+msgstr ""
 
 #: gis-weather.py:961 gis-weather.py:1003 services/gismeteo.py:351
 #: services/yr.py:145
 msgid "Evening"
-msgstr "Este"
+msgstr ""
 
 #: gis-weather.py:961 gis-weather.py:1003 services/gismeteo.py:351
 #: services/yr.py:145
 msgid "Night"
-msgstr "Éjjel"
+msgstr ""
 
 #: gis-weather.py:966 gis-weather.py:968
 msgid "Tomorrow"
-msgstr "Holnap"
+msgstr ""
 
 #: gis-weather.py:1007
 msgid "Today"
-msgstr "Ma"
+msgstr ""
 
 #: gis-weather.py:1152
 msgid "Background image not found"
-msgstr "Háttérkép nem található"
+msgstr ""
 
 #: gis-weather.py:1216
 msgid "downloading"
-msgstr "Letöltés"
+msgstr ""
 
 #: gis-weather.py:1220
 msgid "Unable to download"
-msgstr "Érvénytelen letöltés"
+msgstr ""
 
 #: gis-weather.py:1244
 msgid "Icon not found"
-msgstr "Ikon nem található"
+msgstr ""
 
 #: gis-weather.py:1334
 msgid "Widget size"
-msgstr "Felületi elem mérete"
+msgstr ""
 
 #: gis-weather.py:1335
 msgid "width"
-msgstr "szélesség"
+msgstr ""
 
 #: gis-weather.py:1335
 msgid "height"
-msgstr "magasság"
+msgstr ""
 
 #: gis-weather.py:1335
 msgid "including indent"
-msgstr "sorbehúzással"
+msgstr ""
 
 #: gis-weather.py:1528
 msgid "Removed"
-msgstr "Törölve"
+msgstr ""
 
 #: gis-weather.py:1561 dialogs/city_id_dialog.ui:361
 msgid "Added"
-msgstr "Hozzáadva"
+msgstr ""
 
 #: gis-weather.py:1566 dialogs/city_id_dialog.ui:293
 msgid "Invalid location code"
-msgstr "Érvénytelen helyzet kód"
+msgstr ""
 
 #: gis-weather.py:1634
 msgid "Your screen does not support alpha"
-msgstr "A képernyő nem támogatja az alfát"
+msgstr ""
 
 #: gis-weather.py:1636
 msgid "Your screen supports alpha"
-msgstr "A képernyő  támogatja az alfát"
+msgstr ""
 
 #: services/accuweather.py:13
 msgid "If the city code is wrong, please read"
-msgstr " Ha a város kód hibás, kérjük, olvasd el"
+msgstr ""
 
 #: services/accuweather.py:194 services/gismeteo.py:221
 #: services/openweathermap.py:88 services/yr.py:62
 msgid "Failed to get the name of the location"
-msgstr "A hely nem található"
+msgstr ""
 
 #: services/accuweather.py:216 services/gismeteo.py:237
 #: services/openweathermap.py:117 services/yr.py:73
 msgid "Getting weather for"
-msgstr "Időjárási adatok lekérdezése..."
+msgstr ""
 
 #: services/accuweather.py:216 services/gismeteo.py:237
 #: services/openweathermap.py:117 services/yr.py:73
 msgid "days"
-msgstr "Napok"
+msgstr ""
 
 #: services/accuweather.py:257
 msgid "Calm"
-msgstr "Szélcsend"
+msgstr ""
 
 #: services/accuweather.py:640 services/gismeteo.py:406
 #: services/openweathermap.py:312
 msgid "updated on server"
-msgstr "Időjárási adatok frissítve a szerveren"
+msgstr ""
 
 #: services/accuweather.py:641 services/gismeteo.py:407
 #: services/openweathermap.py:313 services/yr.py:191
 msgid "weather received"
-msgstr "Időjárás jelentés"
+msgstr ""
 
 #: services/openweathermap.py:14
 msgid "How to get"
@@ -435,47 +434,47 @@ msgstr ""
 
 #: utils/convert.py:53 utils/convert.py:73
 msgid "bft"
-msgstr "btf"
+msgstr ""
 
 #: utils/convert.py:57 utils/convert.py:77
 msgid "kts"
-msgstr "kts"
+msgstr ""
 
 #: utils/gw_menu.py:53 dialogs/settings_dialog.ui:682
 msgid "Setup..."
-msgstr "Beállítások..."
+msgstr ""
 
 #: utils/gw_menu.py:127
 msgid "Black"
-msgstr "Fekete"
+msgstr ""
 
 #: utils/gw_menu.py:127
 msgid "White"
-msgstr "Fehér"
+msgstr ""
 
 #: utils/gw_menu.py:127
 msgid "Gray"
-msgstr "Szűrke"
+msgstr ""
 
 #: utils/gw_menu.py:137 dialogs/settings_dialog.ui:1754
 msgid "Lock position"
-msgstr "Pozíció rögzítése"
+msgstr ""
 
 #: utils/gw_menu.py:143 dialogs/settings_dialog.ui:1739
 msgid "On all desktops"
-msgstr "Az összes asztalon"
+msgstr ""
 
 #: utils/gw_menu.py:153
 msgid "Save screenshot"
-msgstr "Képernyőfotó mentése"
+msgstr ""
 
 #: utils/gw_menu.py:169
 msgid "Show/Hide widget"
-msgstr "Felületi elem mutatása/elrejtése"
+msgstr ""
 
 #: utils/gw_menu.py:178 dialogs/settings_dialog.ui:937
 msgid "Refresh"
-msgstr "Frissítés"
+msgstr ""
 
 #: utils/gw_menu.py:186
 msgid "Start new instance"
@@ -483,380 +482,380 @@ msgstr ""
 
 #: utils/gw_menu.py:204
 msgid "Indicator icons"
-msgstr "Kijelző ikonok"
+msgstr ""
 
 #: utils/gw_menu.py:214 dialogs/settings_dialog.ui:3742
 msgid "Background"
-msgstr "Háttér"
+msgstr ""
 
 #: utils/gw_menu.py:219 dialogs/settings_dialog.ui:3453
 msgid "Text"
-msgstr "Szöveg"
+msgstr ""
 
 #: utils/gw_menu.py:224 dialogs/settings_dialog.ui:1958
 msgid "Window"
-msgstr "Ablak"
+msgstr ""
 
 #: utils/gw_menu.py:229
 msgid "Presets"
-msgstr "Bemutatkozás"
+msgstr ""
 
 #: utils/gw_menu.py:250
 msgid "About"
-msgstr "Rólam"
+msgstr ""
 
 #: utils/gw_menu.py:262 dialogs/help_dialog.ui:25
 #: dialogs/settings_dialog.ui:569 dialogs/update_dialog.ui:44
 msgid "Close"
-msgstr "Bezár"
+msgstr ""
 
 #: utils/opener.py:25
 msgid "Unable to download page, check the network connection"
-msgstr "Nem lehet betölteni az oldalt, ellenőrizd a hálózati kapcsolatod"
+msgstr ""
 
 #: dialogs/city_id_dialog.ui:58
 msgid "Add"
-msgstr "Hozzáad"
+msgstr ""
 
 #: dialogs/city_id_dialog.ui:72
 msgid ""
 "Close & Reload\n"
 "selected"
-msgstr "Kiválasztott   Bezárása & Újratöltése"
+msgstr ""
 
 #: dialogs/city_id_dialog.ui:87
 msgid ""
 "Remove\n"
 "selected"
-msgstr "Kiválasztott törlése"
+msgstr ""
 
 #: dialogs/city_id_dialog.ui:145
 msgid "Language weather"
-msgstr "Időjárás nyelve"
+msgstr ""
 
 #: dialogs/city_id_dialog.ui:182 dialogs/settings_dialog.ui:879
 msgid "Weather service"
-msgstr "Időjárás szolgáltatás"
+msgstr ""
 
 #: dialogs/help_dialog.ui:92 dialogs/update_dialog.ui:334
 msgid "Found a bug?"
-msgstr "Hibát találtál ?"
+msgstr ""
 
 #: dialogs/help_dialog.ui:109 dialogs/settings_dialog.ui:799
 #: dialogs/update_dialog.ui:351
 msgid "Want to translate?"
-msgstr "Részt vennél a fordításban ?"
+msgstr ""
 
 #: dialogs/help_dialog.ui:126 dialogs/update_dialog.ui:369
 msgid "Have any questions?"
-msgstr "Van kérdésed ?"
+msgstr ""
 
 #: dialogs/help_dialog.ui:143 dialogs/update_dialog.ui:387
 msgid "Have any suggestions?"
-msgstr "Van ötleted ?"
+msgstr ""
 
 #: dialogs/help_dialog.ui:163
 msgid "You can support my project"
-msgstr "Támogasd a munkámat"
+msgstr ""
 
 #: dialogs/help_dialog.ui:174 dialogs/update_dialog.ui:419
 msgid "Read more"
-msgstr "Több"
+msgstr ""
 
 #: dialogs/help_dialog.ui:238 dialogs/update_dialog.ui:155
 msgid "Changelog"
-msgstr "Változások"
+msgstr ""
 
 #: dialogs/help_dialog.ui:254 dialogs/update_dialog.ui:171
 msgid "Source Code"
-msgstr "Forráskód"
+msgstr ""
 
 #: dialogs/help_dialog.ui:270 dialogs/update_dialog.ui:203
 msgid "What's New"
-msgstr "Ujdonságok"
+msgstr ""
 
 #: dialogs/help_dialog.ui:286 dialogs/settings_dialog.ui:960
 msgid "Translation status"
-msgstr "Fordítás állapota"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:629
 msgid "Update (in minutes)"
-msgstr "Frissítés (percekben)"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:644
 msgid "Check for updates"
-msgstr "Új verzió ellenörzés"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:731
 msgid "Open..."
-msgstr "Nyitva"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:821
 msgid "Program language"
-msgstr "Program nyelve"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:836
 msgid "Weather language"
-msgstr "Időjárás nyelve"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:851
 msgid "Add launcher icon to menu"
-msgstr "Indítóikon hozzáadása a menűhöz"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1014
 msgid "Autostart at login"
-msgstr "Bejelentkezés utáni automatikus indítás"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1029
 msgid "Number of instances"
-msgstr "Példányok száma"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1075
 msgid "Start delay (in seconds)"
-msgstr "Start késleltetése (másodpercben)"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1125 dialogs/settings_dialog.ui:1181
 msgid "Autostart"
-msgstr "Autostart"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1164
 msgid "Configured in the first instance"
-msgstr "Először konfigurálni"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1269
 msgid "General"
-msgstr "Általános"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1292
 msgid "Wind"
-msgstr "Szél"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1307
 msgid "Pressure"
-msgstr "Légnyomás"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1354
 msgid "Temperature"
-msgstr "Hőmérséklet"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1406
 msgid "Wind chill"
-msgstr "Hőérzet"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1492
 msgid "Date separator format"
-msgstr "Dátum elválasztó formátum"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1507
 msgid "Swap the day and month"
-msgstr "Cseréld a napot és a hónapot"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1565
 msgid "Units"
-msgstr "Mértékegységek"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1589
 msgid "Left"
-msgstr "Bal"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1604 dialogs/settings_dialog.ui:4029
 msgid "Top"
-msgstr "Fent"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1619
 msgid "Padding"
-msgstr "Több"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1724
 msgid "Fix BadDrawable error"
-msgstr "BadDrawable-Hiba megoldása"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1769
 msgid "Transparency"
-msgstr "Átlátszóság"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1904
 msgid "Scale"
-msgstr "Skála"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2010 dialogs/settings_dialog.ui:2141
 #: dialogs/settings_dialog.ui:2372 dialogs/settings_dialog.ui:2592
 #: dialogs/settings_dialog.ui:3900
 msgid "Show"
-msgstr "Mutasd"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2025 dialogs/settings_dialog.ui:2156
 #: dialogs/settings_dialog.ui:2271 dialogs/settings_dialog.ui:2387
 #: dialogs/settings_dialog.ui:2607
 msgid "Offset from center"
-msgstr "Középröl eltolt"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2101
 msgid "Block Tomorrow"
-msgstr "Blokk \"Holnap\""
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2232
 msgid "Block Today"
-msgstr "Blokk\"Ma\""
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2318
 msgid "Block Now"
-msgstr "Blokk \"Most\""
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2461
 msgid "Reduce"
-msgstr "Csökkentés"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2476
 msgid "Angle of rotation"
-msgstr "Elforgatás szöge"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2552
 msgid "Block Wind"
-msgstr "Blokk \"Szél\""
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2683
 msgid "Block Additional info"
-msgstr "Blokk \"További információ\""
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2741
 msgid "Number of days"
-msgstr "Napok száma"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2756
 msgid "Show weather retrieval time"
-msgstr "Mutasd az időjárást induláskor"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2771
 msgid "Show splash screen"
-msgstr "Üdvözlő képernyő mutatása"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2786
 msgid "Hide splash screen after attempts (0 - do not hide)"
-msgstr "Üdvözlő képernyő elrejtése  <szám> próbálkozás után elrejteni (0 - ne rejtsd el)"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2926
 msgid "Show chance of rain"
-msgstr "Mutasd az eső valószínűségét"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2992
 msgid "View"
-msgstr "Nézet"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3035 dialogs/settings_dialog.ui:4279
 msgid "Font"
-msgstr "Betű"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3050
 msgid "Main color"
-msgstr "Szín"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3097
 msgid "Color weekend"
-msgstr "Hétvége színe"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3175
 msgid "Color wind"
-msgstr "Szél színe"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3190
 msgid ""
 "High wind\n"
 "(-1 = not highlighted)"
-msgstr "Heves szél (-1 = nem kiemelt)"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3206
 msgid "Shadow color"
-msgstr "Árnyék színe"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3221 dialogs/settings_dialog.ui:4059
 msgid "Shadow"
-msgstr "Árnyék"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3357
 msgid "Weekend"
-msgstr "Hétvége"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3400
 msgid "Weather description style"
-msgstr "Időjárás stílusa"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3492
 msgid "Use image"
-msgstr "Használd a képet"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3551 dialogs/settings_dialog.ui:3782
 msgid "Select"
-msgstr "Kiválasztás"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3634
 msgid "Corner radius"
-msgstr "Lekerekített sarkok "
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3649 dialogs/settings_dialog.ui:4074
 msgid "Color"
-msgstr "Szín"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3861
 msgid "Appearance"
-msgstr "Megjelenés"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3885
 msgid "Type (restart required)"
-msgstr "Típus (újraindítást igényel)"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:4014
 msgid "Width"
-msgstr "szélesség"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:4044
 msgid "Color shadow"
-msgstr "Árnyék színe "
+msgstr ""
 
 #: dialogs/settings_dialog.ui:4294
 msgid "Show text"
-msgstr "Mutasd a szöveget"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:4398
 msgid "Fix the size"
-msgstr "Rögzítés"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:4442
 msgid "Size"
-msgstr "Méret"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:4517
 msgid "Indicator"
-msgstr "Kijelző"
+msgstr ""
 
 #: dialogs/update_dialog.ui:31
 msgid "Update now"
-msgstr "Frissítés most"
+msgstr ""
 
 #: dialogs/update_dialog.ui:187
 msgid "Manual update"
-msgstr "Egyéni frissítés"
+msgstr ""
 
 #: dialogs/update_dialog.ui:408
 msgid "You can support project"
-msgstr "Támogasd a munkámat"
+msgstr ""
 
 #: dialogs/update_dialog.ui:469
 msgid "Additional information"
-msgstr "Egyéb információk"
+msgstr ""
 
 #: dialogs/update_dialog.ui:589
 msgid "Cleaning temporary files"
-msgstr "Ideiglenes fájlok törlése"
+msgstr ""
 
 #: dialogs/update_dialog.ui:672
 msgid "Restart"
-msgstr "Újraindítás"
+msgstr ""
 
 #: dialogs/update_dialog.ui:701
 msgid "Update successful"
-msgstr "Frissítés sikeres"
+msgstr ""
 
 #: dialogs/update_dialog.ui:756
 msgid "Update error"
-msgstr "Frissítési hiba"
+msgstr ""
