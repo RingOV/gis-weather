@@ -1,12 +1,13 @@
 # 
 # Translators:
+# Fernando Cardoso <cardoso.fac@gmail.com>, 2015
 # Jader Silva Justino <jaderjustino@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2015-11-26 19:53+0300\n"
-"PO-Revision-Date: 2015-11-26 16:59+0000\n"
-"Last-Translator: Alexander Koltsov <ringov@mail.ru>\n"
+"PO-Revision-Date: 2015-11-29 11:25+0000\n"
+"Last-Translator: Fernando Cardoso <cardoso.fac@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/gis-weather-team/gis-weather/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -124,11 +125,11 @@ msgstr "mph"
 
 #: dialogs/settings_dialog.py:420
 msgid "Beaufort scale"
-msgstr ""
+msgstr "Escala de Beaufort"
 
 #: dialogs/settings_dialog.py:420
 msgid "Knots"
-msgstr ""
+msgstr "Nós"
 
 #: dialogs/settings_dialog.py:421
 msgid "mmHg"
@@ -398,7 +399,7 @@ msgstr "Sua tela suporta transparência"
 
 #: services/accuweather.py:13
 msgid "If the city code is wrong, please read"
-msgstr ""
+msgstr "se o código da cidade estiver errado por favor leia as instruções aqui"
 
 #: services/accuweather.py:194 services/gismeteo.py:221
 #: services/openweathermap.py:88 services/yr.py:62
@@ -435,11 +436,11 @@ msgstr ""
 
 #: utils/convert.py:53 utils/convert.py:73
 msgid "bft"
-msgstr ""
+msgstr "bft"
 
 #: utils/convert.py:57 utils/convert.py:77
 msgid "kts"
-msgstr ""
+msgstr "Kts"
 
 #: utils/gw_menu.py:53 dialogs/settings_dialog.ui:682
 msgid "Setup..."
@@ -447,15 +448,15 @@ msgstr "Instalação"
 
 #: utils/gw_menu.py:127
 msgid "Black"
-msgstr ""
+msgstr "Preto"
 
 #: utils/gw_menu.py:127
 msgid "White"
-msgstr ""
+msgstr "Branco"
 
 #: utils/gw_menu.py:127
 msgid "Gray"
-msgstr ""
+msgstr "Cinzento"
 
 #: utils/gw_menu.py:137 dialogs/settings_dialog.ui:1754
 msgid "Lock position"
@@ -645,11 +646,11 @@ msgstr "Vento frio"
 
 #: dialogs/settings_dialog.ui:1492
 msgid "Date separator format"
-msgstr ""
+msgstr "Formato do separador de data "
 
 #: dialogs/settings_dialog.ui:1507
 msgid "Swap the day and month"
-msgstr ""
+msgstr "Trocar o dia com o mês"
 
 #: dialogs/settings_dialog.ui:1565
 msgid "Units"
@@ -791,7 +792,7 @@ msgstr "Selecionar"
 
 #: dialogs/settings_dialog.ui:3634
 msgid "Corner radius"
-msgstr ""
+msgstr "Raio da Curvatura"
 
 #: dialogs/settings_dialog.ui:3649 dialogs/settings_dialog.ui:4074
 msgid "Color"
@@ -815,7 +816,7 @@ msgstr "Cor da sombra"
 
 #: dialogs/settings_dialog.ui:4294
 msgid "Show text"
-msgstr ""
+msgstr "Mostrar texto"
 
 #: dialogs/settings_dialog.ui:4398
 msgid "Fix the size"
