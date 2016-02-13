@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2015-11-26 19:53+0300\n"
-"PO-Revision-Date: 2015-11-26 16:59+0000\n"
-"Last-Translator: Alexander Koltsov <ringov@mail.ru>\n"
+"PO-Revision-Date: 2015-12-06 16:33+0000\n"
+"Last-Translator: Jonathan Hooverman <Jonathan.Hooverman@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/gis-weather-team/gis-weather/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -431,7 +431,7 @@ msgstr "Wetterdaten abgerufen"
 
 #: services/openweathermap.py:14
 msgid "How to get"
-msgstr ""
+msgstr "Beschaffen des"
 
 #: utils/convert.py:53 utils/convert.py:73
 msgid "bft"
@@ -479,7 +479,7 @@ msgstr "Aktualisieren"
 
 #: utils/gw_menu.py:186
 msgid "Start new instance"
-msgstr ""
+msgstr "Neue Instanz"
 
 #: utils/gw_menu.py:204
 msgid "Indicator icons"

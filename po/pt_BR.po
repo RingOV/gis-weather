@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2015-11-26 19:53+0300\n"
-"PO-Revision-Date: 2015-11-29 11:25+0000\n"
+"PO-Revision-Date: 2015-11-29 22:41+0000\n"
 "Last-Translator: Fernando Cardoso <cardoso.fac@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/gis-weather-team/gis-weather/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -432,7 +432,7 @@ msgstr "carregou as condições do tempo"
 
 #: services/openweathermap.py:14
 msgid "How to get"
-msgstr ""
+msgstr "Como conseguir"
 
 #: utils/convert.py:53 utils/convert.py:73
 msgid "bft"
@@ -480,7 +480,7 @@ msgstr "Recarregar"
 
 #: utils/gw_menu.py:186
 msgid "Start new instance"
-msgstr ""
+msgstr "Inicie nova instancia"
 
 #: utils/gw_menu.py:204
 msgid "Indicator icons"
