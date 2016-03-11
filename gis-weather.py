@@ -216,12 +216,26 @@ gw_config_default = {
     't_now_attr': {'x':0, 'y':30, 'font_weight':' Normal', 'font_size':18, 'align':'right', 'show':True},
     'icon_now_attr': {'x':0, 'y':30, 'size':80, 'show':True},
     'custom_text1_attr': {'text':'Now', 'x':0, 'y':0, 'font_weight':' Bold', 'font_size':9, 'align':'left', 'show':False},
-    'block_h_offset': 12,
-
-
-
+    'block_h_offset': 12
 
 }
+
+window_type_hint_list = (
+    Gdk.WindowTypeHint.DOCK,
+    Gdk.WindowTypeHint.NORMAL,
+    Gdk.WindowTypeHint.DIALOG,
+    Gdk.WindowTypeHint.MENU,
+    Gdk.WindowTypeHint.TOOLBAR,
+    Gdk.WindowTypeHint.SPLASHSCREEN,
+    Gdk.WindowTypeHint.UTILITY,
+    Gdk.WindowTypeHint.DESKTOP,
+    Gdk.WindowTypeHint.DROPDOWN_MENU,
+    Gdk.WindowTypeHint.POPUP_MENU,
+    Gdk.WindowTypeHint.TOOLTIP,
+    Gdk.WindowTypeHint.NOTIFICATION,
+    Gdk.WindowTypeHint.COMBO,
+    Gdk.WindowTypeHint.DND
+    )
 gw_config = {}
 for i in gw_config_default.keys():
     gw_config[i] = gw_config_default[i]
@@ -1470,6 +1484,12 @@ class Weather_Widget:
             if type(widget) == Gtk.RadioMenuItem:
                 if not widget.get_active():
                     return
+        if event == 'set_window_type_hint':
+            self.window_main.hide()
+            self.window_main.set_type_hint(window_type_hint_list[value])
+            self.window_main.show()
+            print('used', self.window_main.get_type_hint(), 'for',  os.environ.get('DESKTOP_SESSION'))
+            return
 
             global city_id, weather_lang, appid, max_days
             Load_Config()
