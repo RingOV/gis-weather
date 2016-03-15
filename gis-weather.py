@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.0'
+v = '0.8.0.1'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -34,7 +34,7 @@ if not WIN:
         multInstances = False
 else:
     multInstances = False
-    
+
 from utils import localization
 localization.set()
 
@@ -1369,8 +1369,8 @@ class Weather_Widget:
         s = os.environ.get('DESKTOP_SESSION')
         if s == "ubuntu":
             self.window_main.set_type_hint(Gdk.WindowTypeHint.DOCK)
-        elif s == "mate":
-            pass
+        elif s == "Lubuntu":
+            self.window_main.set_type_hint(Gdk.WindowTypeHint.SPLASHSCREEN)
         else:
             self.window_main.set_type_hint(Gdk.WindowTypeHint.UTILITY)
         self.window_main.set_keep_above(False)
