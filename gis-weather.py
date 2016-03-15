@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.0.1'
+v = '0.8.0.2'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -215,7 +215,7 @@ gw_config_default = {
     'text_now_attr': {'x':0, 'y':0, 'font_weight':' Normal', 'font_size':10, 'align':'center', 'show':True},
     't_now_attr': {'x':0, 'y':30, 'font_weight':' Normal', 'font_size':18, 'align':'right', 'show':True},
     'icon_now_attr': {'x':0, 'y':30, 'size':80, 'show':True},
-    'custom_text1_attr': {'text':'Now', 'x':0, 'y':0, 'font_weight':' Bold', 'font_size':9, 'align':'left', 'show':False},
+    'custom_text1_attr': {'text':_('Now'), 'x':0, 'y':0, 'font_weight':' Bold', 'font_size':9, 'align':'left', 'show':False},
     'block_h_offset': 12
 
 }
