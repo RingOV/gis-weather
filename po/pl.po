@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2015-11-26 19:53+0300\n"
-"PO-Revision-Date: 2015-11-26 16:59+0000\n"
+"POT-Creation-Date: 2016-03-15 17:29+0300\n"
+"PO-Revision-Date: 2016-03-16 10:49+0000\n"
 "Last-Translator: Alexander Koltsov <ringov@mail.ru>\n"
 "Language-Team: Polish (http://www.transifex.com/gis-weather-team/gis-weather/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -60,7 +60,7 @@ msgstr "Ikony"
 msgid "translator-credits"
 msgstr "Jarosław Harasiuk <jarek@strony-www.net>\nKrzysztof Kokot <kokot300@gmail.com>"
 
-#: dialogs/city_id_dialog.py:33 gis-weather.py:274
+#: dialogs/city_id_dialog.py:33 gis-weather.py:288
 msgid "Error loading config file"
 msgstr "Błąd ładowania pliku konfiguracyjnego"
 
@@ -213,187 +213,191 @@ msgstr "Uruchamianie wielu okien nie jest obsługiwane"
 msgid "number of instances"
 msgstr "liczba okien"
 
-#: gis-weather.py:258 dialogs/settings_dialog.ui:671
+#: gis-weather.py:218 utils/presets.py:58
+msgid "Now"
+msgstr ""
+
+#: gis-weather.py:272 dialogs/settings_dialog.ui:671
 msgid "Configuration folder"
 msgstr "Folder konfiguracji"
 
-#: gis-weather.py:305
+#: gis-weather.py:319
 msgid "Error loading color scheme"
 msgstr "Błąd ładowania schematów koloru"
 
-#: gis-weather.py:320
+#: gis-weather.py:334
 msgid "Error loading preset"
 msgstr "Błąd wczytywania ustawień początkowych"
 
-#: gis-weather.py:330
+#: gis-weather.py:344
 msgid "Enter full path to script"
 msgstr "Wprowadź pełną ścieżkę do skryptu"
 
-#: gis-weather.py:331
+#: gis-weather.py:345
 msgid "Exit"
 msgstr "Wyjście"
 
-#: gis-weather.py:436
+#: gis-weather.py:450
 msgid "Check for new version"
 msgstr "Sprawdź, czy jet nowa wersja"
 
-#: gis-weather.py:441 gis-weather.py:450
+#: gis-weather.py:455 gis-weather.py:464
 msgid "Unable to check for updates"
 msgstr "Nie można sprawdzić aktualizacji"
 
-#: gis-weather.py:465
+#: gis-weather.py:479
 msgid "New version available"
 msgstr "Pojawiła się nowa wersja"
 
-#: gis-weather.py:472
+#: gis-weather.py:486
 msgid "You are using the latest version"
 msgstr "Używasz najnowszej wersji"
 
-#: gis-weather.py:489 gis-weather.py:1323
+#: gis-weather.py:503 gis-weather.py:1337
 msgid "Screenshot saved to"
 msgstr "Zrzut ekranu zapisano w"
 
-#: gis-weather.py:493
+#: gis-weather.py:507
 msgid "Unable to get the screenshot"
 msgstr "Nie można zapisać zrzutu ekranu"
 
-#: gis-weather.py:670
+#: gis-weather.py:684
 msgid "Getting weather..."
 msgstr "Pobieranie pogody..."
 
-#: gis-weather.py:673
+#: gis-weather.py:687
 msgid "Error getting weather"
 msgstr "Błąd pobierania pogody"
 
-#: gis-weather.py:675
+#: gis-weather.py:689
 msgid "Location not set"
 msgstr "Lokalizacja nie jest ustawiona"
 
-#: gis-weather.py:732 gis-weather.py:794
+#: gis-weather.py:746 gis-weather.py:808
 msgid "Next update in"
 msgstr "Następna aktualizacja w"
 
-#: gis-weather.py:732 gis-weather.py:794
+#: gis-weather.py:746 gis-weather.py:808
 msgid "min"
 msgstr "min"
 
-#: gis-weather.py:768 services/gismeteo.py:362
+#: gis-weather.py:782 services/gismeteo.py:370
 msgid "Next try in 10 seconds"
 msgstr "Następna próba za 10 sekund"
 
-#: gis-weather.py:784
+#: gis-weather.py:798
 msgid "Connection error"
 msgstr "Błąd połączenia"
 
-#: gis-weather.py:869
+#: gis-weather.py:883
 msgid "Updated on server"
 msgstr "Zaktualizowano na serwerze"
 
-#: gis-weather.py:870
+#: gis-weather.py:884
 msgid "Weather received"
 msgstr "Pogodę odebrano"
 
-#: gis-weather.py:907
+#: gis-weather.py:921
 msgid "E"
 msgstr "Wsch."
 
-#: gis-weather.py:907
+#: gis-weather.py:921
 msgid "S"
 msgstr "Pd."
 
-#: gis-weather.py:907
+#: gis-weather.py:921
 msgid "W"
 msgstr "Zach."
 
-#: gis-weather.py:907
+#: gis-weather.py:921
 msgid "N"
 msgstr "Pn."
 
-#: gis-weather.py:943
+#: gis-weather.py:957
 msgid "humid."
 msgstr "wilgotność"
 
-#: gis-weather.py:946
+#: gis-weather.py:960
 msgid "water"
 msgstr "woda"
 
-#: gis-weather.py:961 gis-weather.py:1003 services/gismeteo.py:351
+#: gis-weather.py:975 gis-weather.py:1017 services/gismeteo.py:359
 #: services/yr.py:145
 msgid "Morning"
 msgstr "Rano"
 
-#: gis-weather.py:961 gis-weather.py:1003 services/gismeteo.py:351
+#: gis-weather.py:975 gis-weather.py:1017 services/gismeteo.py:359
 #: services/yr.py:145
 msgid "Day"
 msgstr "Dzień"
 
-#: gis-weather.py:961 gis-weather.py:1003 services/gismeteo.py:351
+#: gis-weather.py:975 gis-weather.py:1017 services/gismeteo.py:359
 #: services/yr.py:145
 msgid "Evening"
 msgstr "Wieczór"
 
-#: gis-weather.py:961 gis-weather.py:1003 services/gismeteo.py:351
+#: gis-weather.py:975 gis-weather.py:1017 services/gismeteo.py:359
 #: services/yr.py:145
 msgid "Night"
 msgstr "Noc"
 
-#: gis-weather.py:966 gis-weather.py:968
+#: gis-weather.py:980 gis-weather.py:982
 msgid "Tomorrow"
 msgstr "jutro"
 
-#: gis-weather.py:1007
+#: gis-weather.py:1021
 msgid "Today"
 msgstr "Dziś"
 
-#: gis-weather.py:1152
+#: gis-weather.py:1166
 msgid "Background image not found"
 msgstr "Nie znaleziono obrazu tła"
 
-#: gis-weather.py:1216
+#: gis-weather.py:1230
 msgid "downloading"
 msgstr "pobieranie"
 
-#: gis-weather.py:1220
+#: gis-weather.py:1234
 msgid "Unable to download"
 msgstr "nie można pobrać"
 
-#: gis-weather.py:1244
+#: gis-weather.py:1258
 msgid "Icon not found"
 msgstr "Nie znaleziono ikony"
 
-#: gis-weather.py:1334
+#: gis-weather.py:1348
 msgid "Widget size"
 msgstr "Rozmiar widgetu"
 
-#: gis-weather.py:1335
+#: gis-weather.py:1349
 msgid "width"
 msgstr "szerokość"
 
-#: gis-weather.py:1335
+#: gis-weather.py:1349
 msgid "height"
 msgstr "wysokość"
 
-#: gis-weather.py:1335
+#: gis-weather.py:1349
 msgid "including indent"
 msgstr "Łącznie "
 
-#: gis-weather.py:1528
+#: gis-weather.py:1549
 msgid "Removed"
 msgstr "Usunięty"
 
-#: gis-weather.py:1561 dialogs/city_id_dialog.ui:361
+#: gis-weather.py:1582 dialogs/city_id_dialog.ui:361
 msgid "Added"
 msgstr "Dodano"
 
-#: gis-weather.py:1566 dialogs/city_id_dialog.ui:293
+#: gis-weather.py:1587 dialogs/city_id_dialog.ui:293
 msgid "Invalid location code"
 msgstr "Błędny kod lokalizacji"
 
-#: gis-weather.py:1634
+#: gis-weather.py:1655
 msgid "Your screen does not support alpha"
 msgstr "Ekran nie obsługuje kanału alfa"
 
-#: gis-weather.py:1636
+#: gis-weather.py:1657
 msgid "Your screen supports alpha"
 msgstr "Ekran obsługuje kanał alfa"
 
@@ -401,17 +405,17 @@ msgstr "Ekran obsługuje kanał alfa"
 msgid "If the city code is wrong, please read"
 msgstr "Jeżeli kod miasta jest niepoprawny, proszę przeczytać"
 
-#: services/accuweather.py:194 services/gismeteo.py:221
+#: services/accuweather.py:194 services/gismeteo.py:229
 #: services/openweathermap.py:88 services/yr.py:62
 msgid "Failed to get the name of the location"
 msgstr "Nie udało się uzyskać nazwy lokalizacji"
 
-#: services/accuweather.py:216 services/gismeteo.py:237
+#: services/accuweather.py:216 services/gismeteo.py:245
 #: services/openweathermap.py:117 services/yr.py:73
 msgid "Getting weather for"
 msgstr "Pobierz pogodę dla"
 
-#: services/accuweather.py:216 services/gismeteo.py:237
+#: services/accuweather.py:216 services/gismeteo.py:245
 #: services/openweathermap.py:117 services/yr.py:73
 msgid "days"
 msgstr "dni"
@@ -420,12 +424,12 @@ msgstr "dni"
 msgid "Calm"
 msgstr "Spokój"
 
-#: services/accuweather.py:640 services/gismeteo.py:406
+#: services/accuweather.py:640 services/gismeteo.py:414
 #: services/openweathermap.py:312
 msgid "updated on server"
 msgstr "zaktualizowano na serwerze"
 
-#: services/accuweather.py:641 services/gismeteo.py:407
+#: services/accuweather.py:641 services/gismeteo.py:415
 #: services/openweathermap.py:313 services/yr.py:191
 msgid "weather received"
 msgstr "pogoda odebrana"
@@ -506,7 +510,7 @@ msgstr "Ustawienia początkowe"
 msgid "About"
 msgstr "O programie"
 
-#: utils/gw_menu.py:262 dialogs/help_dialog.ui:25
+#: utils/gw_menu.py:294 dialogs/help_dialog.ui:25
 #: dialogs/settings_dialog.ui:569 dialogs/update_dialog.ui:44
 msgid "Close"
 msgstr "Zamknij"
