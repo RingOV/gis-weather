@@ -169,7 +169,7 @@ list = [
         'text_now_attr': {'x':1161, 'y':9, 'font_weight':' Normal', 'font_size':10, 'align':'center', 'show':False},
         't_now_attr': {'x':1230, 'y':60, 'font_weight':' Normal', 'font_size':10, 'align':'right', 'show':True},
         'icon_now_attr': {'x':1200, 'y':21, 'size':36, 'show':True},
-        'custom_text1_attr': {'text':'Now', 'x':40, 'y':3, 'font_weight':' Bold', 'font_size':9, 'align':'left', 'show':True},
+        'custom_text1_attr': {'text':_('Now'), 'x':40, 'y':3, 'font_weight':' Bold', 'font_size':9, 'align':'left', 'show':True},
         'block_h_offset': -5,
     },
 
@@ -204,7 +204,7 @@ list = [
         'text_now_attr': {'x':1161, 'y':9, 'font_weight':' Normal', 'font_size':10, 'align':'center', 'show':False},
         't_now_attr': {'x':1230, 'y':60, 'font_weight':' Normal', 'font_size':10, 'align':'right', 'show':True},
         'icon_now_attr': {'x':1200, 'y':21, 'size':36, 'show':True},
-        'custom_text1_attr': {'text':'Now', 'x':40, 'y':3, 'font_weight':' Bold', 'font_size':9, 'align':'left', 'show':True},
+        'custom_text1_attr': {'text':_('Now'), 'x':40, 'y':3, 'font_weight':' Bold', 'font_size':9, 'align':'left', 'show':True},
         'block_h_offset': -5,
     },
     ]
