@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.0.5'
+v = '0.8.0.6'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -1479,18 +1479,17 @@ class Weather_Widget:
             Load_Color_Scheme(value)
             self.drawing_area.redraw(False, False)
             Save_Config()
-        if event == 'reload':
-            # if radio, then reloaded 2 time, fix
-            if type(widget) == Gtk.RadioMenuItem:
-                if not widget.get_active():
-                    return
         if event == 'set_window_type_hint':
             self.window_main.hide()
             self.window_main.set_type_hint(window_type_hint_list[value])
             self.window_main.show()
             print('used', self.window_main.get_type_hint(), 'for',  os.environ.get('DESKTOP_SESSION'))
             return
-
+        if event == 'reload':
+            # if radio, then reloaded 2 time, fix
+            if type(widget) == Gtk.RadioMenuItem:
+                if not widget.get_active():
+                    return
             global city_id, weather_lang, appid, max_days
             Load_Config()
             try:
