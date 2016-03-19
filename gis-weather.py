@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.0.4'
+v = '0.8.0.5'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -464,14 +464,14 @@ def check_updates():
         print ('\033[1;31m[!]\033[0m '+_('Unable to check for updates'))
         print ('-'*40)
         return False
-    temp_links = re.findall('http://sourceforge.net/projects/gis-weather/files/gis-weather/%s/(.+)/download'%new_ver1[0], temp)
+    temp_links = re.findall('sourceforge.net/projects/gis-weather/files/gis-weather/%s/(.+)/download'%new_ver1[0], temp)
     update_link = ''
     for i in range(len(temp_links)):
         if temp_links[i].split('.')[-1] == package:
             update_link = 'http://sourceforge.net/projects/gis-weather/files/gis-weather/%s/%s/download'%(new_ver1[0], temp_links[i])
             file_name = temp_links[i]
     if update_link == '':
-        new_ver = [0, 0, 0, 0]
+        new_ver = ['0', '0', '0', '0']
     new_v = None
     if diff_versions.diff(v.split('.'), new_ver):
         new_v = new_ver1[0]
