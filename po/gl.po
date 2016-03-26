@@ -1,18 +1,17 @@
 # 
 # Translators:
-# Victor Butko <victor.butko@gmail.com>, 2014-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2016-03-15 17:29+0300\n"
-"PO-Revision-Date: 2016-03-26 13:01+0000\n"
-"Last-Translator: Victor Butko <victor.butko@gmail.com>\n"
-"Language-Team: Ukrainian (http://www.transifex.com/gis-weather-team/gis-weather/language/uk/)\n"
+"PO-Revision-Date: 2014-11-28 18:08+0000\n"
+"Last-Translator: \n"
+"Language-Team: Galician (http://www.transifex.com/gis-weather-team/gis-weather/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uk\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: gl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.6.10\n"
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
@@ -36,831 +35,831 @@ msgid ""
 "\n"
 "You can find the full text of the license under\n"
 "http://www.gnu.org/licenses/gpl.txt"
-msgstr "Це вільна програма: ви можете розповсюджувати та / або\nмодифікувати її відповідно до умов Загальної Громадської\nЛіцензії GNU, опублікованої Фондом Вільного Програмного\nЗабезпечення, версії 3 або (за Вашим бажанням) будь-якої пізнішої версії.\n\nЦя програма поширюється в надії, що вона буде корисною, але БЕЗ\nБУДЬ-ЯКИХ ГАРАНТІЙ; навіть без уважних гарантій КОМЕРЦІЙНОЇ\nЦІННОСТІ або придатності для конкретної мети. Дивіться Загальну\nПублічну Ліцензію GNU для отримання детальної інформації.\n\nВи можете знайти повний текст ліцензії за адресою\nhttp://www.gnu.org/licenses/gpl.txt"
+msgstr ""
 
 #: dialogs/about_dialog.py:25 utils/autorun.py:72 utils/desktop.py:23
 msgid "Weather widget"
-msgstr "Погодний віджет"
+msgstr ""
 
 #: dialogs/about_dialog.py:31
 msgid "Help and Ideas"
-msgstr "Допомога та ідеї"
+msgstr ""
 
 #: dialogs/about_dialog.py:38
 msgid "Backgrounds"
-msgstr "Фони"
+msgstr ""
 
 #: dialogs/about_dialog.py:43 utils/gw_menu.py:209
 #: dialogs/settings_dialog.ui:3836 dialogs/settings_dialog.ui:4347
 msgid "Icons"
-msgstr "Іконки"
+msgstr ""
 
 #: dialogs/about_dialog.py:57
 msgid "translator-credits"
-msgstr "Victor Butko <victor.butko@gmail.com>"
+msgstr ""
 
 #: dialogs/city_id_dialog.py:33 gis-weather.py:288
 msgid "Error loading config file"
-msgstr "Помилка завантаження файла конфігурації"
+msgstr ""
 
 #: dialogs/city_id_dialog.py:71
 msgid "Choose your city on"
-msgstr "Виберіть ваше місто на сайті"
+msgstr ""
 
 #: dialogs/city_id_dialog.py:72
 msgid "and copy the city code below"
-msgstr "та скопіюйте код міста нижче"
+msgstr ""
 
 #: dialogs/city_id_dialog.py:73
 msgid "For example"
-msgstr "Наприклад"
+msgstr ""
 
 #: dialogs/city_id_dialog.py:74 dialogs/city_id_dialog.ui:414
 msgid "City code"
-msgstr "Код міста"
+msgstr ""
 
 #: dialogs/city_id_dialog.py:116 utils/gw_menu.py:198
 #: dialogs/city_id_dialog.ui:42 dialogs/settings_dialog.ui:614
 msgid "Location"
-msgstr "Місце знаходження"
+msgstr ""
 
 #: dialogs/city_id_dialog.py:150
 msgid "Code"
-msgstr "Код"
+msgstr ""
 
 #: dialogs/city_id_dialog.py:154
 msgid "Place"
-msgstr "Місце"
+msgstr ""
 
 #: dialogs/help_dialog.py:13 dialogs/update_dialog.py:44
 msgid "Go to link"
-msgstr "Перейти за посиланням"
+msgstr ""
 
 #: dialogs/help_dialog.py:16 dialogs/update_dialog.py:47
 #: dialogs/help_dialog.ui:76 dialogs/update_dialog.ui:318
 msgid "Send email"
-msgstr "Відправити лист"
+msgstr ""
 
 #: dialogs/help_dialog.py:28 utils/gw_menu.py:242
 msgid "Help"
-msgstr "Допомога"
+msgstr ""
 
 #: dialogs/settings_dialog.py:101 dialogs/settings_dialog.py:765
 #: utils/gw_menu.py:234
 msgid "Preferences"
-msgstr "Параметри"
+msgstr ""
 
 #: dialogs/settings_dialog.py:420 utils/convert.py:61 utils/convert.py:65
 msgid "m/s"
-msgstr "м/с"
+msgstr ""
 
 #: dialogs/settings_dialog.py:420 utils/convert.py:45 utils/convert.py:81
 msgid "km/h"
-msgstr "км/г"
+msgstr ""
 
 #: dialogs/settings_dialog.py:420 utils/convert.py:49 utils/convert.py:69
 msgid "mph"
-msgstr "мзг"
+msgstr ""
 
 #: dialogs/settings_dialog.py:420
 msgid "Beaufort scale"
-msgstr "За шкалою Бофорта"
+msgstr ""
 
 #: dialogs/settings_dialog.py:420
 msgid "Knots"
-msgstr "Вузли"
+msgstr ""
 
 #: dialogs/settings_dialog.py:421
 msgid "mmHg"
-msgstr "мм рт.ст."
+msgstr ""
 
 #: dialogs/settings_dialog.py:421
 msgid "inHg"
-msgstr "дюйм рт.ст."
+msgstr ""
 
 #: dialogs/settings_dialog.py:421
 msgid "hPa"
-msgstr "гПа"
+msgstr ""
 
 #: dialogs/settings_dialog.py:424
 msgid "Never"
-msgstr "Ніколи"
+msgstr ""
 
 #: dialogs/settings_dialog.py:425
 msgid "Only at start"
-msgstr "Тільки при запуску"
+msgstr ""
 
 #: dialogs/settings_dialog.py:426
 msgid "Always"
-msgstr "Завжди"
+msgstr ""
 
 #: dialogs/settings_dialog.py:429 utils/gw_menu.py:112
 msgid "No"
-msgstr "Ні"
+msgstr ""
 
 #: dialogs/settings_dialog.py:430
 msgid "Only background"
-msgstr "Тільки фон"
+msgstr ""
 
 #: dialogs/settings_dialog.py:431
 msgid "Yes"
-msgstr "Так"
+msgstr ""
 
 #: dialogs/settings_dialog.py:546 dialogs/settings_dialog.py:548
 #: dialogs/settings_dialog.py:563 dialogs/settings_dialog.py:565
 #: dialogs/settings_dialog.py:580 dialogs/settings_dialog.py:582
 msgid "Author"
-msgstr "Автор"
+msgstr ""
 
 #: dialogs/update_dialog.py:27 utils/opener.py:17 dialogs/update_dialog.ui:561
 msgid "Downloading"
-msgstr "Завантаження"
+msgstr ""
 
 #: dialogs/update_dialog.py:60
 msgid "Update"
-msgstr "Оновлення"
+msgstr ""
 
 #: dialogs/update_dialog.py:88
 msgid "Current version"
-msgstr "Поточна версія"
+msgstr ""
 
 #: dialogs/update_dialog.py:89
 msgid "Available new version"
-msgstr "Доступна нова версія"
+msgstr ""
 
 #: dialogs/update_dialog.py:112
 msgid "Error downloading updates"
-msgstr "Помилка завантаження оновлень"
+msgstr ""
 
 #: dialogs/update_dialog.py:147
 msgid "Error installing updates"
-msgstr "Помилка встановлення оновлень"
+msgstr ""
 
 #: dialogs/update_dialog.py:151 dialogs/update_dialog.ui:575
 msgid "Installation"
-msgstr "Встановлення"
+msgstr ""
 
 #: dialogs/update_dialog.py:159
 msgid "Error removing"
-msgstr "Помилка видалення"
+msgstr ""
 
 #: gis-weather.py:42
 msgid "Running multiple instances is not supported"
-msgstr "Запуск декількох примірників не підтримується"
+msgstr ""
 
 #: gis-weather.py:47
 msgid "number of instances"
-msgstr "кількість примірників"
+msgstr ""
 
 #: gis-weather.py:218 utils/presets.py:58
 msgid "Now"
-msgstr "Зараз"
+msgstr ""
 
 #: gis-weather.py:272 dialogs/settings_dialog.ui:671
 msgid "Configuration folder"
-msgstr "Тека конфігурації"
+msgstr ""
 
 #: gis-weather.py:319
 msgid "Error loading color scheme"
-msgstr "Помилка завантаження колірної схеми"
+msgstr ""
 
 #: gis-weather.py:334
 msgid "Error loading preset"
-msgstr "Помилка завантаження передустановок"
+msgstr ""
 
 #: gis-weather.py:344
 msgid "Enter full path to script"
-msgstr "Введіть повний шлях до скріпту"
+msgstr ""
 
 #: gis-weather.py:345
 msgid "Exit"
-msgstr "Вихід"
+msgstr ""
 
 #: gis-weather.py:450
 msgid "Check for new version"
-msgstr "Перевірити нову версію"
+msgstr ""
 
 #: gis-weather.py:455 gis-weather.py:464
 msgid "Unable to check for updates"
-msgstr "Неможливо перевірити оновлення"
+msgstr ""
 
 #: gis-weather.py:479
 msgid "New version available"
-msgstr "Нова версія доступна"
+msgstr ""
 
 #: gis-weather.py:486
 msgid "You are using the latest version"
-msgstr "Ви користуєтеся останньою версією"
+msgstr ""
 
 #: gis-weather.py:503 gis-weather.py:1337
 msgid "Screenshot saved to"
-msgstr "Скріншот збережений до"
+msgstr ""
 
 #: gis-weather.py:507
 msgid "Unable to get the screenshot"
-msgstr "Неможливо отримати скріншот"
+msgstr ""
 
 #: gis-weather.py:684
 msgid "Getting weather..."
-msgstr "Отримую погоду..."
+msgstr ""
 
 #: gis-weather.py:687
 msgid "Error getting weather"
-msgstr "Помилка отримання погоди"
+msgstr ""
 
 #: gis-weather.py:689
 msgid "Location not set"
-msgstr "Місце знаходження не визначено"
+msgstr ""
 
 #: gis-weather.py:746 gis-weather.py:808
 msgid "Next update in"
-msgstr "Наступне оновлення через"
+msgstr ""
 
 #: gis-weather.py:746 gis-weather.py:808
 msgid "min"
-msgstr "мін"
+msgstr ""
 
 #: gis-weather.py:782 services/gismeteo.py:370
 msgid "Next try in 10 seconds"
-msgstr "Наступна спроба через 10 секунд"
+msgstr ""
 
 #: gis-weather.py:798
 msgid "Connection error"
-msgstr "Помилка з’єднання"
+msgstr ""
 
 #: gis-weather.py:883
 msgid "Updated on server"
-msgstr "Оновлення на сервері"
+msgstr ""
 
 #: gis-weather.py:884
 msgid "Weather received"
-msgstr "Погода отримана"
+msgstr ""
 
 #: gis-weather.py:921
 msgid "E"
-msgstr "С"
+msgstr ""
 
 #: gis-weather.py:921
 msgid "S"
-msgstr "Пд"
+msgstr ""
 
 #: gis-weather.py:921
 msgid "W"
-msgstr "З"
+msgstr ""
 
 #: gis-weather.py:921
 msgid "N"
-msgstr "Пн"
+msgstr ""
 
 #: gis-weather.py:957
 msgid "humid."
-msgstr "вололг."
+msgstr ""
 
 #: gis-weather.py:960
 msgid "water"
-msgstr "вода"
+msgstr ""
 
 #: gis-weather.py:975 gis-weather.py:1017 services/gismeteo.py:359
 #: services/yr.py:145
 msgid "Morning"
-msgstr "Ранок"
+msgstr ""
 
 #: gis-weather.py:975 gis-weather.py:1017 services/gismeteo.py:359
 #: services/yr.py:145
 msgid "Day"
-msgstr "День"
+msgstr ""
 
 #: gis-weather.py:975 gis-weather.py:1017 services/gismeteo.py:359
 #: services/yr.py:145
 msgid "Evening"
-msgstr "Вечір"
+msgstr ""
 
 #: gis-weather.py:975 gis-weather.py:1017 services/gismeteo.py:359
 #: services/yr.py:145
 msgid "Night"
-msgstr "Ніч"
+msgstr ""
 
 #: gis-weather.py:980 gis-weather.py:982
 msgid "Tomorrow"
-msgstr "Завтра"
+msgstr ""
 
 #: gis-weather.py:1021
 msgid "Today"
-msgstr "Сьогодні"
+msgstr ""
 
 #: gis-weather.py:1166
 msgid "Background image not found"
-msgstr "Фонове зображення не знайдено"
+msgstr ""
 
 #: gis-weather.py:1230
 msgid "downloading"
-msgstr "завантаження"
+msgstr ""
 
 #: gis-weather.py:1234
 msgid "Unable to download"
-msgstr "Неможливо завантажити"
+msgstr ""
 
 #: gis-weather.py:1258
 msgid "Icon not found"
-msgstr "Іконка не знайдена"
+msgstr ""
 
 #: gis-weather.py:1348
 msgid "Widget size"
-msgstr "Розмір віджету"
+msgstr ""
 
 #: gis-weather.py:1349
 msgid "width"
-msgstr "ширина"
+msgstr ""
 
 #: gis-weather.py:1349
 msgid "height"
-msgstr "висота"
+msgstr ""
 
 #: gis-weather.py:1349
 msgid "including indent"
-msgstr "враховуючи відступ"
+msgstr ""
 
 #: gis-weather.py:1549
 msgid "Removed"
-msgstr "Видалено"
+msgstr ""
 
 #: gis-weather.py:1582 dialogs/city_id_dialog.ui:361
 msgid "Added"
-msgstr "Додано"
+msgstr ""
 
 #: gis-weather.py:1587 dialogs/city_id_dialog.ui:293
 msgid "Invalid location code"
-msgstr "Невірний код місця знаходження "
+msgstr ""
 
 #: gis-weather.py:1655
 msgid "Your screen does not support alpha"
-msgstr "Ваш екран не підтримує прозорість"
+msgstr ""
 
 #: gis-weather.py:1657
 msgid "Your screen supports alpha"
-msgstr "Ваш екран підтримує прозорість"
+msgstr ""
 
 #: services/accuweather.py:13
 msgid "If the city code is wrong, please read"
-msgstr "Якщо код міста неправильний, будь ласка прочитайте"
+msgstr ""
 
 #: services/accuweather.py:194 services/gismeteo.py:229
 #: services/openweathermap.py:88 services/yr.py:62
 msgid "Failed to get the name of the location"
-msgstr "Не вдалось отримати назву місця знаходження"
+msgstr ""
 
 #: services/accuweather.py:216 services/gismeteo.py:245
 #: services/openweathermap.py:117 services/yr.py:73
 msgid "Getting weather for"
-msgstr "Отримую погоду на"
+msgstr ""
 
 #: services/accuweather.py:216 services/gismeteo.py:245
 #: services/openweathermap.py:117 services/yr.py:73
 msgid "days"
-msgstr "днів"
+msgstr ""
 
 #: services/accuweather.py:257
 msgid "Calm"
-msgstr "Безвітря"
+msgstr ""
 
 #: services/accuweather.py:640 services/gismeteo.py:414
 #: services/openweathermap.py:312
 msgid "updated on server"
-msgstr "оновлено на сервері"
+msgstr ""
 
 #: services/accuweather.py:641 services/gismeteo.py:415
 #: services/openweathermap.py:313 services/yr.py:191
 msgid "weather received"
-msgstr "погода отримана"
+msgstr ""
 
 #: services/openweathermap.py:14
 msgid "How to get"
-msgstr "Як отримати"
+msgstr ""
 
 #: utils/convert.py:53 utils/convert.py:73
 msgid "bft"
-msgstr "бфт"
+msgstr ""
 
 #: utils/convert.py:57 utils/convert.py:77
 msgid "kts"
-msgstr "взл"
+msgstr ""
 
 #: utils/gw_menu.py:53 dialogs/settings_dialog.ui:682
 msgid "Setup..."
-msgstr "Встановлення..."
+msgstr ""
 
 #: utils/gw_menu.py:127
 msgid "Black"
-msgstr "Чорний"
+msgstr ""
 
 #: utils/gw_menu.py:127
 msgid "White"
-msgstr "Білий"
+msgstr ""
 
 #: utils/gw_menu.py:127
 msgid "Gray"
-msgstr "Сірий"
+msgstr ""
 
 #: utils/gw_menu.py:137 dialogs/settings_dialog.ui:1754
 msgid "Lock position"
-msgstr "Зафіксувати позицію"
+msgstr ""
 
 #: utils/gw_menu.py:143 dialogs/settings_dialog.ui:1739
 msgid "On all desktops"
-msgstr "На всіх робочих столах"
+msgstr ""
 
 #: utils/gw_menu.py:153
 msgid "Save screenshot"
-msgstr "Зберегти скріншот"
+msgstr ""
 
 #: utils/gw_menu.py:169
 msgid "Show/Hide widget"
-msgstr "Показати/Приховати віджет"
+msgstr ""
 
 #: utils/gw_menu.py:178 dialogs/settings_dialog.ui:937
 msgid "Refresh"
-msgstr "Оновити"
+msgstr ""
 
 #: utils/gw_menu.py:186
 msgid "Start new instance"
-msgstr "Запустити новий зразок"
+msgstr ""
 
 #: utils/gw_menu.py:204
 msgid "Indicator icons"
-msgstr "Іконки індикатора"
+msgstr ""
 
 #: utils/gw_menu.py:214 dialogs/settings_dialog.ui:3742
 msgid "Background"
-msgstr "Фон"
+msgstr ""
 
 #: utils/gw_menu.py:219 dialogs/settings_dialog.ui:3453
 msgid "Text"
-msgstr "Текст"
+msgstr ""
 
 #: utils/gw_menu.py:224 dialogs/settings_dialog.ui:1958
 msgid "Window"
-msgstr "Вікно"
+msgstr ""
 
 #: utils/gw_menu.py:229
 msgid "Presets"
-msgstr "Передустановки"
+msgstr ""
 
 #: utils/gw_menu.py:250
 msgid "About"
-msgstr "Про програму"
+msgstr ""
 
 #: utils/gw_menu.py:294 dialogs/help_dialog.ui:25
 #: dialogs/settings_dialog.ui:569 dialogs/update_dialog.ui:44
 msgid "Close"
-msgstr "Закрити"
+msgstr ""
 
 #: utils/opener.py:25
 msgid "Unable to download page, check the network connection"
-msgstr "Неможливо завантажити сторінку, перевірте мережеве з'єднання"
+msgstr ""
 
 #: dialogs/city_id_dialog.ui:58
 msgid "Add"
-msgstr "Додати"
+msgstr ""
 
 #: dialogs/city_id_dialog.ui:72
 msgid ""
 "Close & Reload\n"
 "selected"
-msgstr "Закрити та оновити\nобране"
+msgstr ""
 
 #: dialogs/city_id_dialog.ui:87
 msgid ""
 "Remove\n"
 "selected"
-msgstr "Видалити\nобране"
+msgstr ""
 
 #: dialogs/city_id_dialog.ui:145
 msgid "Language weather"
-msgstr "Мова погоди"
+msgstr ""
 
 #: dialogs/city_id_dialog.ui:182 dialogs/settings_dialog.ui:879
 msgid "Weather service"
-msgstr "Погодна служба"
+msgstr ""
 
 #: dialogs/help_dialog.ui:92 dialogs/update_dialog.ui:334
 msgid "Found a bug?"
-msgstr "Знайшли помилку?"
+msgstr ""
 
 #: dialogs/help_dialog.ui:109 dialogs/settings_dialog.ui:799
 #: dialogs/update_dialog.ui:351
 msgid "Want to translate?"
-msgstr "Хочете перекладати?"
+msgstr ""
 
 #: dialogs/help_dialog.ui:126 dialogs/update_dialog.ui:369
 msgid "Have any questions?"
-msgstr "Маєте запитання?"
+msgstr ""
 
 #: dialogs/help_dialog.ui:143 dialogs/update_dialog.ui:387
 msgid "Have any suggestions?"
-msgstr "Маєте пропозиції?"
+msgstr ""
 
 #: dialogs/help_dialog.ui:163
 msgid "You can support my project"
-msgstr "Ви можете підтримати мій проект"
+msgstr ""
 
 #: dialogs/help_dialog.ui:174 dialogs/update_dialog.ui:419
 msgid "Read more"
-msgstr "Докладніше"
+msgstr ""
 
 #: dialogs/help_dialog.ui:238 dialogs/update_dialog.ui:155
 msgid "Changelog"
-msgstr "Зміни"
+msgstr ""
 
 #: dialogs/help_dialog.ui:254 dialogs/update_dialog.ui:171
 msgid "Source Code"
-msgstr "Сирцевий код"
+msgstr ""
 
 #: dialogs/help_dialog.ui:270 dialogs/update_dialog.ui:203
 msgid "What's New"
-msgstr "Що нового"
+msgstr ""
 
 #: dialogs/help_dialog.ui:286 dialogs/settings_dialog.ui:960
 msgid "Translation status"
-msgstr "Статус перекладу"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:629
 msgid "Update (in minutes)"
-msgstr "Оновлювати кожні (в хвилинах)"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:644
 msgid "Check for updates"
-msgstr "Перевірити оновлення"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:731
 msgid "Open..."
-msgstr "Відкрити..."
+msgstr ""
 
 #: dialogs/settings_dialog.ui:821
 msgid "Program language"
-msgstr "Мова програми"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:836
 msgid "Weather language"
-msgstr "Мова погоди"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:851
 msgid "Add launcher icon to menu"
-msgstr "Додати іконку запуску в меню"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1014
 msgid "Autostart at login"
-msgstr "Автозапуск при вході в систему"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1029
 msgid "Number of instances"
-msgstr "Кількість примірників"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1075
 msgid "Start delay (in seconds)"
-msgstr "Відкладений запуск (в секундах)"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1125 dialogs/settings_dialog.ui:1181
 msgid "Autostart"
-msgstr "Автозапуск"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1164
 msgid "Configured in the first instance"
-msgstr "Налаштовується в першому примірнику"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1269
 msgid "General"
-msgstr "Загальні"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1292
 msgid "Wind"
-msgstr "Вітер"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1307
 msgid "Pressure"
-msgstr "Тиск"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1354
 msgid "Temperature"
-msgstr "Температура"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1406
 msgid "Wind chill"
-msgstr "Як відчувається"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1492
 msgid "Date separator format"
-msgstr "Формат роздільника дати"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1507
 msgid "Swap the day and month"
-msgstr "Змінити місцями день та місяць"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1565
 msgid "Units"
-msgstr "Одиниці виміру"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1589
 msgid "Left"
-msgstr "Зліва"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1604 dialogs/settings_dialog.ui:4029
 msgid "Top"
-msgstr "Зверху"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1619
 msgid "Padding"
-msgstr "Підкладка"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1724
 msgid "Fix BadDrawable error"
-msgstr "Полагодити помилку BadDrawable"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1769
 msgid "Transparency"
-msgstr "Прозорість"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:1904
 msgid "Scale"
-msgstr "Масштаб"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2010 dialogs/settings_dialog.ui:2141
 #: dialogs/settings_dialog.ui:2372 dialogs/settings_dialog.ui:2592
 #: dialogs/settings_dialog.ui:3900
 msgid "Show"
-msgstr "Показувати"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2025 dialogs/settings_dialog.ui:2156
 #: dialogs/settings_dialog.ui:2271 dialogs/settings_dialog.ui:2387
 #: dialogs/settings_dialog.ui:2607
 msgid "Offset from center"
-msgstr "Відступ від центру"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2101
 msgid "Block Tomorrow"
-msgstr "Блок Завтра"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2232
 msgid "Block Today"
-msgstr "Блок Согодні"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2318
 msgid "Block Now"
-msgstr "Блок Зараз"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2461
 msgid "Reduce"
-msgstr "Зменшити"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2476
 msgid "Angle of rotation"
-msgstr "Кут повороту"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2552
 msgid "Block Wind"
-msgstr "Блок Вітер"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2683
 msgid "Block Additional info"
-msgstr "Блок дод. інфо"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2741
 msgid "Number of days"
-msgstr "Кількість днів"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2756
 msgid "Show weather retrieval time"
-msgstr "Показувати час отримання погоди"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2771
 msgid "Show splash screen"
-msgstr "Показувати системну заставку"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2786
 msgid "Hide splash screen after attempts (0 - do not hide)"
-msgstr "Приховати систему заставку після спроб (0 - не приховувати)"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2926
 msgid "Show chance of rain"
-msgstr "Показувати вірогідність дощу"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:2992
 msgid "View"
-msgstr "Вид"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3035 dialogs/settings_dialog.ui:4279
 msgid "Font"
-msgstr "Шрифт"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3050
 msgid "Main color"
-msgstr "Основний колір"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3097
 msgid "Color weekend"
-msgstr "Колір вікенду"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3175
 msgid "Color wind"
-msgstr "Колір вітру"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3190
 msgid ""
 "High wind\n"
 "(-1 = not highlighted)"
-msgstr "Сильний вітер\n(-1 = не виділяти)"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3206
 msgid "Shadow color"
-msgstr "Колір тіні"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3221 dialogs/settings_dialog.ui:4059
 msgid "Shadow"
-msgstr "Тінь"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3357
 msgid "Weekend"
-msgstr "Вікенд"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3400
 msgid "Weather description style"
-msgstr "Стиль опису погоди"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3492
 msgid "Use image"
-msgstr "Зображення"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3551 dialogs/settings_dialog.ui:3782
 msgid "Select"
-msgstr "Вибрати"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3634
 msgid "Corner radius"
-msgstr "Радіус кутів"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3649 dialogs/settings_dialog.ui:4074
 msgid "Color"
-msgstr "Колір"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3861
 msgid "Appearance"
-msgstr "Вигляд"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:3885
 msgid "Type (restart required)"
-msgstr "Тип (потрібен перезапуск)"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:4014
 msgid "Width"
-msgstr "Ширина"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:4044
 msgid "Color shadow"
-msgstr "Колір тіні"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:4294
 msgid "Show text"
-msgstr "Показувати текст"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:4398
 msgid "Fix the size"
-msgstr "Зафіксувати розмір"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:4442
 msgid "Size"
-msgstr "Розмір"
+msgstr ""
 
 #: dialogs/settings_dialog.ui:4517
 msgid "Indicator"
-msgstr "Індикатор"
+msgstr ""
 
 #: dialogs/update_dialog.ui:31
 msgid "Update now"
-msgstr "Оновити зараз"
+msgstr ""
 
 #: dialogs/update_dialog.ui:187
 msgid "Manual update"
-msgstr "Оновити вручну"
+msgstr ""
 
 #: dialogs/update_dialog.ui:408
 msgid "You can support project"
-msgstr "Ви можете підтримати проект"
+msgstr ""
 
 #: dialogs/update_dialog.ui:469
 msgid "Additional information"
-msgstr "Додаткова інформація"
+msgstr ""
 
 #: dialogs/update_dialog.ui:589
 msgid "Cleaning temporary files"
-msgstr "Видалення тимчасових файлів"
+msgstr ""
 
 #: dialogs/update_dialog.ui:672
 msgid "Restart"
-msgstr "Перезапустити"
+msgstr ""
 
 #: dialogs/update_dialog.ui:701
 msgid "Update successful"
-msgstr "Оновлення успішне"
+msgstr ""
 
 #: dialogs/update_dialog.ui:756
 msgid "Update error"
-msgstr "Помилка оновлення"
+msgstr ""
