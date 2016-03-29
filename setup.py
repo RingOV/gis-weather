@@ -1,3 +1,6 @@
+# Build for Windows using cx_Freeze
+# Usage: python.exe setup.py build
+
 import sys
 if sys.platform != "win32":
     exit()
