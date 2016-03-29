@@ -38,10 +38,15 @@ Recommends:
 - AUR
   - Stable [https://aur.archlinux.org/packages/gis-weather/](https://aur.archlinux.org/packages/gis-weather/)
   - Testing [https://aur.archlinux.org/packages/gis-weather-git/](https://aur.archlinux.org/packages/gis-weather-git/)
-- For Debian based distro you can use Noobslab ppa:
-  - `sudo add-apt-repository ppa:noobslab/apps`
-  - `sudo apt-get update`
-  - `sudo apt-get install gis-weather`
+- For Debian based distro 
+  - use Noobslab ppa:
+    - `sudo add-apt-repository ppa:noobslab/apps`
+    - `sudo apt-get update`
+    - `sudo apt-get install gis-weather`
+  - build git version
+    - `sudo apt-get install git fakeroot`
+    - First build `cd && git clone https://github.com/RingOV/gis-weather.git && cd gis-weather/scripts && python3 build_deb.py && cd ../DEB && sudo dpkg -i *.deb`
+    - or (after First build) `cd && cd gis-weather && git pull https://github.com/RingOV/gis-weather.git && cd scripts && python3 build_deb.py && cd ../DEB && sudo dpkg -i *.deb`
 - For any distro:
   - Download [https://sourceforge.net/projects/gis-weather/files/latest/download](https://sourceforge.net/projects/gis-weather/files/latest/download)
   - Unpack
