@@ -61,6 +61,11 @@
                 <property name="receives_default">True</property>
                 <property name="image">image1</property>
               </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
             </child>
             <child>
               <object class="GtkButton" id="button2">
@@ -71,6 +76,11 @@ selected</property>
                 <property name="receives_default">True</property>
                 <property name="image">image2</property>
               </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
             </child>
             <child>
               <object class="GtkButton" id="button3">
@@ -81,6 +91,11 @@ selected</property>
                 <property name="receives_default">True</property>
                 <property name="image">image3</property>
               </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
             </child>
           </object>
           <packing>
@@ -243,11 +258,6 @@ selected</property>
                       <placeholder/>
                     </child>
                   </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">False</property>
-                    <property name="position">0</property>
-                  </packing>
                 </child>
                 <child internal-child="content_area">
                   <object class="GtkBox" id="infobar-content_area3">
@@ -266,21 +276,11 @@ selected</property>
                         <property name="label" translatable="yes">Invalid location code</property>
                         <property name="justify">center</property>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">1</property>
-                      </packing>
                     </child>
                     <child>
                       <placeholder/>
                     </child>
                   </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">False</property>
-                    <property name="position">0</property>
-                  </packing>
                 </child>
               </object>
               <packing>
@@ -310,11 +310,6 @@ selected</property>
                       <placeholder/>
                     </child>
                   </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">False</property>
-                    <property name="position">0</property>
-                  </packing>
                 </child>
                 <child internal-child="content_area">
                   <object class="GtkBox" id="infobar-content_area1">
@@ -333,21 +328,11 @@ selected</property>
                         <property name="label" translatable="yes">Added</property>
                         <property name="justify">center</property>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">1</property>
-                      </packing>
                     </child>
                     <child>
                       <placeholder/>
                     </child>
                   </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">False</property>
-                    <property name="position">0</property>
-                  </packing>
                 </child>
               </object>
               <packing>
