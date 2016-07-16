@@ -1,15 +1,15 @@
 # 
 # Translators:
 # RingOV <ringov@mail.ru>, 2014
-# French Translation <yahoe.001@gmail.com>, 2016
-# French Translation <yahoe.001@gmail.com>, 2015
-# French Translation <yahoe.001@gmail.com>, 2014-2015
+# French language coordinator <yahoe.001@gmail.com>, 2016
+# French language coordinator <yahoe.001@gmail.com>, 2015
+# French language coordinator <yahoe.001@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2016-03-15 17:29+0300\n"
 "PO-Revision-Date: 2016-04-11 15:49+0000\n"
-"Last-Translator: French Translation <yahoe.001@gmail.com>\n"
+"Last-Translator: French language coordinator <yahoe.001@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/gis-weather-team/gis-weather/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
