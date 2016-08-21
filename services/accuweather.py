@@ -544,7 +544,6 @@ def get_weather():
         w_evening = urlopener('http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=1'%(city_id, city_number))
         if not w_evening:
             return False
-        time.sleep(1)
 
         t_today = []
 
