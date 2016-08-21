@@ -218,6 +218,7 @@ def get_weather():
     source = urlopener(URL_CURRENT, 5)
     if not source:
         return False
+    time.sleep(1000)
     #### current weather ####
     # city
     city_name = re.findall('"current-city"><h1>(.*),', source)
@@ -271,6 +272,7 @@ def get_weather():
         source = urlopener(URL_ADD_INFO, 5)
         if not source:
             return False
+    time.sleep(1000)
 
         # pressure now
         press = re.findall('Pressure.*>(.+?)<', source)
@@ -292,6 +294,7 @@ def get_weather():
     source = urlopener(URL_SEVERAL_DAYS, 5)
     if not source:
         return False
+    time.sleep(1000)
 
     # all days
     w_all = re.findall('<tr class="lo calendar.*</table>', source, re.DOTALL)
@@ -344,6 +347,7 @@ def get_weather():
             source = urlopener(next_month[0], 5)
             if not source:
                 return False
+            time.sleep(1000)
 
             # all days
             w_all = re.findall('<tr class="lo calendar.*</table>', source, re.DOTALL)
@@ -401,18 +405,22 @@ def get_weather():
         w_night = urlopener('http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=2'%(city_id, city_number), 5)
         if not w_night:
             return False
+        time.sleep(1000)
 
         w_morning = urlopener('http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=2'%(city_id, city_number))
         if not w_morning:
             return False
+        time.sleep(1000)
 
         w_day = urlopener('http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=2'%(city_id, city_number))
         if not w_day:
             return False
+        time.sleep(1000)
 
         w_evening = urlopener('http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=2'%(city_id, city_number))
         if not w_evening:
             return False
+        time.sleep(1000)
 
         t_tomorrow=[]
 
@@ -521,18 +529,22 @@ def get_weather():
         w_night = urlopener('http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=1'%(city_id, city_number), 5)
         if not w_night:
             return False
+        time.sleep(1000)
 
         w_morning = urlopener('http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=1'%(city_id, city_number))
         if not w_morning:
             return False
+        time.sleep(1000)
 
         w_day = urlopener('http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=1'%(city_id, city_number))
         if not w_day:
             return False
+        time.sleep(1000)
 
         w_evening = urlopener('http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=1'%(city_id, city_number))
         if not w_evening:
             return False
+        time.sleep(1000)
 
         t_today = []
 
