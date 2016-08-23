@@ -9,7 +9,7 @@ import os
 
 data = [
     "http://www.yr.no",  # url
-    "www.yr.no/place/<b>South_Africa/North-West/Sun_City</b>/",  # example
+    "www.yr.no/sted/<b>South_Africa/North-West/Sun_City</b>",  # example
     "<b>South_Africa/North-West/Sun_City</b>",  # code
     {
         'en': 'English'
@@ -56,7 +56,7 @@ def convert(icon, icons_name):
 
 def get_city_name(city_id):
     try:
-        source = urlopener('http://www.yr.no/place/%s/forecast.xml'%(str(city_id)), 2)
+        source = urlopener('http://www.yr.no/sted/%s/forecast.xml'%(str(city_id)), 2)
         c_name = re.findall('<name>(.+)</name>', source)
     except:
         print('\033[1;31m[!]\033[0m '+_('Failed to get the name of the location'))
@@ -65,16 +65,18 @@ def get_city_name(city_id):
 
 
 def get_weather():
-    global time_of_day_list, city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain
+    global time_of_day_list, URL, city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain
     n = gw_vars.get('n')
     city_id = gw_vars.get('city_id')
     icons_name = gw_vars.get('icons_name')
-    URL = 'http://www.yr.no/place/%s/forecast.xml' % str(city_id)
+    URL = 'http://www.yr.no/sted/%s/forecast.xml' % str(city_id)
     print ('\033[34m>\033[0m '+_('Getting weather for')+' '+str(n)+' '+_('days'))
 
     source = urlopener(URL, 5)
     if not source:
         return False
+
+    URL = 'http://www.yr.no/sted/%s' % str(city_id)
 
     latitude = re.findall('<location.*latitude="(.+?)"', source)
     longitude = re.findall('<location.*longitude="(.+?)"', source)

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.0.18'
+v = '0.8.0.19'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -52,7 +52,7 @@ parser.add_argument('-t', '--test', help="testing mode",
 args = parser.parse_args()
 
 if args.test:
-    print(_('testing mode turned ON'))
+    print(_('testing mode turned on'))
 
 INSTANCE_NO = instance.count()
 
@@ -86,6 +86,7 @@ import json
 import subprocess
 import gzip
 import shutil
+import webbrowser
 
 CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
 CONFIG_PATH_FILE = os.path.join(CONFIG_PATH, instance.get_config_file())
@@ -1406,6 +1407,9 @@ class Weather_Widget:
 
     def menu_response(self, widget, event, value=None):
         global service
+        if event == 'goto_site':
+            if URL:
+                webbrowser.open(URL)
         if event == 'start_new_instance':
             if multInstances:
                 subprocess.Popen(['python3', os.path.join(APP_PATH, 'gis-weather.py')])

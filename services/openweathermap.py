@@ -100,7 +100,7 @@ def get_day(source):
 
 
 def get_weather():
-    global city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain
+    global city_name, URL, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain
     APPID = gw_vars.get('appid')
     if not APPID:
         print('\033[1;31m[!]\033[0m Empty API key. Please enter API key')
@@ -111,6 +111,7 @@ def get_weather():
     show_block_add_info = gw_vars.get('show_block_add_info')
     weather_lang = gw_vars.get('weather_lang')
     icons_name = gw_vars.get('icons_name')
+    URL = ''
     URL_CURRENT = 'http://api.openweathermap.org/data/2.5/weather?id=%s&lang=%s&units=metric&appid=%s'%(str(city_id), weather_lang, APPID)
     URL_SEVERAL_DAYS = 'http://api.openweathermap.org/data/2.5/forecast/daily?id=%s&lang=%s&units=metric&cnt=%s&appid=%s'%(str(city_id), weather_lang, n+1, APPID)
     URL_TODAY_TOMORROW = 'http://api.openweathermap.org/data/2.5/forecast?id=%s&lang=%s&units=metric&appid=%s'%(str(city_id), weather_lang, APPID)

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 weather = {
+    'URL': [],
     'city_name': [],
     't_now': [],
     'wind_speed_now': [],

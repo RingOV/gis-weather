@@ -196,7 +196,7 @@ def get_city_name(city_id):
     return c_name[0]
 
 def get_weather():
-    global w, city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain, t_today_low, t_tomorrow_low
+    global w, URL, city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain, t_today_low, t_tomorrow_low
     n = gw_vars.get('n')
     city_id = gw_vars.get('city_id')
     show_block_tomorrow = gw_vars.get('show_block_tomorrow')
@@ -212,6 +212,8 @@ def get_weather():
     URL_CURRENT = 'http://www.accuweather.com/%s/%s/current-weather/%s'%(weather_lang, city_id, city_number)
     URL_ADD_INFO = 'http://www.accuweather.com/en/%s/current-weather/%s'%(city_id, city_number)
     URL_SEVERAL_DAYS = 'http://www.accuweather.com/%s/%s/month/%s?view=table'%(weather_lang, city_id, city_number)
+
+    URL = URL_CURRENT
 
     print ('\033[34m>\033[0m '+_('Getting weather for')+' '+str(n)+' '+_('days'))
 
