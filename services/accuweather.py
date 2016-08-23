@@ -196,7 +196,7 @@ def get_city_name(city_id):
     return c_name[0]
 
 def get_weather():
-    global w, URL, city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain, t_today_low, t_tomorrow_low
+    global w, sunrise, sunset, sun_duration, moonrise, moonset, moon_duration, URL, city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain, t_today_low, t_tomorrow_low
     n = gw_vars.get('n')
     city_id = gw_vars.get('city_id')
     show_block_tomorrow = gw_vars.get('show_block_tomorrow')
@@ -221,6 +221,21 @@ def get_weather():
     if not source:
         return False
     time.sleep(1)
+    
+    # sun/moon
+    sun_moon_start = re.findall('<span class="start">(.*)</span>', source)
+    sun_moon_finish = re.findall('<span class="finish">(.*)</span>', source)
+    sun_moon_time = re.findall('<span class="time">(.*)</span>', source)
+    if sun_moon_start:
+        sunrise = sun_moon_start[0]
+        moonrise = sun_moon_start[1]
+    if sun_moon_finish:
+        sunset = sun_moon_finish[0]
+        moonset = sun_moon_finish[1]
+    if sun_moon_time:
+        sun_duration = sun_moon_time[0]
+        moon_duration = sun_moon_time[1]
+
     #### current weather ####
     # city
     city_name = re.findall('"current-city"><h1>(.*),', source)
@@ -269,7 +284,7 @@ def get_weather():
     # weather text now
     text_now = re.findall('<div class="info"> <span class="cond">(.*)<', source)
     text_now[0]=text_now[0].split('<')[0]
-
+    
     if show_block_add_info:
         source = urlopener(URL_ADD_INFO, 5)
         if not source:
@@ -409,17 +424,17 @@ def get_weather():
             return False
         time.sleep(1)
 
-        w_morning = urlopener('http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=2'%(city_id, city_number))
+        w_morning = urlopener('http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=2'%(city_id, city_number), 5)
         if not w_morning:
             return False
         time.sleep(1)
 
-        w_day = urlopener('http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=2'%(city_id, city_number))
+        w_day = urlopener('http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=2'%(city_id, city_number), 5)
         if not w_day:
             return False
         time.sleep(1)
 
-        w_evening = urlopener('http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=2'%(city_id, city_number))
+        w_evening = urlopener('http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=2'%(city_id, city_number), 5)
         if not w_evening:
             return False
         time.sleep(1)
@@ -533,17 +548,17 @@ def get_weather():
             return False
         time.sleep(1)
 
-        w_morning = urlopener('http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=1'%(city_id, city_number))
+        w_morning = urlopener('http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=1'%(city_id, city_number), 5)
         if not w_morning:
             return False
         time.sleep(1)
 
-        w_day = urlopener('http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=1'%(city_id, city_number))
+        w_day = urlopener('http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=1'%(city_id, city_number), 5)
         if not w_day:
             return False
         time.sleep(1)
 
-        w_evening = urlopener('http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=1'%(city_id, city_number))
+        w_evening = urlopener('http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=1'%(city_id, city_number), 5)
         if not w_evening:
             return False
 
