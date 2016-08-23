@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.0.20'
+v = '0.8.0.22'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -105,6 +105,7 @@ presets.save_to_file(CONFIG_PATH)
 
 # Default values
 gw_config_default = {
+    'show_sunrise':True,
     'angel': 0,                        # angle of clockwise rotation in degrees
     'city_id': 0,                      # location code
     'appid': '',                       # api key
@@ -182,21 +183,10 @@ gw_config_default = {
     'bg_top': 0,
     'bg_width': -1,
     'bg_height': -1,
-    # 'icon_now_top': 0,
-    # 'icon_now_left': 0,
-    # 'icon_now_size': 0,
     'block_icons_left': 0,
     'block_icons_top': 0,
-    #'city_name_left': 0,
-    #'city_name_top': 0,
     'day_left': 0,
     'day_top': 0,
-    # 't_now_left': 0,
-    # 't_now_top': 0,
-    # 't_now_size': 0,
-    # 't_now_alignment': 'right',
-    # 'text_now_left': 0,
-    # 'text_now_top': 0,
     'height_fix': 0,
     'width_fix': 0,
     'splash_icon_top': 0,
@@ -207,6 +197,7 @@ gw_config_default = {
     'block_wind_direct_small_top': 0,
     'splash_block_top': 0,
     'desc_style': 0,  # 0 - Normal, 1 - Italic
+    'block_sunrise':{'x':30, 'y':100, 'font_size': 9, 'align': 'left', 'show': True},
     # day icon customization
     'day_icon_attr': {'x': 30, 'y': 16, 'size': 36, 'show': True},
     'day_date_fmt': '{day}, {date}',
@@ -861,6 +852,7 @@ class MyDrawArea(Gtk.DrawingArea):
         if date != []:
             #global t_now_left, text_now_left
             center = x+width/2
+            top = y + 30
 
             if icon_now_attr['x'] > 999: icon_now_left = icon_now_attr['x'] - 1000 - center
             else: icon_now_left = icon_now_attr['x']
@@ -907,6 +899,15 @@ class MyDrawArea(Gtk.DrawingArea):
                     text_now_attr['y']+y+106, font+text_now_attr['font_weight'], text_now_attr['font_size'], 140,
                     Pango_dict[text_now_attr['align']])
             
+            if block_sunrise['show']:
+                ####-block sunrise-####
+                if sunrise and sunset:
+                    self.draw_text(cr,
+                        '☀↗  '+sunrise+'   ↘☀ '+sunset+'   ⌚ '+sun_duration,
+                        block_sunrise['x'], top+block_sunrise['y'],
+                        font+' Normal', block_sunrise['font_size'], width-(center+block_sunrise['x']),
+                        Pango.Alignment.LEFT)
+
             if show_block_wind_direct:
                 ####-block wind direct-####
                 left = block_wind_direct_left

@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 
 weather = {
+    'sunrise':[],
+    'sunset':[],
+    'sun_duration':[],
+    'moonrise':[],
+    'moonset':[],
+    'moon_duration':[],
     'URL': [],
     'city_name': [],
     't_now': [],
