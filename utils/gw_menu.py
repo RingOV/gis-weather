@@ -5,7 +5,7 @@ import os
 from utils import presets
 from services import data
 
-def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color_scheme, gw_config, for_indicator):
+def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color_scheme, gw_config, for_indicator, test_on):
     icons_name = gw_config['icons_name']
     show_bg_png = gw_config['show_bg_png']
     color_bg = gw_config['color_bg']
@@ -259,37 +259,38 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color
     menu.append(menu_items)
     menu_items.show()
 ### testing menu
-    sub_menu_testing = Gtk.Menu()
-    window_type_hint_list = (
-        'Gdk.WindowTypeHint.DOCK',
-        'Gdk.WindowTypeHint.NORMAL',
-        'Gdk.WindowTypeHint.DIALOG',
-        'Gdk.WindowTypeHint.MENU',
-        'Gdk.WindowTypeHint.TOOLBAR',
-        'Gdk.WindowTypeHint.SPLASHSCREEN',
-        'Gdk.WindowTypeHint.UTILITY',
-        'Gdk.WindowTypeHint.DESKTOP',
-        'Gdk.WindowTypeHint.DROPDOWN_MENU',
-        'Gdk.WindowTypeHint.POPUP_MENU',
-        'Gdk.WindowTypeHint.TOOLTIP',
-        'Gdk.WindowTypeHint.NOTIFICATION',
-        'Gdk.WindowTypeHint.COMBO',
-        'Gdk.WindowTypeHint.DND'
-        )
-    for i in range(len(window_type_hint_list)):
-        menu_items = Gtk.MenuItem(label=window_type_hint_list[i])
-        sub_menu_testing.append(menu_items)
-        menu_items.connect("activate", app.menu_response, 'set_window_type_hint', i)
+    if test_on:
+        sub_menu_testing = Gtk.Menu()
+        window_type_hint_list = (
+            'Gdk.WindowTypeHint.DOCK',
+            'Gdk.WindowTypeHint.NORMAL',
+            'Gdk.WindowTypeHint.DIALOG',
+            'Gdk.WindowTypeHint.MENU',
+            'Gdk.WindowTypeHint.TOOLBAR',
+            'Gdk.WindowTypeHint.SPLASHSCREEN',
+            'Gdk.WindowTypeHint.UTILITY',
+            'Gdk.WindowTypeHint.DESKTOP',
+            'Gdk.WindowTypeHint.DROPDOWN_MENU',
+            'Gdk.WindowTypeHint.POPUP_MENU',
+            'Gdk.WindowTypeHint.TOOLTIP',
+            'Gdk.WindowTypeHint.NOTIFICATION',
+            'Gdk.WindowTypeHint.COMBO',
+            'Gdk.WindowTypeHint.DND'
+            )
+        for i in range(len(window_type_hint_list)):
+            menu_items = Gtk.MenuItem(label=window_type_hint_list[i])
+            sub_menu_testing.append(menu_items)
+            menu_items.connect("activate", app.menu_response, 'set_window_type_hint', i)
+            menu_items.show()
+
+        menu_items = Gtk.MenuItem('Testing')
+        menu.append(menu_items)
+        menu_items.set_submenu(sub_menu_testing)
         menu_items.show()
 
-    menu_items = Gtk.MenuItem('Testing')
-    menu.append(menu_items)
-    menu_items.set_submenu(sub_menu_testing)
-    menu_items.show()
-
-    menu_items = Gtk.SeparatorMenuItem()
-    menu.append(menu_items)
-    menu_items.show()
+        menu_items = Gtk.SeparatorMenuItem()
+        menu.append(menu_items)
+        menu_items.show()
 
     menu_items = Gtk.ImageMenuItem(_('Close'))
     image = Gtk.Image()

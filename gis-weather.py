@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.0.17'
+v = '0.8.0.18'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -45,9 +45,14 @@ import argparse
 parser = argparse.ArgumentParser(description='Customizable weather widget')
 parser.add_argument('-i', '--instances', nargs=1, metavar='N', default=['0'],
                     help=_('number of instances'))
-parser.add_argument('-v','--version', action='version', version='Gis Weather '+v)
+parser.add_argument('-v', '--version', action='version', version='Gis Weather '+v)
 
+parser.add_argument('-t', '--test', help="testing mode",
+                    action="store_true")
 args = parser.parse_args()
+
+if args.test:
+    print(_('testing mode turned ON'))
 
 INSTANCE_NO = instance.count()
 
@@ -1627,7 +1632,7 @@ class Weather_Widget:
         #     a = gw_config[data.get_city_list(service)]
         # except:
         #     gw_config[data.get_city_list(service)] = []
-        self.menu, icons_list, backgrounds_list = gw_menu.create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color_scheme, gw_config, for_indicator)
+        self.menu, icons_list, backgrounds_list = gw_menu.create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color_scheme, gw_config, for_indicator, args.test)
 
     def configure_event(self, widget, event):
         global x_pos, y_pos
