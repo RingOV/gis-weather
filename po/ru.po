@@ -1,11 +1,12 @@
 # 
 # Translators:
 # RingOV <ringov@mail.ru>, 2015-2016
+# RingOV <ringov@mail.ru>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2016-08-23 11:51+0300\n"
-"PO-Revision-Date: 2016-08-23 09:38+0000\n"
+"PO-Revision-Date: 2016-08-25 10:10+0000\n"
 "Last-Translator: RingOV <ringov@mail.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/gis-weather-team/gis-weather/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -674,11 +675,11 @@ msgstr "Невозможно скачать страницу, проверьте
 
 #: gis-weather.py:55
 msgid "testing mode turned on"
-msgstr ""
+msgstr "режим тестирования включен"
 
 #: utils/gw_menu.py:194
 msgid "Go to site"
-msgstr ""
+msgstr "Перейти на сайт"
 
 #: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:58
 #: dialogs/city_id_dialog.ui:58
