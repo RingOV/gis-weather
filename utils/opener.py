@@ -3,7 +3,6 @@
 import urllib.request
 
 headers_list = [
-    'Magic Browser',
     'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:37.0) Gecko/20100101 Firefox/37.0'
     ]
 
