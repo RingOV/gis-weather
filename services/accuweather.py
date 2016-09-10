@@ -325,6 +325,7 @@ def get_weather():
 
     # day temperature
     t_day = re.findall('<td>(.*)&#176;/', w_all[0])
+    t_day = t_day[::2]
     for i in range(len(t_day)):
         # if t_day[i][0] not in ('+', '-', '0'):
         #     t_day[i] = '+' + t_day[i]
@@ -334,6 +335,7 @@ def get_weather():
 
     # night temperature
     t_night = re.findall('<td>.*/(.*)&#176;', w_all[0])
+    t_night = t_night[::2]
     for i in range(len(t_night)):
         # if t_night[i][0] not in ('+', '-', '0'):
         #     t_night[i] = '+' + t_night[i]
@@ -678,5 +680,5 @@ def get_weather():
     # write variables
     for i in w.keys():
         w[i] = globals()[i]
-        # print(i+' =', globals()[i])
+        print(i+' =', globals()[i])
     return w
