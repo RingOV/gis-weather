@@ -677,6 +677,6 @@ def get_weather():
 
     # write variables
     for i in w.keys():
-        # w[i] = globals()[i]
+        w[i] = globals()[i]
         # print(i+' =', globals()[i])
     return w
