@@ -227,20 +227,17 @@ def get_weather():
     if not source:
         return False
     # time.sleep(1)
-    
+
     # sun/moon
-    sun_moon_start = re.findall('<span class="start">(.*)</span>', source)
-    sun_moon_finish = re.findall('<span class="finish">(.*)</span>', source)
-    sun_moon_time = re.findall('<span class="time">(.*)</span>', source)
-    if sun_moon_start:
-        sunrise = sun_moon_start[0]
-        moonrise = sun_moon_start[1]
-    if sun_moon_finish:
-        sunset = sun_moon_finish[0]
-        moonset = sun_moon_finish[1]
-    if sun_moon_time:
-        sun_duration = sun_moon_time[0]
-        moon_duration = sun_moon_time[1]
+    sun_moon = re.findall('<span>(.*)</span></li>', source)
+
+    if sun_moon:
+        sunrise = sun_moon[1]
+        sunset = sun_moon[2]
+        sun_duration = sun_moon[3][:-3]
+        moonrise = sun_moon[4]
+        moonset = sun_moon[5]
+        moon_duration = sun_moon[6][:-3]
 
     #### current weather ####
     # city
@@ -253,22 +250,16 @@ def get_weather():
     t_now = re.findall('<span class="large-temp">(.?\d+)', w_now[0])
     if not celsius:
         t_now[0] = F_to_C(t_now[0])
-    # if t_now[0][0] not in ('+', '-', '0'):
-    #         t_now[0] = '+'+t_now[0]
     t_now[0] = convert_from_C(t_now[0])
 
     # wind
-    wind_speed_now = re.findall("<div style=\".+\">(\d*).*</div>", source)
+    wind_speed_now = re.findall('<li class="wind"><strong>(\d*)', source)
     if wind_speed_now:
         wind_speed_now[0] = convert_from_kmh(wind_speed_now[0])
-    wind_direct_now = re.findall("arrow-lg-(.*)\.png", source)
+    wind_direct_now = re.findall('<div class="wind-point (.*)"', w_now[0])
 
     # icon
     icon_now = re.findall('<div class="icon (.*)xl"', w_now[0])
-    # icon_now[0] = icon_now[0][2:]
-    # if len(icon_now[0])==4:
-    #     icon_now[0]='0'+icon_now[0]
-    # icon_now[0] = 'http://vortex.accuweather.com/adc2010/images/icons-numbered/'+icon_now[0]+'.png'
     icon_now[0] = convert(icon_now[0], icons_name)
 
     # wind icon

@@ -1,0 +1,1801 @@
+Gis Weather 0.8.0.30
+Configuration folder:
+    /home/ringov/.config/gis-weather/gw_config1.json
+Widget size:
+    width = 684 height = 320 including indent = 20
+Your screen supports alpha
+[34m>[0m Getting weather for 7 days
+[34m>[0m Downloading http://www.accuweather.com/ru/za/sun-city/306096/current-weather/306096
+[1;32mOK[0m
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info = {"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"a690b21e9f","applicationID":"599479","transactionName":"NV0GYUFWCEUDBkNQDAwXKWNwGCBZEABUWBAWewtbR0UJWg4ARRYgF0oWUF1DJVkMAV5NCg1WFw==","queueTime":0,"applicationTime":68,"ttGuid":"58EF1FA20EBEEB16","agent":""}</script><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQUFVl5UGwYJXVVVDg=="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(s){try{i("ierr",[s,(new Date).getTime(),!0])}catch(c){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,e,n){u&&(d+=1)}),s.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState";t("loader").features.stn=!0,t(6);var g=NREUM.o.EV;o.on(m,function(t,e){var n=t[0];n instanceof g&&(this.bstStart=Date.now())}),o.on(w,function(t,e){var n=t[0];n instanceof g&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on(m,function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),this.bstType])}),s.on(m,function(){this.bstStart=Date.now()}),s.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,!1),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t(17)(a),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){if(t[1]){var n=t[1];if("function"==typeof n){var r=c(n,"nr@wrapped",function(){return s(n,"fn-",null,n.name||"anonymous")});this.wrapped=t[1]=r}else"function"==typeof n.handleEvent&&s.inPlace(n,["handleEvent"],"fn-")}}),a.on(d+"-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(17)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(17)(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(17)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,w,"fn-",s)}function i(t){v.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<v.length;t++)r([],v[t]);v.length&&(v=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(17)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",w=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],v=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return h(r)}function i(t,e){var n=c(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=h(r);i&&(n.txSize=i)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{f.emit("internal-error",[n])}catch(r){}}};for(var a=0;a<d;a++)e.addEventListener(u[a],this.listener,!1)}),f.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),f.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],e)}),f.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],e)}),f.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),f.on("fn-end",function(t,e){this.xhrCbStart&&f.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[(new Date).getTime()].concat(s(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var u=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit"],d="api-",l=d+"ixn-";a(u,function(t,e){f[e]=o(d+e,!0,"api")}),f.addPageAction=o(d+"addPageAction",!0),e.exports=newrelic,f.interaction=function(){return(new r).get()};var p=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(l+"tracer",[Date.now(),t,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return e.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){p[e]=o(l+e)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],14:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],15:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],16:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],17:[function(t,e,n){function r(t){return!(t&&"function"==typeof t&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;e.exports=function(t){function e(t,e,n,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof n?n(r,a):n||{}}catch(u){d([u,"",[r,a,o],s])}f(e+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(l){throw f(e+"err",[r,a,l],s),l}finally{f(e+"end",[r,a,c],s)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,u(t,nrWrapper),nrWrapper)}function n(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function f(e,n,r){if(!c){c=!0;try{t.emit(e,n,r)}catch(o){d([o,e,n,r])}c=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){d([r])}for(var o in t)s.call(t,o)&&(e[o]=t[o]);return e}function d(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),e.inPlace=n,e.flag=a,e}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,a,i):i()}function n(n,r,o){t&&t(n,r,o);for(var i=e(o),a=l(n),s=a.length,c=0;c<s;c++)a[c].apply(i,r);var u=f[w[n]];return u&&u.push([v,n,r,i]),i}function d(t,e){m[t]=l(t).concat(e)}function l(t){return m[t]||[]}function p(t){return u[t]=u[t]||o(n)}function h(t,e){c(t,function(t,n){e=e||"feature",w[n]=e,e in f||(f[e]=[])})}var m={},w={},v={on:d,emit:n,get:p,listeners:l,context:e,buffer:h};return v}function i(){return new r}var a="nr@context",s=t("gos"),c=t(15),f={},u={},d=e.exports=o();d.backlog=f},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!g++){var t=y.info=NREUM.info,e=u.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){c(w,function(e,n){t[e]||(t[e]=n)});var n="https"===m.split(":")[0]||t.sslForHttp;y.proto=n?"https://":"http://",s("mark",["onload",a()],null,"api");var r=u.createElement("script");r.src=y.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function o(){"complete"===u.readyState&&i()}function i(){s("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var s=t("handle"),c=t(15),f=window,u=f.document,d="addEventListener",l="attachEvent",p=f.XMLHttpRequest,h=p&&p.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:p,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},t(12);var m=""+location,w={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-974.min.js"},v=p&&h&&h[d]&&!/CriOS/.test(navigator.userAgent),y=e.exports={offset:a(),origin:m,features:{},xhrWrappable:v};u[d]?(u[d]("DOMContentLoaded",i,!1),f[d]("load",r,!1)):(u[l]("onreadystatechange",o),f[l]("onload",r)),s("mark",["firstbyte",a()],null,"api");var g=0},{}]},{},["loader",2,10,4,3]);</script>
+          
+    <title>Sun City: текущая погода - Прогноз погоды AccuWeather для Северо-Западная провинция и ЮАР (RU)</title>             
+<link rel="canonical" href="http://www.accuweather.com/ru/za/sun-city/306096/current-weather/306096" />
+<link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.accuweather.com/ru/za/sun-city/306096/current-weather/306096" />
+<link rel="alternate" media="handheld" href="http://m.accuweather.com/ru/za/sun-city/306096/current-weather/306096" />
+
+    <meta name="viewport" content="width=988" />
+    <link rel="stylesheet" href="http://vortex.accuweather.com/adc2010/stylesheets/slate.min-20160826-1001.css" type="text/css" media="all" /> 
+    <link rel="shortcut icon" href="http://vortex.accuweather.com/adc2010/images/favicons/awx-2013-master.ico" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="msapplication-config" content="none" />
+
+        <style type="text/css">
+.flag-ZA { background-image: url(http://vortex.accuweather.com/adc2010/images/flags/ZA.png) !important;}
+.flag-US { background-image: url(http://vortex.accuweather.com/adc2010/images/flags/US.png) !important;}
+.flag-CN { background-image: url(http://vortex.accuweather.com/adc2010/images/flags/CN.png) !important;}
+         </style> 
+    
+
+
+<meta property="fb:app_id" content="132437483467956" />
+<meta property="og:site_name" content="AccuWeather" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@breakingweather" />
+<meta name="twitter:image:src" content="http://vortex.accuweather.com/adc2010/images/awx-orange-sun-logo-180x180.png" />
+<meta name="twitter:image:width" content="180" />
+<meta name="twitter:image:height" content="180" />
+
+
+<meta property="og:title" content="Sun City: текущая погода - Прогноз погоды AccuWeather для Северо-Западная провинция и ЮАР (RU)" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="Sun City, ЮАР: текущая погода" />
+<meta property="og:image" content="http://vortex.accuweather.com/adc2010/images/awx-orange-sun-logo-650x315.png" />
+<meta property="og:url" content="http://www.accuweather.com/ru/za/sun-city/306096/current-weather/306096" />
+<meta name="twitter:title" content="Sun City: текущая погода - Прогноз погоды AccuWeather для Северо-Западная провинция и ЮАР (RU)" />
+<meta name="twitter:description" content="Sun City, ЮАР: текущая погода" />
+<meta name="twitter:url" content="http://www.accuweather.com/ru/za/sun-city/306096/current-weather/306096" />
+
+
+    <script type="text/javascript">
+    //all things being equal...
+    var amobeeParams = {
+        p:{
+            version:"",
+            adsource:"",
+            guid:"",
+            ira:"",
+            skymotion:"",
+            tzo:"",
+            lat:"",
+            long:"",
+            LotameID:"",
+            kw:"",
+            adtestkey:""
+        }
+    }
+
+    //ATP Config
+    var atp_config = {
+        AdPlatform: "GPT",
+        IsDebug: false,
+        PrebidTimeout: 300,
+        TargetingOverrides:
+        {
+        },
+        Criteo :
+        {
+            crtg_nid:"3852",
+            crtg_cookiename:"crtg_accwea",
+            crtg_varname:"crtg_content"
+        },
+        ForecastDays: 2,        //number of forecast days to send
+        //TargetingIndicies: ["migraine", "flu","cold","dust","asthma","pollen"]
+        //TargetingIndicies: []   //no indicies
+        TargetingIndicies: undefined //all indicies
+        //TargetingIndicies: ["cold", "flu"] // cold and flu indicies
+    }
+    var TILE_SIZES = {
+        ATFPENCIL: [[980, 30]],
+        ATF728: [[728, 90], [970, 250], [750, 100], [750, 200], [750, 300], [930, 180], [950, 90], [980, 90], [980, 120], [970, 90], [960, 90]],
+        ATF300: [[300, 250], [336, 280], [300, 1050], [250, 360], [240, 400]],
+        ATF300_NONPROD: [[300, 600]],
+        ATF160: [[120, 60], [120, 240]],
+        BTF160: [[120, 60], [120, 240]],
+        BTF300: [[300, 250], [300, 251], [250, 360], [240, 400]],
+        BTF300_NONPROD: [[300, 601]],
+        BTF728: [[728, 90], [728, 91], [750, 100], [950, 90], [980, 90], [970, 90], [960, 90]],
+        ATFVIDEOCOMP300: [[300, 250]],
+        ATF_TRR:[[160, 600], [120, 600]],
+        BTF_TRR:[[160, 600], [160,601]]
+    };
+    var pageWx = {
+        nwsalrt: 'TODO',
+        alerts: { source: '', category: '', typeid: '' },
+        isday: '0',
+        lfs: { day: '4', category: 'cooler', severity: '7' },
+        hdln: '',
+        ut: '1',
+cu: {
+wx : '33',
+hi : '21',
+wd : '11',
+hd : '42',
+uv : '0',
+lo : '21',
+txt : 'Ясно',
+temp_f : '70'
+},
+fc: [
+{wx:'2',hi:'28',lo:'11',
+dp:{lp:'0',r:'0',s:'0',i:'0'},np:{lp:'0',r:'0',s:'0',i:'0'}},
+{wx:'1',hi:'31',lo:'12',
+dp:{lp:'0',r:'0',s:'0',i:'0'},np:{lp:'0',r:'0',s:'0',i:'0'}},
+{wx:'1',hi:'32',lo:'15',
+dp:{lp:'0',r:'0',s:'0',i:'0'},np:{lp:'0',r:'0',s:'0',i:'0'}},
+],
+        ix: {arthritis:'1',asthma:'1',bbq:'5',cold:'1',flu:'',lawnmowing:'5',migraine:'1',outdoor:'5',schoolclosing:'',sinus:'1',soil:'',field:'',beach:'4',biking:'5',concert:'',construction:'5',composting:'3',dust:'1',fishing:'2',fueleconomy:'5',golf:'5',heart:'5',hiking:'5',hvac:'1',mosq:'1',sailing:'5',running:'5',schoolbus:'5',skiing:'1',star:'5',frizz:'1',pollen:'1',uvindex:'4',hunting:'1', driving:'5', travel:'5', airq:'1', pgrass:'1', pmold:'1', pweed:'1', ptree:'1' }
+    };
+</script>
+
+    
+ 
+
+
+
+    <script type="text/javascript">
+    //define our user bucket settings from config
+    var userLevelSettings = {
+        engagedUserSessionPageViews: 9,
+        ambassadorSessions: 5,
+        engagedAmbassadorTotalPageViews: 18
+        };
+
+    var bingMapsKey = 'Aq63PdcG0ddlLSi7wf0mYGOEp6l2fVZqDjlpBEIMjicZ38F6t9jlRdb1B0Y2tKgE';
+
+    var gaKey = 'UA-20804842-1';
+
+        var awxIsSlateSite = true;
+    </script>
+
+            <script type="text/javascript" src="http://vortex.accuweather.com/adc2010/javascripts/adclotaud.min-20150508.js"></script>
+    <script type="text/javascript">
+    var atp_queue = atp_queue ? atp_queue : [];
+    var pbjs = pbjs || {};
+    pbjs.que = pbjs.que || [];
+
+    var apgUserInfoObj = {
+        country: 'ZA',
+        city: '',
+        state: 'NW',
+        metro: '',
+        zip: '',
+        fcode: 'FAPN',
+        partner: 'accuweather',
+        sessionPartner: 'accuweather',
+        referer: '',
+        lang: 'ru',
+        langid: '25',
+        lat: '-25.33',
+        lon: '27.1',
+        dma: '',
+        ip: '95.153.135.175',
+        ipHash: '08cfdecc22d35913579e125918c3f291',
+        ipLocation: 'za/sun-city/306096/',
+        sessionViews: 1,
+        //visitFlow: '',
+        geo_dma: '',
+        geo_city: 'Imyernitsin',
+        geo_state: 'KDA',
+        geo_zip: '',
+        geo_country: 'RU',
+        gmtOffset: '2',
+        locationKey: '306096',
+        canonicalLocationKey: '306096',
+        weatherDate:'20160911',
+        callRender:'1'
+    };
+
+
+var aadCustomKeyValuePairs = {};
+</script>
+    
+    <script type="text/javascript">
+    var AW_EXP_ID = null;
+    var AW_EXP_VAR = null;
+        var apgConfigObj = {};
+        apgConfigObj.showLifestyle = false;
+        apgConfigObj.prompts = {};
+    apgConfigObj.useBrightcoveVideoWall = true;
+    apgConfigObj.openBrightCoveVideoWallInNewTab = true;
+    apgConfigObj.useLotame = true;
+
+        var acm_RecentLocationsCarousel= new Array();
+
+acm_RecentLocationsCarousel.push({name:"Sun City, ЮАР", daypart:'night', href:'/ru/za/sun-city/306096/weather-forecast/306096', icon:'i-33-l', bg:'cl', temp:'21',  realfeel:'18',  text:"Ясно"});
+acm_RecentLocationsCarousel.push({name:"Нью-йорк, Нью-йорк", daypart:'day', href:'/ru/us/new-york-ny/10007/weather-forecast/349727', icon:'i-1-l', bg:'su', temp:'27',  realfeel:'29',  text:"Солнечно"});
+acm_RecentLocationsCarousel.push({name:"Майами, Флорида", daypart:'day', href:'/ru/us/miami-fl/33128/weather-forecast/347936', icon:'i-3-l', bg:'su', temp:'31',  realfeel:'36',  text:"Малооблачно"});
+acm_RecentLocationsCarousel.push({name:"Лос-анджелес, Калифорния", daypart:'day', href:'/ru/us/los-angeles-ca/90012/weather-forecast/347625', icon:'i-1-l', bg:'su', temp:'25',  realfeel:'30',  text:"Солнечно"});
+
+    </script>
+
+
+
+
+    <script type="text/javascript">
+        if (apgConfigObj.minutecast) {
+            apgConfigObj.minutecast.contentAmount = '1';
+        }
+    </script>
+
+    
+<script type="text/javascript">
+    var apgPageInfoObj = { ad_site: 'world',
+    section: 'forecast',
+    ad_section: 'forecast',
+    page: 'forecast-current-conditions',
+    ad_page: 'current-conditions',
+    page_code: '',
+    crumb_trail: ['Forecast', 'CurrentConditions', 'ZA', "North-West", "Sun City"],
+    pageType: 'forecast',
+    pageExt: '', adPos: { atf728: true, atfPencil: true, atf300: true, atf160: false, btf728: true, btf300: true, popunder: true, prestitial: true, links: true, ptoSkin: true, tiles: [
+{
+  divid: "header-davek-ps",
+  atf: true,
+  companion: false,
+  name: "Tile1",
+  enabled: true,
+  sizes: {
+    ATF728:true,
+    ATFPENCIL:true
+  },
+  bidders: [
+  {
+    bidder:"sovrn",
+    params: {
+      "tagid":"336565"
+    }
+  }
+,
+  {
+    bidder:"pubmatic",
+    params: {
+      "publisherId":"34576",
+      "adSlot":"{AdUnit}@728x90"
+    }
+  }
+  ]
+},
+{
+  divid: "top-panel-body-rt-body-ps",
+  atf: true,
+  companion: false,
+  name: "Tile2",
+  enabled: true,
+  sizes: {
+    ATF300:true,
+    ATF300_NONPROD:true,
+    ATF160:false
+  },
+  bidders: [
+  {
+    bidder:"sovrn",
+    params: {
+      "tagid":"336566"
+    }
+  }
+,
+  {
+    bidder:"sovrn",
+    params: {
+      "tagid":"336567"
+    }
+  }
+,
+  {
+    bidder:"sovrn",
+    params: {
+      "tagid":"336568"
+    }
+  }
+,
+  {
+    bidder:"pubmatic",
+    params: {
+      "publisherId":"34576",
+      "adSlot":"{AdUnit}@300x600"
+    }
+  }
+,
+  {
+    bidder:"pubmatic",
+    params: {
+      "publisherId":"34576",
+      "adSlot":"{AdUnit}@300x250"
+    }
+  }
+  ]
+},
+{
+  divid: "bottom-panel-body-ps",
+  atf: false,
+  companion: false,
+  name: "Tile3",
+  enabled: true,
+  sizes: {
+    BTF300:true,
+    BTF300_NONPROD:true
+  },
+  bidders: [
+  {
+    bidder:"sovrn",
+    params: {
+      "tagid":"336566"
+    }
+  }
+,
+  {
+    bidder:"sovrn",
+    params: {
+      "tagid":"336567"
+    }
+  }
+,
+  {
+    bidder:"sovrn",
+    params: {
+      "tagid":"336568"
+    }
+  }
+,
+  {
+    bidder:"pubmatic",
+    params: {
+      "publisherId":"34576",
+      "adSlot":"{AdUnit}@300x600"
+    }
+  }
+,
+  {
+    bidder:"pubmatic",
+    params: {
+      "publisherId":"34576",
+      "adSlot":"{AdUnit}@300x250"
+    }
+  }
+  ]
+},
+{
+  divid: "footer-stevem-ps",
+  atf: false,
+  companion: false,
+  name: "Tile4",
+  enabled: true,
+  sizes: {
+    BTF728:true
+  },
+  bidders: [
+  {
+    bidder:"pubmatic",
+    params: {
+      "publisherId":"34576",
+      "adSlot":"{AdUnit}@728x90"
+    }
+  }
+  ]
+},
+{
+  divid: "aadTop300",
+  atf: true,
+  companion: false,
+  name: "Tile2",
+  enabled: false,
+  sizes: {
+    ATF300:false,
+    ATF300_NONPROD:false,
+    ATF160:true,
+    ATF_TRR:true
+  },
+  bidders: [
+  ]
+},
+{
+  divid: "aadTRR160",
+  atf: false,
+  companion: false,
+  name: "Tile6",
+  enabled: false,
+  sizes: {
+    ATF160:true,
+    BTF_TRR:true
+  },
+  bidders: [
+  ]
+}]
+} };
+
+</script>
+
+
+
+
+
+    
+    <script type="text/javascript" src="http://vortex.accuweather.com/adc2010/javascripts/bundle-refactor-20160907-1001.js"></script>
+
+                    <script src="http://www.googletagservices.com/tag/js/gpt.js"></script>
+
+    
+
+
+
+
+
+    
+    <script>
+        var _comscore = _comscore || [];
+        _comscore.push({ c1: "2", c2: "6005068" });
+        (function () {
+            var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+            s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+            el.parentNode.insertBefore(s, el);
+        })();
+    </script>
+
+    <script type="text/javascript">
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })()
+    </script>
+</head>
+<body id="forecast-extended" class="ru forecast ">
+    <!--[if IE 8]>
+    <div class="old-alert time-to-upgrade">
+        <div class="inner">
+            <p>Internet Explorer 8 более не поддерживается. Обновите свой браузер для наиболее эффективного использования сайта.</p>
+            <div class="close">X</div>
+        </div>
+    </div>
+    <![endif]-->
+    <!--[if IE 7]>
+    <div class="old-alert time-to-upgrade">
+        <div class="inner">
+            <p>Internet Explorer 7 более не поддерживается. Обновите свой браузер для наиболее эффективного использования сайта.</p>
+            <div class="close">X</div>
+        </div>
+    </div>
+    <![endif]-->        
+    <!--[if IE 6]>
+    <div class="old-alert time-to-upgrade">
+        <div class="inner">
+            <p>Internet Explorer 6 более не поддерживается. Обновите свой браузер для наиболее эффективного использования сайта.</p>
+            <div class="close">X</div>
+        </div>
+    </div>
+    <![endif]-->
+
+    <!-- Google Tag Manager -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-P7HTGM"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push(
+        {'gtm.start': new Date().getTime(),event:'gtm.js'}
+        );var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-P7HTGM');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <div class="redesign-welcome">
+        <div class="inner">
+            <p>You asked and we delivered!  Experience our new website look, enhanced readability, and expanded features for weather information with Superior Accuracy here.</p>
+            <div class="close">X</div>
+        </div>
+    </div>
+
+<span id="dynamic-menu-container"></span> 
+<div id="menu-cities" class="menu menu-list add-interest-menu"> 
+  <div class="menu-head-lt"> 
+    <div class="menu-head-rt"> 
+      <div class="menu-head"></div> 
+    </div> 
+  </div> 
+  <!-- /.menu-head-lt --> 
+  <div class="menu-body-lt"> 
+    <div class="menu-body-rt"> 
+      <div class="menu-body"> 
+        <ul class="menu-items">
+            <li class="title">МОИ НЕДАВНИЕ МЕСТОПОЛОЖЕНИЯ<span>&deg;C</span></li>
+            <li>
+                <a href="http://www.accuweather.com/ru/za/sun-city/306096/weather-forecast/306096">Sun City, ЮАР<span class="temp">21&deg;</span><span class="icon i-33-s"></span></a>
+            </li>
+            <li>
+                <a href="http://www.accuweather.com/ru/us/new-york-ny/10007/weather-forecast/349727">Нью-йорк, Нью-йорк<span class="temp">27&deg;</span><span class="icon i-1-s"></span></a>
+            </li>
+            <li>
+                <a href="http://www.accuweather.com/ru/us/miami-fl/33128/weather-forecast/347936">Майами, Флорида<span class="temp">31&deg;</span><span class="icon i-3-s"></span></a>
+            </li>
+            <li>
+                <a href="http://www.accuweather.com/ru/us/los-angeles-ca/90012/weather-forecast/347625">Лос-анджелес, Калифорния<span class="temp">25&deg;</span><span class="icon i-1-s"></span></a>
+            </li>
+          <li class="more"><a href="http://www.accuweather.com/ru/browse-locations">Найти свое местоположение<span></span></a></li> 
+        </ul>
+        <span class="arrow"></span><span class="arrow-border"></span>
+      </div> 
+    </div> 
+  </div> 
+  <!-- /.menu-body-lt --> 
+  <div class="menu-foot-lt"> 
+    <div class="menu-foot-rt"> 
+      <div class="menu-foot"></div> 
+    </div> 
+  </div> 
+  <!-- /.menu-foot-lt --> 
+</div> 
+
+
+
+ 
+
+
+<div id="wrap" class="winter h-cl">
+
+        <div id="header-davek">
+            <div id="header-davek-ps"></div>
+            <div id="header-oop" style="position:absolute; width:1px; height:1px; left:0px; top:0px;"></div>
+        </div>
+
+        <!-- /#header-ad -->
+        <style type="text/css">
+            #header-nav {
+                overflow: visible;
+                position: static;
+                height: auto;
+            }
+
+            #header-davek {
+                margin-top: 0px;
+                padding-top: 4px;
+            }
+        </style>
+    <div class="settings-wrapper">
+        
+<div id="wrap-country-settings"> 
+    <div id="country-settings"> 
+        <a href="#menu-country" id="bt-menu-country" class="menu-arrow tmenu { el:'#menu-country', affix: { from: 'nw', to: 'nw', offset: [ -6, -8 ] } }"><strong><span class="ir flag-ZA">ЮАР</span></strong></a>
+
+        <div id="menu-country" class="menu menu-with-title">
+
+            <h3 class="menu-title"><span><span class="flag-ZA">ЮАР</span></span></h3>
+
+            <div class="menu-head-lt">
+                <div class="menu-head-rt">
+                    <div class="menu-head"></div>
+                </div>
+            </div>
+            <!-- /.menu-head-lt -->
+            <div class="menu-body-lt">
+                <div class="menu-body-rt">
+                    <div class="menu-body">
+
+                        <h4>Мои недавние страны</h4>
+
+                        <ul class="menu-items">
+                                    <li><a href="http://www.accuweather.com/ru/za/south-africa-weather" class="flag-ZA">ЮАР</a></li>
+                                    <li><a href="http://www.accuweather.com/ru/us/united-states-weather" class="flag-US">United States</a></li>
+                                    <li><a href="http://www.accuweather.com/ru/cn/china-weather" class="flag-CN">China</a></li>
+                        </ul>
+
+                        <a href="#country-selector" id="bt-more-countries">Другие страны</a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.menu-body-lt -->
+
+            <div class="menu-foot-lt">
+                <div class="menu-foot-rt">
+                    <div class="menu-foot"></div>
+                </div>
+            </div>
+            <!-- /.menu-foot-lt -->
+
+        </div>
+        <!-- /#menu-country --> 
+
+        <ul id="country-breadcrumbs"> 
+       
+                    <li class="first"><a href="http://www.accuweather.com/ru/world-weather">Мир</a></li> 
+                    <li><a href="http://www.accuweather.com/ru/africa-weather">Африка</a></li> 
+                    <li><a href="http://www.accuweather.com/ru/za/south-africa-weather">ЮАР</a></li> 
+                    <li><a href="http://www.accuweather.com/ru/za/nw/north-west-weather">Северо-Западная провинция</a></li>  
+                        <li class="last"><a href="http://www.accuweather.com/ru/za/sun-city/306096/weather-forecast/306096">Sun City</a></li>
+    </ul> 
+    <!-- /#country-breadcrumbs --> 
+  </div> 
+  <!-- /#nav-country --> 
+</div> 
+<!-- /#wrap-nav-country -->  
+
+
+
+        <div class="control-wrapper">
+            <a id="bt-menu-settings" class="tmenu { el:'#menu-settings', affix: { from: 'ne', to: 'ne', offset: [ 0,-6 ] } }"><span class="menu-arrow"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>, &deg;C</span></a>
+            <div id="menu-settings" class="menu menu-with-title">
+
+    <h3 class="menu-title"><span></span></h3>
+
+    <div class="menu-head-lt">
+        <div class="menu-head-rt">
+            <div class="menu-head"></div>
+        </div>
+    </div>
+    <!-- /.menu-head-lt -->
+    <div class="menu-body-lt">
+        <div class="menu-body-rt">
+            <div class="menu-body">
+
+                <h4>Мои настройки</h4>
+
+                <div class="control-wrap">
+
+                    <form action="" method="post" autocomplete="false">
+
+                        <label for="settings-language"></label>
+                            <select id="settings-language" name="language" class="match-toggle">
+                                <option value="en-us">English (US)</option>
+<option value="es">Espa&#241;ol</option>
+<option value="fr">Fran&#231;ais</option>
+<option value="da">Dansk</option>
+<option value="pt">Portugu&#234;s</option>
+<option value="nl">Nederlands</option>
+<option value="no">Norsk</option>
+<option value="it">Italiano</option>
+<option value="de">Deutsch</option>
+<option value="sv">Svenska</option>
+<option value="fi">Suomi</option>
+<option value="zh-hk">中文 (HK)</option>
+<option value="zh-cn">中文 (SIM)</option>
+<option value="zh-tw">中文 (Taiwan)</option>
+<option value="es-ar">Espa&#241;ol (Argentina)</option>
+<option value="es-mx">Espa&#241;ol (Latin America)</option>
+<option value="sk">Slovenčinu</option>
+<option value="ro">Romana</option>
+<option value="cs">Čeština</option>
+<option value="hu">Magyar</option>
+<option value="pl">Polski</option>
+<option value="ca">Catal&#224;</option>
+<option value="pt-br">Portugu&#234;s (Brazil)</option>
+<option value="hi">हिन्दी</option>
+<option value="ru">русский</option>
+<option value="ar">عربي</option>
+<option value="el">Ελληνικά</option>
+<option value="en-gb">English (UK)</option>
+<option value="ja">日本語</option>
+<option value="ko">한국어</option>
+<option value="tr">T&#220;RK&#199;E</option>
+<option value="fr-ca">Fran&#231;ais (Canada)</option>
+<option value="he">עברית</option>
+<option value="sl">Slovenski</option>
+<option value="uk">Українське</option>
+<option value="id">Bahasa Indonesia</option>
+<option value="bg">български</option>
+<option value="et">Eesti keeles</option>
+<option value="hr">Hrvatski</option>
+<option value="kk">Қазақша</option>
+<option value="lt">Lietuvių</option>
+<option value="lv">Latviski</option>
+<option value="mk">Македонски</option>
+<option value="ms">Bahasa Melayu</option>
+<option value="tl">Tagalog</option>
+<option value="sr">Srpski</option>
+<option value="th">ไทย</option>
+<option value="vi">Tiếng Việt</option>
+<option value="fa">فارسی</option>
+<option value="bn">বাংলা</option>
+<option value="bs">bosanski</option>
+<option value="is">íslenska</option>
+<option value="sw">Kiswahili</option>
+<option value="ur">اُردُو</option>
+<option value="sr-me">Crnogorski</option>
+<option value="uz">Oʻzbekcha</option>
+<option value="az">Azərbaycanca</option>
+<option value="ta">தமிழ்</option>
+<option value="gu">ગુજરાતી</option>
+
+                            </select>
+
+                </div>
+
+                <!-- /.control-wrap -->
+
+                    <div id="radio-toggle-temp-unit" class="radio-toggle">
+                        <label for="settings-temp-unit-farenheit" class="first">
+                            <span>&deg;F</span>
+                            <input id="settings-temp-unit-farenheit" name="temp_unit" type="radio"  value="farenheit" />
+                        </label>
+
+                        <label for="settings-temp-unit-celsius" class="last">
+                            <span>&deg;C</span>
+                            <input id="settings-temp-unit-celsius" name="temp_unit" type="radio" checked="checked" value="celsius" />
+                        </label>
+                    </div>
+
+                <!-- /.radio-toggle -->
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <!-- /.menu-body-lt -->
+
+    <div class="menu-foot-lt">
+        <div class="menu-foot-rt">
+            <div class="menu-foot"></div>
+        </div>
+    </div>
+    <!-- /.menu-foot-lt -->
+</div>
+<!-- /#settings-menu -->
+        </div>
+    </div>
+
+  <div id="wrap-header-nav" class="night">
+    <div id="header-nav" class="i-33-header">
+      
+    
+<div id="header"> 
+    <div id="country-selector" class="strong panel">
+
+        <div class="panel-head-lt"><div class="panel-head-rt"><div class="panel-head"></div></div></div>
+        <div class="panel-body-lt">
+            <div class="panel-body-rt">
+                <div class="panel-body">
+                    <div class="title">
+                        <button class="bt bt-panel-close">Close</button>
+                        <div id="country-selector-recent">
+                            <h3>Мои недавние страны</h3>
+                            <ul>
+                                        <li class="first"><a href="http://www.accuweather.com/ru/za/south-africa-weather" class="flag-ZA">ЮАР</a></li>
+                                        <li class=""><a href="http://www.accuweather.com/ru/us/united-states-weather" class="flag-US">United States</a></li>
+                                        <li class=""><a href="http://www.accuweather.com/ru/cn/china-weather" class="flag-CN">China</a></li>
+                            </ul>
+                        </div>
+                        <!-- /#country-selector-recent -->
+                    </div>
+                    <!-- /.title -->
+
+                    <div id="country-selector-region" class="panel-content">
+
+                        <div class="title">
+                            <h3>Выберите регион</h3>
+                        </div>
+
+                        <div class="content">
+
+                            <ul id="country-selector-region-list" class="menu-items">
+                                <li><a class="link-region" id="link-region-afr" href="#region-afr">Африка</a></li>
+                                <li><a class="link-region" id="link-region-ant" href="#region-ant">Антарктида</a></li>
+                                <li><a class="link-region" id="link-region-arc" href="#region-arc">Арктика</a></li>
+                                <li><a class="link-region" id="link-region-asi" href="#region-asi">Азия</a></li>
+                                <li><a class="link-region" id="link-region-cac" href="#region-cac">Центральная Америка</a></li>
+                                <li><a class="link-region" id="link-region-eur" href="#region-eur">Европа</a></li>
+                                <li><a class="link-region" id="link-region-mea" href="#region-mea">Средний Восток</a></li>
+                                <li><a class="link-region" id="link-region-nam" href="#region-nam">Северная Америка</a></li>
+                                <li><a class="link-region" id="link-region-ocn" href="#region-ocn">Океания</a></li>
+                                <li><a class="link-region" id="link-region-sam" href="#region-sam">Южная Америка</a></li>
+                            </ul>
+                            <!-- /#country-selector-region-list -->
+
+                            <div id="country-selector-region-map">
+                            </div>
+                            <!-- /#country-selector-region-map -->
+                        </div>
+                        <!-- /.content -->
+                    </div>
+                    <!-- /#country-selector-region -->
+
+
+                    <div id="country-selector-country" class="panel-content">
+                        <div id="region-afr" class="region">
+                            <div class="title">
+                                <a href="#country-selector-region" class="world"><span>Мир</span></a>
+                                <h3></h3>
+                            </div>
+                            <div class="items"> </div>
+                        </div>
+                        <!-- /africa-->
+                        <div id="region-eur" class="region">
+                            <div class="title">
+                                <a href="#country-selector-region" class="world"><span>Мир</span></a>
+                                <h3></h3>
+                            </div>
+                            <div class="items"> </div>
+                        </div>
+                        <!-- /europe-->
+                        <div id="region-nam" class="region">
+                            <div class="title">
+                                <a href="#country-selector-region" class="world"><span>Мир</span></a>
+                                <h3></h3>
+                            </div>
+                            <div class="items"> </div>
+                        </div>
+                        <!-- /north america-->
+                        <div id="region-sam" class="region">
+                            <div class="title">
+                                <a href="#country-selector-region" class="world"><span>Мир</span></a>
+                                <h3></h3>
+                            </div>
+                            <div class="items"> </div>
+                        </div>
+                        <!-- /south america-->
+                        <div id="region-cac" class="region">
+                            <div class="title">
+                                <a href="#country-selector-region" class="world"><span>Мир</span></a>
+                                <h3></h3>
+                            </div>
+                            <div class="items"> </div>
+                        </div>
+                        <!-- /central america-->
+                        <div id="region-ocn" class="region">
+                            <div class="title">
+                                <a href="#country-selector-region" class="world"><span>Мир</span></a>
+                                <h3></h3>
+                            </div>
+                            <div class="items"> </div>
+                        </div>
+                        <!-- /oceania-->
+                        <div id="region-mea" class="region">
+                            <div class="title">
+                                <a href="#country-selector-region" class="world"><span>Мир</span></a>
+                                <h3></h3>
+                            </div>
+                            <div class="items"> </div>
+                        </div>
+                        <!-- /middle east-->
+                        <div id="region-ant" class="region">
+                            <div class="title">
+                                <a href="#country-selector-region" class="world"><span>Мир</span></a>
+                                <h3></h3>
+                            </div>
+                            <div class="items"> </div>
+                        </div>
+                        <!-- /antarctica-->
+                        <div id="region-arc" class="region">
+                            <div class="title">
+                                <a href="#country-selector-region" class="world"><span>Мир</span></a>
+                                <h3></h3>
+                            </div>
+                            <div class="items"> </div>
+                        </div>
+                        <!-- /arctic-->
+                        <div id="region-asi" class="region">
+                            <div class="title">
+                                <a href="#country-selector-region" class="world"><span>Мир</span></a>
+                                <h3></h3>
+                            </div>
+                            <div class="items"> </div>
+                        </div>
+                        <!-- /asia-->
+                    </div>
+                    <!-- /#country-selector-country -->
+
+
+                    <div id="country-selector-notes">
+                        <p class="first">
+                            Примечание: прежде чем найти страну, выберите регион.
+                        </p>
+
+                        <p></p>
+
+                    </div>
+                    <!-- /#country-selector-notes -->
+
+
+                </div>
+            </div>
+        </div>
+        <!-- /.panel-body-lt -->
+
+        <div class="panel-foot-lt"><div class="panel-foot-rt"><div class="panel-foot"></div></div></div>
+
+    </div>
+    <!-- / #country-selector --> 
+
+  <div id="header-logo-search" class="clearfix"> 
+
+            <div id="header-logo" class="ir no-partner">
+                <a href="http://www.accuweather.com/">
+                    <span>Sun City Current Weather</span>
+                </a>
+            </div>
+
+
+            <div class="right-side">
+                <div id="wrap-s-rt">
+                    <div id="wrap-s-lt">
+                        <div id="wrap-s" class="tmenu { affix: {offset: [ 0, 7 ], to: 'sw', from: 'nw'},el: '#menu-cities' }">
+                            <form id="findcity" action="http://www.accuweather.com/ru/search-locations" method="post">
+
+                                <input type="hidden" name="enter-postal-city" value="Введите город или почтовый индекс" />
+                                <input id="s" name="s" type="text" autocomplete="off" class="text hint" value="Sun City, ЮАР" data-default-value="Sun City, ЮАР" data-default-route="http://www.accuweather.com/ru/za/sun-city/306096/weather-forecast/306096" />
+
+                                <input type="hidden" name="rn" value="3day" />
+                                <button type="button" class="bt bt-go">
+                                    <img src="http://vortex.accuweather.com/adc2010/images/slate/search-glass.svg"></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- /#wrap-s-rt -->
+
+                <div id="control-panel">
+                    <div id="social-connect">
+                        <ul class="social-list">
+                            <li class="label">Следите за нашими сообщениями в</li>
+                            <li class="social-icon"><a id="connect_facebook" href="https://www.facebook.com/AccuWeather" class="facebook" target="_blank"></a></li>
+                            <li class="social-icon"><a id="connect_twitter" href="https://twitter.com/breakingweather" class="twitter" target="_blank"></a></li>
+                            <li class="social-icon"><a id="connect_instagram" href="https://www.instagram.com/accuweather/" class="instagram" target="_blank"></a></li>
+                            <li class="social-icon"><a id="connect_youtube" href="https://www.youtube.com/user/accuweather" class="youtube" target="_blank"></a></li>
+                        </ul>
+                    </div>
+                    <a id="bt-menu-login" class="tmenu { el:'#menu-premium', affix: { to: 'ne', from: 'ne', offset: [ 0,-6 ] } }"><span class="menu-arrow"><span>Логин</span></span></a>
+                </div>
+                <!--#control-panel-->
+            </div>
+        </div>
+  <!-- /#header-logo-search -->
+    </div>
+<!-- /#header --> 
+
+    </div>
+    <!-- /#header-nav -->
+  </div>
+  <!-- /#wrap-header-nav -->
+
+        <div class="sub-header-wrap">
+            <div class="inner-city-header">
+<div id="nav-main-add-interests" class="clearfix">
+
+	<div id="nav-main-background"></div>
+
+	<ul id="nav-current-location" class="sub-nav">
+		<li id="current-country-tab" class=" tmenu { affix: {offset: [ 0, 5 ], to: 'sw', from: 'nw' }, el: '#current-country-menu' }">
+			<a href="http://www.accuweather.com/ru/za/south-africa-weather" class="tab">
+				<span class="current-country">ЮАР</span>
+				<span class="title">Погода</span>
+			</a>
+			<span class="bottom-line"></span>
+		</li>
+                            <li id="current-city-tab" class="selected">
+			<a href="http://www.accuweather.com/ru/za/sun-city/306096/weather-forecast/306096" class="tab">
+                                    <span class="current-city"><h1>Sun City, ЮАР</h1></span>
+				<span class="title"><h2>Погода</h2></span>
+
+                                    <span><div class="icon icon-inline i-33-s"></div></span>
+                                    <span class="local-temp">21&deg;C</span>
+				<span class="divider"></span>
+                <span class="more-info-arrow"></span>
+				<div class="more-info-content">
+				</div><!-- end more-info-content -->
+			</a>
+                                <div class="local-weather-dropdown">
+                                    <div class="inner">
+                                        <h2>Местная сводка погоды</h2>
+                                        <ul>
+                                            <li><a href="http://www.accuweather.com/ru/za/sun-city/306096/hourly-weather-forecast/306096">Почасовой прогноз</a></li>
+                                            <li><a href="http://www.accuweather.com/ru/za/sun-city/306096/daily-weather-forecast/306096">Долг.</a></li>
+                                            <li><a href="http://www.accuweather.com/ru/za/sun-city/306096/weekend-weather/306096">Выходные</a></li>
+                                            <li><a href="http://www.accuweather.com/ru/za/sun-city/306096/september-weather/306096">Прогноз на месяц</a></li>
+                                            <li><a href="http://www.accuweather.com/ru/za/sun-city/306096/current-weather/306096">Сейчас</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+		</li>
+		<li id="locations-dropdown-tab" class="location-menu { el: '#locations-dropdown-menu' }">
+			<a href="#" class="tab">
+				<span class="arrow"></span>
+				<span class="divider"></span>
+			</a>
+			<span class="cover-line"></span>
+		</li>
+	</ul><!-- end nav-current-location -->
+                    
+                </div><!-- end nav-main-add-interests-->
+
+            </div><!--inner city header -->
+
+            <div class="country-dropdown">
+                <div class="inner">
+                    <div class="col">
+                                <h3><a href="http://www.accuweather.com/ru/za/national/satellite">Карты</a></h3>
+                                <ul>
+                                    <li><a href="http://www.accuweather.com/ru/za/national/satellite">Спутник</a></li>
+                                    <li><a href="http://www.accuweather.com/ru/za/national/weather-forecast-maps">Карты прогноза погоды</a></li>
+                                </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /.country-dropdown -->
+
+            <div class="recent-locations-dropdown">
+                <div class="inner">
+                    <h2>Мои недавние местоположения</h2>
+                    <div id="feed-tabs" class="panel-list">
+                        <ul>
+                            
+
+
+                                <li class="night first cl" data-href="/ru/za/sun-city/306096/weather-forecast/306096">
+                                    <div class="bg cl">
+                                        <h3><a href="/ru/za/sun-city/306096/weather-forecast/306096">Sun City, ЮАР</a></h3>
+                                        <div class="icon i-33-l "></div>
+                                        <div class="info">
+                                            <div class="temp">
+                                                <span class="large-temp">21&deg;</span>
+                                                <span class="real-feel">RealFeel&#174; 18&deg;</span>
+                                            </div>
+                                            <ul class="special-forecast"></ul>
+                                        </div>
+                                        <!-- /.info -->
+                                    </div>
+                                    <!-- /.bg -->
+                                </li>
+                                <li class="day  cl" data-href="/ru/us/new-york-ny/10007/weather-forecast/349727">
+                                    <div class="bg su">
+                                        <h3><a href="/ru/us/new-york-ny/10007/weather-forecast/349727">Нью-йорк, Нью-йорк</a></h3>
+                                        <div class="icon i-1-l "></div>
+                                        <div class="info">
+                                            <div class="temp">
+                                                <span class="large-temp">27&deg;</span>
+                                                <span class="real-feel">RealFeel&#174; 29&deg;</span>
+                                            </div>
+                                            <ul class="special-forecast"></ul>
+                                        </div>
+                                        <!-- /.info -->
+                                    </div>
+                                    <!-- /.bg -->
+                                </li>
+                                <li class="day  cl" data-href="/ru/us/miami-fl/33128/weather-forecast/347936">
+                                    <div class="bg su">
+                                        <h3><a href="/ru/us/miami-fl/33128/weather-forecast/347936">Майами, Флорида</a></h3>
+                                        <div class="icon i-3-l "></div>
+                                        <div class="info">
+                                            <div class="temp">
+                                                <span class="large-temp">31&deg;</span>
+                                                <span class="real-feel">RealFeel&#174; 36&deg;</span>
+                                            </div>
+                                            <ul class="special-forecast"></ul>
+                                        </div>
+                                        <!-- /.info -->
+                                    </div>
+                                    <!-- /.bg -->
+                                </li>
+                                <li class="day  cl" data-href="/ru/us/los-angeles-ca/90012/weather-forecast/347625">
+                                    <div class="bg su">
+                                        <h3><a href="/ru/us/los-angeles-ca/90012/weather-forecast/347625">Лос-анджелес, Калифорния</a></h3>
+                                        <div class="icon i-1-l "></div>
+                                        <div class="info">
+                                            <div class="temp">
+                                                <span class="large-temp">25&deg;</span>
+                                                <span class="real-feel">RealFeel&#174; 30&deg;</span>
+                                            </div>
+                                            <ul class="special-forecast"></ul>
+                                        </div>
+                                        <!-- /.info -->
+                                    </div>
+                                    <!-- /.bg -->
+                                </li>
+
+
+
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="inner-subnav">
+                
+    
+<div class="subnav-head-tabs-rt clearfix">
+    <div class="subnav-head-tabs-lt clearfix">
+    <ul class="subnav-tab-buttons">
+    
+    <li ><a href="http://www.accuweather.com/ru/za/sun-city/306096/weather-forecast/306096"><span>Сейчас</span></a></li>
+    <li ><a href="http://www.accuweather.com/ru/za/sun-city/306096/weekend-weather/306096"><span>Выходные</span></a></li>
+    <li class="current"><a href="http://www.accuweather.com/ru/za/sun-city/306096/daily-weather-forecast/306096"><span><strong>Долг.</strong></span></a></li>
+    <li ><a href="http://www.accuweather.com/ru/za/sun-city/306096/september-weather/306096"><span>Месяц</span></a></li>
+        <li class="last"><a href="http://www.accuweather.com/ru/za/sun-city/306096/satellite/306096"><span>Спутник</span></a></li>
+      
+
+    </ul>
+    </div>
+</div>
+    <!-- /.panel-head-rt -->
+
+            </div>
+        </div>
+
+        <div id="wrap-content">
+            <div id="content">
+
+        
+
+<div class="column-1 clearfix">
+    
+
+
+    
+        <div id="panel-main" class="strong panel">
+          <!-- NOTE: The left and right ordering is swapped for this one, since it's a two element stretch! -->
+          <div class="panel-head-rt">
+            <div class="panel-head-lt">
+            </div>
+          </div>
+          <!-- /.panel-head-rt -->
+          <div class="panel-body-lt">
+            <div class="panel-body-rt">
+              <div class="panel-body">
+
+              <div class="feed-controls clearfix">
+  <span class="lt">1–5 из 90 дней | <a href="http://www.accuweather.com/ru/za/sun-city/306096/month/306096?view=table">Все 90 дней</a></span>
+  <ul class="g g-nav rt">
+          <li class="first"><a href="http://www.accuweather.com/ru/za/sun-city/306096/daily-weather-forecast/306096?day=6">Следующие 5 <span class="arrow-right"></span></a></li>
+  </ul>
+</div>
+<!-- /.feed-controls -->
+
+<div id="feed-tabs" class="panel-list">
+        <a href="http://www.accuweather.com/ru/za/sun-city/306096/daily-weather-forecast/306096?day=6" class="arrow-right">Next 5 Days<span></span></a>
+  <ul>
+    <li class="night current first cl { href: 'http://www.accuweather.com/ru/za/sun-city/306096/daily-weather-forecast/306096?day=1' }" data-href="http://www.accuweather.com/ru/za/sun-city/306096/daily-weather-forecast/306096?day=1">
+    <div class="bg bg-cl">
+        <h3><a href="#">ночью</a></h3>
+            <h4>11 сен</h4>
+        <div class="icon i-33-l "></div>
+        <div class="info">
+                    <div class="temp">
+                        <span class="large-temp">11&deg;</span>
+                        <span class="temp-label tonight selected">Мин</span>
+                        <span class="small-temp tonight">C</span>
+                    </div>
+                <span class="cond">Ясно</span>
+        </div>
+        <!-- /.info -->
+    </div>
+    <!-- /.bg -->
+    </li>
+    <li class="day hv  cl { href: 'http://www.accuweather.com/ru/za/sun-city/306096/daily-weather-forecast/306096?day=2' }" data-href="http://www.accuweather.com/ru/za/sun-city/306096/daily-weather-forecast/306096?day=2">
+    <div class="bg bg-su">
+        <h3><a href="#">Пн</a></h3>
+            <h4>12 сен</h4>
+        <div class="icon i-1-m "></div>
+        <div class="info">
+                    <div class="temp ">
+                        <span class="large-temp">31&deg;</span>
+                        <span class="small-temp">/12&deg;</span>
+                    </div>
+                <span class="cond">Яркое солнце</span>
+        </div>
+        <!-- /.info -->
+                <a href="http://www.accuweather.com/ru/za/sun-city/306096/daily-weather-forecast/306096?day=2" class="bt-more">Еще</a>
+    </div>
+    <!-- /.bg -->
+    </li>
+    <li class="day hv  cl { href: 'http://www.accuweather.com/ru/za/sun-city/306096/daily-weather-forecast/306096?day=3' }" data-href="http://www.accuweather.com/ru/za/sun-city/306096/daily-weather-forecast/306096?day=3">
+    <div class="bg bg-su">
+        <h3><a href="#">Вт</a></h3>
+            <h4>13 сен</h4>
+        <div class="icon i-1-m "></div>
+        <div class="info">
+                    <div class="temp ">
+                        <span class="large-temp">32&deg;</span>
+                        <span class="small-temp">/15&deg;</span>
+                    </div>
+                <span class="cond">Солнечно</span>
+        </div>
+        <!-- /.info -->
+                <a href="http://www.accuweather.com/ru/za/sun-city/306096/daily-weather-forecast/306096?day=3" class="bt-more">Еще</a>
+    </div>
+    <!-- /.bg -->
+    </li>
+    <li class="day hv  cl { href: 'http://www.accuweather.com/ru/za/sun-city/306096/daily-weather-forecast/306096?day=4' }" data-href="http://www.accuweather.com/ru/za/sun-city/306096/daily-weather-forecast/306096?day=4">
+    <div class="bg bg-su">
+        <h3><a href="#">Ср</a></h3>
+            <h4>14 сен</h4>
+        <div class="icon i-2-m "></div>
+        <div class="info">
+                    <div class="temp ">
+                        <span class="large-temp">28&deg;</span>
+                        <span class="small-temp">/13&deg;</span>
+                    </div>
+                <span class="cond">Прохладнее</span>
+        </div>
+        <!-- /.info -->
+                <a href="http://www.accuweather.com/ru/za/sun-city/306096/daily-weather-forecast/306096?day=4" class="bt-more">Еще</a>
+    </div>
+    <!-- /.bg -->
+    </li>
+    <li class="day hv last cl { href: 'http://www.accuweather.com/ru/za/sun-city/306096/daily-weather-forecast/306096?day=5' }" data-href="http://www.accuweather.com/ru/za/sun-city/306096/daily-weather-forecast/306096?day=5">
+    <div class="bg bg-su">
+        <h3><a href="#">Чт</a></h3>
+            <h4>15 сен</h4>
+        <div class="icon i-1-m "></div>
+        <div class="info">
+                    <div class="temp ">
+                        <span class="large-temp">31&deg;</span>
+                        <span class="small-temp">/17&deg;</span>
+                    </div>
+                <span class="cond">Солнечно</span>
+        </div>
+        <!-- /.info -->
+                <a href="http://www.accuweather.com/ru/za/sun-city/306096/daily-weather-forecast/306096?day=5" class="bt-more">Еще</a>
+    </div>
+    <!-- /.bg -->
+    </li>
+  </ul>
+</div>
+<!-- /.feed-tabs -->
+
+
+                <div id="details">
+                  <ul id="detail-tab-buttons" class="block-tabs">
+                    <li class="first current { target: '#detail-now' }"><a href="http://www.accuweather.com/ru/za/sun-city/306096/current-weather/306096" class=""><span>Сейчас</span></a>
+                    </li>
+                    <li class="{ target: '#detail-day-night' }"><a href="http://www.accuweather.com/ru/za/sun-city/306096/daily-weather-forecast/306096"><span>Ежедневный прогноз</span></a></li>
+                    <li class="last { target: '#detail-hourly' }"><a href="http://www.accuweather.com/ru/za/sun-city/306096/hourly-weather-forecast/306096"><span>Почасовой</span></a></li>
+                  </ul>
+                  <!-- /#detail-tab-buttons.detail-tab-buttons -->
+                  <div id="detail-now" class="detail-tab-panel night">
+                    <div class="bg bg-cl">
+                      <div class="forecast">
+                        <div class="icon i-33-xl"></div>
+                        <div class="info"> 
+                            <div class="temp">
+                                <span class="large-temp">21&deg;</span>
+                                <span class="small-temp"><em>RealFeel&#174;</em> 18&deg;</span>
+                            </div>
+                            <span class="cond">Ясно</span>
+                        </div>
+                        <!-- /.info -->
+                      </div>
+                      <!-- /.forecast -->
+                      <div class="more-info"> 
+                        
+                        
+<div class="wind-box-lg">
+    <div class="wind-point NE"></div>
+    <div class="wind-compass"></div>
+</div>                                                 
+                                            
+                        <ul class="stats">
+                          <li class="wind"><strong>11 км/ч</strong></li>
+                          <li>Влажность: <strong>42%</strong></li>
+                          <li>Давление: <strong>1023.00 мб &darr;</strong></li>
+                          <li>УФ-индекс: <strong>0</strong></li>
+                          <li>Облачность: <strong>0%</strong></li>
+                          <li>Нижняя граница: <strong>9144 m</strong></li>
+                          <li>Точка росы: <strong>8&#176;&nbsp;C</strong></li>
+                          <li>Видимость: <strong>16 км</strong></li>
+                        </ul>
+                        <!-- /.stats -->
+                      </div>
+                      <!-- /.more-info -->
+                                             
+                    </div>
+                    <!-- /.bg -->
+                  </div>
+                  <!-- /.detail-tab-panel --> 
+                </div>
+                <!-- /#details -->
+
+                <div class="rise-modules">
+    <div class="row">
+        <div id="feature-sun" class="feature feature-first">
+            <div class="inner">
+                <div class="feature-title">
+                    <h3 class="lt">Рассвет/Закат</h3>
+                </div>
+                <!-- /.feature-title -->
+
+                <ul class="time-period">
+                    <li>Рассвет: <span>6:13</span></li>
+                    <li>Закат: <span>18:04</span></li>
+                    <li class="duration">Длительность: <span>11:51 hr</span></li>
+                </ul>
+                <div class="icon i-1-m"></div>
+                <!-- /.content -->
+            </div>
+        </div>
+        <!-- /.feature -->
+
+        <div id="feature-moon" class="feature">
+            <div class="inner">
+                <div class="feature-title">
+                    <h3 class="lt">Восход/заход луны</h3>
+                </div>
+                <!-- /.feature-title -->
+
+                <ul class="time-period">
+                    <li>Восход луны: <span>13:01</span></li>
+                    <li>Заход луны: <span>2:39</span></li>
+                    <li class="duration">Длительность: <span>13:38 hr</span></li>
+                </ul>
+                <div class="icon i-33-m"></div>
+                <a href="http://www.accuweather.com/ru/za/sun-city/306096/astronomy-weather/306096" class="more rt">Астрономия <span class="arrow"></span></a>
+                <!-- /.content -->
+            </div>
+        </div>
+
+        <!-- /.feature -->
+    </div>
+</div>
+
+
+                <div class="panel-body-content">
+                    <div class="feature-stats">
+                        <div class="temp-summary-overview">
+                            <h3>СВОДКА О ТЕМПЕРАТУРЕ <time>10:23 </time></h3>
+
+                            <div class="lt" style="width:290px;">
+                                <table cellspacing="0" class="stats">
+                                    <thead>
+                                        <tr>
+                                            <th>&nbsp;</th>
+                                            <th>Темп. (&deg;C)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="pre">
+                                            <th scope="row">Сейчас</th>
+                                            <td>21&deg;</td>
+                                        </tr>
+                                        <tr class="pre">
+                                            <th scope="row">Вчера</th>
+                                <td>21&deg;</td>
+                                        </tr>
+                                        <tr class="pre">
+                                            <th scope="row">RealFeel&#174;</th>
+                                            <td>18&deg;</td>
+                                        </tr>
+                                        <tr class="pre">
+                                            <th scope="row">RealFeel&#174; в тени</th>
+                                            <td>18&deg;</td>
+                                        </tr>
+                                        <tr class="pre">
+                                            <th scope="row">Температура с учетом ветра</th>
+                                            <td>21&deg;</td>
+                                        </tr>
+                                        <tr class="last pre">
+                                            <th scope="row">Точка росы</th>
+                                            <td>8&deg;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="rt temp-summary-prev" style="width:290px;">
+                          <table cellspacing="0" class="stats">
+                            <thead>
+                              <tr>
+                                <th>&nbsp;</th>
+                                <th>Макс / Мин</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row" style="border-bottom:2px solid transparent;">Предыдущие 6 часов</th>
+                                <td>28&deg;/21&deg; </td>
+                              </tr>
+                              <tr>
+                                <th scope="row" style="border-bottom:2px solid transparent;">Предыдущие 12 часов</th>
+                                <td>28&deg;/21&deg;</td>
+                              </tr>
+                              <tr>
+                                <th scope="row" style="border-bottom:2px solid transparent;">Предыдущие 24 часа</th>
+                                <td>28&deg;/11&deg;</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                    </div>
+                </div>
+
+                      
+        <div id="feature-history">
+          <div class="clearfix">
+          <h3 class="lt">История температур <time>11 сен</time></h3>
+            <a href="http://www.accuweather.com/ru/za/sun-city/306096/month/306096?view=table" class="more rt">еще Данные за предыдущие периоды &gt;</a>
+            <!-- /.rt -->
+          </div>
+
+          <table cellspacing="0" class="stats">
+          <thead>
+          <tr>
+            <th>&nbsp;</th>           
+            <th>Сегодня</th>
+            <th>Норма</th>
+            <th>Рекорд</th>
+            <th>
+11.09.2015            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr class="hi">
+            <th scope="row">Макс</th>
+            <td>28&#176;</td>
+
+				<td class="high">28&#176;</td> 
+
+	            <td>Н/П</td> 			
+
+				    <td>33&#176;</td> 
+          </tr>
+
+          <tr class="last lo">
+            <th scope="row">Мин</th>
+           <td>11&#176;</td>
+
+				<td class="high">11&#176;</td> 
+
+	            <td>Н/П</td> 			
+
+				    <td>14&#176;</td> 
+          </tr>
+          </tbody>
+          </table>
+        </div>
+        <!-- /#feature-history -->
+
+                <div class="panel-body-content">
+                <div class="feature-stats">
+                    <h3>СВОДКА ПО ОСАДКАМ <time>10:23 </time></h3>
+                    <table cellspacing="0" class="stats">
+                    <thead>
+                        <tr>
+                        <th>&nbsp;</th>
+                        <th>Количество (мм)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="pre">
+                        <th scope="row">Предыдущий 1 час</th>
+                        <td>0</td>
+                        </tr>
+                        <tr class="pre">
+                        <th scope="row">Предыдущие 3 часа</th>
+                        <td>0</td>
+                        </tr>
+                        <tr class="pre">
+                        <th scope="row">Предыдущие 6 часов</th>
+                        <td>0</td>
+                        </tr>
+                        <tr class="pre">
+                        <th scope="row">Предыдущие 9 часов</th>
+                        <td>0</td>
+                        </tr>
+                        <tr class="pre">
+                        <th scope="row">Предыдущие 12 часов</th>
+                        <td>0</td>
+                        </tr>
+                        <tr class="pre">
+                        <th scope="row">Предыдущие 18 часов</th>
+                        <td>0</td>
+                        </tr>
+                        <tr class="last pre">
+                        <th scope="row">Предыдущие 24 часа</th>
+                        <td>0</td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!-- /.panel-body-lt -->
+          <div class="panel-foot-lt">
+            <div class="panel-foot-rt">
+              <div class="panel-foot"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- /#panel-main -->
+    </div>
+
+    <!-- /.column-1 -->
+
+
+
+        
+<div class="column-2 column-2-world clearfix">
+
+<div id="aadTop300" class="panel">
+  <div class="panel-head-lt">
+    <div class="panel-head-rt">
+      <div class="panel-head"></div>
+    </div>
+  </div>
+
+  <div class="panel-body-lt">
+    <div class="panel-body-rt">
+        <div id="top-panel-body-rt-body" class="ad-lr panel-body">
+            <div id="top-panel-body-rt-body-ps" ></div>
+        </div>
+    </div>
+  </div>
+
+  <div class="panel-foot-lt">
+    <div class="panel-foot-rt">
+      <div class="panel-foot"></div>
+    </div>
+  </div>
+</div>
+        <div class="panel">
+          <div class="panel-head-rt">
+            <div class="panel-head-lt">
+              <div class="panel-head"></div>
+            </div>
+          </div>
+          <div class="panel-body-lt">
+            <div class="panel-body-rt">
+              <div class="panel-body">
+                <div class="panel-body-content sidebar-telmet-promo">
+                  <a href="http://www.accuweatherglobal.com/demo.php" target="_blank">
+                    <img src="http://vortex.accuweather.com/adc2010/images/misc/Ad_Weather_Data_Portal_0.jpg" style="margin:0px auto;" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel-foot-lt">
+            <div class="panel-foot-rt">
+              <div class="panel-foot"></div>
+            </div>
+          </div>
+        </div>
+<div id="aadBot300" class="panel panel-ad-mr">
+  <div class="panel-head-lt">
+    <div class="panel-head-rt">
+      <div class="panel-head"></div>
+    </div>
+  </div>
+  <div class="panel-body-lt">
+    <div class="panel-body-rt">
+        <div id="bottom-panel-body" class="panel-body">
+            <div id="bottom-panel-body-ps" ></div>
+        </div>
+    </div>
+  </div>
+  <div class="panel-foot-lt">
+    <div class="panel-foot-rt">
+      <div class="panel-foot"> </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- /.column-2 -->
+
+
+
+
+    </div>
+    <!-- /#content -->
+  </div>
+  <!-- /#wrap-content -->
+   <div id="footer">
+    <div id="footer-content-wrapper">
+        <div class="logo-ad">
+            <h5 class="logo">AccuWeather.com</h5>
+            <div id="footer-stevem">
+                <div id="footer-stevem-ps" ></div>
+            </div>
+        </div>
+
+    <div id="custom-goog-search">
+        <style type="text/css">
+            @import url(http://www.google.com/cse/api/branding.css);
+        </style>
+        <div class="cse-branding-right" style="color:#000000">
+            <div class="cse-branding-form">
+                <form action="http://www.google.com" id="cse-search-box" target="_blank">
+                    <div>
+                        <input type="hidden" name="cx" value="partner-pub-5771594739411148:7839492073" />
+                        <input type="hidden" name="ie" value="UTF-8" />
+                        <input id="goog-cse-input" type="text" name="q" size="100" />
+                        <input id="goog-cse-submit" type="submit" name="sa" value="" />
+                    </div>
+                </form>
+            </div>
+            <div class="cse-branding-logo">
+                <img src="http://vortex.accuweather.com/adc2010/images/misc/googlelogo.png" alt="Google" />
+            </div>
+            <div class="cse-branding-text">
+                Custom Search
+            </div>
+        </div>
+    </div>
+
+      <div id="footer-nav-main" class="clearfix">
+          <div id="footer-nav-inner">
+        <div class="first">
+          <ul class="footer-nav-cols">
+            <li class="head">Company</li>
+            <li><a href="http://www.accuweather.com/ru/about">About Us</a></li>
+            <li><a href="http://mediakit.accuweather.com" target="_blank">Advertise With Us</a></li>
+            <li><a href="http://mediakit.accuweather.com/self-service-ads" target="_blank">Self-Serve Advertising</a></li>
+            <li><a href="http://www.accuweather.com/careers" target="_blank">Careers</a></li>
+            <li><a href="http://www.accuweather.com/ru/press">Press</a></li>
+            
+            <li><a href="http://www.accuweather.com/ru/contact">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="footer-nav-cols">
+            <li class="head">Enterprise Solutions</li>
+            <li><a href="http://www.accuweather.com/adc2004/pub/products_services/media.asp" target="_blank">Media</a></li>
+            <li><a href="http://enterprisesolutions.accuweather.com/manufacturing" target="_blank">Manufacturing</a></li>
+            <li><a href="http://enterprisesolutions.accuweather.com/retail" target="_blank">Retail</a></li>
+            <li><a href="http://enterprisesolutions.accuweather.com/finance-banking" target="_blank">Finance &amp; Banking</a></li>
+            <li><a href="http://enterprisesolutions.accuweather.com/energy" target="_blank">Energy</a></li>
+              <li><a href="http://enterprisesolutions.accuweather.com/legal-forensics" target="_blank">Forensic Weather Experts</a></li>
+            <li><a href="http://enterprisesolutions.accuweather.com" target="_blank">All Enterprise Solutions</a></li>
+          </ul>
+        </div>
+            <div>
+                <ul class="footer-nav-cols">                    
+                    <li class="head">Apps & Downloads</li>                   
+                    <li><a href="https://itunes.apple.com/us/app/accuweather-weather-for-life/id300048137?mt=8" target="_blank">iPhone App</a></li>                
+                    <li><a href="https://play.google.com/store/apps/details?id=com.accuweather.android" target="_blank">Android App</a></li>
+                    <li><a href="http://www.windowsphone.com/en-us/store/app/accuweather-weather-for-life/92507698-67a2-e011-986b-78e7d1fa76f8" target="_blank">Windows App</a></li>
+                    <li><a href="http://www.accuweather.com/ru/downloads" target="_blank">See all Apps & Downloads</a></li>                 
+                </ul>               
+            </div>
+        <div class="last">
+          <ul class="footer-nav-cols">
+            <li class="head">Subscription Services</li>
+            <li><a href="https://wwwl.accuweather.com/premium_login.php" target="_blank">AccuWeather Premium</a></li>
+            <li><a href="https://wwwl.accuweather.com/pro_login.php" target="_blank">AccuWeather Professional</a></li>
+          </ul>
+                  <ul class="footer-social">
+                      <li class="apps"><a href="http://www.accuweather.com/ru/downloads">Apps &amp; Downloads</a></li>
+                      <li class="fb"><a href="http://www.facebook.com/AccuWeather" target="_blank">Like Us</a></li>
+                      <li class="twt"><a href="http://twitter.com/BreakingWeather" target="_blank">Follow Us</a></li>
+                      <li class="utube"><a href="http://getaccuweather.tv/?utm_source=adc&utm_medium=icon&utm_campaign=footer" target="_blank">Watch Us</a></li>
+                  </ul>
+        </div>
+        
+      </div>
+      </div>
+        <div id="footer-tm">
+            <div class="footer-tm-inner">
+                &copy; 2016 AccuWeather, Inc. All Rights Reserved.
+                AccuWeather.com is a registered trademark of AccuWeather, Inc.
+                <a href="http://www.accuweather.com/ru/legal">Terms of usage</a> under which this service is provided
+                <a href="http://www.accuweather.com/ru/privacy">Privacy Statement</a> | <a href="http://www.accuweather.com/ru/privacy#adChoices">Ad Choices</a>
+            </div>
+      </div>
+      <!-- /#footer-info --> 
+    </div>
+    <!-- /#footer-content-wrapper --> 
+  </div>
+<!-- /#footer --> 
+
+    <script>
+        if (typeof (aadSponsoredLinksObj) != 'undefined' && aadSponsoredLinksObj.type == 'google' && aadSponsoredLinksObj.show_links == true) {
+            document.write('<scr' + 'ipt src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></scr' + 'ipt>');
+        } else if (typeof (aadSponsoredLinksObj) == 'undefined') {
+            jQuery('#ad-links').remove();
+        }
+    </script>
+<div id="tracking-pixels"></div>
+
+</div>
+<!-- /#wrap -->
+    <div class="vcard">
+        <span class="adr">
+            <span class="locality">
+                    <span class="value-title" title=""></span>
+            </span>
+            <abbr class="region" title="Северо-Западная провинция">
+                    <span class="value-title" title="NW"></span>
+            </abbr>
+            <abbr class="country-name" title="ЮАР">
+                    <span class="value-title" title="ZA"></span>
+            </abbr>
+        </span>
+        <span class="geo">
+            <span class="latitude">
+                    <span class="value-title" title="-25.33"></span>
+            </span>
+            <span class="longitude">
+                <span class="value-title" title="27.1"></span>
+            </span>
+        </span>
+    </div>
+
+    <script type="text/javascript">
+        var _qoptions = { qacct: 'p-4b4gl_1fWISuU' };
+        if (typeof (apgPageInfoObj) != 'undefined' && apgPageInfoObj.crumb_trail) {
+            _qoptions.labels = apgPageInfoObj.crumb_trail.join('.');
+        }
+    </script>
+    <script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+    <noscript>
+            <a href="http://www.quantcast.com/p-4b4gl_1fWISuU" target="_blank"><img src="http://pixel.quantserve.com/pixel/p-4b4gl_1fWISuU.gif" style="display: none" border="0" height="1" width="1" alt="Quantcast" /></a>
+        </noscript>
+    <script type="text/javascript">
+    document.write(unescape("%3Cscript src='" + (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js' %3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        COMSCORE.beacon({
+                c1: 2,
+                c2: "6005068",
+                c3: "6005068",
+                //c4: "http://www.accuweather.com/ru/za/sun-city/306096/current-weather/306096",
+                c5: "",
+                c6: "",
+                c15: "C67BD3C1"
+        });
+    } catch(e){}
+    </script>
+    <noscript>
+    <img src="http://b.scorecardresearch.com/b?c1=&c2=6005068&c3=6005068&c15=C67BD3C1&cv=1.3&cj=1" style="display:none" width="0" height="0" alt="" />
+        </noscript>
+    <script type="text/javascript">
+        (function () {
+            var d = new Image(1, 1);
+            d.onerror = d.onload = function () {
+                d.onerror = d.onload = null;
+            };
+            d.src = ["//secure-us.imrworldwide.com/cgi-bin/m?ci=us-accuweather&cg=0&cc=1&si=", escape(window.location.href), "&rp=", escape(document.referrer), "&ts=compact&rnd=", (new Date()).getTime()].join('');
+        })();
+    </script>
+    <noscript>
+    <img style="display:none;" src="//secure-us.imrworldwide.com/cgi-bin/m?ci=us-accuweather&amp;cg=0&amp;cc=1&amp;ts=noscript" width="1" height="1" alt="" />
+    </noscript>
+    <script type="text/javascript">
+        var google_conversion_id = 1013122394;
+        var google_custom_params = window.google_tag_params;
+        var google_remarketing_only = true;
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <script>
+        (function() {
+            var _fbq = window._fbq || (window._fbq = []);
+            if (!_fbq.loaded)
+            { var fbds = document.createElement('script'); fbds.async = true; fbds.src = '//connect.facebook.net/en_US/fbds.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(fbds, s); _fbq.loaded = true; }
+            _fbq.push(['addPixelId', '513722158765166']);
+        })();
+        window._fbq = window._fbq || [];
+        window._fbq.push(['track', 'PixelInitialized', {}]);
+    </script>
+    <script>
+        (function() {
+            var _fbq = window._fbq || (window._fbq = []);
+            if (!_fbq.loaded) { var fbds = document.createElement('script'); fbds.async = true; fbds.src = '//connect.facebook.net/en_US/fbds.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(fbds, s); _fbq.loaded = true; }
+        })();
+        window._fbq = window._fbq || [];
+        window._fbq.push(['track', '6020195729798',
+        {'value':'0.00','currency':'CAD'}
+        ]);
+    </script>
+    <noscript>
+        
+        <div style="display:inline;">
+            <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1013122394/?value=0&guid=ON&script=0" />
+        </div>
+        <img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=513722158765166&ev=PixelInitialized" />
+        <img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6020195729798&cd[value]=0.00&cd[currency]=CAD&noscript=1" />
+        <img src="http://b.scorecardresearch.com/p?c1=2&c2=6005068&cv=2.0&cj=1" />
+    
+    </noscript>
+
+
+</body>
+
+</html>
