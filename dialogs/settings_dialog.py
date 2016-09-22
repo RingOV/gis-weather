@@ -211,6 +211,11 @@ class settings():
         self.clear_scale.connect("clicked", self.clear_settings)
 
         # View
+        
+        self.switch_block_sunrise__show = self.ui.get_object("switch_block_sunrise__show")
+        self.switch_block_sunrise__show.connect("notify::active", self.save_settings)
+        self.switch_block_moonrise__show = self.ui.get_object("switch_block_moonrise__show")
+        self.switch_block_moonrise__show.connect("notify::active", self.save_settings)
         self.switch_show_block_today = self.ui.get_object('switch_show_block_today')
         self.switch_show_block_today.connect("notify::active", self.save_settings)
         self.spinbutton_block_today_left = self.ui.get_object('spinbutton_block_today_left')
@@ -520,6 +525,8 @@ class settings():
         self.load(self.combobox_desc_style)
         self.load(self.switch_swap_d_and_m)
         self.load(self.switch_show_indicator_text)
+        self.load(self.switch_block_sunrise__show)
+        self.load(self.switch_block_moonrise__show)
 
         self.adjustment_n_max.set_upper(gw_config_set['max_days'])
 
@@ -623,7 +630,11 @@ class settings():
                 if w_type == 'GtkEntry':
                     widget.set_text(gw_config_set[name])
                 else:
-                    widget.set_active(gw_config_set[name])
+                    if name.count('__'):
+                        name, key = name.split('__')[0], name.split('__')[1]
+                        widget.set_active(gw_config_set[name][key])
+                    else:
+                        widget.set_active(gw_config_set[name])
 
 
     def close_window(self, widget, data = None):
@@ -651,7 +662,11 @@ class settings():
         else:
             value = widget.get_active()
         if value != None:
-            gw_config_set[name] = value
+            if name.count('__'):
+                name, key = name.split('__')[0], name.split('__')[1]
+                gw_config_set[name][key] = value
+            else:
+                gw_config_set[name] = value
         Save_Config()
         drawing_area_set.redraw(False, False, load_config = True)
         if name == 'delay_start_time' and self.switch_autostart.get_active():

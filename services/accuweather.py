@@ -355,7 +355,13 @@ def get_weather():
     # weather text
     text = re.findall('<p>(.*)</p>', w_all[0])
 
-    chance_of_rain = re.findall('<td style="font-weight:bold;">.*\s*<td>.*\s*<td>(.*)<', w_all[0])
+    chance_of_rain = re.findall('<td>(\d+)\s*<span class="small">(.*)</td>', w_all[0])
+    for i in range(len(chance_of_rain)):
+
+        chance_of_rain[i] = ' '.join(chance_of_rain[i])
+    if chance_of_rain[1][-1] == '>':
+        chance_of_rain = chance_of_rain[::2]
+
     # if end of month, get days from next month
     if len(t_day)-1<n:
         try:

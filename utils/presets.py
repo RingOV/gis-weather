@@ -41,6 +41,8 @@ list = [
         'block_tomorrow_top': 0,
         'block_wind_direct_small_top': 0,
         'splash_block_top': 0,
+        'block_sunrise':{'x':30, 'y':100, 'font_size': 9, 'align': 'left', 'show': True},
+        'block_moonrise':{'x':30, 'y':100, 'font_size': 9, 'align': 'left', 'show': True},
         # day icon customization
         'day_icon_attr': {'x':30, 'y':16, 'size':36, 'show':True},
         'day_date_fmt': '{day}, {date}',
@@ -81,6 +83,8 @@ list = [
         'text_now_attr': {'x':1161, 'y':9, 'font_weight':' Normal', 'font_size':10, 'align':'center', 'show':True},
         't_now_attr': {'x':1125, 'y':70, 'font_weight':' Normal', 'font_size':24, 'align':'left', 'show':True},
         'icon_now_attr': {'x':1120, 'y':-40, 'size':160, 'show':True},
+        'block_sunrise':{'x':30, 'y':116, 'font_size': 9, 'align': 'left', 'show': True},
+        'block_moonrise':{'x':30, 'y':116, 'font_size': 9, 'align': 'left', 'show': True},
     },
 
     #  Wood

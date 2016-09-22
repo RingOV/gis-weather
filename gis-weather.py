@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.0.32'
+v = '0.8.0.34'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -199,6 +199,8 @@ gw_config_default = {
     'desc_style': 0,  # 0 - Normal, 1 - Italic
     'block_sunrise':{'x':30, 'y':100, 'font_size': 9, 'align': 'left', 'show': True},
     'block_moonrise':{'x':30, 'y':100, 'font_size': 9, 'align': 'left', 'show': True},
+    'show_block_sunrise': True,
+    'show_block_moonrise': True,
     # day icon customization
     'day_icon_attr': {'x': 30, 'y': 16, 'size': 36, 'show': True},
     'day_date_fmt': '{day}, {date}',
