@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2016-08-23 11:51+0300\n"
-"PO-Revision-Date: 2016-08-23 09:38+0000\n"
+"POT-Creation-Date: 2016-09-22 23:34+0300\n"
+"PO-Revision-Date: 2016-09-23 09:59+0000\n"
 "Last-Translator: RingOV <ringov@mail.ru>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/gis-weather-team/gis-weather/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
@@ -61,7 +61,7 @@ msgstr "Taustad"
 #: dialogs/about_dialog.py:43 utils/gw_menu.py:217
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3836
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:4347
-#: dialogs/settings_dialog.ui:3836 dialogs/settings_dialog.ui:4347
+#: dialogs/settings_dialog.ui:3659 dialogs/settings_dialog.ui:4115
 msgid "Icons"
 msgstr "Ikoonid"
 
@@ -72,7 +72,7 @@ msgstr "tõlkija vikisun"
 
 #: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.py:33
 #: DEB/build/usr/share/gis-weather/gis-weather.py:288
-#: dialogs/city_id_dialog.py:33 gis-weather.py:294
+#: dialogs/city_id_dialog.py:33 gis-weather.py:288
 msgid "Error loading config file"
 msgstr "Viga seadete faili laadimisel"
 
@@ -103,7 +103,7 @@ msgstr "Linnakood"
 #: dialogs/city_id_dialog.py:116 utils/gw_menu.py:206
 #: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:42
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:614
-#: dialogs/city_id_dialog.ui:42 dialogs/settings_dialog.ui:614
+#: dialogs/city_id_dialog.ui:42 dialogs/settings_dialog.ui:626
 msgid "Location"
 msgstr "Asukoht"
 
@@ -141,7 +141,7 @@ msgstr "Abi"
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:101
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:765
 #: DEB/build/usr/share/gis-weather/utils/gw_menu.py:234
-#: dialogs/settings_dialog.py:101 dialogs/settings_dialog.py:765
+#: dialogs/settings_dialog.py:101 dialogs/settings_dialog.py:780
 #: utils/gw_menu.py:242
 msgid "Preferences"
 msgstr "Eelistused"
@@ -149,77 +149,77 @@ msgstr "Eelistused"
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:420
 #: DEB/build/usr/share/gis-weather/utils/convert.py:61
 #: DEB/build/usr/share/gis-weather/utils/convert.py:65
-#: dialogs/settings_dialog.py:420 utils/convert.py:61 utils/convert.py:65
+#: dialogs/settings_dialog.py:425 utils/convert.py:61 utils/convert.py:65
 msgid "m/s"
 msgstr "m/s"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:420
 #: DEB/build/usr/share/gis-weather/utils/convert.py:45
 #: DEB/build/usr/share/gis-weather/utils/convert.py:81
-#: dialogs/settings_dialog.py:420 utils/convert.py:45 utils/convert.py:81
+#: dialogs/settings_dialog.py:425 utils/convert.py:45 utils/convert.py:81
 msgid "km/h"
 msgstr "km/h"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:420
 #: DEB/build/usr/share/gis-weather/utils/convert.py:49
 #: DEB/build/usr/share/gis-weather/utils/convert.py:69
-#: dialogs/settings_dialog.py:420 utils/convert.py:49 utils/convert.py:69
+#: dialogs/settings_dialog.py:425 utils/convert.py:49 utils/convert.py:69
 msgid "mph"
 msgstr "mph"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:420
-#: dialogs/settings_dialog.py:420
+#: dialogs/settings_dialog.py:425
 msgid "Beaufort scale"
 msgstr ""
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:420
-#: dialogs/settings_dialog.py:420
+#: dialogs/settings_dialog.py:425
 msgid "Knots"
 msgstr ""
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:421
-#: dialogs/settings_dialog.py:421
+#: dialogs/settings_dialog.py:426
 msgid "mmHg"
 msgstr "mmHg"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:421
-#: dialogs/settings_dialog.py:421
+#: dialogs/settings_dialog.py:426
 msgid "inHg"
 msgstr "inHg"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:421
-#: dialogs/settings_dialog.py:421
+#: dialogs/settings_dialog.py:426
 msgid "hPa"
 msgstr "hPa"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:424
-#: dialogs/settings_dialog.py:424
+#: dialogs/settings_dialog.py:429
 msgid "Never"
 msgstr "Iial"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:425
-#: dialogs/settings_dialog.py:425
+#: dialogs/settings_dialog.py:430
 msgid "Only at start"
 msgstr "Ainult käivitudes"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:426
-#: dialogs/settings_dialog.py:426
+#: dialogs/settings_dialog.py:431
 msgid "Always"
 msgstr "Alati"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:429
 #: DEB/build/usr/share/gis-weather/utils/gw_menu.py:112
-#: dialogs/settings_dialog.py:429 utils/gw_menu.py:112
+#: dialogs/settings_dialog.py:434 utils/gw_menu.py:112
 msgid "No"
 msgstr "Ei"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:430
-#: dialogs/settings_dialog.py:430
+#: dialogs/settings_dialog.py:435
 msgid "Only background"
 msgstr "Ainult taust"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:431
-#: dialogs/settings_dialog.py:431
+#: dialogs/settings_dialog.py:436
 msgid "Yes"
 msgstr "Jah"
 
@@ -229,15 +229,15 @@ msgstr "Jah"
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:565
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:580
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:582
-#: dialogs/settings_dialog.py:546 dialogs/settings_dialog.py:548
-#: dialogs/settings_dialog.py:563 dialogs/settings_dialog.py:565
-#: dialogs/settings_dialog.py:580 dialogs/settings_dialog.py:582
+#: dialogs/settings_dialog.py:553 dialogs/settings_dialog.py:555
+#: dialogs/settings_dialog.py:570 dialogs/settings_dialog.py:572
+#: dialogs/settings_dialog.py:587 dialogs/settings_dialog.py:589
 msgid "Author"
 msgstr "Autor"
 
 #: DEB/build/usr/share/gis-weather/dialogs/update_dialog.py:27
 #: DEB/build/usr/share/gis-weather/utils/opener.py:17
-#: dialogs/update_dialog.py:27 utils/opener.py:17
+#: dialogs/update_dialog.py:27 utils/opener.py:93
 #: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:561
 #: dialogs/update_dialog.ui:561
 msgid "Downloading"
@@ -291,222 +291,222 @@ msgstr "juhtumite number"
 #: DEB/build/usr/share/gis-weather/gis-weather.py:218
 #: DEB/build/usr/share/gis-weather/utils/presets.py:58
 #: DEB/build/usr/share/gis-weather/utils/presets.py:172
-#: DEB/build/usr/share/gis-weather/utils/presets.py:207 gis-weather.py:224
-#: utils/presets.py:58 utils/presets.py:172 utils/presets.py:207
+#: DEB/build/usr/share/gis-weather/utils/presets.py:207 gis-weather.py:218
+#: utils/presets.py:60 utils/presets.py:176 utils/presets.py:211
 msgid "Now"
 msgstr ""
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:272 gis-weather.py:278
+#: DEB/build/usr/share/gis-weather/gis-weather.py:272 gis-weather.py:272
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:671
-#: dialogs/settings_dialog.ui:671
+#: dialogs/settings_dialog.ui:676
 msgid "Configuration folder"
 msgstr "Kausta seadistamine"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:319 gis-weather.py:325
+#: DEB/build/usr/share/gis-weather/gis-weather.py:319 gis-weather.py:319
 msgid "Error loading color scheme"
 msgstr "Viga värviskeemi laadimisel"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:334 gis-weather.py:340
+#: DEB/build/usr/share/gis-weather/gis-weather.py:334 gis-weather.py:334
 msgid "Error loading preset"
 msgstr "Viga algse laadimisel"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:344 gis-weather.py:350
+#: DEB/build/usr/share/gis-weather/gis-weather.py:344 gis-weather.py:344
 msgid "Enter full path to script"
 msgstr "Sisesta scripti asukoht"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:345 gis-weather.py:351
+#: DEB/build/usr/share/gis-weather/gis-weather.py:345 gis-weather.py:345
 msgid "Exit"
 msgstr "Välju"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:450 gis-weather.py:456
+#: DEB/build/usr/share/gis-weather/gis-weather.py:450 gis-weather.py:450
 msgid "Check for new version"
 msgstr "Kontrolli  uut versiooni"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:455
-#: DEB/build/usr/share/gis-weather/gis-weather.py:464 gis-weather.py:461
-#: gis-weather.py:470
+#: DEB/build/usr/share/gis-weather/gis-weather.py:464 gis-weather.py:455
+#: gis-weather.py:464
 msgid "Unable to check for updates"
 msgstr "Uuenduste kontrollimine ei ole võimalik"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:479 gis-weather.py:485
+#: DEB/build/usr/share/gis-weather/gis-weather.py:479 gis-weather.py:479
 msgid "New version available"
 msgstr "Uus versioon on saadaval"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:486 gis-weather.py:492
+#: DEB/build/usr/share/gis-weather/gis-weather.py:486 gis-weather.py:486
 msgid "You are using the latest version"
 msgstr "Kasutate viimast versiooni"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:503
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1337 gis-weather.py:509
-#: gis-weather.py:1343
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1337 gis-weather.py:503
+#: gis-weather.py:1355
 msgid "Screenshot saved to"
 msgstr "Ekraanitõmmis salvestati asukohta"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:507 gis-weather.py:513
+#: DEB/build/usr/share/gis-weather/gis-weather.py:507 gis-weather.py:507
 msgid "Unable to get the screenshot"
 msgstr "Ekraanitõmmist ei õnnestunud luua"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:684 gis-weather.py:690
+#: DEB/build/usr/share/gis-weather/gis-weather.py:684 gis-weather.py:684
 msgid "Getting weather..."
 msgstr "Ilmainfo saabumine..."
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:687 gis-weather.py:693
+#: DEB/build/usr/share/gis-weather/gis-weather.py:687 gis-weather.py:687
 msgid "Error getting weather"
 msgstr "Ilmainfo saamine ebaõnnestus"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:689 gis-weather.py:695
+#: DEB/build/usr/share/gis-weather/gis-weather.py:689 gis-weather.py:689
 msgid "Location not set"
 msgstr "Asukoht pole seatud"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:746
-#: DEB/build/usr/share/gis-weather/gis-weather.py:808 gis-weather.py:752
-#: gis-weather.py:814
+#: DEB/build/usr/share/gis-weather/gis-weather.py:808 gis-weather.py:746
+#: gis-weather.py:808
 msgid "Next update in"
 msgstr "Järgmine uuendus"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:746
-#: DEB/build/usr/share/gis-weather/gis-weather.py:808 gis-weather.py:752
-#: gis-weather.py:814
+#: DEB/build/usr/share/gis-weather/gis-weather.py:808 gis-weather.py:746
+#: gis-weather.py:808
 msgid "min"
 msgstr "min"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:782
-#: DEB/build/usr/share/gis-weather/services/gismeteo.py:370 gis-weather.py:788
-#: services/gismeteo.py:371
+#: DEB/build/usr/share/gis-weather/services/gismeteo.py:370 gis-weather.py:782
+#: services/gismeteo.py:381
 msgid "Next try in 10 seconds"
 msgstr "Järgmine katse 10 sekundi pärast"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:798 gis-weather.py:804
+#: DEB/build/usr/share/gis-weather/gis-weather.py:798 gis-weather.py:798
 msgid "Connection error"
 msgstr "Ühenduse viga"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:883 gis-weather.py:889
+#: DEB/build/usr/share/gis-weather/gis-weather.py:883 gis-weather.py:884
 msgid "Updated on server"
 msgstr "Serverist uuendatud"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:884 gis-weather.py:890
+#: DEB/build/usr/share/gis-weather/gis-weather.py:884 gis-weather.py:885
 msgid "Weather received"
 msgstr "Ilmainfo saabunud"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:921 gis-weather.py:927
+#: DEB/build/usr/share/gis-weather/gis-weather.py:921 gis-weather.py:939
 msgid "E"
 msgstr "E"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:921 gis-weather.py:927
+#: DEB/build/usr/share/gis-weather/gis-weather.py:921 gis-weather.py:939
 msgid "S"
 msgstr "S"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:921 gis-weather.py:927
+#: DEB/build/usr/share/gis-weather/gis-weather.py:921 gis-weather.py:939
 msgid "W"
 msgstr "W"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:921 gis-weather.py:927
+#: DEB/build/usr/share/gis-weather/gis-weather.py:921 gis-weather.py:939
 msgid "N"
 msgstr "N"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:957 gis-weather.py:963
+#: DEB/build/usr/share/gis-weather/gis-weather.py:957 gis-weather.py:975
 msgid "humid."
 msgstr "niiskus."
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:960 gis-weather.py:966
+#: DEB/build/usr/share/gis-weather/gis-weather.py:960 gis-weather.py:978
 msgid "water"
 msgstr "vesi"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:975
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1017
 #: DEB/build/usr/share/gis-weather/services/gismeteo.py:359
-#: DEB/build/usr/share/gis-weather/services/yr.py:145 gis-weather.py:981
-#: gis-weather.py:1023 services/gismeteo.py:360 services/yr.py:147
+#: DEB/build/usr/share/gis-weather/services/yr.py:145 gis-weather.py:993
+#: gis-weather.py:1035 services/gismeteo.py:370 services/yr.py:147
 msgid "Morning"
 msgstr "Hommik"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:975
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1017
 #: DEB/build/usr/share/gis-weather/services/gismeteo.py:359
-#: DEB/build/usr/share/gis-weather/services/yr.py:145 gis-weather.py:981
-#: gis-weather.py:1023 services/gismeteo.py:360 services/yr.py:147
+#: DEB/build/usr/share/gis-weather/services/yr.py:145 gis-weather.py:993
+#: gis-weather.py:1035 services/gismeteo.py:370 services/yr.py:147
 msgid "Day"
 msgstr "Päev"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:975
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1017
 #: DEB/build/usr/share/gis-weather/services/gismeteo.py:359
-#: DEB/build/usr/share/gis-weather/services/yr.py:145 gis-weather.py:981
-#: gis-weather.py:1023 services/gismeteo.py:360 services/yr.py:147
+#: DEB/build/usr/share/gis-weather/services/yr.py:145 gis-weather.py:993
+#: gis-weather.py:1035 services/gismeteo.py:370 services/yr.py:147
 msgid "Evening"
 msgstr "Õhtu"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:975
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1017
 #: DEB/build/usr/share/gis-weather/services/gismeteo.py:359
-#: DEB/build/usr/share/gis-weather/services/yr.py:145 gis-weather.py:981
-#: gis-weather.py:1023 services/gismeteo.py:360 services/yr.py:147
+#: DEB/build/usr/share/gis-weather/services/yr.py:145 gis-weather.py:993
+#: gis-weather.py:1035 services/gismeteo.py:370 services/yr.py:147
 msgid "Night"
 msgstr "Öö"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:980
-#: DEB/build/usr/share/gis-weather/gis-weather.py:982 gis-weather.py:986
-#: gis-weather.py:988
+#: DEB/build/usr/share/gis-weather/gis-weather.py:982 gis-weather.py:998
+#: gis-weather.py:1000
 msgid "Tomorrow"
 msgstr "Homme"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1021 gis-weather.py:1027
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1021 gis-weather.py:1039
 msgid "Today"
 msgstr "Täna"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1166 gis-weather.py:1172
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1166 gis-weather.py:1184
 msgid "Background image not found"
 msgstr "Taustapilti ei leitud"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1230 gis-weather.py:1236
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1230 gis-weather.py:1248
 msgid "downloading"
 msgstr "allalaadimine"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1234 gis-weather.py:1240
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1234 gis-weather.py:1252
 msgid "Unable to download"
 msgstr "Allalaadimine pole võimalik"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1258 gis-weather.py:1264
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1258 gis-weather.py:1276
 msgid "Icon not found"
 msgstr "Ikooni ei leitud"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1348 gis-weather.py:1354
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1348 gis-weather.py:1366
 msgid "Widget size"
 msgstr "Vidina suurus"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1349 gis-weather.py:1355
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1349 gis-weather.py:1367
 msgid "width"
 msgstr "laius"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1349 gis-weather.py:1355
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1349 gis-weather.py:1367
 msgid "height"
 msgstr "kõrgus"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1349 gis-weather.py:1355
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1349 gis-weather.py:1367
 msgid "including indent"
 msgstr "kaasasolev taane"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1548 gis-weather.py:1557
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1548 gis-weather.py:1569
 msgid "Removed"
 msgstr "Eemaldatud"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1581 gis-weather.py:1590
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1581 gis-weather.py:1602
 #: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:361
 #: dialogs/city_id_dialog.ui:361
 msgid "Added"
 msgstr "Lisatud"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1586 gis-weather.py:1595
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1586 gis-weather.py:1607
 #: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:293
 #: dialogs/city_id_dialog.ui:293
 msgid "Invalid location code"
 msgstr "Vigane asukohakood"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1654 gis-weather.py:1663
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1654 gis-weather.py:1675
 msgid "Your screen does not support alpha"
 msgstr "Teie ekraan ei toeta alfat"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1656 gis-weather.py:1665
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1656 gis-weather.py:1677
 msgid "Your screen supports alpha"
 msgstr "Teie ekraan toetab alfat"
 
@@ -519,8 +519,7 @@ msgstr "Kui linna kood on vale, palun loe"
 #: DEB/build/usr/share/gis-weather/services/gismeteo.py:229
 #: DEB/build/usr/share/gis-weather/services/openweathermap.py:88
 #: DEB/build/usr/share/gis-weather/services/yr.py:62
-#: services/accuweather.py:194 services/gismeteo.py:229
-#: services/openweathermap.py:88 services/yr.py:62
+#: services/accuweather.py:200 services/openweathermap.py:88 services/yr.py:62
 msgid "Failed to get the name of the location"
 msgstr "Asukohanime saamine ebaõnnestus"
 
@@ -528,7 +527,7 @@ msgstr "Asukohanime saamine ebaõnnestus"
 #: DEB/build/usr/share/gis-weather/services/gismeteo.py:245
 #: DEB/build/usr/share/gis-weather/services/openweathermap.py:117
 #: DEB/build/usr/share/gis-weather/services/yr.py:73
-#: services/accuweather.py:218 services/gismeteo.py:246
+#: services/accuweather.py:224 services/gismeteo.py:247
 #: services/openweathermap.py:118 services/yr.py:73
 msgid "Getting weather for"
 msgstr "Ilmainfo saabumine"
@@ -537,20 +536,20 @@ msgstr "Ilmainfo saabumine"
 #: DEB/build/usr/share/gis-weather/services/gismeteo.py:245
 #: DEB/build/usr/share/gis-weather/services/openweathermap.py:117
 #: DEB/build/usr/share/gis-weather/services/yr.py:73
-#: services/accuweather.py:218 services/gismeteo.py:246
+#: services/accuweather.py:224 services/gismeteo.py:247
 #: services/openweathermap.py:118 services/yr.py:73
 msgid "days"
 msgstr "päevi"
 
 #: DEB/build/usr/share/gis-weather/services/accuweather.py:257
-#: services/accuweather.py:260
+#: services/accuweather.py:273
 msgid "Calm"
 msgstr "Vaikne"
 
 #: DEB/build/usr/share/gis-weather/services/accuweather.py:640
 #: DEB/build/usr/share/gis-weather/services/gismeteo.py:414
 #: DEB/build/usr/share/gis-weather/services/openweathermap.py:312
-#: services/accuweather.py:653 services/gismeteo.py:415
+#: services/accuweather.py:674 services/gismeteo.py:425
 #: services/openweathermap.py:313
 msgid "updated on server"
 msgstr "serverist uuendatud"
@@ -559,7 +558,7 @@ msgstr "serverist uuendatud"
 #: DEB/build/usr/share/gis-weather/services/gismeteo.py:415
 #: DEB/build/usr/share/gis-weather/services/openweathermap.py:313
 #: DEB/build/usr/share/gis-weather/services/yr.py:191
-#: services/accuweather.py:654 services/gismeteo.py:416
+#: services/accuweather.py:675 services/gismeteo.py:426
 #: services/openweathermap.py:314 services/yr.py:193
 msgid "weather received"
 msgstr "ilmainfo saabunud"
@@ -583,7 +582,7 @@ msgstr ""
 
 #: DEB/build/usr/share/gis-weather/utils/gw_menu.py:53 utils/gw_menu.py:53
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:682
-#: dialogs/settings_dialog.ui:682
+#: dialogs/settings_dialog.ui:685
 msgid "Setup..."
 msgstr "Sättimine..."
 
@@ -601,13 +600,13 @@ msgstr "Hall"
 
 #: DEB/build/usr/share/gis-weather/utils/gw_menu.py:137 utils/gw_menu.py:137
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1754
-#: dialogs/settings_dialog.ui:1754
+#: dialogs/settings_dialog.ui:1650
 msgid "Lock position"
 msgstr "Lukusta positsioon"
 
 #: DEB/build/usr/share/gis-weather/utils/gw_menu.py:143 utils/gw_menu.py:143
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1739
-#: dialogs/settings_dialog.ui:1739
+#: dialogs/settings_dialog.ui:1637
 msgid "On all desktops"
 msgstr "Kõigil töölaudadel"
 
@@ -621,7 +620,7 @@ msgstr "Näita/Peida vidin"
 
 #: DEB/build/usr/share/gis-weather/utils/gw_menu.py:178 utils/gw_menu.py:178
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:937
-#: dialogs/settings_dialog.ui:937
+#: dialogs/settings_dialog.ui:910
 msgid "Refresh"
 msgstr "Värskenda"
 
@@ -635,19 +634,19 @@ msgstr "Indikaatori ikoonid"
 
 #: DEB/build/usr/share/gis-weather/utils/gw_menu.py:214 utils/gw_menu.py:222
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3742
-#: dialogs/settings_dialog.ui:3742
+#: dialogs/settings_dialog.ui:3573
 msgid "Background"
 msgstr "Taustapilt"
 
 #: DEB/build/usr/share/gis-weather/utils/gw_menu.py:219 utils/gw_menu.py:227
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3453
-#: dialogs/settings_dialog.ui:3453
+#: dialogs/settings_dialog.ui:3311
 msgid "Text"
 msgstr "Tekst"
 
 #: DEB/build/usr/share/gis-weather/utils/gw_menu.py:224 utils/gw_menu.py:232
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1958
-#: dialogs/settings_dialog.ui:1958
+#: dialogs/settings_dialog.ui:1828
 msgid "Window"
 msgstr "Aken"
 
@@ -663,12 +662,12 @@ msgstr "Programmist"
 #: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:25
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:569
 #: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:44
-#: dialogs/help_dialog.ui:25 dialogs/settings_dialog.ui:569
+#: dialogs/help_dialog.ui:25 dialogs/settings_dialog.ui:581
 #: dialogs/update_dialog.ui:44
 msgid "Close"
 msgstr "Sulge"
 
-#: DEB/build/usr/share/gis-weather/utils/opener.py:25 utils/opener.py:25
+#: DEB/build/usr/share/gis-weather/utils/opener.py:25 utils/opener.py:101
 msgid "Unable to download page, check the network connection"
 msgstr "Lehekülje allalaadmine ebaõnnestus, kontrolli ühendust"
 
@@ -706,7 +705,7 @@ msgstr "Ilma keel"
 
 #: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:182
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:879
-#: dialogs/city_id_dialog.ui:182 dialogs/settings_dialog.ui:879
+#: dialogs/city_id_dialog.ui:182 dialogs/settings_dialog.ui:858
 msgid "Weather service"
 msgstr "Weather teenindus"
 
@@ -719,7 +718,7 @@ msgstr "Leidsite vea?"
 #: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:109
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:799
 #: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:351
-#: dialogs/help_dialog.ui:109 dialogs/settings_dialog.ui:799
+#: dialogs/help_dialog.ui:109 dialogs/settings_dialog.ui:788
 #: dialogs/update_dialog.ui:351
 msgid "Want to translate?"
 msgstr "Soovite tõlkida?"
@@ -767,134 +766,134 @@ msgstr "Mis on uut"
 
 #: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:286
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:960
-#: dialogs/help_dialog.ui:286 dialogs/settings_dialog.ui:960
+#: dialogs/help_dialog.ui:286 dialogs/settings_dialog.ui:931
 msgid "Translation status"
 msgstr "Tõlke staatus"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:629
-#: dialogs/settings_dialog.ui:629
+#: dialogs/settings_dialog.ui:639
 msgid "Update (in minutes)"
 msgstr "Uuendamine (minutites)"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:644
-#: dialogs/settings_dialog.ui:644
+#: dialogs/settings_dialog.ui:652
 msgid "Check for updates"
 msgstr "Uuenduste kontrollimine"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:731
-#: dialogs/settings_dialog.ui:731
+#: dialogs/settings_dialog.ui:728
 msgid "Open..."
 msgstr "Ava..."
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:821
-#: dialogs/settings_dialog.ui:821
+#: dialogs/settings_dialog.ui:808
 msgid "Program language"
 msgstr "Programmi keel"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:836
-#: dialogs/settings_dialog.ui:836
+#: dialogs/settings_dialog.ui:821
 msgid "Weather language"
 msgstr "Weather keel"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:851
-#: dialogs/settings_dialog.ui:851
+#: dialogs/settings_dialog.ui:834
 msgid "Add launcher icon to menu"
 msgstr "Lisa käivitusikoon menüüsse"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1014
-#: dialogs/settings_dialog.ui:1014
+#: dialogs/settings_dialog.ui:981
 msgid "Autostart at login"
 msgstr "Autokäivitus sisse logimisel"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1029
-#: dialogs/settings_dialog.ui:1029
+#: dialogs/settings_dialog.ui:994
 msgid "Number of instances"
 msgstr "Võimaluste number"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1075
-#: dialogs/settings_dialog.ui:1075
+#: dialogs/settings_dialog.ui:1034
 msgid "Start delay (in seconds)"
 msgstr "Käivituse viivitus (sekundites)"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1125
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1181
-#: dialogs/settings_dialog.ui:1125 dialogs/settings_dialog.ui:1181
+#: dialogs/settings_dialog.ui:1078 dialogs/settings_dialog.ui:1132
 msgid "Autostart"
 msgstr "Autokäivitus"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1164
-#: dialogs/settings_dialog.ui:1164
+#: dialogs/settings_dialog.ui:1116
 msgid "Configured in the first instance"
 msgstr "Seadistamine esimesel võimalusel"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1269
-#: dialogs/settings_dialog.ui:1269
+#: dialogs/settings_dialog.ui:1219
 msgid "General"
 msgstr "Üldine"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1292
-#: dialogs/settings_dialog.ui:1292
+#: dialogs/settings_dialog.ui:1242
 msgid "Wind"
 msgstr "Tuul"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1307
-#: dialogs/settings_dialog.ui:1307
+#: dialogs/settings_dialog.ui:1255
 msgid "Pressure"
 msgstr "Rõhk"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1354
-#: dialogs/settings_dialog.ui:1354
+#: dialogs/settings_dialog.ui:1296
 msgid "Temperature"
 msgstr "Temperatuur"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1406
-#: dialogs/settings_dialog.ui:1406
+#: dialogs/settings_dialog.ui:1342
 msgid "Wind chill"
 msgstr "Jahe tuul"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1492
-#: dialogs/settings_dialog.ui:1492
+#: dialogs/settings_dialog.ui:1418
 msgid "Date separator format"
 msgstr "Kuupäeva eraldusformaat"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1507
-#: dialogs/settings_dialog.ui:1507
+#: dialogs/settings_dialog.ui:1431
 msgid "Swap the day and month"
 msgstr "Vaheta päev ja kuu"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1565
-#: dialogs/settings_dialog.ui:1565
+#: dialogs/settings_dialog.ui:1483
 msgid "Units"
 msgstr "Ühikud"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1589
-#: dialogs/settings_dialog.ui:1589
+#: dialogs/settings_dialog.ui:1507
 msgid "Left"
 msgstr "Vasak"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1604
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:4029
-#: dialogs/settings_dialog.ui:1604 dialogs/settings_dialog.ui:4029
+#: dialogs/settings_dialog.ui:1520 dialogs/settings_dialog.ui:3836
 msgid "Top"
 msgstr "Ülemine"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1619
-#: dialogs/settings_dialog.ui:1619
+#: dialogs/settings_dialog.ui:1533
 msgid "Padding"
 msgstr "Padding"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1724
-#: dialogs/settings_dialog.ui:1724
+#: dialogs/settings_dialog.ui:1624
 msgid "Fix BadDrawable error"
 msgstr "Paranda Halva joonestuse vead"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1769
-#: dialogs/settings_dialog.ui:1769
+#: dialogs/settings_dialog.ui:1663
 msgid "Transparency"
 msgstr "Läbipaistvus"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1904
-#: dialogs/settings_dialog.ui:1904
+#: dialogs/settings_dialog.ui:1780
 msgid "Scale"
 msgstr "Skaala"
 
@@ -903,9 +902,10 @@ msgstr "Skaala"
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2372
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2592
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3900
-#: dialogs/settings_dialog.ui:2010 dialogs/settings_dialog.ui:2141
-#: dialogs/settings_dialog.ui:2372 dialogs/settings_dialog.ui:2592
-#: dialogs/settings_dialog.ui:3900
+#: dialogs/settings_dialog.ui:1880 dialogs/settings_dialog.ui:1997
+#: dialogs/settings_dialog.ui:2190 dialogs/settings_dialog.ui:2280
+#: dialogs/settings_dialog.ui:2474 dialogs/settings_dialog.ui:2589
+#: dialogs/settings_dialog.ui:3719
 msgid "Show"
 msgstr "Näta"
 
@@ -914,185 +914,185 @@ msgstr "Näta"
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2271
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2387
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2607
-#: dialogs/settings_dialog.ui:2025 dialogs/settings_dialog.ui:2156
-#: dialogs/settings_dialog.ui:2271 dialogs/settings_dialog.ui:2387
-#: dialogs/settings_dialog.ui:2607
+#: dialogs/settings_dialog.ui:1893 dialogs/settings_dialog.ui:2010
+#: dialogs/settings_dialog.ui:2113 dialogs/settings_dialog.ui:2293
+#: dialogs/settings_dialog.ui:2487
 msgid "Offset from center"
 msgstr "Keskmest"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2101
-#: dialogs/settings_dialog.ui:2101
+#: dialogs/settings_dialog.ui:1959
 msgid "Block Tomorrow"
 msgstr "Blokeeri Homme"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2232
-#: dialogs/settings_dialog.ui:2232
+#: dialogs/settings_dialog.ui:2076
 msgid "Block Today"
 msgstr "Blokeeri Täna"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2318
-#: dialogs/settings_dialog.ui:2318
+#: dialogs/settings_dialog.ui:2154
 msgid "Block Now"
 msgstr "Blokeeri Hetkel"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2461
-#: dialogs/settings_dialog.ui:2461
+#: dialogs/settings_dialog.ui:2357
 msgid "Reduce"
 msgstr "Vähenda"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2476
-#: dialogs/settings_dialog.ui:2476
+#: dialogs/settings_dialog.ui:2370
 msgid "Angle of rotation"
 msgstr "Pöördenurk"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2552
-#: dialogs/settings_dialog.ui:2552
+#: dialogs/settings_dialog.ui:2436
 msgid "Block Wind"
 msgstr "Blokeeri Tuul"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2683
-#: dialogs/settings_dialog.ui:2683
+#: dialogs/settings_dialog.ui:2553
 msgid "Block Additional info"
 msgstr "Blokeeri Lisainfo"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2741
-#: dialogs/settings_dialog.ui:2741
+#: dialogs/settings_dialog.ui:2683
 msgid "Number of days"
 msgstr "Päevade numbrid"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2756
-#: dialogs/settings_dialog.ui:2756
+#: dialogs/settings_dialog.ui:2696
 msgid "Show weather retrieval time"
 msgstr "Näita ilmainfo saabumise aega"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2771
-#: dialogs/settings_dialog.ui:2771
+#: dialogs/settings_dialog.ui:2709
 msgid "Show splash screen"
 msgstr "Näita hüpikekraani"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2786
-#: dialogs/settings_dialog.ui:2786
+#: dialogs/settings_dialog.ui:2722
 msgid "Hide splash screen after attempts (0 - do not hide)"
 msgstr "Peida hüpikekraan peale katseid (0 - ära peida) "
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2926
-#: dialogs/settings_dialog.ui:2926
+#: dialogs/settings_dialog.ui:2844
 msgid "Show chance of rain"
 msgstr "Näita vihma võimalust"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2992
-#: dialogs/settings_dialog.ui:2992
+#: dialogs/settings_dialog.ui:2904
 msgid "View"
 msgstr "Vaade"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3035
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:4279
-#: dialogs/settings_dialog.ui:3035 dialogs/settings_dialog.ui:4279
+#: dialogs/settings_dialog.ui:2947 dialogs/settings_dialog.ui:4054
 msgid "Font"
 msgstr "Font"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3050
-#: dialogs/settings_dialog.ui:3050
+#: dialogs/settings_dialog.ui:2960
 msgid "Main color"
 msgstr "Peamine värv"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3097
-#: dialogs/settings_dialog.ui:3097
+#: dialogs/settings_dialog.ui:3001
 msgid "Color weekend"
 msgstr "Nädalavahetuse värv"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3175
-#: dialogs/settings_dialog.ui:3175
+#: dialogs/settings_dialog.ui:3069
 msgid "Color wind"
 msgstr "Tuule värvus"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3190
-#: dialogs/settings_dialog.ui:3190
+#: dialogs/settings_dialog.ui:3082
 msgid ""
 "High wind\n"
 "(-1 = not highlighted)"
 msgstr "Tugev tuul\n(-1=ei tooda esile)"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3206
-#: dialogs/settings_dialog.ui:3206
+#: dialogs/settings_dialog.ui:3096
 msgid "Shadow color"
 msgstr "Varju värv"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3221
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:4059
-#: dialogs/settings_dialog.ui:3221 dialogs/settings_dialog.ui:4059
+#: dialogs/settings_dialog.ui:3109 dialogs/settings_dialog.ui:3862
 msgid "Shadow"
 msgstr "Vari"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3357
-#: dialogs/settings_dialog.ui:3357
+#: dialogs/settings_dialog.ui:3227
 msgid "Weekend"
 msgstr "Nädalavahetus"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3400
-#: dialogs/settings_dialog.ui:3400
+#: dialogs/settings_dialog.ui:3264
 msgid "Weather description style"
 msgstr "Weather kirjelduse stiil"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3492
-#: dialogs/settings_dialog.ui:3492
+#: dialogs/settings_dialog.ui:3349
 msgid "Use image"
 msgstr "Kasuta pilti"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3551
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3782
-#: dialogs/settings_dialog.ui:3551 dialogs/settings_dialog.ui:3782
+#: dialogs/settings_dialog.ui:3402 dialogs/settings_dialog.ui:3611
 msgid "Select"
 msgstr "Vali"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3634
-#: dialogs/settings_dialog.ui:3634
+#: dialogs/settings_dialog.ui:3478
 msgid "Corner radius"
 msgstr "Nurga raadius"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3649
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:4074
-#: dialogs/settings_dialog.ui:3649 dialogs/settings_dialog.ui:4074
+#: dialogs/settings_dialog.ui:3491 dialogs/settings_dialog.ui:3875
 msgid "Color"
 msgstr "Värv"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3861
-#: dialogs/settings_dialog.ui:3861
+#: dialogs/settings_dialog.ui:3682
 msgid "Appearance"
 msgstr "Välimus"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3885
-#: dialogs/settings_dialog.ui:3885
+#: dialogs/settings_dialog.ui:3706
 msgid "Type (restart required)"
 msgstr "Tüüp (vajab taaskäivitust)"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:4014
-#: dialogs/settings_dialog.ui:4014
+#: dialogs/settings_dialog.ui:3823
 msgid "Width"
 msgstr "Laius"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:4044
-#: dialogs/settings_dialog.ui:4044
+#: dialogs/settings_dialog.ui:3849
 msgid "Color shadow"
 msgstr "Värvi vari"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:4294
-#: dialogs/settings_dialog.ui:4294
+#: dialogs/settings_dialog.ui:4067
 msgid "Show text"
 msgstr ""
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:4398
-#: dialogs/settings_dialog.ui:4398
+#: dialogs/settings_dialog.ui:4162
 msgid "Fix the size"
 msgstr "Fikseeritud suurus"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:4442
-#: dialogs/settings_dialog.ui:4442
+#: dialogs/settings_dialog.ui:4200
 msgid "Size"
 msgstr "Suurus"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:4517
-#: dialogs/settings_dialog.ui:4517
+#: dialogs/settings_dialog.ui:4268
 msgid "Indicator"
 msgstr "Indikaator"
 
@@ -1135,3 +1135,11 @@ msgstr "Uuendamine lõppes eduakalt"
 #: dialogs/update_dialog.ui:756
 msgid "Update error"
 msgstr "Viga uuendamisel"
+
+#: dialogs/settings_dialog.ui:2230
+msgid "Block Sunrise"
+msgstr ""
+
+#: dialogs/settings_dialog.ui:2629
+msgid "Block Moonrise"
+msgstr ""

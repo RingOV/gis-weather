@@ -309,7 +309,6 @@ def get_weather():
     source = urlopener(URL_SEVERAL_DAYS, 5)
     if not source:
         return False
-    # time.sleep(1)
 
     # all days
     w_all = re.findall('<tr class="today lo calendar.*</table>', source, re.DOTALL)
@@ -318,8 +317,6 @@ def get_weather():
     t_day = re.findall('<td>(.*)&#176;/', w_all[0])
     t_day = t_day[::2]
     for i in range(len(t_day)):
-        # if t_day[i][0] not in ('+', '-', '0'):
-        #     t_day[i] = '+' + t_day[i]
         if not celsius:
             t_day[i] = F_to_C(t_day[i])
         t_day[i] = convert_from_C(t_day[i])
@@ -328,8 +325,6 @@ def get_weather():
     t_night = re.findall('<td>.*/(.*)&#176;', w_all[0])
     t_night = t_night[::2]
     for i in range(len(t_night)):
-        # if t_night[i][0] not in ('+', '-', '0'):
-        #     t_night[i] = '+' + t_night[i]
         if not celsius:
             t_night[i] = F_to_C(t_night[i])
         t_night[i] = convert_from_C(t_night[i])
@@ -365,310 +360,136 @@ def get_weather():
     # if end of month, get days from next month
     if len(t_day)-1<n:
         try:
-            next_month = re.findall('href="(.*)&amp;view=table".*next-month"', source)
+            next_month = re.findall('href="(.*)&amp;.*next-month', source)
             next_month[0] = next_month[0]+'&view=table'
             source = urlopener(next_month[0], 5)
             if not source:
                 return False
-            # time.sleep(1)
 
             # all days
-            w_all = re.findall('<tr class="lo calendar.*</table>', source, re.DOTALL)
+            w_all = re.findall('<tr class="lo calendar-list-cl-tr.*</table>', source, re.DOTALL)
 
             # day temperature
-            t_day2 = re.findall('<td style="font-weight:bold;">(.*)&#176;', w_all[0])
+            t_day2 = re.findall('<td>(.*)&#176;/', w_all[0])
+            t_day2 = t_day2[::2]
             for i in range(len(t_day2)):
-                if t_day2[i][0] not in ('+', '-', '0'):
-                    t_day2[i] = '+' + t_day2[i]
                 if not celsius:
                     t_day2[i] = F_to_C(t_day2[i])
-                t_day2[i] = t_day2[i]+'°;'+t_day2[i]+'°;'+C_to_F(t_day2[i])+'°;'+C_to_F(t_day2[i])+'°;'+C_to_K(t_day2[i])+';'+C_to_K(t_day2[i]) 
+                t_day2[i] = convert_from_C(t_day2[i])
             t_day.extend(t_day2)
 
             # night temperature
-            t_night2 = re.findall('<td style="font-weight:bold;">.*\s*<td>(.*)&#176;', w_all[0])
+            t_night2 = re.findall('<td>.*/(.*)&#176;', w_all[0])
+            t_night2 = t_night2[::2]
             for i in range(len(t_night2)):
-                if t_night2[i][0] not in ('+', '-', '0'):
-                    t_night2[i] = '+' + t_night2[i]
                 if not celsius:
                     t_night2[i] = F_to_C(t_night2[i])
-                t_night2[i] = t_night2[i]+'°;'+t_night2[i]+'°;'+C_to_F(t_night2[i])+'°;'+C_to_F(t_night2[i])+'°;'+C_to_K(t_night2[i])+';'+C_to_K(t_night2[i])
+                t_night2[i] = convert_from_C(t_night2[i])
             t_night.extend(t_night2)
 
+
             # day of week, date
-            day2 = re.findall('color:.*>(.*)<br', w_all[0])
-            date2 = re.findall('<br />([\d|.\-/]+)<', w_all[0])
-            try:
-                int(date2[0][:4])
-                for i in range(len(date2)):
-                    date2[i]=date2[i][5:]
-            except:
-                for i in range(len(date2)):
-                    date2[i]=date2[i][:-5]
+            day2 = re.findall('<a.*>(.*)[.| ]*<time>', w_all[0])
+            date2 = re.findall('<time>(.*)</time>', w_all[0])
+            # try:
+            #     int(date2[0][:4])
+            #     for i in range(len(date2)):
+            #         date2[i]=date2[i][5:]
+            # except:
+            #     for i in range(len(date2)):
+            #         date2[i]=date2[i][:-5]
             day.extend(day2)
             date.extend(date2)
+
+
             # weather icon day
-            icon2 = re.findall('src=\"(.*png)\" ', w_all[0])
+            icon2 = re.findall('<div class="icon (.*)s"', w_all[0])
             for i in range(len(icon2)):
                 icon2[i] = convert(icon2[i], icons_name)
             icon.extend(icon2)
 
+
             # weather text
-            text2 = re.findall('src=.*>(.*)\r', w_all[0])
-            if text[-1] == '':
-                del text[-1]
-            chance_of_rain2 = re.findall('<td style="font-weight:bold;">.*\s*<td>.*\s*<td>(.*)<', w_all[0])
+            text2 = re.findall('<p>(.*)</p>', w_all[0])
+            # if text[-1] == '': # Need or not?
+            #     del text[-1]
             text.extend(text2)
+
+
+            chance_of_rain2 = re.findall('<td>(\d+)\s*<span class="small">(.*)</td>', w_all[0])
+            for i in range(len(chance_of_rain2)):
+                chance_of_rain2[i] = ' '.join(chance_of_rain2[i])
+            if chance_of_rain2[1][-1] == '>':
+                chance_of_rain2 = chance_of_rain2[::2]
             chance_of_rain.extend(chance_of_rain2)
+
         except:
+            print('Can\'t get weather from next month')
             pass
 
-    # if show_block_tomorrow:
-    #     #### weather tomorrow ####
-    #     w_night = urlopener('http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=2'%(city_id, city_number), 5)
-    #     if not w_night:
-    #         return False
-        # time.sleep(1)
+    if show_block_tomorrow:
+        #### weather tomorrow ####
+        source = ['', '', '', '']
+        for i, w_time in zip(range(4), ['morning', 'afternoon', 'evening', 'overnight']):
+            source[i] = urlopener('http://www.accuweather.com/en/%s/%s-weather-forecast/%s?day=2'%(city_id, w_time, city_number), 5)
+            if not source[i]:
+                return False
 
-    #     w_morning = urlopener('http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=2'%(city_id, city_number), 5)
-    #     if not w_morning:
-    #         return False
-        # time.sleep(1)
+        t_tomorrow=[]
+        t_tomorrow_low = []
+        icon_tomorrow = []
+        
+        for s in source:
+            w_now = re.findall('detail-now.*', s, re.DOTALL)
+            
+            t = re.findall('<span class="large-temp">(.?\d+)', w_now[0])
+            if not celsius:
+                t[0] = F_to_C(t[0])
+            t[0] = convert_from_C(t[0])
+            t_tomorrow.append(t[0])
+            
+            t = re.findall('<span class="small-temp">/(.?\d+)', w_now[0])
+            if not celsius:
+                t[0] = F_to_C(t[0])
+            t[0] = convert_from_C(t[0])
+            t_tomorrow_low.append(t[0])
+            
+            i = re.findall('<div class="icon (.*)xl"', w_now[0])
+            i[0] = convert(i[0], icons_name)
+            icon_tomorrow.append(i[0])
+        
 
-    #     w_day = urlopener('http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=2'%(city_id, city_number), 5)
-    #     if not w_day:
-    #         return False
-        # time.sleep(1)
+    if show_block_today:
+        #### weather today ####
+        source = ['', '', '', '']
+        for i, w_time in zip(range(4), ['morning', 'afternoon', 'evening', 'overnight']):
+            source[i] = urlopener('http://www.accuweather.com/en/%s/%s-weather-forecast/%s?day=1'%(city_id, w_time, city_number), 5)
+            if not source[i]:
+                return False
 
-    #     w_evening = urlopener('http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=2'%(city_id, city_number), 5)
-    #     if not w_evening:
-    #         return False
-        # time.sleep(1)
+        t_today=[]
+        t_today_low = []
+        icon_today = []
+        
+        for s in source:
+            w_now = re.findall('detail-now.*', s, re.DOTALL)
+            
+            t = re.findall('<span class="large-temp">(.?\d+)', w_now[0])
+            if not celsius:
+                t[0] = F_to_C(t[0])
+            t[0] = convert_from_C(t[0])
+            t_today.append(t[0])
+            
+            t = re.findall('<span class="small-temp">/(.?\d+)', w_now[0])
+            if not celsius:
+                t[0] = F_to_C(t[0])
+            t[0] = convert_from_C(t[0])
+            t_today_low.append(t[0])
+            
+            i = re.findall('<div class="icon (.*)xl"', w_now[0])
+            i[0] = convert(i[0], icons_name)
+            icon_today.append(i[0])
 
-    #     t_tomorrow=[]
-
-    #     t = re.findall('<span class="temp">(.?\d+)<', w_morning)
-    #     if t[0][0] not in ('+', '-', '0'):
-    #             t[0] = '+'+t[0]
-    #     if not celsius:
-    #         t[0] = F_to_C(t[0])
-    #     t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
-    #     t_tomorrow.append(t[0])
-
-    #     t = re.findall('<span class="temp">(.?\d+)<', w_day)
-    #     if t[0][0] not in ('+', '-', '0'):
-    #             t[0] = '+'+t[0]
-    #     if not celsius:
-    #         t[0] = F_to_C(t[0])
-    #     t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
-    #     t_tomorrow.append(t[0])
-
-    #     t = re.findall('<span class="temp">(.?\d+)<', w_evening)
-    #     if t[0][0] not in ('+', '-', '0'):
-    #             t[0] = '+'+t[0]
-    #     if not celsius:
-    #         t[0] = F_to_C(t[0])
-    #     t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
-    #     t_tomorrow.append(t[0])
-
-    #     t = re.findall('<span class="temp">(.?\d+)<', w_night)
-    #     if t[0][0] not in ('+', '-', '0'):
-    #             t[0] = '+'+t[0]
-    #     if not celsius:
-    #         t[0] = F_to_C(t[0])
-    #     t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
-    #     t_tomorrow.append(t[0])
-
-    #     t_tomorrow_low = []
-
-    #     t = re.findall('<span class="lo">Lo (.?\d+)<', w_morning)
-    #     if t[0][0] not in ('+', '-', '0'):
-    #             t[0] = '+'+t[0]
-    #     if not celsius:
-    #         t[0] = F_to_C(t[0])
-    #     t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
-    #     t_tomorrow_low.append(t[0])
-
-    #     t = re.findall('<span class="lo">Lo (.?\d+)<', w_day)
-    #     if t[0][0] not in ('+', '-', '0'):
-    #             t[0] = '+'+t[0]
-    #     if not celsius:
-    #         t[0] = F_to_C(t[0])
-    #     t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
-    #     t_tomorrow_low.append(t[0])
-
-    #     t = re.findall('<span class="lo">Lo (.?\d+)<', w_evening)
-    #     if t[0][0] not in ('+', '-', '0'):
-    #             t[0] = '+'+t[0]
-    #     if not celsius:
-    #         t[0] = F_to_C(t[0])
-    #     t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
-    #     t_tomorrow_low.append(t[0])
-
-    #     t = re.findall('<span class="lo">Lo (.?\d+)<', w_night)
-    #     if t[0][0] not in ('+', '-', '0'):
-    #             t[0] = '+'+t[0]
-    #     if not celsius:
-    #         t[0] = F_to_C(t[0])
-    #     t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
-    #     t_tomorrow_low.append(t[0])
-
-    #     icon_tomorrow = []
-
-    #     i = re.findall('<div class="forecast">\s*<div class="icon (.*)"></div>', w_morning)
-    #     i[0] = i[0][2:-2]
-    #     if len(i[0])==2:
-    #         i[0]='0'+i[0]
-    #     i[0] = 'http://vortex.accuweather.com/adc2010/images/icons-numbered/'+i[0]+'h.png'
-    #     i[0] = convert(i[0], icons_name)
-    #     icon_tomorrow.append(i[0])
-
-    #     i = re.findall('<div class="forecast">\s*<div class="icon (.*)"></div>', w_day)
-    #     i[0] = i[0][2:-2]
-    #     if len(i[0])==2:
-    #         i[0]='0'+i[0]
-    #     i[0] = 'http://vortex.accuweather.com/adc2010/images/icons-numbered/'+i[0]+'h.png'
-    #     i[0] = convert(i[0], icons_name)
-    #     icon_tomorrow.append(i[0])
-
-    #     i = re.findall('<div class="forecast">\s*<div class="icon (.*)"></div>', w_evening)
-    #     i[0] = i[0][2:-2]
-    #     if len(i[0])==2:
-    #         i[0]='0'+i[0]
-    #     i[0] = 'http://vortex.accuweather.com/adc2010/images/icons-numbered/'+i[0]+'h.png'
-    #     i[0] = convert(i[0], icons_name)
-    #     icon_tomorrow.append(i[0])
-
-    #     i = re.findall('<div class="forecast">\s*<div class="icon (.*)"></div>', w_night)
-    #     i[0] = i[0][2:-2]
-    #     if len(i[0])==2:
-    #         i[0]='0'+i[0]
-    #     i[0] = 'http://vortex.accuweather.com/adc2010/images/icons-numbered/'+i[0]+'h.png'
-    #     i[0] = convert(i[0], icons_name)
-    #     icon_tomorrow.append(i[0])
-
-    # if show_block_today:
-    #     #### weather today ####
-    #     w_night = urlopener('http://www.accuweather.com/en/%s/overnight-weather-forecast/%s?day=1'%(city_id, city_number), 5)
-    #     if not w_night:
-    #         return False
-        # time.sleep(1)
-
-    #     w_morning = urlopener('http://www.accuweather.com/en/%s/morning-weather-forecast/%s?day=1'%(city_id, city_number), 5)
-    #     if not w_morning:
-    #         return False
-        # time.sleep(1)
-
-    #     w_day = urlopener('http://www.accuweather.com/en/%s/afternoon-weather-forecast/%s?day=1'%(city_id, city_number), 5)
-    #     if not w_day:
-    #         return False
-        # time.sleep(1)
-
-    #     w_evening = urlopener('http://www.accuweather.com/en/%s/evening-weather-forecast/%s?day=1'%(city_id, city_number), 5)
-    #     if not w_evening:
-    #         return False
-
-    #     t_today = []
-
-    #     t = re.findall('<span class="temp">(.?\d+)<', w_morning)
-    #     if t[0][0] not in ('+', '-', '0'):
-    #             t[0] = '+'+t[0]
-    #     if not celsius:
-    #         t[0] = F_to_C(t[0])
-    #     t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
-    #     t_today.append(t[0])
-
-    #     t = re.findall('<span class="temp">(.?\d+)<', w_day)
-    #     if t[0][0] not in ('+', '-', '0'):
-    #             t[0] = '+'+t[0]
-    #     if not celsius:
-    #         t[0] = F_to_C(t[0])
-    #     t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
-    #     t_today.append(t[0])
-
-    #     t = re.findall('<span class="temp">(.?\d+)<', w_evening)
-    #     if t[0][0] not in ('+', '-', '0'):
-    #             t[0] = '+'+t[0]
-    #     if not celsius:
-    #         t[0] = F_to_C(t[0])
-    #     t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
-    #     t_today.append(t[0])
-
-    #     t = re.findall('<span class="temp">(.?\d+)<', w_night)
-    #     if t[0][0] not in ('+', '-', '0'):
-    #             t[0] = '+'+t[0]
-    #     if not celsius:
-    #         t[0] = F_to_C(t[0])
-    #     t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
-    #     t_today.append(t[0])
-
-    #     t_today_low = []
-
-    #     t = re.findall('<span class="lo">Lo (.?\d+)<', w_morning)
-    #     if t[0][0] not in ('+', '-', '0'):
-    #             t[0] = '+'+t[0]
-    #     if not celsius:
-    #         t[0] = F_to_C(t[0])
-    #     t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
-    #     t_today_low.append(t[0])
-
-    #     t = re.findall('<span class="lo">Lo (.?\d+)<', w_day)
-    #     if t[0][0] not in ('+', '-', '0'):
-    #             t[0] = '+'+t[0]
-    #     if not celsius:
-    #         t[0] = F_to_C(t[0])
-    #     t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
-    #     t_today_low.append(t[0])
-
-    #     t = re.findall('<span class="lo">Lo (.?\d+)<', w_evening)
-    #     if t[0][0] not in ('+', '-', '0'):
-    #             t[0] = '+'+t[0]
-    #     if not celsius:
-    #         t[0] = F_to_C(t[0])
-    #     t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
-    #     t_today_low.append(t[0])
-
-    #     t = re.findall('<span class="lo">Lo (.?\d+)<', w_night)
-    #     if t[0][0] not in ('+', '-', '0'):
-    #             t[0] = '+'+t[0]
-    #     if not celsius:
-    #         t[0] = F_to_C(t[0])
-    #     t[0] = t[0]+'°;'+t[0]+'°;'+C_to_F(t[0])+'°;'+C_to_F(t[0])+'°;'+C_to_K(t[0])+';'+C_to_K(t[0])
-    #     t_today_low.append(t[0])
-
-    #     icon_today = []
-
-    #     i = re.findall('<div class="forecast">\s*<div class="icon (.*)"></div>', w_morning)
-    #     i[0] = i[0][2:-2]
-    #     if len(i[0])==2:
-    #         i[0]='0'+i[0]
-    #     i[0] = 'http://vortex.accuweather.com/adc2010/images/icons-numbered/'+i[0]+'h.png'
-    #     i[0] = convert(i[0], icons_name)
-    #     icon_today.append(i[0])
-
-    #     i = re.findall('<div class="forecast">\s*<div class="icon (.*)"></div>', w_day)
-    #     i[0] = i[0][2:-2]
-    #     if len(i[0])==2:
-    #         i[0]='0'+i[0]
-    #     i[0] = 'http://vortex.accuweather.com/adc2010/images/icons-numbered/'+i[0]+'h.png'
-    #     i[0] = convert(i[0], icons_name)
-    #     icon_today.append(i[0])
-
-    #     i = re.findall('<div class="forecast">\s*<div class="icon (.*)"></div>', w_evening)
-    #     i[0] = i[0][2:-2]
-    #     if len(i[0])==2:
-    #         i[0]='0'+i[0]
-    #     i[0] = 'http://vortex.accuweather.com/adc2010/images/icons-numbered/'+i[0]+'h.png'
-    #     i[0] = convert(i[0], icons_name)
-    #     icon_today.append(i[0])
-
-    #     i = re.findall('<div class="forecast">\s*<div class="icon (.*)"></div>', w_night)
-    #     i[0] = i[0][2:-2]
-    #     if len(i[0])==2:
-    #         i[0]='0'+i[0]
-    #     i[0] = 'http://vortex.accuweather.com/adc2010/images/icons-numbered/'+i[0]+'h.png'
-    #     i[0] = convert(i[0], icons_name)
-    #     icon_today.append(i[0])
 
     if time_update:
         print ('\033[34m>\033[0m '+_('updated on server')+' '+time_update[0]) 
@@ -677,5 +498,4 @@ def get_weather():
     # write variables
     for i in w.keys():
         w[i] = globals()[i]
-        print(i+' =', globals()[i])
     return w
