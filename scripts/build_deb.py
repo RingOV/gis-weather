@@ -62,8 +62,8 @@ def main():
     os.popen('find '+BUILD_PATH+' -type d -exec chmod 755 {} \;')
     os.popen('find '+BUILD_PATH+' -type f -exec chmod 644 {} \;')
 
-    os.popen('chmod 755 '+BUILD_PATH+'/usr/bin/gis-weather')
-    os.popen('chmod +x '+BUILD_PATH+'/usr/bin/gis-weather')
+    os.popen('fakeroot chmod 755 '+BUILD_PATH+'/usr/bin/gis-weather')
+    # os.popen('fakeroot chmod +x '+BUILD_PATH+'/usr/bin/gis-weather')
     
     #### Build DEB ####
     a = os.popen('fakeroot dpkg-deb --build %s %s'%(BUILD_PATH, DEB_PATH+'/gis-weather_'+VERSION+'_all1.deb')).readlines()
