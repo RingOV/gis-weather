@@ -291,7 +291,7 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color
             menu_items.connect("activate", app.menu_response, 'set_window_type_hint', i)
             menu_items.show()
 
-        menu_items = Gtk.MenuItem('Testing WindowTypeHint')
+        menu_items = Gtk.MenuItem('[Testing] WindowTypeHint')
         menu.append(menu_items)
         menu_items.set_submenu(sub_menu_testing)
         menu_items.show()

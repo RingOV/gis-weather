@@ -248,9 +248,11 @@ def get_weather():
     # temperature
     w_now = re.findall('detail-now.*', source, re.DOTALL)
     t_now = re.findall('<span class="large-temp">(.?\d+)', w_now[0])
+    t_now_f = re.findall('<em>RealFeel&#174;</em>\s?(.?\d+)', w_now[0])
     if not celsius:
         t_now[0] = F_to_C(t_now[0])
-    t_now[0] = convert_from_C(t_now[0])
+        t_now_f[0] = F_to_C(t_now_f[0])
+    t_now[0] = convert_from_C(t_now[0], t_now_f[0])
 
     # wind
     wind_speed_now = re.findall('<li class="wind"><strong>(\d*)', source)
@@ -424,7 +426,7 @@ def get_weather():
             chance_of_rain.extend(chance_of_rain2)
 
         except:
-            print('Can\'t get weather from next month')
+            print('Can\'t get weather for next month')
             pass
 
     if show_block_tomorrow:
@@ -443,15 +445,18 @@ def get_weather():
             w_now = re.findall('detail-now.*', s, re.DOTALL)
             
             t = re.findall('<span class="large-temp">(.?\d+)', w_now[0])
+            t_f = re.findall('<em>RealFeel&#174;</em>\s?(.?\d+).*;/(.?\d+)', w_now[0])
             if not celsius:
                 t[0] = F_to_C(t[0])
-            t[0] = convert_from_C(t[0])
+                t_f[0][0] = F_to_C(t_f[0][0])
+                t_f[0][1] = F_to_C(t_f[0][1])
+            t[0] = convert_from_C(t[0], t_f[0][0])
             t_tomorrow.append(t[0])
             
             t = re.findall('<span class="small-temp">/(.?\d+)', w_now[0])
             if not celsius:
                 t[0] = F_to_C(t[0])
-            t[0] = convert_from_C(t[0])
+            t[0] = convert_from_C(t[0], t_f[0][1])
             t_tomorrow_low.append(t[0])
             
             i = re.findall('<div class="icon (.*)xl"', w_now[0])
@@ -475,15 +480,18 @@ def get_weather():
             w_now = re.findall('detail-now.*', s, re.DOTALL)
             
             t = re.findall('<span class="large-temp">(.?\d+)', w_now[0])
+            t_f = re.findall('<em>RealFeel&#174;</em>\s?(.?\d+).*;/(.?\d+)', w_now[0])
             if not celsius:
                 t[0] = F_to_C(t[0])
-            t[0] = convert_from_C(t[0])
+                t_f[0][0] = F_to_C(t_f[0][0])
+                t_f[0][1] = F_to_C(t_f[0][1])
+            t[0] = convert_from_C(t[0], t_f[0][0])
             t_today.append(t[0])
             
             t = re.findall('<span class="small-temp">/(.?\d+)', w_now[0])
             if not celsius:
                 t[0] = F_to_C(t[0])
-            t[0] = convert_from_C(t[0])
+            t[0] = convert_from_C(t[0], t_f[0][1])
             t_today_low.append(t[0])
             
             i = re.findall('<div class="icon (.*)xl"', w_now[0])

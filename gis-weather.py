@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.0.36'
+v = '0.8.0.38'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -1504,7 +1504,7 @@ class Weather_Widget:
             self.window_main.hide()
             self.window_main.set_type_hint(window_type_hint_list[value])
             self.window_main.show()
-            print('used', self.window_main.get_type_hint(), 'for',  os.environ.get('DESKTOP_SESSION'))
+            print('Type_hint =', self.window_main.get_type_hint(), '\nDESKTOP_SESSION =',  os.environ.get('DESKTOP_SESSION'))
             return
         if event == 'reload':
             # if radio, then reloaded 2 time, fix
