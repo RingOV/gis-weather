@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2016-09-22 23:34+0300\n"
-"PO-Revision-Date: 2016-09-23 09:59+0000\n"
-"Last-Translator: RingOV <ringov@mail.ru>\n"
+"PO-Revision-Date: 2016-09-25 16:54+0000\n"
+"Last-Translator: Victor Butko <victor.butko@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/gis-weather-team/gis-weather/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -673,11 +673,11 @@ msgstr "Неможливо завантажити сторінку, переві
 
 #: gis-weather.py:55
 msgid "testing mode turned on"
-msgstr ""
+msgstr "Включити режим тестування"
 
 #: utils/gw_menu.py:194
 msgid "Go to site"
-msgstr ""
+msgstr "Перейти на сайт"
 
 #: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:58
 #: dialogs/city_id_dialog.ui:58
@@ -1138,8 +1138,8 @@ msgstr "Помилка оновлення"
 
 #: dialogs/settings_dialog.ui:2230
 msgid "Block Sunrise"
-msgstr ""
+msgstr "Блок  Схід сонця"
 
 #: dialogs/settings_dialog.ui:2629
 msgid "Block Moonrise"
-msgstr ""
+msgstr "Блок схід місяця"

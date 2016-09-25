@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.0.38'
+v = '0.8.0.39'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -1389,6 +1389,8 @@ class Weather_Widget:
             self.window_main.set_type_hint(Gdk.WindowTypeHint.DOCK)
         elif s == "Lubuntu":
             self.window_main.set_type_hint(Gdk.WindowTypeHint.SPLASHSCREEN)
+        elif s == "default":
+            self.window_main.set_type_hint(Gdk.WindowTypeHint.DESKTOP)
         else:
             self.window_main.set_type_hint(Gdk.WindowTypeHint.UTILITY)
         self.window_main.set_keep_above(False)
