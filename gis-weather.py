@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.0.40'
+v = '0.8.0.41'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -87,6 +87,7 @@ import subprocess
 import gzip
 import shutil
 import webbrowser
+import platform
 
 CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
 CONFIG_PATH_FILE = os.path.join(CONFIG_PATH, instance.get_config_file())
@@ -962,7 +963,10 @@ class MyDrawArea(Gtk.DrawingArea):
                 y0 = top
 
                 if icon_wind_now[0] != 'None':
-                    self.draw_scaled_image(cr, x0, y0, self.find_icon('wind_small'), 16, 16, icon_wind_now[0]+angel)
+                    if platform.dist()[0] == 'debian':
+                        self.draw_scaled_image(cr, x0-8, y0-8, self.find_icon('wind_small_debian'), 32, 32, icon_wind_now[0]+angel)
+                    else:
+                        self.draw_scaled_image(cr, x0, y0, self.find_icon('wind_small'), 16, 16, icon_wind_now[0]+angel)
                 if (wind_direct_now and wind_speed_now):
                     if int(wind_speed_now[0].split(';')[wind_units].split()[0]) >= high_wind and high_wind != -1:
                         self.draw_text(cr, wind_speed_now[0].split(';')[wind_units].split()[0]+"<span size='x-small'> %s</span>  <span size='small'>%s</span>"%(wind_speed_now[0].split(';')[wind_units].split()[-1], wind_direct_now[0]), x0+20, y0-1, font+' Normal', 12, 100,Pango.Alignment.LEFT, color_high_wind)
