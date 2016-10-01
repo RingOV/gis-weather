@@ -194,7 +194,7 @@ def get_city_name(city_id):
         else:
             city_number = city_id.split(',')[-1].strip()
             city_id = city_id.split(',')[0].strip()
-        source = urlopener('http://www.accuweather.com/%s/%s/weather-forecast/%s'%(weather_lang, city_id, city_number))
+        source = urlopener('http://www.accuweather.com/%s/%s/current-weather/%s'%(weather_lang, city_id, city_number))
         c_name = re.findall('"current-city"><h1>(.*),', source)
     except:
         print ('\033[1;31m[!]\033[0m '+_('Failed to get the name of the location'))

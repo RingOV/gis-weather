@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.0.43'
+v = '0.8.0.44'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -123,7 +123,7 @@ gw_config_default = {
     'color_shadow': (1, 1, 1, 0.7),    # color shadow
     'draw_shadow': True,               # draw shadow
     'opacity': 1,                      # opacity window
-    'show_time_receive': True,         # time of receipt of weather
+    'show_time_receive': False,        # time of receipt of weather
     'show_block_wind_direct': True,    # block wind direct
     'block_wind_direct_left': -170,    # position
     'wind_direct_small': False,        # small block wind direct

@@ -222,13 +222,12 @@ def convert(icon, icons_name):
 
 def get_city_name(city_id):
     weather_lang = gw_vars.get('weather_lang')
-    # try:
-    source = urlopener('https://www.gismeteo.%s/city/weekly/'%weather_lang + str(city_id))
-    c_name = re.findall('type[A-Z].*\">(.*)<', source)
-    # except:
-    #     print ('\033[1;31m[!]\033[0m '+_('Failed to get the name of the location'))
-    #     return 'None'
-    print(c_name)
+    try:
+        source = urlopener('https://www.gismeteo.%s/city/weekly/'%weather_lang + str(city_id))
+        c_name = re.findall('type[A-Z].*\">(.*)<', source)
+    except:
+        print ('\033[1;31m[!]\033[0m '+_('Failed to get the name of the location'))
+        return 'None'
     return c_name[0]
 
 
