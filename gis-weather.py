@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.0.45'
+v = '0.8.0.46'
 #  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -110,7 +110,7 @@ gw_config_default = {
     'angel': 0,                        # angle of clockwise rotation in degrees
     'city_id': 0,                      # location code
     'appid': '',                       # api key
-    'upd_time': 30,                    # Update by (in minutes)
+    'upd_time': 60,                    # Update by (in minutes)
     'n': 7,                            # Display days
     'x_pos': 60,                       # left position
     'y_pos': 60,                       # top position
@@ -403,6 +403,9 @@ Pango_dict ={
     'left': Pango.Alignment.LEFT,
     'right': Pango.Alignment.RIGHT
 }
+
+if upd_time < 60:
+    upd_time = 60
 
 # weather variables
 weather = weather_vars.weather
