@@ -252,6 +252,10 @@ class settings():
         self.adjustment_n_max = self.ui.get_object('adjustment_n_max')
 
 
+        self.clear_block_sunrise__show = self.ui.get_object('clear_block_sunrise__show')
+        self.clear_block_sunrise__show.connect("clicked", self.clear_settings)
+        self.clear_block_moonrise__show = self.ui.get_object('clear_block_moonrise__show')
+        self.clear_block_moonrise__show.connect("clicked", self.clear_settings) 
         self.clear_show_block_today = self.ui.get_object('clear_show_block_today')
         self.clear_show_block_today.connect("clicked", self.clear_settings)
         self.clear_block_today_left = self.ui.get_object('clear_block_today_left')
@@ -701,7 +705,11 @@ class settings():
         w_name = Gtk.Buildable.get_name(widget)
         w_name = w_name.split('_')
         name = '_'.join(w_name[1:])
-        gw_config_set[name] = gw_config_default_set[name]
+        if name.count('__'):
+            name, key = name.split('__')[0], name.split('__')[1]
+            gw_config_set[name][key] = gw_config_default_set[name][key]
+        else:
+            gw_config_set[name] = gw_config_default_set[name]
         Save_Config()
         drawing_area_set.redraw(False, False, load_config = True)
         self.load_config_into_form()

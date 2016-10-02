@@ -2173,6 +2173,9 @@
                               <object class="GtkAlignment" id="alignment16">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <child>
                                   <object class="GtkGrid" id="grid25">
@@ -2206,7 +2209,7 @@
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton" id="clear_show_block_tomorrow1">
+                                      <object class="GtkButton" id="clear_block_sunrise__show">
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
@@ -2572,6 +2575,9 @@
                               <object class="GtkAlignment" id="alignment17">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
+                                <property name="margin_left">5</property>
+                                <property name="margin_right">5</property>
+                                <property name="margin_top">5</property>
                                 <property name="margin_bottom">5</property>
                                 <child>
                                   <object class="GtkGrid" id="grid26">
@@ -2605,7 +2611,7 @@
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton" id="clear_show_block_tomorrow2">
+                                      <object class="GtkButton" id="clear_block_moonrise__show">
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>

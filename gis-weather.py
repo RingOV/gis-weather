@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.0.46'
-#  Copyright (C) 2013-2015 Alexander Koltsov <ringov@mail.ru>
+v = '0.8.0.47'
+#  Copyright (C) 2013-2016 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
