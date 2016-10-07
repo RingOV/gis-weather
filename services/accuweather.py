@@ -243,7 +243,7 @@ def get_weather():
     # city
     city_name = re.findall('"current-city"><h1>(.*),', source)
 
-    celsius = re.findall('celsius.*checked', source)
+    celsius = re.findall('\d\&deg;C', source)
 
     # temperature
     w_now = re.findall('detail-now.*', source, re.DOTALL)
@@ -352,12 +352,11 @@ def get_weather():
     # weather text
     text = re.findall('<p>(.*)</p>', w_all[0])
 
-    chance_of_rain = re.findall('<td>(\d+)\s*<span class="small">(.*)</td>', w_all[0])
+    chance_of_rain = re.findall('<td>(.*?)\s*<span class="small">(.*?)<', w_all[0])
     for i in range(len(chance_of_rain)):
-
         chance_of_rain[i] = ' '.join(chance_of_rain[i])
-    if chance_of_rain[1][-1] == '>':
-        chance_of_rain = chance_of_rain[::2]
+    chance_of_rain = chance_of_rain[::2]
+
 
     # if end of month, get days from next month
     if len(t_day)-1<n:
@@ -445,18 +444,19 @@ def get_weather():
             w_now = re.findall('detail-now.*', s, re.DOTALL)
             
             t = re.findall('<span class="large-temp">(.?\d+)', w_now[0])
-            t_f = re.findall('<em>RealFeel&#174;</em>\s?(.?\d+).*;/(.?\d+)', w_now[0])
+            t_feel = re.findall('<em>RealFeel&#174;</em>\s?(.?\d+).*;/(.?\d+)', w_now[0])
+            t_f = ['', '']
             if not celsius:
                 t[0] = F_to_C(t[0])
-                t_f[0][0] = F_to_C(t_f[0][0])
-                t_f[0][1] = F_to_C(t_f[0][1])
-            t[0] = convert_from_C(t[0], t_f[0][0])
+                t_f[0] = F_to_C(t_feel[0][0])
+                t_f[1] = F_to_C(t_feel[0][1])
+            t[0] = convert_from_C(t[0], t_f[0])
             t_tomorrow.append(t[0])
             
             t = re.findall('<span class="small-temp">/(.?\d+)', w_now[0])
             if not celsius:
                 t[0] = F_to_C(t[0])
-            t[0] = convert_from_C(t[0], t_f[0][1])
+            t[0] = convert_from_C(t[0], t_f[1])
             t_tomorrow_low.append(t[0])
             
             i = re.findall('<div class="icon (.*)xl"', w_now[0])
@@ -480,18 +480,19 @@ def get_weather():
             w_now = re.findall('detail-now.*', s, re.DOTALL)
             
             t = re.findall('<span class="large-temp">(.?\d+)', w_now[0])
-            t_f = re.findall('<em>RealFeel&#174;</em>\s?(.?\d+).*;/(.?\d+)', w_now[0])
+            t_feel = re.findall('<em>RealFeel&#174;</em>\s?(.?\d+).*;/(.?\d+)', w_now[0])
+            t_f = ['', '']
             if not celsius:
                 t[0] = F_to_C(t[0])
-                t_f[0][0] = F_to_C(t_f[0][0])
-                t_f[0][1] = F_to_C(t_f[0][1])
-            t[0] = convert_from_C(t[0], t_f[0][0])
+                t_f[0] = F_to_C(t_feel[0][0])
+                t_f[1] = F_to_C(t_feel[0][1])
+            t[0] = convert_from_C(t[0], t_f[0])
             t_today.append(t[0])
             
             t = re.findall('<span class="small-temp">/(.?\d+)', w_now[0])
             if not celsius:
                 t[0] = F_to_C(t[0])
-            t[0] = convert_from_C(t[0], t_f[0][1])
+            t[0] = convert_from_C(t[0], t_f[1])
             t_today_low.append(t[0])
             
             i = re.findall('<div class="icon (.*)xl"', w_now[0])
