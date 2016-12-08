@@ -14,13 +14,13 @@ data = [
     "<b>1234</b>",  # code
     {
         'com': 'English',
-        'ru': 'Русский',
+        'ua/ru': 'Русский',
         'ua/ua': 'Українська',
         'lv': 'Latvijas',
         'lt': 'Lietuviškai',
         'md/ro': 'Română'
     },  # dict_weather_lang
-    ('com', 'ru', 'ua/ua', 'lv', 'lt', 'md/ro')  # weather_lang_list
+    ('com', 'ua/ru', 'ua/ua', 'lv', 'lt', 'md/ro')  # weather_lang_list
 ]
 max_days = 12
 need_appid = False

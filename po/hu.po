@@ -1,12 +1,12 @@
 # 
 # Translators:
-# Herman Thorze <thorze@yandex.com>, 2015
+# Herman Thorze <thorze@yandex.com>, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2016-09-22 23:34+0300\n"
-"PO-Revision-Date: 2016-09-23 09:59+0000\n"
-"Last-Translator: RingOV <ringov@mail.ru>\n"
+"PO-Revision-Date: 2016-11-19 07:45+0000\n"
+"Last-Translator: Herman Thorze <thorze@yandex.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/gis-weather-team/gis-weather/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -294,7 +294,7 @@ msgstr "Példányok száma"
 #: DEB/build/usr/share/gis-weather/utils/presets.py:207 gis-weather.py:218
 #: utils/presets.py:60 utils/presets.py:176 utils/presets.py:211
 msgid "Now"
-msgstr ""
+msgstr "Most"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:272 gis-weather.py:272
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:671
