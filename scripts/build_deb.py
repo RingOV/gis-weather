@@ -72,9 +72,9 @@ def main():
     if len(sys.argv) > 1:
         #### Build RPM ####
         create_package_file(BUILD_PATH+'/usr/share/gis-weather/package', 'rpm')
-        os.popen('fakeroot dpkg-deb --build %s %s'%(BUILD_PATH, DEB_PATH+'/gis-weather_'+VERSION+'_all.deb'))
-        print('sudo alien -r %s'%('gis-weather_'+VERSION+'_all.deb'))
-        os.popen('cd %s; sudo alien -r %s; sudo chown ringov:ringov *.rpm; cd ..'%(DEB_PATH, 'gis-weather_'+VERSION+'_all.deb'))
+        a = os.popen('fakeroot dpkg-deb --build %s %s'%(BUILD_PATH, DEB_PATH+'/gis-weather_'+VERSION+'_all.deb')).readlines()
+        print(a[0])
+        a = os.popen('cd %s; fakeroot alien -r %s; cd ..'%(DEB_PATH, 'gis-weather_'+VERSION+'_all.deb')).readlines()
         print(a[0])
         os.popen('rm %s'%(DEB_PATH+'/gis-weather_'+VERSION+'_all.deb'))
 
