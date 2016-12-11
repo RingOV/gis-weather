@@ -56,7 +56,7 @@ def convert(icon, icons_name):
 
 def get_city_name(city_id):
     try:
-        source = urlopener('http://www.yr.no/sted/%s/forecast.xml'%(str(city_id)), 2)
+        source = urlopener('http://www.yr.no/place/%s/forecast.xml'%(str(city_id)), 2)
         c_name = re.findall('<name>(.+)</name>', source)
     except:
         print('\033[1;31m[!]\033[0m '+_('Failed to get the name of the location'))
@@ -69,7 +69,7 @@ def get_weather():
     n = gw_vars.get('n')
     city_id = gw_vars.get('city_id')
     icons_name = gw_vars.get('icons_name')
-    URL = 'http://www.yr.no/sted/%s/forecast.xml' % str(city_id)
+    URL = 'http://www.yr.no/place/%s/forecast.xml' % str(city_id)
     print ('\033[34m>\033[0m '+_('Getting weather for')+' '+str(n)+' '+_('days'))
 
     source = urlopener(URL, 5)
