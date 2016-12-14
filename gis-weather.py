@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.1'
+v = '0.8.2.2'
 #  Copyright (C) 2013-2016 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -55,6 +55,12 @@ if args.test:
     print(_('testing mode turned on'))
 
 INSTANCE_NO = instance.count()
+
+import gi
+gi.require_version('Gtk', '3.0')
+gi.require_version('PangoCairo', '1.0')
+gi.require_version('AppIndicator3', '0.1')
+gi.require_version('Rsvg', '2.0')
 
 from gi.repository import Gtk, GObject, Pango, PangoCairo, Gdk, GdkPixbuf, GLib
 
