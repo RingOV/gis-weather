@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 
+import gi
+gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, GdkPixbuf
 from urllib.request import urlretrieve
 from utils import localization
-
 import os
 import subprocess
 import shlex

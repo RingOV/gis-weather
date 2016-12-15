@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+import gi
+gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Pango, Gdk
 from utils import autorun, localization, desktop, instance
 import os
