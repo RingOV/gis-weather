@@ -4,6 +4,7 @@ import os
 import sys
 from shutil import copy, copytree, rmtree, ignore_patterns
 import changelog
+from urllib.request import urlretrieve
 
 PATH = os.path.abspath(os.path.dirname(sys.argv[0]))
 GW_PATH = os.path.split(PATH)[0]
@@ -78,6 +79,10 @@ def main():
         print(a[0])
         os.popen('rm %s'%(DEB_PATH+'/gis-weather_'+VERSION+'_all.deb'))
 
+        print('Downloading tar.gz ...')
+        urlretrieve('https://github.com/RingOV/gis-weather/archive/v%s.tar.gz'%VERSION, DEB_PATH+'/gis-weather-%s.tar.gz'%VERSION)
+
+
     os.popen('mv %s %s'%(DEB_PATH+'/gis-weather_'+VERSION+'_all1.deb', DEB_PATH+'/gis-weather_'+VERSION+'_all.deb'))
 
     
@@ -116,7 +121,11 @@ def create_copyright(path):
 def create_changelog(path):
     lines = changelog.get(GW_PATH)
     write_to_file(path, lines)
-    write_to_file(DEB_PATH+'/Changelog', lines)
+    readme = ['README','',
+        '[https://github.com/RingOV/gis-weather#readme](https://github.com/RingOV/gis-weather#readme)','',
+        'Changelog','=========','']
+    readme.extend(lines)
+    write_to_file(DEB_PATH+'/Readme.md', readme)
     os.popen('gzip -9 %s'%(path))
 
 def create_package_file(path, text):
