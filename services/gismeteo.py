@@ -63,7 +63,7 @@ dict_icons = {
     "d.sun.c1.r3.png": "39.png",
     "d.sun.c1.r4.png": "40.png",
     "d.sun.c2.r1.png": "39.png",
-    "d.sun.c2.r2.png": "39.png",
+    "d.sun.c2.r2.png": "39.png",'ua/ru'
     "d.sun.c2.r3.png": "39.png",
     "d.sun.c2.r4.png": "40.png",
     "d.sun.c3.r1.png": "39.png",
@@ -222,6 +222,8 @@ def convert(icon, icons_name):
 
 def get_city_name(city_id):
     weather_lang = gw_vars.get('weather_lang')
+    if weather_lang == 'ru':
+        weather_lang = 'ua/ru'
     try:
         source = urlopener('https://www.gismeteo.%s/city/weekly/'%weather_lang + str(city_id))
         c_name = re.findall('type[A-Z].*\">(.*)<', source)
@@ -239,6 +241,8 @@ def get_weather():
     show_block_today = gw_vars.get('show_block_today')
     show_block_add_info = gw_vars.get('show_block_add_info')
     weather_lang = gw_vars.get('weather_lang')
+    if weather_lang == 'ru':
+        weather_lang = 'ua/ru'
     icons_name = gw_vars.get('icons_name')
 
     URL_ALL = 'https://www.gismeteo.%s/city/weekly/'%weather_lang + str(city_id)
