@@ -272,6 +272,7 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color
     if test_on:
         sub_menu_testing = Gtk.Menu()
         window_type_hint_list = (
+            'Auto',
             'Gdk.WindowTypeHint.DOCK',
             'Gdk.WindowTypeHint.NORMAL',
             'Gdk.WindowTypeHint.DIALOG',
@@ -288,8 +289,10 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color
             'Gdk.WindowTypeHint.DND'
             )
         for i in range(len(window_type_hint_list)):
-            menu_items = Gtk.MenuItem(label=window_type_hint_list[i])
+            menu_items = Gtk.RadioMenuItem(label=window_type_hint_list[i])
             sub_menu_testing.append(menu_items)
+            if i == gw_config['type_hint']:
+                menu_items.set_active(True)
             menu_items.connect("activate", app.menu_response, 'set_window_type_hint', i)
             menu_items.show()
 

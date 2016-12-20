@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.6'
+v = '0.8.2.7'
 #  Copyright (C) 2013-2016 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -184,6 +184,7 @@ gw_config_default = {
     'save_cur_temp_add_scale': False,
     'save_cur_icon': False,
     'save_cur_data_path': '',
+    'type_hint':0,
     # customizable options
     'preset_number': 0,
     'bg_left': 0,
@@ -228,6 +229,7 @@ gw_config_default = {
 }
 
 window_type_hint_list = (
+    '',
     Gdk.WindowTypeHint.DOCK,
     Gdk.WindowTypeHint.NORMAL,
     Gdk.WindowTypeHint.DIALOG,
@@ -1397,15 +1399,19 @@ class Weather_Widget:
         self.window_main.connect("screen-changed", self.screen_changed)
         self.window_main.set_role('')
         self.window_main.set_app_paintable(True)
-        s = os.environ.get('DESKTOP_SESSION')
-        if s == "ubuntu":
-            self.window_main.set_type_hint(Gdk.WindowTypeHint.DOCK)
-        elif s == "Lubuntu":
-            self.window_main.set_type_hint(Gdk.WindowTypeHint.SPLASHSCREEN)
-        elif s == "default":
-            self.window_main.set_type_hint(Gdk.WindowTypeHint.DESKTOP)
+        if type_hint:
+            self.window_main.set_type_hint(window_type_hint_list[type_hint])
         else:
-            self.window_main.set_type_hint(Gdk.WindowTypeHint.UTILITY)
+            s = os.environ.get('DESKTOP_SESSION')
+            if s == "ubuntu":
+                self.window_main.set_type_hint(Gdk.WindowTypeHint.DOCK)
+            elif s == "Lubuntu":
+                self.window_main.set_type_hint(Gdk.WindowTypeHint.SPLASHSCREEN)
+            elif s == "default":
+                self.window_main.set_type_hint(Gdk.WindowTypeHint.DESKTOP)
+            else:
+                self.window_main.set_type_hint(Gdk.WindowTypeHint.UTILITY)
+        if args.test: print('Type_hint =', self.window_main.get_type_hint(), '\nDESKTOP_SESSION =',  os.environ.get('DESKTOP_SESSION'))
         self.window_main.set_keep_above(False)
         self.window_main.set_keep_below(True)
         self.window_main.set_skip_taskbar_hint(True)
@@ -1516,9 +1522,16 @@ class Weather_Widget:
             self.drawing_area.redraw(False, False)
             Save_Config()
         if event == 'set_window_type_hint':
+            global type_hint
+            type_hint = value
+            if type_hint == 0:
+                print(_('Requires restart'))
+                Save_Config()
+                return
             self.window_main.hide()
             self.window_main.set_type_hint(window_type_hint_list[value])
             self.window_main.show()
+            Save_Config()
             print('Type_hint =', self.window_main.get_type_hint(), '\nDESKTOP_SESSION =',  os.environ.get('DESKTOP_SESSION'))
             return
         if event == 'reload':
