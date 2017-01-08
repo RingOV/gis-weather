@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.10'
+v = '0.8.2.11'
 #  Copyright (C) 2013-2016 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -582,10 +582,16 @@ class Indicator:
 
         def set_menu(self, menu):
             self.indicator.set_menu(menu)
-            menu_item = Gtk.MenuItem("Toggle Floater")
-            menu_item.connect("activate", app.menu_response, 'show_hide_widget')
-            self.indicator.set_secondary_activate_target(menu_item)
-            self.indicator.connect("scroll-event", app.menu_response, 'show_hide_widget')
+            # menu_item = Gtk.MenuItem("Toggle Floater") # Not worked
+            # menu_item.connect("activate", app.menu_response, 'show_hide_widget')
+            # self.indicator.set_secondary_activate_target(menu_item)
+            self.indicator.connect("scroll-event", self.scroll)
+        
+        def scroll(self, ind, steps, direction):
+            if direction == Gdk.ScrollDirection.UP:
+                app.menu_response(None, 'show_hide_widget', 'show')
+            elif direction == Gdk.ScrollDirection.DOWN:
+                app.menu_response(None, 'show_hide_widget', 'hide')
 
         def hide(self):
             if not self.hiden:
@@ -1460,9 +1466,18 @@ class Weather_Widget:
             self.drawing_area.save_widget_screenshot()
         if event == 'show_hide_widget':
             global show_indicator
-            if show_indicator == 1:
+            if value == None:
+                if show_indicator == 1:
+                    show_indicator = 2
+                else:
+                    show_indicator = 1
+            if value == 'show':
+                if show_indicator == 2:
+                    return
                 show_indicator = 2
-            else:
+            if value == 'hide':
+                if show_indicator == 1:
+                    return
                 show_indicator = 1
             Save_Config()
             self.drawing_area.redraw(False, False)
