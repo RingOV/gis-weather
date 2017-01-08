@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.9'
+v = '0.8.2.10'
 #  Copyright (C) 2013-2016 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -63,8 +63,8 @@ gi.require_version('PangoCairo', '1.0')
 from gi.repository import Gtk, GObject, Pango, PangoCairo, Gdk, GdkPixbuf, GLib
 
 try:
-    from gi.repository import AppIndicator3
     gi.require_version('AppIndicator3', '0.1')
+    from gi.repository import AppIndicator3
     HAS_INDICATOR=True
 except:
     HAS_INDICATOR=False
