@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.8'
+v = '0.8.2.9'
 #  Copyright (C) 2013-2016 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -582,6 +582,10 @@ class Indicator:
 
         def set_menu(self, menu):
             self.indicator.set_menu(menu)
+            menu_item = Gtk.MenuItem("Toggle Floater")
+            menu_item.connect("activate", app.menu_response, 'show_hide_widget')
+            self.indicator.set_secondary_activate_target(menu_item)
+            self.indicator.connect("scroll-event", app.menu_response, 'show_hide_widget')
 
         def hide(self):
             if not self.hiden:
