@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.7'
+v = '0.8.2.8'
 #  Copyright (C) 2013-2016 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -626,6 +626,7 @@ class Indicator:
         def set_menu(self, menu):
             self.indicator.connect("popup-menu", self.popup_menu)
             self.indicator_label.connect("popup-menu", self.popup_menu)
+            self.indicator.connect("activate", app.menu_response, 'show_hide_widget')
 
         def popup_menu(self, icon, widget, time):
             app.create_menu(for_indicator=True)
