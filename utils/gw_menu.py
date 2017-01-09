@@ -168,7 +168,7 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color
 
     # main menu
     if for_indicator:
-        menu_items = Gtk.ImageMenuItem(_('Show/Hide widget'))
+        menu_items = Gtk.ImageMenuItem('⇅ '+_('Show/Hide widget'))
         menu.append(menu_items)
         menu_items.connect("activate", app.menu_response, 'show_hide_widget')
         menu_items.show()

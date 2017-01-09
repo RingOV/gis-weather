@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.11'
+v = '0.8.2.12'
 #  Copyright (C) 2013-2016 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -637,6 +637,13 @@ class Indicator:
             self.indicator.connect("popup-menu", self.popup_menu)
             self.indicator_label.connect("popup-menu", self.popup_menu)
             self.indicator.connect("activate", app.menu_response, 'show_hide_widget')
+            self.indicator.connect("scroll-event", self.scroll)
+
+        def scroll(self, button, event):
+            if event.direction == Gdk.ScrollDirection.UP:
+                app.menu_response(None, 'show_hide_widget', 'show')
+            elif event.direction == Gdk.ScrollDirection.DOWN:
+                app.menu_response(None, 'show_hide_widget', 'hide')
 
         def popup_menu(self, icon, widget, time):
             app.create_menu(for_indicator=True)
