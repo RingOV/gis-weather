@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.17'
+v = '0.8.2.18'
 #  Copyright (C) 2013-2017 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -271,7 +271,7 @@ color_scheme = [
     ]
 
 def Save_Color_Scheme(number = 0):
-    json.dump(color_scheme[number], open(os.path.join(CONFIG_PATH, 'color_schemes', 'color_sheme_%s.json' %number), "w"), sort_keys=True, indent=4, separators=(', ', ': '))
+    json.dump(color_scheme[number], open(os.path.join(CONFIG_PATH, 'color_schemes', 'color_sheme_%s.json' %number), "w", encoding='utf-8'), sort_keys=True, indent=4, separators=(', ', ': '), ensure_ascii=False)
 
 for i in range(len(color_scheme)):
     if not os.path.exists(os.path.join(CONFIG_PATH, 'color_schemes', 'color_sheme_%s.json' %i)):
@@ -289,7 +289,7 @@ def Save_Config():
             gw_config[i] = globals()[i]
         except:
             pass
-    json.dump(gw_config, open(CONFIG_PATH_FILE, "w"), sort_keys=True, indent=4, separators=(', ', ': '))
+    json.dump(gw_config, open(CONFIG_PATH_FILE, "w", encoding='utf-8'), sort_keys=True, indent=4, separators=(', ', ': '), ensure_ascii=False)
 
 def Load_Config():
     try:
@@ -318,7 +318,7 @@ if not os.path.exists(CONFIG_PATH_FILE):
             g_load = json.load(open(CONFIG_PATH_FILE))
             g_load['x_pos'] = g_load['x_pos'] - 20
             g_load['y_pos'] = g_load['y_pos'] + 20
-            json.dump(g_load, open(CONFIG_PATH_FILE, "w"), sort_keys=True, indent=4, separators=(', ', ': '))
+            json.dump(g_load, open(CONFIG_PATH_FILE, "w", encoding='utf-8'), sort_keys=True, indent=4, separators=(', ', ': '), ensure_ascii=False)
 # load config
 Load_Config()
 def Load_Color_Scheme(number = 0):
