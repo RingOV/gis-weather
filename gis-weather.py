@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.16'
+v = '0.8.2.17'
 #  Copyright (C) 2013-2017 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -880,30 +880,30 @@ class MyDrawArea(Gtk.DrawingArea):
             if weather['t_now']:
                 ind.set_label(weather['t_now'][0].split(';')[t_index])
             if tooltip_show:
-                # try:
-                if tooltip_fmt != '':
-                    markup = tooltip_fmt.format(
-                        city_name=city_name[0],
-                        condition=text_now[0],
-                        t=t_now[0].split(';')[t_scale*2],
-                        t_feel=t_now[0].split(';')[t_scale*2+1],
-                        wind_direct=wind_direct_now[0],
-                        wind_speed=wind_speed_now[0].split(';')[wind_units].split()[0],
-                        wind_units=wind_speed_now[0].split(';')[wind_units].split()[-1],
-                        sunrise=sunrise,
-                        sunset=sunset,
-                        pressure=press_now[0].split(';')[press_units].split()[0],
-                        humidity=hum_now[0]
-                        )
-                    ind.set_tooltip_markup(markup)
-                else:
-                    ind.set_tooltip_markup(
-                        '<b>'+city_name[0]+'</b>\n'+\
-                        t_now[0].split(';')[t_scale*2]+';  <span size="small">'+_('feels like')+':</span>  '+t_now[0].split(';')[t_scale*2+1]+'\n'+\
-                        text_now[0]+'\n'+\
-                        wind_direct_now[0]+', '+wind_speed_now[0].split(';')[wind_units].split()[0]+' <span size="small">'+wind_speed_now[0].split(';')[wind_units].split()[-1]+'</span>')
-                # except:
-                #     pass
+                try:
+                    if tooltip_fmt != '':
+                        markup = tooltip_fmt.format(
+                            city_name=city_name[0],
+                            condition=text_now[0],
+                            t=t_now[0].split(';')[t_scale*2],
+                            t_feel=t_now[0].split(';')[t_scale*2+1],
+                            wind_direct=wind_direct_now[0],
+                            wind_speed=wind_speed_now[0].split(';')[wind_units].split()[0],
+                            wind_units=wind_speed_now[0].split(';')[wind_units].split()[-1],
+                            sunrise=sunrise,
+                            sunset=sunset,
+                            pressure=press_now[0].split(';')[press_units].split()[0],
+                            humidity=hum_now[0]
+                            )
+                        ind.set_tooltip_markup(markup)
+                    else:
+                        ind.set_tooltip_markup(
+                            '<b>'+city_name[0]+'</b>\n'+\
+                            t_now[0].split(';')[t_scale*2]+';  <span size="small">'+_('feels like')+':</span>  '+t_now[0].split(';')[t_scale*2+1]+'\n'+\
+                            text_now[0]+'\n'+\
+                            wind_direct_now[0]+', '+wind_speed_now[0].split(';')[wind_units].split()[0]+' <span size="small">'+wind_speed_now[0].split(';')[wind_units].split()[-1]+'</span>')
+                except:
+                    pass
         if show_indicator == 1:
             return
 
