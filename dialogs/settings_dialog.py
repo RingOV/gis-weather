@@ -195,6 +195,8 @@ class settings():
         self.liststore6 = self.ui.get_object('liststore6')
         self.spinbutton_scale = self.ui.get_object('spinbutton_scale')
         self.spinbutton_scale.connect("value-changed", self.save_settings)
+        self.switch_always_on_top = self.ui.get_object('switch_always_on_top')
+        self.switch_always_on_top.connect("notify::active", self.save_settings)
 
 
         self.clear_x_pos = self.ui.get_object('clear_x_pos')
@@ -211,6 +213,8 @@ class settings():
         self.clear_sticky.connect("clicked", self.clear_settings)
         self.clear_scale = self.ui.get_object('clear_scale')
         self.clear_scale.connect("clicked", self.clear_settings)
+        self.clear_always_on_top = self.ui.get_object('clear_always_on_top')
+        self.clear_always_on_top.connect("clicked", self.clear_settings)
 
         # View
         
@@ -533,6 +537,7 @@ class settings():
         self.load(self.switch_show_indicator_text)
         self.load(self.switch_block_sunrise__show)
         self.load(self.switch_block_moonrise__show)
+        self.load(self.switch_always_on_top)
 
         self.adjustment_n_max.set_upper(gw_config_set['max_days'])
 

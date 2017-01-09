@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.13'
+v = '0.8.2.14'
 #  Copyright (C) 2013-2016 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -185,6 +185,7 @@ gw_config_default = {
     'save_cur_icon': False,
     'save_cur_data_path': '',
     'type_hint':0,
+    'always_on_top': False,
     # customizable options
     'preset_number': 0,
     'bg_left': 0,
@@ -1444,8 +1445,6 @@ class Weather_Widget:
             else:
                 self.window_main.set_type_hint(Gdk.WindowTypeHint.UTILITY)
         if args.test: print('Type_hint =', self.window_main.get_type_hint(), '\nDESKTOP_SESSION =',  os.environ.get('DESKTOP_SESSION'))
-        self.window_main.set_keep_above(False)
-        self.window_main.set_keep_below(True)
         self.window_main.set_skip_taskbar_hint(True)
         self.window_main.set_skip_pager_hint(True)
 
@@ -1468,10 +1467,26 @@ class Weather_Widget:
         else:
             self.window_main.unstick()
         self.window_main.set_opacity(opacity)
+        if always_on_top:
+            self.window_main.set_keep_above(True)
+            self.window_main.set_keep_below(False)
+        else:
+            self.window_main.set_keep_above(False)
+            self.window_main.set_keep_below(True)
 
 
     def menu_response(self, widget, event, value=None):
         global service
+        if event == 'always_on_top':
+            global always_on_top
+            if always_on_top:
+                always_on_top = False
+            else:
+                always_on_top = True
+            self.set_window_properties()
+            self.drawing_area.redraw(False, False)
+            Save_Config()
+
         if event == 'goto_site':
             if URL:
                 webbrowser.open(URL)
@@ -1501,6 +1516,7 @@ class Weather_Widget:
                     return
                 show_indicator = 1
             Save_Config()
+            self.set_window_properties()
             self.drawing_area.redraw(False, False)
         if event == 'help':
             help_dialog.create(APP_PATH)

@@ -18,6 +18,7 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color
     sticky = gw_config['sticky']
     indicator_icons_name = gw_config['indicator_icons_name']
     preset_number = gw_config['preset_number']
+    always_on_top = gw_config['always_on_top']
 
     menu = None
     # from script folder (dirs - icons, files - backdrounds)
@@ -145,6 +146,12 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color
     menu_items = Gtk.CheckMenuItem(_('On all desktops'))
     menu_items.set_active(sticky)
     menu_items.connect("activate", app.menu_response, 'sticky')
+    sub_menu_window.append(menu_items)
+    menu_items.show()
+
+    menu_items = Gtk.CheckMenuItem(_('Always on top'))
+    menu_items.set_active(always_on_top)
+    menu_items.connect("activate", app.menu_response, 'always_on_top')
     sub_menu_window.append(menu_items)
     menu_items.show()
 
