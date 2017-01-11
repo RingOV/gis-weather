@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.19'
+v = '0.8.2.20'
 #  Copyright (C) 2013-2017 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -935,12 +935,13 @@ class MyDrawArea(Gtk.DrawingArea):
                 s=', '+date[0]
             if day:
                 weekend1 = []
+                _day = day[0].strip()
                 for item in weekend.split(','):
                     weekend1.append(item.strip())
-                if day[0] in weekend1:
-                    self.draw_text(cr, day[0]+s, day_left+0+block_now_left, day_top+y-15, font+' Bold', 12, width-day_left, Pango.Alignment.CENTER, color_text_week)
+                if _day in weekend1:
+                    self.draw_text(cr, _day+s, day_left+0+block_now_left, day_top+y-15, font+' Bold', 12, width-day_left, Pango.Alignment.CENTER, color_text_week)
                 else:
-                    self.draw_text(cr, day[0]+s, day_left+0+block_now_left, day_top+y-15, font+' Bold', 12, width-day_left, Pango.Alignment.CENTER)
+                    self.draw_text(cr, _day+s, day_left+0+block_now_left, day_top+y-15, font+' Bold', 12, width-day_left, Pango.Alignment.CENTER)
             else:
                 self.draw_text(cr, date[0], day_left+0+block_now_left, day_top+y-15, font+' Bold', 12, width-day_left, Pango.Alignment.CENTER)
             
@@ -1136,7 +1137,7 @@ class MyDrawArea(Gtk.DrawingArea):
     def draw_weather_icon(self, cr, index, x, y):
         if date != []:
             if day:
-                _day = day[index]
+                _day = day[index].strip()
                 weekend1 = []
                 for item in weekend.split(','):
                     weekend1.append(item.strip())
