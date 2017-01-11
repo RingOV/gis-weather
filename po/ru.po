@@ -1,12 +1,12 @@
 # 
 # Translators:
 # RingOV <ringov@mail.ru>, 2015-2016
-# RingOV <ringov@mail.ru>, 2016
+# RingOV <ringov@mail.ru>, 2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2017-01-09 16:31+0300\n"
-"PO-Revision-Date: 2017-01-10 08:55+0000\n"
+"PO-Revision-Date: 2017-01-11 20:52+0000\n"
 "Last-Translator: RingOV <ringov@mail.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/gis-weather-team/gis-weather/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -296,7 +296,7 @@ msgstr "Ошибка соединения"
 
 #: gis-weather.py:883
 msgid "feels like"
-msgstr ""
+msgstr "по ощущению"
 
 #: gis-weather.py:929
 msgid "Updated on server"
@@ -392,7 +392,7 @@ msgstr "в т.ч. отступ"
 
 #: gis-weather.py:1585
 msgid "Requires restart"
-msgstr ""
+msgstr "Требуется перезапуск"
 
 #: gis-weather.py:1654
 msgid "Removed"
@@ -485,7 +485,7 @@ msgstr "На всех рабочих столах"
 
 #: utils/gw_menu.py:152 dialogs/settings_dialog.ui:1829
 msgid "Always on top"
-msgstr ""
+msgstr "Поверх всех окон"
 
 #: utils/gw_menu.py:162
 msgid "Save screenshot"
