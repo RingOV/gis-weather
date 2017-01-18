@@ -48,7 +48,7 @@ def main():
 
     create_changelog(BUILD_PATH+'/usr/share/doc/gis-weather/changelog')
     # Copy all
-    IGNORE_PATTERNS = ('__pycache__', '*~', 'DEB', 'scripts', '.git', '.gitignore', 'setup.py', 'icon.ico', 'po')
+    IGNORE_PATTERNS = ('__pycache__', '*~', 'DEB', 'scripts', '.git', '.gitignore', 'setup.py', 'icon.ico')
     copytree(GW_PATH, BUILD_PATH+'/usr/share/gis-weather', ignore=ignore_patterns(*IGNORE_PATTERNS))
     copy(GW_PATH+'/icon.png', BUILD_PATH+'/usr/share/pixmaps/gis-weather.png')
 
