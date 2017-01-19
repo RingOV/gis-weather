@@ -1,13 +1,13 @@
 # 
 # Translators:
 # Krzysztof Kokot <kokot300@gmail.com>, 2015-2016
-# Wiktor Jezioro <wikjezioro@op.pl>, 2015
+# Wiktor Jezioro <wikjezioro@op.pl>, 2015,2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2017-01-09 16:31+0300\n"
-"PO-Revision-Date: 2017-01-10 08:55+0000\n"
-"Last-Translator: RingOV <ringov@mail.ru>\n"
+"PO-Revision-Date: 2017-01-19 08:40+0000\n"
+"Last-Translator: Wiktor Jezioro <wikjezioro@op.pl>\n"
 "Language-Team: Polish (http://www.transifex.com/gis-weather-team/gis-weather/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,7 +58,7 @@ msgstr "Ikony"
 
 #: dialogs/about_dialog.py:59
 msgid "translator-credits"
-msgstr "Jarosław Harasiuk <jarek@strony-www.net>\nKrzysztof Kokot <kokot300@gmail.com>"
+msgstr "Jarosław Harasiuk <jarek@strony-www.net>\nKrzysztof Kokot <kokot300@gmail.com>\nWiktor Jezioro <lakewik@lakewik.pl>"
 
 #: dialogs/city_id_dialog.py:35 gis-weather.py:298
 msgid "Error loading config file"
@@ -215,7 +215,7 @@ msgstr "liczba okien"
 
 #: gis-weather.py:55
 msgid "testing mode turned on"
-msgstr ""
+msgstr "tryb testowy włączony"
 
 #: gis-weather.py:227 utils/presets.py:60 utils/presets.py:176
 #: utils/presets.py:211
@@ -296,7 +296,7 @@ msgstr "Błąd połączenia"
 
 #: gis-weather.py:883
 msgid "feels like"
-msgstr ""
+msgstr "czuje się jak"
 
 #: gis-weather.py:929
 msgid "Updated on server"
@@ -392,7 +392,7 @@ msgstr "Łącznie "
 
 #: gis-weather.py:1585
 msgid "Requires restart"
-msgstr ""
+msgstr "Wymaga ponownego uruchomienia"
 
 #: gis-weather.py:1654
 msgid "Removed"
@@ -485,7 +485,7 @@ msgstr "Na wszystkich pulpitach"
 
 #: utils/gw_menu.py:152 dialogs/settings_dialog.ui:1829
 msgid "Always on top"
-msgstr ""
+msgstr "Zawsze na wierzchu"
 
 #: utils/gw_menu.py:162
 msgid "Save screenshot"
@@ -501,7 +501,7 @@ msgstr "Odśwież"
 
 #: utils/gw_menu.py:195
 msgid "Start new instance"
-msgstr ""
+msgstr "Uruchom nowe wystąpienie"
 
 #: utils/gw_menu.py:203
 msgid "Go to site"
@@ -517,7 +517,7 @@ msgstr "Tło"
 
 #: utils/gw_menu.py:236 dialogs/settings_dialog.ui:3361
 msgid "Text"
-msgstr "Text"
+msgstr "Tekst"
 
 #: utils/gw_menu.py:241 dialogs/settings_dialog.ui:1872
 msgid "Window"
@@ -732,7 +732,7 @@ msgstr "Pokaż aktualną pogodę"
 
 #: dialogs/settings_dialog.ui:2277
 msgid "Block Sunrise"
-msgstr ""
+msgstr "Zablokuj wschód słońca"
 
 #: dialogs/settings_dialog.ui:2404
 msgid "Reduce"
@@ -752,7 +752,7 @@ msgstr "Pokaż dodatkowe informacje"
 
 #: dialogs/settings_dialog.ui:2679
 msgid "Block Moonrise"
-msgstr ""
+msgstr "Zablokuj wschód księżyca"
 
 #: dialogs/settings_dialog.ui:2733
 msgid "Number of days"
