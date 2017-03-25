@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.26'
+v = '0.8.2.27'
 #  Copyright (C) 2013-2017 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -112,7 +112,6 @@ presets.save_to_file(CONFIG_PATH)
 
 # Default values
 gw_config_default = {
-    'show_sunrise':True,
     'angel': 0,                        # angle of clockwise rotation in degrees
     'city_id': 0,                      # location code
     'appid': '',                       # api key
@@ -209,9 +208,7 @@ gw_config_default = {
     'splash_block_top': 0,
     'desc_style': 0,  # 0 - Normal, 1 - Italic
     'block_sunrise':{'x':30, 'y':100, 'font_size': 9, 'align': 'left', 'show': True},
-    'block_moonrise':{'x':30, 'y':100, 'font_size': 9, 'align': 'left', 'show': True},
-    'show_block_sunrise': True,
-    'show_block_moonrise': True,
+    'block_moonrise':{'x':30, 'y':100, 'font_size': 9, 'align': 'right', 'show': True},
     # day icon customization
     'day_icon_attr': {'x': 30, 'y': 16, 'size': 36, 'show': True},
     'day_date_fmt': '{day}, {date}',
@@ -974,7 +971,7 @@ class MyDrawArea(Gtk.DrawingArea):
                         '☀↗  '+sunrise+'   ↘☀ '+sunset+'   ⌚ '+sun_duration,
                         block_sunrise['x'], top+block_sunrise['y'],
                         font+' Normal', block_sunrise['font_size'], width-2*block_sunrise['x'],
-                        Pango.Alignment.LEFT)
+                        Pango_dict[block_sunrise['align']])
             if block_moonrise['show']:
                 ####-block moonrise-####
                 if moonrise and moonset:
@@ -982,7 +979,7 @@ class MyDrawArea(Gtk.DrawingArea):
                         '☾↗  '+moonrise+'   ↘☾ '+moonset+'   ⌚ '+moon_duration,
                         block_moonrise['x'], top+block_moonrise['y'],
                         font+' Normal', block_moonrise['font_size'], width-2*block_moonrise['x']-5,
-                        Pango.Alignment.RIGHT)
+                        Pango_dict[block_moonrise['align']])
 
             if show_block_wind_direct:
                 ####-block wind direct-####
