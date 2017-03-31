@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.27'
+v = '0.8.2.28'
 #  Copyright (C) 2013-2017 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -213,6 +213,7 @@ gw_config_default = {
     'day_icon_attr': {'x': 30, 'y': 16, 'size': 36, 'show': True},
     'day_date_fmt': '{day}, {date}',
     'day_date_attr': {'x': 0, 'y': -2, 'font_weight': ' Bold', 'font_size': 9, 'align': 'left', 'show': True},
+    't_now_fmt': '{t_now}',
     't_fmt': '{t_day}\n{t_night}',
     't_attr': {'x': 0, 'y': 15, 'font_weight': ' Normal', 'font_size': 10, 'align': 'left', 'show': True},
     'wind_fmt': '{wind_direct}, {wind_speed}',
@@ -845,7 +846,7 @@ class MyDrawArea(Gtk.DrawingArea):
                     print ('-'*40)
             self.Draw_Weather(self.cr)
 
-    
+
     def Draw_Weather(self, cr):
         if save_cur_icon:
             path_to_save = CONFIG_PATH
@@ -918,6 +919,22 @@ class MyDrawArea(Gtk.DrawingArea):
             center = x+width/2
             top = y + 30
 
+            t_index = t_scale*2
+            if t_feel:
+                t_index += 1
+
+            fmt = {
+            'city_name': city_name[0],
+            'condition': text_now[0],
+            't_now': t_now[0].split(';')[t_index],
+            'wind_direct_now': wind_direct_now[0],
+            'wind_speed_now': wind_speed_now[0].split(';')[wind_units].split()[0],
+            'wind_units_now': wind_speed_now[0].split(';')[wind_units].split()[-1],
+            'sunrise': sunrise,
+            'sunset': sunset,
+            'pressure': press_now[0].split(';')[press_units].split()[0] if press_now else '',
+            'humidity': hum_now[0] if hum_now else ''}
+
             if icon_now_attr['x'] > 999: icon_now_left = icon_now_attr['x'] - 1000 - center
             else: icon_now_left = icon_now_attr['x']
             
@@ -953,10 +970,8 @@ class MyDrawArea(Gtk.DrawingArea):
                     custom_text1_attr['font_size'], width-custom_text1_attr['x'], Pango_dict[custom_text1_attr['align']])
             self.draw_scaled_icon(cr, icon_now_left+center-40+block_now_left, icon_now_attr['y']+y, 
                     icon_now[0],icon_now_attr['size'],icon_now_attr['size'])
-            t_index = t_scale*2
-            if t_feel:
-                t_index += 1
-            if t_now and t_now_attr['show']: self.draw_text(cr, t_now[0].split(';')[t_index], 
+            
+            if t_now and t_now_attr['show']: self.draw_text(cr, t_now_fmt.format_map(fmt), 
                         t_now_left+center-100+block_now_left, t_now_attr['y']+y,
                         font+t_now_attr['font_weight'], t_now_attr['font_size'], 60,
                         Pango_dict[t_now_attr['align']])
@@ -1131,6 +1146,7 @@ class MyDrawArea(Gtk.DrawingArea):
                 return os.path.join(ICONS_PATH, icons_name, '.'.join([icon, ext]))
         return os.path.join(ICONS_PATH, 'default', '.'.join([icon, 'png']))
 
+
     def draw_weather_icon(self, cr, index, x, y):
         if date != []:
             if day:
@@ -1155,17 +1171,26 @@ class MyDrawArea(Gtk.DrawingArea):
                 _wind_speed = wind_speed[index].split(';')[wind_units].split()[0]+' '+wind_speed[index].split(';')[wind_units].split()[-1]
             _text = text[index]
 
+            fmt = {
+                'day': _day if day else '',
+                'date': _date,
+                't_day': _t_day,
+                't_night': _t_night,
+                'wind_direct': _wind_direct if wind_direct else '',
+                'wind_speed': _wind_speed if wind_speed else '',
+                'text': _text}
+
             self.draw_scaled_icon(cr, x+day_icon_attr['x'], y+day_icon_attr['y'], icon[index],
                     day_icon_attr['size'], day_icon_attr['size'])
             if day:
-                s = day_date_fmt.format(day=_day, date=_date)
+                s = day_date_fmt.format_map(fmt)
             else:
                 s = _date
                 _weekend_color = color_text
             if day_date_attr['show']: self.draw_text(cr, s, 
                     x+day_date_attr['x'], y+day_date_attr['y'], font+day_date_attr['font_weight'], 
                     day_date_attr['font_size'], w_block, Pango_dict[day_date_attr['align']], _weekend_color)
-            if t_attr['show']: self.draw_text(cr, t_fmt.format(t_day=_t_day, t_night=_t_night), x+t_attr['x'], y+t_attr['y'],
+            if t_attr['show']: self.draw_text(cr, t_fmt.format_map(fmt), x+t_attr['x'], y+t_attr['y'],
                     font+t_attr['font_weight'], t_attr['font_size'], w_block, Pango_dict[t_attr['align']])
             if chance_of_rain and show_chance_of_rain:
                 self.draw_text(cr, chance_of_rain[index], x+30, y+9, font+' Normal', 7, 36, Pango.Alignment.CENTER)
