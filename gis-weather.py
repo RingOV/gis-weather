@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.29'
+v = '0.8.2.30'
 #  Copyright (C) 2013-2017 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -181,6 +181,7 @@ gw_config_default = {
     'swap_d_and_m': False,
     'save_cur_temp': False,
     'save_cur_temp_add_scale': False,
+    'save_cur_temp_to_pipe': False,
     'save_cur_icon': False,
     'save_cur_data_path': '',
     'type_hint':0,
@@ -867,6 +868,10 @@ class MyDrawArea(Gtk.DrawingArea):
             path_to_save = CONFIG_PATH
             if os.path.exists(save_cur_data_path):
                 path_to_save = save_cur_data_path
+            if save_cur_temp_to_pipe:
+                if os.path.exists(os.path.join(path_to_save, 'cur_temp')):
+                    os.remove(os.path.join(path_to_save, 'cur_temp'))
+                os.mkfifo(os.path.join(path_to_save, 'cur_temp'))
             cur_temp_file = open(os.path.join(path_to_save, 'cur_temp'), 'w')
             cur_temp_file.write(t_now[0].split(';')[t_index]+t_now_post)
             cur_temp_file.close()
