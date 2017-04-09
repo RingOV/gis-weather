@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.35'
+v = '0.8.2.36'
 #  Copyright (C) 2013-2017 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -182,7 +182,7 @@ gw_config_default = {
     'swap_d_and_m': False,
     'save_cur_temp': False,
     'save_cur_temp_add_scale': False,
-    'save_cur_temp_to_pipe': False,
+    'save_cur_temp_to_pipe': True,
     'save_cur_icon': False,
     'save_cur_data_path': '',
     'save_weather': False,
@@ -904,11 +904,11 @@ class MyDrawArea(Gtk.DrawingArea):
             if save_weather_fmt != '':
                 weather_text = save_weather_fmt
             else:
-                weather_text = '<center><b>{city_name}</b></center>\n'+\
-                    '{t_now};  <small>'+_('feels like')+':</small>  {t_now_feel}<br>\n'+\
+                weather_text = '<b>{city_name}</b><br>\n'+\
+                    '{t_now};  '+_('feels like')+':  {t_now_feel}<br>\n'+\
                     '{condition_now}<br>\n'+\
-                    '{wind_direct_now}, {wind_speed_now} <small>{wind_units_now}</small><br>\n'+\
-                    _('Pressure')+': {pressure_now} <small>{pressure_units_now}</small><br>\n'+\
+                    '{wind_direct_now}, {wind_speed_now} {wind_units_now}<br>\n'+\
+                    _('Pressure')+': {pressure_now} {pressure_units_now}<br>\n'+\
                     _('Humidity')+': {humidity_now}'
             cur_weather_file = open(os.path.join(path_to_save, 'cur_weather'), 'w')
             cur_weather_file.write(weather_text.format_map(self.fmt))
