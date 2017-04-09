@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.32'
+v = '0.8.2.33'
 #  Copyright (C) 2013-2017 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -1212,7 +1212,7 @@ class MyDrawArea(Gtk.DrawingArea):
             if t_attr['show']: self.draw_text(cr, t_fmt.format_map(fmt), x+t_attr['x'], y+t_attr['y'],
                     font+t_attr['font_weight'], t_attr['font_size'], w_block, Pango_dict[t_attr['align']])
             if chance_of_rain and show_chance_of_rain:
-                self.draw_text(cr, chance_of_rain[index], x+30, y+9, font+' Normal', 7, 36, Pango.Alignment.CENTER)
+                self.draw_text(cr, chance_of_rain[index], x, y+9, font+' Normal', 7, w_block, Pango.Alignment.CENTER)
             v_offset = 0
             if (wind_direct and wind_speed): 
                 if wind_attr['show']: self.draw_text(cr, wind_fmt.format(wind_direct=_wind_direct, wind_speed=_wind_speed),
