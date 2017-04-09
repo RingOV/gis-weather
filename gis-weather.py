@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.31'
+v = '0.8.2.32'
 #  Copyright (C) 2013-2017 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -185,6 +185,9 @@ gw_config_default = {
     'save_cur_temp_to_pipe': False,
     'save_cur_icon': False,
     'save_cur_data_path': '',
+    'save_weather': False,
+    'save_weather_fmt': '',
+    'save_weather_path': '',
     'type_hint':0,
     'always_on_top': False,
     'tooltip_show': True,
@@ -702,6 +705,7 @@ class MyDrawArea(Gtk.DrawingArea):
     p_layout = None
     p_fdesc = None
     cr = None
+    fmt = None
 
     def __init__(self):
         self.timer = GLib.timeout_add(1000, self.redraw)
@@ -862,6 +866,20 @@ class MyDrawArea(Gtk.DrawingArea):
         if t_feel:
             t_index += 1
 
+        self.fmt = {
+            'city_name': city_name[0],
+            't_now': t_now[0].split(';')[t_scale*2],
+            't_now_feel': t_now[0].split(';')[t_scale*2+1],
+            'condition_now': text_now[0],
+            'wind_direct_now': wind_direct_now[0],
+            'wind_speed_now': wind_speed_now[0].split(';')[wind_units].split()[0],
+            'wind_units_now': wind_speed_now[0].split(';')[wind_units].split()[-1],
+            'sunrise': sunrise,
+            'sunset': sunset,
+            'pressure_now': press_now[0].split(';')[press_units].split()[0] if press_now else '',
+            'pressure_units_now': _(press_now[0].split(';')[press_units].split()[-1]) if press_now else '',
+            'humidity_now': hum_now[0]+' %' if hum_now else ''}
+
         if save_cur_temp:
             t_now_post = ''
             if save_cur_temp_add_scale:
@@ -879,6 +897,25 @@ class MyDrawArea(Gtk.DrawingArea):
             process.stdin.write('echo "'+t_now[0].split(';')[t_index]+t_now_post+'" > '+os.path.join(path_to_save, 'cur_temp')+'\n')
             print(os.path.join(path_to_save, 'cur_temp')+' saved (%s)'%t_now[0].split(';')[t_index]+t_now_post)
 
+        if save_weather:
+            path_to_save = CONFIG_PATH
+            if os.path.exists(save_weather_path):
+                path_to_save = save_weather_path
+            if save_weather_fmt != '':
+                weather_text = save_weather_fmt
+            else:
+                weather_text = '<center><b>{city_name}</b></center>\n'+\
+                    '{t_now};  <small>'+_('feels like')+':</small>  {t_now_feel}<br>\n'+\
+                    '{condition_now}<br>\n'+\
+                    '{wind_direct_now}, {wind_speed_now} <small>{wind_units_now}</small><br>\n'+\
+                    _('Pressure')+': {pressure_now} <small>{pressure_units_now}</small><br>\n'+\
+                    _('Humidity')+': {humidity_now}'
+            cur_weather_file = open(os.path.join(path_to_save, 'cur_weather'), 'w')
+            cur_weather_file.write(weather_text.format_map(self.fmt))
+            cur_weather_file.close()
+            print(os.path.join(path_to_save, 'cur_weather')+' saved')
+
+
         if show_indicator:
             self.draw_scaled_icon(cr, 0, 0, weather['icon_now'][0],1,1, indicator_icons_name)
             ind.set_icon(pix_path)
@@ -887,26 +924,13 @@ class MyDrawArea(Gtk.DrawingArea):
             if tooltip_show:
                 try:
                     if tooltip_fmt != '':
-                        markup = tooltip_fmt.format(
-                            city_name=city_name[0],
-                            condition=text_now[0],
-                            t=t_now[0].split(';')[t_scale*2],
-                            t_feel=t_now[0].split(';')[t_scale*2+1],
-                            wind_direct=wind_direct_now[0],
-                            wind_speed=wind_speed_now[0].split(';')[wind_units].split()[0],
-                            wind_units=wind_speed_now[0].split(';')[wind_units].split()[-1],
-                            sunrise=sunrise,
-                            sunset=sunset,
-                            pressure=press_now[0].split(';')[press_units].split()[0],
-                            humidity=hum_now[0]
-                            )
-                        ind.set_tooltip_markup(markup)
+                        tooltip_text = tooltip_fmt
                     else:
-                        ind.set_tooltip_markup(
-                            '<b>'+city_name[0]+'</b>\n'+\
-                            t_now[0].split(';')[t_scale*2]+';  <span size="small">'+_('feels like')+':</span>  '+t_now[0].split(';')[t_scale*2+1]+'\n'+\
-                            text_now[0]+'\n'+\
-                            wind_direct_now[0]+', '+wind_speed_now[0].split(';')[wind_units].split()[0]+' <span size="small">'+wind_speed_now[0].split(';')[wind_units].split()[-1]+'</span>')
+                        tooltip_text = '<b>{city_name}</b><br>\n'+\
+                            '{t_now};  <small>'+_('feels like')+':</small>  {t_now_feel}\n'+\
+                            '{condition_now}\n'+\
+                            '{wind_direct_now}, {wind_speed_now}<span size="small"> {wind_units_now}</span>'
+                    ind.set_tooltip_markup(tooltip_text.format_map(self.fmt))
                 except:
                     pass
         if show_indicator == 1:
@@ -929,18 +953,6 @@ class MyDrawArea(Gtk.DrawingArea):
             t_index = t_scale*2
             if t_feel:
                 t_index += 1
-
-            fmt = {
-            'city_name': city_name[0],
-            'condition': text_now[0],
-            't_now': t_now[0].split(';')[t_index],
-            'wind_direct_now': wind_direct_now[0],
-            'wind_speed_now': wind_speed_now[0].split(';')[wind_units].split()[0],
-            'wind_units_now': wind_speed_now[0].split(';')[wind_units].split()[-1],
-            'sunrise': sunrise,
-            'sunset': sunset,
-            'pressure': press_now[0].split(';')[press_units].split()[0] if press_now else '',
-            'humidity': hum_now[0] if hum_now else ''}
 
             if icon_now_attr['x'] > 999: icon_now_left = icon_now_attr['x'] - 1000 - center
             else: icon_now_left = icon_now_attr['x']
@@ -978,7 +990,7 @@ class MyDrawArea(Gtk.DrawingArea):
             self.draw_scaled_icon(cr, icon_now_left+center-40+block_now_left, icon_now_attr['y']+y, 
                     icon_now[0],icon_now_attr['size'],icon_now_attr['size'])
             
-            if t_now and t_now_attr['show']: self.draw_text(cr, t_now_fmt.format_map(fmt), 
+            if t_now and t_now_attr['show']: self.draw_text(cr, t_now_fmt.format_map(self.fmt), 
                         t_now_left+center-100+block_now_left, t_now_attr['y']+y,
                         font+t_now_attr['font_weight'], t_now_attr['font_size'], 60,
                         Pango_dict[t_now_attr['align']])
