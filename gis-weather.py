@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.33'
+v = '0.8.2.34'
 #  Copyright (C) 2013-2017 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -230,8 +230,8 @@ gw_config_default = {
     't_now_attr': {'x':0, 'y':30, 'font_weight':' Normal', 'font_size':18, 'align':'right', 'show':True},
     'icon_now_attr': {'x':0, 'y':30, 'size':80, 'show':True},
     'custom_text1_attr': {'text':_('Now'), 'x':0, 'y':0, 'font_weight':' Bold', 'font_size':9, 'align':'left', 'show':False},
-    'block_h_offset': 12
-
+    'block_h_offset': 12,
+    'city_name_custom': ''
 }
 
 window_type_hint_list = (
@@ -867,7 +867,7 @@ class MyDrawArea(Gtk.DrawingArea):
             t_index += 1
 
         self.fmt = {
-            'city_name': city_name[0],
+            'city_name': city_name[0] if not city_name_custom else city_name_custom,
             't_now': t_now[0].split(';')[t_scale*2],
             't_now_feel': t_now[0].split(';')[t_scale*2+1],
             'condition_now': text_now[0],
@@ -981,6 +981,9 @@ class MyDrawArea(Gtk.DrawingArea):
             if show_time_receive_local:
                 if time_update: self.draw_text(cr, _('Updated on server')+' '+time_update[0], x-margin, x+20+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
                 if time_receive: self.draw_text(cr, _('Weather received')+' '+time_receive, x-margin, x+10+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
+            if city_name_custom:
+                global city_name
+                city_name[0] = city_name_custom
             if city_name and city_name_attr['show']: self.draw_text(cr, city_name[0], 
                     city_name_attr['x']+x+block_now_left, city_name_attr['y']+y, font+city_name_attr['font_weight'],
                     city_name_attr['font_size'], width-city_name_attr['x'], Pango_dict[city_name_attr['align']])
