@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.36'
+v = '0.8.2.37'
 #  Copyright (C) 2013-2017 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -922,17 +922,16 @@ class MyDrawArea(Gtk.DrawingArea):
             if weather['t_now']:
                 ind.set_label(weather['t_now'][0].split(';')[t_index])
             if tooltip_show:
-                try:
-                    if tooltip_fmt != '':
-                        tooltip_text = tooltip_fmt
-                    else:
-                        tooltip_text = '<b>{city_name}</b><br>\n'+\
-                            '{t_now};  <small>'+_('feels like')+':</small>  {t_now_feel}\n'+\
-                            '{condition_now}\n'+\
-                            '{wind_direct_now}, {wind_speed_now}<span size="small"> {wind_units_now}</span>'
-                    ind.set_tooltip_markup(tooltip_text.format_map(self.fmt))
-                except:
-                    pass
+                if tooltip_fmt:
+                    tooltip_text = tooltip_fmt
+                else:
+                    tooltip_text = '<b>{city_name}</b>\n'+\
+                    '{t_now};  <span size="small">'+_('feels like')+':</span>  {t_now_feel}\n'+\
+                    '{condition_now}\n'+\
+                    '{wind_direct_now}, {wind_speed_now} <span size="small">{wind_units_now}</span>\n'+\
+                    _('Pressure')+': {pressure_now} <span size="small">{pressure_units_now}</span>\n'+\
+                    _('Humidity')+': {humidity_now}'
+                ind.set_tooltip_markup(tooltip_text.format_map(self.fmt))
         if show_indicator == 1:
             return
 
