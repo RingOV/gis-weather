@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2017-04-09 12:43+0300\n"
-"PO-Revision-Date: 2017-04-09 12:30+0000\n"
+"POT-Creation-Date: 2017-04-09 16:40+0300\n"
+"PO-Revision-Date: 2017-04-09 13:42+0000\n"
 "Last-Translator: RingOV <ringov@mail.ru>\n"
 "Language-Team: Czech (http://www.transifex.com/gis-weather-team/gis-weather/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -342,7 +342,7 @@ msgstr ""
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:518
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1423 gis-weather.py:521
-#: gis-weather.py:1467
+#: gis-weather.py:1481
 msgid "Screenshot saved to"
 msgstr "Screenshot uloženy v"
 
@@ -384,142 +384,141 @@ msgstr "Další pokus za 10 sekund"
 msgid "Connection error"
 msgstr "Problém s připojením"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:902 gis-weather.py:908
-#: gis-weather.py:930
+#: DEB/build/usr/share/gis-weather/gis-weather.py:902 gis-weather.py:883
 msgid "feels like"
 msgstr ""
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:949 gis-weather.py:982
+#: DEB/build/usr/share/gis-weather/gis-weather.py:949 gis-weather.py:996
 msgid "Updated on server"
 msgstr ""
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:950 gis-weather.py:983
+#: DEB/build/usr/share/gis-weather/gis-weather.py:950 gis-weather.py:997
 msgid "Weather received"
 msgstr ""
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1038
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1052
 msgid "E"
 msgstr "V"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1038
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1052
 msgid "S"
 msgstr "J"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1038
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1052
 msgid "W"
 msgstr "Z"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1038
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1052
 msgid "N"
 msgstr "S"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1043 gis-weather.py:1077
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1043 gis-weather.py:1091
 msgid "humid."
 msgstr "mokrý."
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1046 gis-weather.py:1080
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1046 gis-weather.py:1094
 msgid "water"
 msgstr "voda"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1061
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1103
 #: DEB/build/usr/share/gis-weather/services/gismeteo.py:373
-#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1095
-#: gis-weather.py:1137 services/gismeteo.py:373 services/yr.py:147
+#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1109
+#: gis-weather.py:1151 services/gismeteo.py:373 services/yr.py:147
 msgid "Morning"
 msgstr "Ráno"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1061
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1103
 #: DEB/build/usr/share/gis-weather/services/gismeteo.py:373
-#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1095
-#: gis-weather.py:1137 services/gismeteo.py:373 services/yr.py:147
+#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1109
+#: gis-weather.py:1151 services/gismeteo.py:373 services/yr.py:147
 msgid "Day"
 msgstr "Den"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1061
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1103
 #: DEB/build/usr/share/gis-weather/services/gismeteo.py:373
-#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1095
-#: gis-weather.py:1137 services/gismeteo.py:373 services/yr.py:147
+#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1109
+#: gis-weather.py:1151 services/gismeteo.py:373 services/yr.py:147
 msgid "Evening"
 msgstr "Večer"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1061
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1103
 #: DEB/build/usr/share/gis-weather/services/gismeteo.py:373
-#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1095
-#: gis-weather.py:1137 services/gismeteo.py:373 services/yr.py:147
+#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1109
+#: gis-weather.py:1151 services/gismeteo.py:373 services/yr.py:147
 msgid "Night"
 msgstr "Noc"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1066
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1068 gis-weather.py:1100
-#: gis-weather.py:1102
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1068 gis-weather.py:1114
+#: gis-weather.py:1116
 msgid "Tomorrow"
 msgstr "Zítra"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1107 gis-weather.py:1141
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1107 gis-weather.py:1155
 msgid "Today"
 msgstr "Dnes"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1252 gis-weather.py:1296
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1252 gis-weather.py:1310
 msgid "Background image not found"
 msgstr "Obrázek na pozadí nebyl nalezen"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1316 gis-weather.py:1360
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1316 gis-weather.py:1374
 msgid "downloading"
 msgstr "stahování"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1320 gis-weather.py:1364
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1320 gis-weather.py:1378
 msgid "Unable to download"
 msgstr "Nelze stáhnout"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1344 gis-weather.py:1388
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1344 gis-weather.py:1402
 msgid "Icon not found"
 msgstr ""
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1434 gis-weather.py:1478
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1434 gis-weather.py:1492
 msgid "Widget size"
 msgstr "Widget velikost (rozměr)"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1479
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1493
 msgid "width"
 msgstr "šířka"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1479
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1493
 msgid "height"
 msgstr "výška"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1479
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1493
 msgid "including indent"
 msgstr "včetně odrážky"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1605 gis-weather.py:1649
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1605 gis-weather.py:1663
 msgid "Requires restart"
 msgstr ""
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1674 gis-weather.py:1718
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1674 gis-weather.py:1732
 msgid "Removed"
 msgstr "Odstraněno"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1707 gis-weather.py:1751
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1707 gis-weather.py:1765
 #: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:361
 #: dialogs/city_id_dialog.ui:361
 msgid "Added"
 msgstr "Přidáno"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1712 gis-weather.py:1756
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1712 gis-weather.py:1770
 #: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:293
 #: dialogs/city_id_dialog.ui:293
 msgid "Invalid location code"
 msgstr "Špatný lokalitní kód"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1780 gis-weather.py:1824
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1780 gis-weather.py:1838
 msgid "Your screen does not support alpha"
 msgstr "Vaše obrazovka nepodporuje alfa"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1782 gis-weather.py:1826
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1782 gis-weather.py:1840
 msgid "Your screen supports alpha"
 msgstr "Vaše obrazovka podporuje alfa"
 
@@ -695,14 +694,34 @@ msgstr "Zavřít"
 msgid "Unable to download page, check the network connection"
 msgstr "Nelze stáhnout stránky, zkontrolujte síťové připojení"
 
-#: gis-weather.py:911
+#: gis-weather.py:882
+#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1302
+#: dialogs/settings_dialog.ui:1302
+msgid "Temperature"
+msgstr ""
+
+#: gis-weather.py:884
+#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1248
+#: dialogs/settings_dialog.ui:1248
+msgid "Wind"
+msgstr ""
+
+#: gis-weather.py:885
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1261
 #: dialogs/settings_dialog.ui:1261
 msgid "Pressure"
 msgstr ""
 
-#: gis-weather.py:912
+#: gis-weather.py:886
 msgid "Humidity"
+msgstr ""
+
+#: gis-weather.py:887
+msgid "Sunrise"
+msgstr ""
+
+#: gis-weather.py:888
+msgid "Sunset"
 msgstr ""
 
 #: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:58
@@ -855,16 +874,6 @@ msgstr ""
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1225
 #: dialogs/settings_dialog.ui:1225
 msgid "General"
-msgstr ""
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1248
-#: dialogs/settings_dialog.ui:1248
-msgid "Wind"
-msgstr ""
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1302
-#: dialogs/settings_dialog.ui:1302
-msgid "Temperature"
 msgstr ""
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1348

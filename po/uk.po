@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2017-04-09 12:43+0300\n"
-"PO-Revision-Date: 2017-04-09 12:30+0000\n"
+"POT-Creation-Date: 2017-04-09 16:40+0300\n"
+"PO-Revision-Date: 2017-04-09 13:42+0000\n"
 "Last-Translator: RingOV <ringov@mail.ru>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/gis-weather-team/gis-weather/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -343,7 +343,7 @@ msgstr "Ви користуєтеся останньою версією"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:518
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1423 gis-weather.py:521
-#: gis-weather.py:1467
+#: gis-weather.py:1481
 msgid "Screenshot saved to"
 msgstr "Скріншот збережений до"
 
@@ -385,142 +385,141 @@ msgstr "Наступна спроба через 10 секунд"
 msgid "Connection error"
 msgstr "Помилка з’єднання"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:902 gis-weather.py:908
-#: gis-weather.py:930
+#: DEB/build/usr/share/gis-weather/gis-weather.py:902 gis-weather.py:883
 msgid "feels like"
 msgstr "відчувається як"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:949 gis-weather.py:982
+#: DEB/build/usr/share/gis-weather/gis-weather.py:949 gis-weather.py:996
 msgid "Updated on server"
 msgstr "Оновлення на сервері"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:950 gis-weather.py:983
+#: DEB/build/usr/share/gis-weather/gis-weather.py:950 gis-weather.py:997
 msgid "Weather received"
 msgstr "Погода отримана"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1038
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1052
 msgid "E"
 msgstr "С"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1038
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1052
 msgid "S"
 msgstr "Пд"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1038
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1052
 msgid "W"
 msgstr "З"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1038
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1052
 msgid "N"
 msgstr "Пн"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1043 gis-weather.py:1077
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1043 gis-weather.py:1091
 msgid "humid."
 msgstr "вололг."
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1046 gis-weather.py:1080
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1046 gis-weather.py:1094
 msgid "water"
 msgstr "вода"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1061
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1103
 #: DEB/build/usr/share/gis-weather/services/gismeteo.py:373
-#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1095
-#: gis-weather.py:1137 services/gismeteo.py:373 services/yr.py:147
+#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1109
+#: gis-weather.py:1151 services/gismeteo.py:373 services/yr.py:147
 msgid "Morning"
 msgstr "Ранок"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1061
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1103
 #: DEB/build/usr/share/gis-weather/services/gismeteo.py:373
-#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1095
-#: gis-weather.py:1137 services/gismeteo.py:373 services/yr.py:147
+#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1109
+#: gis-weather.py:1151 services/gismeteo.py:373 services/yr.py:147
 msgid "Day"
 msgstr "День"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1061
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1103
 #: DEB/build/usr/share/gis-weather/services/gismeteo.py:373
-#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1095
-#: gis-weather.py:1137 services/gismeteo.py:373 services/yr.py:147
+#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1109
+#: gis-weather.py:1151 services/gismeteo.py:373 services/yr.py:147
 msgid "Evening"
 msgstr "Вечір"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1061
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1103
 #: DEB/build/usr/share/gis-weather/services/gismeteo.py:373
-#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1095
-#: gis-weather.py:1137 services/gismeteo.py:373 services/yr.py:147
+#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1109
+#: gis-weather.py:1151 services/gismeteo.py:373 services/yr.py:147
 msgid "Night"
 msgstr "Ніч"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1066
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1068 gis-weather.py:1100
-#: gis-weather.py:1102
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1068 gis-weather.py:1114
+#: gis-weather.py:1116
 msgid "Tomorrow"
 msgstr "Завтра"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1107 gis-weather.py:1141
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1107 gis-weather.py:1155
 msgid "Today"
 msgstr "Сьогодні"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1252 gis-weather.py:1296
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1252 gis-weather.py:1310
 msgid "Background image not found"
 msgstr "Фонове зображення не знайдено"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1316 gis-weather.py:1360
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1316 gis-weather.py:1374
 msgid "downloading"
 msgstr "завантаження"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1320 gis-weather.py:1364
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1320 gis-weather.py:1378
 msgid "Unable to download"
 msgstr "Неможливо завантажити"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1344 gis-weather.py:1388
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1344 gis-weather.py:1402
 msgid "Icon not found"
 msgstr "Іконка не знайдена"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1434 gis-weather.py:1478
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1434 gis-weather.py:1492
 msgid "Widget size"
 msgstr "Розмір віджету"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1479
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1493
 msgid "width"
 msgstr "ширина"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1479
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1493
 msgid "height"
 msgstr "висота"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1479
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1493
 msgid "including indent"
 msgstr "враховуючи відступ"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1605 gis-weather.py:1649
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1605 gis-weather.py:1663
 msgid "Requires restart"
 msgstr "Вимагає перезавантаження"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1674 gis-weather.py:1718
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1674 gis-weather.py:1732
 msgid "Removed"
 msgstr "Видалено"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1707 gis-weather.py:1751
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1707 gis-weather.py:1765
 #: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:361
 #: dialogs/city_id_dialog.ui:361
 msgid "Added"
 msgstr "Додано"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1712 gis-weather.py:1756
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1712 gis-weather.py:1770
 #: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:293
 #: dialogs/city_id_dialog.ui:293
 msgid "Invalid location code"
 msgstr "Невірний код місця знаходження "
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1780 gis-weather.py:1824
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1780 gis-weather.py:1838
 msgid "Your screen does not support alpha"
 msgstr "Ваш екран не підтримує прозорість"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1782 gis-weather.py:1826
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1782 gis-weather.py:1840
 msgid "Your screen supports alpha"
 msgstr "Ваш екран підтримує прозорість"
 
@@ -696,14 +695,34 @@ msgstr "Закрити"
 msgid "Unable to download page, check the network connection"
 msgstr "Неможливо завантажити сторінку, перевірте мережеве з'єднання"
 
-#: gis-weather.py:911
+#: gis-weather.py:882
+#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1302
+#: dialogs/settings_dialog.ui:1302
+msgid "Temperature"
+msgstr "Температура"
+
+#: gis-weather.py:884
+#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1248
+#: dialogs/settings_dialog.ui:1248
+msgid "Wind"
+msgstr "Вітер"
+
+#: gis-weather.py:885
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1261
 #: dialogs/settings_dialog.ui:1261
 msgid "Pressure"
 msgstr "Тиск"
 
-#: gis-weather.py:912
+#: gis-weather.py:886
 msgid "Humidity"
+msgstr ""
+
+#: gis-weather.py:887
+msgid "Sunrise"
+msgstr ""
+
+#: gis-weather.py:888
+msgid "Sunset"
 msgstr ""
 
 #: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:58
@@ -857,16 +876,6 @@ msgstr "Налаштовується в першому примірнику"
 #: dialogs/settings_dialog.ui:1225
 msgid "General"
 msgstr "Загальні"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1248
-#: dialogs/settings_dialog.ui:1248
-msgid "Wind"
-msgstr "Вітер"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1302
-#: dialogs/settings_dialog.ui:1302
-msgid "Temperature"
-msgstr "Температура"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1348
 #: dialogs/settings_dialog.ui:1348

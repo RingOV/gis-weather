@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2017-04-09 12:43+0300\n"
-"PO-Revision-Date: 2017-04-09 12:30+0000\n"
+"POT-Creation-Date: 2017-04-09 16:40+0300\n"
+"PO-Revision-Date: 2017-04-09 13:42+0000\n"
 "Last-Translator: RingOV <ringov@mail.ru>\n"
 "Language-Team: Spanish (http://www.transifex.com/gis-weather-team/gis-weather/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -342,7 +342,7 @@ msgstr ""
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:518
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1423 gis-weather.py:521
-#: gis-weather.py:1467
+#: gis-weather.py:1481
 msgid "Screenshot saved to"
 msgstr "Captura de pantalla guardada en"
 
@@ -384,142 +384,141 @@ msgstr "Se volverá a intentar en 10 segundos"
 msgid "Connection error"
 msgstr "Error de conexión"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:902 gis-weather.py:908
-#: gis-weather.py:930
+#: DEB/build/usr/share/gis-weather/gis-weather.py:902 gis-weather.py:883
 msgid "feels like"
 msgstr ""
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:949 gis-weather.py:982
+#: DEB/build/usr/share/gis-weather/gis-weather.py:949 gis-weather.py:996
 msgid "Updated on server"
 msgstr ""
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:950 gis-weather.py:983
+#: DEB/build/usr/share/gis-weather/gis-weather.py:950 gis-weather.py:997
 msgid "Weather received"
 msgstr ""
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1038
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1052
 msgid "E"
 msgstr "E"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1038
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1052
 msgid "S"
 msgstr "S"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1038
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1052
 msgid "W"
 msgstr "O"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1038
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1052
 msgid "N"
 msgstr "N"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1043 gis-weather.py:1077
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1043 gis-weather.py:1091
 msgid "humid."
 msgstr "humedad"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1046 gis-weather.py:1080
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1046 gis-weather.py:1094
 msgid "water"
 msgstr "agua"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1061
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1103
 #: DEB/build/usr/share/gis-weather/services/gismeteo.py:373
-#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1095
-#: gis-weather.py:1137 services/gismeteo.py:373 services/yr.py:147
+#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1109
+#: gis-weather.py:1151 services/gismeteo.py:373 services/yr.py:147
 msgid "Morning"
 msgstr "Mañana"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1061
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1103
 #: DEB/build/usr/share/gis-weather/services/gismeteo.py:373
-#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1095
-#: gis-weather.py:1137 services/gismeteo.py:373 services/yr.py:147
+#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1109
+#: gis-weather.py:1151 services/gismeteo.py:373 services/yr.py:147
 msgid "Day"
 msgstr "Día"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1061
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1103
 #: DEB/build/usr/share/gis-weather/services/gismeteo.py:373
-#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1095
-#: gis-weather.py:1137 services/gismeteo.py:373 services/yr.py:147
+#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1109
+#: gis-weather.py:1151 services/gismeteo.py:373 services/yr.py:147
 msgid "Evening"
 msgstr "Tarde"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1061
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1103
 #: DEB/build/usr/share/gis-weather/services/gismeteo.py:373
-#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1095
-#: gis-weather.py:1137 services/gismeteo.py:373 services/yr.py:147
+#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1109
+#: gis-weather.py:1151 services/gismeteo.py:373 services/yr.py:147
 msgid "Night"
 msgstr "Noche"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1066
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1068 gis-weather.py:1100
-#: gis-weather.py:1102
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1068 gis-weather.py:1114
+#: gis-weather.py:1116
 msgid "Tomorrow"
 msgstr "Mañana"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1107 gis-weather.py:1141
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1107 gis-weather.py:1155
 msgid "Today"
 msgstr "Hoy"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1252 gis-weather.py:1296
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1252 gis-weather.py:1310
 msgid "Background image not found"
 msgstr "No se encontró la imagen de fondo"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1316 gis-weather.py:1360
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1316 gis-weather.py:1374
 msgid "downloading"
 msgstr "descargando"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1320 gis-weather.py:1364
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1320 gis-weather.py:1378
 msgid "Unable to download"
 msgstr "No se pudo descargar"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1344 gis-weather.py:1388
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1344 gis-weather.py:1402
 msgid "Icon not found"
 msgstr ""
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1434 gis-weather.py:1478
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1434 gis-weather.py:1492
 msgid "Widget size"
 msgstr "Tamaño del widget"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1479
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1493
 msgid "width"
 msgstr "ancho"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1479
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1493
 msgid "height"
 msgstr "alto"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1479
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1493
 msgid "including indent"
 msgstr "incluyendo sangría"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1605 gis-weather.py:1649
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1605 gis-weather.py:1663
 msgid "Requires restart"
 msgstr ""
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1674 gis-weather.py:1718
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1674 gis-weather.py:1732
 msgid "Removed"
 msgstr "Eliminado"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1707 gis-weather.py:1751
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1707 gis-weather.py:1765
 #: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:361
 #: dialogs/city_id_dialog.ui:361
 msgid "Added"
 msgstr "Añadido"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1712 gis-weather.py:1756
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1712 gis-weather.py:1770
 #: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:293
 #: dialogs/city_id_dialog.ui:293
 msgid "Invalid location code"
 msgstr "Código de ubicación inválido"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1780 gis-weather.py:1824
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1780 gis-weather.py:1838
 msgid "Your screen does not support alpha"
 msgstr "Tu pantalla no tiene soporte para transparencia"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1782 gis-weather.py:1826
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1782 gis-weather.py:1840
 msgid "Your screen supports alpha"
 msgstr "Tu pantalla tiene soporte para transparencia"
 
@@ -695,14 +694,34 @@ msgstr "Cerrar"
 msgid "Unable to download page, check the network connection"
 msgstr "No se pudo descargar página, verifica la conexión a internet"
 
-#: gis-weather.py:911
+#: gis-weather.py:882
+#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1302
+#: dialogs/settings_dialog.ui:1302
+msgid "Temperature"
+msgstr "Temperatura"
+
+#: gis-weather.py:884
+#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1248
+#: dialogs/settings_dialog.ui:1248
+msgid "Wind"
+msgstr ""
+
+#: gis-weather.py:885
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1261
 #: dialogs/settings_dialog.ui:1261
 msgid "Pressure"
 msgstr ""
 
-#: gis-weather.py:912
+#: gis-weather.py:886
 msgid "Humidity"
+msgstr ""
+
+#: gis-weather.py:887
+msgid "Sunrise"
+msgstr ""
+
+#: gis-weather.py:888
+msgid "Sunset"
 msgstr ""
 
 #: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:58
@@ -856,16 +875,6 @@ msgstr ""
 #: dialogs/settings_dialog.ui:1225
 msgid "General"
 msgstr "General"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1248
-#: dialogs/settings_dialog.ui:1248
-msgid "Wind"
-msgstr ""
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1302
-#: dialogs/settings_dialog.ui:1302
-msgid "Temperature"
-msgstr "Temperatura"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1348
 #: dialogs/settings_dialog.ui:1348
