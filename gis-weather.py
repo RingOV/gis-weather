@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.39'
+v = '0.8.2.41'
 #  Copyright (C) 2013-2017 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -878,7 +878,14 @@ class MyDrawArea(Gtk.DrawingArea):
             'sunset': sunset,
             'pressure_now': press_now[0].split(';')[press_units].split()[0] if press_now else '',
             'pressure_units_now': _(press_now[0].split(';')[press_units].split()[-1]) if press_now else '',
-            'humidity_now': hum_now[0]+' %' if hum_now else ''}
+            'humidity_now': hum_now[0]+' %' if hum_now else '',
+            'Temperature': _('Temperature')+':',
+            'Feels_like': _('feels like')+':',
+            'Wind': _('Wind')+':',
+            'Pressure': _('Pressure')+':',
+            'Humidity': _('Humidity')+':',
+            'Sunrise': _('Sunrise')+':',
+            'Sunset': _('Sunset')+':'}
 
         if save_cur_temp:
             t_now_post = ''
@@ -906,12 +913,15 @@ class MyDrawArea(Gtk.DrawingArea):
             if save_weather_fmt != '':
                 weather_text = save_weather_fmt
             else:
-                weather_text = '<b>{city_name}</b><br>\n'+\
-                    '{t_now};  '+_('feels like')+':  {t_now_feel}<br>\n'+\
-                    '{condition_now}<br>\n'+\
-                    '{wind_direct_now}, {wind_speed_now} {wind_units_now}<br>\n'+\
-                    _('Pressure')+': {pressure_now} {pressure_units_now}<br>\n'+\
-                    _('Humidity')+': {humidity_now}'
+                weather_text = '<tt><big><b><u>{city_name:^30}</u></b></big>\n \n '+\
+                '<b>{condition_now}</b>\n \n '+\
+                '{Temperature:<15}<big>{t_now}C</big>\n '+\
+                '{Feels_like:<15}<big>{t_now_feel}C</big>\n '+\
+                '{Wind:<15}<big>{wind_direct_now} {wind_speed_now}</big> {wind_units_now}\n '+\
+                '{Pressure:<15}<big>{pressure_now}</big> {pressure_units_now} \n '+\
+                '{Humidity:<15}<big>{humidity_now}</big>\n \n '+\
+                '{Sunrise:<15}{sunrise}\n '+\
+                '{Sunset:<15}{sunset}\n</tt>'
             cur_weather_file = open(os.path.join(path_to_save, 'cur_weather'), 'w')
             cur_weather_file.write(weather_text.format_map(self.fmt))
             cur_weather_file.close()
@@ -927,12 +937,15 @@ class MyDrawArea(Gtk.DrawingArea):
                 if tooltip_fmt:
                     tooltip_text = tooltip_fmt
                 else:
-                    tooltip_text = '<b>{city_name}</b>\n'+\
-                    '{t_now};  <span size="small">'+_('feels like')+':</span>  {t_now_feel}\n'+\
-                    '{condition_now}\n'+\
-                    '{wind_direct_now}, {wind_speed_now} <span size="small">{wind_units_now}</span>\n'+\
-                    _('Pressure')+': {pressure_now} <span size="small">{pressure_units_now}</span>\n'+\
-                    _('Humidity')+': {humidity_now}'
+                    tooltip_text = '<tt><big><b><u>{city_name:^25}</u></b></big>\n \n '+\
+                        '<b>{condition_now}</b>\n \n '+\
+                        '{Temperature:<15}<big>{t_now}C</big>\n '+\
+                        '{Feels_like:<15}<big>{t_now_feel}C</big>\n '+\
+                        '{Wind:<15}<big>{wind_direct_now} {wind_speed_now}</big> {wind_units_now}\n '+\
+                        '{Pressure:<15}<big>{pressure_now}</big> {pressure_units_now} \n '+\
+                        '{Humidity:<15}<big>{humidity_now}</big>\n \n '+\
+                        '{Sunrise:<15}{sunrise}\n '+\
+                        '{Sunset:<15}{sunset}\n</tt>'
                 ind.set_tooltip_markup(tooltip_text.format_map(self.fmt))
         if show_indicator == 1:
             return
