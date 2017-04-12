@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.47'
+v = '0.8.2.48'
 #  Copyright (C) 2013-2017 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -903,7 +903,11 @@ class MyDrawArea(Gtk.DrawingArea):
             elif not os.path.isfile(os.path.join(path_to_save, 'cur_temp')) and os.path.exists(os.path.join(path_to_save, 'cur_temp')):
                 os.remove(os.path.join(path_to_save, 'cur_temp'))
             process = subprocess.Popen(['/bin/bash'], shell=False, stdin=subprocess.PIPE, stdout=subprocess.PIPE, bufsize=1, universal_newlines=True)
-            process.stdin.write('echo "'+t_now[0].split(';')[t_index]+t_now_post+'" > '+os.path.join(path_to_save, 'cur_temp')+'\n')
+            process.stdin.write('echo "'+t_now[0].split(';')[t_index]+t_now_post+'" > '+os.path.join(path_to_save, 'cur_temp')+' && exit 0\n')
+            try:
+                process.wait(60)
+            except:
+                process.kill()
             print(os.path.join(path_to_save, 'cur_temp')+' saved (%s)'%t_now[0].split(';')[t_index]+t_now_post)
 
         if save_weather:
