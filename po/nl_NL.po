@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2017-04-09 16:40+0300\n"
-"PO-Revision-Date: 2017-04-09 13:42+0000\n"
-"Last-Translator: RingOV <ringov@mail.ru>\n"
+"PO-Revision-Date: 2017-04-09 14:42+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/gis-weather-team/gis-weather/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -716,15 +716,15 @@ msgstr "Luchtdruk"
 
 #: gis-weather.py:886
 msgid "Humidity"
-msgstr ""
+msgstr "Luchtvochtigheid"
 
 #: gis-weather.py:887
 msgid "Sunrise"
-msgstr ""
+msgstr "Zonsopkomst"
 
 #: gis-weather.py:888
 msgid "Sunset"
-msgstr ""
+msgstr "Zonsondergang"
 
 #: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:58
 #: dialogs/city_id_dialog.ui:58

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.43'
+v = '0.8.2.44'
 #  Copyright (C) 2013-2017 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -871,7 +871,7 @@ class MyDrawArea(Gtk.DrawingArea):
             't_now': t_now[0].split(';')[t_scale*2],
             't_now_feel': t_now[0].split(';')[t_scale*2+1],
             'condition_now': text_now[0],
-            'wind_direct_now': wind_direct_now[0],
+            'wind_direct_now': wind_direct_now[0] if wind_direct_now else '',
             'wind_speed_now': wind_speed_now[0].split(';')[wind_units].split()[0],
             'wind_units_now': wind_speed_now[0].split(';')[wind_units].split()[-1],
             'sunrise': sunrise,
@@ -904,6 +904,7 @@ class MyDrawArea(Gtk.DrawingArea):
                 os.remove(os.path.join(path_to_save, 'cur_temp'))
             process = subprocess.Popen(['/bin/bash'], shell=False, stdin=subprocess.PIPE, stdout=subprocess.PIPE, bufsize=1, universal_newlines=True)
             process.stdin.write('echo "'+t_now[0].split(';')[t_index]+t_now_post+'" > '+os.path.join(path_to_save, 'cur_temp')+'\n')
+            process.terminate()
             print(os.path.join(path_to_save, 'cur_temp')+' saved (%s)'%t_now[0].split(';')[t_index]+t_now_post)
 
         if save_weather:
