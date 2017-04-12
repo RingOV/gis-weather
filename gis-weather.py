@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.45'
+v = '0.8.2.46'
 #  Copyright (C) 2013-2017 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -82,12 +82,12 @@ from dialogs import about_dialog, city_id_dialog, update_dialog, settings_dialog
 from services import data
 from utils import gw_menu, presets, date_convert, diff_versions, weather_vars
 from utils.opener import urlopen
+from utils.opener import urlretrieve
 import cairo
 import re
 import os
 import time
 import math
-from urllib.request import urlretrieve
 import json
 import subprocess
 import shlex
@@ -1370,12 +1370,12 @@ class MyDrawArea(Gtk.DrawingArea):
             pix = pix.split(';')[0]
             pix_path = os.path.join(ICONS_USER_PATH, 'default', 'weather', os.path.split(pix)[1])
             if not os.path.exists(pix_path):
-                try:
-                    print ('\033[34m>\033[0m '+_('downloading')+' '+os.path.split(pix)[1])
-                    urlretrieve(pix, pix_path)
-                    print ('OK')
-                except:
-                    print (_('Unable to download')+'\n'+pix)
+                # try:
+                #     print ('\033[34m>\033[0m '+_('downloading')+' '+os.path.split(pix)[1])
+                urlretrieve(pix, pix_path)
+                #     print ('OK')
+                # except:
+                #     print (_('Unable to download')+'\n'+pix)
                 if not os.path.exists(pix_path):
                     pix_path = os.path.join(THEMES_PATH, 'na.png')
                 if not indicator_icon_name:

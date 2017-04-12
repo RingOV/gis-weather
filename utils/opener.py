@@ -2,6 +2,7 @@
 
 import urllib.request
 from random import randint
+import os
 
 agent_list = [
     'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36',
@@ -100,3 +101,14 @@ def urlopener(url, tries=1):
             print(str(i+1))
     print ('\033[1;31m[!]\033[0m '+_('Unable to download page, check the network connection'))
     return None
+
+def urlretrieve(pix, pix_path):
+    try:
+        print ('\033[34m>\033[0m '+_('downloading')+' '+os.path.split(pix)[1])
+        opener = urllib.request.build_opener()
+        opener.addheaders = [('User-agent', get_random_agent())]
+        urllib.request.install_opener(opener)
+        urllib.request.urlretrieve(pix, pix_path)
+        print ('OK')
+    except:
+        print (_('Unable to download')+'\n'+pix)
