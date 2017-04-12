@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.46'
+v = '0.8.2.47'
 #  Copyright (C) 2013-2017 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -1370,12 +1370,7 @@ class MyDrawArea(Gtk.DrawingArea):
             pix = pix.split(';')[0]
             pix_path = os.path.join(ICONS_USER_PATH, 'default', 'weather', os.path.split(pix)[1])
             if not os.path.exists(pix_path):
-                # try:
-                #     print ('\033[34m>\033[0m '+_('downloading')+' '+os.path.split(pix)[1])
                 urlretrieve(pix, pix_path)
-                #     print ('OK')
-                # except:
-                #     print (_('Unable to download')+'\n'+pix)
                 if not os.path.exists(pix_path):
                     pix_path = os.path.join(THEMES_PATH, 'na.png')
                 if not indicator_icon_name:
