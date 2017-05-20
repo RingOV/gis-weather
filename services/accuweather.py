@@ -285,27 +285,27 @@ def get_weather():
     text_now = re.findall('<span class="cond">(.*)<', w_now[0])
     text_now[0]=text_now[0].split('<')[0]
     
-    if show_block_add_info:
-        source = urlopener(URL_ADD_INFO, 5)
-        if not source:
-            return False
-        # time.sleep(1)
+    # if show_block_add_info:
+    source = urlopener(URL_ADD_INFO, 5)
+    if not source:
+        return False
+    # time.sleep(1)
 
-        # pressure now
-        press = re.findall('Pressure.*>(.+?)<', source)
-        if press:
-            press_now = [press[0].split()[0]]
-            press_scale = press[0].split()[1]
-            if press_scale == 'mb':
-                press_now[0] = convert_from_hPa(press_now[0])
-            if press_scale == 'in':
-                press_now[0] = convert_from_inHg(press_now[0])
-        else:
-            press_now = ['n/a mmHg;n/a inHg;n/a hPa']
-        # humidity now
-        hum_now = re.findall('Humidity.*>(\d+)', source)
-        if not hum_now:
-            hum_now=['n/a']
+    # pressure now
+    press = re.findall('Pressure.*>(.+?)<', source)
+    if press:
+        press_now = [press[0].split()[0]]
+        press_scale = press[0].split()[1]
+        if press_scale == 'mb':
+            press_now[0] = convert_from_hPa(press_now[0])
+        if press_scale == 'in':
+            press_now[0] = convert_from_inHg(press_now[0])
+    else:
+        press_now = ['n/a mmHg;n/a inHg;n/a hPa']
+    # humidity now
+    hum_now = re.findall('Humidity.*>(\d+)', source)
+    if not hum_now:
+        hum_now=['n/a']
 
     #### weather to several days ####
     source = urlopener(URL_SEVERAL_DAYS, 5)

@@ -6,6 +6,123 @@ from gi.repository import Gtk
 import os
 from utils import presets
 from services import data
+import datetime
+
+# create_weather_menu by Istvan Petres
+def create_weather_menu(app, ICONS_PATH, gw_config, weather):
+    icons_name = gw_config['icons_name']
+    city_id = gw_config['city_id']
+    indicator_icons_name = gw_config['indicator_icons_name']
+    stock_icons_path = ICONS_PATH+'/'+indicator_icons_name+'/stock/'
+    preset_number = gw_config['preset_number']
+    current_place = 'Unknown';
+
+    if not os.path.isdir(stock_icons_path):
+        stock_icons_path = ICONS_PATH+'/default/stock/'
+
+    # create menu and fill 
+    menu = Gtk.Menu()
+
+    for i in range(len(data.services_list)):
+        try:
+            city_list = gw_config[data.get_city_list(data.services_list[i])]
+        except:
+            city_list = []
+        if len(city_list) != 0:
+            for j in range(len(city_list)):
+                if city_list[j].split(';')[0] == str(gw_config['city_id']) and gw_config['service'] == data.services_list[i]:
+                    current_place = city_list[j].split(';')[1]
+
+    # main menu
+    menu_items = Gtk.ImageMenuItem(_('Location')+': '+current_place)
+    menu.append(menu_items)
+    menu_items.connect("activate", app.menu_response, 'goto_site', 0)
+    menu_items.show()
+
+    try:
+        weather['icon_now']
+    except NameError:
+        return menu
+
+    menu_items = Gtk.SeparatorMenuItem()
+    menu.append(menu_items)
+    menu_items.show()
+
+    menu_items = Gtk.ImageMenuItem('')
+    image = Gtk.Image()
+    image.set_from_file(stock_icons_path+weather['icon_now'][0].split(';')[1])
+    menu_items.set_image(image)
+    menu_items.set_always_show_image(always_show=True);
+    label = menu_items.get_children()[0]
+    label.set_markup('<b>'+_('Now')+' '+weather['t_now'][0].split(';')[0]+'</b> ('+weather['t_day'][0].split(';')[0]+' / '+weather['t_night'][0].split(';')[0]+')')
+    menu.append(menu_items)
+    menu_items.connect("activate", app.menu_response, 'goto_site_hourly', 0)
+    menu_items.show()
+
+    menu_items = Gtk.ImageMenuItem(_('Humidity')+': '+weather['hum_now'][0]+'%')
+    menu.append(menu_items)
+    menu_items.connect("activate", app.menu_response, 'goto_site_hourly', 0)
+    menu_items.show()
+
+    menu_items = Gtk.ImageMenuItem(_('Wind')+': '+weather['wind_speed_now'][0].split(';')[1])
+    menu.append(menu_items)
+    menu_items.connect("activate", app.menu_response, 'goto_site_hourly', 0)
+    menu_items.show()
+
+    menu_items = Gtk.ImageMenuItem(weather['text_now'][0])
+    menu.append(menu_items)
+    menu_items.connect("activate", app.menu_response, 'goto_site_hourly', 0)
+    menu_items.show()
+
+    menu_items = Gtk.ImageMenuItem(_('Sunrise')+': '+weather['sunrise'])
+    menu.append(menu_items)
+    menu_items.connect("activate", app.menu_response, 'goto_site_hourly', 0)
+    menu_items.show()
+
+    menu_items = Gtk.ImageMenuItem(_('Sunset')+': '+weather['sunset'])
+    menu.append(menu_items)
+    menu_items.connect("activate", app.menu_response, 'goto_site_hourly', 0)
+    menu_items.show()
+
+    now = datetime.datetime.now()
+
+    for i in range(1, gw_config['n']+1):
+        now += datetime.timedelta(days=1)
+
+        try:
+            weather['icon'][i]
+        except NameError:
+            break
+
+        menu_items = Gtk.SeparatorMenuItem()
+        menu.append(menu_items)
+        menu_items.show()
+        menu_items = Gtk.ImageMenuItem('')
+        image = Gtk.Image()
+        image.set_from_file(stock_icons_path+weather['icon'][i].split(';')[1])
+        menu_items.set_image(image)
+        menu_items.set_always_show_image(always_show=True);
+        label = menu_items.get_children()[0]
+        if i == 1:
+            label.set_markup('<b>'+_('Tomorrow')+' '+weather['t_day'][i].split(';')[0]+' / '+weather['t_night'][i].split(';')[0]+'</b>')
+        else:
+            label.set_markup('<b>'+now.strftime("%A")+' '+weather['t_day'][i].split(';')[0]+' / '+weather['t_night'][i].split(';')[0]+'</b>')
+        menu.append(menu_items)
+        menu_items.connect("activate", app.menu_response, 'goto_site_day'+str(i), 0)
+        menu_items.show()
+
+        menu_items = Gtk.ImageMenuItem(_('Precipitation')+': '+weather['chance_of_rain'][i] if weather['chance_of_rain'] != '?' else _('Precipitation')+': ?')
+        menu.append(menu_items)
+        menu_items.connect("activate", app.menu_response, 'goto_site_day'+str(i), 0)
+        menu_items.show()
+
+        menu_items = Gtk.ImageMenuItem(weather['text'][i])
+        menu.append(menu_items)
+        menu_items.connect("activate", app.menu_response, 'goto_site_day'+str(i), 0)
+        menu_items.show()
+
+    return menu
+
 
 def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color_scheme, gw_config, for_indicator, test_on):
     icons_name = gw_config['icons_name']

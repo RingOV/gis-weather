@@ -34,7 +34,8 @@ http://www.gnu.org/licenses/gpl.txt''')
         "Karbunkul",
         "Haron Prime",
         "Yuriy_Y",
-        "Alain-Olivier Breysse\n",
+        "Alain-Olivier Breysse",
+        "Istvan Petres\n",
         "    autostart helper",
         "by Jonas Wagner\n"])
     about.set_artists(["    "+_('Backgrounds')+":",

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.49'
+v = '0.8.2.50'
 #  Copyright (C) 2013-2017 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -645,7 +645,9 @@ class Indicator:
         def set_menu(self, menu):
             self.indicator.connect("popup-menu", self.popup_menu)
             self.indicator_label.connect("popup-menu", self.popup_menu)
-            self.indicator.connect("activate", app.menu_response, 'show_hide_widget')
+            #FIXME #self.indicator.connect("activate", app.menu_response, 'show_hide_widget')
+            self.indicator.connect("activate", self.activate_menu)
+            self.indicator_label.connect("activate", self.activate_menu)
             self.indicator.connect("scroll-event", self.scroll)
 
         def scroll(self, button, event):
@@ -653,10 +655,20 @@ class Indicator:
                 app.menu_response(None, 'show_hide_widget', 'show')
             elif event.direction == Gdk.ScrollDirection.DOWN:
                 app.menu_response(None, 'show_hide_widget', 'hide')
+        
+        def activate_menu(self, icon):
+            time=Gtk.get_current_event_time()
+            def pos(menu, icon):
+                return (Gtk.StatusIcon.position_menu(menu, icon))
+            app.create_menu(for_indicator=True, weather_menu=True)
+            app.menu.popup(None, None, pos, self.indicator, 1, time)
 
         def popup_menu(self, icon, widget, time):
             app.create_menu(for_indicator=True)
-            app.menu.popup(None, None, None, None, widget, time)
+            def pos(menu, icon):
+                return (Gtk.StatusIcon.position_menu(menu, icon))
+            app.menu.popup(None, None, pos, self.indicator, widget, time)
+
 
         def hide(self):
             if not self.hiden:
@@ -1188,8 +1200,8 @@ class MyDrawArea(Gtk.DrawingArea):
 
 
     def draw_weather_icon(self, cr, index, x, y):
-        if date != []:
-            if day:
+        if date != '?':
+            if day != '?':
                 _day = day[index].strip()
                 weekend1 = []
                 for item in weekend.split(','):
@@ -1204,7 +1216,7 @@ class MyDrawArea(Gtk.DrawingArea):
             _t_night = t_night[index].split(';')[t_index]
 
             _wind_color = color_text
-            if (wind_direct and wind_speed): 
+            if (wind_direct != '?' and wind_speed != '?'): 
                 if int(wind_speed[index].split(';')[wind_units].split()[0]) >= high_wind and high_wind != -1:
                     _wind_color = color_high_wind
                 _wind_direct = wind_direct[index]
@@ -1212,17 +1224,17 @@ class MyDrawArea(Gtk.DrawingArea):
             _text = text[index]
 
             fmt = {
-                'day': _day if day else '',
+                'day': _day if day != '?' else '',
                 'date': _date,
                 't_day': _t_day,
                 't_night': _t_night,
-                'wind_direct': _wind_direct if wind_direct else '',
-                'wind_speed': _wind_speed if wind_speed else '',
+                'wind_direct': _wind_direct if wind_direct != '?' else '',
+                'wind_speed': _wind_speed if wind_speed != '?' else '',
                 'text': _text}
 
             self.draw_scaled_icon(cr, x+day_icon_attr['x'], y+day_icon_attr['y'], icon[index],
                     day_icon_attr['size'], day_icon_attr['size'])
-            if day:
+            if day != '?':
                 s = day_date_fmt.format_map(fmt)
             else:
                 s = _date
@@ -1232,10 +1244,10 @@ class MyDrawArea(Gtk.DrawingArea):
                     day_date_attr['font_size'], w_block, Pango_dict[day_date_attr['align']], _weekend_color)
             if t_attr['show']: self.draw_text(cr, t_fmt.format_map(fmt), x+t_attr['x'], y+t_attr['y'],
                     font+t_attr['font_weight'], t_attr['font_size'], w_block, Pango_dict[t_attr['align']])
-            if chance_of_rain and show_chance_of_rain:
+            if chance_of_rain != '?' and show_chance_of_rain:
                 self.draw_text(cr, chance_of_rain[index], x, y+9, font+' Normal', 7, w_block, Pango.Alignment.CENTER)
             v_offset = 0
-            if (wind_direct and wind_speed): 
+            if (wind_direct != '?' and wind_speed != '?'): 
                 if wind_attr['show']: self.draw_text(cr, wind_fmt.format(wind_direct=_wind_direct, wind_speed=_wind_speed),
                         x+wind_attr['x'], y+wind_attr['y'], font+wind_attr['font_weight'], wind_attr['font_size'], 80, 
                         Pango_dict[wind_attr['align']], _wind_color)
@@ -1567,6 +1579,30 @@ class Weather_Widget:
         if event == 'goto_site':
             if URL:
                 webbrowser.open(URL)
+        if event == 'goto_site_hourly':
+            if URL:
+                webbrowser.open(URL.replace('/current-weather/', '/hourly-weather-forecast/'))
+        if event == 'goto_site_day1':
+            if URL:
+                webbrowser.open(URL.replace('/current-weather/', '/daily-weather-forecast/')+'?day=2')
+        if event == 'goto_site_day2':
+            if URL:
+                webbrowser.open(URL.replace('/current-weather/', '/daily-weather-forecast/')+'?day=3')
+        if event == 'goto_site_day3':
+            if URL:
+                webbrowser.open(URL.replace('/current-weather/', '/daily-weather-forecast/')+'?day=4')
+        if event == 'goto_site_day4':
+            if URL:
+                webbrowser.open(URL.replace('/current-weather/', '/daily-weather-forecast/')+'?day=5')
+        if event == 'goto_site_day5':
+            if URL:
+                webbrowser.open(URL.replace('/current-weather/', '/daily-weather-forecast/')+'?day=6')
+        if event == 'goto_site_day6':
+            if URL:
+                webbrowser.open(URL.replace('/current-weather/', '/daily-weather-forecast/')+'?day=7')
+        if event == 'goto_site_day7':
+            if URL:
+                webbrowser.open(URL.replace('/current-weather/', '/daily-weather-forecast/')+'?day=8')
         if event == 'start_new_instance':
             if multInstances:
                 subprocess.Popen(['python3', os.path.join(APP_PATH, 'gis-weather.py')])
@@ -1804,13 +1840,12 @@ class Weather_Widget:
             return True
         return False
 
-    def create_menu(self, for_indicator=False):
+    def create_menu(self, for_indicator=False, weather_menu=False):
         global icons_list, backgrounds_list
-        # try:
-        #     a = gw_config[data.get_city_list(service)]
-        # except:
-        #     gw_config[data.get_city_list(service)] = []
-        self.menu, icons_list, backgrounds_list = gw_menu.create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color_scheme, gw_config, for_indicator, args.test)
+        if weather_menu:
+            self.menu = gw_menu.create_weather_menu(app, ICONS_PATH, gw_config, weather)
+        else:
+            self.menu, icons_list, backgrounds_list = gw_menu.create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color_scheme, gw_config, for_indicator, args.test)
 
     def configure_event(self, widget, event):
         global x_pos, y_pos
