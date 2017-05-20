@@ -10,9 +10,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2017-04-09 16:40+0300\n"
-"PO-Revision-Date: 2017-04-10 11:53+0000\n"
-"Last-Translator: French language coordinator <french.coordinator@rbox.me>\n"
+"POT-Creation-Date: 2017-05-20 16:43+0300\n"
+"PO-Revision-Date: 2017-05-20 13:52+0000\n"
+"Last-Translator: RingOV <ringov@mail.ru>\n"
 "Language-Team: French (http://www.transifex.com/gis-weather-team/gis-weather/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,13 +58,13 @@ msgid "Help and Ideas"
 msgstr "Aide et idées "
 
 #: DEB/build/usr/share/gis-weather/dialogs/about_dialog.py:40
-#: dialogs/about_dialog.py:40
+#: dialogs/about_dialog.py:41
 msgid "Backgrounds"
 msgstr "Arrière-plans"
 
 #: DEB/build/usr/share/gis-weather/dialogs/about_dialog.py:45
 #: DEB/build/usr/share/gis-weather/utils/gw_menu.py:226
-#: dialogs/about_dialog.py:45 utils/gw_menu.py:226
+#: dialogs/about_dialog.py:46 utils/gw_menu.py:364
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3709
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:4165
 #: dialogs/settings_dialog.ui:3709 dialogs/settings_dialog.ui:4165
@@ -72,13 +72,13 @@ msgid "Icons"
 msgstr "Icônes"
 
 #: DEB/build/usr/share/gis-weather/dialogs/about_dialog.py:59
-#: dialogs/about_dialog.py:59
+#: dialogs/about_dialog.py:60
 msgid "translator-credits"
 msgstr "spyder <ghostdarkhide@gmail.com>\nhttps://www.transifex.com/accounts/profile/yahoe.001/"
 
 #: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.py:35
 #: DEB/build/usr/share/gis-weather/gis-weather.py:300
-#: dialogs/city_id_dialog.py:35 gis-weather.py:303
+#: dialogs/city_id_dialog.py:35 gis-weather.py:304
 msgid "Error loading config file"
 msgstr "Erreur de chargement du fichier de configuration"
 
@@ -106,7 +106,7 @@ msgstr "Code de ville"
 
 #: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.py:118
 #: DEB/build/usr/share/gis-weather/utils/gw_menu.py:215
-#: dialogs/city_id_dialog.py:118 utils/gw_menu.py:215
+#: dialogs/city_id_dialog.py:118 utils/gw_menu.py:36 utils/gw_menu.py:348
 #: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:42
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:632
 #: dialogs/city_id_dialog.ui:42 dialogs/settings_dialog.ui:632
@@ -140,7 +140,7 @@ msgstr "Envoyez-moi un courriel"
 
 #: DEB/build/usr/share/gis-weather/dialogs/help_dialog.py:30
 #: DEB/build/usr/share/gis-weather/utils/gw_menu.py:259
-#: dialogs/help_dialog.py:30 utils/gw_menu.py:259
+#: dialogs/help_dialog.py:30 utils/gw_menu.py:397
 msgid "Help"
 msgstr "Aide"
 
@@ -148,7 +148,7 @@ msgstr "Aide"
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:795
 #: DEB/build/usr/share/gis-weather/utils/gw_menu.py:251
 #: dialogs/settings_dialog.py:103 dialogs/settings_dialog.py:795
-#: utils/gw_menu.py:251
+#: utils/gw_menu.py:389
 msgid "Preferences"
 msgstr "Préférences"
 
@@ -215,7 +215,7 @@ msgstr "Toujours"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:444
 #: DEB/build/usr/share/gis-weather/utils/gw_menu.py:115
-#: dialogs/settings_dialog.py:444 utils/gw_menu.py:115
+#: dialogs/settings_dialog.py:444 utils/gw_menu.py:248
 msgid "No"
 msgstr "Non"
 
@@ -243,7 +243,7 @@ msgstr "Auteur "
 
 #: DEB/build/usr/share/gis-weather/dialogs/update_dialog.py:28
 #: DEB/build/usr/share/gis-weather/utils/opener.py:93
-#: dialogs/update_dialog.py:28 utils/opener.py:93
+#: dialogs/update_dialog.py:28 utils/opener.py:94
 #: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:561
 #: dialogs/update_dialog.ui:561
 msgid "Downloading"
@@ -301,231 +301,231 @@ msgstr "le mode de test est activé"
 #: DEB/build/usr/share/gis-weather/gis-weather.py:229
 #: DEB/build/usr/share/gis-weather/utils/presets.py:60
 #: DEB/build/usr/share/gis-weather/utils/presets.py:176
-#: DEB/build/usr/share/gis-weather/utils/presets.py:211 gis-weather.py:232
-#: utils/presets.py:61 utils/presets.py:178 utils/presets.py:214
-#: utils/presets.py:249
+#: DEB/build/usr/share/gis-weather/utils/presets.py:211 gis-weather.py:233
+#: utils/gw_menu.py:56 utils/presets.py:61 utils/presets.py:178
+#: utils/presets.py:214 utils/presets.py:249
 msgid "Now"
 msgstr "Maintenant"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:284 gis-weather.py:287
+#: DEB/build/usr/share/gis-weather/gis-weather.py:284 gis-weather.py:288
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:682
 #: dialogs/settings_dialog.ui:682
 msgid "Configuration folder"
 msgstr "Dossier de configuration"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:331 gis-weather.py:334
+#: DEB/build/usr/share/gis-weather/gis-weather.py:331 gis-weather.py:335
 msgid "Error loading color scheme"
 msgstr "Erreur de chargement du modèle de couleurs"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:346 gis-weather.py:349
+#: DEB/build/usr/share/gis-weather/gis-weather.py:346 gis-weather.py:350
 msgid "Error loading preset"
 msgstr "Erreur lors du chargement des préréglages"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:356 gis-weather.py:359
+#: DEB/build/usr/share/gis-weather/gis-weather.py:356 gis-weather.py:360
 msgid "Enter full path to script"
 msgstr "Saisir le chemin complet vers le script"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:357 gis-weather.py:360
+#: DEB/build/usr/share/gis-weather/gis-weather.py:357 gis-weather.py:361
 msgid "Exit"
 msgstr "Quitter"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:465 gis-weather.py:468
+#: DEB/build/usr/share/gis-weather/gis-weather.py:465 gis-weather.py:469
 msgid "Check for new version"
 msgstr "Vérifier la disponibilité d'une nouvelle version"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:470
-#: DEB/build/usr/share/gis-weather/gis-weather.py:479 gis-weather.py:473
-#: gis-weather.py:482
+#: DEB/build/usr/share/gis-weather/gis-weather.py:479 gis-weather.py:474
+#: gis-weather.py:483
 msgid "Unable to check for updates"
 msgstr "Impossible de vérifier les mises à jour"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:494 gis-weather.py:497
+#: DEB/build/usr/share/gis-weather/gis-weather.py:494 gis-weather.py:498
 msgid "New version available"
 msgstr "Nouvelle version disponible"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:501 gis-weather.py:504
+#: DEB/build/usr/share/gis-weather/gis-weather.py:501 gis-weather.py:505
 msgid "You are using the latest version"
 msgstr "Vous utilisez la dernière version"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:518
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1423 gis-weather.py:521
-#: gis-weather.py:1481
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1423 gis-weather.py:522
+#: gis-weather.py:1493
 msgid "Screenshot saved to"
 msgstr "Capture d'écran enregistrée vers"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:522 gis-weather.py:525
+#: DEB/build/usr/share/gis-weather/gis-weather.py:522 gis-weather.py:526
 msgid "Unable to get the screenshot"
 msgstr "Impossible de capturer l'écran"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:723 gis-weather.py:727
+#: DEB/build/usr/share/gis-weather/gis-weather.py:723 gis-weather.py:740
 msgid "Getting weather..."
 msgstr "Récupération de la météo ..."
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:726 gis-weather.py:730
+#: DEB/build/usr/share/gis-weather/gis-weather.py:726 gis-weather.py:743
 msgid "Error getting weather"
 msgstr "Erreur lors de la récupération de la météo"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:728 gis-weather.py:732
+#: DEB/build/usr/share/gis-weather/gis-weather.py:728 gis-weather.py:745
 msgid "Location not set"
 msgstr "Emplacement non défini"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:785
-#: DEB/build/usr/share/gis-weather/gis-weather.py:847 gis-weather.py:789
-#: gis-weather.py:851
+#: DEB/build/usr/share/gis-weather/gis-weather.py:847 gis-weather.py:802
+#: gis-weather.py:864
 msgid "Next update in"
 msgstr "Prochaine mise à jour dans"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:785
-#: DEB/build/usr/share/gis-weather/gis-weather.py:847 gis-weather.py:789
-#: gis-weather.py:851
+#: DEB/build/usr/share/gis-weather/gis-weather.py:847 gis-weather.py:802
+#: gis-weather.py:864
 msgid "min"
 msgstr "min"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:821
-#: DEB/build/usr/share/gis-weather/services/gismeteo.py:384 gis-weather.py:825
+#: DEB/build/usr/share/gis-weather/services/gismeteo.py:384 gis-weather.py:838
 #: services/gismeteo.py:384
 msgid "Next try in 10 seconds"
 msgstr "Prochain essai dans 10 secondes"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:837 gis-weather.py:841
+#: DEB/build/usr/share/gis-weather/gis-weather.py:837 gis-weather.py:854
 msgid "Connection error"
 msgstr "Erreur de connexion"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:902 gis-weather.py:883
+#: DEB/build/usr/share/gis-weather/gis-weather.py:902 gis-weather.py:896
 msgid "feels like"
 msgstr "ressenti"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:949 gis-weather.py:996
+#: DEB/build/usr/share/gis-weather/gis-weather.py:949 gis-weather.py:1013
 msgid "Updated on server"
 msgstr "Mise à jour sur le serveur"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:950 gis-weather.py:997
+#: DEB/build/usr/share/gis-weather/gis-weather.py:950 gis-weather.py:1014
 msgid "Weather received"
 msgstr "Météo reçue"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1052
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1069
 msgid "E"
 msgstr "E"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1052
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1069
 msgid "S"
 msgstr "S"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1052
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1069
 msgid "W"
 msgstr "O"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1052
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1069
 msgid "N"
 msgstr "N"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1043 gis-weather.py:1091
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1043 gis-weather.py:1108
 msgid "humid."
 msgstr "humid."
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1046 gis-weather.py:1094
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1046 gis-weather.py:1111
 msgid "water"
 msgstr "eau"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1061
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1103
 #: DEB/build/usr/share/gis-weather/services/gismeteo.py:373
-#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1109
-#: gis-weather.py:1151 services/gismeteo.py:373 services/yr.py:147
+#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1126
+#: gis-weather.py:1168 services/gismeteo.py:373 services/yr.py:147
 msgid "Morning"
 msgstr "Matin"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1061
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1103
 #: DEB/build/usr/share/gis-weather/services/gismeteo.py:373
-#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1109
-#: gis-weather.py:1151 services/gismeteo.py:373 services/yr.py:147
+#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1126
+#: gis-weather.py:1168 services/gismeteo.py:373 services/yr.py:147
 msgid "Day"
 msgstr "Jour"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1061
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1103
 #: DEB/build/usr/share/gis-weather/services/gismeteo.py:373
-#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1109
-#: gis-weather.py:1151 services/gismeteo.py:373 services/yr.py:147
+#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1126
+#: gis-weather.py:1168 services/gismeteo.py:373 services/yr.py:147
 msgid "Evening"
 msgstr "Soir"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1061
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1103
 #: DEB/build/usr/share/gis-weather/services/gismeteo.py:373
-#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1109
-#: gis-weather.py:1151 services/gismeteo.py:373 services/yr.py:147
+#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1126
+#: gis-weather.py:1168 services/gismeteo.py:373 services/yr.py:147
 msgid "Night"
 msgstr "Nuit"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1066
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1068 gis-weather.py:1114
-#: gis-weather.py:1116
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1068 gis-weather.py:1131
+#: gis-weather.py:1133 utils/gw_menu.py:106
 msgid "Tomorrow"
 msgstr "Demain"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1107 gis-weather.py:1155
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1107 gis-weather.py:1172
 msgid "Today"
 msgstr "Aujourd'hui"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1252 gis-weather.py:1310
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1252 gis-weather.py:1327
 msgid "Background image not found"
 msgstr "L'image d’arrière-plan n'a pas été trouvée"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1316 gis-weather.py:1374
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1316 utils/opener.py:107
 msgid "downloading"
 msgstr "téléchargement"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1320 gis-weather.py:1378
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1320 utils/opener.py:114
 msgid "Unable to download"
 msgstr "Téléchargement impossible"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1344 gis-weather.py:1402
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1344 gis-weather.py:1414
 msgid "Icon not found"
 msgstr "Icône introuvable"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1434 gis-weather.py:1492
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1434 gis-weather.py:1504
 msgid "Widget size"
 msgstr "Taille du Widget"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1493
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1505
 msgid "width"
 msgstr "largeur"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1493
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1505
 msgid "height"
 msgstr "hauteur"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1493
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1505
 msgid "including indent"
 msgstr "comprenant le retrait"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1605 gis-weather.py:1663
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1605 gis-weather.py:1704
 msgid "Requires restart"
 msgstr "Un redémarrage est exigé"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1674 gis-weather.py:1732
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1674 gis-weather.py:1773
 msgid "Removed"
 msgstr "Enlevé"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1707 gis-weather.py:1765
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1707 gis-weather.py:1806
 #: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:361
 #: dialogs/city_id_dialog.ui:361
 msgid "Added"
 msgstr "Ajouté"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1712 gis-weather.py:1770
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1712 gis-weather.py:1811
 #: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:293
 #: dialogs/city_id_dialog.ui:293
 msgid "Invalid location code"
 msgstr "Code d'emplacement invalide"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1780 gis-weather.py:1838
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1780 gis-weather.py:1878
 msgid "Your screen does not support alpha"
 msgstr "Votre écran ne prend pas alpha en charge"
 
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1782 gis-weather.py:1840
+#: DEB/build/usr/share/gis-weather/gis-weather.py:1782 gis-weather.py:1880
 msgid "Your screen supports alpha"
 msgstr "Votre écran prend alpha en charge"
 
@@ -600,95 +600,95 @@ msgstr "bf"
 msgid "kts"
 msgstr "nd"
 
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:56 utils/gw_menu.py:56
+#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:56 utils/gw_menu.py:174
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:691
 #: dialogs/settings_dialog.ui:691
 msgid "Setup..."
 msgstr "Configuration ..."
 
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:130 utils/gw_menu.py:130
+#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:130 utils/gw_menu.py:263
 msgid "Black"
 msgstr "Noir"
 
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:130 utils/gw_menu.py:130
+#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:130 utils/gw_menu.py:263
 msgid "White"
 msgstr "Blanc"
 
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:130 utils/gw_menu.py:130
+#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:130 utils/gw_menu.py:263
 msgid "Gray"
 msgstr "Gris"
 
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:140 utils/gw_menu.py:140
+#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:140 utils/gw_menu.py:273
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1656
 #: dialogs/settings_dialog.ui:1656
 msgid "Lock position"
 msgstr "Verrouiller la position"
 
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:146 utils/gw_menu.py:146
+#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:146 utils/gw_menu.py:279
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1643
 #: dialogs/settings_dialog.ui:1643
 msgid "On all desktops"
 msgstr "Sur tous les bureaux"
 
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:152 utils/gw_menu.py:152
+#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:152 utils/gw_menu.py:285
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1829
 #: dialogs/settings_dialog.ui:1829
 msgid "Always on top"
 msgstr "Toujours sur le dessus"
 
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:162 utils/gw_menu.py:162
+#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:162 utils/gw_menu.py:295
 msgid "Save screenshot"
 msgstr "Capturer l'écran météo"
 
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:178 utils/gw_menu.py:178
+#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:178 utils/gw_menu.py:311
 msgid "Show/Hide widget"
 msgstr "Montrer/cacher le widget"
 
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:187 utils/gw_menu.py:187
+#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:187 utils/gw_menu.py:320
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:916
 #: dialogs/settings_dialog.ui:916
 msgid "Refresh"
 msgstr "Rafraîchir"
 
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:195 utils/gw_menu.py:195
+#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:195 utils/gw_menu.py:328
 msgid "Start new instance"
 msgstr "Lancer une nouvelle instance"
 
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:203 utils/gw_menu.py:203
+#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:203 utils/gw_menu.py:336
 msgid "Go to site"
 msgstr "Aller au site"
 
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:221 utils/gw_menu.py:221
+#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:221 utils/gw_menu.py:354
 msgid "Indicator icons"
 msgstr "Icônes de l'indicateur"
 
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:231 utils/gw_menu.py:231
+#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:231 utils/gw_menu.py:369
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3623
 #: dialogs/settings_dialog.ui:3623
 msgid "Background"
 msgstr "Arrière-plan"
 
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:236 utils/gw_menu.py:236
+#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:236 utils/gw_menu.py:374
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3361
 #: dialogs/settings_dialog.ui:3361
 msgid "Text"
 msgstr "Texte"
 
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:241 utils/gw_menu.py:241
+#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:241 utils/gw_menu.py:379
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1872
 #: dialogs/settings_dialog.ui:1872
 msgid "Window"
 msgstr "Fenêtre"
 
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:246 utils/gw_menu.py:246
+#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:246 utils/gw_menu.py:384
 msgid "Presets"
 msgstr "Préréglages"
 
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:267 utils/gw_menu.py:267
+#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:267 utils/gw_menu.py:405
 msgid "About"
 msgstr "À propos de l'appli"
 
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:315 utils/gw_menu.py:315
+#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:315 utils/gw_menu.py:453
 #: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:25
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:587
 #: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:44
@@ -697,39 +697,47 @@ msgstr "À propos de l'appli"
 msgid "Close"
 msgstr "Fermer"
 
-#: DEB/build/usr/share/gis-weather/utils/opener.py:101 utils/opener.py:101
+#: DEB/build/usr/share/gis-weather/utils/opener.py:101 utils/opener.py:102
 msgid "Unable to download page, check the network connection"
 msgstr "Impossible de télécharger la page. Veuillez vérifier la connexion réseau"
 
-#: gis-weather.py:882
+#: gis-weather.py:895
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1302
 #: dialogs/settings_dialog.ui:1302
 msgid "Temperature"
 msgstr "Température"
 
-#: gis-weather.py:884
+#: gis-weather.py:897 utils/gw_menu.py:66
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1248
 #: dialogs/settings_dialog.ui:1248
 msgid "Wind"
 msgstr "Vent"
 
-#: gis-weather.py:885
+#: gis-weather.py:898
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1261
 #: dialogs/settings_dialog.ui:1261
 msgid "Pressure"
 msgstr "Pression"
 
-#: gis-weather.py:886
+#: gis-weather.py:899 utils/gw_menu.py:61
 msgid "Humidity"
 msgstr "Humidité"
 
-#: gis-weather.py:887
+#: gis-weather.py:900 utils/gw_menu.py:76
 msgid "Sunrise"
 msgstr "Lever du soleil"
 
-#: gis-weather.py:888
+#: gis-weather.py:901 utils/gw_menu.py:81
 msgid "Sunset"
 msgstr "Coucher du soleil"
+
+#: utils/gw_menu.py:113
+msgid "Precipitation"
+msgstr ""
+
+#: utils/gw_menu.py:359
+msgid "Menu icons"
+msgstr ""
 
 #: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:58
 #: dialogs/city_id_dialog.ui:58
