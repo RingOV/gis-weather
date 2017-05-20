@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.50'
+v = '0.8.2.51'
 #  Copyright (C) 2013-2017 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -149,6 +149,7 @@ gw_config_default = {
     'high_wind': 10,                   # wind greater or equal to this value is highlighted (-1 do not allocate)
     'color_high_wind': (0, 0, 0.6, 1), # color
     'icons_name': 'default',           # name folder with icon
+    'icons_menu_name': 'default',      # name folder with icon for menu
     'fix_BadDrawable': False,           # if BadDrawable error
     'color_scheme_number': 0,
     'check_for_updates': 2,            # 0 - no, 1 - only when startup, 2 - always
@@ -1663,6 +1664,11 @@ class Weather_Widget:
         if event == 'setup':
             Load_Config()
             settings_dialog.main(gw_config_default, gw_config, self.drawing_area, app, icons_list, backgrounds_list, ICONS_PATH, BGS_PATH, service)
+        if event == 'redraw_menu_icons':
+            global icons_menu_name
+            icons_menu_name = value
+            self.drawing_area.queue_draw()
+            Save_Config()
         if event == 'redraw_icons':
             global icons_name
             icons_name = value

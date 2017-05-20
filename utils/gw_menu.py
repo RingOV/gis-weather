@@ -10,10 +10,9 @@ import datetime
 
 # create_weather_menu by Istvan Petres
 def create_weather_menu(app, ICONS_PATH, gw_config, weather):
-    icons_name = gw_config['icons_name']
     city_id = gw_config['city_id']
-    indicator_icons_name = gw_config['indicator_icons_name']
-    stock_icons_path = ICONS_PATH+'/'+indicator_icons_name+'/stock/'
+    icons_menu_name = gw_config['icons_menu_name']
+    stock_icons_path = ICONS_PATH+'/'+icons_menu_name+'/stock/'
     preset_number = gw_config['preset_number']
     current_place = 'Unknown';
 
@@ -126,6 +125,7 @@ def create_weather_menu(app, ICONS_PATH, gw_config, weather):
 
 def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color_scheme, gw_config, for_indicator, test_on):
     icons_name = gw_config['icons_name']
+    icons_menu_name = gw_config['icons_menu_name']
     show_bg_png = gw_config['show_bg_png']
     color_bg = gw_config['color_bg']
     bg_custom = gw_config['bg_custom']
@@ -164,6 +164,7 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color
     sub_menu_place = Gtk.Menu()
     sub_menu_icons = Gtk.Menu()
     sub_menu_indicator_icons = Gtk.Menu()
+    sub_menu_icons_for_menu = Gtk.Menu()
     sub_menu_bgs = Gtk.Menu()
     sub_menu_color_text = Gtk.Menu()
     sub_menu_window = Gtk.Menu()
@@ -226,6 +227,21 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color
             menu_items.set_active(True)
         sub_menu_indicator_icons.append(menu_items)
         menu_items.connect("activate", app.menu_response, 'redraw_indicator_icons', icons_list[i])
+        menu_items.show()
+
+    # sub_menu_icons_for_menu
+    menu_items = Gtk.RadioMenuItem(label='0. Default')
+    if icons_menu_name == 'default':
+        menu_items.set_active(True)
+    sub_menu_icons_for_menu.append(menu_items)
+    menu_items.connect("activate", app.menu_response, 'redraw_menu_icons', 'default')
+    menu_items.show()
+    for i in range(len(icons_list)):
+        menu_items = Gtk.RadioMenuItem(label=str(i+1)+'. '+icons_list[i])
+        if icons_menu_name == icons_list[i]:
+            menu_items.set_active(True)
+        sub_menu_icons_for_menu.append(menu_items)
+        menu_items.connect("activate", app.menu_response, 'redraw_menu_icons', icons_list[i])
         menu_items.show()
 
     # sub_menu_bgs
@@ -338,6 +354,11 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color
         menu_items = Gtk.MenuItem(_('Indicator icons'))
         menu.append(menu_items)
         menu_items.set_submenu(sub_menu_indicator_icons)
+        menu_items.show()
+
+        menu_items = Gtk.MenuItem(_('Menu icons'))
+        menu.append(menu_items)
+        menu_items.set_submenu(sub_menu_icons_for_menu)
         menu_items.show()
     else:
         menu_items = Gtk.MenuItem(_('Icons'))
