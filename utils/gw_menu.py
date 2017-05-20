@@ -63,7 +63,7 @@ def create_weather_menu(app, ICONS_PATH, gw_config, weather):
     menu_items.connect("activate", app.menu_response, 'goto_site_hourly', 0)
     menu_items.show()
 
-    menu_items = Gtk.ImageMenuItem(_('Wind')+': '+weather['wind_speed_now'][0].split(';')[1])
+    menu_items = Gtk.ImageMenuItem(_('Wind')+': '+weather['wind_speed_now'][0].split(';')[gw_config['wind_units']])
     menu.append(menu_items)
     menu_items.connect("activate", app.menu_response, 'goto_site_hourly', 0)
     menu_items.show()
