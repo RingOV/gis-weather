@@ -138,7 +138,7 @@ def get_weather():
     #### today tomorrow weather ####
     t_today = ['', '', '', '']
     t_tomorrow = []
-    icon_today = ['', '', '', '']
+    icon_today = ['?', '?', '?', '?']
     icon_tomorrow = []
     wind_speed_tod = ['', '', '', '']
     wind_speed_tom = []

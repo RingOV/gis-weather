@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.54'
+v = '0.8.2.55'
 #  Copyright (C) 2013-2017 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -995,9 +995,9 @@ class MyDrawArea(Gtk.DrawingArea):
             else: text_now_x = text_now_attr['x']
 
             s=''
-            if date:
+            if date != '?':
                 s=', '+date[0]
-            if day:
+            if day != '?':
                 weekend1 = []
                 _day = day[0].strip()
                 for item in weekend.split(','):
@@ -1010,7 +1010,7 @@ class MyDrawArea(Gtk.DrawingArea):
                 self.draw_text(cr, date[0], day_left+0+block_now_left, day_top+y-15, font+' Bold', 12, width-day_left, Pango.Alignment.CENTER)
             
             if show_time_receive_local:
-                if time_update: self.draw_text(cr, _('Updated on server')+' '+time_update[0], x-margin, x+20+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
+                if time_update != '?': self.draw_text(cr, _('Updated on server')+' '+time_update[0], x-margin, x+20+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
                 if time_receive: self.draw_text(cr, _('Weather received')+' '+time_receive, x-margin, x+10+margin, font+' Normal', 8, width-10,Pango.Alignment.RIGHT)
             if city_name_custom:
                 global city_name
@@ -1034,7 +1034,7 @@ class MyDrawArea(Gtk.DrawingArea):
             
             if block_sunrise['show']:
                 ####-block sunrise-####
-                if sunrise and sunset:
+                if sunrise != '?' and sunset != '?':
                     self.draw_text(cr,
                         '☀↗  '+sunrise+'   ↘☀ '+sunset+'   ⌚ '+sun_duration,
                         block_sunrise['x'], top+block_sunrise['y'],
@@ -1042,7 +1042,7 @@ class MyDrawArea(Gtk.DrawingArea):
                         Pango_dict[block_sunrise['align']])
             if block_moonrise['show']:
                 ####-block moonrise-####
-                if moonrise and moonset:
+                if moonrise != '?' and moonset != '?':
                     self.draw_text(cr,
                         '☾↗  '+moonrise+'   ↘☾ '+moonset+'   ⌚ '+moon_duration,
                         block_moonrise['x'], top+block_moonrise['y'],
@@ -1101,13 +1101,13 @@ class MyDrawArea(Gtk.DrawingArea):
                         self.draw_text(cr, wind_speed_now[0].split(';')[wind_units].split()[0]+"<span size='x-small'> %s</span>  <span size='small'>%s</span>"%(wind_speed_now[0].split(';')[wind_units].split()[-1], wind_direct_now[0]), x0+20, y0-1, font+' Normal', 12, 100,Pango.Alignment.LEFT, color_high_wind)
                     else:
                         self.draw_text(cr, wind_speed_now[0].split(';')[wind_units].split()[0]+"<span size='x-small'> %s</span>  <span size='small'>%s</span>"%(wind_speed_now[0].split(';')[wind_units].split()[-1], wind_direct_now[0]), x0+20, y0-1, font+' Normal', 12, 100,Pango.Alignment.LEFT)
-                if press_now:
+                if press_now != '?':
                     self.draw_text(cr, press_now[0].split(';')[press_units].split()[0]+"<span size='x-small'> %s</span>"%_(press_now[0].split(';')[press_units].split()[-1]), x0+20, y0+line_height-1, font+' Normal', 12, 150,Pango.Alignment.LEFT)
                     self.draw_scaled_image(cr, x0, y0+line_height, self.find_icon('press'), 16, 16)
-                if hum_now:
+                if hum_now != '?':
                     self.draw_text(cr, hum_now[0]+"<span size='x-small'> % "+_('humid.')+"</span>", x0+20, y0+line_height*2-1, font+' Normal', 12, 100,Pango.Alignment.LEFT)
                     self.draw_scaled_image(cr, x0, y0+line_height*2, self.find_icon('hum'), 16, 16)
-                if t_water_now:
+                if t_water_now != '?':
                     self.draw_text(cr, t_water_now.split(';')[t_scale]+"<span size='x-small'> %s %s</span>"%(t_scale_dict[t_scale], _("water")), x0+20, y0+line_height*3-1, font+' Normal', 12, 100,Pango.Alignment.LEFT)
                     self.draw_scaled_image(cr, x0, y0+line_height*3, self.find_icon('t_water'), 16, 16)
            
@@ -1122,12 +1122,12 @@ class MyDrawArea(Gtk.DrawingArea):
 
                 x0 = center + left
                 y0 = top
-                if not time_of_day_list:
+                if time_of_day_list == '?':
                     c = (_('Morning'), _('Day'), _('Evening'), _('Night'))
                 else:
                     c = time_of_day_list
 
-                if icon_tomorrow and icon_tomorrow[1] == 'None' and icon_tomorrow[3] == 'None':
+                if icon_tomorrow != '?' and icon_tomorrow[1] == 'None' and icon_tomorrow[3] == 'None':
                     self.draw_text(cr, _('Tomorrow'), x0-40, y0-13, font+' Bold', 8, a+60,Pango.Alignment.CENTER)
                 else:
                     self.draw_text(cr, _('Tomorrow'), x0, y0-13, font+' Bold', 8, a+60,Pango.Alignment.CENTER)
@@ -1135,15 +1135,15 @@ class MyDrawArea(Gtk.DrawingArea):
                     j = i
                     if j > 1: j = j-2
                     self.draw_text(cr, c[i], x0+a*((j+1)//2), y0+b*(i//2), font+' Bold', 7, 50,Pango.Alignment.LEFT, gradient=True)
-                    if t_tomorrow:
+                    if t_tomorrow != '?':
                         self.draw_text(cr, t_tomorrow[i].split(';')[t_index], x0+a*((j+1)//2), y0+11+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)          
-                    if t_tomorrow_low:
+                    if t_tomorrow_low != '?':
                         self.draw_text(cr, t_tomorrow_low[i].split(';')[t_index], x0+a*((j+1)//2)+2, y0+22+b*(i//2), font+' Normal', 7, 50,Pango.Alignment.LEFT)
                     try:
                         self.draw_scaled_icon(cr, x0+32+a*((j+1)//2), y0+b*(i//2), icon_tomorrow[i], 28, 28)
                     except:
                         self.draw_scaled_icon(cr, x0+32+a*((j+1)//2), y0+b*(i//2), 'na.png;na.png', 28, 28)
-                    if (wind_direct_tom and wind_speed_tom):
+                    if (wind_direct_tom != '?' and wind_speed_tom != '?'):
                         try:
                             if int(wind_speed_tom[i].split(';')[wind_units].split()[0]) >= high_wind and high_wind != -1:
                                 self.draw_text(cr, wind_direct_tom[i]+', '+wind_speed_tom[i].split(';')[wind_units].split()[0]+' '+wind_speed_tom[i].split(';')[wind_units].split()[-1], x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 64,Pango.Alignment.LEFT, color_high_wind)
@@ -1164,7 +1164,7 @@ class MyDrawArea(Gtk.DrawingArea):
 
                 x0 = center + left
                 y0 = top
-                if not time_of_day_list:
+                if time_of_day_list == '?':
                     c = (_('Morning'), _('Day'), _('Evening'), _('Night'))
                 else:
                     c = time_of_day_list
@@ -1174,15 +1174,15 @@ class MyDrawArea(Gtk.DrawingArea):
                     j = i
                     if j > 1: j = j-2
                     self.draw_text(cr, c[i], x0+a*((j+1)//2), y0+b*(i//2), font+' Bold', 7, 50,Pango.Alignment.LEFT, gradient=True)
-                    if t_today:
+                    if t_today != '?':
                         self.draw_text(cr, t_today[i].split(';')[t_index], x0+a*((j+1)//2), y0+11+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
-                    if t_today_low:
+                    if t_today_low != '?':
                         self.draw_text(cr, t_today_low[i].split(';')[t_index], x0+a*((j+1)//2)+2, y0+22+b*(i//2), font+' Normal', 7, 50,Pango.Alignment.LEFT)
-                    if icon_today[i]:
+                    if icon_today[i] != '?':
                         self.draw_scaled_icon(cr, x0+32+a*((j+1)//2), y0+b*(i//2), icon_today[i], 28, 28)
                     else:
                         self.draw_scaled_icon(cr, x0+32+a*((j+1)//2), y0+b*(i//2), 'na.png;na.png', 28, 28)
-                    if (wind_direct_tod and wind_speed_tod):
+                    if (wind_direct_tod != '?' and wind_speed_tod != '?'):
                         try:
                             if int(wind_speed_tod[i].split(';')[wind_units].split()[0]) >= high_wind and high_wind != -1:
                                 self.draw_text(cr, wind_direct_tod[i]+', '+wind_speed_tod[i].split(';')[wind_units].split()[0]+' '+wind_speed_tod[i].split(';')[wind_units].split()[-1], x0+a*((j+1)//2), y0+27+b*(i//2), font+' Normal', 7, 64,Pango.Alignment.LEFT, color_high_wind)
