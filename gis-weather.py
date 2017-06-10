@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.57'
+v = '0.8.2.58'
 #  Copyright (C) 2013-2017 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -1581,11 +1581,11 @@ class Weather_Widget:
             if URL:
                 webbrowser.open(URL)
         if event == 'goto_site_hourly':
-            if URL:
-                webbrowser.open(URL.replace('/current-weather/', '/hourly-weather-forecast/'))
+            if URL_HOURLY != '?':
+                webbrowser.open(URL_HOURLY)
         if event == 'goto_site_day':
-            if URL:
-                webbrowser.open(URL.replace('/current-weather/', '/daily-weather-forecast/')+'?day='+str(value))
+            if URL_DAILY != '?':
+                webbrowser.open(URL_DAILY+str(value))
         if event == 'start_new_instance':
             if multInstances:
                 subprocess.Popen(['python3', os.path.join(APP_PATH, 'gis-weather.py')])

@@ -8,6 +8,8 @@ weather = {
     'moonset': '?',
     'moon_duration': '?',
     'URL': '?',
+    'URL_HOURLY': '?',
+    'URL_DAILY': '?',
     'city_name': '?',
     't_now': '?',
     'wind_speed_now': '?',

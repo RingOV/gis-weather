@@ -234,7 +234,7 @@ def get_city_name(city_id):
 
 
 def get_weather():
-    global time_of_day_list, w, sunrise, sunset, sun_duration, URL, city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain, t_today_low, t_tomorrow_low
+    global time_of_day_list, w, sunrise, sunset, sun_duration, URL, URL_HOURLY, URL_DAILY, city_name, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain, t_today_low, t_tomorrow_low
     n = gw_vars.get('n')
     city_id = gw_vars.get('city_id')
     show_block_tomorrow = gw_vars.get('show_block_tomorrow')
@@ -247,6 +247,9 @@ def get_weather():
 
     URL_ALL = 'https://www.gismeteo.%s/city/weekly/'%weather_lang + str(city_id)
     URL = URL_ALL
+    URL_HOURLY = 'https://www.gismeteo.%s/city/hourly/%s'%(weather_lang, str(city_id))
+    URL_DAILY = 'https://www.gismeteo.%s/city/weekly/%s/#wweekly'%(weather_lang, str(city_id))
+
     print ('\033[34m>\033[0m '+_('Getting weather for')+' '+str(n)+' '+_('days'))
 
     source = urlopener(URL_ALL, 5)
