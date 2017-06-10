@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.55'
+v = '0.8.2.57'
 #  Copyright (C) 2013-2017 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -1583,27 +1583,9 @@ class Weather_Widget:
         if event == 'goto_site_hourly':
             if URL:
                 webbrowser.open(URL.replace('/current-weather/', '/hourly-weather-forecast/'))
-        if event == 'goto_site_day1':
+        if event == 'goto_site_day':
             if URL:
-                webbrowser.open(URL.replace('/current-weather/', '/daily-weather-forecast/')+'?day=2')
-        if event == 'goto_site_day2':
-            if URL:
-                webbrowser.open(URL.replace('/current-weather/', '/daily-weather-forecast/')+'?day=3')
-        if event == 'goto_site_day3':
-            if URL:
-                webbrowser.open(URL.replace('/current-weather/', '/daily-weather-forecast/')+'?day=4')
-        if event == 'goto_site_day4':
-            if URL:
-                webbrowser.open(URL.replace('/current-weather/', '/daily-weather-forecast/')+'?day=5')
-        if event == 'goto_site_day5':
-            if URL:
-                webbrowser.open(URL.replace('/current-weather/', '/daily-weather-forecast/')+'?day=6')
-        if event == 'goto_site_day6':
-            if URL:
-                webbrowser.open(URL.replace('/current-weather/', '/daily-weather-forecast/')+'?day=7')
-        if event == 'goto_site_day7':
-            if URL:
-                webbrowser.open(URL.replace('/current-weather/', '/daily-weather-forecast/')+'?day=8')
+                webbrowser.open(URL.replace('/current-weather/', '/daily-weather-forecast/')+'?day='+str(value))
         if event == 'start_new_instance':
             if multInstances:
                 subprocess.Popen(['python3', os.path.join(APP_PATH, 'gis-weather.py')])

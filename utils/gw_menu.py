@@ -55,32 +55,32 @@ def create_weather_menu(app, ICONS_PATH, gw_config, weather):
     label = menu_items.get_children()[0]
     label.set_markup('<b>'+_('Now')+' '+weather['t_now'][0].split(';')[0]+'</b> ('+weather['t_day'][0].split(';')[0]+' / '+weather['t_night'][0].split(';')[0]+')')
     menu.append(menu_items)
-    menu_items.connect("activate", app.menu_response, 'goto_site_hourly', 0)
+    menu_items.connect("activate", app.menu_response, 'goto_site_hourly')
     menu_items.show()
 
     menu_items = Gtk.ImageMenuItem(_('Humidity')+': '+weather['hum_now'][0]+'%')
     menu.append(menu_items)
-    menu_items.connect("activate", app.menu_response, 'goto_site_hourly', 0)
+    menu_items.connect("activate", app.menu_response, 'goto_site_hourly')
     menu_items.show()
 
     menu_items = Gtk.ImageMenuItem(_('Wind')+': '+weather['wind_speed_now'][0].split(';')[gw_config['wind_units']])
     menu.append(menu_items)
-    menu_items.connect("activate", app.menu_response, 'goto_site_hourly', 0)
+    menu_items.connect("activate", app.menu_response, 'goto_site_hourly')
     menu_items.show()
 
     menu_items = Gtk.ImageMenuItem(weather['text_now'][0])
     menu.append(menu_items)
-    menu_items.connect("activate", app.menu_response, 'goto_site_hourly', 0)
+    menu_items.connect("activate", app.menu_response, 'goto_site_hourly')
     menu_items.show()
 
     menu_items = Gtk.ImageMenuItem(_('Sunrise')+': '+weather['sunrise'])
     menu.append(menu_items)
-    menu_items.connect("activate", app.menu_response, 'goto_site_hourly', 0)
+    menu_items.connect("activate", app.menu_response, 'goto_site_hourly')
     menu_items.show()
 
     menu_items = Gtk.ImageMenuItem(_('Sunset')+': '+weather['sunset'])
     menu.append(menu_items)
-    menu_items.connect("activate", app.menu_response, 'goto_site_hourly', 0)
+    menu_items.connect("activate", app.menu_response, 'goto_site_hourly')
     menu_items.show()
 
     now = datetime.datetime.now()
@@ -107,17 +107,17 @@ def create_weather_menu(app, ICONS_PATH, gw_config, weather):
         else:
             label.set_markup('<b>'+now.strftime("%A")+' '+weather['t_day'][i].split(';')[0]+' / '+weather['t_night'][i].split(';')[0]+'</b>')
         menu.append(menu_items)
-        menu_items.connect("activate", app.menu_response, 'goto_site_day'+str(i), 0)
+        menu_items.connect("activate", app.menu_response, 'goto_site_day', i+1)
         menu_items.show()
 
         menu_items = Gtk.ImageMenuItem(_('Precipitation')+': '+weather['chance_of_rain'][i] if weather['chance_of_rain'] != '?' else _('Precipitation')+': ?')
         menu.append(menu_items)
-        menu_items.connect("activate", app.menu_response, 'goto_site_day'+str(i), 0)
+        menu_items.connect("activate", app.menu_response, 'goto_site_day', i+1)
         menu_items.show()
 
         menu_items = Gtk.ImageMenuItem(weather['text'][i])
         menu.append(menu_items)
-        menu_items.connect("activate", app.menu_response, 'goto_site_day'+str(i), 0)
+        menu_items.connect("activate", app.menu_response, 'goto_site_day', i+1)
         menu_items.show()
 
     return menu
