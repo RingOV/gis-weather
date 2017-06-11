@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.58'
+v = '0.8.2.59'
 #  Copyright (C) 2013-2017 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -892,6 +892,7 @@ class MyDrawArea(Gtk.DrawingArea):
             'pressure_now': press_now[0].split(';')[press_units].split()[0] if press_now else '',
             'pressure_units_now': _(press_now[0].split(';')[press_units].split()[-1]) if press_now else '',
             'humidity_now': hum_now[0]+' %' if hum_now else '',
+            'icon_now': weather['icon_now'][0].split(';')[-1],
             'Temperature': _('Temperature')+':',
             'Feels_like': _('feels like')+':',
             'Wind': _('Wind')+':',
