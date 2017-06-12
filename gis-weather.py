@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.59'
+v = '0.8.2.60'
 #  Copyright (C) 2013-2017 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -232,7 +232,13 @@ gw_config_default = {
     'icon_now_attr': {'x':0, 'y':30, 'size':80, 'show':True},
     'custom_text1_attr': {'text':_('Now'), 'x':0, 'y':0, 'font_weight':' Bold', 'font_size':9, 'align':'left', 'show':False},
     'block_h_offset': 12,
-    'city_name_custom': ''
+    'city_name_custom': '',
+    'pipe1': {'text': '{t_now}', 'path': os.path.join(CONFIG_PATH, 'pipe1'), 'active': False},
+    'pipe2': {'text': '{t_now}', 'path': os.path.join(CONFIG_PATH, 'pipe2'), 'active': False},
+    'pipe3': {'text': '{t_now}', 'path': os.path.join(CONFIG_PATH, 'pipe3'), 'active': False},
+    'text_file1': {'text': '{t_now}', 'path': os.path.join(CONFIG_PATH, 'text_file1'), 'active': False},
+    'text_file2': {'text': '{t_now}', 'path': os.path.join(CONFIG_PATH, 'text_file2'), 'active': False},
+    'text_file3': {'text': '{t_now}', 'path': os.path.join(CONFIG_PATH, 'text_file3'), 'active': False}
 }
 
 window_type_hint_list = (
@@ -944,6 +950,25 @@ class MyDrawArea(Gtk.DrawingArea):
             cur_weather_file.write(weather_text.format_map(self.fmt))
             cur_weather_file.close()
             print(os.path.join(path_to_save, 'cur_weather')+' saved')
+
+        for i in ('pipe1', 'pipe2', 'pipe3'):
+            if globals()[i]['active']:
+                if not os.path.exists(globals()[i]['path']):
+                    os.mkfifo(globals()[i]['path'])
+                print('write to {i} ({path})'.format(i=i, path=globals()[i]['path']))
+                process = subprocess.Popen(['/bin/bash'], shell=False, stdin=subprocess.PIPE, stdout=subprocess.PIPE, bufsize=1, universal_newlines=True)
+                process.stdin.write('echo "'+globals()[i]['text'].format_map(self.fmt)+'" > '+globals()[i]['path']+' && exit 0\n')
+                try:
+                    process.wait(60)
+                except:
+                    process.kill()
+
+        for i in ('text_file1', 'text_file2', 'text_file3'):
+            if globals()[i]['active']:
+                text_file = open(globals()[i]['path'], 'w')
+                text_file.write(globals()[i]['text'].format_map(self.fmt))
+                text_file.close()
+                print('{i} ({path}) saved'.format(i=i, path=globals()[i]['path']))
 
 
         if show_indicator:
