@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.60'
+v = '0.8.2.61'
 #  Copyright (C) 2013-2017 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -238,7 +238,8 @@ gw_config_default = {
     'pipe3': {'text': '{t_now}', 'path': os.path.join(CONFIG_PATH, 'pipe3'), 'active': False},
     'text_file1': {'text': '{t_now}', 'path': os.path.join(CONFIG_PATH, 'text_file1'), 'active': False},
     'text_file2': {'text': '{t_now}', 'path': os.path.join(CONFIG_PATH, 'text_file2'), 'active': False},
-    'text_file3': {'text': '{t_now}', 'path': os.path.join(CONFIG_PATH, 'text_file3'), 'active': False}
+    'text_file3': {'text': '{t_now}', 'path': os.path.join(CONFIG_PATH, 'text_file3'), 'active': False},
+    'weather_menu': False
 }
 
 window_type_hint_list = (
@@ -671,7 +672,7 @@ class Indicator:
             app.menu.popup(None, None, pos, self.indicator, 1, time)
 
         def popup_menu(self, icon, widget, time):
-            app.create_menu(for_indicator=True)
+            app.create_menu(for_indicator=True, weather_menu=weather_menu)
             def pos(menu, icon):
                 return (Gtk.StatusIcon.position_menu(menu, icon))
             app.menu.popup(None, None, pos, self.indicator, widget, time)
@@ -778,6 +779,8 @@ class MyDrawArea(Gtk.DrawingArea):
             Gtk.main_iteration_do(True)
         if get_weather1 and check_for_updates_local and not err_connect:
             check_updates()
+        app.create_menu(for_indicator=True, weather_menu=weather_menu)
+        ind.set_menu(app.menu)
 
     def expose_indicator(self):
         global err, on_redraw, get_weather_bool, weather, err_connect
@@ -1603,6 +1606,13 @@ class Weather_Widget:
             self.drawing_area.redraw(False, False)
             Save_Config()
 
+        if event == 'weather_menu':
+            global weather_menu
+            if weather_menu:
+                weather_menu = False
+            else:
+                weather_menu = True
+            Save_Config()
         if event == 'goto_site':
             if URL:
                 webbrowser.open(URL)
@@ -1748,7 +1758,7 @@ class Weather_Widget:
                 self.drawing_area.redraw(False)
 
         if indicator_is_appindicator:
-            app.create_menu(for_indicator=True)
+            app.create_menu(for_indicator=True, weather_menu=weather_menu)
             ind.set_menu(app.menu)
 
 
@@ -1857,7 +1867,10 @@ class Weather_Widget:
     def create_menu(self, for_indicator=False, weather_menu=False):
         global icons_list, backgrounds_list
         if weather_menu:
-            self.menu = gw_menu.create_weather_menu(app, ICONS_PATH, gw_config, weather)
+            try:
+                self.menu = gw_menu.create_weather_menu(app, ICONS_PATH, gw_config, weather)
+            except:
+                self.menu, icons_list, backgrounds_list = gw_menu.create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color_scheme, gw_config, for_indicator, args.test)
         else:
             self.menu, icons_list, backgrounds_list = gw_menu.create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color_scheme, gw_config, for_indicator, args.test)
 

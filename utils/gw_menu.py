@@ -33,6 +33,11 @@ def create_weather_menu(app, ICONS_PATH, gw_config, weather):
                     current_place = city_list[j].split(';')[1]
 
     # main menu
+    menu_items = Gtk.ImageMenuItem('⇆ '+_('Switch to app menu'))
+    menu.append(menu_items)
+    menu_items.connect("activate", app.menu_response, 'weather_menu')
+    menu_items.show()
+
     menu_items = Gtk.ImageMenuItem(_('Location')+': '+current_place)
     menu.append(menu_items)
     menu_items.connect("activate", app.menu_response, 'goto_site', 0)
@@ -308,6 +313,11 @@ def create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color
 
     # main menu
     if for_indicator:
+        menu_items = Gtk.ImageMenuItem('⇆ '+_('Switch to weather menu'))
+        menu.append(menu_items)
+        menu_items.connect("activate", app.menu_response, 'weather_menu')
+        menu_items.show()
+
         menu_items = Gtk.ImageMenuItem('⇅ '+_('Show/Hide widget'))
         menu.append(menu_items)
         menu_items.connect("activate", app.menu_response, 'show_hide_widget')
