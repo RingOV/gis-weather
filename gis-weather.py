@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.61'
+v = '0.8.2.62'
 #  Copyright (C) 2013-2017 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -239,7 +239,8 @@ gw_config_default = {
     'text_file1': {'text': '{t_now}', 'path': os.path.join(CONFIG_PATH, 'text_file1'), 'active': False},
     'text_file2': {'text': '{t_now}', 'path': os.path.join(CONFIG_PATH, 'text_file2'), 'active': False},
     'text_file3': {'text': '{t_now}', 'path': os.path.join(CONFIG_PATH, 'text_file3'), 'active': False},
-    'weather_menu': False
+    'weather_menu': False,
+    'weather_menu_n': 3
 }
 
 window_type_hint_list = (

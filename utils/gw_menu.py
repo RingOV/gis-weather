@@ -115,10 +115,11 @@ def create_weather_menu(app, ICONS_PATH, gw_config, weather):
         menu_items.connect("activate", app.menu_response, 'goto_site_day', i+1)
         menu_items.show()
 
-        menu_items = Gtk.ImageMenuItem(_('Precipitation')+': '+weather['chance_of_rain'][i] if weather['chance_of_rain'] != '?' else _('Precipitation')+': ?')
-        menu.append(menu_items)
-        menu_items.connect("activate", app.menu_response, 'goto_site_day', i+1)
-        menu_items.show()
+        if weather['chance_of_rain'] != '?':
+            menu_items = Gtk.ImageMenuItem(_('Precipitation')+': '+weather['chance_of_rain'][i])
+            menu.append(menu_items)
+            menu_items.connect("activate", app.menu_response, 'goto_site_day', i+1)
+            menu_items.show()
 
         menu_items = Gtk.ImageMenuItem(weather['text'][i])
         menu.append(menu_items)
