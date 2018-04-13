@@ -34,7 +34,7 @@ http://www.gnu.org/licenses/gpl.txt''')
         "Karbunkul",
         "Haron Prime",
         "Yuriy_Y",
-        "Alain-Olivier Breysse",
+        "https://www.transifex.com/user/profile/yahoe.001/",
         "Istvan Petres\n",
         "    autostart helper",
         "by Jonas Wagner\n"])
