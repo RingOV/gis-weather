@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.65'
+v = '0.8.2.66'
 #  Copyright (C) 2013-2018 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -215,6 +215,7 @@ gw_config_default = {
     'desc_style': 0,  # 0 - Normal, 1 - Italic
     'block_sunrise':{'x':30, 'y':100, 'font_size': 9, 'align': 'left', 'show': True},
     'block_moonrise':{'x':30, 'y':100, 'font_size': 9, 'align': 'right', 'show': True},
+    'time_of_day_gradient': False,
     # day icon customization
     'day_icon_attr': {'x': 30, 'y': 16, 'size': 36, 'show': True},
     'day_date_fmt': '{day}, {date}',
@@ -1164,7 +1165,7 @@ class MyDrawArea(Gtk.DrawingArea):
                 for i in range(0, 4):
                     j = i
                     if j > 1: j = j-2
-                    self.draw_text(cr, c[i], x0+a*((j+1)//2), y0+b*(i//2), font+' Bold', 7, 50,Pango.Alignment.LEFT, gradient=True)
+                    self.draw_text(cr, c[i], x0+a*((j+1)//2), y0+b*(i//2), font+' Bold', 7, 50,Pango.Alignment.LEFT, gradient=time_of_day_gradient)
                     if t_tomorrow != '?':
                         self.draw_text(cr, t_tomorrow[i].split(';')[t_index], x0+a*((j+1)//2), y0+11+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)          
                     if t_tomorrow_low != '?':
@@ -1203,7 +1204,7 @@ class MyDrawArea(Gtk.DrawingArea):
                 for i in range(0, 4):
                     j = i
                     if j > 1: j = j-2
-                    self.draw_text(cr, c[i], x0+a*((j+1)//2), y0+b*(i//2), font+' Bold', 7, 50,Pango.Alignment.LEFT, gradient=True)
+                    self.draw_text(cr, c[i], x0+a*((j+1)//2), y0+b*(i//2), font+' Bold', 7, 50,Pango.Alignment.LEFT, gradient=time_of_day_gradient)
                     if t_today != '?':
                         self.draw_text(cr, t_today[i].split(';')[t_index], x0+a*((j+1)//2), y0+11+b*(i//2), font+' Normal', 8, 50,Pango.Alignment.LEFT)
                     if t_today_low != '?':

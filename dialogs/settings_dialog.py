@@ -256,6 +256,8 @@ class settings():
         self.spinbutton_block_now_left = self.ui.get_object('spinbutton_block_now_left')
         self.spinbutton_block_now_left.connect("value-changed", self.save_settings)
         self.adjustment_n_max = self.ui.get_object('adjustment_n_max')
+        self.switch_time_of_day_gradient = self.ui.get_object('switch_time_of_day_gradient')
+        self.switch_time_of_day_gradient.connect("notify::active", self.save_settings)
 
 
         self.clear_block_sunrise__show = self.ui.get_object('clear_block_sunrise__show')
@@ -294,6 +296,8 @@ class settings():
         self.clear_max_try_show.connect("clicked", self.clear_settings)
         self.clear_block_now_left = self.ui.get_object('clear_block_now_left')
         self.clear_block_now_left.connect("clicked", self.clear_settings)
+        self.clear_time_of_day_gradient = self.ui.get_object('clear_time_of_day_gradient')
+        self.clear_time_of_day_gradient.connect("clicked", self.clear_settings)
 
         # Appearance
         self.fontbutton_font = self.ui.get_object('fontbutton_font')
