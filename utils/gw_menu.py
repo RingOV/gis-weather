@@ -78,15 +78,16 @@ def create_weather_menu(app, ICONS_PATH, gw_config, weather):
     menu_items.connect("activate", app.menu_response, 'goto_site_hourly')
     menu_items.show()
 
-    menu_items = Gtk.ImageMenuItem(_('Sunrise')+': '+weather['sunrise'])
-    menu.append(menu_items)
-    menu_items.connect("activate", app.menu_response, 'goto_site_hourly')
-    menu_items.show()
+    if weather['sunrise'] != '?':
+        menu_items = Gtk.ImageMenuItem(_('Sunrise')+': '+weather['sunrise'])
+        menu.append(menu_items)
+        menu_items.connect("activate", app.menu_response, 'goto_site_hourly')
+        menu_items.show()
 
-    menu_items = Gtk.ImageMenuItem(_('Sunset')+': '+weather['sunset'])
-    menu.append(menu_items)
-    menu_items.connect("activate", app.menu_response, 'goto_site_hourly')
-    menu_items.show()
+        menu_items = Gtk.ImageMenuItem(_('Sunset')+': '+weather['sunset'])
+        menu.append(menu_items)
+        menu_items.connect("activate", app.menu_response, 'goto_site_hourly')
+        menu_items.show()
 
     now = datetime.datetime.now()
 
@@ -115,7 +116,7 @@ def create_weather_menu(app, ICONS_PATH, gw_config, weather):
         menu_items.connect("activate", app.menu_response, 'goto_site_day', i+1)
         menu_items.show()
 
-        if weather['chance_of_rain'] != '?':
+        if weather['chance_of_rain'] != '?' and weather['chance_of_rain'][i] != '':
             menu_items = Gtk.ImageMenuItem(_('Precipitation')+': '+weather['chance_of_rain'][i])
             menu.append(menu_items)
             menu_items.connect("activate", app.menu_response, 'goto_site_day', i+1)

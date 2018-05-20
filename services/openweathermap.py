@@ -284,7 +284,7 @@ def get_weather():
             if icon_today[i] != '':
                 icon_today[i] = convert(icon_today[i], icons_name)
             else:
-                icon_today[i] = 'na.png;na.png'
+                icon_today[i] = 'clear.png;clear.png'
         for i in range(len(icon_tomorrow)):
             if icon_tomorrow[i] != '':
                 icon_tomorrow[i] = convert(icon_tomorrow[i], icons_name)
