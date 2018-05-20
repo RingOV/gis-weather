@@ -13,14 +13,14 @@ data = [
     "http://www.gismeteo.com/city/daily/<b>1234</b>",  # example
     "<b>1234</b>",  # code
     {
-        'com': 'English',
+        # 'com': 'English',
         'ua/ru': 'Русский',
         'ua/ua': 'Українська',
         'lv': 'Latvijas',
         'lt': 'Lietuviškai',
         'md/ro': 'Română'
     },  # dict_weather_lang
-    ('com', 'ua/ru', 'ua/ua', 'lv', 'lt', 'md/ro')  # weather_lang_list
+    ('ua/ru', 'ua/ua', 'lv', 'lt', 'md/ro')  # weather_lang_list
 ]
 max_days = 12
 need_appid = False
