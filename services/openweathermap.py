@@ -35,7 +35,7 @@ data = [
     },  # dict_weather_lang
     ('en', 'ru', 'it', 'es', 'uk', 'de', 'pt', 'ro', 'pl', 'fi', 'nl', 'fr', 'bg', 'sv', 'zh_tw', 'zh', 'tr', 'hr', 'ca')  # weather_lang_list
 ]
-max_days = 15
+max_days = 5
 need_appid = True
 
 # weather variables
@@ -100,7 +100,7 @@ def get_day(source):
 
 
 def get_weather():
-    global city_name, URL, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain
+    global city_name, URL, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain, time_of_day_list
     APPID = gw_vars.get('appid')
     if not APPID:
         print('\033[1;31m[!]\033[0m Empty API key. Please enter API key')
@@ -113,8 +113,10 @@ def get_weather():
     icons_name = gw_vars.get('icons_name')
     URL = ''
     URL_CURRENT = 'http://api.openweathermap.org/data/2.5/weather?id=%s&lang=%s&units=metric&appid=%s'%(str(city_id), weather_lang, APPID)
-    URL_SEVERAL_DAYS = 'http://api.openweathermap.org/data/2.5/forecast/daily?id=%s&lang=%s&units=metric&cnt=%s&appid=%s'%(str(city_id), weather_lang, n+1, APPID)
-    URL_TODAY_TOMORROW = 'http://api.openweathermap.org/data/2.5/forecast?id=%s&lang=%s&units=metric&appid=%s'%(str(city_id), weather_lang, APPID)
+    URL_SEVERAL_DAYS = 'http://api.openweathermap.org/data/2.5/forecast?id=%s&lang=%s&units=metric&appid=%s'%(str(city_id), weather_lang, APPID)
+    # URL_SEVERAL_DAYS2 = 'http://api.openweathermap.org/data/2.5/forecast/daily?id=%s&lang=%s&units=metric&cnt=%s&appid=%s'%(str(city_id), weather_lang, n+1, APPID)
+    
+    # URL_TODAY_TOMORROW = 'http://api.openweathermap.org/data/2.5/forecast?id=%s&lang=%s&units=metric&appid=%s'%(str(city_id), weather_lang, APPID)
     print ('\033[34m>\033[0m '+_('Getting weather for')+' '+str(n)+' '+_('days'))
 
     source = urlopener(URL_CURRENT, 5)
@@ -175,28 +177,82 @@ def get_weather():
     if not source:
         return False
     source = json.loads(source)
+    json.dump(source, open('/home/ringov/weather.json', "w", encoding='utf-8'), sort_keys=True, indent=4, separators=(', ', ': '), ensure_ascii=False)
 
-    t_day = []
-    t_night = []
-    day = []
-    date = []
-    icon = []
-    text = []
-    wind_speed = []
-    wind_direct = []
-    chance_of_rain = []
 
+    # time_dict = {
+    #     '00:00':0,
+    #     '03:00':1,
+    #     '06:00':2,
+    #     '09:00':3,
+    #     '12:00':4,
+    #     '15:00':5,
+    #     '18:00':6,
+    #     '21:00':7
+    # }
+    wt = [[]]
+    i = 0
     for data in source['list']:
-        t_day.append(add_plus(str(round(data['temp']['day']))))
-        t_night.append(add_plus(str(round(data['temp']['night']))))
-        dt = datetime.fromtimestamp(data['dt'])
-        day.append(dt.strftime('%a'))
-        date.append(dt.strftime('%d.%m'))
-        icon.append('http://openweathermap.org/img/w/'+data['weather'][0]['icon']+'.png')
-        text.append(data['weather'][0]['description'])
-        wind_speed.append(str(round(data['speed'])))
-        wind_direct.append(wind_direct_convert.convert(data['deg']))
-        chance_of_rain.append(str(data['rain']) if 'rain' in data.keys() else '')
+        t=add_plus(str(round(data['main']['temp'])))
+        dt = datetime.fromtimestamp(data['dt']-10)
+        day=dt.strftime('%a')
+        date=dt.strftime('%d.%m')
+        icon='http://openweathermap.org/img/w/'+data['weather'][0]['icon']+'.png'
+        text=data['weather'][0]['description']
+        wind_speed=str(round(data['wind']['speed']))
+        wind_direct=wind_direct_convert.convert(data['wind']['deg'])
+        tt = get_time(data)
+        if get_time(data) == '00:00' and wt[0] != []:
+            i+=1
+            wt.append([])
+        wt[i].append([t, day, date, icon, text, wind_speed, wind_direct, tt])
+    # for i in range(len(wt)):
+    #     for item in wt[i]:
+    #         print(i, item)
+
+
+    t_day = ['']
+    t_night = ['']
+    day = [wt[0][0][1]]
+    date = [wt[0][0][2]]
+    icon = ['']
+    text = ['']
+    wind_speed = ['']
+    wind_direct = ['']
+    # chance_of_rain = []
+
+    for i in range(1, len(wt)):
+        t_d = None
+        t_n = None
+        w_s = 0
+        for item in wt[i]:
+            if t_d == None:
+                t_d = item[0]
+                t_n = item[0]
+            if int(item[0]) > int(t_d):
+                t_d = item[0]
+            if int(item[0]) < int(t_n):
+                t_n = item[0]
+            w_s += int(item[5])
+        t_day.append(convert_from_C(t_d))
+        t_night.append(convert_from_C(t_n))
+        day.append(wt[i][0][1])
+        date.append(wt[i][0][2])
+        icon.append(convert(wt[i][4][3],icons_name))
+        text.append(wt[i][4][4])
+        wind_speed.append(convert_from_ms(str(round(w_s/len(wt[i])))))
+        wind_direct.append(wt[i][4][6])
+    # for data in source['list']:
+    #     t_day.append(add_plus(str(round(data['temp']['day']))))
+    #     t_night.append(add_plus(str(round(data['temp']['night']))))
+    #     dt = datetime.fromtimestamp(data['dt'])
+    #     day.append(dt.strftime('%a'))
+    #     date.append(dt.strftime('%d.%m'))
+    #     icon.append('http://openweathermap.org/img/w/'+data['weather'][0]['icon']+'.png')
+    #     text.append(data['weather'][0]['description'])
+    #     wind_speed.append(str(round(data['speed'])))
+    #     wind_direct.append(wind_direct_convert.convert(data['deg']))
+    #     chance_of_rain.append(str(data['rain']) if 'rain' in data.keys() else '')
 
     for j in range(len(wind_direct)):
         a = ''
@@ -204,24 +260,24 @@ def get_weather():
             a = a + _(wind_direct[j][i])
         wind_direct[j] = a
 
-    for i in range(len(t_day)):
-        t_day[i] = convert_from_C(t_day[i])
+    # for i in range(len(t_day)):
+    #     t_day[i] = convert_from_C(t_day[i])
 
-    for i in range(len(t_night)):
-        t_night[i] = convert_from_C(t_night[i])
+    # for i in range(len(t_night)):
+    #     t_night[i] = convert_from_C(t_night[i])
 
-    for i in range(len(icon)):
-        icon[i] = convert(icon[i], icons_name)
+    # for i in range(len(icon)):
+    #     icon[i] = convert(icon[i], icons_name)
 
-    if wind_speed:
-        for i in range(len(wind_speed)):
-            wind_speed[i] = convert_from_ms(wind_speed[i])
+    # if wind_speed:
+    #     for i in range(len(wind_speed)):
+    #         wind_speed[i] = convert_from_ms(wind_speed[i])
 
     if show_block_tomorrow or show_block_today:
-        source = urlopener(URL_TODAY_TOMORROW, 5)
-        if not source:
-            return False
-        source = json.loads(source)
+        # source = urlopener(URL_TODAY_TOMORROW, 5)
+        # if not source:
+        #     return False
+        # source = json.loads(source)
 
         t_tomorrow = ['', '', '', '']
         t_today = ['', '', '', '']
@@ -244,7 +300,7 @@ def get_weather():
             if day_after_tommorow != day_today and day_after_tommorow != day_tommorow:
                 break
 
-        a_dict = {'00:00':3, '06:00':0, '12:00':1, '18:00':2}
+        a_dict = {'03:00':0, '09:00':1, '15:00':2, '21:00':3}
 
         for data in source['list']:
             if get_time(data) in a_dict.keys():
@@ -309,6 +365,8 @@ def get_weather():
                 a=a+_(wind_direct_tom[j][i])
             wind_direct_tom[j]=a
     
+    time_of_day_list = (_('Night'), _('Morning'), _('Day'), _('Evening'))
+
     if time_update:
         print ('\033[34m>\033[0m '+_('updated on server')+' '+time_update[0]) 
     print ('\033[34m>\033[0m '+_('weather received')+' '+time.strftime('%H:%M', time.localtime()))

@@ -58,6 +58,8 @@ def ms_to_kts(ms):
 
 
 def convert_from_ms(ms):
+    if not ms:
+        return ''
     return ';'.join([str(round(float(ms)))+' '+_('m/s'), ms_to_kmh(ms), ms_to_mph(ms), ms_to_Bft(ms), ms_to_kts(ms)])
 
 

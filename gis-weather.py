@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.70'
+v = '0.8.2.71'
 #  Copyright (C) 2013-2018 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -1003,8 +1003,10 @@ class MyDrawArea(Gtk.DrawingArea):
         self.draw_weather_icon_now(cr, 0, 20 + margin)
 
         for i in range(1, n+1):
-            self.draw_weather_icon(cr, i, -8+block_icons_left + margin + block_margin + (i-1)*w_block + (i-1)*block_h_offset, block_icons_top + height-h_block-10 - margin)
-
+            try:
+                self.draw_weather_icon(cr, i, -8+block_icons_left + margin + block_margin + (i-1)*w_block + (i-1)*block_h_offset, block_icons_top + height-h_block-10 - margin)
+            except:
+                print('Can\'t show weather for %s day'%str(i))
 
     def draw_weather_icon_now(self, cr, x, y):
         if date != []:
