@@ -100,7 +100,7 @@ def get_day(source):
 
 
 def get_weather():
-    global city_name, URL, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain, time_of_day_list
+    global city_name, URL, t_now, wind_speed_now, wind_direct_now, icon_now, icon_wind_now, time_update, text_now, press_now, hum_now, t_water_now, t_night, t_night_feel, day, date, t_day, t_day_feel, icon, icon_wind, wind_speed, wind_direct, text, t_tomorrow, t_tomorrow_feel, icon_tomorrow, wind_speed_tom, wind_direct_tom, t_today, t_today_feel, icon_today, wind_speed_tod, wind_direct_tod, chance_of_rain, time_of_day_list, sunrise, sunset, sun_duration
     APPID = gw_vars.get('appid')
     if not APPID:
         print('\033[1;31m[!]\033[0m Empty API key. Please enter API key')
@@ -172,6 +172,13 @@ def get_weather():
     # humidity now
     hum_now = [str(source['main']['humidity'])]
 
+    dt1 = datetime.fromtimestamp(source['sys']['sunrise'])
+    dt2 = datetime.fromtimestamp(source['sys']['sunset'])
+    dt3 = dt2-dt1
+    sunrise = dt1.strftime('%H:%M')
+    sunset = dt2.strftime('%H:%M')
+    sun_duration = ':'.join(str(dt3).split(':')[:2])
+
     #### weather to several days ####
     source = urlopener(URL_SEVERAL_DAYS, 5)
     if not source:
@@ -179,17 +186,6 @@ def get_weather():
     source = json.loads(source)
     json.dump(source, open('/home/ringov/weather.json', "w", encoding='utf-8'), sort_keys=True, indent=4, separators=(', ', ': '), ensure_ascii=False)
 
-
-    # time_dict = {
-    #     '00:00':0,
-    #     '03:00':1,
-    #     '06:00':2,
-    #     '09:00':3,
-    #     '12:00':4,
-    #     '15:00':5,
-    #     '18:00':6,
-    #     '21:00':7
-    # }
     wt = [[]]
     i = 0
     for data in source['list']:
@@ -201,15 +197,10 @@ def get_weather():
         text=data['weather'][0]['description']
         wind_speed=str(round(data['wind']['speed']))
         wind_direct=wind_direct_convert.convert(data['wind']['deg'])
-        tt = get_time(data)
         if get_time(data) == '00:00' and wt[0] != []:
             i+=1
             wt.append([])
-        wt[i].append([t, day, date, icon, text, wind_speed, wind_direct, tt])
-    # for i in range(len(wt)):
-    #     for item in wt[i]:
-    #         print(i, item)
-
+        wt[i].append([t, day, date, icon, text, wind_speed, wind_direct])
 
     t_day = ['']
     t_night = ['']
@@ -219,7 +210,6 @@ def get_weather():
     text = ['']
     wind_speed = ['']
     wind_direct = ['']
-    # chance_of_rain = []
 
     for i in range(1, len(wt)):
         t_d = None
@@ -242,17 +232,6 @@ def get_weather():
         text.append(wt[i][4][4])
         wind_speed.append(convert_from_ms(str(round(w_s/len(wt[i])))))
         wind_direct.append(wt[i][4][6])
-    # for data in source['list']:
-    #     t_day.append(add_plus(str(round(data['temp']['day']))))
-    #     t_night.append(add_plus(str(round(data['temp']['night']))))
-    #     dt = datetime.fromtimestamp(data['dt'])
-    #     day.append(dt.strftime('%a'))
-    #     date.append(dt.strftime('%d.%m'))
-    #     icon.append('http://openweathermap.org/img/w/'+data['weather'][0]['icon']+'.png')
-    #     text.append(data['weather'][0]['description'])
-    #     wind_speed.append(str(round(data['speed'])))
-    #     wind_direct.append(wind_direct_convert.convert(data['deg']))
-    #     chance_of_rain.append(str(data['rain']) if 'rain' in data.keys() else '')
 
     for j in range(len(wind_direct)):
         a = ''
@@ -260,25 +239,7 @@ def get_weather():
             a = a + _(wind_direct[j][i])
         wind_direct[j] = a
 
-    # for i in range(len(t_day)):
-    #     t_day[i] = convert_from_C(t_day[i])
-
-    # for i in range(len(t_night)):
-    #     t_night[i] = convert_from_C(t_night[i])
-
-    # for i in range(len(icon)):
-    #     icon[i] = convert(icon[i], icons_name)
-
-    # if wind_speed:
-    #     for i in range(len(wind_speed)):
-    #         wind_speed[i] = convert_from_ms(wind_speed[i])
-
     if show_block_tomorrow or show_block_today:
-        # source = urlopener(URL_TODAY_TOMORROW, 5)
-        # if not source:
-        #     return False
-        # source = json.loads(source)
-
         t_tomorrow = ['', '', '', '']
         t_today = ['', '', '', '']
         icon_today = ['', '', '', '']
