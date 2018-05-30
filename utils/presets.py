@@ -249,6 +249,39 @@ list = [
         'custom_text1_attr': {'text':_('Now'), 'x':40, 'y':3, 'font_weight':' Bold', 'font_size':9, 'align':'left', 'show':True},
         'block_h_offset': -5,
     },
+        # OpenWeatherMap
+    {   'n': 5,                            # Display days
+        'show_block_wind_direct': True,    # block wind direct
+        'block_wind_direct_left': -170,    # position
+        'wind_direct_small': True,        # small block wind direct
+        'show_block_add_info': False,       # block with additional information
+        'show_block_tomorrow': True,       # block with the weather for tomorrow
+        'block_tomorrow_left': 80,        # position
+        'show_block_today': True,          # block with the weather for today
+        'block_today_left': -210,          # position
+        'margin': 20,                      # inside padding
+        'block_now_left': 20,
+        # customizable options
+        'block_sunrise':{'x':30, 'y':100, 'font_size': 9, 'align': 'left', 'show': True},
+        'block_moonrise':{'x':30, 'y':100, 'font_size': 9, 'align': 'right', 'show': False},
+        # day icon customization
+        'day_icon_attr': {'x':30, 'y':16, 'size':36, 'show':True},
+        'day_date_fmt': '{day}, {date}',
+        'day_date_attr': {'x':0, 'y':-2, 'font_weight':' Bold', 'font_size':9, 'align':'left', 'show':True},
+        't_now_fmt': '{t_now}',
+        't_fmt': '{t_day}\n{t_night}',
+        't_attr': {'x':0, 'y':15, 'font_weight':' Normal', 'font_size':10, 'align':'left', 'show':True},
+        'wind_fmt': '{wind_direct}, {wind_speed}',
+        'wind_attr': {'x':0, 'y':50, 'font_weight':' Normal', 'font_size':8, 'align':'left', 'show':True},
+        'text_attr': {'x':0, 'y':55, 'font_size':7, 'align':'left', 'show':True},
+        # now icon customization
+        'city_name_attr': {'x':0, 'y':0, 'font_weight':' Bold', 'font_size':14, 'align':'center', 'show':True},
+        'text_now_attr': {'x':0, 'y':0, 'font_weight':' Normal', 'font_size':10, 'align':'center', 'show':True},
+        't_now_attr': {'x':0, 'y':30, 'font_weight':' Normal', 'font_size':18, 'align':'right', 'show':True},
+        'icon_now_attr': {'x':0, 'y':30, 'size':80, 'show':True},
+        'custom_text1_attr': {'text':_('Now'), 'x':65, 'y':3, 'font_weight':' Bold', 'font_size':9, 'align':'left', 'show':False},
+        'block_h_offset': 12,
+    }
     ]
 
 names = {
@@ -259,7 +292,8 @@ names = {
     4: 'Winter',
     5: 'Compact day',
     6: 'Compact date',
-    7: 'Compact day+wind'
+    7: 'Compact day+wind',
+    8: 'OpenWeatherMap'
 }
 
 def save_to_file(CONFIG_PATH):
