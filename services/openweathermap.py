@@ -184,7 +184,6 @@ def get_weather():
     if not source:
         return False
     source = json.loads(source)
-    json.dump(source, open('/home/ringov/weather.json', "w", encoding='utf-8'), sort_keys=True, indent=4, separators=(', ', ': '), ensure_ascii=False)
 
     wt = [[]]
     i = 0
