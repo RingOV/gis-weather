@@ -228,10 +228,11 @@ def get_weather():
         t_night.append(convert_from_C(t_n))
         day.append(wt[i][0][1])
         date.append(wt[i][0][2])
-        icon.append(convert(wt[i][4][3],icons_name))
-        text.append(wt[i][4][4])
+        index = -1 if len(wt[i])<5 else 4
+        icon.append(convert(wt[i][index][3],icons_name))
+        text.append(wt[i][index][4])
         wind_speed.append(convert_from_ms(str(round(w_s/len(wt[i])))))
-        wind_direct.append(wt[i][4][6])
+        wind_direct.append(wt[i][index][6])
 
     for j in range(len(wind_direct)):
         a = ''
