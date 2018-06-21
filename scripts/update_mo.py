@@ -6,14 +6,15 @@ import sys
 PATH = os.path.abspath(os.path.dirname(sys.argv[0]))
 GW_PATH = os.path.split(PATH)[0]
 
-out = os.popen('pocount --short %s/po/*.po'%GW_PATH).readlines()
+out = os.popen('pocount --short --no-color %s/po/*.po'%GW_PATH).readlines()
 for line in out:
-    if line.split()[0][-5:-3] != 'en':
-        infile = line.split()[0]
-        outfile = line.split()[0][:-2]+'mo'
+    l = line.split()[0]
+    if l[-5:-3] != 'en':
+        infile = l
+        outfile = l[:-2]+'mo'
         o = os.popen('msgfmt %s -o %s'%(infile, outfile)).readlines()
 
-out = os.popen('pocount --short %s/po/*.mo'%GW_PATH).readlines()
+out = os.popen('pocount --short --no-color %s/po/*.mo'%GW_PATH).readlines()
 count = len(out)
 i = 0
 for line in out:

@@ -80,7 +80,7 @@ def get_weather():
 
     latitude = re.findall('<location.*latitude="(.+?)"', source)
     longitude = re.findall('<location.*longitude="(.+?)"', source)
-    URL_CURRENT = "http://api.yr.no/weatherapi/locationforecast/1.9/?lat=%s;lon=%s" %(latitude[0], longitude[0])
+    URL_CURRENT = "http://api.met.no/weatherapi/locationforecast/1.9/?lat=%s;lon=%s" %(latitude[0], longitude[0])
 
     # city
     city_name = re.findall('<name>(.+?)</name>', source)
