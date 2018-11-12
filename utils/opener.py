@@ -87,7 +87,7 @@ def get_random_agent():
 def urlopen(url):
     opener = urllib.request.build_opener()
     opener.addheaders = [('User-agent', get_random_agent())]
-    data = opener.open(url)
+    data = opener.open(url, timeout=10)
     return data.read()
 
 def urlopener(url, tries=1):
