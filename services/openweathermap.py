@@ -9,9 +9,9 @@ import json
 from datetime import datetime
 
 data = [
-    "http://openweathermap.org/find?q=",  # url
-    "http://openweathermap.org/city/<b>1234</b>",  # example
-    "<b>1234</b>   <a href='http://openweathermap.org/appid#get'>%s API key (APPID)</a>"%_('How to get'),  # code
+    "https://openweathermap.org/find?q=",  # url
+    "https://openweathermap.org/city/<b>1234</b>",  # example
+    "<b>1234</b>   <a href='https://openweathermap.org/appid#get'>%s API key (APPID)</a>"%_('How to get'),  # code
     {
         'en': 'English',
         'ru': 'Russian',
@@ -79,7 +79,7 @@ def convert(icon, icons_name):
 def get_city_name(city_id):
     weather_lang = gw_vars.get('weather_lang')
     APPID = gw_vars.get('appid')
-    source = urlopener('http://api.openweathermap.org/data/2.5/weather?id=%s&lang=%s&appid=%s'%(str(city_id), weather_lang, APPID), 2)
+    source = urlopener('https://api.openweathermap.org/data/2.5/weather?id=%s&lang=%s&appid=%s'%(str(city_id), weather_lang, APPID), 2)
     if source:
         source = json.loads(source)
         c_name = source['name']
@@ -112,8 +112,8 @@ def get_weather():
     weather_lang = gw_vars.get('weather_lang')
     icons_name = gw_vars.get('icons_name')
     URL = ''
-    URL_CURRENT = 'http://api.openweathermap.org/data/2.5/weather?id=%s&lang=%s&units=metric&appid=%s'%(str(city_id), weather_lang, APPID)
-    URL_SEVERAL_DAYS = 'http://api.openweathermap.org/data/2.5/forecast?id=%s&lang=%s&units=metric&appid=%s'%(str(city_id), weather_lang, APPID)
+    URL_CURRENT = 'https://api.openweathermap.org/data/2.5/weather?id=%s&lang=%s&units=metric&appid=%s'%(str(city_id), weather_lang, APPID)
+    URL_SEVERAL_DAYS = 'https://api.openweathermap.org/data/2.5/forecast?id=%s&lang=%s&units=metric&appid=%s'%(str(city_id), weather_lang, APPID)
     # URL_SEVERAL_DAYS2 = 'http://api.openweathermap.org/data/2.5/forecast/daily?id=%s&lang=%s&units=metric&cnt=%s&appid=%s'%(str(city_id), weather_lang, n+1, APPID)
     
     # URL_TODAY_TOMORROW = 'http://api.openweathermap.org/data/2.5/forecast?id=%s&lang=%s&units=metric&appid=%s'%(str(city_id), weather_lang, APPID)
@@ -146,7 +146,7 @@ def get_weather():
         wind_direct_now = []
 
     # icon
-    icon_now = ['http://openweathermap.org/img/w/'+source['weather'][0]['icon']+'.png']
+    icon_now = ['https://openweathermap.org/img/w/'+source['weather'][0]['icon']+'.png']
     icon_now[0] = convert(icon_now[0], icons_name)
 
     # wind icon
@@ -192,7 +192,7 @@ def get_weather():
         dt = datetime.fromtimestamp(data['dt']-10)
         day=dt.strftime('%a')
         date=dt.strftime('%d.%m')
-        icon='http://openweathermap.org/img/w/'+data['weather'][0]['icon']+'.png'
+        icon='https://openweathermap.org/img/w/'+data['weather'][0]['icon']+'.png'
         text=data['weather'][0]['description']
         wind_speed=str(round(data['wind']['speed']))
         wind_direct=wind_direct_convert.convert(data['wind']['deg'])
@@ -267,22 +267,22 @@ def get_weather():
             if get_time(data) in a_dict.keys():
                 if get_day(data) == day_today:
                     t_today[a_dict[get_time(data)]] = add_plus(str(round(data['main']['temp'])))
-                    icon_today[a_dict[get_time(data)]] = 'http://openweathermap.org/img/w/'+data['weather'][0]['icon']+'.png'
+                    icon_today[a_dict[get_time(data)]] = 'https://openweathermap.org/img/w/'+data['weather'][0]['icon']+'.png'
                     wind_speed_tod[a_dict[get_time(data)]] = str(round(data['wind']['speed']))
                     wind_direct_tod[a_dict[get_time(data)]] = wind_direct_convert.convert(data['wind']['deg'])
                 if get_day(data) == day_tommorow:
                     t_tomorrow[a_dict[get_time(data)]] = add_plus(str(round(data['main']['temp'])))
-                    icon_tomorrow[a_dict[get_time(data)]] = 'http://openweathermap.org/img/w/'+data['weather'][0]['icon']+'.png'
+                    icon_tomorrow[a_dict[get_time(data)]] = 'https://openweathermap.org/img/w/'+data['weather'][0]['icon']+'.png'
                     wind_speed_tom[a_dict[get_time(data)]] = str(round(data['wind']['speed']))
                     wind_direct_tom[a_dict[get_time(data)]] = wind_direct_convert.convert(data['wind']['deg'])
                     if get_time(data) == '00:00':
                         t_today[3] = add_plus(str(round(data['main']['temp'])))
-                        icon_today[3] = 'http://openweathermap.org/img/w/'+data['weather'][0]['icon']+'.png'
+                        icon_today[3] = 'https://openweathermap.org/img/w/'+data['weather'][0]['icon']+'.png'
                         wind_speed_tod[3] = str(round(data['wind']['speed']))
                         wind_direct_tod[3] = wind_direct_convert.convert(data['wind']['deg'])
                 if get_day(data) == day_after_tommorow and get_time(data) == '00:00':
                     t_tomorrow[3] = add_plus(str(round(data['main']['temp'])))
-                    icon_tomorrow[3] = 'http://openweathermap.org/img/w/'+data['weather'][0]['icon']+'.png'
+                    icon_tomorrow[3] = 'https://openweathermap.org/img/w/'+data['weather'][0]['icon']+'.png'
                     wind_speed_tom[3] = str(round(data['wind']['speed']))
                     wind_direct_tom[3] = wind_direct_convert.convert(data['wind']['deg'])
 
