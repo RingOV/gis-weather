@@ -119,7 +119,7 @@ def get_weather():
     # URL_TODAY_TOMORROW = 'http://api.openweathermap.org/data/2.5/forecast?id=%s&lang=%s&units=metric&appid=%s'%(str(city_id), weather_lang, APPID)
     print ('\033[34m>\033[0m '+_('Getting weather for')+' '+str(n)+' '+_('days'))
 
-    source = urlopener(URL_CURRENT, 5)
+    source = urlopener(URL_CURRENT, 2)
     if not source:
         return False
     source = json.loads(source)
@@ -180,7 +180,7 @@ def get_weather():
     sun_duration = ':'.join(str(dt3).split(':')[:2])
 
     #### weather to several days ####
-    source = urlopener(URL_SEVERAL_DAYS, 5)
+    source = urlopener(URL_SEVERAL_DAYS, 2)
     if not source:
         return False
     source = json.loads(source)

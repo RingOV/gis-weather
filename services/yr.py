@@ -72,7 +72,7 @@ def get_weather():
     URL = 'http://www.yr.no/place/%s/forecast.xml' % str(city_id)
     print ('\033[34m>\033[0m '+_('Getting weather for')+' '+str(n)+' '+_('days'))
 
-    source = urlopener(URL, 5)
+    source = urlopener(URL, 2)
     if not source:
         return False
 
@@ -165,7 +165,7 @@ def get_weather():
                     break
 
     #### current weather ####
-    source = urlopener(URL_CURRENT, 5)
+    source = urlopener(URL_CURRENT, 2)
     if not source:
         return False
 

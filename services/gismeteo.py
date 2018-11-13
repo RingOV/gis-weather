@@ -252,7 +252,7 @@ def get_weather():
 
     print ('\033[34m>\033[0m '+_('Getting weather for')+' '+str(n)+' '+_('days'))
 
-    source = urlopener(URL_ALL, 5)
+    source = urlopener(URL_ALL, 2)
     if not source:
         return False
 
