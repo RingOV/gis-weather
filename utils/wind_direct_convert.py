@@ -23,3 +23,4 @@ def convert2(d):
     if d == '7': direct = _('W')
     if d == '8': direct = _('N')+_('W')
     return direct
+    

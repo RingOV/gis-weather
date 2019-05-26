@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 
 data = [
     "http://www.gismeteo.com",  # url
-    "https://www.gismeteo.com/weather-alphen-<b>1234</b>/",  # example
+    "https://www.gismeteo.com/weather-alphen-<b>1234</b>",  # example
     "<b>1234</b>",  # code
     {
         'en': 'English',
@@ -237,11 +237,11 @@ def convert(icon, icons_name):
 
 def get_city_name(city_id):
     weather_lang = gw_vars.get('weather_lang')
-    if weather_lang == 'ru':
-        weather_lang = 'ua/ru'
+    if weather_lang == 'ua/ru':
+        weather_lang = 'ru'
     try:
-        source = urlopener('https://www.gismeteo.%s/city/weekly/'%weather_lang + str(city_id))
-        c_name = re.findall('type[A-Z].*\">(.*)<', source)
+        source = urlopener('https://services.gismeteo.ru/inform-service/inf_chrome/forecast/?lang=%s&city=%s'%(weather_lang, str(city_id)))
+        c_name = re.findall(' name="(.*?)"', source)
     except:
         print ('\033[1;31m[!]\033[0m '+_('Failed to get the name of the location'))
         return 'None'
