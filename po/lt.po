@@ -1,17 +1,18 @@
 # 
 # Translators:
+# Karolis Ryselis, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2017-05-20 16:43+0300\n"
-"PO-Revision-Date: 2017-05-20 13:52+0000\n"
-"Last-Translator: RingOV <ringov@mail.ru>\n"
+"PO-Revision-Date: 2019-04-08 08:41+0000\n"
+"Last-Translator: Karolis Ryselis\n"
 "Language-Team: Lithuanian (http://www.transifex.com/gis-weather-team/gis-weather/language/lt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lt\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
 "X-Generator: Poedit 1.6.10\n"
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
@@ -169,12 +170,12 @@ msgstr "mph"
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:435
 #: dialogs/settings_dialog.py:435
 msgid "Beaufort scale"
-msgstr ""
+msgstr "Boforto skalė"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:435
 #: dialogs/settings_dialog.py:435
 msgid "Knots"
-msgstr ""
+msgstr "Mazgai"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:436
 #: dialogs/settings_dialog.py:436
@@ -289,7 +290,7 @@ msgstr "egzempliorių kiekis"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:55 gis-weather.py:55
 msgid "testing mode turned on"
-msgstr ""
+msgstr "testavimo režimas įjungtas"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:229
 #: DEB/build/usr/share/gis-weather/utils/presets.py:60
@@ -298,7 +299,7 @@ msgstr ""
 #: utils/gw_menu.py:56 utils/presets.py:61 utils/presets.py:178
 #: utils/presets.py:214 utils/presets.py:249
 msgid "Now"
-msgstr ""
+msgstr "Dabar"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:284 gis-weather.py:288
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:682
@@ -386,7 +387,7 @@ msgstr "Ryšio klaida"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:902 gis-weather.py:896
 msgid "feels like"
-msgstr ""
+msgstr "jaučiasi kaip"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:949 gis-weather.py:1013
 msgid "Updated on server"
@@ -496,7 +497,7 @@ msgstr "įskaitant įtrauką"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1605 gis-weather.py:1704
 msgid "Requires restart"
-msgstr ""
+msgstr "Reikia paleisti iš naujo"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1674 gis-weather.py:1773
 msgid "Removed"
@@ -525,7 +526,7 @@ msgstr "Jūsų ekranas palaiko alpha"
 #: DEB/build/usr/share/gis-weather/services/accuweather.py:13
 #: services/accuweather.py:13
 msgid "If the city code is wrong, please read"
-msgstr ""
+msgstr "Jei miesto kodas neteisingas, skaitykite"
 
 #: DEB/build/usr/share/gis-weather/services/accuweather.py:200
 #: DEB/build/usr/share/gis-weather/services/gismeteo.py:231
@@ -579,19 +580,19 @@ msgstr "orų informacija gauta"
 #: DEB/build/usr/share/gis-weather/services/openweathermap.py:14
 #: services/openweathermap.py:14
 msgid "How to get"
-msgstr ""
+msgstr "Kaip gauti"
 
 #: DEB/build/usr/share/gis-weather/utils/convert.py:53
 #: DEB/build/usr/share/gis-weather/utils/convert.py:73 utils/convert.py:53
 #: utils/convert.py:73
 msgid "bft"
-msgstr ""
+msgstr "bft"
 
 #: DEB/build/usr/share/gis-weather/utils/convert.py:57
 #: DEB/build/usr/share/gis-weather/utils/convert.py:77 utils/convert.py:57
 #: utils/convert.py:77
 msgid "kts"
-msgstr ""
+msgstr "mgz"
 
 #: DEB/build/usr/share/gis-weather/utils/gw_menu.py:56 utils/gw_menu.py:174
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:691

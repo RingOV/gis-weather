@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.79'
+v = '0.8.2.82'
 #  Copyright (C) 2013-2018 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -1265,7 +1265,6 @@ class MyDrawArea(Gtk.DrawingArea):
                 'wind_direct': _wind_direct if wind_direct != '?' else '',
                 'wind_speed': _wind_speed if wind_speed != '?' else '',
                 'text': _text}
-
             self.draw_scaled_icon(cr, x+day_icon_attr['x'], y+day_icon_attr['y'], icon[index],
                     day_icon_attr['size'], day_icon_attr['size'])
             if day != '?':
@@ -1431,29 +1430,32 @@ class MyDrawArea(Gtk.DrawingArea):
                 return
         else:
             pix = pix.split(';')[1]
-            pix_path = os.path.join(ICONS_PATH, icons_name1, 'weather', pix)
+            if pix[-3:]!='png':
+                print('\033[1;31m[!]\033[0m '+_('Icon not found')+':\n> '+pix)
+            pix_path1 = os.path.join(ICONS_PATH, icons_name1, 'weather', pix)[:-3]
+            pix_path2 = os.path.join(ICONS_USER_PATH, icons_name1, 'weather', pix)[:-3]
 
-            if not os.path.exists(pix_path):
-                pix_path = pix_path[:-3]+'svg'
-                if not os.path.exists(pix_path):
-                    pix_path = pix_path[:-3]+'svgz'
-                    if not os.path.exists(pix_path):
-                        pix_path = os.path.join(ICONS_USER_PATH, icons_name1, 'weather', pix)
-                        if not os.path.exists(pix_path):
-                            pix_path = pix_path[:-3]+'svg'
-                            if not os.path.exists(pix_path):
-                                pix_path = pix_path[:-3]+'svgz'
-                                if not os.path.exists(pix_path):
-                                    print ('\033[1;31m[!]\033[0m '+_('Icon not found')+':\n> '+pix_path)
-                                    if os.path.exists(os.path.join(ICONS_PATH, icons_name1, 'weather', 'na.png')):
-                                        pix_path = os.path.join(ICONS_PATH, icons_name1, 'weather', 'na.png')
-                                    else:
-                                        if os.path.exists(os.path.join(ICONS_USER_PATH, icons_name1, 'weather', 'na.png')):
-                                            pix_path = os.path.join(ICONS_USER_PATH, icons_name1, 'weather', 'na.png')
-                                        else:
-                                            pix_path = os.path.join(THEMES_PATH, 'na.png')
+            pix_path = None
+            for head in (pix_path1, pix_path2):
+                if pix_path:
+                    break
+                for tail in ('png', 'svg', 'svgz'):
+                    if os.path.exists(head+tail):
+                        pix_path = head+tail
+                        break
+            if not pix_path:
+                print ('\033[1;31m[!]\033[0m '+_('Icon not found')+':\n> '+pix)
+                if os.path.exists(os.path.join(ICONS_PATH, icons_name1, 'weather', 'na.png')):
+                    pix_path = os.path.join(ICONS_PATH, icons_name1, 'weather', 'na.png')
+                else:
+                    if os.path.exists(os.path.join(ICONS_USER_PATH, icons_name1, 'weather', 'na.png')):
+                        pix_path = os.path.join(ICONS_USER_PATH, icons_name1, 'weather', 'na.png')
+                    else:
+                        pix_path = os.path.join(THEMES_PATH, 'na.png')
+
         if not indicator_icon_name:    
             self.draw_scaled_image(cr, x, y, pix_path, w, h)
+
 
     def draw_scaled_image(self, cr, x, y, pix, w, h, ang = 0):
         if not os.path.exists(pix):

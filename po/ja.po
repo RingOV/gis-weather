@@ -1,12 +1,13 @@
 # 
 # Translators:
-# Tsurugi Takeshi <hippointhewild@gmail.com>, 2014-2015
+# Hippo Rhino <hippointhewild@gmail.com>, 2019
+# Hippo Rhino <hippointhewild@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2017-05-20 16:43+0300\n"
-"PO-Revision-Date: 2017-05-20 13:52+0000\n"
-"Last-Translator: RingOV <ringov@mail.ru>\n"
+"PO-Revision-Date: 2019-02-02 04:13+0000\n"
+"Last-Translator: Hippo Rhino <hippointhewild@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/gis-weather-team/gis-weather/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -290,7 +291,7 @@ msgstr "インスタンスの数"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:55 gis-weather.py:55
 msgid "testing mode turned on"
-msgstr ""
+msgstr "テストモードがONになっています"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:229
 #: DEB/build/usr/share/gis-weather/utils/presets.py:60
@@ -299,7 +300,7 @@ msgstr ""
 #: utils/gw_menu.py:56 utils/presets.py:61 utils/presets.py:178
 #: utils/presets.py:214 utils/presets.py:249
 msgid "Now"
-msgstr ""
+msgstr "現在"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:284 gis-weather.py:288
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:682
@@ -387,7 +388,7 @@ msgstr "接続エラー"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:902 gis-weather.py:896
 msgid "feels like"
-msgstr ""
+msgstr "のような気がする"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:949 gis-weather.py:1013
 msgid "Updated on server"
@@ -497,7 +498,7 @@ msgstr "インデントを含む"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1605 gis-weather.py:1704
 msgid "Requires restart"
-msgstr ""
+msgstr "再起動を要求"
 
 #: DEB/build/usr/share/gis-weather/gis-weather.py:1674 gis-weather.py:1773
 msgid "Removed"
@@ -580,7 +581,7 @@ msgstr "天候の受信"
 #: DEB/build/usr/share/gis-weather/services/openweathermap.py:14
 #: services/openweathermap.py:14
 msgid "How to get"
-msgstr ""
+msgstr "取得方法"
 
 #: DEB/build/usr/share/gis-weather/utils/convert.py:53
 #: DEB/build/usr/share/gis-weather/utils/convert.py:73 utils/convert.py:53
@@ -628,7 +629,7 @@ msgstr "全てのデスクトップ上"
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1829
 #: dialogs/settings_dialog.ui:1829
 msgid "Always on top"
-msgstr ""
+msgstr "常に最前面に"
 
 #: DEB/build/usr/share/gis-weather/utils/gw_menu.py:162 utils/gw_menu.py:295
 msgid "Save screenshot"
@@ -646,11 +647,11 @@ msgstr "更新"
 
 #: DEB/build/usr/share/gis-weather/utils/gw_menu.py:195 utils/gw_menu.py:328
 msgid "Start new instance"
-msgstr ""
+msgstr "新しいインスタンスを開始する"
 
 #: DEB/build/usr/share/gis-weather/utils/gw_menu.py:203 utils/gw_menu.py:336
 msgid "Go to site"
-msgstr ""
+msgstr "サイトに行く"
 
 #: DEB/build/usr/share/gis-weather/utils/gw_menu.py:221 utils/gw_menu.py:354
 msgid "Indicator icons"
@@ -715,23 +716,23 @@ msgstr "気圧"
 
 #: gis-weather.py:899 utils/gw_menu.py:61
 msgid "Humidity"
-msgstr ""
+msgstr "湿度"
 
 #: gis-weather.py:900 utils/gw_menu.py:76
 msgid "Sunrise"
-msgstr ""
+msgstr "日の出"
 
 #: gis-weather.py:901 utils/gw_menu.py:81
 msgid "Sunset"
-msgstr ""
+msgstr "日没"
 
 #: utils/gw_menu.py:113
 msgid "Precipitation"
-msgstr ""
+msgstr "降水量"
 
 #: utils/gw_menu.py:359
 msgid "Menu icons"
-msgstr ""
+msgstr "メニュー アイコン"
 
 #: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:58
 #: dialogs/city_id_dialog.ui:58
@@ -979,7 +980,7 @@ msgstr "現在の表示"
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2277
 #: dialogs/settings_dialog.ui:2277
 msgid "Block Sunrise"
-msgstr ""
+msgstr "日の出を表示"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2404
 #: dialogs/settings_dialog.ui:2404
@@ -1004,7 +1005,7 @@ msgstr "追加情報の表示"
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2679
 #: dialogs/settings_dialog.ui:2679
 msgid "Block Moonrise"
-msgstr ""
+msgstr "月の出を表示"
 
 #: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2733
 #: dialogs/settings_dialog.ui:2733
