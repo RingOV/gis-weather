@@ -14,6 +14,7 @@ def convert(deg):
 
 def convert2(d):
     direct = ''
+    if d == '0': direct = _('Calm')
     if d == '1': direct = _('N')
     if d == '2': direct = _('N')+_('E')
     if d == '3': direct = _('E')
