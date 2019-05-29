@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.2.84'
+v = '0.8.2.85'
 #  Copyright (C) 2013-2018 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -1505,7 +1505,13 @@ class MyDrawArea(Gtk.DrawingArea):
             cr.translate(-w//2, -h//2)
         else:
             cr.translate(x, y)
-        cr.scale(w/svg.props.width, h/svg.props.height)
+        k=1
+        if svg.props.width>svg.props.height:
+            k=svg.props.width/svg.props.height
+        if k==1:
+            cr.scale(w/svg.props.width, h/svg.props.height)
+        else:
+            cr.scale(w/svg.props.width, h/svg.props.height/k)
         svg.render_cairo(cr)
         cr.restore()
 

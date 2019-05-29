@@ -278,7 +278,6 @@ def get_weather():
     sunrise = dt1.strftime('%H:%M')
     sunset = dt2.strftime('%H:%M')
     sun_duration = ':'.join(str(dt3).split(':')[:2])
-    print(sunrise, sunset, sun_duration)
 
     # temperature
     t_now = re.findall('<fact.*? t="(.*?)"',source)
