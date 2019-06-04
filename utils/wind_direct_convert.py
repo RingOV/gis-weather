@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 def convert(deg):
-    direct = 'N'
+    direct = _('N')
     if deg>22.5: direct = _('N')+_('E')
     if deg>67.5: direct = _('E')
     if deg>112.5: direct = _('S')+_('E')
