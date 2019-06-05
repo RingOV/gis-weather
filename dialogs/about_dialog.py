@@ -55,7 +55,10 @@ http://www.gnu.org/licenses/gpl.txt''')
         "http://lavana.deviantart.com/art/Simple-Weather-Icons-23626765\n",
         "Sketchy",
         "by AzureSol",
-        "http://azuresol.deviantart.com/art/Sketchy-Weather-Icons-135079063\n"
+        "http://azuresol.deviantart.com/art/Sketchy-Weather-Icons-135079063\n",
+        "VClouds",
+        "by VClouds",
+        "http://vclouds.deviantart.com/gallery/#/d2ynulp\n"
         ])
     about.set_translator_credits(_("translator-credits"))
     #about.set_documenters("")
