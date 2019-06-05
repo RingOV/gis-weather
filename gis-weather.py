@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.3.2'
+v = '0.8.3.3'
 #  Copyright (C) 2013-2018 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -1417,6 +1417,8 @@ class MyDrawArea(Gtk.DrawingArea):
             icons_name1 = indicator_icon_name
         if icons_name1 == 'default':
             pix = pix.split(';')[0]
+            if pix == 'clear.png':
+                return
             pix_path = os.path.join(ICONS_USER_PATH, 'default', 'weather', os.path.split(pix)[1])
             if not os.path.exists(pix_path):
                 urlretrieve(pix, pix_path)
@@ -1430,6 +1432,8 @@ class MyDrawArea(Gtk.DrawingArea):
                 return
         else:
             pix = pix.split(';')[1]
+            if pix == 'clear.png':
+                return
             if pix[-3:]!='png':
                 print('\033[1;31m[!]\033[0m '+_('Icon not found')+':\n> '+pix)
             pix_path1 = os.path.join(ICONS_PATH, icons_name1, 'weather', pix)[:-3]
