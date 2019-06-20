@@ -66,7 +66,7 @@ dict_icons = {
 }
 
 
-def convert(icon, icons_name):
+def convert(icon):
     try:
         icon_converted = dict_icons[os.path.split(icon)[1]]
     except:
@@ -110,13 +110,10 @@ def get_weather():
     show_block_today = gw_vars.get('show_block_today')
     show_block_add_info = gw_vars.get('show_block_add_info')
     weather_lang = gw_vars.get('weather_lang')
-    icons_name = gw_vars.get('icons_name')
     URL = ''
     URL_CURRENT = 'http://api.openweathermap.org/data/2.5/weather?id=%s&lang=%s&units=metric&appid=%s'%(str(city_id), weather_lang, APPID)
     URL_SEVERAL_DAYS = 'http://api.openweathermap.org/data/2.5/forecast?id=%s&lang=%s&units=metric&appid=%s'%(str(city_id), weather_lang, APPID)
-    # URL_SEVERAL_DAYS2 = 'http://api.openweathermap.org/data/2.5/forecast/daily?id=%s&lang=%s&units=metric&cnt=%s&appid=%s'%(str(city_id), weather_lang, n+1, APPID)
-    
-    # URL_TODAY_TOMORROW = 'http://api.openweathermap.org/data/2.5/forecast?id=%s&lang=%s&units=metric&appid=%s'%(str(city_id), weather_lang, APPID)
+
     print ('\033[34m>\033[0m '+_('Getting weather for')+' '+str(n)+' '+_('days'))
 
     source = urlopener(URL_CURRENT, 2)
@@ -143,7 +140,7 @@ def get_weather():
 
     # icon
     icon_now = ['http://openweathermap.org/img/w/'+source['weather'][0]['icon']+'.png']
-    icon_now[0] = convert(icon_now[0], icons_name)
+    icon_now[0] = convert(icon_now[0])
 
     # wind icon
     try:
@@ -154,7 +151,7 @@ def get_weather():
         icon_wind_now = ['None']
 
     # update time
-    dt = datetime.fromtimestamp(source['dt'])
+    dt = datetime.utcfromtimestamp(source['dt']+source['timezone'])
     time_update = [dt.strftime('%H:%M')]
 
     # weather text now
@@ -168,8 +165,8 @@ def get_weather():
     # humidity now
     hum_now = [str(source['main']['humidity'])]
 
-    dt1 = datetime.fromtimestamp(source['sys']['sunrise'])
-    dt2 = datetime.fromtimestamp(source['sys']['sunset'])
+    dt1 = datetime.utcfromtimestamp(source['sys']['sunrise']+source['timezone'])
+    dt2 = datetime.utcfromtimestamp(source['sys']['sunset']+source['timezone'])
     dt3 = dt2-dt1
     sunrise = dt1.strftime('%H:%M')
     sunset = dt2.strftime('%H:%M')
@@ -181,132 +178,105 @@ def get_weather():
         return False
     source = json.loads(source)
 
-    wt = [[]]
-    i = 0
+    wt2 = []
     for data in source['list']:
-        t=add_plus(str(round(data['main']['temp'])))
-        dt = datetime.fromtimestamp(data['dt']-10)
+        t=str(round(data['main']['temp']))
+        dt = datetime.utcfromtimestamp(data['dt']+source['city']['timezone'])
         day=dt.strftime('%a')
         date=dt.strftime('%d.%m')
+        _time=dt.strftime('%H:%M')
         icon='http://openweathermap.org/img/w/'+data['weather'][0]['icon']+'.png'
         text=data['weather'][0]['description']
         wind_speed=str(round(data['wind']['speed']))
         wind_direct=wind_direct_convert.convert(data['wind']['deg'])
-        if get_time(data) == '00:00' and wt[0] != []:
+        wt2.append({
+            't':t,
+            'day': day,
+            'date': date,
+            'time': _time,
+            'icon': icon,
+            'text': text,
+            'wind_speed': wind_speed,
+            'wind_direct': wind_direct
+            })
+
+    wt = [[]]
+    i = 0
+    _date = wt2[0]['date']
+    # true sort by date for local time
+    for item in wt2:
+        if _date != item['date']:
             i+=1
             wt.append([])
-        wt[i].append([t, day, date, icon, text, wind_speed, wind_direct])
+            _date = item['date']
+        wt[i].append(item)
 
     t_day = ['']
     t_night = ['']
-    day = [wt[0][0][1]]
-    date = [wt[0][0][2]]
+    day = [wt[0][0]['day']]
+    date = [wt[0][0]['date']]
     icon = ['']
     text = ['']
     wind_speed = ['']
     wind_direct = ['']
 
     for i in range(1, len(wt)):
-        t_d = None
-        t_n = None
+        max_t = None
+        min_t = None
         w_s = 0
+        # find max min temp
         for item in wt[i]:
-            if t_d == None:
-                t_d = item[0]
-                t_n = item[0]
-            if int(item[0]) > int(t_d):
-                t_d = item[0]
-            if int(item[0]) < int(t_n):
-                t_n = item[0]
-            w_s += int(item[5])
-        t_day.append(convert_from_C(t_d))
-        t_night.append(convert_from_C(t_n))
-        day.append(wt[i][0][1])
-        date.append(wt[i][0][2])
+            if max_t == None:
+                max_t = item['t']
+                min_t = item['t']
+            if int(item['t']) > int(max_t):
+                max_t = item['t']
+            if int(item['t']) < int(min_t):
+                min_t = item['t']
+            w_s += int(item['wind_speed'])
+        t_day.append(convert_from_C(max_t))
+        t_night.append(convert_from_C(min_t))
+        day.append(wt[i][0]['day'])
+        date.append(wt[i][0]['date'])
         index = -1 if len(wt[i])<5 else 4
-        icon.append(convert(wt[i][index][3],icons_name))
-        text.append(wt[i][index][4])
+        icon.append(convert(wt[i][index]['icon']))
+        text.append(wt[i][index]['text'])
+        # avg wind_speed, may be best max-min
         wind_speed.append(convert_from_ms(str(round(w_s/len(wt[i])))))
-        wind_direct.append(wt[i][index][6])
+        wind_direct.append(wt[i][index]['wind_direct'])
 
     if show_block_tomorrow or show_block_today:
-        t_tomorrow = ['', '', '', '']
-        t_today = ['', '', '', '']
-        icon_today = ['', '', '', '']
-        icon_tomorrow = ['', '', '', '']
-        wind_speed_tod = ['', '', '', '']
+        t_today = [';;;;;', ';;;;;', ';;;;;', ';;;;;']
+        icon_today = ['clear.png;clear.png', 'clear.png;clear.png', 'clear.png;clear.png', 'clear.png;clear.png']
+        wind_speed_tod = [';;', ';;', ';;', ';;']
         wind_direct_tod = ['', '', '', '']
-        wind_speed_tom = ['', '', '', '']
-        wind_direct_tom = ['', '', '', '']
+        
+        t_tomorrow = []
+        icon_tomorrow = []
+        wind_speed_tom = []
+        wind_direct_tom = []
 
-        day_today = get_day(source['list'][0])
+        time_of_day_list = (_('Night'), _('Morning'), _('Day'), _('Evening'))
 
-        for data in source['list']:
-            day_tommorow = get_day(data)
-            if day_tommorow != day_today:
-                break
+        # today weather
+        w_tod = []
+        j = 0
+        for i in (-7, -5, -3, -1):
+            try:
+                t_today[j] = convert_from_C(wt[0][i]['t'])
+                icon_today[j] = convert(wt[0][i]['icon'])
+                wind_speed_tod[j] = convert_from_ms(wt[0][i]['wind_speed'])
+                wind_direct_tod[j] = wt[0][i]['wind_direct']
+            except:
+                pass
+            j+=1
 
-        for data in source['list']:
-            day_after_tommorow = get_day(data)
-            if day_after_tommorow != day_today and day_after_tommorow != day_tommorow:
-                break
-
-        a_dict = {'03:00':0, '09:00':1, '15:00':2, '21:00':3}
-
-        for data in source['list']:
-            if get_time(data) in a_dict.keys():
-                if get_day(data) == day_today:
-                    t_today[a_dict[get_time(data)]] = add_plus(str(round(data['main']['temp'])))
-                    icon_today[a_dict[get_time(data)]] = 'http://openweathermap.org/img/w/'+data['weather'][0]['icon']+'.png'
-                    wind_speed_tod[a_dict[get_time(data)]] = str(round(data['wind']['speed']))
-                    wind_direct_tod[a_dict[get_time(data)]] = wind_direct_convert.convert(data['wind']['deg'])
-                if get_day(data) == day_tommorow:
-                    t_tomorrow[a_dict[get_time(data)]] = add_plus(str(round(data['main']['temp'])))
-                    icon_tomorrow[a_dict[get_time(data)]] = 'http://openweathermap.org/img/w/'+data['weather'][0]['icon']+'.png'
-                    wind_speed_tom[a_dict[get_time(data)]] = str(round(data['wind']['speed']))
-                    wind_direct_tom[a_dict[get_time(data)]] = wind_direct_convert.convert(data['wind']['deg'])
-                    if get_time(data) == '00:00':
-                        t_today[3] = add_plus(str(round(data['main']['temp'])))
-                        icon_today[3] = 'http://openweathermap.org/img/w/'+data['weather'][0]['icon']+'.png'
-                        wind_speed_tod[3] = str(round(data['wind']['speed']))
-                        wind_direct_tod[3] = wind_direct_convert.convert(data['wind']['deg'])
-                if get_day(data) == day_after_tommorow and get_time(data) == '00:00':
-                    t_tomorrow[3] = add_plus(str(round(data['main']['temp'])))
-                    icon_tomorrow[3] = 'http://openweathermap.org/img/w/'+data['weather'][0]['icon']+'.png'
-                    wind_speed_tom[3] = str(round(data['wind']['speed']))
-                    wind_direct_tom[3] = wind_direct_convert.convert(data['wind']['deg'])
-
-        for i in range(len(t_today)):
-            if t_today[i] != '':
-                t_today[i] = t_today[i]+'°;'+t_today[i]+'°;'+C_to_F(t_today[i])+'°;'+C_to_F(t_today[i])+'°;'+C_to_K(t_today[i])+';'+C_to_K(t_today[i])
-            else:
-                t_today[i] = ';;;;;'
-
-        for i in range(len(t_tomorrow)):
-            if t_tomorrow[i] != '':
-                t_tomorrow[i] = t_tomorrow[i]+'°;'+t_tomorrow[i]+'°;'+C_to_F(t_tomorrow[i])+'°;'+C_to_F(t_tomorrow[i])+'°;'+C_to_K(t_tomorrow[i])+';'+C_to_K(t_tomorrow[i])
-            else:
-                t_tomorrow[i] = ';;;;;'
-        for i in range(len(icon_today)):
-            if icon_today[i] != '':
-                icon_today[i] = convert(icon_today[i], icons_name)
-            else:
-                icon_today[i] = 'clear.png;clear.png'
-        for i in range(len(icon_tomorrow)):
-            if icon_tomorrow[i] != '':
-                icon_tomorrow[i] = convert(icon_tomorrow[i], icons_name)
-            else:
-                icon_tomorrow[i] = 'na.png;na.png'
-        for i in range(len(wind_speed_tod)):
-            if wind_speed_tod[i] != '':
-                wind_speed_tod[i] = convert_from_ms(wind_speed_tod[i])
-            else:
-                wind_speed_tod[i] = ';;'
-        for i in range(len(wind_speed_tom)):
-            if wind_speed_tom[i] != '':
-                wind_speed_tom[i] = convert_from_ms(wind_speed_tom[i])
-    
-    time_of_day_list = (_('Night'), _('Morning'), _('Day'), _('Evening'))
+        # tomorrow weather
+        for i in (1, 3, 5, 7):
+            t_tomorrow.append(convert_from_C(wt[1][i]['t']))
+            icon_tomorrow.append(convert(wt[1][i]['icon']))
+            wind_speed_tom.append(convert_from_ms(wt[1][i]['wind_speed']))
+            wind_direct_tom.append(wt[1][i]['wind_direct'])
 
     if time_update:
         print ('\033[34m>\033[0m '+_('updated on server')+' '+time_update[0]) 
