@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.3.5'
+v = '0.8.3.6'
 #  Copyright (C) 2013-2018 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -412,6 +412,7 @@ show_time_receive_local = False
 time_receive = None
 ind = None
 pix_path = None
+lock_update = False
 
 t_scale_dict = {
     0: "°C",
@@ -460,6 +461,9 @@ def get_weather():
         return data.get_weather(service)
 
 def check_updates():
+    global lock_update
+    if lock_update:
+        return False
     package = 'gz'
     if os.path.exists(os.path.join(APP_PATH, 'package')):
         f = open(os.path.join(APP_PATH, 'package'),"r")
@@ -492,6 +496,7 @@ def check_updates():
         print ('\033[1;31m[!]\033[0m '+_('Unable to check for updates'))
         print ('-'*40)
         return False
+    lock_update = True
     temp_links = re.findall('sourceforge.net/projects/gis-weather/files/gis-weather/%s/(.+)/download'%new_ver1[0], temp)
     update_link = ''
     for i in range(len(temp_links)):
@@ -515,6 +520,7 @@ def check_updates():
         print ('-'*40)
         if check_for_updates == 1 and check_for_updates_local:
             check_for_updates_local = False
+    lock_update = False
 
 def screenshot():
     w = Gdk.get_default_root_window()
@@ -779,7 +785,7 @@ class MyDrawArea(Gtk.DrawingArea):
         self.queue_draw()
         while Gtk.events_pending():
             Gtk.main_iteration_do(True)
-        if get_weather1 and check_for_updates_local and not err_connect:
+        if check_for_updates_local:
             check_updates()
         app.create_menu(for_indicator=True, weather_menu=weather_menu)
         ind.set_menu(app.menu)
