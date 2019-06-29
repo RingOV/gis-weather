@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.3.6'
-#  Copyright (C) 2013-2018 Alexander Koltsov <ringov@mail.ru>
+v = '0.8.3.7'
+#  Copyright (C) 2013-2019 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -660,10 +660,10 @@ class Indicator:
 
         def set_menu(self, menu):
             self.indicator.connect("popup-menu", self.popup_menu)
-            self.indicator_label.connect("popup-menu", self.popup_menu)
+            # self.indicator_label.connect("popup-menu", self.popup_menu)
             #FIXME #self.indicator.connect("activate", app.menu_response, 'show_hide_widget')
             self.indicator.connect("activate", self.activate_menu)
-            self.indicator_label.connect("activate", self.activate_menu)
+            # self.indicator_label.connect("activate", self.activate_menu)
             self.indicator.connect("scroll-event", self.scroll)
 
         def scroll(self, button, event):
@@ -673,17 +673,19 @@ class Indicator:
                 app.menu_response(None, 'show_hide_widget', 'hide')
         
         def activate_menu(self, icon):
-            time=Gtk.get_current_event_time()
-            def pos(menu, icon):
-                return (Gtk.StatusIcon.position_menu(menu, icon))
+            time = Gtk.get_current_event_time()
+            # def pos(menu, icon, a=None, b=None):
+            #     return (Gtk.StatusIcon.position_menu(menu, icon))
             app.create_menu(for_indicator=True, weather_menu=True)
-            app.menu.popup(None, None, pos, self.indicator, 1, time)
+            app.menu.popup(None, None, Gtk.StatusIcon.position_menu, self.indicator, 1, time)
 
         def popup_menu(self, icon, widget, time):
+            print('weather_menu', weather_menu)
             app.create_menu(for_indicator=True, weather_menu=weather_menu)
-            def pos(menu, icon):
-                return (Gtk.StatusIcon.position_menu(menu, icon))
-            app.menu.popup(None, None, pos, self.indicator, widget, time)
+            app.menu.popup(None, None, None, None, widget, time)
+            # def pos(menu, icon):
+            #     return (Gtk.StatusIcon.position_menu(menu, icon))
+            # app.menu.popup(None, None, pos, self.indicator, widget, time)
 
 
         def hide(self):
@@ -1634,6 +1636,7 @@ class Weather_Widget:
                 weather_menu = False
             else:
                 weather_menu = True
+            print(weather_menu)
             Save_Config()
         if event == 'goto_site':
             if URL:
