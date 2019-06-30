@@ -1,6 +1,6 @@
 ### **ReadMe**
 
-### **![Gis Weather](https://db.tt/oeyzEITN)**
+### **![Gis Weather](https://github.com/RingOV/gis-weather/raw/master/icon.png)**
 
 
 ### **Dependencies**
@@ -22,7 +22,6 @@ Recommends:
 - Highlighting the high wind
 - Support weather services:
   - Gismeteo.com
-  - AccuWeather.com
   - OpenWeatherMap.org
   - Yr.no
 - Support SVG and widget scale

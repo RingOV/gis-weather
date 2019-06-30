@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.3.7'
+v = '0.8.3.8'
 #  Copyright (C) 2013-2019 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -604,9 +604,6 @@ class Indicator:
 
         def set_menu(self, menu):
             self.indicator.set_menu(menu)
-            # menu_item = Gtk.MenuItem("Toggle Floater") # Not worked
-            # menu_item.connect("activate", app.menu_response, 'show_hide_widget')
-            # self.indicator.set_secondary_activate_target(menu_item)
             self.indicator.connect("scroll-event", self.scroll)
         
         def scroll(self, ind, steps, direction):
@@ -660,33 +657,17 @@ class Indicator:
 
         def set_menu(self, menu):
             self.indicator.connect("popup-menu", self.popup_menu)
-            # self.indicator_label.connect("popup-menu", self.popup_menu)
-            #FIXME #self.indicator.connect("activate", app.menu_response, 'show_hide_widget')
-            self.indicator.connect("activate", self.activate_menu)
-            # self.indicator_label.connect("activate", self.activate_menu)
-            self.indicator.connect("scroll-event", self.scroll)
+            self.indicator_label.connect("popup-menu", self.popup_menu)
 
         def scroll(self, button, event):
             if event.direction == Gdk.ScrollDirection.UP:
                 app.menu_response(None, 'show_hide_widget', 'show')
             elif event.direction == Gdk.ScrollDirection.DOWN:
                 app.menu_response(None, 'show_hide_widget', 'hide')
-        
-        def activate_menu(self, icon):
-            time = Gtk.get_current_event_time()
-            # def pos(menu, icon, a=None, b=None):
-            #     return (Gtk.StatusIcon.position_menu(menu, icon))
-            app.create_menu(for_indicator=True, weather_menu=True)
-            app.menu.popup(None, None, Gtk.StatusIcon.position_menu, self.indicator, 1, time)
 
         def popup_menu(self, icon, widget, time):
-            print('weather_menu', weather_menu)
             app.create_menu(for_indicator=True, weather_menu=weather_menu)
             app.menu.popup(None, None, None, None, widget, time)
-            # def pos(menu, icon):
-            #     return (Gtk.StatusIcon.position_menu(menu, icon))
-            # app.menu.popup(None, None, pos, self.indicator, widget, time)
-
 
         def hide(self):
             if not self.hiden:
@@ -787,10 +768,11 @@ class MyDrawArea(Gtk.DrawingArea):
         self.queue_draw()
         while Gtk.events_pending():
             Gtk.main_iteration_do(True)
-        if check_for_updates_local:
+        if check_for_updates_local and get_weather1:
             check_updates()
-        app.create_menu(for_indicator=True, weather_menu=weather_menu)
-        ind.set_menu(app.menu)
+        if indicator_is_appindicator:
+            app.create_menu(for_indicator=True, weather_menu=weather_menu)
+            ind.set_menu(app.menu)
 
     def expose_indicator(self):
         global err, on_redraw, get_weather_bool, weather, err_connect
@@ -1636,7 +1618,6 @@ class Weather_Widget:
                 weather_menu = False
             else:
                 weather_menu = True
-            print(weather_menu)
             Save_Config()
         if event == 'goto_site':
             if URL:
