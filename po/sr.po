@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2019-06-30 22:37+0300\n"
-"PO-Revision-Date: 2019-06-30 19:38+0000\n"
+"POT-Creation-Date: 2019-06-30 23:17+0300\n"
+"PO-Revision-Date: 2019-06-30 20:17+0000\n"
 "Last-Translator: RingOV <ringov@mail.ru>\n"
 "Language-Team: Serbian (http://www.transifex.com/gis-weather-team/gis-weather/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -50,8 +50,8 @@ msgstr "Помоћ и идеје"
 msgid "Backgrounds"
 msgstr "Позадине"
 
-#: dialogs/about_dialog.py:46 dialogs/settings_dialog.ui:3753
-#: dialogs/settings_dialog.ui:4209 utils/gw_menu.py:376
+#: dialogs/about_dialog.py:46 dialogs/settings_dialog.ui:3807
+#: dialogs/settings_dialog.ui:4262 utils/gw_menu.py:376
 msgid "Icons"
 msgstr "Иконе"
 
@@ -80,7 +80,7 @@ msgid "City code"
 msgstr "Код града"
 
 #: dialogs/city_id_dialog.py:118 dialogs/city_id_dialog.ui:42
-#: dialogs/settings_dialog.ui:638 utils/gw_menu.py:41 utils/gw_menu.py:360
+#: dialogs/settings_dialog.ui:652 utils/gw_menu.py:41 utils/gw_menu.py:360
 msgid "Location"
 msgstr "Локација"
 
@@ -112,7 +112,7 @@ msgstr "Обриши\nизабрано"
 msgid "Language weather"
 msgstr "Језик времена"
 
-#: dialogs/city_id_dialog.ui:182 dialogs/settings_dialog.ui:870
+#: dialogs/city_id_dialog.ui:182 dialogs/settings_dialog.ui:884
 msgid "Weather service"
 msgstr "Временски сервис"
 
@@ -137,7 +137,7 @@ msgstr "Пошаљи е-пошту"
 msgid "Help"
 msgstr "Помоћ"
 
-#: dialogs/help_dialog.ui:25 dialogs/settings_dialog.ui:593
+#: dialogs/help_dialog.ui:25 dialogs/settings_dialog.ui:608
 #: dialogs/update_dialog.ui:44 utils/gw_menu.py:465
 msgid "Close"
 msgstr "Затвори"
@@ -146,7 +146,7 @@ msgstr "Затвори"
 msgid "Found a bug?"
 msgstr "Пронађена грешка?"
 
-#: dialogs/help_dialog.ui:109 dialogs/settings_dialog.ui:800
+#: dialogs/help_dialog.ui:109 dialogs/settings_dialog.ui:815
 #: dialogs/update_dialog.ui:351
 msgid "Want to translate?"
 msgstr "Желите да преводите?"
@@ -179,373 +179,377 @@ msgstr "Изворни код"
 msgid "What's New"
 msgstr "Шта је ново"
 
-#: dialogs/help_dialog.ui:286 dialogs/settings_dialog.ui:943
+#: dialogs/help_dialog.ui:286 dialogs/settings_dialog.ui:958
 msgid "Translation status"
 msgstr "Статус превода"
 
-#: dialogs/settings_dialog.py:103 dialogs/settings_dialog.py:799
+#: dialogs/settings_dialog.py:103 dialogs/settings_dialog.py:804
 #: utils/gw_menu.py:401
 msgid "Preferences"
 msgstr "Поставке"
 
-#: dialogs/settings_dialog.py:439 utils/convert.py:63 utils/convert.py:67
+#: dialogs/settings_dialog.py:443 utils/convert.py:63 utils/convert.py:67
 msgid "m/s"
 msgstr "m/s"
 
-#: dialogs/settings_dialog.py:439 utils/convert.py:45 utils/convert.py:83
+#: dialogs/settings_dialog.py:443 utils/convert.py:45 utils/convert.py:83
 msgid "km/h"
 msgstr "km/h"
 
-#: dialogs/settings_dialog.py:439 utils/convert.py:49 utils/convert.py:71
+#: dialogs/settings_dialog.py:443 utils/convert.py:49 utils/convert.py:71
 msgid "mph"
 msgstr "mph"
 
-#: dialogs/settings_dialog.py:439
+#: dialogs/settings_dialog.py:443
 msgid "Beaufort scale"
 msgstr "Шкала Бофорта"
 
-#: dialogs/settings_dialog.py:439
+#: dialogs/settings_dialog.py:443
 msgid "Knots"
 msgstr "Јединица"
 
-#: dialogs/settings_dialog.py:440
+#: dialogs/settings_dialog.py:444
 msgid "mmHg"
 msgstr "mmHg"
 
-#: dialogs/settings_dialog.py:440
+#: dialogs/settings_dialog.py:444
 msgid "inHg"
 msgstr "inHg"
 
-#: dialogs/settings_dialog.py:440
+#: dialogs/settings_dialog.py:444
 msgid "hPa"
 msgstr "hPa"
 
-#: dialogs/settings_dialog.py:443
+#: dialogs/settings_dialog.py:447
 msgid "Never"
 msgstr "Никада"
 
-#: dialogs/settings_dialog.py:444
+#: dialogs/settings_dialog.py:448
 msgid "Only at start"
 msgstr "Само на старту"
 
-#: dialogs/settings_dialog.py:445
+#: dialogs/settings_dialog.py:449
 msgid "Always"
 msgstr "Увек"
 
-#: dialogs/settings_dialog.py:448 utils/gw_menu.py:255
+#: dialogs/settings_dialog.py:452 utils/gw_menu.py:255
 msgid "No"
 msgstr "Не"
 
-#: dialogs/settings_dialog.py:449
+#: dialogs/settings_dialog.py:453
 msgid "Only background"
 msgstr "Само позадина"
 
-#: dialogs/settings_dialog.py:450
+#: dialogs/settings_dialog.py:454
 msgid "Yes"
 msgstr "Да"
 
-#: dialogs/settings_dialog.py:568 dialogs/settings_dialog.py:570
-#: dialogs/settings_dialog.py:585 dialogs/settings_dialog.py:587
-#: dialogs/settings_dialog.py:602 dialogs/settings_dialog.py:604
+#: dialogs/settings_dialog.py:573 dialogs/settings_dialog.py:575
+#: dialogs/settings_dialog.py:590 dialogs/settings_dialog.py:592
+#: dialogs/settings_dialog.py:607 dialogs/settings_dialog.py:609
 msgid "Author"
 msgstr "Аутор"
 
-#: dialogs/settings_dialog.ui:651
+#: dialogs/settings_dialog.ui:665
 msgid "Update (in minutes)"
 msgstr "Ажурирање (у минутима)"
 
-#: dialogs/settings_dialog.ui:664
+#: dialogs/settings_dialog.ui:678
 msgid "Check for updates"
 msgstr "Провери ажурирања"
 
-#: dialogs/settings_dialog.ui:688 gis-weather.py:297
+#: dialogs/settings_dialog.ui:702 gis-weather.py:297
 msgid "Configuration folder"
 msgstr "Фасцикла подешавања"
 
-#: dialogs/settings_dialog.ui:697 utils/gw_menu.py:181
+#: dialogs/settings_dialog.ui:712 utils/gw_menu.py:181
 msgid "Setup..."
 msgstr "Подеси..."
 
-#: dialogs/settings_dialog.ui:740
+#: dialogs/settings_dialog.ui:755
 msgid "Open..."
 msgstr "Отвори..."
 
-#: dialogs/settings_dialog.ui:820
+#: dialogs/settings_dialog.ui:834
 msgid "Program language"
 msgstr "Језик програма"
 
-#: dialogs/settings_dialog.ui:833
+#: dialogs/settings_dialog.ui:847
 msgid "Weather language"
 msgstr "Језик времена"
 
-#: dialogs/settings_dialog.ui:846
+#: dialogs/settings_dialog.ui:860
 msgid "Add launcher icon to menu"
 msgstr "Додај икону у мени"
 
-#: dialogs/settings_dialog.ui:922 utils/gw_menu.py:332
+#: dialogs/settings_dialog.ui:937 utils/gw_menu.py:332
 msgid "Refresh"
 msgstr "Обнови"
 
-#: dialogs/settings_dialog.ui:993
+#: dialogs/settings_dialog.ui:1007
 msgid "Autostart at login"
 msgstr "Покрени са системом"
 
-#: dialogs/settings_dialog.ui:1006
+#: dialogs/settings_dialog.ui:1020
 msgid "Number of instances"
 msgstr "Број примера"
 
-#: dialogs/settings_dialog.ui:1046
+#: dialogs/settings_dialog.ui:1060
 msgid "Start delay (in seconds)"
 msgstr "Одложени старт (у секундама)"
 
-#: dialogs/settings_dialog.ui:1090 dialogs/settings_dialog.ui:1144
+#: dialogs/settings_dialog.ui:1105 dialogs/settings_dialog.ui:1159
 msgid "Autostart"
 msgstr "Аутостарт"
 
-#: dialogs/settings_dialog.ui:1128
+#: dialogs/settings_dialog.ui:1143
 msgid "Configured in the first instance"
 msgstr "Подешено у првом степену"
 
-#: dialogs/settings_dialog.ui:1231
+#: dialogs/settings_dialog.ui:1246
 msgid "General"
 msgstr "Опште"
 
-#: dialogs/settings_dialog.ui:1254 gis-weather.py:899 utils/gw_menu.py:71
+#: dialogs/settings_dialog.ui:1268 gis-weather.py:899 utils/gw_menu.py:71
 msgid "Wind"
 msgstr "Ветар"
 
-#: dialogs/settings_dialog.ui:1267 gis-weather.py:900
+#: dialogs/settings_dialog.ui:1281 gis-weather.py:900
 msgid "Pressure"
 msgstr "Притисак"
 
-#: dialogs/settings_dialog.ui:1308 gis-weather.py:897
+#: dialogs/settings_dialog.ui:1322 gis-weather.py:897
 msgid "Temperature"
 msgstr "Температура"
 
-#: dialogs/settings_dialog.ui:1354
+#: dialogs/settings_dialog.ui:1368
 msgid "Wind chill"
 msgstr "Осећа се"
 
-#: dialogs/settings_dialog.ui:1430
+#: dialogs/settings_dialog.ui:1444
 msgid "Date separator format"
 msgstr "Формат одвојеног датума"
 
-#: dialogs/settings_dialog.ui:1443
+#: dialogs/settings_dialog.ui:1457
 msgid "Swap the day and month"
 msgstr "Замена места дана и месеца"
 
-#: dialogs/settings_dialog.ui:1495
+#: dialogs/settings_dialog.ui:1510
 msgid "Units"
 msgstr "Јединице"
 
-#: dialogs/settings_dialog.ui:1519
+#: dialogs/settings_dialog.ui:1533
 msgid "Left"
 msgstr "Лево"
 
-#: dialogs/settings_dialog.ui:1532 dialogs/settings_dialog.ui:3930
+#: dialogs/settings_dialog.ui:1546 dialogs/settings_dialog.ui:3983
 msgid "Top"
 msgstr "На врху"
 
-#: dialogs/settings_dialog.ui:1545
+#: dialogs/settings_dialog.ui:1559
 msgid "Padding"
 msgstr "Унутрашње одступање"
 
-#: dialogs/settings_dialog.ui:1636
+#: dialogs/settings_dialog.ui:1650
 msgid "Fix BadDrawable error"
 msgstr "Поправи грешку у исцртавању"
 
-#: dialogs/settings_dialog.ui:1649 utils/gw_menu.py:286
+#: dialogs/settings_dialog.ui:1663 utils/gw_menu.py:286
 msgid "On all desktops"
 msgstr "На свим екранима"
 
-#: dialogs/settings_dialog.ui:1662 utils/gw_menu.py:280
+#: dialogs/settings_dialog.ui:1676 utils/gw_menu.py:280
 msgid "Lock position"
 msgstr "Закључај позицију"
 
-#: dialogs/settings_dialog.ui:1675
+#: dialogs/settings_dialog.ui:1689
 msgid "Transparency"
 msgstr "Провидност"
 
-#: dialogs/settings_dialog.ui:1792
+#: dialogs/settings_dialog.ui:1806
 msgid "Scale"
 msgstr "Скала"
 
-#: dialogs/settings_dialog.ui:1835 utils/gw_menu.py:292
+#: dialogs/settings_dialog.ui:1849 utils/gw_menu.py:292
 msgid "Always on top"
 msgstr "Увек на врху"
 
-#: dialogs/settings_dialog.ui:1878 utils/gw_menu.py:391
+#: dialogs/settings_dialog.ui:1887
+msgid "Height tune"
+msgstr ""
+
+#: dialogs/settings_dialog.ui:1932 utils/gw_menu.py:391
 msgid "Window"
 msgstr "Прозор"
 
-#: dialogs/settings_dialog.ui:1930 dialogs/settings_dialog.ui:2047
-#: dialogs/settings_dialog.ui:2243 dialogs/settings_dialog.ui:2333
-#: dialogs/settings_dialog.ui:2527 dialogs/settings_dialog.ui:2645
-#: dialogs/settings_dialog.ui:3813
+#: dialogs/settings_dialog.ui:1983 dialogs/settings_dialog.ui:2100
+#: dialogs/settings_dialog.ui:2296 dialogs/settings_dialog.ui:2386
+#: dialogs/settings_dialog.ui:2580 dialogs/settings_dialog.ui:2698
+#: dialogs/settings_dialog.ui:3866
 msgid "Show"
 msgstr "Прикажи"
 
-#: dialogs/settings_dialog.ui:1943 dialogs/settings_dialog.ui:2060
-#: dialogs/settings_dialog.ui:2163 dialogs/settings_dialog.ui:2346
-#: dialogs/settings_dialog.ui:2540
+#: dialogs/settings_dialog.ui:1996 dialogs/settings_dialog.ui:2113
+#: dialogs/settings_dialog.ui:2216 dialogs/settings_dialog.ui:2399
+#: dialogs/settings_dialog.ui:2593
 msgid "Offset from center"
 msgstr "Одступање од центра"
 
-#: dialogs/settings_dialog.ui:2009
+#: dialogs/settings_dialog.ui:2063
 msgid "Block Tomorrow"
 msgstr "Блокирај сутра"
 
-#: dialogs/settings_dialog.ui:2126
+#: dialogs/settings_dialog.ui:2180
 msgid "Block Today"
 msgstr "Блокирај данас"
 
-#: dialogs/settings_dialog.ui:2204
+#: dialogs/settings_dialog.ui:2258
 msgid "Block Now"
 msgstr "Блокирај сад"
 
-#: dialogs/settings_dialog.ui:2283
+#: dialogs/settings_dialog.ui:2337
 msgid "Block Sunrise"
 msgstr "Блокирај излазак сунца"
 
-#: dialogs/settings_dialog.ui:2410
+#: dialogs/settings_dialog.ui:2463
 msgid "Reduce"
 msgstr "Умањити"
 
-#: dialogs/settings_dialog.ui:2423
+#: dialogs/settings_dialog.ui:2476
 msgid "Angle of rotation"
 msgstr "Угао ротације"
 
-#: dialogs/settings_dialog.ui:2489
+#: dialogs/settings_dialog.ui:2543
 msgid "Block Wind"
 msgstr "Блокирај ветар"
 
-#: dialogs/settings_dialog.ui:2606
+#: dialogs/settings_dialog.ui:2660
 msgid "Block Additional info"
 msgstr "Блокирај додатни инфо"
 
-#: dialogs/settings_dialog.ui:2685
+#: dialogs/settings_dialog.ui:2739
 msgid "Block Moonrise"
 msgstr "Блокирај излазак месеца"
 
-#: dialogs/settings_dialog.ui:2839
+#: dialogs/settings_dialog.ui:2892
 msgid "Hide splash screen after attempts (0 - do not hide)"
 msgstr "Сакриј уводни екран након покушаја (0 - не крије)"
 
-#: dialogs/settings_dialog.ui:2852
+#: dialogs/settings_dialog.ui:2905
 msgid "Show splash screen"
 msgstr "Прикажи уводни екран"
 
-#: dialogs/settings_dialog.ui:2865
+#: dialogs/settings_dialog.ui:2918
 msgid "Show weather retrieval time"
 msgstr "Прикажи секвенце проналажења времена"
 
-#: dialogs/settings_dialog.ui:2878
+#: dialogs/settings_dialog.ui:2931
 msgid "Show chance of rain"
 msgstr "Прикажи вероватноћу кише"
 
-#: dialogs/settings_dialog.ui:2925
+#: dialogs/settings_dialog.ui:2978
 msgid "Number of days"
 msgstr "Број дана"
 
-#: dialogs/settings_dialog.ui:2938
+#: dialogs/settings_dialog.ui:2991
 msgid "Time of day gradient"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:2998
+#: dialogs/settings_dialog.ui:3052
 msgid "View"
 msgstr "Преглед"
 
-#: dialogs/settings_dialog.ui:3041 dialogs/settings_dialog.ui:4148
+#: dialogs/settings_dialog.ui:3094 dialogs/settings_dialog.ui:4201
 msgid "Font"
 msgstr "Фонт"
 
-#: dialogs/settings_dialog.ui:3054
+#: dialogs/settings_dialog.ui:3107
 msgid "Main color"
 msgstr "Основна боја"
 
-#: dialogs/settings_dialog.ui:3095
+#: dialogs/settings_dialog.ui:3148
 msgid "Color weekend"
 msgstr "Боја викенда"
 
-#: dialogs/settings_dialog.ui:3163
+#: dialogs/settings_dialog.ui:3216
 msgid "Color wind"
 msgstr "Боја ветра"
 
-#: dialogs/settings_dialog.ui:3176
+#: dialogs/settings_dialog.ui:3229
 msgid ""
 "High wind\n"
 "(-1 = not highlighted)"
 msgstr "Јак ветар\n(-1 = не истицати)"
 
-#: dialogs/settings_dialog.ui:3190
+#: dialogs/settings_dialog.ui:3243
 msgid "Shadow color"
 msgstr "Боја сенке"
 
-#: dialogs/settings_dialog.ui:3203 dialogs/settings_dialog.ui:3956
+#: dialogs/settings_dialog.ui:3256 dialogs/settings_dialog.ui:4009
 msgid "Shadow"
 msgstr "Сенка"
 
-#: dialogs/settings_dialog.ui:3321
+#: dialogs/settings_dialog.ui:3374
 msgid "Weekend"
 msgstr "Викенд"
 
-#: dialogs/settings_dialog.ui:3358
+#: dialogs/settings_dialog.ui:3411
 msgid "Weather description style"
 msgstr "Стил времена"
 
-#: dialogs/settings_dialog.ui:3405 utils/gw_menu.py:386
+#: dialogs/settings_dialog.ui:3459 utils/gw_menu.py:386
 msgid "Text"
 msgstr "Текст"
 
-#: dialogs/settings_dialog.ui:3443
+#: dialogs/settings_dialog.ui:3496
 msgid "Use image"
 msgstr "Користи слику"
 
-#: dialogs/settings_dialog.ui:3496 dialogs/settings_dialog.ui:3705
+#: dialogs/settings_dialog.ui:3549 dialogs/settings_dialog.ui:3758
 msgid "Select"
 msgstr "Одабери"
 
-#: dialogs/settings_dialog.ui:3572
+#: dialogs/settings_dialog.ui:3625
 msgid "Corner radius"
 msgstr "Радијус угла"
 
-#: dialogs/settings_dialog.ui:3585 dialogs/settings_dialog.ui:3969
+#: dialogs/settings_dialog.ui:3638 dialogs/settings_dialog.ui:4022
 msgid "Color"
 msgstr "Боја"
 
-#: dialogs/settings_dialog.ui:3667 utils/gw_menu.py:381
+#: dialogs/settings_dialog.ui:3721 utils/gw_menu.py:381
 msgid "Background"
 msgstr "Позадина"
 
-#: dialogs/settings_dialog.ui:3776
+#: dialogs/settings_dialog.ui:3830
 msgid "Appearance"
 msgstr "Изглед"
 
-#: dialogs/settings_dialog.ui:3800
+#: dialogs/settings_dialog.ui:3853
 msgid "Type (restart required)"
 msgstr "Тип (захтева рестарт)"
 
-#: dialogs/settings_dialog.ui:3917
+#: dialogs/settings_dialog.ui:3970
 msgid "Width"
 msgstr "Ширина"
 
-#: dialogs/settings_dialog.ui:3943
+#: dialogs/settings_dialog.ui:3996
 msgid "Color shadow"
 msgstr "Сенка боје"
 
-#: dialogs/settings_dialog.ui:4161
+#: dialogs/settings_dialog.ui:4214
 msgid "Show text"
 msgstr "Прикажи текст"
 
-#: dialogs/settings_dialog.ui:4256
+#: dialogs/settings_dialog.ui:4309
 msgid "Fix the size"
 msgstr "Попреви величину"
 
-#: dialogs/settings_dialog.ui:4294
+#: dialogs/settings_dialog.ui:4347
 msgid "Size"
 msgstr "Величина"
 
-#: dialogs/settings_dialog.ui:4362
+#: dialogs/settings_dialog.ui:4416
 msgid "Indicator"
 msgstr "Индикатор"
 

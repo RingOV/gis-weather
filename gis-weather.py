@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.3.9'
+v = '0.8.3.10'
 #  Copyright (C) 2013-2019 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -203,8 +203,8 @@ gw_config_default = {
     'block_icons_top': 0,
     'day_left': 0,
     'day_top': 0,
-    'height_fix': 0,
-    'width_fix': 0,
+    'height_tune': 0,
+    'width_fix': 0, #FIXME Not used
     'splash_icon_top': 0,
     'splash_version_top': 0,
     'block_wind_direct_small_left': 0,
@@ -994,7 +994,7 @@ class MyDrawArea(Gtk.DrawingArea):
 
         for i in range(1, n+1):
             try:
-                self.draw_weather_icon(cr, i, -8+block_icons_left + margin + block_margin + (i-1)*w_block + (i-1)*block_h_offset, block_icons_top + height-h_block-10 - margin)
+                self.draw_weather_icon(cr, i, -8+block_icons_left + margin + block_margin + (i-1)*w_block + (i-1)*block_h_offset, block_icons_top + height-h_block-10 - margin - height_tune)
             except:
                 print('Can\'t show weather for %s day'%str(i))
 
@@ -1584,7 +1584,7 @@ class Weather_Widget:
         if n < 1: n = 1
         # width = w_block*n + block_margin*2 + 10*(n - 1) + 2*margin + block_icons_left
         width = w_block*n + block_h_offset*n + 2*margin + block_icons_left + width_fix
-        height = 260 + block_margin + 2*margin + height_fix
+        height = 260 + block_margin + 2*margin + height_tune
         self.window_main.resize(int(width*scale), int(height*scale))
         self.window_main.move(x_pos, y_pos)
         if sticky:
