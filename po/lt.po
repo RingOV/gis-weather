@@ -4,17 +4,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2017-05-20 16:43+0300\n"
-"PO-Revision-Date: 2019-04-08 08:41+0000\n"
-"Last-Translator: Karolis Ryselis\n"
+"POT-Creation-Date: 2019-06-30 22:37+0300\n"
+"PO-Revision-Date: 2019-06-30 19:38+0000\n"
+"Last-Translator: RingOV <ringov@mail.ru>\n"
 "Language-Team: Lithuanian (http://www.transifex.com/gis-weather-team/gis-weather/language/lt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lt\n"
 "Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
-"X-Generator: Poedit 1.6.10\n"
-"X-Poedit-Basepath: ../\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: dialogs\n"
@@ -22,7 +22,6 @@ msgstr ""
 "X-Poedit-SearchPath-3: utils\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: DEB/build/usr/share/gis-weather/dialogs/about_dialog.py:10
 #: dialogs/about_dialog.py:10
 msgid ""
 "This program is free software: you can redistribute it and/or modify\n"
@@ -39,1150 +38,904 @@ msgid ""
 "http://www.gnu.org/licenses/gpl.txt"
 msgstr "Ši programa yra nemokama: galite platinti ir/ar keisti\nją pagal GNU Bendrosios Viešosios Licenzijos sąlygas, kaip skelbia\nLaisvosios programinės įrangos fondas, tiek taikant 3-ąją licenzijos\nversiją, tiek (pasirinktinai) bet kurią naujesnę versiją.\nŠi programa platinama tikintis, kad ji bus naudinga, tačiau BE JOKIOS\nGARANTIJOS; netgi be numatomos PERKAMUMO ar ATITIKIMO KONKREČIAI\nPASKIRČIAI garantijos. Daugiau informacijos GNU Bendrojoje Viešojoje\nLicenzijoje.\n\nVisas licenzijos tekstas patalpintas\nhttp://www.gnu.org/licenses/gpl.txt"
 
-#: DEB/build/usr/share/gis-weather/dialogs/about_dialog.py:27
-#: DEB/build/usr/share/gis-weather/utils/autorun.py:72
-#: DEB/build/usr/share/gis-weather/utils/desktop.py:23
 #: dialogs/about_dialog.py:27 utils/autorun.py:72 utils/desktop.py:23
 msgid "Weather widget"
 msgstr "Orų valdiklis"
 
-#: DEB/build/usr/share/gis-weather/dialogs/about_dialog.py:33
 #: dialogs/about_dialog.py:33
 msgid "Help and Ideas"
 msgstr "Pagalba ir idėjos"
 
-#: DEB/build/usr/share/gis-weather/dialogs/about_dialog.py:40
 #: dialogs/about_dialog.py:41
 msgid "Backgrounds"
 msgstr "Fonai"
 
-#: DEB/build/usr/share/gis-weather/dialogs/about_dialog.py:45
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:226
-#: dialogs/about_dialog.py:46 utils/gw_menu.py:364
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3709
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:4165
-#: dialogs/settings_dialog.ui:3709 dialogs/settings_dialog.ui:4165
+#: dialogs/about_dialog.py:46 dialogs/settings_dialog.ui:3753
+#: dialogs/settings_dialog.ui:4209 utils/gw_menu.py:376
 msgid "Icons"
 msgstr "Piktogramos"
 
-#: DEB/build/usr/share/gis-weather/dialogs/about_dialog.py:59
-#: dialogs/about_dialog.py:60
+#: dialogs/about_dialog.py:63
 msgid "translator-credits"
 msgstr "Karolis Ryselis <djryse@gmail.com>"
 
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.py:35
-#: DEB/build/usr/share/gis-weather/gis-weather.py:300
-#: dialogs/city_id_dialog.py:35 gis-weather.py:304
+#: dialogs/city_id_dialog.py:35 gis-weather.py:313
 msgid "Error loading config file"
 msgstr "Nepavyko įkelti konfigūracijos failo"
 
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.py:73
 #: dialogs/city_id_dialog.py:73
 msgid "Choose your city on"
 msgstr "Pasirinkite savo miestą"
 
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.py:74
 #: dialogs/city_id_dialog.py:74
 msgid "and copy the city code below"
 msgstr "ir nukopijuokite miesto kodą žemiau"
 
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.py:75
 #: dialogs/city_id_dialog.py:75
 msgid "For example"
 msgstr "Pavyzdžiui"
 
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.py:76
-#: dialogs/city_id_dialog.py:76
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:414
-#: dialogs/city_id_dialog.ui:414
+#: dialogs/city_id_dialog.py:76 dialogs/city_id_dialog.ui:414
 msgid "City code"
 msgstr "Miesto kodas"
 
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.py:118
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:215
-#: dialogs/city_id_dialog.py:118 utils/gw_menu.py:36 utils/gw_menu.py:348
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:42
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:632
-#: dialogs/city_id_dialog.ui:42 dialogs/settings_dialog.ui:632
+#: dialogs/city_id_dialog.py:118 dialogs/city_id_dialog.ui:42
+#: dialogs/settings_dialog.ui:638 utils/gw_menu.py:41 utils/gw_menu.py:360
 msgid "Location"
 msgstr "Vietovė"
 
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.py:152
 #: dialogs/city_id_dialog.py:152
 msgid "Code"
 msgstr "Kodas"
 
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.py:156
 #: dialogs/city_id_dialog.py:156
 msgid "Place"
 msgstr "Vieta"
 
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.py:15
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.py:45
-#: dialogs/help_dialog.py:15 dialogs/update_dialog.py:45
-msgid "Go to link"
-msgstr "Eiti į saitą"
-
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.py:18
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.py:48
-#: dialogs/help_dialog.py:18 dialogs/update_dialog.py:48
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:76
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:318
-#: dialogs/help_dialog.ui:76 dialogs/update_dialog.ui:318
-msgid "Send email"
-msgstr "Siųsti elektroninį laišką"
-
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.py:30
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:259
-#: dialogs/help_dialog.py:30 utils/gw_menu.py:397
-msgid "Help"
-msgstr "Pagalba"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:103
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:795
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:251
-#: dialogs/settings_dialog.py:103 dialogs/settings_dialog.py:795
-#: utils/gw_menu.py:389
-msgid "Preferences"
-msgstr "Nustatymai"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:435
-#: DEB/build/usr/share/gis-weather/utils/convert.py:61
-#: DEB/build/usr/share/gis-weather/utils/convert.py:65
-#: dialogs/settings_dialog.py:435 utils/convert.py:61 utils/convert.py:65
-msgid "m/s"
-msgstr "m/s"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:435
-#: DEB/build/usr/share/gis-weather/utils/convert.py:45
-#: DEB/build/usr/share/gis-weather/utils/convert.py:81
-#: dialogs/settings_dialog.py:435 utils/convert.py:45 utils/convert.py:81
-msgid "km/h"
-msgstr "km/h"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:435
-#: DEB/build/usr/share/gis-weather/utils/convert.py:49
-#: DEB/build/usr/share/gis-weather/utils/convert.py:69
-#: dialogs/settings_dialog.py:435 utils/convert.py:49 utils/convert.py:69
-msgid "mph"
-msgstr "mph"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:435
-#: dialogs/settings_dialog.py:435
-msgid "Beaufort scale"
-msgstr "Boforto skalė"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:435
-#: dialogs/settings_dialog.py:435
-msgid "Knots"
-msgstr "Mazgai"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:436
-#: dialogs/settings_dialog.py:436
-msgid "mmHg"
-msgstr "mm gyv. stulp."
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:436
-#: dialogs/settings_dialog.py:436
-msgid "inHg"
-msgstr "col. gyv. stulp."
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:436
-#: dialogs/settings_dialog.py:436
-msgid "hPa"
-msgstr "hPa"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:439
-#: dialogs/settings_dialog.py:439
-msgid "Never"
-msgstr "Niekada"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:440
-#: dialogs/settings_dialog.py:440
-msgid "Only at start"
-msgstr "Tik paleidžiant"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:441
-#: dialogs/settings_dialog.py:441
-msgid "Always"
-msgstr "Visada"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:444
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:115
-#: dialogs/settings_dialog.py:444 utils/gw_menu.py:248
-msgid "No"
-msgstr "Ne"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:445
-#: dialogs/settings_dialog.py:445
-msgid "Only background"
-msgstr "Tik fone"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:446
-#: dialogs/settings_dialog.py:446
-msgid "Yes"
-msgstr "Taip"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:564
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:566
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:581
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:583
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:598
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:600
-#: dialogs/settings_dialog.py:564 dialogs/settings_dialog.py:566
-#: dialogs/settings_dialog.py:581 dialogs/settings_dialog.py:583
-#: dialogs/settings_dialog.py:598 dialogs/settings_dialog.py:600
-msgid "Author"
-msgstr "Autorius"
-
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.py:28
-#: DEB/build/usr/share/gis-weather/utils/opener.py:93
-#: dialogs/update_dialog.py:28 utils/opener.py:94
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:561
-#: dialogs/update_dialog.ui:561
-msgid "Downloading"
-msgstr "Atsiunčiama"
-
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.py:61
-#: dialogs/update_dialog.py:61
-msgid "Update"
-msgstr "Naujinti"
-
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.py:89
-#: dialogs/update_dialog.py:89
-msgid "Current version"
-msgstr "Dabartinė versija"
-
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.py:90
-#: dialogs/update_dialog.py:90
-msgid "Available new version"
-msgstr "Prieinama nauja versija"
-
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.py:113
-#: dialogs/update_dialog.py:113
-msgid "Error downloading updates"
-msgstr "Klaida atsisiunčiant atnaujinimus"
-
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.py:148
-#: dialogs/update_dialog.py:148
-msgid "Error installing updates"
-msgstr "Klaida diegiant atnaujinimus"
-
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.py:152
-#: dialogs/update_dialog.py:152
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:575
-#: dialogs/update_dialog.ui:575
-msgid "Installation"
-msgstr "Diegimas"
-
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.py:160
-#: dialogs/update_dialog.py:160
-msgid "Error removing"
-msgstr "Klaida šalinant"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:42 gis-weather.py:42
-msgid "Running multiple instances is not supported"
-msgstr "Keleto egzempliorių paleidimas nėra palaikomas"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:47 gis-weather.py:47
-msgid "number of instances"
-msgstr "egzempliorių kiekis"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:55 gis-weather.py:55
-msgid "testing mode turned on"
-msgstr "testavimo režimas įjungtas"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:229
-#: DEB/build/usr/share/gis-weather/utils/presets.py:60
-#: DEB/build/usr/share/gis-weather/utils/presets.py:176
-#: DEB/build/usr/share/gis-weather/utils/presets.py:211 gis-weather.py:233
-#: utils/gw_menu.py:56 utils/presets.py:61 utils/presets.py:178
-#: utils/presets.py:214 utils/presets.py:249
-msgid "Now"
-msgstr "Dabar"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:284 gis-weather.py:288
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:682
-#: dialogs/settings_dialog.ui:682
-msgid "Configuration folder"
-msgstr "Konfigūracijos aplankas"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:331 gis-weather.py:335
-msgid "Error loading color scheme"
-msgstr "Nepavyko įkelti spalvų schemos"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:346 gis-weather.py:350
-msgid "Error loading preset"
-msgstr "Nepavyko įkelti šablono"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:356 gis-weather.py:360
-msgid "Enter full path to script"
-msgstr "Įveskite pilną kelią iki scenarijaus"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:357 gis-weather.py:361
-msgid "Exit"
-msgstr "Uždaroma"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:465 gis-weather.py:469
-msgid "Check for new version"
-msgstr "Tikrinti, ar yra nauja versija"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:470
-#: DEB/build/usr/share/gis-weather/gis-weather.py:479 gis-weather.py:474
-#: gis-weather.py:483
-msgid "Unable to check for updates"
-msgstr "Nepavyko patikrinti, ar yra atnaujinimų"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:494 gis-weather.py:498
-msgid "New version available"
-msgstr "Prieinama nauja versija"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:501 gis-weather.py:505
-msgid "You are using the latest version"
-msgstr "Naudojate naujausią versiją"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:518
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1423 gis-weather.py:522
-#: gis-weather.py:1493
-msgid "Screenshot saved to"
-msgstr "Ekrano nuotrauka išsaugota į"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:522 gis-weather.py:526
-msgid "Unable to get the screenshot"
-msgstr "Nepavyko gauti ekrano nuotraukos"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:723 gis-weather.py:740
-msgid "Getting weather..."
-msgstr "Gaunama orų informacija..."
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:726 gis-weather.py:743
-msgid "Error getting weather"
-msgstr "Nepavyko gauti orų informacijos"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:728 gis-weather.py:745
-msgid "Location not set"
-msgstr "Neparinkta vietovė"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:785
-#: DEB/build/usr/share/gis-weather/gis-weather.py:847 gis-weather.py:802
-#: gis-weather.py:864
-msgid "Next update in"
-msgstr "Kitas atnaujinimas po"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:785
-#: DEB/build/usr/share/gis-weather/gis-weather.py:847 gis-weather.py:802
-#: gis-weather.py:864
-msgid "min"
-msgstr "min"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:821
-#: DEB/build/usr/share/gis-weather/services/gismeteo.py:384 gis-weather.py:838
-#: services/gismeteo.py:384
-msgid "Next try in 10 seconds"
-msgstr "Kitas bandymas po 10 sekundžių"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:837 gis-weather.py:854
-msgid "Connection error"
-msgstr "Ryšio klaida"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:902 gis-weather.py:896
-msgid "feels like"
-msgstr "jaučiasi kaip"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:949 gis-weather.py:1013
-msgid "Updated on server"
-msgstr "Atnaujinta serveryje"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:950 gis-weather.py:1014
-msgid "Weather received"
-msgstr "Orų informacija gauta"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1069
-msgid "E"
-msgstr "R"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1069
-msgid "S"
-msgstr "P"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1069
-msgid "W"
-msgstr "V"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1069
-msgid "N"
-msgstr "Š"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1043 gis-weather.py:1108
-msgid "humid."
-msgstr "drėgn."
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1046 gis-weather.py:1111
-msgid "water"
-msgstr "vanduo"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1061
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1103
-#: DEB/build/usr/share/gis-weather/services/gismeteo.py:373
-#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1126
-#: gis-weather.py:1168 services/gismeteo.py:373 services/yr.py:147
-msgid "Morning"
-msgstr "Rytas"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1061
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1103
-#: DEB/build/usr/share/gis-weather/services/gismeteo.py:373
-#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1126
-#: gis-weather.py:1168 services/gismeteo.py:373 services/yr.py:147
-msgid "Day"
-msgstr "Diena"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1061
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1103
-#: DEB/build/usr/share/gis-weather/services/gismeteo.py:373
-#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1126
-#: gis-weather.py:1168 services/gismeteo.py:373 services/yr.py:147
-msgid "Evening"
-msgstr "Vakaras"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1061
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1103
-#: DEB/build/usr/share/gis-weather/services/gismeteo.py:373
-#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1126
-#: gis-weather.py:1168 services/gismeteo.py:373 services/yr.py:147
-msgid "Night"
-msgstr "Naktis"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1066
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1068 gis-weather.py:1131
-#: gis-weather.py:1133 utils/gw_menu.py:106
-msgid "Tomorrow"
-msgstr "Rytoj"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1107 gis-weather.py:1172
-msgid "Today"
-msgstr "Šiandien"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1252 gis-weather.py:1327
-msgid "Background image not found"
-msgstr "Fono paveikslėlis nerastas"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1316 utils/opener.py:107
-msgid "downloading"
-msgstr "atsiunčiama"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1320 utils/opener.py:114
-msgid "Unable to download"
-msgstr "Nepavyko atsiųsti"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1344 gis-weather.py:1414
-msgid "Icon not found"
-msgstr "Piktograma nerasta"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1434 gis-weather.py:1504
-msgid "Widget size"
-msgstr "Valdiklio dydis"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1505
-msgid "width"
-msgstr "plotis"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1505
-msgid "height"
-msgstr "aukštis"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1505
-msgid "including indent"
-msgstr "įskaitant įtrauką"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1605 gis-weather.py:1704
-msgid "Requires restart"
-msgstr "Reikia paleisti iš naujo"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1674 gis-weather.py:1773
-msgid "Removed"
-msgstr "Pašalinta"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1707 gis-weather.py:1806
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:361
-#: dialogs/city_id_dialog.ui:361
-msgid "Added"
-msgstr "Pridėta"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1712 gis-weather.py:1811
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:293
-#: dialogs/city_id_dialog.ui:293
-msgid "Invalid location code"
-msgstr "Neteisingas vietovės kodas"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1780 gis-weather.py:1878
-msgid "Your screen does not support alpha"
-msgstr "Jūsų ekranas nepalaiko alpha"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1782 gis-weather.py:1880
-msgid "Your screen supports alpha"
-msgstr "Jūsų ekranas palaiko alpha"
-
-#: DEB/build/usr/share/gis-weather/services/accuweather.py:13
-#: services/accuweather.py:13
-msgid "If the city code is wrong, please read"
-msgstr "Jei miesto kodas neteisingas, skaitykite"
-
-#: DEB/build/usr/share/gis-weather/services/accuweather.py:200
-#: DEB/build/usr/share/gis-weather/services/gismeteo.py:231
-#: DEB/build/usr/share/gis-weather/services/openweathermap.py:88
-#: DEB/build/usr/share/gis-weather/services/yr.py:62
-#: services/accuweather.py:200 services/gismeteo.py:231
-#: services/openweathermap.py:88 services/yr.py:62
-msgid "Failed to get the name of the location"
-msgstr "Nepavyko gauti vietovės pavadinimo"
-
-#: DEB/build/usr/share/gis-weather/services/accuweather.py:224
-#: DEB/build/usr/share/gis-weather/services/gismeteo.py:250
-#: DEB/build/usr/share/gis-weather/services/openweathermap.py:118
-#: DEB/build/usr/share/gis-weather/services/yr.py:73
-#: services/accuweather.py:224 services/gismeteo.py:250
-#: services/openweathermap.py:118 services/yr.py:73
-msgid "Getting weather for"
-msgstr "Gaunama orų informacija"
-
-#: DEB/build/usr/share/gis-weather/services/accuweather.py:224
-#: DEB/build/usr/share/gis-weather/services/gismeteo.py:250
-#: DEB/build/usr/share/gis-weather/services/openweathermap.py:118
-#: DEB/build/usr/share/gis-weather/services/yr.py:73
-#: services/accuweather.py:224 services/gismeteo.py:250
-#: services/openweathermap.py:118 services/yr.py:73
-msgid "days"
-msgstr "dienoms"
-
-#: DEB/build/usr/share/gis-weather/services/accuweather.py:275
-#: services/accuweather.py:275
-msgid "Calm"
-msgstr "Ramu"
-
-#: DEB/build/usr/share/gis-weather/services/accuweather.py:504
-#: DEB/build/usr/share/gis-weather/services/gismeteo.py:428
-#: DEB/build/usr/share/gis-weather/services/openweathermap.py:313
-#: services/accuweather.py:504 services/gismeteo.py:428
-#: services/openweathermap.py:313
-msgid "updated on server"
-msgstr "atnaujinta serveryje"
-
-#: DEB/build/usr/share/gis-weather/services/accuweather.py:505
-#: DEB/build/usr/share/gis-weather/services/gismeteo.py:429
-#: DEB/build/usr/share/gis-weather/services/openweathermap.py:314
-#: DEB/build/usr/share/gis-weather/services/yr.py:193
-#: services/accuweather.py:505 services/gismeteo.py:429
-#: services/openweathermap.py:314 services/yr.py:193
-msgid "weather received"
-msgstr "orų informacija gauta"
-
-#: DEB/build/usr/share/gis-weather/services/openweathermap.py:14
-#: services/openweathermap.py:14
-msgid "How to get"
-msgstr "Kaip gauti"
-
-#: DEB/build/usr/share/gis-weather/utils/convert.py:53
-#: DEB/build/usr/share/gis-weather/utils/convert.py:73 utils/convert.py:53
-#: utils/convert.py:73
-msgid "bft"
-msgstr "bft"
-
-#: DEB/build/usr/share/gis-weather/utils/convert.py:57
-#: DEB/build/usr/share/gis-weather/utils/convert.py:77 utils/convert.py:57
-#: utils/convert.py:77
-msgid "kts"
-msgstr "mgz"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:56 utils/gw_menu.py:174
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:691
-#: dialogs/settings_dialog.ui:691
-msgid "Setup..."
-msgstr "Sąranka..."
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:130 utils/gw_menu.py:263
-msgid "Black"
-msgstr ""
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:130 utils/gw_menu.py:263
-msgid "White"
-msgstr ""
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:130 utils/gw_menu.py:263
-msgid "Gray"
-msgstr ""
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:140 utils/gw_menu.py:273
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1656
-#: dialogs/settings_dialog.ui:1656
-msgid "Lock position"
-msgstr "Užfiksuoti padėtį"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:146 utils/gw_menu.py:279
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1643
-#: dialogs/settings_dialog.ui:1643
-msgid "On all desktops"
-msgstr "Ant visų darbalaukių"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:152 utils/gw_menu.py:285
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1829
-#: dialogs/settings_dialog.ui:1829
-msgid "Always on top"
-msgstr ""
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:162 utils/gw_menu.py:295
-msgid "Save screenshot"
-msgstr "Išsaugoti ekrano nuotrauką"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:178 utils/gw_menu.py:311
-msgid "Show/Hide widget"
-msgstr "Rodyti/slėpti valdiklį"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:187 utils/gw_menu.py:320
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:916
-#: dialogs/settings_dialog.ui:916
-msgid "Refresh"
-msgstr "Atnaujinti"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:195 utils/gw_menu.py:328
-msgid "Start new instance"
-msgstr ""
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:203 utils/gw_menu.py:336
-msgid "Go to site"
-msgstr ""
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:221 utils/gw_menu.py:354
-msgid "Indicator icons"
-msgstr "Indikatoriaus piktogramos"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:231 utils/gw_menu.py:369
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3623
-#: dialogs/settings_dialog.ui:3623
-msgid "Background"
-msgstr "Fonas"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:236 utils/gw_menu.py:374
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3361
-#: dialogs/settings_dialog.ui:3361
-msgid "Text"
-msgstr "Tekstas"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:241 utils/gw_menu.py:379
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1872
-#: dialogs/settings_dialog.ui:1872
-msgid "Window"
-msgstr "Langas"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:246 utils/gw_menu.py:384
-msgid "Presets"
-msgstr "Šablonai"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:267 utils/gw_menu.py:405
-msgid "About"
-msgstr "Apie"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:315 utils/gw_menu.py:453
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:25
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:587
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:44
-#: dialogs/help_dialog.ui:25 dialogs/settings_dialog.ui:587
-#: dialogs/update_dialog.ui:44
-msgid "Close"
-msgstr "Uždaryti"
-
-#: DEB/build/usr/share/gis-weather/utils/opener.py:101 utils/opener.py:102
-msgid "Unable to download page, check the network connection"
-msgstr "Nepavyko atsiųsti puslapio, patikrinkite interneto ryšį"
-
-#: gis-weather.py:895
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1302
-#: dialogs/settings_dialog.ui:1302
-msgid "Temperature"
-msgstr "Temperatūra"
-
-#: gis-weather.py:897 utils/gw_menu.py:66
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1248
-#: dialogs/settings_dialog.ui:1248
-msgid "Wind"
-msgstr "Vėjas"
-
-#: gis-weather.py:898
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1261
-#: dialogs/settings_dialog.ui:1261
-msgid "Pressure"
-msgstr "Slėgis"
-
-#: gis-weather.py:899 utils/gw_menu.py:61
-msgid "Humidity"
-msgstr ""
-
-#: gis-weather.py:900 utils/gw_menu.py:76
-msgid "Sunrise"
-msgstr ""
-
-#: gis-weather.py:901 utils/gw_menu.py:81
-msgid "Sunset"
-msgstr ""
-
-#: utils/gw_menu.py:113
-msgid "Precipitation"
-msgstr ""
-
-#: utils/gw_menu.py:359
-msgid "Menu icons"
-msgstr ""
-
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:58
 #: dialogs/city_id_dialog.ui:58
 msgid "Add"
 msgstr "Pridėti"
 
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:72
 #: dialogs/city_id_dialog.ui:72
 msgid ""
 "Close & Reload\n"
 "selected"
 msgstr "Uždaryti ir įkelti iš naujo\npasirinktą"
 
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:87
 #: dialogs/city_id_dialog.ui:87
 msgid ""
 "Remove\n"
 "selected"
 msgstr "Pašalinti\npasirinktą"
 
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:145
 #: dialogs/city_id_dialog.ui:145
 msgid "Language weather"
 msgstr "Orų kalba"
 
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:182
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:864
-#: dialogs/city_id_dialog.ui:182 dialogs/settings_dialog.ui:864
+#: dialogs/city_id_dialog.ui:182 dialogs/settings_dialog.ui:870
 msgid "Weather service"
 msgstr "Orų tarnyba"
 
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:92
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:334
+#: dialogs/city_id_dialog.ui:293 gis-weather.py:1835
+msgid "Invalid location code"
+msgstr "Neteisingas vietovės kodas"
+
+#: dialogs/city_id_dialog.ui:361 gis-weather.py:1830
+msgid "Added"
+msgstr "Pridėta"
+
+#: dialogs/help_dialog.py:15 dialogs/update_dialog.py:45
+msgid "Go to link"
+msgstr "Eiti į saitą"
+
+#: dialogs/help_dialog.py:18 dialogs/help_dialog.ui:76
+#: dialogs/update_dialog.py:48 dialogs/update_dialog.ui:318
+msgid "Send email"
+msgstr "Siųsti elektroninį laišką"
+
+#: dialogs/help_dialog.py:30 utils/gw_menu.py:409
+msgid "Help"
+msgstr "Pagalba"
+
+#: dialogs/help_dialog.ui:25 dialogs/settings_dialog.ui:593
+#: dialogs/update_dialog.ui:44 utils/gw_menu.py:465
+msgid "Close"
+msgstr "Uždaryti"
+
 #: dialogs/help_dialog.ui:92 dialogs/update_dialog.ui:334
 msgid "Found a bug?"
 msgstr "Radote klaidą?"
 
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:109
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:794
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:351
-#: dialogs/help_dialog.ui:109 dialogs/settings_dialog.ui:794
+#: dialogs/help_dialog.ui:109 dialogs/settings_dialog.ui:800
 #: dialogs/update_dialog.ui:351
 msgid "Want to translate?"
 msgstr "Norite versti?"
 
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:126
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:369
 #: dialogs/help_dialog.ui:126 dialogs/update_dialog.ui:369
 msgid "Have any questions?"
 msgstr "Turite klausimų?"
 
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:143
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:387
 #: dialogs/help_dialog.ui:143 dialogs/update_dialog.ui:387
 msgid "Have any suggestions?"
 msgstr "Turite pasiūlymų?"
 
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:163
 #: dialogs/help_dialog.ui:163
 msgid "You can support my project"
 msgstr "Galite prisidėti prie mano projekto"
 
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:174
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:419
 #: dialogs/help_dialog.ui:174 dialogs/update_dialog.ui:419
 msgid "Read more"
 msgstr "Skaityti daugiau"
 
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:238
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:155
 #: dialogs/help_dialog.ui:238 dialogs/update_dialog.ui:155
 msgid "Changelog"
 msgstr "Pasikeitimų žurnalas"
 
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:254
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:171
 #: dialogs/help_dialog.ui:254 dialogs/update_dialog.ui:171
 msgid "Source Code"
 msgstr "Išeities kodas"
 
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:270
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:203
 #: dialogs/help_dialog.ui:270 dialogs/update_dialog.ui:203
 msgid "What's New"
 msgstr "Kas naujo"
 
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:286
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:937
-#: dialogs/help_dialog.ui:286 dialogs/settings_dialog.ui:937
+#: dialogs/help_dialog.ui:286 dialogs/settings_dialog.ui:943
 msgid "Translation status"
 msgstr "Vertimų būsena"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:645
-#: dialogs/settings_dialog.ui:645
+#: dialogs/settings_dialog.py:103 dialogs/settings_dialog.py:799
+#: utils/gw_menu.py:401
+msgid "Preferences"
+msgstr "Nustatymai"
+
+#: dialogs/settings_dialog.py:439 utils/convert.py:63 utils/convert.py:67
+msgid "m/s"
+msgstr "m/s"
+
+#: dialogs/settings_dialog.py:439 utils/convert.py:45 utils/convert.py:83
+msgid "km/h"
+msgstr "km/h"
+
+#: dialogs/settings_dialog.py:439 utils/convert.py:49 utils/convert.py:71
+msgid "mph"
+msgstr "mph"
+
+#: dialogs/settings_dialog.py:439
+msgid "Beaufort scale"
+msgstr "Boforto skalė"
+
+#: dialogs/settings_dialog.py:439
+msgid "Knots"
+msgstr "Mazgai"
+
+#: dialogs/settings_dialog.py:440
+msgid "mmHg"
+msgstr "mm gyv. stulp."
+
+#: dialogs/settings_dialog.py:440
+msgid "inHg"
+msgstr "col. gyv. stulp."
+
+#: dialogs/settings_dialog.py:440
+msgid "hPa"
+msgstr "hPa"
+
+#: dialogs/settings_dialog.py:443
+msgid "Never"
+msgstr "Niekada"
+
+#: dialogs/settings_dialog.py:444
+msgid "Only at start"
+msgstr "Tik paleidžiant"
+
+#: dialogs/settings_dialog.py:445
+msgid "Always"
+msgstr "Visada"
+
+#: dialogs/settings_dialog.py:448 utils/gw_menu.py:255
+msgid "No"
+msgstr "Ne"
+
+#: dialogs/settings_dialog.py:449
+msgid "Only background"
+msgstr "Tik fone"
+
+#: dialogs/settings_dialog.py:450
+msgid "Yes"
+msgstr "Taip"
+
+#: dialogs/settings_dialog.py:568 dialogs/settings_dialog.py:570
+#: dialogs/settings_dialog.py:585 dialogs/settings_dialog.py:587
+#: dialogs/settings_dialog.py:602 dialogs/settings_dialog.py:604
+msgid "Author"
+msgstr "Autorius"
+
+#: dialogs/settings_dialog.ui:651
 msgid "Update (in minutes)"
 msgstr "Atnaujinti po (minutėmis)"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:658
-#: dialogs/settings_dialog.ui:658
+#: dialogs/settings_dialog.ui:664
 msgid "Check for updates"
 msgstr "Tikrinti, ar yra atnaujinimų"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:734
-#: dialogs/settings_dialog.ui:734
+#: dialogs/settings_dialog.ui:688 gis-weather.py:297
+msgid "Configuration folder"
+msgstr "Konfigūracijos aplankas"
+
+#: dialogs/settings_dialog.ui:697 utils/gw_menu.py:181
+msgid "Setup..."
+msgstr "Sąranka..."
+
+#: dialogs/settings_dialog.ui:740
 msgid "Open..."
 msgstr "Atidaryti..."
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:814
-#: dialogs/settings_dialog.ui:814
+#: dialogs/settings_dialog.ui:820
 msgid "Program language"
 msgstr "Programos kalba"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:827
-#: dialogs/settings_dialog.ui:827
+#: dialogs/settings_dialog.ui:833
 msgid "Weather language"
 msgstr "Orų kalba"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:840
-#: dialogs/settings_dialog.ui:840
+#: dialogs/settings_dialog.ui:846
 msgid "Add launcher icon to menu"
 msgstr "Pridėti paleidyklės piktogramą į meniu"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:987
-#: dialogs/settings_dialog.ui:987
+#: dialogs/settings_dialog.ui:922 utils/gw_menu.py:332
+msgid "Refresh"
+msgstr "Atnaujinti"
+
+#: dialogs/settings_dialog.ui:993
 msgid "Autostart at login"
 msgstr "Automatiškai paleisti prisijungiant"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1000
-#: dialogs/settings_dialog.ui:1000
+#: dialogs/settings_dialog.ui:1006
 msgid "Number of instances"
 msgstr "Egzempliorių kiekis"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1040
-#: dialogs/settings_dialog.ui:1040
+#: dialogs/settings_dialog.ui:1046
 msgid "Start delay (in seconds)"
 msgstr "Paleidimo vėlinimas (sekundėmis)"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1084
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1138
-#: dialogs/settings_dialog.ui:1084 dialogs/settings_dialog.ui:1138
+#: dialogs/settings_dialog.ui:1090 dialogs/settings_dialog.ui:1144
 msgid "Autostart"
 msgstr "Paleisti automatiškai"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1122
-#: dialogs/settings_dialog.ui:1122
+#: dialogs/settings_dialog.ui:1128
 msgid "Configured in the first instance"
 msgstr "Nurodoma pirmame egzemplioriuje"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1225
-#: dialogs/settings_dialog.ui:1225
+#: dialogs/settings_dialog.ui:1231
 msgid "General"
 msgstr "Bendri"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1348
-#: dialogs/settings_dialog.ui:1348
+#: dialogs/settings_dialog.ui:1254 gis-weather.py:899 utils/gw_menu.py:71
+msgid "Wind"
+msgstr "Vėjas"
+
+#: dialogs/settings_dialog.ui:1267 gis-weather.py:900
+msgid "Pressure"
+msgstr "Slėgis"
+
+#: dialogs/settings_dialog.ui:1308 gis-weather.py:897
+msgid "Temperature"
+msgstr "Temperatūra"
+
+#: dialogs/settings_dialog.ui:1354
 msgid "Wind chill"
 msgstr "Jaučiama temperatūra"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1424
-#: dialogs/settings_dialog.ui:1424
+#: dialogs/settings_dialog.ui:1430
 msgid "Date separator format"
 msgstr "Datos skyriklio formatas"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1437
-#: dialogs/settings_dialog.ui:1437
+#: dialogs/settings_dialog.ui:1443
 msgid "Swap the day and month"
 msgstr "Sukeisti dieną ir mėnesį"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1489
-#: dialogs/settings_dialog.ui:1489
+#: dialogs/settings_dialog.ui:1495
 msgid "Units"
 msgstr "Vienetai"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1513
-#: dialogs/settings_dialog.ui:1513
+#: dialogs/settings_dialog.ui:1519
 msgid "Left"
 msgstr "Kairėje"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1526
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3886
-#: dialogs/settings_dialog.ui:1526 dialogs/settings_dialog.ui:3886
+#: dialogs/settings_dialog.ui:1532 dialogs/settings_dialog.ui:3930
 msgid "Top"
 msgstr "Viršuje"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1539
-#: dialogs/settings_dialog.ui:1539
+#: dialogs/settings_dialog.ui:1545
 msgid "Padding"
 msgstr "Postūmis"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1630
-#: dialogs/settings_dialog.ui:1630
+#: dialogs/settings_dialog.ui:1636
 msgid "Fix BadDrawable error"
 msgstr "Pataisymas klaidai BadDrawable"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1669
-#: dialogs/settings_dialog.ui:1669
+#: dialogs/settings_dialog.ui:1649 utils/gw_menu.py:286
+msgid "On all desktops"
+msgstr "Ant visų darbalaukių"
+
+#: dialogs/settings_dialog.ui:1662 utils/gw_menu.py:280
+msgid "Lock position"
+msgstr "Užfiksuoti padėtį"
+
+#: dialogs/settings_dialog.ui:1675
 msgid "Transparency"
 msgstr "Permatomumas"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1786
-#: dialogs/settings_dialog.ui:1786
+#: dialogs/settings_dialog.ui:1792
 msgid "Scale"
 msgstr "Mastelis"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1924
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2041
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2237
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2327
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2521
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2639
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3769
-#: dialogs/settings_dialog.ui:1924 dialogs/settings_dialog.ui:2041
-#: dialogs/settings_dialog.ui:2237 dialogs/settings_dialog.ui:2327
-#: dialogs/settings_dialog.ui:2521 dialogs/settings_dialog.ui:2639
-#: dialogs/settings_dialog.ui:3769
+#: dialogs/settings_dialog.ui:1835 utils/gw_menu.py:292
+msgid "Always on top"
+msgstr ""
+
+#: dialogs/settings_dialog.ui:1878 utils/gw_menu.py:391
+msgid "Window"
+msgstr "Langas"
+
+#: dialogs/settings_dialog.ui:1930 dialogs/settings_dialog.ui:2047
+#: dialogs/settings_dialog.ui:2243 dialogs/settings_dialog.ui:2333
+#: dialogs/settings_dialog.ui:2527 dialogs/settings_dialog.ui:2645
+#: dialogs/settings_dialog.ui:3813
 msgid "Show"
 msgstr "Rodyti"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1937
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2054
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2157
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2340
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2534
-#: dialogs/settings_dialog.ui:1937 dialogs/settings_dialog.ui:2054
-#: dialogs/settings_dialog.ui:2157 dialogs/settings_dialog.ui:2340
-#: dialogs/settings_dialog.ui:2534
+#: dialogs/settings_dialog.ui:1943 dialogs/settings_dialog.ui:2060
+#: dialogs/settings_dialog.ui:2163 dialogs/settings_dialog.ui:2346
+#: dialogs/settings_dialog.ui:2540
 msgid "Offset from center"
 msgstr "Atitraukimas nuo centro"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2003
-#: dialogs/settings_dialog.ui:2003
+#: dialogs/settings_dialog.ui:2009
 msgid "Block Tomorrow"
 msgstr "Blokas „Šiandien“"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2120
-#: dialogs/settings_dialog.ui:2120
+#: dialogs/settings_dialog.ui:2126
 msgid "Block Today"
 msgstr "Blokas „Rytoj“"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2198
-#: dialogs/settings_dialog.ui:2198
+#: dialogs/settings_dialog.ui:2204
 msgid "Block Now"
 msgstr "Blokas „Dabar“"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2277
-#: dialogs/settings_dialog.ui:2277
+#: dialogs/settings_dialog.ui:2283
 msgid "Block Sunrise"
 msgstr ""
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2404
-#: dialogs/settings_dialog.ui:2404
+#: dialogs/settings_dialog.ui:2410
 msgid "Reduce"
 msgstr "Sumažinti"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2417
-#: dialogs/settings_dialog.ui:2417
+#: dialogs/settings_dialog.ui:2423
 msgid "Angle of rotation"
 msgstr "Posūkio kampas"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2483
-#: dialogs/settings_dialog.ui:2483
+#: dialogs/settings_dialog.ui:2489
 msgid "Block Wind"
 msgstr "Blokas „Vėjas“"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2600
-#: dialogs/settings_dialog.ui:2600
+#: dialogs/settings_dialog.ui:2606
 msgid "Block Additional info"
 msgstr "Blokas „Papildoma informacija“"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2679
-#: dialogs/settings_dialog.ui:2679
+#: dialogs/settings_dialog.ui:2685
 msgid "Block Moonrise"
 msgstr ""
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2733
-#: dialogs/settings_dialog.ui:2733
-msgid "Number of days"
-msgstr "Dienų skaičius"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2746
-#: dialogs/settings_dialog.ui:2746
-msgid "Show weather retrieval time"
-msgstr "Rodyti orų gavimo laiką"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2759
-#: dialogs/settings_dialog.ui:2759
-msgid "Show splash screen"
-msgstr "Rodyti ekrano užsklandą"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2772
-#: dialogs/settings_dialog.ui:2772
+#: dialogs/settings_dialog.ui:2839
 msgid "Hide splash screen after attempts (0 - do not hide)"
 msgstr "Slėpti ekrano užsklandą po bandymų (0 - neslėpti)"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2894
-#: dialogs/settings_dialog.ui:2894
+#: dialogs/settings_dialog.ui:2852
+msgid "Show splash screen"
+msgstr "Rodyti ekrano užsklandą"
+
+#: dialogs/settings_dialog.ui:2865
+msgid "Show weather retrieval time"
+msgstr "Rodyti orų gavimo laiką"
+
+#: dialogs/settings_dialog.ui:2878
 msgid "Show chance of rain"
 msgstr "Rodyti lietaus tikimybę"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2954
-#: dialogs/settings_dialog.ui:2954
+#: dialogs/settings_dialog.ui:2925
+msgid "Number of days"
+msgstr "Dienų skaičius"
+
+#: dialogs/settings_dialog.ui:2938
+msgid "Time of day gradient"
+msgstr ""
+
+#: dialogs/settings_dialog.ui:2998
 msgid "View"
 msgstr "Rodymas"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2997
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:4104
-#: dialogs/settings_dialog.ui:2997 dialogs/settings_dialog.ui:4104
+#: dialogs/settings_dialog.ui:3041 dialogs/settings_dialog.ui:4148
 msgid "Font"
 msgstr "Šriftas"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3010
-#: dialogs/settings_dialog.ui:3010
+#: dialogs/settings_dialog.ui:3054
 msgid "Main color"
 msgstr "Pagrindinė spalva"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3051
-#: dialogs/settings_dialog.ui:3051
+#: dialogs/settings_dialog.ui:3095
 msgid "Color weekend"
 msgstr "Savaitgalių spalva"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3119
-#: dialogs/settings_dialog.ui:3119
+#: dialogs/settings_dialog.ui:3163
 msgid "Color wind"
 msgstr "Vėjo spalva"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3132
-#: dialogs/settings_dialog.ui:3132
+#: dialogs/settings_dialog.ui:3176
 msgid ""
 "High wind\n"
 "(-1 = not highlighted)"
 msgstr "Didelis vėjas\n(-1 = neparyškinta)"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3146
-#: dialogs/settings_dialog.ui:3146
+#: dialogs/settings_dialog.ui:3190
 msgid "Shadow color"
 msgstr "Šešėlių spalva"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3159
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3912
-#: dialogs/settings_dialog.ui:3159 dialogs/settings_dialog.ui:3912
+#: dialogs/settings_dialog.ui:3203 dialogs/settings_dialog.ui:3956
 msgid "Shadow"
 msgstr "Šešėliai"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3277
-#: dialogs/settings_dialog.ui:3277
+#: dialogs/settings_dialog.ui:3321
 msgid "Weekend"
 msgstr "Savaitgalis"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3314
-#: dialogs/settings_dialog.ui:3314
+#: dialogs/settings_dialog.ui:3358
 msgid "Weather description style"
 msgstr "Orų aprašymo stilius"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3399
-#: dialogs/settings_dialog.ui:3399
+#: dialogs/settings_dialog.ui:3405 utils/gw_menu.py:386
+msgid "Text"
+msgstr "Tekstas"
+
+#: dialogs/settings_dialog.ui:3443
 msgid "Use image"
 msgstr "Naudoti paveikslėlį"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3452
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3661
-#: dialogs/settings_dialog.ui:3452 dialogs/settings_dialog.ui:3661
+#: dialogs/settings_dialog.ui:3496 dialogs/settings_dialog.ui:3705
 msgid "Select"
 msgstr "Pasirinkti"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3528
-#: dialogs/settings_dialog.ui:3528
+#: dialogs/settings_dialog.ui:3572
 msgid "Corner radius"
 msgstr ""
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3541
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3925
-#: dialogs/settings_dialog.ui:3541 dialogs/settings_dialog.ui:3925
+#: dialogs/settings_dialog.ui:3585 dialogs/settings_dialog.ui:3969
 msgid "Color"
 msgstr "Spalva"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3732
-#: dialogs/settings_dialog.ui:3732
+#: dialogs/settings_dialog.ui:3667 utils/gw_menu.py:381
+msgid "Background"
+msgstr "Fonas"
+
+#: dialogs/settings_dialog.ui:3776
 msgid "Appearance"
 msgstr "Išvaizda"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3756
-#: dialogs/settings_dialog.ui:3756
+#: dialogs/settings_dialog.ui:3800
 msgid "Type (restart required)"
 msgstr "Tipas (reikia paleisti iš naujo)"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3873
-#: dialogs/settings_dialog.ui:3873
+#: dialogs/settings_dialog.ui:3917
 msgid "Width"
 msgstr "Plotis"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3899
-#: dialogs/settings_dialog.ui:3899
+#: dialogs/settings_dialog.ui:3943
 msgid "Color shadow"
 msgstr "Šešėlių spalva"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:4117
-#: dialogs/settings_dialog.ui:4117
+#: dialogs/settings_dialog.ui:4161
 msgid "Show text"
 msgstr ""
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:4212
-#: dialogs/settings_dialog.ui:4212
+#: dialogs/settings_dialog.ui:4256
 msgid "Fix the size"
 msgstr "Pataisyti dydį"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:4250
-#: dialogs/settings_dialog.ui:4250
+#: dialogs/settings_dialog.ui:4294
 msgid "Size"
 msgstr "Dydis"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:4318
-#: dialogs/settings_dialog.ui:4318
+#: dialogs/settings_dialog.ui:4362
 msgid "Indicator"
 msgstr "Indikatorius"
 
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:31
+#: dialogs/update_dialog.py:28 dialogs/update_dialog.ui:561 utils/opener.py:94
+msgid "Downloading"
+msgstr "Atsiunčiama"
+
+#: dialogs/update_dialog.py:61
+msgid "Update"
+msgstr "Naujinti"
+
+#: dialogs/update_dialog.py:89
+msgid "Current version"
+msgstr "Dabartinė versija"
+
+#: dialogs/update_dialog.py:90
+msgid "Available new version"
+msgstr "Prieinama nauja versija"
+
+#: dialogs/update_dialog.py:113
+msgid "Error downloading updates"
+msgstr "Klaida atsisiunčiant atnaujinimus"
+
+#: dialogs/update_dialog.py:148
+msgid "Error installing updates"
+msgstr "Klaida diegiant atnaujinimus"
+
+#: dialogs/update_dialog.py:152 dialogs/update_dialog.ui:575
+msgid "Installation"
+msgstr "Diegimas"
+
+#: dialogs/update_dialog.py:160
+msgid "Error removing"
+msgstr "Klaida šalinant"
+
 #: dialogs/update_dialog.ui:31
 msgid "Update now"
 msgstr "Naujinti dabar"
 
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:187
 #: dialogs/update_dialog.ui:187
 msgid "Manual update"
 msgstr "Rankinis atnaujinimas"
 
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:408
 #: dialogs/update_dialog.ui:408
 msgid "You can support project"
 msgstr "Galite prisidėti prie projekto"
 
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:469
 #: dialogs/update_dialog.ui:469
 msgid "Additional information"
 msgstr "Papildoma informacija"
 
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:589
 #: dialogs/update_dialog.ui:589
 msgid "Cleaning temporary files"
 msgstr "Valomi laikini failai"
 
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:672
 #: dialogs/update_dialog.ui:672
 msgid "Restart"
 msgstr "Paleisti iš naujo"
 
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:701
 #: dialogs/update_dialog.ui:701
 msgid "Update successful"
 msgstr "Naujinimas sėkmingas"
 
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:756
 #: dialogs/update_dialog.ui:756
 msgid "Update error"
 msgstr "Naujinimo klaida"
+
+#: gis-weather.py:42
+msgid "Running multiple instances is not supported"
+msgstr "Keleto egzempliorių paleidimas nėra palaikomas"
+
+#: gis-weather.py:47
+msgid "number of instances"
+msgstr "egzempliorių kiekis"
+
+#: gis-weather.py:55
+msgid "testing mode turned on"
+msgstr "testavimo režimas įjungtas"
+
+#: gis-weather.py:234 utils/gw_menu.py:61 utils/presets.py:61
+#: utils/presets.py:178 utils/presets.py:214 utils/presets.py:249
+#: utils/presets.py:282
+msgid "Now"
+msgstr "Dabar"
+
+#: gis-weather.py:344
+msgid "Error loading color scheme"
+msgstr "Nepavyko įkelti spalvų schemos"
+
+#: gis-weather.py:359
+msgid "Error loading preset"
+msgstr "Nepavyko įkelti šablono"
+
+#: gis-weather.py:369
+msgid "Enter full path to script"
+msgstr "Įveskite pilną kelią iki scenarijaus"
+
+#: gis-weather.py:370
+msgid "Exit"
+msgstr "Uždaroma"
+
+#: gis-weather.py:482
+msgid "Check for new version"
+msgstr "Tikrinti, ar yra nauja versija"
+
+#: gis-weather.py:487 gis-weather.py:496
+msgid "Unable to check for updates"
+msgstr "Nepavyko patikrinti, ar yra atnaujinimų"
+
+#: gis-weather.py:512
+msgid "New version available"
+msgstr "Prieinama nauja versija"
+
+#: gis-weather.py:519
+msgid "You are using the latest version"
+msgstr "Naudojate naujausią versiją"
+
+#: gis-weather.py:537 gis-weather.py:1528
+msgid "Screenshot saved to"
+msgstr "Ekrano nuotrauka išsaugota į"
+
+#: gis-weather.py:541
+msgid "Unable to get the screenshot"
+msgstr "Nepavyko gauti ekrano nuotraukos"
+
+#: gis-weather.py:738
+msgid "Getting weather..."
+msgstr "Gaunama orų informacija..."
+
+#: gis-weather.py:741
+msgid "Error getting weather"
+msgstr "Nepavyko gauti orų informacijos"
+
+#: gis-weather.py:743
+msgid "Location not set"
+msgstr "Neparinkta vietovė"
+
+#: gis-weather.py:803 gis-weather.py:865
+msgid "Next update in"
+msgstr "Kitas atnaujinimas po"
+
+#: gis-weather.py:803 gis-weather.py:865
+msgid "min"
+msgstr "min"
+
+#: gis-weather.py:839
+msgid "Next try in 10 seconds"
+msgstr "Kitas bandymas po 10 sekundžių"
+
+#: gis-weather.py:855
+msgid "Connection error"
+msgstr "Ryšio klaida"
+
+#: gis-weather.py:898
+msgid "feels like"
+msgstr "jaučiasi kaip"
+
+#: gis-weather.py:901 utils/gw_menu.py:66
+msgid "Humidity"
+msgstr ""
+
+#: gis-weather.py:902 utils/gw_menu.py:82
+msgid "Sunrise"
+msgstr ""
+
+#: gis-weather.py:903 utils/gw_menu.py:87
+msgid "Sunset"
+msgstr ""
+
+#: gis-weather.py:1036
+msgid "Updated on server"
+msgstr "Atnaujinta serveryje"
+
+#: gis-weather.py:1037
+msgid "Weather received"
+msgstr "Orų informacija gauta"
+
+#: gis-weather.py:1092 utils/wind_direct_convert.py:5
+#: utils/wind_direct_convert.py:6 utils/wind_direct_convert.py:7
+#: utils/wind_direct_convert.py:19 utils/wind_direct_convert.py:20
+#: utils/wind_direct_convert.py:21
+msgid "E"
+msgstr "R"
+
+#: gis-weather.py:1092 utils/wind_direct_convert.py:7
+#: utils/wind_direct_convert.py:8 utils/wind_direct_convert.py:9
+#: utils/wind_direct_convert.py:21 utils/wind_direct_convert.py:22
+#: utils/wind_direct_convert.py:23
+msgid "S"
+msgstr "P"
+
+#: gis-weather.py:1092 utils/wind_direct_convert.py:9
+#: utils/wind_direct_convert.py:10 utils/wind_direct_convert.py:11
+#: utils/wind_direct_convert.py:23 utils/wind_direct_convert.py:24
+#: utils/wind_direct_convert.py:25
+msgid "W"
+msgstr "V"
+
+#: gis-weather.py:1092 utils/wind_direct_convert.py:4
+#: utils/wind_direct_convert.py:5 utils/wind_direct_convert.py:11
+#: utils/wind_direct_convert.py:12 utils/wind_direct_convert.py:18
+#: utils/wind_direct_convert.py:19 utils/wind_direct_convert.py:25
+msgid "N"
+msgstr "Š"
+
+#: gis-weather.py:1131
+msgid "humid."
+msgstr "drėgn."
+
+#: gis-weather.py:1134
+msgid "water"
+msgstr "vanduo"
+
+#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:361
+#: services/openweathermap.py:259 services/yr.py:147
+msgid "Morning"
+msgstr "Rytas"
+
+#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:361
+#: services/openweathermap.py:259 services/yr.py:147
+msgid "Day"
+msgstr "Diena"
+
+#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:361
+#: services/openweathermap.py:259 services/yr.py:147
+msgid "Evening"
+msgstr "Vakaras"
+
+#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:361
+#: services/openweathermap.py:259 services/yr.py:147
+msgid "Night"
+msgstr "Naktis"
+
+#: gis-weather.py:1154 gis-weather.py:1156 utils/gw_menu.py:112
+msgid "Tomorrow"
+msgstr "Rytoj"
+
+#: gis-weather.py:1195
+msgid "Today"
+msgstr "Šiandien"
+
+#: gis-weather.py:1349
+msgid "Background image not found"
+msgstr "Fono paveikslėlis nerastas"
+
+#: gis-weather.py:1428 gis-weather.py:1441
+msgid "Icon not found"
+msgstr "Piktograma nerasta"
+
+#: gis-weather.py:1539
+msgid "Widget size"
+msgstr "Valdiklio dydis"
+
+#: gis-weather.py:1540
+msgid "width"
+msgstr "plotis"
+
+#: gis-weather.py:1540
+msgid "height"
+msgstr "aukštis"
+
+#: gis-weather.py:1540
+msgid "including indent"
+msgstr "įskaitant įtrauką"
+
+#: gis-weather.py:1728
+msgid "Requires restart"
+msgstr "Reikia paleisti iš naujo"
+
+#: gis-weather.py:1797
+msgid "Removed"
+msgstr "Pašalinta"
+
+#: gis-weather.py:1905
+msgid "Your screen does not support alpha"
+msgstr "Jūsų ekranas nepalaiko alpha"
+
+#: gis-weather.py:1907
+msgid "Your screen supports alpha"
+msgstr "Jūsų ekranas palaiko alpha"
+
+#: services/accuweather.py:13
+msgid "If the city code is wrong, please read"
+msgstr "Jei miesto kodas neteisingas, skaitykite"
+
+#: services/accuweather.py:200 services/gismeteo.py:246
+#: services/openweathermap.py:88 services/yr.py:62
+msgid "Failed to get the name of the location"
+msgstr "Nepavyko gauti vietovės pavadinimo"
+
+#: services/accuweather.py:226 services/gismeteo.py:265
+#: services/openweathermap.py:117 services/yr.py:73
+msgid "Getting weather for"
+msgstr "Gaunama orų informacija"
+
+#: services/accuweather.py:226 services/gismeteo.py:265
+#: services/openweathermap.py:117 services/yr.py:73
+msgid "days"
+msgstr "dienoms"
+
+#: services/accuweather.py:277 utils/wind_direct_convert.py:17
+msgid "Calm"
+msgstr "Ramu"
+
+#: services/accuweather.py:506 services/gismeteo.py:410
+#: services/openweathermap.py:282
+msgid "updated on server"
+msgstr "atnaujinta serveryje"
+
+#: services/accuweather.py:507 services/gismeteo.py:411
+#: services/openweathermap.py:283 services/yr.py:193
+msgid "weather received"
+msgstr "orų informacija gauta"
+
+#: services/openweathermap.py:14
+msgid "How to get"
+msgstr "Kaip gauti"
+
+#: utils/convert.py:53 utils/convert.py:75
+msgid "bft"
+msgstr "bft"
+
+#: utils/convert.py:57 utils/convert.py:79
+msgid "kts"
+msgstr "mgz"
+
+#: utils/gw_menu.py:36
+msgid "Switch to app menu"
+msgstr ""
+
+#: utils/gw_menu.py:120
+msgid "Precipitation"
+msgstr ""
+
+#: utils/gw_menu.py:270
+msgid "Black"
+msgstr ""
+
+#: utils/gw_menu.py:270
+msgid "White"
+msgstr ""
+
+#: utils/gw_menu.py:270
+msgid "Gray"
+msgstr ""
+
+#: utils/gw_menu.py:302
+msgid "Save screenshot"
+msgstr "Išsaugoti ekrano nuotrauką"
+
+#: utils/gw_menu.py:318
+msgid "Switch to weather menu"
+msgstr ""
+
+#: utils/gw_menu.py:323
+msgid "Show/Hide widget"
+msgstr "Rodyti/slėpti valdiklį"
+
+#: utils/gw_menu.py:340
+msgid "Start new instance"
+msgstr ""
+
+#: utils/gw_menu.py:348
+msgid "Go to site"
+msgstr ""
+
+#: utils/gw_menu.py:366
+msgid "Indicator icons"
+msgstr "Indikatoriaus piktogramos"
+
+#: utils/gw_menu.py:371
+msgid "Menu icons"
+msgstr ""
+
+#: utils/gw_menu.py:396
+msgid "Presets"
+msgstr "Šablonai"
+
+#: utils/gw_menu.py:417
+msgid "About"
+msgstr "Apie"
+
+#: utils/opener.py:102
+msgid "Unable to download page, check the network connection"
+msgstr "Nepavyko atsiųsti puslapio, patikrinkite interneto ryšį"
+
+#: utils/opener.py:107
+msgid "downloading"
+msgstr "atsiunčiama"
+
+#: utils/opener.py:114
+msgid "Unable to download"
+msgstr "Nepavyko atsiųsti"

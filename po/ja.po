@@ -5,17 +5,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2017-05-20 16:43+0300\n"
-"PO-Revision-Date: 2019-02-02 04:13+0000\n"
-"Last-Translator: Hippo Rhino <hippointhewild@gmail.com>\n"
+"POT-Creation-Date: 2019-06-30 22:37+0300\n"
+"PO-Revision-Date: 2019-06-30 19:38+0000\n"
+"Last-Translator: RingOV <ringov@mail.ru>\n"
 "Language-Team: Japanese (http://www.transifex.com/gis-weather-team/gis-weather/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.6.10\n"
-"X-Poedit-Basepath: ../\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: dialogs\n"
@@ -23,7 +23,6 @@ msgstr ""
 "X-Poedit-SearchPath-3: utils\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: DEB/build/usr/share/gis-weather/dialogs/about_dialog.py:10
 #: dialogs/about_dialog.py:10
 msgid ""
 "This program is free software: you can redistribute it and/or modify\n"
@@ -40,1150 +39,904 @@ msgid ""
 "http://www.gnu.org/licenses/gpl.txt"
 msgstr "このプログラムはフリーソフトウェアです。\nあなたはFree Software Foundationによって公開されているGNU General Public Licenseの元で\n(ライセンスのバージョン3もしくは、それ以降のバージョンを自由に選んで)、\nこのプログラムを再配布、あるいは変更することができます。\n\nこのプログラムは役に立つことを希望して配布していますが、\nいかなる保証もありませんし、暗示的にも市販性、特定目的との適合性の保証もありません。\n詳細に関しては、GNU General Public Licenseを参照してください。\n\nあなたは、以下でこのライセンスの完全なテキストを見つけることができます。\nhttp://www.gnu.org/licenses/gpl.txt"
 
-#: DEB/build/usr/share/gis-weather/dialogs/about_dialog.py:27
-#: DEB/build/usr/share/gis-weather/utils/autorun.py:72
-#: DEB/build/usr/share/gis-weather/utils/desktop.py:23
 #: dialogs/about_dialog.py:27 utils/autorun.py:72 utils/desktop.py:23
 msgid "Weather widget"
 msgstr "天候ウィジェット"
 
-#: DEB/build/usr/share/gis-weather/dialogs/about_dialog.py:33
 #: dialogs/about_dialog.py:33
 msgid "Help and Ideas"
 msgstr "支援者及び考案者"
 
-#: DEB/build/usr/share/gis-weather/dialogs/about_dialog.py:40
 #: dialogs/about_dialog.py:41
 msgid "Backgrounds"
 msgstr "バックグラウンド"
 
-#: DEB/build/usr/share/gis-weather/dialogs/about_dialog.py:45
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:226
-#: dialogs/about_dialog.py:46 utils/gw_menu.py:364
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3709
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:4165
-#: dialogs/settings_dialog.ui:3709 dialogs/settings_dialog.ui:4165
+#: dialogs/about_dialog.py:46 dialogs/settings_dialog.ui:3753
+#: dialogs/settings_dialog.ui:4209 utils/gw_menu.py:376
 msgid "Icons"
 msgstr "アイコン"
 
-#: DEB/build/usr/share/gis-weather/dialogs/about_dialog.py:59
-#: dialogs/about_dialog.py:60
+#: dialogs/about_dialog.py:63
 msgid "translator-credits"
 msgstr "HIPPO"
 
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.py:35
-#: DEB/build/usr/share/gis-weather/gis-weather.py:300
-#: dialogs/city_id_dialog.py:35 gis-weather.py:304
+#: dialogs/city_id_dialog.py:35 gis-weather.py:313
 msgid "Error loading config file"
 msgstr "設定ファイルの読み込みエラー"
 
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.py:73
 #: dialogs/city_id_dialog.py:73
 msgid "Choose your city on"
 msgstr "都市を選択してください："
 
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.py:74
 #: dialogs/city_id_dialog.py:74
 msgid "and copy the city code below"
 msgstr "次に、都市のコードを以下にコピーしてください"
 
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.py:75
 #: dialogs/city_id_dialog.py:75
 msgid "For example"
 msgstr "例"
 
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.py:76
-#: dialogs/city_id_dialog.py:76
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:414
-#: dialogs/city_id_dialog.ui:414
+#: dialogs/city_id_dialog.py:76 dialogs/city_id_dialog.ui:414
 msgid "City code"
 msgstr "都市コード"
 
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.py:118
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:215
-#: dialogs/city_id_dialog.py:118 utils/gw_menu.py:36 utils/gw_menu.py:348
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:42
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:632
-#: dialogs/city_id_dialog.ui:42 dialogs/settings_dialog.ui:632
+#: dialogs/city_id_dialog.py:118 dialogs/city_id_dialog.ui:42
+#: dialogs/settings_dialog.ui:638 utils/gw_menu.py:41 utils/gw_menu.py:360
 msgid "Location"
 msgstr "位置"
 
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.py:152
 #: dialogs/city_id_dialog.py:152
 msgid "Code"
 msgstr "コード"
 
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.py:156
 #: dialogs/city_id_dialog.py:156
 msgid "Place"
 msgstr "都市名"
 
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.py:15
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.py:45
-#: dialogs/help_dialog.py:15 dialogs/update_dialog.py:45
-msgid "Go to link"
-msgstr "リンク先へ進む"
-
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.py:18
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.py:48
-#: dialogs/help_dialog.py:18 dialogs/update_dialog.py:48
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:76
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:318
-#: dialogs/help_dialog.ui:76 dialogs/update_dialog.ui:318
-msgid "Send email"
-msgstr "メールの送信"
-
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.py:30
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:259
-#: dialogs/help_dialog.py:30 utils/gw_menu.py:397
-msgid "Help"
-msgstr "ヘルプ"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:103
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:795
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:251
-#: dialogs/settings_dialog.py:103 dialogs/settings_dialog.py:795
-#: utils/gw_menu.py:389
-msgid "Preferences"
-msgstr "設定"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:435
-#: DEB/build/usr/share/gis-weather/utils/convert.py:61
-#: DEB/build/usr/share/gis-weather/utils/convert.py:65
-#: dialogs/settings_dialog.py:435 utils/convert.py:61 utils/convert.py:65
-msgid "m/s"
-msgstr "m/s"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:435
-#: DEB/build/usr/share/gis-weather/utils/convert.py:45
-#: DEB/build/usr/share/gis-weather/utils/convert.py:81
-#: dialogs/settings_dialog.py:435 utils/convert.py:45 utils/convert.py:81
-msgid "km/h"
-msgstr "km/h"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:435
-#: DEB/build/usr/share/gis-weather/utils/convert.py:49
-#: DEB/build/usr/share/gis-weather/utils/convert.py:69
-#: dialogs/settings_dialog.py:435 utils/convert.py:49 utils/convert.py:69
-msgid "mph"
-msgstr "mph"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:435
-#: dialogs/settings_dialog.py:435
-msgid "Beaufort scale"
-msgstr "Beaufort階級"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:435
-#: dialogs/settings_dialog.py:435
-msgid "Knots"
-msgstr "Knots"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:436
-#: dialogs/settings_dialog.py:436
-msgid "mmHg"
-msgstr "mmHg"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:436
-#: dialogs/settings_dialog.py:436
-msgid "inHg"
-msgstr "inHg"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:436
-#: dialogs/settings_dialog.py:436
-msgid "hPa"
-msgstr "hPa"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:439
-#: dialogs/settings_dialog.py:439
-msgid "Never"
-msgstr "絶対にしない"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:440
-#: dialogs/settings_dialog.py:440
-msgid "Only at start"
-msgstr "開始時だけ"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:441
-#: dialogs/settings_dialog.py:441
-msgid "Always"
-msgstr "常に"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:444
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:115
-#: dialogs/settings_dialog.py:444 utils/gw_menu.py:248
-msgid "No"
-msgstr "いいえ"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:445
-#: dialogs/settings_dialog.py:445
-msgid "Only background"
-msgstr "背景だけ"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:446
-#: dialogs/settings_dialog.py:446
-msgid "Yes"
-msgstr "Yes"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:564
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:566
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:581
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:583
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:598
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.py:600
-#: dialogs/settings_dialog.py:564 dialogs/settings_dialog.py:566
-#: dialogs/settings_dialog.py:581 dialogs/settings_dialog.py:583
-#: dialogs/settings_dialog.py:598 dialogs/settings_dialog.py:600
-msgid "Author"
-msgstr "作者"
-
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.py:28
-#: DEB/build/usr/share/gis-weather/utils/opener.py:93
-#: dialogs/update_dialog.py:28 utils/opener.py:94
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:561
-#: dialogs/update_dialog.ui:561
-msgid "Downloading"
-msgstr "ダウンロード中"
-
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.py:61
-#: dialogs/update_dialog.py:61
-msgid "Update"
-msgstr "アップデート"
-
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.py:89
-#: dialogs/update_dialog.py:89
-msgid "Current version"
-msgstr "現在のバージョン"
-
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.py:90
-#: dialogs/update_dialog.py:90
-msgid "Available new version"
-msgstr "新しいバージョンが利用可能です"
-
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.py:113
-#: dialogs/update_dialog.py:113
-msgid "Error downloading updates"
-msgstr "アップデートのダウンロードエラー"
-
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.py:148
-#: dialogs/update_dialog.py:148
-msgid "Error installing updates"
-msgstr "アップデートのインストールエラー"
-
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.py:152
-#: dialogs/update_dialog.py:152
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:575
-#: dialogs/update_dialog.ui:575
-msgid "Installation"
-msgstr "インスタレーション"
-
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.py:160
-#: dialogs/update_dialog.py:160
-msgid "Error removing"
-msgstr "削除エラー"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:42 gis-weather.py:42
-msgid "Running multiple instances is not supported"
-msgstr "複数のインスタンスの稼働はサポートされていません"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:47 gis-weather.py:47
-msgid "number of instances"
-msgstr "インスタンスの数"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:55 gis-weather.py:55
-msgid "testing mode turned on"
-msgstr "テストモードがONになっています"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:229
-#: DEB/build/usr/share/gis-weather/utils/presets.py:60
-#: DEB/build/usr/share/gis-weather/utils/presets.py:176
-#: DEB/build/usr/share/gis-weather/utils/presets.py:211 gis-weather.py:233
-#: utils/gw_menu.py:56 utils/presets.py:61 utils/presets.py:178
-#: utils/presets.py:214 utils/presets.py:249
-msgid "Now"
-msgstr "現在"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:284 gis-weather.py:288
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:682
-#: dialogs/settings_dialog.ui:682
-msgid "Configuration folder"
-msgstr "設定フォルダ"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:331 gis-weather.py:335
-msgid "Error loading color scheme"
-msgstr "カラースキームの読み込みエラー"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:346 gis-weather.py:350
-msgid "Error loading preset"
-msgstr "プリセットの読み込みエラー"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:356 gis-weather.py:360
-msgid "Enter full path to script"
-msgstr "スクリプトへのフルパスを入力"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:357 gis-weather.py:361
-msgid "Exit"
-msgstr "終了"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:465 gis-weather.py:469
-msgid "Check for new version"
-msgstr "新しいバージョンをチェック"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:470
-#: DEB/build/usr/share/gis-weather/gis-weather.py:479 gis-weather.py:474
-#: gis-weather.py:483
-msgid "Unable to check for updates"
-msgstr "アップデートをチェックすることができません"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:494 gis-weather.py:498
-msgid "New version available"
-msgstr "新しいバージョンが利用できます"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:501 gis-weather.py:505
-msgid "You are using the latest version"
-msgstr "最新のバージョンを使用中です"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:518
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1423 gis-weather.py:522
-#: gis-weather.py:1493
-msgid "Screenshot saved to"
-msgstr "スクリーンショットを保存しました"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:522 gis-weather.py:526
-msgid "Unable to get the screenshot"
-msgstr "スクリーンショットを取得することができません"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:723 gis-weather.py:740
-msgid "Getting weather..."
-msgstr "天候を取得中..."
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:726 gis-weather.py:743
-msgid "Error getting weather"
-msgstr "天候の取得エラー"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:728 gis-weather.py:745
-msgid "Location not set"
-msgstr "位置情報が設定されていません"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:785
-#: DEB/build/usr/share/gis-weather/gis-weather.py:847 gis-weather.py:802
-#: gis-weather.py:864
-msgid "Next update in"
-msgstr "次の更新"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:785
-#: DEB/build/usr/share/gis-weather/gis-weather.py:847 gis-weather.py:802
-#: gis-weather.py:864
-msgid "min"
-msgstr "分"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:821
-#: DEB/build/usr/share/gis-weather/services/gismeteo.py:384 gis-weather.py:838
-#: services/gismeteo.py:384
-msgid "Next try in 10 seconds"
-msgstr "10秒以内に次をトライします"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:837 gis-weather.py:854
-msgid "Connection error"
-msgstr "接続エラー"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:902 gis-weather.py:896
-msgid "feels like"
-msgstr "のような気がする"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:949 gis-weather.py:1013
-msgid "Updated on server"
-msgstr "サーバー上での更新"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:950 gis-weather.py:1014
-msgid "Weather received"
-msgstr "天候の受信"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1069
-msgid "E"
-msgstr "東"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1069
-msgid "S"
-msgstr "南"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1069
-msgid "W"
-msgstr "西"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1004 gis-weather.py:1069
-msgid "N"
-msgstr "北"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1043 gis-weather.py:1108
-msgid "humid."
-msgstr "湿度"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1046 gis-weather.py:1111
-msgid "water"
-msgstr "水温"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1061
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1103
-#: DEB/build/usr/share/gis-weather/services/gismeteo.py:373
-#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1126
-#: gis-weather.py:1168 services/gismeteo.py:373 services/yr.py:147
-msgid "Morning"
-msgstr "午前"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1061
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1103
-#: DEB/build/usr/share/gis-weather/services/gismeteo.py:373
-#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1126
-#: gis-weather.py:1168 services/gismeteo.py:373 services/yr.py:147
-msgid "Day"
-msgstr "午後"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1061
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1103
-#: DEB/build/usr/share/gis-weather/services/gismeteo.py:373
-#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1126
-#: gis-weather.py:1168 services/gismeteo.py:373 services/yr.py:147
-msgid "Evening"
-msgstr "夕方"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1061
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1103
-#: DEB/build/usr/share/gis-weather/services/gismeteo.py:373
-#: DEB/build/usr/share/gis-weather/services/yr.py:147 gis-weather.py:1126
-#: gis-weather.py:1168 services/gismeteo.py:373 services/yr.py:147
-msgid "Night"
-msgstr "夜"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1066
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1068 gis-weather.py:1131
-#: gis-weather.py:1133 utils/gw_menu.py:106
-msgid "Tomorrow"
-msgstr "明日"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1107 gis-weather.py:1172
-msgid "Today"
-msgstr "本日"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1252 gis-weather.py:1327
-msgid "Background image not found"
-msgstr "背景画像が見つかりません"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1316 utils/opener.py:107
-msgid "downloading"
-msgstr "ダウンロード中"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1320 utils/opener.py:114
-msgid "Unable to download"
-msgstr "ダウンロードできません"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1344 gis-weather.py:1414
-msgid "Icon not found"
-msgstr "アイコンが見つかりません"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1434 gis-weather.py:1504
-msgid "Widget size"
-msgstr "ウィジェット サイズ"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1505
-msgid "width"
-msgstr "幅"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1505
-msgid "height"
-msgstr "高さ"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1435 gis-weather.py:1505
-msgid "including indent"
-msgstr "インデントを含む"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1605 gis-weather.py:1704
-msgid "Requires restart"
-msgstr "再起動を要求"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1674 gis-weather.py:1773
-msgid "Removed"
-msgstr "削除された"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1707 gis-weather.py:1806
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:361
-#: dialogs/city_id_dialog.ui:361
-msgid "Added"
-msgstr "追加された"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1712 gis-weather.py:1811
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:293
-#: dialogs/city_id_dialog.ui:293
-msgid "Invalid location code"
-msgstr "不正な位置情報コード"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1780 gis-weather.py:1878
-msgid "Your screen does not support alpha"
-msgstr "スクリーンがアルファをサポートしていません"
-
-#: DEB/build/usr/share/gis-weather/gis-weather.py:1782 gis-weather.py:1880
-msgid "Your screen supports alpha"
-msgstr "スクリーンはアルファをサポートしています"
-
-#: DEB/build/usr/share/gis-weather/services/accuweather.py:13
-#: services/accuweather.py:13
-msgid "If the city code is wrong, please read"
-msgstr "都市コードが間違っている場合にお読みください"
-
-#: DEB/build/usr/share/gis-weather/services/accuweather.py:200
-#: DEB/build/usr/share/gis-weather/services/gismeteo.py:231
-#: DEB/build/usr/share/gis-weather/services/openweathermap.py:88
-#: DEB/build/usr/share/gis-weather/services/yr.py:62
-#: services/accuweather.py:200 services/gismeteo.py:231
-#: services/openweathermap.py:88 services/yr.py:62
-msgid "Failed to get the name of the location"
-msgstr "位置情報名の取得に失敗しました"
-
-#: DEB/build/usr/share/gis-weather/services/accuweather.py:224
-#: DEB/build/usr/share/gis-weather/services/gismeteo.py:250
-#: DEB/build/usr/share/gis-weather/services/openweathermap.py:118
-#: DEB/build/usr/share/gis-weather/services/yr.py:73
-#: services/accuweather.py:224 services/gismeteo.py:250
-#: services/openweathermap.py:118 services/yr.py:73
-msgid "Getting weather for"
-msgstr "天候を取得中"
-
-#: DEB/build/usr/share/gis-weather/services/accuweather.py:224
-#: DEB/build/usr/share/gis-weather/services/gismeteo.py:250
-#: DEB/build/usr/share/gis-weather/services/openweathermap.py:118
-#: DEB/build/usr/share/gis-weather/services/yr.py:73
-#: services/accuweather.py:224 services/gismeteo.py:250
-#: services/openweathermap.py:118 services/yr.py:73
-msgid "days"
-msgstr "日中"
-
-#: DEB/build/usr/share/gis-weather/services/accuweather.py:275
-#: services/accuweather.py:275
-msgid "Calm"
-msgstr "穏やか"
-
-#: DEB/build/usr/share/gis-weather/services/accuweather.py:504
-#: DEB/build/usr/share/gis-weather/services/gismeteo.py:428
-#: DEB/build/usr/share/gis-weather/services/openweathermap.py:313
-#: services/accuweather.py:504 services/gismeteo.py:428
-#: services/openweathermap.py:313
-msgid "updated on server"
-msgstr "サーバ上での更新"
-
-#: DEB/build/usr/share/gis-weather/services/accuweather.py:505
-#: DEB/build/usr/share/gis-weather/services/gismeteo.py:429
-#: DEB/build/usr/share/gis-weather/services/openweathermap.py:314
-#: DEB/build/usr/share/gis-weather/services/yr.py:193
-#: services/accuweather.py:505 services/gismeteo.py:429
-#: services/openweathermap.py:314 services/yr.py:193
-msgid "weather received"
-msgstr "天候の受信"
-
-#: DEB/build/usr/share/gis-weather/services/openweathermap.py:14
-#: services/openweathermap.py:14
-msgid "How to get"
-msgstr "取得方法"
-
-#: DEB/build/usr/share/gis-weather/utils/convert.py:53
-#: DEB/build/usr/share/gis-weather/utils/convert.py:73 utils/convert.py:53
-#: utils/convert.py:73
-msgid "bft"
-msgstr "bft"
-
-#: DEB/build/usr/share/gis-weather/utils/convert.py:57
-#: DEB/build/usr/share/gis-weather/utils/convert.py:77 utils/convert.py:57
-#: utils/convert.py:77
-msgid "kts"
-msgstr "kts"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:56 utils/gw_menu.py:174
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:691
-#: dialogs/settings_dialog.ui:691
-msgid "Setup..."
-msgstr "設定中"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:130 utils/gw_menu.py:263
-msgid "Black"
-msgstr "Black"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:130 utils/gw_menu.py:263
-msgid "White"
-msgstr "White"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:130 utils/gw_menu.py:263
-msgid "Gray"
-msgstr "Gray"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:140 utils/gw_menu.py:273
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1656
-#: dialogs/settings_dialog.ui:1656
-msgid "Lock position"
-msgstr "表示位置を固定"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:146 utils/gw_menu.py:279
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1643
-#: dialogs/settings_dialog.ui:1643
-msgid "On all desktops"
-msgstr "全てのデスクトップ上"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:152 utils/gw_menu.py:285
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1829
-#: dialogs/settings_dialog.ui:1829
-msgid "Always on top"
-msgstr "常に最前面に"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:162 utils/gw_menu.py:295
-msgid "Save screenshot"
-msgstr "スクリーンショットを保存"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:178 utils/gw_menu.py:311
-msgid "Show/Hide widget"
-msgstr "ウィジェットの表示/非表示"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:187 utils/gw_menu.py:320
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:916
-#: dialogs/settings_dialog.ui:916
-msgid "Refresh"
-msgstr "更新"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:195 utils/gw_menu.py:328
-msgid "Start new instance"
-msgstr "新しいインスタンスを開始する"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:203 utils/gw_menu.py:336
-msgid "Go to site"
-msgstr "サイトに行く"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:221 utils/gw_menu.py:354
-msgid "Indicator icons"
-msgstr "指標用アイコン"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:231 utils/gw_menu.py:369
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3623
-#: dialogs/settings_dialog.ui:3623
-msgid "Background"
-msgstr "バックグラウンド"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:236 utils/gw_menu.py:374
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3361
-#: dialogs/settings_dialog.ui:3361
-msgid "Text"
-msgstr "テキスト"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:241 utils/gw_menu.py:379
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1872
-#: dialogs/settings_dialog.ui:1872
-msgid "Window"
-msgstr "ウィンドウ"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:246 utils/gw_menu.py:384
-msgid "Presets"
-msgstr "プリセット"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:267 utils/gw_menu.py:405
-msgid "About"
-msgstr "このソフトについて"
-
-#: DEB/build/usr/share/gis-weather/utils/gw_menu.py:315 utils/gw_menu.py:453
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:25
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:587
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:44
-#: dialogs/help_dialog.ui:25 dialogs/settings_dialog.ui:587
-#: dialogs/update_dialog.ui:44
-msgid "Close"
-msgstr "閉じる"
-
-#: DEB/build/usr/share/gis-weather/utils/opener.py:101 utils/opener.py:102
-msgid "Unable to download page, check the network connection"
-msgstr "ダウンロードのページが利用できません、ネットワーク接続をチェックしてください"
-
-#: gis-weather.py:895
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1302
-#: dialogs/settings_dialog.ui:1302
-msgid "Temperature"
-msgstr "気温"
-
-#: gis-weather.py:897 utils/gw_menu.py:66
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1248
-#: dialogs/settings_dialog.ui:1248
-msgid "Wind"
-msgstr "風速"
-
-#: gis-weather.py:898
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1261
-#: dialogs/settings_dialog.ui:1261
-msgid "Pressure"
-msgstr "気圧"
-
-#: gis-weather.py:899 utils/gw_menu.py:61
-msgid "Humidity"
-msgstr "湿度"
-
-#: gis-weather.py:900 utils/gw_menu.py:76
-msgid "Sunrise"
-msgstr "日の出"
-
-#: gis-weather.py:901 utils/gw_menu.py:81
-msgid "Sunset"
-msgstr "日没"
-
-#: utils/gw_menu.py:113
-msgid "Precipitation"
-msgstr "降水量"
-
-#: utils/gw_menu.py:359
-msgid "Menu icons"
-msgstr "メニュー アイコン"
-
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:58
 #: dialogs/city_id_dialog.ui:58
 msgid "Add"
 msgstr "追加"
 
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:72
 #: dialogs/city_id_dialog.ui:72
 msgid ""
 "Close & Reload\n"
 "selected"
 msgstr "終了&再起動\n選択されました"
 
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:87
 #: dialogs/city_id_dialog.ui:87
 msgid ""
 "Remove\n"
 "selected"
 msgstr "削除\n選択されました"
 
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:145
 #: dialogs/city_id_dialog.ui:145
 msgid "Language weather"
 msgstr "天候用言語"
 
-#: DEB/build/usr/share/gis-weather/dialogs/city_id_dialog.ui:182
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:864
-#: dialogs/city_id_dialog.ui:182 dialogs/settings_dialog.ui:864
+#: dialogs/city_id_dialog.ui:182 dialogs/settings_dialog.ui:870
 msgid "Weather service"
 msgstr "天候提供"
 
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:92
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:334
+#: dialogs/city_id_dialog.ui:293 gis-weather.py:1835
+msgid "Invalid location code"
+msgstr "不正な位置情報コード"
+
+#: dialogs/city_id_dialog.ui:361 gis-weather.py:1830
+msgid "Added"
+msgstr "追加された"
+
+#: dialogs/help_dialog.py:15 dialogs/update_dialog.py:45
+msgid "Go to link"
+msgstr "リンク先へ進む"
+
+#: dialogs/help_dialog.py:18 dialogs/help_dialog.ui:76
+#: dialogs/update_dialog.py:48 dialogs/update_dialog.ui:318
+msgid "Send email"
+msgstr "メールの送信"
+
+#: dialogs/help_dialog.py:30 utils/gw_menu.py:409
+msgid "Help"
+msgstr "ヘルプ"
+
+#: dialogs/help_dialog.ui:25 dialogs/settings_dialog.ui:593
+#: dialogs/update_dialog.ui:44 utils/gw_menu.py:465
+msgid "Close"
+msgstr "閉じる"
+
 #: dialogs/help_dialog.ui:92 dialogs/update_dialog.ui:334
 msgid "Found a bug?"
 msgstr "バグを見つけましたか？"
 
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:109
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:794
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:351
-#: dialogs/help_dialog.ui:109 dialogs/settings_dialog.ui:794
+#: dialogs/help_dialog.ui:109 dialogs/settings_dialog.ui:800
 #: dialogs/update_dialog.ui:351
 msgid "Want to translate?"
 msgstr "翻訳したいですか？"
 
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:126
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:369
 #: dialogs/help_dialog.ui:126 dialogs/update_dialog.ui:369
 msgid "Have any questions?"
 msgstr "何か質問がありますか？"
 
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:143
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:387
 #: dialogs/help_dialog.ui:143 dialogs/update_dialog.ui:387
 msgid "Have any suggestions?"
 msgstr "何らかの提案がありますか？"
 
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:163
 #: dialogs/help_dialog.ui:163
 msgid "You can support my project"
 msgstr "このプロジェクトをサポートできますか？"
 
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:174
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:419
 #: dialogs/help_dialog.ui:174 dialogs/update_dialog.ui:419
 msgid "Read more"
 msgstr "続きを読む"
 
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:238
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:155
 #: dialogs/help_dialog.ui:238 dialogs/update_dialog.ui:155
 msgid "Changelog"
 msgstr "更新履歴"
 
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:254
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:171
 #: dialogs/help_dialog.ui:254 dialogs/update_dialog.ui:171
 msgid "Source Code"
 msgstr "ソースコード"
 
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:270
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:203
 #: dialogs/help_dialog.ui:270 dialogs/update_dialog.ui:203
 msgid "What's New"
 msgstr "最新情報"
 
-#: DEB/build/usr/share/gis-weather/dialogs/help_dialog.ui:286
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:937
-#: dialogs/help_dialog.ui:286 dialogs/settings_dialog.ui:937
+#: dialogs/help_dialog.ui:286 dialogs/settings_dialog.ui:943
 msgid "Translation status"
 msgstr "翻訳状況"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:645
-#: dialogs/settings_dialog.ui:645
+#: dialogs/settings_dialog.py:103 dialogs/settings_dialog.py:799
+#: utils/gw_menu.py:401
+msgid "Preferences"
+msgstr "設定"
+
+#: dialogs/settings_dialog.py:439 utils/convert.py:63 utils/convert.py:67
+msgid "m/s"
+msgstr "m/s"
+
+#: dialogs/settings_dialog.py:439 utils/convert.py:45 utils/convert.py:83
+msgid "km/h"
+msgstr "km/h"
+
+#: dialogs/settings_dialog.py:439 utils/convert.py:49 utils/convert.py:71
+msgid "mph"
+msgstr "mph"
+
+#: dialogs/settings_dialog.py:439
+msgid "Beaufort scale"
+msgstr "Beaufort階級"
+
+#: dialogs/settings_dialog.py:439
+msgid "Knots"
+msgstr "Knots"
+
+#: dialogs/settings_dialog.py:440
+msgid "mmHg"
+msgstr "mmHg"
+
+#: dialogs/settings_dialog.py:440
+msgid "inHg"
+msgstr "inHg"
+
+#: dialogs/settings_dialog.py:440
+msgid "hPa"
+msgstr "hPa"
+
+#: dialogs/settings_dialog.py:443
+msgid "Never"
+msgstr "絶対にしない"
+
+#: dialogs/settings_dialog.py:444
+msgid "Only at start"
+msgstr "開始時だけ"
+
+#: dialogs/settings_dialog.py:445
+msgid "Always"
+msgstr "常に"
+
+#: dialogs/settings_dialog.py:448 utils/gw_menu.py:255
+msgid "No"
+msgstr "いいえ"
+
+#: dialogs/settings_dialog.py:449
+msgid "Only background"
+msgstr "背景だけ"
+
+#: dialogs/settings_dialog.py:450
+msgid "Yes"
+msgstr "Yes"
+
+#: dialogs/settings_dialog.py:568 dialogs/settings_dialog.py:570
+#: dialogs/settings_dialog.py:585 dialogs/settings_dialog.py:587
+#: dialogs/settings_dialog.py:602 dialogs/settings_dialog.py:604
+msgid "Author"
+msgstr "作者"
+
+#: dialogs/settings_dialog.ui:651
 msgid "Update (in minutes)"
 msgstr "アップデート(分単位)"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:658
-#: dialogs/settings_dialog.ui:658
+#: dialogs/settings_dialog.ui:664
 msgid "Check for updates"
 msgstr "アップデートのチェック"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:734
-#: dialogs/settings_dialog.ui:734
+#: dialogs/settings_dialog.ui:688 gis-weather.py:297
+msgid "Configuration folder"
+msgstr "設定フォルダ"
+
+#: dialogs/settings_dialog.ui:697 utils/gw_menu.py:181
+msgid "Setup..."
+msgstr "設定中"
+
+#: dialogs/settings_dialog.ui:740
 msgid "Open..."
 msgstr "開く"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:814
-#: dialogs/settings_dialog.ui:814
+#: dialogs/settings_dialog.ui:820
 msgid "Program language"
 msgstr "使用する言語"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:827
-#: dialogs/settings_dialog.ui:827
+#: dialogs/settings_dialog.ui:833
 msgid "Weather language"
 msgstr "天気用語"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:840
-#: dialogs/settings_dialog.ui:840
+#: dialogs/settings_dialog.ui:846
 msgid "Add launcher icon to menu"
 msgstr "メニューに起動アイコンを追加します"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:987
-#: dialogs/settings_dialog.ui:987
+#: dialogs/settings_dialog.ui:922 utils/gw_menu.py:332
+msgid "Refresh"
+msgstr "更新"
+
+#: dialogs/settings_dialog.ui:993
 msgid "Autostart at login"
 msgstr "ログイン時に自動的に起動"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1000
-#: dialogs/settings_dialog.ui:1000
+#: dialogs/settings_dialog.ui:1006
 msgid "Number of instances"
 msgstr "インスタンスの数"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1040
-#: dialogs/settings_dialog.ui:1040
+#: dialogs/settings_dialog.ui:1046
 msgid "Start delay (in seconds)"
 msgstr "スタートの遅延時間(秒単位)"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1084
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1138
-#: dialogs/settings_dialog.ui:1084 dialogs/settings_dialog.ui:1138
+#: dialogs/settings_dialog.ui:1090 dialogs/settings_dialog.ui:1144
 msgid "Autostart"
 msgstr "自動起動"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1122
-#: dialogs/settings_dialog.ui:1122
+#: dialogs/settings_dialog.ui:1128
 msgid "Configured in the first instance"
 msgstr "最初のインスタンスでの設定"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1225
-#: dialogs/settings_dialog.ui:1225
+#: dialogs/settings_dialog.ui:1231
 msgid "General"
 msgstr "全般"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1348
-#: dialogs/settings_dialog.ui:1348
+#: dialogs/settings_dialog.ui:1254 gis-weather.py:899 utils/gw_menu.py:71
+msgid "Wind"
+msgstr "風速"
+
+#: dialogs/settings_dialog.ui:1267 gis-weather.py:900
+msgid "Pressure"
+msgstr "気圧"
+
+#: dialogs/settings_dialog.ui:1308 gis-weather.py:897
+msgid "Temperature"
+msgstr "気温"
+
+#: dialogs/settings_dialog.ui:1354
 msgid "Wind chill"
 msgstr "体感温度"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1424
-#: dialogs/settings_dialog.ui:1424
+#: dialogs/settings_dialog.ui:1430
 msgid "Date separator format"
 msgstr "日付分割形式"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1437
-#: dialogs/settings_dialog.ui:1437
+#: dialogs/settings_dialog.ui:1443
 msgid "Swap the day and month"
 msgstr "日と月を入れ替える"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1489
-#: dialogs/settings_dialog.ui:1489
+#: dialogs/settings_dialog.ui:1495
 msgid "Units"
 msgstr "単位"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1513
-#: dialogs/settings_dialog.ui:1513
+#: dialogs/settings_dialog.ui:1519
 msgid "Left"
 msgstr "左端"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1526
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3886
-#: dialogs/settings_dialog.ui:1526 dialogs/settings_dialog.ui:3886
+#: dialogs/settings_dialog.ui:1532 dialogs/settings_dialog.ui:3930
 msgid "Top"
 msgstr "上端"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1539
-#: dialogs/settings_dialog.ui:1539
+#: dialogs/settings_dialog.ui:1545
 msgid "Padding"
 msgstr "パディング"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1630
-#: dialogs/settings_dialog.ui:1630
+#: dialogs/settings_dialog.ui:1636
 msgid "Fix BadDrawable error"
 msgstr "BadDrawableエラーを修正"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1669
-#: dialogs/settings_dialog.ui:1669
+#: dialogs/settings_dialog.ui:1649 utils/gw_menu.py:286
+msgid "On all desktops"
+msgstr "全てのデスクトップ上"
+
+#: dialogs/settings_dialog.ui:1662 utils/gw_menu.py:280
+msgid "Lock position"
+msgstr "表示位置を固定"
+
+#: dialogs/settings_dialog.ui:1675
 msgid "Transparency"
 msgstr "透明度"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1786
-#: dialogs/settings_dialog.ui:1786
+#: dialogs/settings_dialog.ui:1792
 msgid "Scale"
 msgstr "拡大/縮小"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1924
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2041
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2237
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2327
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2521
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2639
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3769
-#: dialogs/settings_dialog.ui:1924 dialogs/settings_dialog.ui:2041
-#: dialogs/settings_dialog.ui:2237 dialogs/settings_dialog.ui:2327
-#: dialogs/settings_dialog.ui:2521 dialogs/settings_dialog.ui:2639
-#: dialogs/settings_dialog.ui:3769
+#: dialogs/settings_dialog.ui:1835 utils/gw_menu.py:292
+msgid "Always on top"
+msgstr "常に最前面に"
+
+#: dialogs/settings_dialog.ui:1878 utils/gw_menu.py:391
+msgid "Window"
+msgstr "ウィンドウ"
+
+#: dialogs/settings_dialog.ui:1930 dialogs/settings_dialog.ui:2047
+#: dialogs/settings_dialog.ui:2243 dialogs/settings_dialog.ui:2333
+#: dialogs/settings_dialog.ui:2527 dialogs/settings_dialog.ui:2645
+#: dialogs/settings_dialog.ui:3813
 msgid "Show"
 msgstr "表示"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:1937
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2054
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2157
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2340
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2534
-#: dialogs/settings_dialog.ui:1937 dialogs/settings_dialog.ui:2054
-#: dialogs/settings_dialog.ui:2157 dialogs/settings_dialog.ui:2340
-#: dialogs/settings_dialog.ui:2534
+#: dialogs/settings_dialog.ui:1943 dialogs/settings_dialog.ui:2060
+#: dialogs/settings_dialog.ui:2163 dialogs/settings_dialog.ui:2346
+#: dialogs/settings_dialog.ui:2540
 msgid "Offset from center"
 msgstr "中心からのオフセット量"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2003
-#: dialogs/settings_dialog.ui:2003
+#: dialogs/settings_dialog.ui:2009
 msgid "Block Tomorrow"
 msgstr "明日の予報の表示"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2120
-#: dialogs/settings_dialog.ui:2120
+#: dialogs/settings_dialog.ui:2126
 msgid "Block Today"
 msgstr "今日の予報の表示"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2198
-#: dialogs/settings_dialog.ui:2198
+#: dialogs/settings_dialog.ui:2204
 msgid "Block Now"
 msgstr "現在の表示"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2277
-#: dialogs/settings_dialog.ui:2277
+#: dialogs/settings_dialog.ui:2283
 msgid "Block Sunrise"
 msgstr "日の出を表示"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2404
-#: dialogs/settings_dialog.ui:2404
+#: dialogs/settings_dialog.ui:2410
 msgid "Reduce"
 msgstr "小さく表示"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2417
-#: dialogs/settings_dialog.ui:2417
+#: dialogs/settings_dialog.ui:2423
 msgid "Angle of rotation"
 msgstr "回転角"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2483
-#: dialogs/settings_dialog.ui:2483
+#: dialogs/settings_dialog.ui:2489
 msgid "Block Wind"
 msgstr "風の表示"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2600
-#: dialogs/settings_dialog.ui:2600
+#: dialogs/settings_dialog.ui:2606
 msgid "Block Additional info"
 msgstr "追加情報の表示"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2679
-#: dialogs/settings_dialog.ui:2679
+#: dialogs/settings_dialog.ui:2685
 msgid "Block Moonrise"
 msgstr "月の出を表示"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2733
-#: dialogs/settings_dialog.ui:2733
-msgid "Number of days"
-msgstr "表示日の数"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2746
-#: dialogs/settings_dialog.ui:2746
-msgid "Show weather retrieval time"
-msgstr "予報の取得時刻を表示"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2759
-#: dialogs/settings_dialog.ui:2759
-msgid "Show splash screen"
-msgstr "スプラッシュスクリーンを表示"
-
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2772
-#: dialogs/settings_dialog.ui:2772
+#: dialogs/settings_dialog.ui:2839
 msgid "Hide splash screen after attempts (0 - do not hide)"
 msgstr "スプラッシュスクリーンを非表示にするまでの試行回数（0 - 非表示にしない）"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2894
-#: dialogs/settings_dialog.ui:2894
+#: dialogs/settings_dialog.ui:2852
+msgid "Show splash screen"
+msgstr "スプラッシュスクリーンを表示"
+
+#: dialogs/settings_dialog.ui:2865
+msgid "Show weather retrieval time"
+msgstr "予報の取得時刻を表示"
+
+#: dialogs/settings_dialog.ui:2878
 msgid "Show chance of rain"
 msgstr "降水確率を表示"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2954
-#: dialogs/settings_dialog.ui:2954
+#: dialogs/settings_dialog.ui:2925
+msgid "Number of days"
+msgstr "表示日の数"
+
+#: dialogs/settings_dialog.ui:2938
+msgid "Time of day gradient"
+msgstr ""
+
+#: dialogs/settings_dialog.ui:2998
 msgid "View"
 msgstr "表示"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:2997
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:4104
-#: dialogs/settings_dialog.ui:2997 dialogs/settings_dialog.ui:4104
+#: dialogs/settings_dialog.ui:3041 dialogs/settings_dialog.ui:4148
 msgid "Font"
 msgstr "フォント"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3010
-#: dialogs/settings_dialog.ui:3010
+#: dialogs/settings_dialog.ui:3054
 msgid "Main color"
 msgstr "平日の色"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3051
-#: dialogs/settings_dialog.ui:3051
+#: dialogs/settings_dialog.ui:3095
 msgid "Color weekend"
 msgstr "週末の色"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3119
-#: dialogs/settings_dialog.ui:3119
+#: dialogs/settings_dialog.ui:3163
 msgid "Color wind"
 msgstr "風の色"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3132
-#: dialogs/settings_dialog.ui:3132
+#: dialogs/settings_dialog.ui:3176
 msgid ""
 "High wind\n"
 "(-1 = not highlighted)"
 msgstr "非常に強い風\n(-1は強調表示されない)"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3146
-#: dialogs/settings_dialog.ui:3146
+#: dialogs/settings_dialog.ui:3190
 msgid "Shadow color"
 msgstr "影の色"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3159
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3912
-#: dialogs/settings_dialog.ui:3159 dialogs/settings_dialog.ui:3912
+#: dialogs/settings_dialog.ui:3203 dialogs/settings_dialog.ui:3956
 msgid "Shadow"
 msgstr "影をつける"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3277
-#: dialogs/settings_dialog.ui:3277
+#: dialogs/settings_dialog.ui:3321
 msgid "Weekend"
 msgstr "週末"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3314
-#: dialogs/settings_dialog.ui:3314
+#: dialogs/settings_dialog.ui:3358
 msgid "Weather description style"
 msgstr "予報の表示形式"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3399
-#: dialogs/settings_dialog.ui:3399
+#: dialogs/settings_dialog.ui:3405 utils/gw_menu.py:386
+msgid "Text"
+msgstr "テキスト"
+
+#: dialogs/settings_dialog.ui:3443
 msgid "Use image"
 msgstr "画像を使用"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3452
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3661
-#: dialogs/settings_dialog.ui:3452 dialogs/settings_dialog.ui:3661
+#: dialogs/settings_dialog.ui:3496 dialogs/settings_dialog.ui:3705
 msgid "Select"
 msgstr "選択"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3528
-#: dialogs/settings_dialog.ui:3528
+#: dialogs/settings_dialog.ui:3572
 msgid "Corner radius"
 msgstr "角丸の半径"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3541
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3925
-#: dialogs/settings_dialog.ui:3541 dialogs/settings_dialog.ui:3925
+#: dialogs/settings_dialog.ui:3585 dialogs/settings_dialog.ui:3969
 msgid "Color"
 msgstr "色"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3732
-#: dialogs/settings_dialog.ui:3732
+#: dialogs/settings_dialog.ui:3667 utils/gw_menu.py:381
+msgid "Background"
+msgstr "バックグラウンド"
+
+#: dialogs/settings_dialog.ui:3776
 msgid "Appearance"
 msgstr "外観"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3756
-#: dialogs/settings_dialog.ui:3756
+#: dialogs/settings_dialog.ui:3800
 msgid "Type (restart required)"
 msgstr "アイコンの形式(再起動が必要)"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3873
-#: dialogs/settings_dialog.ui:3873
+#: dialogs/settings_dialog.ui:3917
 msgid "Width"
 msgstr "幅"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:3899
-#: dialogs/settings_dialog.ui:3899
+#: dialogs/settings_dialog.ui:3943
 msgid "Color shadow"
 msgstr "影の色"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:4117
-#: dialogs/settings_dialog.ui:4117
+#: dialogs/settings_dialog.ui:4161
 msgid "Show text"
 msgstr "テキストを表示"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:4212
-#: dialogs/settings_dialog.ui:4212
+#: dialogs/settings_dialog.ui:4256
 msgid "Fix the size"
 msgstr "サイズを固定"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:4250
-#: dialogs/settings_dialog.ui:4250
+#: dialogs/settings_dialog.ui:4294
 msgid "Size"
 msgstr "サイズ"
 
-#: DEB/build/usr/share/gis-weather/dialogs/settings_dialog.ui:4318
-#: dialogs/settings_dialog.ui:4318
+#: dialogs/settings_dialog.ui:4362
 msgid "Indicator"
 msgstr "表示関連"
 
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:31
+#: dialogs/update_dialog.py:28 dialogs/update_dialog.ui:561 utils/opener.py:94
+msgid "Downloading"
+msgstr "ダウンロード中"
+
+#: dialogs/update_dialog.py:61
+msgid "Update"
+msgstr "アップデート"
+
+#: dialogs/update_dialog.py:89
+msgid "Current version"
+msgstr "現在のバージョン"
+
+#: dialogs/update_dialog.py:90
+msgid "Available new version"
+msgstr "新しいバージョンが利用可能です"
+
+#: dialogs/update_dialog.py:113
+msgid "Error downloading updates"
+msgstr "アップデートのダウンロードエラー"
+
+#: dialogs/update_dialog.py:148
+msgid "Error installing updates"
+msgstr "アップデートのインストールエラー"
+
+#: dialogs/update_dialog.py:152 dialogs/update_dialog.ui:575
+msgid "Installation"
+msgstr "インスタレーション"
+
+#: dialogs/update_dialog.py:160
+msgid "Error removing"
+msgstr "削除エラー"
+
 #: dialogs/update_dialog.ui:31
 msgid "Update now"
 msgstr "直ちにアップデートします"
 
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:187
 #: dialogs/update_dialog.ui:187
 msgid "Manual update"
 msgstr "手動でアップデートします"
 
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:408
 #: dialogs/update_dialog.ui:408
 msgid "You can support project"
 msgstr "このプロジェクトをサポートすることができます"
 
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:469
 #: dialogs/update_dialog.ui:469
 msgid "Additional information"
 msgstr "追加情報"
 
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:589
 #: dialogs/update_dialog.ui:589
 msgid "Cleaning temporary files"
 msgstr "一時ファイルを削除しています"
 
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:672
 #: dialogs/update_dialog.ui:672
 msgid "Restart"
 msgstr "再起動"
 
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:701
 #: dialogs/update_dialog.ui:701
 msgid "Update successful"
 msgstr "更新しました"
 
-#: DEB/build/usr/share/gis-weather/dialogs/update_dialog.ui:756
 #: dialogs/update_dialog.ui:756
 msgid "Update error"
 msgstr "アップデート エラー"
+
+#: gis-weather.py:42
+msgid "Running multiple instances is not supported"
+msgstr "複数のインスタンスの稼働はサポートされていません"
+
+#: gis-weather.py:47
+msgid "number of instances"
+msgstr "インスタンスの数"
+
+#: gis-weather.py:55
+msgid "testing mode turned on"
+msgstr "テストモードがONになっています"
+
+#: gis-weather.py:234 utils/gw_menu.py:61 utils/presets.py:61
+#: utils/presets.py:178 utils/presets.py:214 utils/presets.py:249
+#: utils/presets.py:282
+msgid "Now"
+msgstr "現在"
+
+#: gis-weather.py:344
+msgid "Error loading color scheme"
+msgstr "カラースキームの読み込みエラー"
+
+#: gis-weather.py:359
+msgid "Error loading preset"
+msgstr "プリセットの読み込みエラー"
+
+#: gis-weather.py:369
+msgid "Enter full path to script"
+msgstr "スクリプトへのフルパスを入力"
+
+#: gis-weather.py:370
+msgid "Exit"
+msgstr "終了"
+
+#: gis-weather.py:482
+msgid "Check for new version"
+msgstr "新しいバージョンをチェック"
+
+#: gis-weather.py:487 gis-weather.py:496
+msgid "Unable to check for updates"
+msgstr "アップデートをチェックすることができません"
+
+#: gis-weather.py:512
+msgid "New version available"
+msgstr "新しいバージョンが利用できます"
+
+#: gis-weather.py:519
+msgid "You are using the latest version"
+msgstr "最新のバージョンを使用中です"
+
+#: gis-weather.py:537 gis-weather.py:1528
+msgid "Screenshot saved to"
+msgstr "スクリーンショットを保存しました"
+
+#: gis-weather.py:541
+msgid "Unable to get the screenshot"
+msgstr "スクリーンショットを取得することができません"
+
+#: gis-weather.py:738
+msgid "Getting weather..."
+msgstr "天候を取得中..."
+
+#: gis-weather.py:741
+msgid "Error getting weather"
+msgstr "天候の取得エラー"
+
+#: gis-weather.py:743
+msgid "Location not set"
+msgstr "位置情報が設定されていません"
+
+#: gis-weather.py:803 gis-weather.py:865
+msgid "Next update in"
+msgstr "次の更新"
+
+#: gis-weather.py:803 gis-weather.py:865
+msgid "min"
+msgstr "分"
+
+#: gis-weather.py:839
+msgid "Next try in 10 seconds"
+msgstr "10秒以内に次をトライします"
+
+#: gis-weather.py:855
+msgid "Connection error"
+msgstr "接続エラー"
+
+#: gis-weather.py:898
+msgid "feels like"
+msgstr "のような気がする"
+
+#: gis-weather.py:901 utils/gw_menu.py:66
+msgid "Humidity"
+msgstr "湿度"
+
+#: gis-weather.py:902 utils/gw_menu.py:82
+msgid "Sunrise"
+msgstr "日の出"
+
+#: gis-weather.py:903 utils/gw_menu.py:87
+msgid "Sunset"
+msgstr "日没"
+
+#: gis-weather.py:1036
+msgid "Updated on server"
+msgstr "サーバー上での更新"
+
+#: gis-weather.py:1037
+msgid "Weather received"
+msgstr "天候の受信"
+
+#: gis-weather.py:1092 utils/wind_direct_convert.py:5
+#: utils/wind_direct_convert.py:6 utils/wind_direct_convert.py:7
+#: utils/wind_direct_convert.py:19 utils/wind_direct_convert.py:20
+#: utils/wind_direct_convert.py:21
+msgid "E"
+msgstr "東"
+
+#: gis-weather.py:1092 utils/wind_direct_convert.py:7
+#: utils/wind_direct_convert.py:8 utils/wind_direct_convert.py:9
+#: utils/wind_direct_convert.py:21 utils/wind_direct_convert.py:22
+#: utils/wind_direct_convert.py:23
+msgid "S"
+msgstr "南"
+
+#: gis-weather.py:1092 utils/wind_direct_convert.py:9
+#: utils/wind_direct_convert.py:10 utils/wind_direct_convert.py:11
+#: utils/wind_direct_convert.py:23 utils/wind_direct_convert.py:24
+#: utils/wind_direct_convert.py:25
+msgid "W"
+msgstr "西"
+
+#: gis-weather.py:1092 utils/wind_direct_convert.py:4
+#: utils/wind_direct_convert.py:5 utils/wind_direct_convert.py:11
+#: utils/wind_direct_convert.py:12 utils/wind_direct_convert.py:18
+#: utils/wind_direct_convert.py:19 utils/wind_direct_convert.py:25
+msgid "N"
+msgstr "北"
+
+#: gis-weather.py:1131
+msgid "humid."
+msgstr "湿度"
+
+#: gis-weather.py:1134
+msgid "water"
+msgstr "水温"
+
+#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:361
+#: services/openweathermap.py:259 services/yr.py:147
+msgid "Morning"
+msgstr "午前"
+
+#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:361
+#: services/openweathermap.py:259 services/yr.py:147
+msgid "Day"
+msgstr "午後"
+
+#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:361
+#: services/openweathermap.py:259 services/yr.py:147
+msgid "Evening"
+msgstr "夕方"
+
+#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:361
+#: services/openweathermap.py:259 services/yr.py:147
+msgid "Night"
+msgstr "夜"
+
+#: gis-weather.py:1154 gis-weather.py:1156 utils/gw_menu.py:112
+msgid "Tomorrow"
+msgstr "明日"
+
+#: gis-weather.py:1195
+msgid "Today"
+msgstr "本日"
+
+#: gis-weather.py:1349
+msgid "Background image not found"
+msgstr "背景画像が見つかりません"
+
+#: gis-weather.py:1428 gis-weather.py:1441
+msgid "Icon not found"
+msgstr "アイコンが見つかりません"
+
+#: gis-weather.py:1539
+msgid "Widget size"
+msgstr "ウィジェット サイズ"
+
+#: gis-weather.py:1540
+msgid "width"
+msgstr "幅"
+
+#: gis-weather.py:1540
+msgid "height"
+msgstr "高さ"
+
+#: gis-weather.py:1540
+msgid "including indent"
+msgstr "インデントを含む"
+
+#: gis-weather.py:1728
+msgid "Requires restart"
+msgstr "再起動を要求"
+
+#: gis-weather.py:1797
+msgid "Removed"
+msgstr "削除された"
+
+#: gis-weather.py:1905
+msgid "Your screen does not support alpha"
+msgstr "スクリーンがアルファをサポートしていません"
+
+#: gis-weather.py:1907
+msgid "Your screen supports alpha"
+msgstr "スクリーンはアルファをサポートしています"
+
+#: services/accuweather.py:13
+msgid "If the city code is wrong, please read"
+msgstr "都市コードが間違っている場合にお読みください"
+
+#: services/accuweather.py:200 services/gismeteo.py:246
+#: services/openweathermap.py:88 services/yr.py:62
+msgid "Failed to get the name of the location"
+msgstr "位置情報名の取得に失敗しました"
+
+#: services/accuweather.py:226 services/gismeteo.py:265
+#: services/openweathermap.py:117 services/yr.py:73
+msgid "Getting weather for"
+msgstr "天候を取得中"
+
+#: services/accuweather.py:226 services/gismeteo.py:265
+#: services/openweathermap.py:117 services/yr.py:73
+msgid "days"
+msgstr "日中"
+
+#: services/accuweather.py:277 utils/wind_direct_convert.py:17
+msgid "Calm"
+msgstr "穏やか"
+
+#: services/accuweather.py:506 services/gismeteo.py:410
+#: services/openweathermap.py:282
+msgid "updated on server"
+msgstr "サーバ上での更新"
+
+#: services/accuweather.py:507 services/gismeteo.py:411
+#: services/openweathermap.py:283 services/yr.py:193
+msgid "weather received"
+msgstr "天候の受信"
+
+#: services/openweathermap.py:14
+msgid "How to get"
+msgstr "取得方法"
+
+#: utils/convert.py:53 utils/convert.py:75
+msgid "bft"
+msgstr "bft"
+
+#: utils/convert.py:57 utils/convert.py:79
+msgid "kts"
+msgstr "kts"
+
+#: utils/gw_menu.py:36
+msgid "Switch to app menu"
+msgstr ""
+
+#: utils/gw_menu.py:120
+msgid "Precipitation"
+msgstr "降水量"
+
+#: utils/gw_menu.py:270
+msgid "Black"
+msgstr "Black"
+
+#: utils/gw_menu.py:270
+msgid "White"
+msgstr "White"
+
+#: utils/gw_menu.py:270
+msgid "Gray"
+msgstr "Gray"
+
+#: utils/gw_menu.py:302
+msgid "Save screenshot"
+msgstr "スクリーンショットを保存"
+
+#: utils/gw_menu.py:318
+msgid "Switch to weather menu"
+msgstr ""
+
+#: utils/gw_menu.py:323
+msgid "Show/Hide widget"
+msgstr "ウィジェットの表示/非表示"
+
+#: utils/gw_menu.py:340
+msgid "Start new instance"
+msgstr "新しいインスタンスを開始する"
+
+#: utils/gw_menu.py:348
+msgid "Go to site"
+msgstr "サイトに行く"
+
+#: utils/gw_menu.py:366
+msgid "Indicator icons"
+msgstr "指標用アイコン"
+
+#: utils/gw_menu.py:371
+msgid "Menu icons"
+msgstr "メニュー アイコン"
+
+#: utils/gw_menu.py:396
+msgid "Presets"
+msgstr "プリセット"
+
+#: utils/gw_menu.py:417
+msgid "About"
+msgstr "このソフトについて"
+
+#: utils/opener.py:102
+msgid "Unable to download page, check the network connection"
+msgstr "ダウンロードのページが利用できません、ネットワーク接続をチェックしてください"
+
+#: utils/opener.py:107
+msgid "downloading"
+msgstr "ダウンロード中"
+
+#: utils/opener.py:114
+msgid "Unable to download"
+msgstr "ダウンロードできません"
