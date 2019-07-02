@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2019-06-30 23:17+0300\n"
-"PO-Revision-Date: 2019-06-30 20:18+0000\n"
+"PO-Revision-Date: 2019-07-01 06:21+0000\n"
 "Last-Translator: RingOV <ringov@mail.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/gis-weather-team/gis-weather/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -903,7 +903,7 @@ msgstr "Сохранить скриншот"
 
 #: utils/gw_menu.py:318
 msgid "Switch to weather menu"
-msgstr "Погода в меню"
+msgstr "Меню с погодой"
 
 #: utils/gw_menu.py:323
 msgid "Show/Hide widget"

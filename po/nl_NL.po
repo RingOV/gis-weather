@@ -1,13 +1,13 @@
 # 
 # Translators:
 # Heimen Stoffels <vistausss@outlook.com>, 2014
-# Heimen Stoffels <vistausss@outlook.com>, 2015-2017
+# Heimen Stoffels <vistausss@outlook.com>, 2015-2017,2019
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2019-06-30 23:17+0300\n"
-"PO-Revision-Date: 2019-06-30 20:17+0000\n"
-"Last-Translator: RingOV <ringov@mail.ru>\n"
+"PO-Revision-Date: 2019-07-01 10:26+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/gis-weather-team/gis-weather/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -377,7 +377,7 @@ msgstr "Altijd bovenop"
 
 #: dialogs/settings_dialog.ui:1887
 msgid "Height tune"
-msgstr ""
+msgstr "Hoogte aanpassen"
 
 #: dialogs/settings_dialog.ui:1932 utils/gw_menu.py:391
 msgid "Window"
@@ -454,7 +454,7 @@ msgstr "Aantal dagen"
 
 #: dialogs/settings_dialog.ui:2991
 msgid "Time of day gradient"
-msgstr ""
+msgstr "Tijdstipverloop"
 
 #: dialogs/settings_dialog.ui:3052
 msgid "View"
@@ -879,7 +879,7 @@ msgstr "kts"
 
 #: utils/gw_menu.py:36
 msgid "Switch to app menu"
-msgstr ""
+msgstr "Overschakelen naar app-menu"
 
 #: utils/gw_menu.py:120
 msgid "Precipitation"
@@ -903,7 +903,7 @@ msgstr "Schermafbeelding opslaan"
 
 #: utils/gw_menu.py:318
 msgid "Switch to weather menu"
-msgstr ""
+msgstr "Overschakelen naar weer-menu"
 
 #: utils/gw_menu.py:323
 msgid "Show/Hide widget"
