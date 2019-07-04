@@ -7,16 +7,6 @@ import re
 import time
 import os
 
-# data = [
-#     "http://www.yr.no",  # url
-#     "www.yr.no/sted/<b>South_Africa/North-West/Sun_City</b>",  # example
-#     "<b>South_Africa/North-West/Sun_City</b>",  # code
-#     {
-#         'en': 'English'
-#     },  # dict_weather_lang
-#     ('en', '')  # weather_lang_list
-# ]
-
 data = {
     'url': "http://www.yr.no",  # url
     'example': "www.yr.no/sted/<b>South_Africa/North-West/Sun_City</b>",  # example

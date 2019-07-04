@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.3.15'
+v = '0.8.3.16'
 #  Copyright (C) 2013-2019 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -1620,15 +1620,12 @@ class Weather_Widget:
                 weather_menu = True
             Save_Config()
         if event == 'goto_site':
-            print(URL)
-            if URL:
+            if URL != '?':
                 webbrowser.open(URL)
         if event == 'goto_site_hourly':
-            print(URL_HOURLY)
             if URL_HOURLY != '?':
                 webbrowser.open(URL_HOURLY)
         if event == 'goto_site_day':
-            print(URL_DAILY)
             if URL_DAILY != '?':
                 webbrowser.open(URL_DAILY+str(value))
         if event == 'start_new_instance':

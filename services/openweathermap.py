@@ -8,33 +8,6 @@ import os
 import json
 from datetime import datetime
 
-# data = [
-#     "http://openweathermap.org/find?q=",  # url
-#     "http://openweathermap.org/city/<b>1234</b>",  # example
-#     "<b>1234</b>   <a href='http://openweathermap.org/appid#get'>%s API key (APPID)</a>"%_('How to get'),  # code
-#     {
-#         'en': 'English',
-#         'ru': 'Russian',
-#         'it': 'Italian',
-#         'es': 'Spanish',
-#         'uk': 'Ukrainian',
-#         'de': 'German',
-#         'pt': 'Portuguese',
-#         'ro': 'Romanian',
-#         'pl': 'Polish',
-#         'fi': 'Finnish',
-#         'nl': 'Dutch',
-#         'fr': 'French',
-#         'bg': 'Bulgarian',
-#         'sv': 'Swedish',
-#         'zh_tw': 'ChineseTraditional',
-#         'zh': 'ChineseSimplified',
-#         'tr': 'Turkish',
-#         'hr': 'Croatian',
-#         'ca': 'Catalan'
-#     },  # dict_weather_lang
-#     ('en', 'ru', 'it', 'es', 'uk', 'de', 'pt', 'ro', 'pl', 'fi', 'nl', 'fr', 'bg', 'sv', 'zh_tw', 'zh', 'tr', 'hr', 'ca')  # weather_lang_list
-# ]
 data = {
     'url': "http://openweathermap.org/find?q=",  # url
     'example': "http://openweathermap.org/city/<b>1234</b>",  # example
@@ -138,7 +111,7 @@ def get_weather():
     show_block_today = gw_vars.get('show_block_today')
     show_block_add_info = gw_vars.get('show_block_add_info')
     weather_lang = gw_vars.get('weather_lang')
-    URL = ''
+    URL = 'https://openweathermap.org/city/%s'%str(city_id)
     URL_CURRENT = 'http://api.openweathermap.org/data/2.5/weather?id=%s&lang=%s&units=metric&appid=%s'%(str(city_id), weather_lang, APPID)
     URL_SEVERAL_DAYS = 'http://api.openweathermap.org/data/2.5/forecast?id=%s&lang=%s&units=metric&appid=%s'%(str(city_id), weather_lang, APPID)
 

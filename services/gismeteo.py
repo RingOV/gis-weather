@@ -274,6 +274,10 @@ def get_weather():
     icons_name = gw_vars.get('icons_name')
 
     URL_ALL = 'https://services.gismeteo.ru/inform-service/inf_chrome/forecast/?lang=%s&city=%s'%(weather_lang, str(city_id))
+    
+    URL = 'https://www.gismeteo.%s/city/weekly/'%weather_lang + str(city_id)
+    URL_HOURLY = 'https://www.gismeteo.%s/city/hourly/%s'%(weather_lang, str(city_id))
+    # URL_DAILY = 'https://www.gismeteo.%s/city/weekly/%s/#wweekly'%(weather_lang, str(city_id))
 
     print ('\033[34m>\033[0m '+_('Getting weather for')+' '+str(n)+' '+_('days'))
 
