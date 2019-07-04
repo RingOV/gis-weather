@@ -3,12 +3,13 @@
 # Alex Sandulyak <san.alex.76@gmail.com>, 2016
 # Fernando Cardoso <cardoso.fac@gmail.com>, 2015
 # Jader Silva Justino <jaderjustino@gmail.com>, 2014
+# Luciano Machado <mestre.mouro@gmail.com>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2019-06-30 23:17+0300\n"
-"PO-Revision-Date: 2019-06-30 20:17+0000\n"
-"Last-Translator: RingOV <ringov@mail.ru>\n"
+"PO-Revision-Date: 2019-07-03 00:58+0000\n"
+"Last-Translator: Luciano Machado <mestre.mouro@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/gis-weather-team/gis-weather/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -374,7 +375,7 @@ msgstr "Escala"
 
 #: dialogs/settings_dialog.ui:1849 utils/gw_menu.py:292
 msgid "Always on top"
-msgstr ""
+msgstr "Sempre visível"
 
 #: dialogs/settings_dialog.ui:1887
 msgid "Height tune"
@@ -629,7 +630,7 @@ msgstr "número de instâncias"
 
 #: gis-weather.py:55
 msgid "testing mode turned on"
-msgstr ""
+msgstr "modo teste ligado"
 
 #: gis-weather.py:234 utils/gw_menu.py:61 utils/presets.py:61
 #: utils/presets.py:178 utils/presets.py:214 utils/presets.py:249
@@ -711,15 +712,15 @@ msgstr ""
 
 #: gis-weather.py:901 utils/gw_menu.py:66
 msgid "Humidity"
-msgstr ""
+msgstr "Umidade"
 
 #: gis-weather.py:902 utils/gw_menu.py:82
 msgid "Sunrise"
-msgstr ""
+msgstr "Nascer do sol"
 
 #: gis-weather.py:903 utils/gw_menu.py:87
 msgid "Sunset"
-msgstr ""
+msgstr "Pôr do sol"
 
 #: gis-weather.py:1036
 msgid "Updated on server"
@@ -884,7 +885,7 @@ msgstr ""
 
 #: utils/gw_menu.py:120
 msgid "Precipitation"
-msgstr ""
+msgstr "Precipitação"
 
 #: utils/gw_menu.py:270
 msgid "Black"
@@ -916,7 +917,7 @@ msgstr "Inicie nova instancia"
 
 #: utils/gw_menu.py:348
 msgid "Go to site"
-msgstr ""
+msgstr "Ir para o site"
 
 #: utils/gw_menu.py:366
 msgid "Indicator icons"

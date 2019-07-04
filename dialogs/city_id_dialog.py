@@ -46,10 +46,10 @@ def set_service(widget, label, liststore2, combobox_weather_lang, weather_lang, 
         gw_config['city_id'] = gw_config[data.get_city_list(i)][0].split(';')[0]
     except:
         pass
-    gw_config['max_days'] = data.get_max_days(i)
+    gw_config['max_days'] = data.get(i)['max_days']
     if gw_config['n'] > gw_config['max_days']:
         gw_config['n'] = gw_config['max_days']
-    if data.get_need_appid(i):
+    if data.get(i)['need_appid']:
         grid_appid.show()
     else:
         grid_appid.hide()
@@ -69,7 +69,12 @@ def set_weather_lang(widget):
 def load_data(service, label, liststore2, combobox_weather_lang, weather_lang, store):
     global url, example, code, dict_weather_lang, weather_lang_list, gw_config, loading
     loading = True
-    url, example, code, dict_weather_lang, weather_lang_list = data.get(service)
+    d = data.get(service)
+    url = d['url']
+    example = d['example']
+    code = d['code']
+    dict_weather_lang = d['dict_weather_lang']
+    weather_lang_list = d['weather_lang_list']
     text = _("Choose your city on")+" <a href='%s'>%s</a>\n" %(url, url)+\
         _("and copy the city code below")+"\n"+\
         _("For example")+ ":\n<u><span foreground='blue'>%s/</span></u>\n" %example+\
@@ -95,7 +100,7 @@ def load_data(service, label, liststore2, combobox_weather_lang, weather_lang, s
     store.clear()
     for item in city_list:
         store.append([item.split(';')[0], item.split(';')[1]])
-    if data.get_need_appid(service):
+    if data.get(service)['need_appid']:
         grid_appid.show()
         try: entrybox_appid.set_text(gw_config[data.get_appid(service)])
         except: entrybox_appid.set_text('')

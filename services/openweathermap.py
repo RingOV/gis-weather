@@ -8,35 +8,63 @@ import os
 import json
 from datetime import datetime
 
-data = [
-    "http://openweathermap.org/find?q=",  # url
-    "http://openweathermap.org/city/<b>1234</b>",  # example
-    "<b>1234</b>   <a href='http://openweathermap.org/appid#get'>%s API key (APPID)</a>"%_('How to get'),  # code
-    {
-        'en': 'English',
-        'ru': 'Russian',
-        'it': 'Italian',
-        'es': 'Spanish',
-        'uk': 'Ukrainian',
-        'de': 'German',
-        'pt': 'Portuguese',
-        'ro': 'Romanian',
-        'pl': 'Polish',
-        'fi': 'Finnish',
-        'nl': 'Dutch',
-        'fr': 'French',
-        'bg': 'Bulgarian',
-        'sv': 'Swedish',
-        'zh_tw': 'ChineseTraditional',
-        'zh': 'ChineseSimplified',
-        'tr': 'Turkish',
-        'hr': 'Croatian',
-        'ca': 'Catalan'
-    },  # dict_weather_lang
-    ('en', 'ru', 'it', 'es', 'uk', 'de', 'pt', 'ro', 'pl', 'fi', 'nl', 'fr', 'bg', 'sv', 'zh_tw', 'zh', 'tr', 'hr', 'ca')  # weather_lang_list
-]
-max_days = 5
-need_appid = True
+# data = [
+#     "http://openweathermap.org/find?q=",  # url
+#     "http://openweathermap.org/city/<b>1234</b>",  # example
+#     "<b>1234</b>   <a href='http://openweathermap.org/appid#get'>%s API key (APPID)</a>"%_('How to get'),  # code
+#     {
+#         'en': 'English',
+#         'ru': 'Russian',
+#         'it': 'Italian',
+#         'es': 'Spanish',
+#         'uk': 'Ukrainian',
+#         'de': 'German',
+#         'pt': 'Portuguese',
+#         'ro': 'Romanian',
+#         'pl': 'Polish',
+#         'fi': 'Finnish',
+#         'nl': 'Dutch',
+#         'fr': 'French',
+#         'bg': 'Bulgarian',
+#         'sv': 'Swedish',
+#         'zh_tw': 'ChineseTraditional',
+#         'zh': 'ChineseSimplified',
+#         'tr': 'Turkish',
+#         'hr': 'Croatian',
+#         'ca': 'Catalan'
+#     },  # dict_weather_lang
+#     ('en', 'ru', 'it', 'es', 'uk', 'de', 'pt', 'ro', 'pl', 'fi', 'nl', 'fr', 'bg', 'sv', 'zh_tw', 'zh', 'tr', 'hr', 'ca')  # weather_lang_list
+# ]
+data = {
+    'url': "http://openweathermap.org/find?q=",  # url
+    'example': "http://openweathermap.org/city/<b>1234</b>",  # example
+    'code': "<b>1234</b>   <a href='http://openweathermap.org/appid#get'>%s API key (APPID)</a>"%_('How to get'),  # code
+    'dict_weather_lang':
+        {
+            'en': 'English',
+            'ru': 'Russian',
+            'it': 'Italian',
+            'es': 'Spanish',
+            'uk': 'Ukrainian',
+            'de': 'German',
+            'pt': 'Portuguese',
+            'ro': 'Romanian',
+            'pl': 'Polish',
+            'fi': 'Finnish',
+            'nl': 'Dutch',
+            'fr': 'French',
+            'bg': 'Bulgarian',
+            'sv': 'Swedish',
+            'zh_tw': 'ChineseTraditional',
+            'zh': 'ChineseSimplified',
+            'tr': 'Turkish',
+            'hr': 'Croatian',
+            'ca': 'Catalan'
+        },  # dict_weather_lang
+    'weather_lang_list': ('en', 'ru', 'it', 'es', 'uk', 'de', 'pt', 'ro', 'pl', 'fi', 'nl', 'fr', 'bg', 'sv', 'zh_tw', 'zh', 'tr', 'hr', 'ca'),  # weather_lang_list
+    'max_days': 5,
+    'need_appid': True
+}
 
 # weather variables
 w = weather_vars.weather

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.3.11'
+v = '0.8.3.12'
 #  Copyright (C) 2013-2019 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -203,7 +203,7 @@ gw_config_default = {
     'block_icons_top': 0,
     'day_left': 0,
     'day_top': 0,
-    'height_tune': 0,
+    'height_adjustment': 0,
     'width_fix': 0, #FIXME Not used
     'splash_icon_top': 0,
     'splash_version_top': 0,
@@ -452,7 +452,7 @@ def get_weather():
         service = data.services_list[0]
         weather_lang = data.get(service)[-1][0]
         Save_Config()
-    if city_id == 0 or (not appid and data.get_need_appid(service)):
+    if city_id == 0 or (not appid and data.get(service)['need_appid']):
         if app.show_edit_dialog():
             Save_Config()
     if city_id == 0:
@@ -994,7 +994,7 @@ class MyDrawArea(Gtk.DrawingArea):
 
         for i in range(1, n+1):
             try:
-                self.draw_weather_icon(cr, i, -8+block_icons_left + margin + block_margin + (i-1)*w_block + (i-1)*block_h_offset, block_icons_top + height-h_block-10 - margin - height_tune)
+                self.draw_weather_icon(cr, i, -8+block_icons_left + margin + block_margin + (i-1)*w_block + (i-1)*block_h_offset, block_icons_top + height-h_block-10 - margin - height_adjustment)
             except:
                 print('Can\'t show weather for %s day'%str(i))
 
@@ -1584,7 +1584,7 @@ class Weather_Widget:
         if n < 1: n = 1
         # width = w_block*n + block_margin*2 + 10*(n - 1) + 2*margin + block_icons_left
         width = w_block*n + block_h_offset*n + 2*margin + block_icons_left + width_fix
-        height = 260 + block_margin + 2*margin + height_tune
+        height = 260 + block_margin + 2*margin + height_adjustment
         self.window_main.resize(int(width*scale), int(height*scale))
         self.window_main.move(x_pos, y_pos)
         if sticky:
@@ -1620,12 +1620,15 @@ class Weather_Widget:
                 weather_menu = True
             Save_Config()
         if event == 'goto_site':
+            print(URL)
             if URL:
                 webbrowser.open(URL)
         if event == 'goto_site_hourly':
+            print(URL_HOURLY)
             if URL_HOURLY != '?':
                 webbrowser.open(URL_HOURLY)
         if event == 'goto_site_day':
+            print(URL_DAILY)
             if URL_DAILY != '?':
                 webbrowser.open(URL_DAILY+str(value))
         if event == 'start_new_instance':
@@ -1745,8 +1748,8 @@ class Weather_Widget:
                 if value[1] != 0:
                     service = value[0]
                     city_id = value[1].split(';')[0]
-                    max_days = data.get_max_days(service)
-                    if data.get_need_appid(service):
+                    max_days = data.get(service)['max_days']
+                    if data.get(service)['need_appid']:
                         appid = gw_config[data.get_appid(service)]
                     if service+'_weather_lang' in gw_config.keys():
                         weather_lang = gw_config[service+'_weather_lang']
@@ -1809,7 +1812,7 @@ class Weather_Widget:
                     pass
             if response == Gtk.ResponseType.OK:
                 try:
-                    if data.get_need_appid(service) and entrybox_appid.get_text() != '':
+                    if data.get(service)['need_appid'] and entrybox_appid.get_text() != '':
                         appid = entrybox_appid.get_text()
                         gw_config[data.get_appid(service)] = appid
                         Save_Config()
@@ -1852,7 +1855,7 @@ class Weather_Widget:
                 city_id = city_list[0].split(';')[0]
             else:
                 city_id = 0
-        if data.get_need_appid(service) and entrybox_appid.get_text() != '':
+        if data.get(service)['need_appid'] and entrybox_appid.get_text() != '':
             appid = entrybox_appid.get_text()
             gw_config[data.get_appid(service)] = appid
         Save_Config()

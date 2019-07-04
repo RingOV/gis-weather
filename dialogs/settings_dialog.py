@@ -197,8 +197,8 @@ class settings():
         self.spinbutton_scale.connect("value-changed", self.save_settings)
         self.switch_always_on_top = self.ui.get_object('switch_always_on_top')
         self.switch_always_on_top.connect("notify::active", self.save_settings)
-        self.spinbutton_height_tune = self.ui.get_object('spinbutton_height_tune')
-        self.spinbutton_height_tune.connect("value-changed", self.save_settings)
+        self.spinbutton_height_adjustment = self.ui.get_object('spinbutton_height_adjustment')
+        self.spinbutton_height_adjustment.connect("value-changed", self.save_settings)
 
 
         self.clear_x_pos = self.ui.get_object('clear_x_pos')
@@ -217,8 +217,8 @@ class settings():
         self.clear_scale.connect("clicked", self.clear_settings)
         self.clear_always_on_top = self.ui.get_object('clear_always_on_top')
         self.clear_always_on_top.connect("clicked", self.clear_settings)
-        self.clear_height_tune = self.ui.get_object('clear_height_tune')
-        self.clear_height_tune.connect("clicked", self.clear_settings)
+        self.clear_height_adjustment = self.ui.get_object('clear_height_adjustment')
+        self.clear_height_adjustment.connect("clicked", self.clear_settings)
 
         # View
         
@@ -546,7 +546,7 @@ class settings():
         self.load(self.switch_block_sunrise__show)
         self.load(self.switch_block_moonrise__show)
         self.load(self.switch_always_on_top)
-        self.load(self.spinbutton_height_tune)
+        self.load(self.spinbutton_height_adjustment)
 
         self.adjustment_n_max.set_upper(gw_config_set['max_days'])
 
@@ -854,7 +854,7 @@ class settings():
             gw_config_set['city_id'] = city_list[0].split(';')[0]
         else:
             gw_config_set['city_id'] = 0
-        gw_config_set['max_days'] = data.get_max_days(gw_config_set['service'])
+        gw_config_set['max_days'] = data.get(gw_config_set['service'])['max_days']
         if gw_config_set['n'] > gw_config_set['max_days']:
             gw_config_set['n'] = gw_config_set['max_days']
         self.spinbutton_n.set_value(gw_config_set['n'])
@@ -865,7 +865,9 @@ class settings():
 
     def load_available_service_lang(self, service):
         global dict_weather_lang, weather_lang_list
-        url, example, code, dict_weather_lang, weather_lang_list = data.get(gw_config_set['service'])
+        d = data.get(gw_config_set['service'])
+        dict_weather_lang = d['dict_weather_lang']
+        weather_lang_list = d['weather_lang_list']
         self.liststore6.clear()
         for i in range(len(weather_lang_list)):
             try:

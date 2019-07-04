@@ -7,17 +7,27 @@ import re
 import time
 import os
 
-data = [
-    "http://www.yr.no",  # url
-    "www.yr.no/sted/<b>South_Africa/North-West/Sun_City</b>",  # example
-    "<b>South_Africa/North-West/Sun_City</b>",  # code
-    {
-        'en': 'English'
-    },  # dict_weather_lang
-    ('en', '')  # weather_lang_list
-]
-max_days = 8
-need_appid = False
+# data = [
+#     "http://www.yr.no",  # url
+#     "www.yr.no/sted/<b>South_Africa/North-West/Sun_City</b>",  # example
+#     "<b>South_Africa/North-West/Sun_City</b>",  # code
+#     {
+#         'en': 'English'
+#     },  # dict_weather_lang
+#     ('en', '')  # weather_lang_list
+# ]
+
+data = {
+    'url': "http://www.yr.no",  # url
+    'example': "www.yr.no/sted/<b>South_Africa/North-West/Sun_City</b>",  # example
+    'code': "<b>South_Africa/North-West/Sun_City</b>",  # code
+    'dict_weather_lang': {
+            'en': 'English'
+        },  # dict_weather_lang
+    'weather_lang_list': ('en', ''),  # weather_lang_list
+    'max_days': 8,
+    'need_appid': False
+}
 
 # weather variables
 w = weather_vars.weather

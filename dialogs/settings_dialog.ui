@@ -1884,7 +1884,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="hexpand">True</property>
-                    <property name="label" translatable="yes">Height tune</property>
+                    <property name="label" translatable="yes">Height adjustment</property>
                     <property name="xalign">0</property>
                   </object>
                   <packing>
@@ -1893,7 +1893,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton" id="clear_height_tune">
+                  <object class="GtkButton" id="clear_height_adjustment">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -1907,7 +1907,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkSpinButton" id="spinbutton_height_tune">
+                  <object class="GtkSpinButton" id="spinbutton_height_adjustment">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="halign">end</property>

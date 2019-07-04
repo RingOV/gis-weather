@@ -8,20 +8,33 @@ import time
 import os
 from datetime import datetime, timezone
 
-data = [
-    "http://www.gismeteo.com",  # url
-    "https://www.gismeteo.com/weather-alphen-<b>1234</b>",  # example
-    "<b>1234</b>",  # code
-    {
-        'en': 'English',
-        'ru': 'Русский',
-        'uk': 'Українська',
-        'pl': 'Polski',
-    },  # dict_weather_lang
-    ('en', 'ru', 'uk', 'pl')  # weather_lang_list
-]
-max_days = 6
-need_appid = False
+# data = [
+#     "http://www.gismeteo.com",  # url
+#     "https://www.gismeteo.com/weather-alphen-<b>1234</b>",  # example
+#     "<b>1234</b>",  # code
+#     {
+#         'en': 'English',
+#         'ru': 'Русский',
+#         'uk': 'Українська',
+#         'pl': 'Polski',
+#     },  # dict_weather_lang
+#     ('en', 'ru', 'uk', 'pl')  # weather_lang_list
+# ]
+data = {
+    'url': "http://www.gismeteo.com",  # url
+    'example': "https://www.gismeteo.com/weather-alphen-<b>1234</b>",  # example
+    'code': "<b>1234</b>",  # code
+    'dict_weather_lang':
+        {
+            'en': 'English',
+            'ru': 'Русский',
+            'uk': 'Українська',
+            'pl': 'Polski',
+        },  # dict_weather_lang
+    'weather_lang_list': ('en', 'ru', 'uk', 'pl'),  # weather_lang_list
+    'max_days': 6,
+    'need_appid': False
+}
 
 # weather variables
 w = weather_vars.weather
