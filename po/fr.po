@@ -11,9 +11,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2019-06-30 23:17+0300\n"
-"PO-Revision-Date: 2019-07-03 19:35+0000\n"
-"Last-Translator: AO <ao@localizationlab.org>\n"
+"POT-Creation-Date: 2019-07-03 23:34+0300\n"
+"PO-Revision-Date: 2019-07-04 07:29+0000\n"
+"Last-Translator: RingOV <ringov@mail.ru>\n"
 "Language-Team: French (http://www.transifex.com/gis-weather-team/gis-weather/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,7 +58,7 @@ msgid "Backgrounds"
 msgstr "Arrière-plans"
 
 #: dialogs/about_dialog.py:46 dialogs/settings_dialog.ui:3807
-#: dialogs/settings_dialog.ui:4262 utils/gw_menu.py:376
+#: dialogs/settings_dialog.ui:4262 utils/gw_menu.py:381
 msgid "Icons"
 msgstr "Icônes"
 
@@ -87,7 +87,7 @@ msgid "City code"
 msgstr "Code de ville"
 
 #: dialogs/city_id_dialog.py:118 dialogs/city_id_dialog.ui:42
-#: dialogs/settings_dialog.ui:652 utils/gw_menu.py:41 utils/gw_menu.py:360
+#: dialogs/settings_dialog.ui:652 utils/gw_menu.py:46 utils/gw_menu.py:365
 msgid "Location"
 msgstr "Emplacement"
 
@@ -123,11 +123,11 @@ msgstr "Langue de la météo"
 msgid "Weather service"
 msgstr "Service météo"
 
-#: dialogs/city_id_dialog.ui:293 gis-weather.py:1835
+#: dialogs/city_id_dialog.ui:293 gis-weather.py:1838
 msgid "Invalid location code"
 msgstr "Le code d’emplacement est invalide"
 
-#: dialogs/city_id_dialog.ui:361 gis-weather.py:1830
+#: dialogs/city_id_dialog.ui:361 gis-weather.py:1833
 msgid "Added"
 msgstr "Ajouté"
 
@@ -140,12 +140,12 @@ msgstr "Aller vers le lien"
 msgid "Send email"
 msgstr "Envoyez-moi un courriel"
 
-#: dialogs/help_dialog.py:30 utils/gw_menu.py:409
+#: dialogs/help_dialog.py:30 utils/gw_menu.py:414
 msgid "Help"
 msgstr "Aide"
 
 #: dialogs/help_dialog.ui:25 dialogs/settings_dialog.ui:608
-#: dialogs/update_dialog.ui:44 utils/gw_menu.py:465
+#: dialogs/update_dialog.ui:44 utils/gw_menu.py:470
 msgid "Close"
 msgstr "Fermer"
 
@@ -191,7 +191,7 @@ msgid "Translation status"
 msgstr "État de la traduction"
 
 #: dialogs/settings_dialog.py:103 dialogs/settings_dialog.py:804
-#: utils/gw_menu.py:401
+#: utils/gw_menu.py:406
 msgid "Preferences"
 msgstr "Préférences"
 
@@ -239,7 +239,7 @@ msgstr "Seulement au démarrage"
 msgid "Always"
 msgstr "Toujours"
 
-#: dialogs/settings_dialog.py:452 utils/gw_menu.py:255
+#: dialogs/settings_dialog.py:452 utils/gw_menu.py:260
 msgid "No"
 msgstr "Non"
 
@@ -269,7 +269,7 @@ msgstr "Vérifier la présence d’une mise à jour"
 msgid "Configuration folder"
 msgstr "Dossier de configuration"
 
-#: dialogs/settings_dialog.ui:712 utils/gw_menu.py:181
+#: dialogs/settings_dialog.ui:712 utils/gw_menu.py:186
 msgid "Setup..."
 msgstr "Configuration…"
 
@@ -289,7 +289,7 @@ msgstr "Langue de la météo"
 msgid "Add launcher icon to menu"
 msgstr "Ajouter une icône de lancement au menu"
 
-#: dialogs/settings_dialog.ui:937 utils/gw_menu.py:332
+#: dialogs/settings_dialog.ui:937 utils/gw_menu.py:337
 msgid "Refresh"
 msgstr "Actualiser"
 
@@ -317,7 +317,7 @@ msgstr "Configuré dans la première instance"
 msgid "General"
 msgstr "Général"
 
-#: dialogs/settings_dialog.ui:1268 gis-weather.py:899 utils/gw_menu.py:71
+#: dialogs/settings_dialog.ui:1268 gis-weather.py:899 utils/gw_menu.py:76
 msgid "Wind"
 msgstr "Vent"
 
@@ -361,11 +361,11 @@ msgstr "Remplissage"
 msgid "Fix BadDrawable error"
 msgstr "Correction des erreurs « BadDrawable »"
 
-#: dialogs/settings_dialog.ui:1663 utils/gw_menu.py:286
+#: dialogs/settings_dialog.ui:1663 utils/gw_menu.py:291
 msgid "On all desktops"
 msgstr "Sur tous les bureaux"
 
-#: dialogs/settings_dialog.ui:1676 utils/gw_menu.py:280
+#: dialogs/settings_dialog.ui:1676 utils/gw_menu.py:285
 msgid "Lock position"
 msgstr "Verrouiller la position"
 
@@ -377,15 +377,15 @@ msgstr "Transparence"
 msgid "Scale"
 msgstr "Échelle"
 
-#: dialogs/settings_dialog.ui:1849 utils/gw_menu.py:292
+#: dialogs/settings_dialog.ui:1849 utils/gw_menu.py:297
 msgid "Always on top"
 msgstr "Toujours sur le dessus"
 
 #: dialogs/settings_dialog.ui:1887
-msgid "Height tune"
-msgstr "Ajustement de la hauteur"
+msgid "Height adjustment"
+msgstr ""
 
-#: dialogs/settings_dialog.ui:1932 utils/gw_menu.py:391
+#: dialogs/settings_dialog.ui:1932 utils/gw_menu.py:396
 msgid "Window"
 msgstr "Fenêtre"
 
@@ -504,7 +504,7 @@ msgstr "Fin de semaine"
 msgid "Weather description style"
 msgstr "Style de description de la météo"
 
-#: dialogs/settings_dialog.ui:3459 utils/gw_menu.py:386
+#: dialogs/settings_dialog.ui:3459 utils/gw_menu.py:391
 msgid "Text"
 msgstr "Texte"
 
@@ -524,7 +524,7 @@ msgstr "Rayon des coins"
 msgid "Color"
 msgstr "Couleur"
 
-#: dialogs/settings_dialog.ui:3721 utils/gw_menu.py:381
+#: dialogs/settings_dialog.ui:3721 utils/gw_menu.py:386
 msgid "Background"
 msgstr "Arrière-plan"
 
@@ -636,7 +636,7 @@ msgstr "Nombre d’instances"
 msgid "testing mode turned on"
 msgstr "le mode de test est activé"
 
-#: gis-weather.py:234 utils/gw_menu.py:61 utils/presets.py:61
+#: gis-weather.py:234 utils/gw_menu.py:66 utils/presets.py:61
 #: utils/presets.py:178 utils/presets.py:214 utils/presets.py:249
 #: utils/presets.py:282
 msgid "Now"
@@ -714,15 +714,15 @@ msgstr "Erreur de connexion"
 msgid "feels like"
 msgstr "ressenti"
 
-#: gis-weather.py:901 utils/gw_menu.py:66
+#: gis-weather.py:901 utils/gw_menu.py:71
 msgid "Humidity"
 msgstr "Humidité"
 
-#: gis-weather.py:902 utils/gw_menu.py:82
+#: gis-weather.py:902 utils/gw_menu.py:87
 msgid "Sunrise"
 msgstr "Lever du soleil"
 
-#: gis-weather.py:903 utils/gw_menu.py:87
+#: gis-weather.py:903 utils/gw_menu.py:92
 msgid "Sunset"
 msgstr "Coucher du soleil"
 
@@ -770,27 +770,27 @@ msgstr "humid."
 msgid "water"
 msgstr "eau"
 
-#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:361
+#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:374
 #: services/openweathermap.py:259 services/yr.py:147
 msgid "Morning"
 msgstr "Matin"
 
-#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:361
+#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:374
 #: services/openweathermap.py:259 services/yr.py:147
 msgid "Day"
 msgstr "Jour"
 
-#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:361
+#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:374
 #: services/openweathermap.py:259 services/yr.py:147
 msgid "Evening"
 msgstr "Soir"
 
-#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:361
+#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:374
 #: services/openweathermap.py:259 services/yr.py:147
 msgid "Night"
 msgstr "Nuit"
 
-#: gis-weather.py:1154 gis-weather.py:1156 utils/gw_menu.py:112
+#: gis-weather.py:1154 gis-weather.py:1156 utils/gw_menu.py:117
 msgid "Tomorrow"
 msgstr "Demain"
 
@@ -822,19 +822,19 @@ msgstr "hauteur"
 msgid "including indent"
 msgstr "comprenant le retrait"
 
-#: gis-weather.py:1728
+#: gis-weather.py:1731
 msgid "Requires restart"
 msgstr "Un redémarrage est exigé"
 
-#: gis-weather.py:1797
+#: gis-weather.py:1800
 msgid "Removed"
 msgstr "Enlevé"
 
-#: gis-weather.py:1905
+#: gis-weather.py:1908
 msgid "Your screen does not support alpha"
 msgstr "Votre écran ne prend pas alpha en charge"
 
-#: gis-weather.py:1907
+#: gis-weather.py:1910
 msgid "Your screen supports alpha"
 msgstr "Votre écran prend alpha en charge"
 
@@ -842,17 +842,17 @@ msgstr "Votre écran prend alpha en charge"
 msgid "If the city code is wrong, please read"
 msgstr "Si le code de ville est erroné, veuillez lire"
 
-#: services/accuweather.py:200 services/gismeteo.py:246
+#: services/accuweather.py:200 services/gismeteo.py:259
 #: services/openweathermap.py:88 services/yr.py:62
 msgid "Failed to get the name of the location"
 msgstr "Impossible d’obtenir le nom de l’emplacement"
 
-#: services/accuweather.py:226 services/gismeteo.py:265
+#: services/accuweather.py:226 services/gismeteo.py:278
 #: services/openweathermap.py:117 services/yr.py:73
 msgid "Getting weather for"
 msgstr "Récupération de la météo pour"
 
-#: services/accuweather.py:226 services/gismeteo.py:265
+#: services/accuweather.py:226 services/gismeteo.py:278
 #: services/openweathermap.py:117 services/yr.py:73
 msgid "days"
 msgstr "jours"
@@ -861,12 +861,12 @@ msgstr "jours"
 msgid "Calm"
 msgstr "Calme"
 
-#: services/accuweather.py:506 services/gismeteo.py:410
+#: services/accuweather.py:506 services/gismeteo.py:423
 #: services/openweathermap.py:282
 msgid "updated on server"
 msgstr "Mise à jour sur le serveur"
 
-#: services/accuweather.py:507 services/gismeteo.py:411
+#: services/accuweather.py:507 services/gismeteo.py:424
 #: services/openweathermap.py:283 services/yr.py:193
 msgid "weather received"
 msgstr "Météo reçue"
@@ -887,55 +887,55 @@ msgstr "nd"
 msgid "Switch to app menu"
 msgstr "Basculer vers le menu de l’appli"
 
-#: utils/gw_menu.py:120
-msgid "Precipitation"
-msgstr "Précipitation"
-
-#: utils/gw_menu.py:270
-msgid "Black"
-msgstr "Noir"
-
-#: utils/gw_menu.py:270
-msgid "White"
-msgstr "Blanc"
-
-#: utils/gw_menu.py:270
-msgid "Gray"
-msgstr "Gris"
-
-#: utils/gw_menu.py:302
-msgid "Save screenshot"
-msgstr "Capturer l’écran météo"
-
-#: utils/gw_menu.py:318
-msgid "Switch to weather menu"
-msgstr "Basculer vers le menu de la météo"
-
-#: utils/gw_menu.py:323
+#: utils/gw_menu.py:41 utils/gw_menu.py:328
 msgid "Show/Hide widget"
 msgstr "Afficher/cacher le widget"
 
-#: utils/gw_menu.py:340
+#: utils/gw_menu.py:125
+msgid "Precipitation"
+msgstr "Précipitation"
+
+#: utils/gw_menu.py:275
+msgid "Black"
+msgstr "Noir"
+
+#: utils/gw_menu.py:275
+msgid "White"
+msgstr "Blanc"
+
+#: utils/gw_menu.py:275
+msgid "Gray"
+msgstr "Gris"
+
+#: utils/gw_menu.py:307
+msgid "Save screenshot"
+msgstr "Capturer l’écran météo"
+
+#: utils/gw_menu.py:323
+msgid "Switch to weather menu"
+msgstr "Basculer vers le menu de la météo"
+
+#: utils/gw_menu.py:345
 msgid "Start new instance"
 msgstr "Lancer une nouvelle instance"
 
-#: utils/gw_menu.py:348
+#: utils/gw_menu.py:353
 msgid "Go to site"
 msgstr "Aller vers le site"
 
-#: utils/gw_menu.py:366
+#: utils/gw_menu.py:371
 msgid "Indicator icons"
 msgstr "Icônes de l’indicateur"
 
-#: utils/gw_menu.py:371
+#: utils/gw_menu.py:376
 msgid "Menu icons"
 msgstr "Icônes du menu"
 
-#: utils/gw_menu.py:396
+#: utils/gw_menu.py:401
 msgid "Presets"
 msgstr "Préréglages"
 
-#: utils/gw_menu.py:417
+#: utils/gw_menu.py:422
 msgid "About"
 msgstr "À propos de l’appli"
 

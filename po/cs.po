@@ -4,9 +4,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2019-06-30 23:17+0300\n"
-"PO-Revision-Date: 2019-07-01 12:58+0000\n"
-"Last-Translator: Ladislav Procházka <ladapr@gmail.com>\n"
+"POT-Creation-Date: 2019-07-03 23:34+0300\n"
+"PO-Revision-Date: 2019-07-04 07:29+0000\n"
+"Last-Translator: RingOV <ringov@mail.ru>\n"
 "Language-Team: Czech (http://www.transifex.com/gis-weather-team/gis-weather/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,7 +51,7 @@ msgid "Backgrounds"
 msgstr "Pozadí"
 
 #: dialogs/about_dialog.py:46 dialogs/settings_dialog.ui:3807
-#: dialogs/settings_dialog.ui:4262 utils/gw_menu.py:376
+#: dialogs/settings_dialog.ui:4262 utils/gw_menu.py:381
 msgid "Icons"
 msgstr "Ikony"
 
@@ -80,7 +80,7 @@ msgid "City code"
 msgstr "Kód města"
 
 #: dialogs/city_id_dialog.py:118 dialogs/city_id_dialog.ui:42
-#: dialogs/settings_dialog.ui:652 utils/gw_menu.py:41 utils/gw_menu.py:360
+#: dialogs/settings_dialog.ui:652 utils/gw_menu.py:46 utils/gw_menu.py:365
 msgid "Location"
 msgstr "Místo"
 
@@ -116,11 +116,11 @@ msgstr "Jazyk počasí"
 msgid "Weather service"
 msgstr "Poskytovatel počasí"
 
-#: dialogs/city_id_dialog.ui:293 gis-weather.py:1835
+#: dialogs/city_id_dialog.ui:293 gis-weather.py:1838
 msgid "Invalid location code"
 msgstr "Špatný lokalitní kód"
 
-#: dialogs/city_id_dialog.ui:361 gis-weather.py:1830
+#: dialogs/city_id_dialog.ui:361 gis-weather.py:1833
 msgid "Added"
 msgstr "Přidáno"
 
@@ -133,12 +133,12 @@ msgstr "Přejít na odkazy"
 msgid "Send email"
 msgstr "Poslat e-mail"
 
-#: dialogs/help_dialog.py:30 utils/gw_menu.py:409
+#: dialogs/help_dialog.py:30 utils/gw_menu.py:414
 msgid "Help"
 msgstr "Nápověda"
 
 #: dialogs/help_dialog.ui:25 dialogs/settings_dialog.ui:608
-#: dialogs/update_dialog.ui:44 utils/gw_menu.py:465
+#: dialogs/update_dialog.ui:44 utils/gw_menu.py:470
 msgid "Close"
 msgstr "Zavřít"
 
@@ -184,7 +184,7 @@ msgid "Translation status"
 msgstr "Stav překladu"
 
 #: dialogs/settings_dialog.py:103 dialogs/settings_dialog.py:804
-#: utils/gw_menu.py:401
+#: utils/gw_menu.py:406
 msgid "Preferences"
 msgstr "Preference"
 
@@ -232,7 +232,7 @@ msgstr "Pouze na začátku"
 msgid "Always"
 msgstr "Vždy"
 
-#: dialogs/settings_dialog.py:452 utils/gw_menu.py:255
+#: dialogs/settings_dialog.py:452 utils/gw_menu.py:260
 msgid "No"
 msgstr "Ne"
 
@@ -262,7 +262,7 @@ msgstr "Kontrola aktualizací"
 msgid "Configuration folder"
 msgstr "Konfigurační složka"
 
-#: dialogs/settings_dialog.ui:712 utils/gw_menu.py:181
+#: dialogs/settings_dialog.ui:712 utils/gw_menu.py:186
 msgid "Setup..."
 msgstr "Nastavení..."
 
@@ -282,7 +282,7 @@ msgstr "Jazyk počasí"
 msgid "Add launcher icon to menu"
 msgstr "Přidání  ikony spouštěče do nabídky"
 
-#: dialogs/settings_dialog.ui:937 utils/gw_menu.py:332
+#: dialogs/settings_dialog.ui:937 utils/gw_menu.py:337
 msgid "Refresh"
 msgstr "Aktualizovat"
 
@@ -310,7 +310,7 @@ msgstr "Konfigurováno v první instanci"
 msgid "General"
 msgstr "Všeobecné"
 
-#: dialogs/settings_dialog.ui:1268 gis-weather.py:899 utils/gw_menu.py:71
+#: dialogs/settings_dialog.ui:1268 gis-weather.py:899 utils/gw_menu.py:76
 msgid "Wind"
 msgstr "Vítr"
 
@@ -354,11 +354,11 @@ msgstr "Vyplnění"
 msgid "Fix BadDrawable error"
 msgstr "Opravit chybu špatného vykreslení"
 
-#: dialogs/settings_dialog.ui:1663 utils/gw_menu.py:286
+#: dialogs/settings_dialog.ui:1663 utils/gw_menu.py:291
 msgid "On all desktops"
 msgstr "Na všech plochách"
 
-#: dialogs/settings_dialog.ui:1676 utils/gw_menu.py:280
+#: dialogs/settings_dialog.ui:1676 utils/gw_menu.py:285
 msgid "Lock position"
 msgstr "Zámek polohy"
 
@@ -370,15 +370,15 @@ msgstr "Průhlednost"
 msgid "Scale"
 msgstr "Stupnice"
 
-#: dialogs/settings_dialog.ui:1849 utils/gw_menu.py:292
+#: dialogs/settings_dialog.ui:1849 utils/gw_menu.py:297
 msgid "Always on top"
 msgstr "Vždy na vrcholu"
 
 #: dialogs/settings_dialog.ui:1887
-msgid "Height tune"
-msgstr "Přizpůsobit výšku"
+msgid "Height adjustment"
+msgstr ""
 
-#: dialogs/settings_dialog.ui:1932 utils/gw_menu.py:391
+#: dialogs/settings_dialog.ui:1932 utils/gw_menu.py:396
 msgid "Window"
 msgstr "Okno"
 
@@ -497,7 +497,7 @@ msgstr "Víkend"
 msgid "Weather description style"
 msgstr "Styl popisu počasí"
 
-#: dialogs/settings_dialog.ui:3459 utils/gw_menu.py:386
+#: dialogs/settings_dialog.ui:3459 utils/gw_menu.py:391
 msgid "Text"
 msgstr "Text"
 
@@ -517,7 +517,7 @@ msgstr "Poloměr zaoblení"
 msgid "Color"
 msgstr "Barva"
 
-#: dialogs/settings_dialog.ui:3721 utils/gw_menu.py:381
+#: dialogs/settings_dialog.ui:3721 utils/gw_menu.py:386
 msgid "Background"
 msgstr "Pozadí"
 
@@ -629,7 +629,7 @@ msgstr "Počet instancí"
 msgid "testing mode turned on"
 msgstr "Zapnutý testovací režim"
 
-#: gis-weather.py:234 utils/gw_menu.py:61 utils/presets.py:61
+#: gis-weather.py:234 utils/gw_menu.py:66 utils/presets.py:61
 #: utils/presets.py:178 utils/presets.py:214 utils/presets.py:249
 #: utils/presets.py:282
 msgid "Now"
@@ -707,15 +707,15 @@ msgstr "Problém s připojením"
 msgid "feels like"
 msgstr "Pocitově"
 
-#: gis-weather.py:901 utils/gw_menu.py:66
+#: gis-weather.py:901 utils/gw_menu.py:71
 msgid "Humidity"
 msgstr "Vlhkost vzduchu"
 
-#: gis-weather.py:902 utils/gw_menu.py:82
+#: gis-weather.py:902 utils/gw_menu.py:87
 msgid "Sunrise"
 msgstr "Východ slunce"
 
-#: gis-weather.py:903 utils/gw_menu.py:87
+#: gis-weather.py:903 utils/gw_menu.py:92
 msgid "Sunset"
 msgstr "Západ slunce"
 
@@ -763,27 +763,27 @@ msgstr "mokrý."
 msgid "water"
 msgstr "voda"
 
-#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:361
+#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:374
 #: services/openweathermap.py:259 services/yr.py:147
 msgid "Morning"
 msgstr "Ráno"
 
-#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:361
+#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:374
 #: services/openweathermap.py:259 services/yr.py:147
 msgid "Day"
 msgstr "Den"
 
-#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:361
+#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:374
 #: services/openweathermap.py:259 services/yr.py:147
 msgid "Evening"
 msgstr "Večer"
 
-#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:361
+#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:374
 #: services/openweathermap.py:259 services/yr.py:147
 msgid "Night"
 msgstr "Noc"
 
-#: gis-weather.py:1154 gis-weather.py:1156 utils/gw_menu.py:112
+#: gis-weather.py:1154 gis-weather.py:1156 utils/gw_menu.py:117
 msgid "Tomorrow"
 msgstr "Zítra"
 
@@ -815,19 +815,19 @@ msgstr "výška"
 msgid "including indent"
 msgstr "včetně odrážky"
 
-#: gis-weather.py:1728
+#: gis-weather.py:1731
 msgid "Requires restart"
 msgstr "Potřebný restart"
 
-#: gis-weather.py:1797
+#: gis-weather.py:1800
 msgid "Removed"
 msgstr "Odstraněno"
 
-#: gis-weather.py:1905
+#: gis-weather.py:1908
 msgid "Your screen does not support alpha"
 msgstr "Vaše obrazovka nepodporuje alfa"
 
-#: gis-weather.py:1907
+#: gis-weather.py:1910
 msgid "Your screen supports alpha"
 msgstr "Vaše obrazovka podporuje alfa"
 
@@ -835,17 +835,17 @@ msgstr "Vaše obrazovka podporuje alfa"
 msgid "If the city code is wrong, please read"
 msgstr "Pokud je kód města špatný, čtěte"
 
-#: services/accuweather.py:200 services/gismeteo.py:246
+#: services/accuweather.py:200 services/gismeteo.py:259
 #: services/openweathermap.py:88 services/yr.py:62
 msgid "Failed to get the name of the location"
 msgstr "Nepodařilo se získat název umístění"
 
-#: services/accuweather.py:226 services/gismeteo.py:265
+#: services/accuweather.py:226 services/gismeteo.py:278
 #: services/openweathermap.py:117 services/yr.py:73
 msgid "Getting weather for"
 msgstr "Získání počasí pro"
 
-#: services/accuweather.py:226 services/gismeteo.py:265
+#: services/accuweather.py:226 services/gismeteo.py:278
 #: services/openweathermap.py:117 services/yr.py:73
 msgid "days"
 msgstr "dny"
@@ -854,12 +854,12 @@ msgstr "dny"
 msgid "Calm"
 msgstr "Calm"
 
-#: services/accuweather.py:506 services/gismeteo.py:410
+#: services/accuweather.py:506 services/gismeteo.py:423
 #: services/openweathermap.py:282
 msgid "updated on server"
 msgstr "Aktualizace na serveru"
 
-#: services/accuweather.py:507 services/gismeteo.py:411
+#: services/accuweather.py:507 services/gismeteo.py:424
 #: services/openweathermap.py:283 services/yr.py:193
 msgid "weather received"
 msgstr "přijaté počasí"
@@ -880,55 +880,55 @@ msgstr "uzly"
 msgid "Switch to app menu"
 msgstr "Přepněte do nabídky aplikace"
 
-#: utils/gw_menu.py:120
-msgid "Precipitation"
-msgstr "Srážky"
-
-#: utils/gw_menu.py:270
-msgid "Black"
-msgstr "Černý"
-
-#: utils/gw_menu.py:270
-msgid "White"
-msgstr "Bílý"
-
-#: utils/gw_menu.py:270
-msgid "Gray"
-msgstr "Šedý"
-
-#: utils/gw_menu.py:302
-msgid "Save screenshot"
-msgstr "Uložit snímek obrazovky"
-
-#: utils/gw_menu.py:318
-msgid "Switch to weather menu"
-msgstr "Přepnout na nabídku počasí"
-
-#: utils/gw_menu.py:323
+#: utils/gw_menu.py:41 utils/gw_menu.py:328
 msgid "Show/Hide widget"
 msgstr "Zobrazit / Skrýt widget"
 
-#: utils/gw_menu.py:340
+#: utils/gw_menu.py:125
+msgid "Precipitation"
+msgstr "Srážky"
+
+#: utils/gw_menu.py:275
+msgid "Black"
+msgstr "Černý"
+
+#: utils/gw_menu.py:275
+msgid "White"
+msgstr "Bílý"
+
+#: utils/gw_menu.py:275
+msgid "Gray"
+msgstr "Šedý"
+
+#: utils/gw_menu.py:307
+msgid "Save screenshot"
+msgstr "Uložit snímek obrazovky"
+
+#: utils/gw_menu.py:323
+msgid "Switch to weather menu"
+msgstr "Přepnout na nabídku počasí"
+
+#: utils/gw_menu.py:345
 msgid "Start new instance"
 msgstr "Start nové instance"
 
-#: utils/gw_menu.py:348
+#: utils/gw_menu.py:353
 msgid "Go to site"
 msgstr "Jdi na stránku"
 
-#: utils/gw_menu.py:366
+#: utils/gw_menu.py:371
 msgid "Indicator icons"
 msgstr "Indikátor ikon"
 
-#: utils/gw_menu.py:371
+#: utils/gw_menu.py:376
 msgid "Menu icons"
 msgstr "Ikony menu"
 
-#: utils/gw_menu.py:396
+#: utils/gw_menu.py:401
 msgid "Presets"
 msgstr "Přednastavení"
 
-#: utils/gw_menu.py:417
+#: utils/gw_menu.py:422
 msgid "About"
 msgstr "O"
 

@@ -622,6 +622,7 @@ class settings():
                 self.switch_add_icon.set_active(True)
 
         self.liststore5.clear()
+        print(available_lang)
         for i in range(len(available_lang)):
             try:
                 self.liststore5.append([dict_app_lang[available_lang[i]]])

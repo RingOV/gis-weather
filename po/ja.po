@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
-"POT-Creation-Date: 2019-06-30 23:17+0300\n"
-"PO-Revision-Date: 2019-06-30 20:17+0000\n"
+"POT-Creation-Date: 2019-07-03 23:34+0300\n"
+"PO-Revision-Date: 2019-07-04 07:29+0000\n"
 "Last-Translator: RingOV <ringov@mail.ru>\n"
 "Language-Team: Japanese (http://www.transifex.com/gis-weather-team/gis-weather/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -52,7 +52,7 @@ msgid "Backgrounds"
 msgstr "バックグラウンド"
 
 #: dialogs/about_dialog.py:46 dialogs/settings_dialog.ui:3807
-#: dialogs/settings_dialog.ui:4262 utils/gw_menu.py:376
+#: dialogs/settings_dialog.ui:4262 utils/gw_menu.py:381
 msgid "Icons"
 msgstr "アイコン"
 
@@ -81,7 +81,7 @@ msgid "City code"
 msgstr "都市コード"
 
 #: dialogs/city_id_dialog.py:118 dialogs/city_id_dialog.ui:42
-#: dialogs/settings_dialog.ui:652 utils/gw_menu.py:41 utils/gw_menu.py:360
+#: dialogs/settings_dialog.ui:652 utils/gw_menu.py:46 utils/gw_menu.py:365
 msgid "Location"
 msgstr "位置"
 
@@ -117,11 +117,11 @@ msgstr "天候用言語"
 msgid "Weather service"
 msgstr "天候提供"
 
-#: dialogs/city_id_dialog.ui:293 gis-weather.py:1835
+#: dialogs/city_id_dialog.ui:293 gis-weather.py:1838
 msgid "Invalid location code"
 msgstr "不正な位置情報コード"
 
-#: dialogs/city_id_dialog.ui:361 gis-weather.py:1830
+#: dialogs/city_id_dialog.ui:361 gis-weather.py:1833
 msgid "Added"
 msgstr "追加された"
 
@@ -134,12 +134,12 @@ msgstr "リンク先へ進む"
 msgid "Send email"
 msgstr "メールの送信"
 
-#: dialogs/help_dialog.py:30 utils/gw_menu.py:409
+#: dialogs/help_dialog.py:30 utils/gw_menu.py:414
 msgid "Help"
 msgstr "ヘルプ"
 
 #: dialogs/help_dialog.ui:25 dialogs/settings_dialog.ui:608
-#: dialogs/update_dialog.ui:44 utils/gw_menu.py:465
+#: dialogs/update_dialog.ui:44 utils/gw_menu.py:470
 msgid "Close"
 msgstr "閉じる"
 
@@ -185,7 +185,7 @@ msgid "Translation status"
 msgstr "翻訳状況"
 
 #: dialogs/settings_dialog.py:103 dialogs/settings_dialog.py:804
-#: utils/gw_menu.py:401
+#: utils/gw_menu.py:406
 msgid "Preferences"
 msgstr "設定"
 
@@ -233,7 +233,7 @@ msgstr "開始時だけ"
 msgid "Always"
 msgstr "常に"
 
-#: dialogs/settings_dialog.py:452 utils/gw_menu.py:255
+#: dialogs/settings_dialog.py:452 utils/gw_menu.py:260
 msgid "No"
 msgstr "いいえ"
 
@@ -263,7 +263,7 @@ msgstr "アップデートのチェック"
 msgid "Configuration folder"
 msgstr "設定フォルダ"
 
-#: dialogs/settings_dialog.ui:712 utils/gw_menu.py:181
+#: dialogs/settings_dialog.ui:712 utils/gw_menu.py:186
 msgid "Setup..."
 msgstr "設定中"
 
@@ -283,7 +283,7 @@ msgstr "天気用語"
 msgid "Add launcher icon to menu"
 msgstr "メニューに起動アイコンを追加します"
 
-#: dialogs/settings_dialog.ui:937 utils/gw_menu.py:332
+#: dialogs/settings_dialog.ui:937 utils/gw_menu.py:337
 msgid "Refresh"
 msgstr "更新"
 
@@ -311,7 +311,7 @@ msgstr "最初のインスタンスでの設定"
 msgid "General"
 msgstr "全般"
 
-#: dialogs/settings_dialog.ui:1268 gis-weather.py:899 utils/gw_menu.py:71
+#: dialogs/settings_dialog.ui:1268 gis-weather.py:899 utils/gw_menu.py:76
 msgid "Wind"
 msgstr "風速"
 
@@ -355,11 +355,11 @@ msgstr "パディング"
 msgid "Fix BadDrawable error"
 msgstr "BadDrawableエラーを修正"
 
-#: dialogs/settings_dialog.ui:1663 utils/gw_menu.py:286
+#: dialogs/settings_dialog.ui:1663 utils/gw_menu.py:291
 msgid "On all desktops"
 msgstr "全てのデスクトップ上"
 
-#: dialogs/settings_dialog.ui:1676 utils/gw_menu.py:280
+#: dialogs/settings_dialog.ui:1676 utils/gw_menu.py:285
 msgid "Lock position"
 msgstr "表示位置を固定"
 
@@ -371,15 +371,15 @@ msgstr "透明度"
 msgid "Scale"
 msgstr "拡大/縮小"
 
-#: dialogs/settings_dialog.ui:1849 utils/gw_menu.py:292
+#: dialogs/settings_dialog.ui:1849 utils/gw_menu.py:297
 msgid "Always on top"
 msgstr "常に最前面に"
 
 #: dialogs/settings_dialog.ui:1887
-msgid "Height tune"
+msgid "Height adjustment"
 msgstr ""
 
-#: dialogs/settings_dialog.ui:1932 utils/gw_menu.py:391
+#: dialogs/settings_dialog.ui:1932 utils/gw_menu.py:396
 msgid "Window"
 msgstr "ウィンドウ"
 
@@ -498,7 +498,7 @@ msgstr "週末"
 msgid "Weather description style"
 msgstr "予報の表示形式"
 
-#: dialogs/settings_dialog.ui:3459 utils/gw_menu.py:386
+#: dialogs/settings_dialog.ui:3459 utils/gw_menu.py:391
 msgid "Text"
 msgstr "テキスト"
 
@@ -518,7 +518,7 @@ msgstr "角丸の半径"
 msgid "Color"
 msgstr "色"
 
-#: dialogs/settings_dialog.ui:3721 utils/gw_menu.py:381
+#: dialogs/settings_dialog.ui:3721 utils/gw_menu.py:386
 msgid "Background"
 msgstr "バックグラウンド"
 
@@ -630,7 +630,7 @@ msgstr "インスタンスの数"
 msgid "testing mode turned on"
 msgstr "テストモードがONになっています"
 
-#: gis-weather.py:234 utils/gw_menu.py:61 utils/presets.py:61
+#: gis-weather.py:234 utils/gw_menu.py:66 utils/presets.py:61
 #: utils/presets.py:178 utils/presets.py:214 utils/presets.py:249
 #: utils/presets.py:282
 msgid "Now"
@@ -708,15 +708,15 @@ msgstr "接続エラー"
 msgid "feels like"
 msgstr "のような気がする"
 
-#: gis-weather.py:901 utils/gw_menu.py:66
+#: gis-weather.py:901 utils/gw_menu.py:71
 msgid "Humidity"
 msgstr "湿度"
 
-#: gis-weather.py:902 utils/gw_menu.py:82
+#: gis-weather.py:902 utils/gw_menu.py:87
 msgid "Sunrise"
 msgstr "日の出"
 
-#: gis-weather.py:903 utils/gw_menu.py:87
+#: gis-weather.py:903 utils/gw_menu.py:92
 msgid "Sunset"
 msgstr "日没"
 
@@ -764,27 +764,27 @@ msgstr "湿度"
 msgid "water"
 msgstr "水温"
 
-#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:361
+#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:374
 #: services/openweathermap.py:259 services/yr.py:147
 msgid "Morning"
 msgstr "午前"
 
-#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:361
+#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:374
 #: services/openweathermap.py:259 services/yr.py:147
 msgid "Day"
 msgstr "午後"
 
-#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:361
+#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:374
 #: services/openweathermap.py:259 services/yr.py:147
 msgid "Evening"
 msgstr "夕方"
 
-#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:361
+#: gis-weather.py:1149 gis-weather.py:1191 services/gismeteo.py:374
 #: services/openweathermap.py:259 services/yr.py:147
 msgid "Night"
 msgstr "夜"
 
-#: gis-weather.py:1154 gis-weather.py:1156 utils/gw_menu.py:112
+#: gis-weather.py:1154 gis-weather.py:1156 utils/gw_menu.py:117
 msgid "Tomorrow"
 msgstr "明日"
 
@@ -816,19 +816,19 @@ msgstr "高さ"
 msgid "including indent"
 msgstr "インデントを含む"
 
-#: gis-weather.py:1728
+#: gis-weather.py:1731
 msgid "Requires restart"
 msgstr "再起動を要求"
 
-#: gis-weather.py:1797
+#: gis-weather.py:1800
 msgid "Removed"
 msgstr "削除された"
 
-#: gis-weather.py:1905
+#: gis-weather.py:1908
 msgid "Your screen does not support alpha"
 msgstr "スクリーンがアルファをサポートしていません"
 
-#: gis-weather.py:1907
+#: gis-weather.py:1910
 msgid "Your screen supports alpha"
 msgstr "スクリーンはアルファをサポートしています"
 
@@ -836,17 +836,17 @@ msgstr "スクリーンはアルファをサポートしています"
 msgid "If the city code is wrong, please read"
 msgstr "都市コードが間違っている場合にお読みください"
 
-#: services/accuweather.py:200 services/gismeteo.py:246
+#: services/accuweather.py:200 services/gismeteo.py:259
 #: services/openweathermap.py:88 services/yr.py:62
 msgid "Failed to get the name of the location"
 msgstr "位置情報名の取得に失敗しました"
 
-#: services/accuweather.py:226 services/gismeteo.py:265
+#: services/accuweather.py:226 services/gismeteo.py:278
 #: services/openweathermap.py:117 services/yr.py:73
 msgid "Getting weather for"
 msgstr "天候を取得中"
 
-#: services/accuweather.py:226 services/gismeteo.py:265
+#: services/accuweather.py:226 services/gismeteo.py:278
 #: services/openweathermap.py:117 services/yr.py:73
 msgid "days"
 msgstr "日中"
@@ -855,12 +855,12 @@ msgstr "日中"
 msgid "Calm"
 msgstr "穏やか"
 
-#: services/accuweather.py:506 services/gismeteo.py:410
+#: services/accuweather.py:506 services/gismeteo.py:423
 #: services/openweathermap.py:282
 msgid "updated on server"
 msgstr "サーバ上での更新"
 
-#: services/accuweather.py:507 services/gismeteo.py:411
+#: services/accuweather.py:507 services/gismeteo.py:424
 #: services/openweathermap.py:283 services/yr.py:193
 msgid "weather received"
 msgstr "天候の受信"
@@ -881,55 +881,55 @@ msgstr "kts"
 msgid "Switch to app menu"
 msgstr ""
 
-#: utils/gw_menu.py:120
-msgid "Precipitation"
-msgstr "降水量"
-
-#: utils/gw_menu.py:270
-msgid "Black"
-msgstr "Black"
-
-#: utils/gw_menu.py:270
-msgid "White"
-msgstr "White"
-
-#: utils/gw_menu.py:270
-msgid "Gray"
-msgstr "Gray"
-
-#: utils/gw_menu.py:302
-msgid "Save screenshot"
-msgstr "スクリーンショットを保存"
-
-#: utils/gw_menu.py:318
-msgid "Switch to weather menu"
-msgstr ""
-
-#: utils/gw_menu.py:323
+#: utils/gw_menu.py:41 utils/gw_menu.py:328
 msgid "Show/Hide widget"
 msgstr "ウィジェットの表示/非表示"
 
-#: utils/gw_menu.py:340
+#: utils/gw_menu.py:125
+msgid "Precipitation"
+msgstr "降水量"
+
+#: utils/gw_menu.py:275
+msgid "Black"
+msgstr "Black"
+
+#: utils/gw_menu.py:275
+msgid "White"
+msgstr "White"
+
+#: utils/gw_menu.py:275
+msgid "Gray"
+msgstr "Gray"
+
+#: utils/gw_menu.py:307
+msgid "Save screenshot"
+msgstr "スクリーンショットを保存"
+
+#: utils/gw_menu.py:323
+msgid "Switch to weather menu"
+msgstr ""
+
+#: utils/gw_menu.py:345
 msgid "Start new instance"
 msgstr "新しいインスタンスを開始する"
 
-#: utils/gw_menu.py:348
+#: utils/gw_menu.py:353
 msgid "Go to site"
 msgstr "サイトに行く"
 
-#: utils/gw_menu.py:366
+#: utils/gw_menu.py:371
 msgid "Indicator icons"
 msgstr "指標用アイコン"
 
-#: utils/gw_menu.py:371
+#: utils/gw_menu.py:376
 msgid "Menu icons"
 msgstr "メニュー アイコン"
 
-#: utils/gw_menu.py:396
+#: utils/gw_menu.py:401
 msgid "Presets"
 msgstr "プリセット"
 
-#: utils/gw_menu.py:417
+#: utils/gw_menu.py:422
 msgid "About"
 msgstr "このソフトについて"
 
