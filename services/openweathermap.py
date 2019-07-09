@@ -154,6 +154,8 @@ def get_weather():
     # update time
     dt = datetime.utcfromtimestamp(source['dt']+source['timezone'])
     time_update = [dt.strftime('%H:%M')]
+    day = [dt.strftime('%a')]
+    date = [dt.strftime('%d.%m')]
 
     # weather text now
     text_now = [source['weather'][0]['description']]
@@ -183,8 +185,8 @@ def get_weather():
     for data in source['list']:
         t=str(round(data['main']['temp']))
         dt = datetime.utcfromtimestamp(data['dt']+source['city']['timezone'])
-        day=dt.strftime('%a')
-        date=dt.strftime('%d.%m')
+        _day=dt.strftime('%a')
+        _date=dt.strftime('%d.%m')
         _time=dt.strftime('%H:%M')
         icon='http://openweathermap.org/img/w/'+data['weather'][0]['icon']+'.png'
         text=data['weather'][0]['description']
@@ -192,8 +194,8 @@ def get_weather():
         wind_direct=wind_direct_convert.convert(data['wind']['deg'])
         wt2.append({
             't':t,
-            'day': day,
-            'date': date,
+            'day': _day,
+            'date': _date,
             'time': _time,
             'icon': icon,
             'text': text,
@@ -203,7 +205,7 @@ def get_weather():
 
     wt = [[]]
     i = 0
-    _date = wt2[0]['date']
+    _date = date[0]
     # true sort by date for local time
     for item in wt2:
         if _date != item['date']:
@@ -214,8 +216,6 @@ def get_weather():
 
     t_day = ['']
     t_night = ['']
-    day = [wt[0][0]['day']]
-    date = [wt[0][0]['date']]
     icon = ['']
     text = ['']
     wind_speed = ['']
