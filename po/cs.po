@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2019-07-03 23:34+0300\n"
-"PO-Revision-Date: 2019-07-04 07:29+0000\n"
-"Last-Translator: RingOV <ringov@mail.ru>\n"
+"PO-Revision-Date: 2019-07-06 19:44+0000\n"
+"Last-Translator: Ladislav Procházka <ladapr@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/gis-weather-team/gis-weather/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -376,7 +376,7 @@ msgstr "Vždy na vrcholu"
 
 #: dialogs/settings_dialog.ui:1887
 msgid "Height adjustment"
-msgstr ""
+msgstr "Nastavení výšky"
 
 #: dialogs/settings_dialog.ui:1932 utils/gw_menu.py:396
 msgid "Window"
@@ -669,7 +669,7 @@ msgstr "Používáte poslední verzi"
 
 #: gis-weather.py:537 gis-weather.py:1528
 msgid "Screenshot saved to"
-msgstr "Screenshot uloženy v"
+msgstr "Screenshot uložen v"
 
 #: gis-weather.py:541
 msgid "Unable to get the screenshot"
@@ -757,7 +757,7 @@ msgstr "S"
 
 #: gis-weather.py:1131
 msgid "humid."
-msgstr "mokrý."
+msgstr "vlhkost"
 
 #: gis-weather.py:1134
 msgid "water"
