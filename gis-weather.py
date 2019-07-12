@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.4.1'
+v = '0.8.4.2'
 #  Copyright (C) 2013-2019 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -155,7 +155,7 @@ gw_config_default = {
     'check_for_updates': 2,            # 0 - no, 1 - only when startup, 2 - always
     'fix_position': False,
     'app_lang': 'auto',
-    'weather_lang': 'com',
+    'weather_lang': 'en',
     'delay_start_time': 0,
     'block_now_left': 0,
     't_scale': 0,                      # 0 - °C, 1 - °F, 2 - K
@@ -1406,6 +1406,8 @@ class MyDrawArea(Gtk.DrawingArea):
         if indicator_icon_name:
             global pix_path
             icons_name1 = indicator_icon_name
+        if icons_name1 == 'default' and service == 'Gismeteo':
+            icons_name1 = 'colorful'
         if icons_name1 == 'default':
             pix = pix.split(';')[0]
             if pix == 'clear.png':
@@ -1874,10 +1876,7 @@ class Weather_Widget:
     def create_menu(self, for_indicator=False, weather_menu=False):
         global icons_list, backgrounds_list
         if weather_menu:
-            try:
-                self.menu = gw_menu.create_weather_menu(app, ICONS_PATH, gw_config, weather)
-            except:
-                self.menu, icons_list, backgrounds_list = gw_menu.create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color_scheme, gw_config, for_indicator, args.test)
+            self.menu = gw_menu.create_weather_menu(app, ICONS_PATH, gw_config, weather)
         else:
             self.menu, icons_list, backgrounds_list = gw_menu.create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color_scheme, gw_config, for_indicator, args.test)
 

@@ -101,7 +101,7 @@ def create_weather_menu(app, ICONS_PATH, gw_config, weather):
 
         try:
             weather['icon'][i]
-        except NameError:
+        except:
             break
 
         menu_items = Gtk.SeparatorMenuItem()
@@ -131,6 +131,7 @@ def create_weather_menu(app, ICONS_PATH, gw_config, weather):
         menu.append(menu_items)
         menu_items.connect("activate", app.menu_response, 'goto_site_day', i+1)
         menu_items.show()
+
 
     return menu
 

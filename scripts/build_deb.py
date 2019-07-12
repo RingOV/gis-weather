@@ -71,17 +71,17 @@ def main():
     print(a[0])
 
     if len(sys.argv) > 1:
-        #### Build RPM ####
-        create_package_file(BUILD_PATH+'/usr/share/gis-weather/package', 'rpm')
-        a = os.popen('fakeroot dpkg-deb --build %s %s'%(BUILD_PATH, DEB_PATH+'/gis-weather_'+VERSION+'_all.deb')).readlines()
-        print(a[0])
-        a = os.popen('cd %s; fakeroot alien -r %s; cd ..'%(DEB_PATH, 'gis-weather_'+VERSION+'_all.deb')).readlines()
-        print(a[0])
-        os.popen('rm %s'%(DEB_PATH+'/gis-weather_'+VERSION+'_all.deb'))
-
         print('Downloading tar.gz ...')
         urlretrieve('https://github.com/RingOV/gis-weather/archive/v%s.tar.gz'%VERSION, DEB_PATH+'/gis-weather-%s.tar.gz'%VERSION)
 
+        if sys.argv[1] == 'rpm':
+            #### Build RPM ####
+            create_package_file(BUILD_PATH+'/usr/share/gis-weather/package', 'rpm')
+            a = os.popen('fakeroot dpkg-deb --build %s %s'%(BUILD_PATH, DEB_PATH+'/gis-weather_'+VERSION+'_all.deb')).readlines()
+            print(a[0])
+            a = os.popen('cd %s; fakeroot alien -r %s; cd ..'%(DEB_PATH, 'gis-weather_'+VERSION+'_all.deb')).readlines()
+            print(a[0])
+            os.popen('rm %s'%(DEB_PATH+'/gis-weather_'+VERSION+'_all.deb'))
 
     os.popen('mv %s %s'%(DEB_PATH+'/gis-weather_'+VERSION+'_all1.deb', DEB_PATH+'/gis-weather_'+VERSION+'_all.deb'))
 
@@ -152,7 +152,6 @@ def create_control(path):
         ' - Highlighting the high wind;',
         ' - Supported weather services:',
         ' - > Gismeteo.com',
-        ' - > AccuWeather.com',
         ' - > OpenWeatherMap.org',
         ' - > Yr.no',
         ' - Support SVG, SVGZ and widget scale',
