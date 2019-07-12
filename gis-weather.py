@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.4'
+v = '0.8.4.1'
 #  Copyright (C) 2013-2019 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -204,7 +204,8 @@ gw_config_default = {
     'day_left': 0,
     'day_top': 0,
     'height_adjustment': 0,
-    'width_fix': 0, #FIXME Not used
+    'height_fix': 0,
+    'width_fix': 0,
     'splash_icon_top': 0,
     'splash_version_top': 0,
     'block_wind_direct_small_left': 0,
@@ -1584,7 +1585,7 @@ class Weather_Widget:
         if n < 1: n = 1
         # width = w_block*n + block_margin*2 + 10*(n - 1) + 2*margin + block_icons_left
         width = w_block*n + block_h_offset*n + 2*margin + block_icons_left + width_fix
-        height = 260 + block_margin + 2*margin + height_adjustment
+        height = 260 + block_margin + 2*margin + height_fix + height_adjustment
         self.window_main.resize(int(width*scale), int(height*scale))
         self.window_main.move(x_pos, y_pos)
         if sticky:
