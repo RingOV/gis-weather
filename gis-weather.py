@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.4.2'
+v = '0.8.4.3'
 #  Copyright (C) 2013-2019 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -94,7 +94,7 @@ import shlex
 import gzip
 import shutil
 import webbrowser
-import platform
+import distro
 
 CONFIG_PATH = os.path.join(os.path.expanduser('~'), '.config', 'gis-weather')
 CONFIG_PATH_FILE = os.path.join(CONFIG_PATH, instance.get_config_file())
@@ -1116,7 +1116,7 @@ class MyDrawArea(Gtk.DrawingArea):
                 y0 = top
 
                 if icon_wind_now[0] != 'None':
-                    if platform.dist()[0] == 'debian':
+                    if distro.linux_distribution()[0] == 'debian':
                         self.draw_scaled_image(cr, x0-8, y0-8, self.find_icon('wind_small_debian'), 32, 32, icon_wind_now[0]+angel)
                     else:
                         self.draw_scaled_image(cr, x0, y0, self.find_icon('wind_small'), 16, 16, icon_wind_now[0]+angel)
