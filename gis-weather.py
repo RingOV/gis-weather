@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.4.4'
-#  Copyright (C) 2013-2019 Alexander Koltsov <ringov@mail.ru>
+v = '0.8.4.5'
+#  Copyright (C) 2013-2020 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -194,6 +194,8 @@ gw_config_default = {
     'save_weather': False,
     'save_weather_fmt': '',
     'save_weather_path': '',
+    'save_widget': False,
+    'save_widget_path': '',
     'type_hint':0,
     'always_on_top': False,
     'tooltip_show': True,
@@ -871,6 +873,11 @@ class MyDrawArea(Gtk.DrawingArea):
                     print ('\033[34m>\033[0m '+_('Next update in')+' '+str(upd_time)+' '+_('min'))
                     print ('-'*40)
             self.Draw_Weather(self.cr)
+            if save_widget:
+                path_to_save = None
+                if os.path.exists(os.path.dirname(save_widget_path)):
+                    path_to_save = save_widget_path
+                self.save_widget_screenshot(path_to_save)
 
 
     def Draw_Weather(self, cr):
@@ -1532,13 +1539,15 @@ class MyDrawArea(Gtk.DrawingArea):
         surface.write_to_png(os.path.join(CONFIG_PATH, 'bgs_for_scale', str(bg_custom)+'_'+str(preset_number)+'_'+str(n)+'.png'))
 
 
-    def save_widget_screenshot(self):
+    def save_widget_screenshot(self, path_to_save=None):
+        if not path_to_save:
+            path_to_save = os.path.join(os.path.expanduser('~'), "gis-weather %s.png"%time.strftime('%d-%m-%y %T', time.localtime()))
         surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, int(width*scale), int(height*scale))
         ctx = cairo.Context(surface)
         ctx.scale(scale, scale)
         self.Draw_Weather(ctx)
-        print(_('Screenshot saved to')+' '+os.path.join(os.path.expanduser('~'), "gis-weather %s.png"%time.strftime('%d-%m-%y %T', time.localtime())))
-        surface.write_to_png(os.path.join(os.path.expanduser('~'), "gis-weather %s.png"%time.strftime('%d-%m-%y %T', time.localtime())))
+        print(_('Screenshot saved to')+' '+path_to_save)
+        surface.write_to_png(path_to_save)
 
 class Weather_Widget:
     def __init__(self):
