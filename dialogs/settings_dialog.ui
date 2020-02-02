@@ -114,7 +114,7 @@
     <property name="step_increment">0.01</property>
   </object>
   <object class="GtkAdjustment" id="adjustment_n_max">
-    <property name="lower">3</property>
+    <property name="lower">1</property>
     <property name="upper">12</property>
     <property name="step_increment">1</property>
   </object>
