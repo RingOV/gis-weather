@@ -125,6 +125,11 @@ dict_icons = {
     "c4.s3.st": "35.png",
     "c4.s4.st": "35.png",
 
+    "c4.rs1": "05.png",
+    "c4.rs2": "05.png",
+    "c4.rs3": "05.png",
+    "c4.rs4": "05.png",
+
     "n": "31.png",
     "n.c1": "33.png",
     "n.c2": "29.png",
