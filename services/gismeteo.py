@@ -128,7 +128,7 @@ dict_icons = {
     "d.c3.rs1": "41.png",
     "d.c3.rs2": "41.png",
     "d.c3.rs3": "41.png",
-    "d.c3.rs4": "41.png"
+    "d.c3.rs4": "41.png",
 
     "d.c2.rs1": "41.png",
     "d.c2.rs2": "41.png",
