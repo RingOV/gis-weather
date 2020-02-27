@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.4.10'
+v = '0.8.4.11'
 #  Copyright (C) 2013-2020 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -1899,6 +1899,8 @@ class Weather_Widget:
             self.menu, icons_list, backgrounds_list = gw_menu.create_menu(app, ICONS_PATH, BGS_PATH, ICONS_USER_PATH, BGS_USER_PATH, color_scheme, gw_config, for_indicator, args.test)
 
     def configure_event(self, widget, event):
+        if fix_position:
+            return
         global x_pos, y_pos
         if event.x != x_pos or event.y != y_pos:
             x_pos = event.x
