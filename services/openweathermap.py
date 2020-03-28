@@ -80,7 +80,9 @@ def convert(icon):
 def get_city_name(city_id):
     weather_lang = gw_vars.get('weather_lang')
     APPID = gw_vars.get('appid')
-    source = urlopener('http://api.openweathermap.org/data/2.5/weather?id=%s&lang=%s&appid=%s'%(str(city_id), weather_lang, APPID), 2)
+    if city_id[0] != 'l':
+        city_id = 'id='+city_id
+    source = urlopener('http://api.openweathermap.org/data/2.5/weather?%s&lang=%s&appid=%s'%(str(city_id), weather_lang, APPID), 2)
     if source:
         source = json.loads(source)
         c_name = source['name']
@@ -107,13 +109,15 @@ def get_weather():
         print('\033[1;31m[!]\033[0m Empty API key. Please enter API key')
     n = gw_vars.get('n')
     city_id = gw_vars.get('city_id')
+    if city_id[0] != 'l':
+        city_id = 'id='+city_id
     show_block_tomorrow = gw_vars.get('show_block_tomorrow')
     show_block_today = gw_vars.get('show_block_today')
     show_block_add_info = gw_vars.get('show_block_add_info')
     weather_lang = gw_vars.get('weather_lang')
     URL = 'https://openweathermap.org/city/%s'%str(city_id)
-    URL_CURRENT = 'http://api.openweathermap.org/data/2.5/weather?id=%s&lang=%s&units=metric&appid=%s'%(str(city_id), weather_lang, APPID)
-    URL_SEVERAL_DAYS = 'http://api.openweathermap.org/data/2.5/forecast?id=%s&lang=%s&units=metric&appid=%s'%(str(city_id), weather_lang, APPID)
+    URL_CURRENT = 'http://api.openweathermap.org/data/2.5/weather?%s&lang=%s&units=metric&appid=%s'%(str(city_id), weather_lang, APPID)
+    URL_SEVERAL_DAYS = 'http://api.openweathermap.org/data/2.5/forecast?%s&lang=%s&units=metric&appid=%s'%(str(city_id), weather_lang, APPID)
 
     print ('\033[34m>\033[0m '+_('Getting weather for')+' '+str(n)+' '+_('days'))
 
