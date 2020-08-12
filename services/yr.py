@@ -174,7 +174,7 @@ def get_weather():
     if press_now:
         press_now[0] = convert_from_hPa(press_now[0])
 
-    hum_now = re.findall('<humidity value="(.+?)"', source)
+    hum_now = re.findall('<humidity.*value="(.+?)"', source)
     hum_now[0] = str(round(float(hum_now[0])))
 
     t_now = re.findall('<temperature.*unit="celsius" value="(.+?)"', source)
