@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.4.15'
+v = '0.8.4.16'
 #  Copyright (C) 2013-2021 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -652,7 +652,7 @@ class Indicator:
             if show_indicator_text:
                 self.indicator_label.set_visible(True)
                 self.draw_text_to_png(self.indicator.get_size(), text)
-                self.indicator_label.set_from_file(os.path.join(CONFIG_PATH, "text.png"))
+                self.indicator_label.set_from_file(os.path.join(CONFIG_PATH, "text.svg"))
             else:
                 self.indicator_label.set_visible(False)
 
@@ -692,29 +692,44 @@ class Indicator:
         def draw_text_to_png(self, HEIGHT, text):
             WIDTH = indicator_width
 
-            surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, WIDTH, HEIGHT)
-            self.cr = cairo.Context(surface)
-            if indicator_draw_shadow:
-                self.cr.set_source_rgba(indicator_color_shadow[0], indicator_color_shadow[1], indicator_color_shadow[2], indicator_color_shadow[3])
-                self.draw_indicator_text(text, 1, indicator_top+HEIGHT//8+1, indicator_font, indicator_font_size, WIDTH)
-            self.cr.set_source_rgba(indicator_color_text[0], indicator_color_text[1], indicator_color_text[2], indicator_color_text[3])
-            self.draw_indicator_text(text, 0, indicator_top+HEIGHT//8, indicator_font, indicator_font_size, WIDTH)
-            surface.write_to_png(os.path.join(CONFIG_PATH, "text.png"))
+            # surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, WIDTH, HEIGHT)
+            # self.cr = cairo.Context(surface)
+            # if indicator_draw_shadow:
+            #     self.cr.set_source_rgba(indicator_color_shadow[0], indicator_color_shadow[1], indicator_color_shadow[2], indicator_color_shadow[3])
+            #     self.draw_indicator_text(text, 1, indicator_top+HEIGHT//8+1, indicator_font, indicator_font_size, WIDTH)
+            # self.cr.set_source_rgba(indicator_color_text[0], indicator_color_text[1], indicator_color_text[2], indicator_color_text[3])
+            # self.draw_indicator_text(text, 0, indicator_top+HEIGHT//8, indicator_font, indicator_font_size, WIDTH)
+            # surface.write_to_png(os.path.join(CONFIG_PATH, "text.png"))
 
-        def draw_indicator_text(self, text, x, y, font, size, width=200, alignment=Pango.Alignment.LEFT):
-            self.cr.save()
-            self.cr.translate(x, y)
+            surface = cairo.SVGSurface(os.path.join(CONFIG_PATH, "text.svg"), WIDTH, HEIGHT)
+            cr = cairo.Context(surface)
             
-            font_desc = Pango.FontDescription(font)
-            font_desc.set_size(size * Pango.SCALE)
+            cr.select_font_face(indicator_font, cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL)
+            cr.set_font_size(indicator_font_size)
+            if indicator_draw_shadow:
+                cr.set_source_rgba(indicator_color_shadow[0], indicator_color_shadow[1], indicator_color_shadow[2], indicator_color_shadow[3])
+                cr.move_to(1, indicator_top+HEIGHT//8*7+1)
+                cr.show_text(text)
+            cr.set_source_rgba(indicator_color_text[0], indicator_color_text[1], indicator_color_text[2], indicator_color_text[3])
+            cr.move_to(0, indicator_top+HEIGHT//8*7)
+            cr.show_text(text)
+            cr.show_page()
 
-            self.p_layout = PangoCairo.create_layout(self.cr)
-            self.p_layout.set_font_description(font_desc)
-            self.p_layout.set_width(width * Pango.SCALE)
-            self.p_layout.set_alignment(alignment)
-            self.p_layout.set_markup(text)
-            PangoCairo.show_layout(self.cr, self.p_layout)
-            self.cr.restore()
+
+        # def draw_indicator_text(self, text, x, y, font, size, width=200, alignment=Pango.Alignment.LEFT):
+        #     self.cr.save()
+        #     self.cr.translate(x, y)
+            
+        #     font_desc = Pango.FontDescription(font)
+        #     font_desc.set_size(size * Pango.SCALE)
+
+        #     self.p_layout = PangoCairo.create_layout(self.cr)
+        #     self.p_layout.set_font_description(font_desc)
+        #     self.p_layout.set_width(width * Pango.SCALE)
+        #     self.p_layout.set_alignment(alignment)
+        #     self.p_layout.set_markup(text)
+        #     PangoCairo.show_layout(self.cr, self.p_layout)
+        #     self.cr.restore()
 
         def set_tooltip_markup(self, markup):
             self.indicator.set_tooltip_markup(markup)
