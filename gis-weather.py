@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.4.16'
+v = '0.8.4.17'
 #  Copyright (C) 2013-2021 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -196,6 +196,7 @@ gw_config_default = {
     'save_weather_path': '',
     'save_widget': False,
     'save_widget_path': '',
+    'save_widget_scale': False,
     'type_hint':0,
     'always_on_top': False,
     'tooltip_show': True,
@@ -1555,11 +1556,15 @@ class MyDrawArea(Gtk.DrawingArea):
 
 
     def save_widget_screenshot(self, path_to_save=None):
+        if save_widget_scale:
+            _scale = save_widget_scale
+        else:
+            _scale = scale
         if not path_to_save:
             path_to_save = os.path.join(os.path.expanduser('~'), "gis-weather %s.png"%time.strftime('%d-%m-%y %T', time.localtime()))
-        surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, int(width*scale), int(height*scale))
+        surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, int(width*_scale), int(height*_scale))
         ctx = cairo.Context(surface)
-        ctx.scale(scale, scale)
+        ctx.scale(_scale, _scale)
         self.Draw_Weather(ctx)
         print(_('Screenshot saved to')+' '+path_to_save)
         surface.write_to_png(path_to_save)
