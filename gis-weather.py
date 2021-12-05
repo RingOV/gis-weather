@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #  gis_weather.py
-v = '0.8.4.17'
+v = '0.8.4.18'
 #  Copyright (C) 2013-2021 Alexander Koltsov <ringov@mail.ru>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -179,6 +179,7 @@ gw_config_default = {
     'indicator_draw_shadow': True,
     'indicator_top': 0,
     'indicator_width': 30,
+    'indicator_disable_plus': False,
     'app_indicator_fix_size': False,
     'app_indicator_size': 22,
     'scale': 1,
@@ -999,7 +1000,10 @@ class MyDrawArea(Gtk.DrawingArea):
             self.draw_scaled_icon(cr, 0, 0, weather['icon_now'][0],1,1, indicator_icons_name)
             ind.set_icon(pix_path)
             if weather['t_now']:
-                ind.set_label(weather['t_now'][0].split(';')[t_index])
+                tt = weather['t_now'][0].split(';')[t_index]
+                if indicator_disable_plus:
+                    tt = tt.replace('+', '')
+                ind.set_label(tt)
             if tooltip_show:
                 if tooltip_fmt:
                     tooltip_text = tooltip_fmt
