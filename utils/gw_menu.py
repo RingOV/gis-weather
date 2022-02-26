@@ -22,16 +22,6 @@ def create_weather_menu(app, ICONS_PATH, gw_config, weather):
     # create menu and fill 
     menu = Gtk.Menu()
 
-    for i in range(len(data.services_list)):
-        try:
-            city_list = gw_config[data.get_city_list(data.services_list[i])]
-        except:
-            city_list = []
-        if len(city_list) != 0:
-            for j in range(len(city_list)):
-                if city_list[j].split(';')[0] == str(gw_config['city_id']) and gw_config['service'] == data.services_list[i]:
-                    current_place = city_list[j].split(';')[1]
-
     # main menu
     menu_items = Gtk.ImageMenuItem('⇆ '+_('Switch to app menu'))
     menu.append(menu_items)
@@ -43,7 +33,7 @@ def create_weather_menu(app, ICONS_PATH, gw_config, weather):
     menu_items.connect("activate", app.menu_response, 'show_hide_widget')
     menu_items.show()
 
-    menu_items = Gtk.ImageMenuItem(_('Location')+': '+current_place)
+    menu_items = Gtk.ImageMenuItem(_('Location')+': '+weather['city_name'][0])
     menu.append(menu_items)
     menu_items.connect("activate", app.menu_response, 'goto_site', 0)
     menu_items.show()
