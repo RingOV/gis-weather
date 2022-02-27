@@ -1,12 +1,12 @@
 # 
 # Translators:
-# Victor Butko <victor.butko@gmail.com>, 2014-2017
+# Victor Butko <victor.butko@gmail.com>, 2014-2017,2020
 msgid ""
 msgstr ""
 "Project-Id-Version: Gis Weather\n"
 "POT-Creation-Date: 2019-07-03 23:34+0300\n"
-"PO-Revision-Date: 2019-07-04 07:29+0000\n"
-"Last-Translator: RingOV <ringov@mail.ru>\n"
+"PO-Revision-Date: 2020-01-23 03:06+0000\n"
+"Last-Translator: Victor Butko <victor.butko@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/gis-weather-team/gis-weather/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -376,7 +376,7 @@ msgstr "Завжди зверху"
 
 #: dialogs/settings_dialog.ui:1887
 msgid "Height adjustment"
-msgstr ""
+msgstr "Регулювання по висоті"
 
 #: dialogs/settings_dialog.ui:1932 utils/gw_menu.py:396
 msgid "Window"
@@ -453,7 +453,7 @@ msgstr "Кількість днів"
 
 #: dialogs/settings_dialog.ui:2991
 msgid "Time of day gradient"
-msgstr ""
+msgstr "Час доби з градієнтом"
 
 #: dialogs/settings_dialog.ui:3052
 msgid "View"
@@ -878,7 +878,7 @@ msgstr "взл"
 
 #: utils/gw_menu.py:36
 msgid "Switch to app menu"
-msgstr ""
+msgstr "Перейти до меню програми"
 
 #: utils/gw_menu.py:41 utils/gw_menu.py:328
 msgid "Show/Hide widget"
@@ -906,7 +906,7 @@ msgstr "Зберегти скріншот"
 
 #: utils/gw_menu.py:323
 msgid "Switch to weather menu"
-msgstr ""
+msgstr "Перейти до меню погоди"
 
 #: utils/gw_menu.py:345
 msgid "Start new instance"
