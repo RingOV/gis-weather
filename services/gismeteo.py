@@ -259,12 +259,12 @@ def get_weather():
 
     # day of week, date
     day = re.findall('<day.*? date="(.*?)"', source)
-    day.pop(0)
+    # day.pop(0)
     for i in range(len(day)):
         dt1 = datetime.strptime(day[i], '%Y-%m-%d')
         day[i] = dt1.strftime('%a')
     date = re.findall('<day.*? date=".*?-(.*?)"', source)
-    date.pop(0)
+    # date.pop(0)
     for i in range(len(date)):
         s = date[i].split('-')
         date[i] = s[1]+'.'+s[0]
