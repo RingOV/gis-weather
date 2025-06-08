@@ -195,7 +195,7 @@ def get_city_name(city_id):
             city_number = city_id.split(',')[-1].strip()
             city_id = city_id.split(',')[0].strip()
         source = urlopener('http://www.accuweather.com/%s/%s/current-weather/%s'%(weather_lang, city_id, city_number))
-        c_name = re.findall('"current-city"><h1>(.*),', source)
+        c_name = re.findall(r'"current-city"><h1>(.*),', source)
     except:
         print ('\033[1;31m[!]\033[0m '+_('Failed to get the name of the location'))
         return 'None'
@@ -231,7 +231,7 @@ def get_weather():
     # time.sleep(1)
 
     # sun/moon
-    sun_moon = re.findall('<span>(.*)</span></li>', source)
+    sun_moon = re.findall(r'<span>(.*)</span></li>', source)
 
     if sun_moon:
         sunrise = sun_moon[1]
@@ -243,27 +243,27 @@ def get_weather():
 
     #### current weather ####
     # city
-    city_name = re.findall('"current-city"><h1>(.*),', source)
+    city_name = re.findall(r'"current-city"><h1>(.*),', source)
 
-    celsius = re.findall('\d\&deg;C', source)
+    celsius = re.findall(r'\d\&deg;C', source)
 
     # temperature
-    w_now = re.findall('detail-now.*', source, re.DOTALL)
-    t_now = re.findall('<span class="large-temp">(.?\d+)', w_now[0])
-    t_now_f = re.findall('<em>RealFeel&#174;</em>\s?(.?\d+)', w_now[0])
+    w_now = re.findall(r'detail-now.*', source, re.DOTALL)
+    t_now = re.findall(r'<span class="large-temp">(.?\d+)', w_now[0])
+    t_now_f = re.findall(r'<em>RealFeel&#174;</em>\s?(.?\d+)', w_now[0])
     if not celsius:
         t_now[0] = F_to_C(t_now[0])
         t_now_f[0] = F_to_C(t_now_f[0])
     t_now[0] = convert_from_C(t_now[0], t_now_f[0])
 
     # wind
-    wind_speed_now = re.findall('<li class="wind"><strong>(\d*)', source)
+    wind_speed_now = re.findall(r'<li class="wind"><strong>(\d*)', source)
     if wind_speed_now:
         wind_speed_now[0] = convert_from_kmh(wind_speed_now[0])
-    wind_direct_now = re.findall('<div class="wind-point (.*)"', w_now[0])
+    wind_direct_now = re.findall(r'<div class="wind-point (.*)"', w_now[0])
 
     # icon
-    icon_now = re.findall('<div class="icon (.*)xl"', w_now[0])
+    icon_now = re.findall(r'<div class="icon (.*)xl"', w_now[0])
     icon_now[0] = convert(icon_now[0], icons_name)
 
     # wind icon
@@ -284,7 +284,7 @@ def get_weather():
         wind_direct_now = []
 
     # weather text now
-    text_now = re.findall('<span class="cond">(.*)<', w_now[0])
+    text_now = re.findall(r'<span class="cond">(.*)<', w_now[0])
     text_now[0]=text_now[0].split('<')[0]
     
     # if show_block_add_info:
@@ -294,7 +294,7 @@ def get_weather():
     # time.sleep(1)
 
     # pressure now
-    press = re.findall('Pressure.*>(.+?)<', source)
+    press = re.findall(r'Pressure.*>(.+?)<', source)
     if press:
         press_now = [press[0].split()[0]]
         press_scale = press[0].split()[1]
@@ -305,7 +305,7 @@ def get_weather():
     else:
         press_now = ['n/a mmHg;n/a inHg;n/a hPa']
     # humidity now
-    hum_now = re.findall('Humidity.*>(\d+)', source)
+    hum_now = re.findall(r'Humidity.*>(\d+)', source)
     if not hum_now:
         hum_now=['n/a']
 
@@ -315,10 +315,10 @@ def get_weather():
         return False
 
     # all days
-    w_all = re.findall('<tr class="today lo calendar.*</table>', source, re.DOTALL)
+    w_all = re.findall(r'<tr class="today lo calendar.*</table>', source, re.DOTALL)
 
     # day temperature
-    t_day = re.findall('<td>(.*)&#176;/', w_all[0])
+    t_day = re.findall(r'<td>(.*)&#176;/', w_all[0])
     t_day = t_day[::2]
     for i in range(len(t_day)):
         if not celsius:
@@ -326,7 +326,7 @@ def get_weather():
         t_day[i] = convert_from_C(t_day[i])
 
     # night temperature
-    t_night = re.findall('<td>.*/(.*)&#176;', w_all[0])
+    t_night = re.findall(r'<td>.*/(.*)&#176;', w_all[0])
     t_night = t_night[::2]
     for i in range(len(t_night)):
         if not celsius:
@@ -335,8 +335,8 @@ def get_weather():
 
 
     # day of week, date
-    day = re.findall('<a.*>(.*)[.| ]*<time>', w_all[0])
-    date = re.findall('<time>(.*)</time>', w_all[0])
+    day = re.findall(r'<a.*>(.*)[.| ]*<time>', w_all[0])
+    date = re.findall(r'<time>(.*)</time>', w_all[0])
     # try:
     #     int(date[0][:4])
     #     for i in range(len(date)):
@@ -346,15 +346,15 @@ def get_weather():
     #         date[i]=date[i][:-5]
 
     # weather icon day
-    icon = re.findall('<div class="icon (.*)s"', w_all[0])
+    icon = re.findall(r'<div class="icon (.*)s"', w_all[0])
     for i in range(len(icon)):
         icon[i] = convert(icon[i], icons_name)
 
 
     # weather text
-    text = re.findall('<p>(.*)</p>', w_all[0])
+    text = re.findall(r'<p>(.*)</p>', w_all[0])
 
-    chance_of_rain = re.findall('<td>(.*?)\s*<span class="small">(.*?)<', w_all[0])
+    chance_of_rain = re.findall(r'<td>(.*?)\s*<span class="small">(.*?)<', w_all[0])
     for i in range(len(chance_of_rain)):
         chance_of_rain[i] = ' '.join(chance_of_rain[i])
     chance_of_rain = chance_of_rain[::2]
@@ -363,17 +363,17 @@ def get_weather():
     # if end of month, get days from next month
     if len(t_day)-1<n:
         try:
-            next_month = re.findall('href="(.*)&amp;.*next-month', source)
+            next_month = re.findall(r'href="(.*)&amp;.*next-month', source)
             next_month[0] = next_month[0]+'&view=table'
             source = urlopener(next_month[0], 5)
             if not source:
                 return False
 
             # all days
-            w_all = re.findall('<tr class="lo calendar-list-cl-tr.*</table>', source, re.DOTALL)
+            w_all = re.findall(r'<tr class="lo calendar-list-cl-tr.*</table>', source, re.DOTALL)
 
             # day temperature
-            t_day2 = re.findall('<td>(.*)&#176;/', w_all[0])
+            t_day2 = re.findall(r'<td>(.*)&#176;/', w_all[0])
             t_day2 = t_day2[::2]
             for i in range(len(t_day2)):
                 if not celsius:
@@ -382,7 +382,7 @@ def get_weather():
             t_day.extend(t_day2)
 
             # night temperature
-            t_night2 = re.findall('<td>.*/(.*)&#176;', w_all[0])
+            t_night2 = re.findall(r'<td>.*/(.*)&#176;', w_all[0])
             t_night2 = t_night2[::2]
             for i in range(len(t_night2)):
                 if not celsius:
@@ -392,8 +392,8 @@ def get_weather():
 
 
             # day of week, date
-            day2 = re.findall('<a.*>(.*)[.| ]*<time>', w_all[0])
-            date2 = re.findall('<time>(.*)</time>', w_all[0])
+            day2 = re.findall(r'<a.*>(.*)[.| ]*<time>', w_all[0])
+            date2 = re.findall(r'<time>(.*)</time>', w_all[0])
             # try:
             #     int(date2[0][:4])
             #     for i in range(len(date2)):
@@ -406,20 +406,20 @@ def get_weather():
 
 
             # weather icon day
-            icon2 = re.findall('<div class="icon (.*)s"', w_all[0])
+            icon2 = re.findall(r'<div class="icon (.*)s"', w_all[0])
             for i in range(len(icon2)):
                 icon2[i] = convert(icon2[i], icons_name)
             icon.extend(icon2)
 
 
             # weather text
-            text2 = re.findall('<p>(.*)</p>', w_all[0])
+            text2 = re.findall(r'<p>(.*)</p>', w_all[0])
             # if text[-1] == '': # Need or not?
             #     del text[-1]
             text.extend(text2)
 
 
-            chance_of_rain2 = re.findall('<td>(\d+)\s*<span class="small">(.*)</td>', w_all[0])
+            chance_of_rain2 = re.findall(r'<td>(\d+)\s*<span class="small">(.*)</td>', w_all[0])
             for i in range(len(chance_of_rain2)):
                 chance_of_rain2[i] = ' '.join(chance_of_rain2[i])
             if chance_of_rain2[1][-1] == '>':
@@ -443,10 +443,10 @@ def get_weather():
         icon_tomorrow = []
         
         for s in source:
-            w_now = re.findall('detail-now.*', s, re.DOTALL)
+            w_now = re.findall(r'detail-now.*', s, re.DOTALL)
             
-            t = re.findall('<span class="large-temp">(.?\d+)', w_now[0])
-            t_feel = re.findall('<em>RealFeel&#174;</em>\s?(.?\d+).*;/(.?\d+)', w_now[0])
+            t = re.findall(r'<span class="large-temp">(.?\d+)', w_now[0])
+            t_feel = re.findall(r'<em>RealFeel&#174;</em>\s?(.?\d+).*;/(.?\d+)', w_now[0])
             t_f = ['', '']
             if not celsius:
                 t[0] = F_to_C(t[0])
@@ -455,13 +455,13 @@ def get_weather():
             t[0] = convert_from_C(t[0], t_f[0])
             t_tomorrow.append(t[0])
             
-            t = re.findall('<span class="small-temp">/(.?\d+)', w_now[0])
+            t = re.findall(r'<span class="small-temp">/(.?\d+)', w_now[0])
             if not celsius:
                 t[0] = F_to_C(t[0])
             t[0] = convert_from_C(t[0], t_f[1])
             t_tomorrow_low.append(t[0])
             
-            i = re.findall('<div class="icon (.*)xl"', w_now[0])
+            i = re.findall(r'<div class="icon (.*)xl"', w_now[0])
             i[0] = convert(i[0], icons_name)
             icon_tomorrow.append(i[0])
         
@@ -479,10 +479,10 @@ def get_weather():
         icon_today = []
         
         for s in source:
-            w_now = re.findall('detail-now.*', s, re.DOTALL)
+            w_now = re.findall(r'detail-now.*', s, re.DOTALL)
             
-            t = re.findall('<span class="large-temp">(.?\d+)', w_now[0])
-            t_feel = re.findall('<em>RealFeel&#174;</em>\s?(.?\d+).*;/(.?\d+)', w_now[0])
+            t = re.findall(r'<span class="large-temp">(.?\d+)', w_now[0])
+            t_feel = re.findall(r'<em>RealFeel&#174;</em>\s?(.?\d+).*;/(.?\d+)', w_now[0])
             t_f = ['', '']
             if not celsius:
                 t[0] = F_to_C(t[0])
@@ -491,13 +491,13 @@ def get_weather():
             t[0] = convert_from_C(t[0], t_f[0])
             t_today.append(t[0])
             
-            t = re.findall('<span class="small-temp">/(.?\d+)', w_now[0])
+            t = re.findall(r'<span class="small-temp">/(.?\d+)', w_now[0])
             if not celsius:
                 t[0] = F_to_C(t[0])
             t[0] = convert_from_C(t[0], t_f[1])
             t_today_low.append(t[0])
             
-            i = re.findall('<div class="icon (.*)xl"', w_now[0])
+            i = re.findall(r'<div class="icon (.*)xl"', w_now[0])
             i[0] = convert(i[0], icons_name)
             icon_today.append(i[0])
 
