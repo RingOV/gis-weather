@@ -169,7 +169,7 @@ def get_city_name(city_id):
         weather_lang = 'ru'
     try:
         source = urlopener('https://services.gismeteo.ru/inform-service/inf_chrome/forecast/?lang=%s&city=%s'%(weather_lang, str(city_id)))
-        c_name = re.findall(' name="(.*?)"', source)
+        c_name = re.findall(r' name="(.*?)"', source)
     except:
         print ('\033[1;31m[!]\033[0m '+_('Failed to get the name of the location'))
         return 'None'
@@ -201,24 +201,24 @@ def get_weather():
         return False
 
     # city
-    city_name = re.findall(' name="(.*?)"', source)
+    city_name = re.findall(r' name="(.*?)"', source)
 
     # sun
-    dt1 = datetime.utcfromtimestamp(int(re.findall('<fact.*?sunrise="(.*?)"', source)[0]))
-    dt2 = datetime.utcfromtimestamp(int(re.findall('<fact.*?sunset="(.*?)"', source)[0]))
+    dt1 = datetime.utcfromtimestamp(int(re.findall(r'<fact.*?sunrise="(.*?)"', source)[0]))
+    dt2 = datetime.utcfromtimestamp(int(re.findall(r'<fact.*?sunset="(.*?)"', source)[0]))
     dt3 = dt2 - dt1
     sunrise = dt1.strftime('%H:%M')
     sunset = dt2.strftime('%H:%M')
     sun_duration = ':'.join(str(dt3).split(':')[:2])
 
     # temperature
-    t_now = re.findall('<fact.*? t="(.*?)"',source)
+    t_now = re.findall(r'<fact.*? t="(.*?)"',source)
     t_now[0] = convert_from_C(t_now[0])
 
     # wind
-    wind_speed_now = re.findall('<fact.*? ws="(.*?)"', source)
+    wind_speed_now = re.findall(r'<fact.*? ws="(.*?)"', source)
     wind_speed_now[0] = convert_from_ms(wind_speed_now[0])
-    s = re.findall('<fact.*? wd="(.*?)"', source)[0]
+    s = re.findall(r'<fact.*? wd="(.*?)"', source)[0]
     wind_direct_now = [wind_direct_convert.convert2(s)]
     if s == '0':
         icon_wind_now = ['None']
@@ -226,59 +226,59 @@ def get_weather():
         icon_wind_now = [int(s)*45+45]
 
     # icon
-    icon_now = re.findall('<fact.*? icon="(.*?)"', source)
+    icon_now = re.findall(r'<fact.*? icon="(.*?)"', source)
     icon_now[0] = convert(icon_now[0], icons_name)
 
     # update time
-    time_update = re.findall('<fact.*? valid="(.*?)"', source)
+    time_update = re.findall(r'<fact.*? valid="(.*?)"', source)
     time_update[0] = time_update[0][-8:-3]
 
     # weather text now
-    text_now = re.findall('<fact.*? descr="(.*?)"', source)
+    text_now = re.findall(r'<fact.*? descr="(.*?)"', source)
 
     # pressure now
-    press_now = re.findall('<fact.*? p="(.*?)"', source)
+    press_now = re.findall(r'<fact.*? p="(.*?)"', source)
     press_now[0] = convert_from_mmHg(press_now[0])
 
     # humidity now
-    hum_now = re.findall('<fact.*? hum="(.*?)"', source)
+    hum_now = re.findall(r'<fact.*? hum="(.*?)"', source)
 
     # water temperature now
-    t_water_now = re.findall('<fact.*? water_t="(.*?)"', source)
+    t_water_now = re.findall(r'<fact.*? water_t="(.*?)"', source)
     t_water_now = t_water_now[0]+';'+str(int(C_to_F(t_water_now[0])))+';'+C_to_K(t_water_now[0])
 
     #### weather to several days ####
     # night temperature
-    t_night = re.findall('<day.*? tmin="(.*?)"', source)
+    t_night = re.findall(r'<day.*? tmin="(.*?)"', source)
     for i in range(len(t_night)):
         t_night[i] = convert_from_C(t_night[i], t_night[i])
     # day temperature
-    t_day = re.findall('<day.*? tmax="(.*?)"', source)
+    t_day = re.findall(r'<day.*? tmax="(.*?)"', source)
     for i in range(len(t_day)):
         t_day[i] = convert_from_C(t_day[i], t_day[i])
 
     # day of week, date
-    day = re.findall('<day.*? date="(.*?)"', source)
+    day = re.findall(r'<day.*? date="(.*?)"', source)
     # day.pop(0)
     for i in range(len(day)):
         dt1 = datetime.strptime(day[i], '%Y-%m-%d')
         day[i] = dt1.strftime('%a')
-    date = re.findall('<day.*? date=".*?-(.*?)"', source)
+    date = re.findall(r'<day.*? date=".*?-(.*?)"', source)
     # date.pop(0)
     for i in range(len(date)):
         s = date[i].split('-')
         date[i] = s[1]+'.'+s[0]
 
     # weather icon day
-    icon = re.findall('<day.*? icon="(.*?)"', source, re.DOTALL)
+    icon = re.findall(r'<day.*? icon="(.*?)"', source, re.DOTALL)
     for i in range(len(icon)):
         icon[i] = convert(icon[i], icons_name)
 
     # wind
-    wind_speed = re.findall('<day.*? ws="(.*?)"', source, re.DOTALL)
+    wind_speed = re.findall(r'<day.*? ws="(.*?)"', source, re.DOTALL)
     for i in range(len(wind_speed)):
         wind_speed[i] = convert_from_ms(wind_speed[i])
-    wind_direct = re.findall('<day.*? wd="(.*?)"', source, re.DOTALL)
+    wind_direct = re.findall(r'<day.*? wd="(.*?)"', source, re.DOTALL)
     icon_wind = []
     for i in range(len(wind_direct)):
         if wind_direct[i] == '0':
@@ -288,30 +288,30 @@ def get_weather():
         wind_direct[i] = wind_direct_convert.convert2(wind_direct[i])
 
     # weather text
-    text = re.findall('<day.*? descr="(.*?)"', source,  re.DOTALL)
+    text = re.findall(r'<day.*? descr="(.*?)"', source,  re.DOTALL)
 
     time_of_day_list = ( _('Night'), _('Morning'), _('Day'), _('Evening'))
 
-    w_today_tomorrow = re.findall('<forecast(.*?)</day>', source,  re.DOTALL)
+    w_today_tomorrow = re.findall(r'<forecast(.*?)</day>', source,  re.DOTALL)
     
     if show_block_today:
         #### weather today ####
         w_today = w_today_tomorrow[0]
         # temperature
-        t_today = re.findall(' t="(.*?)"', w_today)[::2]
+        t_today = re.findall(r' t="(.*?)"', w_today)[::2]
         for i in range(len(t_today)):
             t_today[i] = convert_from_C(t_today[i], t_today[i])
 
         # weather icon
-        icon_today = re.findall(' icon="(.*?)"', w_today)[::2]
+        icon_today = re.findall(r' icon="(.*?)"', w_today)[::2]
         for i in range(len(icon_today)):
             icon_today[i] = convert(icon_today[i], icons_name)
         # wind
-        wind_speed_tod = re.findall(' ws="(.*?)"', w_today)[::2]
+        wind_speed_tod = re.findall(r' ws="(.*?)"', w_today)[::2]
         if wind_speed_tod:
             for i in range(len(wind_speed_tod)):
                 wind_speed_tod[i] = convert_from_ms(wind_speed_tod[i])
-        wind_direct_tod = re.findall(' wd="(.*?)"', w_today)[::2]
+        wind_direct_tod = re.findall(r' wd="(.*?)"', w_today)[::2]
         for i in range(len(wind_direct_tod)):
             wind_direct_tod[i] = wind_direct_convert.convert2(wind_direct_tod[i])
 
@@ -319,20 +319,20 @@ def get_weather():
         #### weather tomorrow ####
         w_tomorrow = w_today_tomorrow[1]
         # temperature
-        t_tomorrow = re.findall(' t="(.*?)"', w_tomorrow)[::2]
+        t_tomorrow = re.findall(r' t="(.*?)"', w_tomorrow)[::2]
         for i in range(len(t_tomorrow)):
             t_tomorrow[i] = convert_from_C(t_tomorrow[i], t_tomorrow[i])
 
         # weather icon
-        icon_tomorrow = re.findall(' icon="(.*?)"', w_tomorrow)[::2]
+        icon_tomorrow = re.findall(r' icon="(.*?)"', w_tomorrow)[::2]
         for i in range(len(icon_tomorrow)):
             icon_tomorrow[i] = convert(icon_tomorrow[i], icons_name)
         # wind
-        wind_speed_tom = re.findall(' ws="(.*?)"', w_tomorrow)[::2]
+        wind_speed_tom = re.findall(r' ws="(.*?)"', w_tomorrow)[::2]
         if wind_speed_tom:
             for i in range(len(wind_speed_tom)):
                 wind_speed_tom[i] = convert_from_ms(wind_speed_tom[i])
-        wind_direct_tom = re.findall(' wd="(.*?)"', w_tomorrow)[::2]
+        wind_direct_tom = re.findall(r' wd="(.*?)"', w_tomorrow)[::2]
         for i in range(len(wind_direct_tom)):
             wind_direct_tom[i] = wind_direct_convert.convert2(wind_direct_tom[i])
 
